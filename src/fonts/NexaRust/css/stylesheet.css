@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Nexa Rust Sans Black 1";
+  src: url("../fonts/NexaRustSans-Black1.eot");
+  src: url("../fonts/NexaRustSans-Black1.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/NexaRustSans-Black1.woff2") format("woff2"),
+    url("../fonts/NexaRustSans-Black1.woff") format("woff"),
+    url("../fonts/NexaRustSans-Black1.ttf") format("truetype"),
+    url("../fonts/NexaRustSans-Black1.svg#NexaRustSans-Black1") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}

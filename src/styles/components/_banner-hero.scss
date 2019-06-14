@@ -1,0 +1,40 @@
+.banner-hero {
+  height: 50vh;
+  color: $color-white;
+  &-2 {
+    height: 28vh;
+  }
+  &__text-box {
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    &-2 {
+      top: 10%;
+    }
+  }
+
+  &-heading {
+    &--main {
+      display: block;
+      font-size: 6rem;
+      line-height: 6rem;
+      padding-bottom: 2rem;
+      @include bigUppercaseText;
+      &-2 {
+        font-size: 1.8rem;
+        padding-bottom: 0rem;
+      }
+    }
+    &--sub {
+      font-family: Nunito-Regular;
+      padding-top: 5rem;
+      &-2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__button-box {
+    padding-top: 5rem;
+  }
+}

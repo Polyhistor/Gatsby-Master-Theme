@@ -1,0 +1,16 @@
+.featured {
+  &__container {
+    height: 6vh;
+    background: black;
+    text-transform: uppercase;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    &-image {
+      display: inline-block;
+      width: 20rem;
+      padding-right: 2rem;
+      position: relative;
+    }
+  }
+}

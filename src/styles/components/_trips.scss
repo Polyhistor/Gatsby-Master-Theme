@@ -1,0 +1,62 @@
+.trips {
+  //   display: inline-block;
+  float: left;
+  position: relative;
+
+  // apply to all elements except the last one
+
+  &:not(:last-child) {
+    padding-right: 4rem;
+  }
+
+  &-header-box {
+    @include bigCapitalText;
+    color: $color-primary;
+  }
+
+  &__box {
+    width: 100%;
+  }
+
+  &__image {
+    width: 20rem;
+    height: 15rem;
+  }
+
+  &__duration {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    display: block;
+    @include whiteGreen;
+
+    &-text {
+      display: inherit;
+      @include bigUppercaseText;
+      padding-top: 0.7rem;
+      word-spacing: 100vh;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    &-sub {
+      @include greySubtitle;
+    }
+    &-main {
+      @include bigCapitalText;
+      font-size: 2rem;
+    }
+    &-price {
+      color: $color-primary;
+      @include bigCapitalText;
+      &--day {
+        @include smallNormalText;
+        padding-left: 4px;
+      }
+    }
+  }
+}

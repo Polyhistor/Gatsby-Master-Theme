@@ -1,0 +1,122 @@
+// this file is a series of specific purpose curated classes
+
+// positioning
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+
+.u-margin-left-huge {
+  margin-left: 15rem;
+}
+
+.u-padding-top-sedium {
+  padding-top: 1.1rem;
+}
+
+.u-padding-top-medium {
+  padding-top: 1.5rem;
+}
+
+.u-padding-top-big {
+  padding-top: 3rem;
+}
+
+.u-padding-top-huge {
+  padding-top: 5rem;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 1.5rem;
+}
+
+.u-padding-bottom-medium {
+  padding-bottom: 3rem;
+}
+
+.u-padding-left-medium {
+  padding-left: 3rem;
+}
+
+.u-padding-right-medium {
+  padding-right: 3rem;
+}
+
+.u-padding-right-big {
+  padding-right: 6rem;
+}
+
+.u-padding-right-huge {
+  padding-right: 10rem;
+}
+
+// size
+.u-font-size-medium {
+  font-size: 4rem;
+}
+
+//text
+.u-capitalize {
+  text-transform: capitalize;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+//colors
+.u-background-black {
+  background-color: black;
+}
+
+.u-background-teal {
+  background-color: #e8f8f5;
+}
+
+//styling
+.u-border-top-bottom {
+  border: 1px 0 1px 0 solid $color-grey-dark;
+}
+
+.u-border-bottom {
+  border-bottom: 1px solid $color-grey-dark;
+}
+
+.u-border-top {
+  border-top: 1px solid $color-grey-dark;
+}
+
+.u-background-teal {
+  background-color: $color-teal;
+}
+
+.u-color-gray {
+  color: $color-grey-dark-2;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-float-left {
+  float: left;
+}

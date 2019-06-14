@@ -1,0 +1,33 @@
+.btn {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: $color-white;
+  padding: 2rem 6rem;
+  font-size: 2rem;
+  @include bigUppercaseText;
+
+  &--red {
+    background-color: $color-red;
+    padding: 1rem 3rem;
+    border-radius: 0.4rem;
+  }
+  &--red2 {
+    background: $color-red;
+  }
+  &--green {
+    background: $color-primary;
+    &-footer {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      background: $color-primary;
+    }
+  }
+  &--white {
+    @include greenWhite;
+    padding: 2rem 4rem;
+  }
+  &--transparent {
+    @include transparentButton;
+  }
+}

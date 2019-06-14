@@ -1,0 +1,54 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin bigUppercaseText {
+  text-transform: uppercase;
+  font-family: Nunito-Extrabold;
+}
+
+@mixin smallNormalText {
+  text-transform: none;
+  font-family: Nunito-Regular;
+}
+
+@mixin bigCapitalText {
+  text-transform: capitalize;
+  font-family: Nunito-Extrabold;
+}
+
+@mixin greenWhite {
+  color: $color-primary;
+  background: $color-white;
+}
+
+@mixin whiteGreen {
+  color: $color-white;
+  background: $color-primary;
+}
+
+@mixin tertiaryHeading {
+  font-family: Nunito-SemiBold;
+  font-size: 2rem;
+}
+
+@mixin transparentButton {
+  background: transparent;
+  color: $color-white;
+  border: 1px solid $color-white;
+}
+
+@mixin greySubtitle {
+  color: $color-grey-dark-2;
+  text-transform: uppercase;
+}
+
+@mixin placeholder {
+  color: $color-grey-dark;
+  padding-left: 0.5rem;
+  text-transform: capitalize;
+}

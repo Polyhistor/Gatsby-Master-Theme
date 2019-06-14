@@ -1,0 +1,18 @@
+.instagram {
+  float: left;
+  position: relative;
+  display: inline-block;
+
+  &__posts {
+    &-box {
+      display: inline-block;
+      &:not(:last-child) {
+        padding-right: 2.8rem;
+      }
+    }
+    &-image {
+      width: 21rem;
+      height: 20rem;
+    }
+  }
+}

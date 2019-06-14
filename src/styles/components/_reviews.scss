@@ -1,0 +1,23 @@
+.facebook-reviews {
+  padding: 8rem 8rem;
+  @include bigUppercaseText;
+  &__rating {
+    color: $color-primary;
+    font-size: 8rem;
+    &-decimal {
+      font-size: 3rem;
+    }
+  }
+
+  &__stars-box {
+    color: #ffd127;
+  }
+
+  &__title {
+    // we create these inter-elements for further maintenance
+  }
+
+  &__subtitle {
+    // we create these inter-elements for further maintenance
+  }
+}

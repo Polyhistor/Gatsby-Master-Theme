@@ -1,0 +1,23 @@
+.header {
+  /* 95% of the user's view port */
+  height: 95vh;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &-low-height {
+    height: 50vh;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 30%;
+    left: 3%;
+  }
+
+  &__button-box {
+    padding: 0.8rem 0rem;
+    text-align: left;
+    width: 50%;
+  }
+}

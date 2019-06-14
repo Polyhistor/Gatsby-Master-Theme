@@ -1,0 +1,14 @@
+.feature-box {
+  &__text-box {
+    padding: 12rem 0rem;
+    transform: translateY(10rem);
+  }
+
+  &__text {
+    font-size: 3rem;
+    color: $color-white;
+    font-family: Nunito-Extrabold;
+    display: block;
+    width: 100%;
+  }
+}

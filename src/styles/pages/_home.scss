@@ -1,0 +1,20 @@
+// the magic of regex again, this is an attribute selector
+
+[class^="section-"] {
+  margin-top: 3vh;
+}
+
+.section {
+  &-tour-banner {
+    &-newzealand {
+      & > .row {
+        border: 1px solid $color-primary;
+      }
+    }
+    &-australia {
+      & > .row {
+        border: 1px solid $color-red;
+      }
+    }
+  }
+}

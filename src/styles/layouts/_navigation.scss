@@ -1,0 +1,55 @@
+.navigation {
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 4rem;
+  }
+  &__list {
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 1rem;
+    // display: inline-block;
+    float: left;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-family: Nunito-SemiBold;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  &__logo {
+    margin-top: -1rem;
+  }
+
+  &__icon {
+    color: $color-white;
+    padding-top: 1.4rem;
+  }
+
+  //selecting the last two items
+  :last-child,
+  :nth-last-child(2) {
+    float: right;
+  }
+
+  &__dark {
+    background-color: black;
+  }
+}

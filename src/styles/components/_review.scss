@@ -1,0 +1,14 @@
+.review {
+  padding: 10rem 4rem;
+  &__stars-box {
+    color: #ffd127;
+  }
+
+  &__paragraph {
+  }
+
+  &__author {
+    @include bigCapitalText;
+    color: $color-primary;
+  }
+}
