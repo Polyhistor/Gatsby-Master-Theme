@@ -2,6 +2,8 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import newzealandMap from "../images/Wild_Kiwi_NZ_Discovery_Map.svg"
+
 const TourBanner = ({
   destination,
   title,
@@ -70,23 +72,29 @@ const TourBanner = ({
           </div>
         </div>
         <div className="col-2-of-4">
-          <figure className="tour-banner__figure">
-            {/* choosing image based on the given props */}
-            <Img
-              fluid={
-                destination === "newzealand"
-                  ? imageData.newzealand.childImageSharp.fluid
-                  : imageData.australia.childImageSharp.fluid
-              }
-            />
-            <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
-            >
-              new tour added
-            </figcaption>
-          </figure>
+          <div>
+            <figure className="tour-banner__figure">
+              {/* choosing image based on the given props */}
+              <Img
+                fluid={
+                  destination === "newzealand"
+                    ? imageData.newzealand.childImageSharp.fluid
+                    : imageData.australia.childImageSharp.fluid
+                }
+              />
+              <figcaption
+                className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
+              >
+                new tour added
+              </figcaption>
+            </figure>
+          </div>
         </div>
-        <div className="col-1-of-4">test</div>
+        <div className="col-1-of-4 u-margin-left-titan">
+          <div>
+            <img src={newzealandMap} />
+          </div>
+        </div>
       </div>
     </section>
   )

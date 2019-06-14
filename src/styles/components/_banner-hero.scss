@@ -1,8 +1,8 @@
 .banner-hero {
-  height: 50vh;
+  height: 50rem;
   color: $color-white;
   &-2 {
-    height: 28vh;
+    height: 30rem;
   }
   &__text-box {
     position: absolute;
@@ -19,7 +19,7 @@
       font-size: 6rem;
       line-height: 6rem;
       padding-bottom: 2rem;
-      @include bigUppercaseText;
+      font-family: Nexa-Rust;
       &-2 {
         font-size: 1.8rem;
         padding-bottom: 0rem;

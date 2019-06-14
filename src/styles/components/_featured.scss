@@ -1,11 +1,13 @@
 .featured {
+  height: 10rem;
+  background: black;
+  text-transform: uppercase;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   &__container {
-    height: 6vh;
-    background: black;
-    text-transform: uppercase;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    text-align: center;
+    transform: translateY(25%);
     &-image {
       display: inline-block;
       width: 20rem;

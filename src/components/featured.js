@@ -38,16 +38,28 @@ const Featured = () => {
 
   return (
     <section className="section-featured">
-      <div class="featured__container ">
-        <div className="u-center-text">
+      <div className="featured">
+        <div className="featured__container">
           <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
             featured in
           </h2>
-          <div className="featured__container-image">
+          <div className="featured__container-image u-translateY-quarter">
             <Img fluid={imageData.logoMetro.childImageSharp.fluid} />
           </div>
-          <div className="featured__container-image">
+          <div className="featured__container-image u-translateY-half u-margin-right-big">
             <Img fluid={imageData.logoDaily.childImageSharp.fluid} />
+          </div>
+          <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
+            recognised by
+          </h2>
+          <div className="featured__container-image u-translateY-small">
+            <Img fluid={imageData.logoWestpac.childImageSharp.fluid} />
+          </div>
+          <div className="featured__container-image u-translateY-quarter">
+            <Img
+              className="quasi-specific"
+              fluid={imageData.logoQual.childImageSharp.fluid}
+            />
           </div>
         </div>
       </div>

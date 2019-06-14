@@ -45,7 +45,7 @@ const NavItems = () => {
       </li>
       {renderNavItems()}
       <li className="navigation__item">
-        <Link className="navigation__link" to="/">
+        <Link className="navigation__link  u-translateY-sedium-negative" to="/">
           <span className="btn btn--red btn-animated">book</span>
         </Link>
       </li>
