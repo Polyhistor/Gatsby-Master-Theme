@@ -92,7 +92,7 @@ const TourBanner = ({
         </div>
         <div className="col-1-of-4 u-margin-left-titan">
           <div>
-            <img src={newzealandMap} />
+            <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
           </div>
         </div>
       </div>

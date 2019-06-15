@@ -43,6 +43,7 @@ const NavItems = () => {
           />
         </Link>
       </li>
+
       {renderNavItems()}
       <li className="navigation__item">
         <Link className="navigation__link  u-translateY-sedium-negative" to="/">
