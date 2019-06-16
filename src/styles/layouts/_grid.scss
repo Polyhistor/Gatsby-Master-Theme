@@ -11,6 +11,10 @@
     }
   }
 
+  @include respond(tablet) {
+    max-width: $grid-width-tablet !important;
+  }
+
   @include respond(phone) {
     max-width: $grid-width-phone;
   }

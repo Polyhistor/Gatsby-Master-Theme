@@ -81,7 +81,7 @@
 
       @include respond(phone) {
         padding: 2rem;
-        transform: translateY(-30%);
+        transform: translateY(-20%);
       }
     }
 
@@ -130,7 +130,7 @@
 
     &-fields {
       @include respond(phone) {
-        transform: translateY(-15%);
+        margin-top: -5rem;
       }
     }
   }

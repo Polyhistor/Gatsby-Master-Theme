@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const FooterFormMobile = () => {
   return (
-    <div className="footer__form u-padding-top-sedium">
+    <div className="footer__form u-padding-top-sedium mobile-yes">
       <div className="footer__form-links">
         <Link to="/" className="footer__form-links-item u-background-teal">
           send us a message
@@ -12,7 +12,7 @@ const FooterFormMobile = () => {
           subscribe
         </Link>
       </div>
-      <div className="footer__form-fields">
+      <div className="footer__form-fields mobile-yes">
         <form name="contact" netlify>
           <div className="footer__form-group">
             <input

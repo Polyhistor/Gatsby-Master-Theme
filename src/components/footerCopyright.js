@@ -13,7 +13,7 @@ const FooterCopyright = () => {
   `)
   return (
     <>
-      <div className="row u-padding-bottom-medium ">
+      <div className="row u-padding-bottom-medium mobile-no">
         <div className="col-md-1-of-4">
           © Copyright {data.site.siteMetadata.copyright}{" "}
           {new Date().getFullYear()}
