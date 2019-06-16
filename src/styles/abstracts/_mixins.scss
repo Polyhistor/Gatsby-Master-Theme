@@ -76,7 +76,7 @@ $breakpoints paraments:
 
   @if $breakpoint == tablet {
     // 1024/16 = 64
-    @media (max-width: 64em) {
+    @media (min-width: 48.5em) and (max-width: 64em) {
       @content;
     }
   }
