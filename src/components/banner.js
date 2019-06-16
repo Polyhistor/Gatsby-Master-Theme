@@ -16,7 +16,7 @@ const Banner = ({ header, subHeaderFirst, subHeaderSecond, buttonText }) => {
   `)
 
   return (
-    <section className="section-banner section-banner-hero">
+    <section className="section-banner section-banner-hero mobile-no">
       <div className="row">
         <BackgroundImage
           Tag="section"

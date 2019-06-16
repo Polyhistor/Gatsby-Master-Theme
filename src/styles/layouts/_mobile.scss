@@ -1,0 +1,59 @@
+.mobile {
+  &__arrow-down {
+    @include respond(desk) {
+      display: none;
+    }
+    @include respond(tablet) {
+      display: none;
+    }
+    @include respond(phone) {
+      display: inline-block;
+      color: white;
+      padding-right: 17rem;
+    }
+  }
+
+  &__red-button {
+    @include respond(phone) {
+    }
+  }
+
+  &-no {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &-yes {
+    @include respond(desk) {
+      display: none;
+    }
+    @include respond(tablet) {
+      display: none;
+    }
+    @include respond(phone) {
+      display: inline-block;
+      width: 100%;
+    }
+
+    &-no-width {
+      @include respond(desk) {
+        display: none;
+      }
+      @include respond(tablet) {
+        display: none;
+      }
+      @include respond(phone) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__why-us {
+    &-box {
+      display: inline-block;
+      width: 50% !important;
+      float: left;
+    }
+  }
+}

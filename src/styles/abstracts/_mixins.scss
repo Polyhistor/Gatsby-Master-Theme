@@ -52,3 +52,38 @@
   padding-left: 0.5rem;
   text-transform: capitalize;
 }
+
+// Pouya's media query manager
+/* 
+specified dimensions : 
+Mobile (portrait) = 320-768px 
+Tablet & Ipads: 768-1024px
+Laptop & Desktop >= 1025
+
+$breakpoints paraments: 
+- phone 
+- tablet 
+- desk
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // 768/16 = 48
+    @media (max-width: 48em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    // 1024/16 = 64
+    @media (max-width: 64em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk {
+    @media (min-width: 64.1em) {
+      @content;
+    }
+  }
+}

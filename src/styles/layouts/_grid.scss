@@ -6,6 +6,13 @@
   // apply it to all the nodes except the last one
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+    @include respond(phone) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(phone) {
+    max-width: $grid-width-phone;
   }
 
   // mixins
@@ -18,6 +25,15 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+    }
+
+    @include respond(phone) {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    @include respond(phone) {
+      width: 100% !important;
     }
   }
 

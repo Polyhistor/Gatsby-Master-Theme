@@ -5,6 +5,30 @@
   background-position: top;
   position: relative;
 
+  &__logo-box {
+    position: fixed;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__nav-button {
+    position: fixed;
+    top: 3rem;
+    right: 4rem;
+
+    &-box-link {
+      text-decoration: none;
+    }
+
+    @include respond(phone) {
+      right: 2rem;
+    }
+  }
+
   &-low-height {
     height: 50vh;
   }
@@ -13,11 +37,21 @@
     position: absolute;
     top: 30%;
     left: 3%;
+
+    @include respond(phone) {
+      top: 20%;
+    }
   }
 
   &__button-box {
     padding: 0.8rem 0rem;
     text-align: left;
     width: 50%;
+
+    @include respond(phone) {
+      text-align: center;
+      width: 125%;
+      padding-top: 20rem;
+    }
   }
 }

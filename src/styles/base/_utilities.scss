@@ -17,12 +17,20 @@
   margin-bottom: 8rem !important;
 }
 
-.u-margin-top-huge {
-  margin-top: 10rem !important;
+.u-margin-top-small {
+  margin-top: 3rem;
+}
+
+.u-margin-top-medium {
+  margin-top: 5rem;
 }
 
 .u-margin-top-big {
   margin-top: 8rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
 }
 
 .u-margin-left-huge {
@@ -30,11 +38,19 @@
 }
 
 .u-margin-left-titan {
-  margin-left: 40rem;
+  margin-left: 38rem;
+
+  @include respond(phone) {
+    margin-left: 0rem;
+  }
 }
 
 .u-margin-right-big {
   margin-right: 8rem;
+}
+
+.u-padding-big {
+  padding: 10rem;
 }
 
 .u-padding-top-sedium {
@@ -65,6 +81,10 @@
   padding-left: 3rem;
 }
 
+.u-padding-right-2 {
+  padding-right: 2rem;
+}
+
 .u-padding-right-medium {
   padding-right: 3rem;
 }
@@ -89,6 +109,14 @@
   transform: translateY(25%);
 }
 
+.u-translateY-30 {
+  transform: translateY(30%);
+}
+
+.u-translateY-35 {
+  transform: translateY(35%);
+}
+
 .u-translateY-half {
   transform: translateY(50%);
 }
@@ -98,8 +126,20 @@
 }
 
 // size
+.u-font-size-small {
+  font-size: 2rem;
+}
+
 .u-font-size-medium {
   font-size: 4rem;
+}
+
+.u-font-size-big {
+  font-size: 6rem;
+}
+
+.u-width-half {
+  width: 50%;
 }
 
 //text
@@ -118,6 +158,10 @@
 
 .u-background-teal {
   background-color: #e8f8f5;
+}
+
+.u-color-white {
+  color: $color-white;
 }
 
 //styling
@@ -154,4 +198,8 @@
 .quasi-specific {
   height: 5rem;
   width: 5rem;
+}
+
+.remove-width {
+  width: 0;
 }

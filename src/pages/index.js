@@ -1,8 +1,9 @@
 import React from "react"
 
+// default components
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Landing from "../components/landing"
+import Landing from "../components/header/landing"
 import Featured from "../components/featured"
 import BannerHero from "../components/bannerHero"
 import BoxContainer from "../components/boxContainer"
@@ -12,11 +13,16 @@ import Banner from "../components/banner"
 import Reviews from "../components/reviews"
 import Trips from "../components/trips"
 
+// mobile components
+import WatchTrailer from "../components/mobile/watchTrailer"
+import WhyWildKiwi from "../components/mobile/whyWildkiwi"
+
 const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <Landing />
     <Featured />
+    <WatchTrailer />
     <BannerHero
       headerFirst="itat eritia"
       headersecond="quam"
@@ -43,6 +49,7 @@ const IndexPage = props => (
       details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
       price="From $160 AUD per day"
     />
+    <WhyWildKiwi />
     <Banner
       header="how it works"
       subHeaderFirst="everything you need to"

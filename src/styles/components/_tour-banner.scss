@@ -11,19 +11,38 @@
       &-australia {
         color: $color-red;
       }
+
+      @include respond(phone) {
+        font-size: 4rem;
+      }
     }
+
     &-subtitle {
       font-family: Nunito-Extrabold;
       font-size: 2rem;
+
+      @include respond(phone) {
+        color: $color-primary;
+      }
+
       &-departs {
         font-size: 1rem;
         padding-bottom: 1rem;
         @include greySubtitle;
+
+        @include respond(phone) {
+          font-size: 1.3rem;
+          padding-top: 0.5rem;
+        }
       }
     }
     &-details {
       font-size: 1.4rem;
       padding-bottom: 0.5rem;
+
+      @include respond(phone) {
+        font-size: 2.2rem;
+      }
     }
     &-price {
       font-family: Nunito-Extrabold;
@@ -33,6 +52,10 @@
       }
       &-australia {
         color: $color-red;
+      }
+
+      @include respond(phone) {
+        font-size: 2.2rem;
       }
     }
     &-button-box {
@@ -57,6 +80,10 @@
       &-australia {
         background-color: $color-red;
       }
+    }
+
+    @include respond(phone) {
+      width: 100%;
     }
   }
 }

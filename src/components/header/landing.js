@@ -37,11 +37,14 @@ const Header = () => {
               </span>
             </h1>
             <div className="header__button-box">
-              <Link to="/s" className="btn btn--green btn-animated">
+              <Link
+                to="/s"
+                className="btn btn--green btn-animated mobile-green-buton"
+              >
                 expore tours
               </Link>
             </div>
-            <div className="header__button-box">
+            <div className="header__button-box mobile-no">
               <Link to="/s" className="btn btn--white btn-animated">
                 <i className="im im-google-play" />
                 &nbsp;watch trailer

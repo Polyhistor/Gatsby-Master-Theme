@@ -11,4 +11,8 @@
     @include bigCapitalText;
     color: $color-primary;
   }
+
+  @include respond(phone) {
+    padding: 0rem 4rem 4rem;
+  }
 }

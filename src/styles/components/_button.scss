@@ -7,6 +7,12 @@
   font-size: 2rem;
   @include bigUppercaseText;
 
+  @include respond(phone) {
+    padding: 4rem 15rem;
+    display: inline;
+    border-radius: 5px;
+  }
+
   &--red {
     background-color: $color-red;
     padding: 1rem 3rem;
@@ -21,6 +27,14 @@
       padding: 1rem 2.5rem;
       font-size: 1rem;
       background: $color-primary;
+
+      @include respond(phone) {
+        width: 100%;
+        padding: 3rem;
+        margin-top: 4rem;
+        font-size: 3rem;
+        border: 0;
+      }
     }
   }
   &--white {

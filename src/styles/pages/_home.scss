@@ -9,11 +9,44 @@
     &-newzealand {
       & > .row {
         border: 1px solid $color-primary;
+
+        @include respond(phone) {
+          border: 0px;
+        }
       }
     }
     &-australia {
       & > .row {
         border: 1px solid $color-red;
+
+        @include respond(phone) {
+          border: 0px;
+        }
+      }
+    }
+  }
+
+  &-why-us {
+    @include respond(phone) {
+      margin-top: 0;
+    }
+  }
+
+  &-mobile {
+    &__watch-trailer {
+      @include respond(desk) {
+        display: none;
+      }
+
+      @include respond(tablet) {
+        display: none;
+      }
+
+      @include respond(phone) {
+        display: block;
+        text-align: center;
+        transform: translateY(-40%);
+        padding: 4rem;
       }
     }
   }

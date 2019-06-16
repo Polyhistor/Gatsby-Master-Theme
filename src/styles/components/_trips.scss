@@ -12,6 +12,10 @@
   &-header-box {
     @include bigCapitalText;
     color: $color-primary;
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 
   &__box {

@@ -64,7 +64,7 @@ const Trips = () => {
   `)
 
   return (
-    <section className="section-trips">
+    <section className="section-trips mobile-no">
       <div className="row">
         <div className="trips-header-box u-padding-bottom-medium ">
           <h2 className="trips-header-box heading-secondary">our trips</h2>

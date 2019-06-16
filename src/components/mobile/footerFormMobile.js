@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const FooterForm = () => {
+const FooterFormMobile = () => {
   return (
-    <div className="footer__form u-padding-top-sedium mobile-no">
+    <div className="footer__form u-padding-top-sedium">
       <div className="footer__form-links">
         <Link to="/" className="footer__form-links-item u-background-teal">
           send us a message
@@ -12,12 +12,9 @@ const FooterForm = () => {
           subscribe
         </Link>
       </div>
-      <p className="u-color-gray u-padding-top-big mobile-no">
-        feel free to drop us a note with any question
-      </p>
-      <div className="footer__form-fields mobile-no">
+      <div className="footer__form-fields">
         <form name="contact" netlify>
-          <div className="footer__form-group u-float-left">
+          <div className="footer__form-group">
             <input
               type="text"
               name="name"
@@ -25,7 +22,7 @@ const FooterForm = () => {
               placeholder="name"
             />
           </div>
-          <div className="footer__form-group u-float-right">
+          <div className="footer__form-group">
             <input
               type="email"
               name="email"
@@ -40,10 +37,7 @@ const FooterForm = () => {
               className="footer__form-input--big"
               placeholder="Message"
             />
-            <button
-              className="btn btn--green-footer u-float-right"
-              type="submit"
-            >
+            <button className="btn btn--green-footer " type="submit">
               leave a message
             </button>
           </div>
@@ -53,4 +47,4 @@ const FooterForm = () => {
   )
 }
 
-export default FooterForm
+export default FooterFormMobile

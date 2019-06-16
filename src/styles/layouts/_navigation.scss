@@ -8,6 +8,7 @@
     padding: 4rem;
     height: 12rem;
     transition: all 0.6s ease-in;
+    padding-left: 16.5rem;
     &--dark {
       position: fixed;
       top: 0;
@@ -18,6 +19,7 @@
       height: 12rem;
       background: black;
       transition: all 0.6s ease-in;
+      padding-left: 18rem;
     }
   }
   &__list {
@@ -26,24 +28,36 @@
     width: 100%;
     text-align: center;
     list-style: none;
+
+    @include respond(phone) {
+      width: 40%;
+    }
   }
 
   &__item {
     margin: 1rem;
-    // display: inline-block;
     float: left;
+
+    @include respond(phone) {
+      float: none;
+      visibility: hidden;
+    }
   }
 
   &__link {
     &:link,
     &:visited {
       display: inline-block;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-family: Nunito-SemiBold;
-      padding: 1rem 2rem;
+      padding: 1rem 0.5rem;
       color: $color-white;
       text-decoration: none;
       text-transform: uppercase;
+
+      @include respond(phone) {
+        display: block;
+      }
     }
   }
 
@@ -53,12 +67,6 @@
 
   &__icon {
     color: $color-white;
-  }
-
-  //selecting the last two items
-  :last-child,
-  :nth-last-child(2) {
-    float: right;
   }
 
   &__dark {

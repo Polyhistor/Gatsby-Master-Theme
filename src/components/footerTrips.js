@@ -24,7 +24,9 @@ const FooterTrips = () => {
   })
 
   return (
-    <div className="footer__trips--left u-padding-right-huge">{renderList}</div>
+    <div className="footer__trips--left u-padding-right-huge mobile-no">
+      {renderList}
+    </div>
   )
 }
 

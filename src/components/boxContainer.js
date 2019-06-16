@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Box from "./box"
 
 const BoxContainer = () => {
-  const newVehiclesImage = useStaticQuery(graphql`
+  const imagedata = useStaticQuery(graphql`
     query {
       newVehicles: file(relativePath: { eq: "wild-kiwi-new-vehicles.jpg" }) {
         childImageSharp {
@@ -43,25 +43,25 @@ const BoxContainer = () => {
   `)
 
   return (
-    <section className="section-why-us">
+    <section className="section-why-us mobile-no">
       <div className="row">
         <Box
-          imageData={newVehiclesImage.newVehicles.childImageSharp.fluid}
+          imageData={imagedata.newVehicles.childImageSharp.fluid}
           textFirst="new"
           textSecond="vehicles"
         />
         <Box
-          imageData={newVehiclesImage.localGuids.childImageSharp.fluid}
+          imageData={imagedata.localGuids.childImageSharp.fluid}
           textFirst="local"
           textSecond="guides"
         />
         <Box
-          imageData={newVehiclesImage.smallGroups.childImageSharp.fluid}
+          imageData={imagedata.smallGroups.childImageSharp.fluid}
           textFirst="small"
           textSecond="groups"
         />
         <Box
-          imageData={newVehiclesImage.breathTakingScenery.childImageSharp.fluid}
+          imageData={imagedata.breathTakingScenery.childImageSharp.fluid}
           textFirst="breathtaking"
           textSecond="scenery"
         />

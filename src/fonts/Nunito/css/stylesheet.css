@@ -12,20 +12,6 @@
 }
 
 @font-face {
-  font-family: "Nexa-Rust";
-  src: url("../../NexaRust/fonts/NexaRustSans-Black1.eot");
-  src: url("../../NexaRust/fonts/NexaRustSans-Black1.eot?#iefix")
-      format("embedded-opentype"),
-    url("../../NexaRust/fonts/NexaRustSans-Black1.woff2") format("woff2"),
-    url("../../NexaRust/fonts/NexaRustSans-Black1.woff") format("woff"),
-    url("../../NexaRust/fonts/NexaRustSans-Black1.ttf") format("truetype"),
-    url("../../NexaRust/fonts/NexaRustSans-Black1.svg#NexaRustSans-Black1")
-      format("svg");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Nunito-Black";
   src: url("../fonts/subset-Nunito-Black.eot");
   src: url("../fonts/subset-Nunito-Black.eot?#iefix")

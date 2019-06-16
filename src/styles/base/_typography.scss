@@ -10,10 +10,19 @@
     animation: moveInleft 0.8s ease-out;
     line-height: 10rem;
     font-family: Nexa-Rust;
+
+    @include respond(phone) {
+      font-size: 7rem;
+      line-height: 7rem;
+    }
   }
 
   &--sub {
     animation: moveInleft 2s ease-out;
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -27,9 +36,24 @@
 
   &--white {
     color: $color-white;
+
+    @include respond(phone) {
+      color: #fff;
+      padding: 6rem;
+      font-family: nexa-rust;
+      font-size: 6rem;
+    }
   }
 
   &--inline {
     display: inline;
+
+    @include respond(phone) {
+      font-family: Nexa-Rust;
+      display: block;
+      padding-top: 4rem;
+      height: 5rem;
+      padding-bottom: 10rem;
+    }
   }
 }

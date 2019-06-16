@@ -21,7 +21,7 @@ const FooterContact = () => {
     )
   })
 
-  return <div className="footer__trips--left">{renderList}</div>
+  return <div className="footer__trips--left mobile-no">{renderList}</div>
 }
 
 export default FooterContact

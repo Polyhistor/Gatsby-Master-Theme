@@ -57,7 +57,7 @@ const TourBanner = ({
             >
               {price}
             </span>
-            <div className="tour-banner__description-button-box">
+            <div className="tour-banner__description-button-box mobile-no">
               <Link
                 className={
                   destination === "newzealand"
@@ -90,10 +90,21 @@ const TourBanner = ({
             </figure>
           </div>
         </div>
-        <div className="col-1-of-4 u-margin-left-titan">
+        <div className="col-1-of-4 u-margin-left-titan ">
           <div>
             <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
           </div>
+        </div>
+
+        <div className="mobile-yes u-padding-big ">
+          <Link
+            className={
+              destination === "newzealand" ? "btn btn--green" : "btn btn--red2"
+            }
+            to="/"
+          >
+            view trips
+          </Link>
         </div>
       </div>
     </section>
