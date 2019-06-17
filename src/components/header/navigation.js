@@ -16,13 +16,15 @@ const Navigation = () => {
   })
 
   return (
-    <div className="navigation">
-      {/* updating nav className based on user scroll */}
-      <nav className={scroll ? "navigation__nav" : "navigation__nav--dark"}>
-        <ul className="navigation__list">
-          <NavItems />
-        </ul>
-      </nav>
+    <div className="row">
+      <div className="navigation">
+        {/* updating nav className based on user scroll */}
+        <nav className={scroll ? "navigation__nav" : "navigation__nav--dark"}>
+          <ul className="navigation__list">
+            <NavItems />
+          </ul>
+        </nav>
+      </div>
     </div>
   )
 }
