@@ -60,6 +60,13 @@
     }
     &-button-box {
       padding-top: 8rem;
+
+      @include respond(tablet) {
+        padding-top: 2rem;
+        &:first-child {
+          display: none;
+        }
+      }
     }
   }
 

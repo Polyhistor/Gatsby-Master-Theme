@@ -15,6 +15,10 @@
     text-align: center;
     transform: translateY(25%);
 
+    @include respond(tablet) {
+      padding-left: 5rem;
+    }
+
     @include respond(phone) {
       transform: translateY(0%);
     }
@@ -24,6 +28,10 @@
       width: 20rem;
       padding-right: 2rem;
       position: relative;
+
+      @include respond(tablet) {
+        width: 10rem;
+      }
 
       @include respond(phone) {
         margin-left: 7rem;

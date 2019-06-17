@@ -24,6 +24,10 @@
       text-decoration: none;
     }
 
+    @include respond(tablet) {
+      right: 2rem;
+    }
+
     @include respond(phone) {
       right: 2rem;
     }
@@ -54,7 +58,7 @@
 
     @include respond(phone) {
       text-align: center;
-      width: 125%;
+      width: 100%;
       padding-top: 20rem;
     }
   }

@@ -6,35 +6,39 @@ import Box from "./box"
 const BoxContainer = () => {
   const imagedata = useStaticQuery(graphql`
     query {
-      newVehicles: file(relativePath: { eq: "wild-kiwi-new-vehicles.jpg" }) {
+      newVehiclesDesk: file(
+        relativePath: { eq: "wild-kiwi-new-vehicles.jpg" }
+      ) {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
+          fluid(quality: 70, maxWidth: 1160) {
             ...GatsbyImageSharpFluid
           }
         }
       }
 
-      localGuids: file(relativePath: { eq: "wild-kiwi-local-guides.jpg" }) {
+      localGuidsDesk: file(relativePath: { eq: "wild-kiwi-local-guides.jpg" }) {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
+          fluid(quality: 70, maxWidth: 1160) {
             ...GatsbyImageSharpFluid
           }
         }
       }
 
-      smallGroups: file(relativePath: { eq: "wild-kiwi-small-groups.jpg" }) {
+      smallGroupsDesk: file(
+        relativePath: { eq: "wild-kiwi-small-groups.jpg" }
+      ) {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
+          fluid(quality: 70, maxWidth: 1160) {
             ...GatsbyImageSharpFluid
           }
         }
       }
 
-      breathTakingScenery: file(
+      breathTakingSceneryDesk: file(
         relativePath: { eq: "wild-kiwi-breathtaking-scenary.jpg" }
       ) {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
+          fluid(quality: 70, maxWidth: 1160) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -46,22 +50,22 @@ const BoxContainer = () => {
     <section className="section-why-us mobile-no">
       <div className="row">
         <Box
-          imageData={imagedata.newVehicles.childImageSharp.fluid}
+          imageData={imagedata.newVehiclesDesk.childImageSharp.fluid}
           textFirst="new"
           textSecond="vehicles"
         />
         <Box
-          imageData={imagedata.localGuids.childImageSharp.fluid}
+          imageData={imagedata.localGuidsDesk.childImageSharp.fluid}
           textFirst="local"
           textSecond="guides"
         />
         <Box
-          imageData={imagedata.smallGroups.childImageSharp.fluid}
+          imageData={imagedata.smallGroupsDesk.childImageSharp.fluid}
           textFirst="small"
           textSecond="groups"
         />
         <Box
-          imageData={imagedata.breathTakingScenery.childImageSharp.fluid}
+          imageData={imagedata.breathTakingSceneryDesk.childImageSharp.fluid}
           textFirst="breathtaking"
           textSecond="scenery"
         />

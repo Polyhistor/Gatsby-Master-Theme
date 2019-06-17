@@ -7,6 +7,11 @@
 
   &:not(:last-child) {
     padding-right: 4rem;
+
+    @include respond(tablet) {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
   }
 
   &-header-box {
@@ -60,6 +65,15 @@
       &--day {
         @include smallNormalText;
         padding-left: 4px;
+      }
+    }
+  }
+
+  // re
+  &-container {
+    @include respond(tablet) {
+      & div.trips:last-child {
+        display: none;
       }
     }
   }

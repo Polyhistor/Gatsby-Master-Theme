@@ -69,7 +69,7 @@ const Trips = () => {
         <div className="trips-header-box u-padding-bottom-medium ">
           <h2 className="trips-header-box heading-secondary">our trips</h2>
         </div>
-        <div className="trips">
+        <div className="trips-container">
           <Trip
             imageData={toursImages.bigSouth.childImageSharp.fluid}
             duration="7 days"

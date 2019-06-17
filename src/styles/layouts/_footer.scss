@@ -16,6 +16,11 @@
           padding: 2rem 5.81rem;
         }
       }
+
+      @include respond(phone) {
+        float: none;
+        text-align: center;
+      }
     }
   }
 
@@ -71,6 +76,17 @@
           }
         }
 
+        &:first-child {
+          @include respond(tablet) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        @include respond(tablet) {
+          display: block;
+          width: 19rem;
+        }
+
         @include respond(phone) {
           display: block;
           margin-top: 3rem;
@@ -87,6 +103,10 @@
 
     &-group {
       margin-top: 2rem;
+
+      @include respond(tablet) {
+        float: left;
+      }
 
       @include respond(phone) {
         padding: 2rem;

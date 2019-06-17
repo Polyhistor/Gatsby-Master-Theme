@@ -55,6 +55,10 @@
       text-decoration: none;
       text-transform: uppercase;
 
+      @include respond(tablet) {
+        font-size: 1.1rem;
+      }
+
       @include respond(phone) {
         display: block;
       }
@@ -71,5 +75,9 @@
 
   &__dark {
     background-color: black;
+
+    @include respond(tablet) {
+      padding: 0.5rem 0;
+    }
   }
 }

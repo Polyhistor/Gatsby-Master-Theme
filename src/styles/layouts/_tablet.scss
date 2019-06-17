@@ -1,0 +1,52 @@
+.tablet {
+  &-green-button {
+    @include respond(tablet) {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      padding: 2rem 3rem;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-family: Nunito-Extrabold;
+      font-size: 1.5rem;
+    }
+  }
+  &-red-button {
+    @include respond(tablet) {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: #fff;
+      padding: 2rem 3rem;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-family: Nunito-Extrabold;
+      font-size: 1.5rem;
+    }
+  }
+
+  &-margin-left-negative-normal {
+    @include respond(tablet) {
+      margin-left: -5rem;
+    }
+  }
+
+  &-margin-right-no {
+    @include respond(tablet) {
+      margin-right: 0 !important;
+    }
+  }
+
+  &-padding-top-medium {
+    @include respond(tablet) {
+      padding-top: 5rem;
+    }
+  }
+
+  &-no {
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}

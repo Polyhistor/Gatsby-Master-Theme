@@ -9,10 +9,26 @@
       &:not(:last-child) {
         padding-right: 2.8rem;
       }
+
+      @include respond(tablet) {
+        padding-right: 1.7rem !important;
+        padding-left: 1.7rem;
+      }
     }
     &-image {
       width: 21rem;
       height: 20rem;
+
+      @include respond(tablet) {
+        width: 24.1rem;
+      }
+    }
+
+    // removing last two elements
+    @include respond(tablet) {
+      & figure:nth-last-child(-n + 2) {
+        display: none;
+      }
     }
   }
 }

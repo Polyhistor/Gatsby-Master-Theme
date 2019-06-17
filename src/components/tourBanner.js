@@ -61,8 +61,8 @@ const TourBanner = ({
               <Link
                 className={
                   destination === "newzealand"
-                    ? "btn btn--green"
-                    : "btn btn--red2"
+                    ? "btn btn--green tablet-green-button"
+                    : "btn btn--red2 tablet-red-button"
                 }
                 to="/"
               >
@@ -71,27 +71,25 @@ const TourBanner = ({
             </div>
           </div>
         </div>
-        <div className="col-2-of-4">
-          <div>
-            <figure className="tour-banner__figure">
-              {/* choosing image based on the given props */}
-              <Img
-                fluid={
-                  destination === "newzealand"
-                    ? imageData.newzealand.childImageSharp.fluid
-                    : imageData.australia.childImageSharp.fluid
-                }
-              />
-              <figcaption
-                className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
-              >
-                new tour added
-              </figcaption>
-            </figure>
-          </div>
+        <div className="col-2-of-4 tablet-margin-left-negative-normal">
+          <figure className="tour-banner__figure">
+            {/* choosing image based on the given props */}
+            <Img
+              fluid={
+                destination === "newzealand"
+                  ? imageData.newzealand.childImageSharp.fluid
+                  : imageData.australia.childImageSharp.fluid
+              }
+            />
+            <figcaption
+              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
+            >
+              new tour added
+            </figcaption>
+          </figure>
         </div>
-        <div className="col-1-of-4 u-margin-left-titan ">
-          <div>
+        <div className="col-1-of-4 u-margin-left-titan tablet-margin-right-no">
+          <div className="tablet-padding-top-medium">
             <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
           </div>
         </div>
