@@ -1,14 +1,17 @@
 .header {
   /* 95% of the user's view port */
-  height: 80rem;
+  height: 60rem;
   background-size: cover;
   background-position: top;
   position: relative;
 
   &__logo-box {
     position: fixed;
-    top: 1.2rem;
-    left: 4rem;
+    left: 3%;
+
+    @include respond(tablet) {
+      left: 3%;
+    }
   }
 
   &__logo {
@@ -18,7 +21,7 @@
   &__nav-button {
     position: fixed;
     top: 0.7rem;
-    right: 4rem;
+    right: 2%;
 
     &-box-link {
       text-decoration: none;
@@ -40,7 +43,7 @@
   &__text-box {
     position: absolute;
     top: 30%;
-    left: 3%;
+    left: 15%;
 
     @include respond(phone) {
       top: 20%;
@@ -48,17 +51,17 @@
   }
 
   &__button-box {
-    margin-top: 3.6rem;
+    margin-top: 6.5rem;
     text-align: left;
 
     & a:nth-child(1) {
       display: block;
       margin: 4.5rem 0 1.4rem 0;
-      width: 55%;
+      width: 45%;
     }
     & a:nth-child(2) {
       display: block;
-      width: 55%;
+      width: 45%;
     }
 
     @include respond(phone) {

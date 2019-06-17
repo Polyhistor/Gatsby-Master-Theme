@@ -24,30 +24,25 @@ const BannerHero = ({
 
   return (
     <section className="section-banner section-banner-hero mobile-no">
-      <div className="row">
-        <BackgroundImage
-          Tag="section"
-          fluid={data.banner.childImageSharp.fluid}
-        >
-          <div className="banner-hero">
-            <div className="banner-hero__text-box">
-              <h2 className="banner-hero-heading">
-                <span className="banner-hero-heading--main">
-                  {headerFirst} <br /> {headersecond} <br /> {headerThird}
-                </span>
-                <span className="banner-hero-heading--sub">
-                  {subHeaderFirst} <br /> {subHeaderSecond}
-                </span>
-              </h2>
-              <div className="banner-hero__button-box">
-                <Link to="/" className="btn btn--white btn-animated">
-                  {buttonText}
-                </Link>
-              </div>
+      <BackgroundImage Tag="section" fluid={data.banner.childImageSharp.fluid}>
+        <div className="banner-hero">
+          <div className="banner-hero__text-box">
+            <h2 className="banner-hero-heading">
+              <span className="banner-hero-heading--main">
+                {headerFirst} <br /> {headersecond} <br /> {headerThird}
+              </span>
+              <span className="banner-hero-heading--sub">
+                {subHeaderFirst} <br /> {subHeaderSecond}
+              </span>
+            </h2>
+            <div className="banner-hero__button-box">
+              <Link to="/" className="btn btn--white btn-animated">
+                {buttonText}
+              </Link>
             </div>
           </div>
-        </BackgroundImage>
-      </div>
+        </div>
+      </BackgroundImage>
     </section>
   )
 }

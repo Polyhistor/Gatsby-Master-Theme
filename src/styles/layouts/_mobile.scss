@@ -4,7 +4,9 @@
       display: none;
     }
     @include respond(tablet) {
-      display: none;
+      display: inline-block;
+      color: white;
+      padding-right: 17rem;
     }
     @include respond(phone) {
       display: inline-block;

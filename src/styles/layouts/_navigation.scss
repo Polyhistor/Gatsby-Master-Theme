@@ -1,14 +1,20 @@
 .navigation {
+  max-width: 87.25rem;
   &__nav {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    width: 100%;
+    width: inherit;
     padding: 1.2rem;
     height: 6.666667rem;
     transition: all 0.6s ease-in;
-    padding-left: 16.5rem;
+    padding-left: 18%;
+
+    @include respond(tablet) {
+      padding-left: 17%;
+    }
+
     &--dark {
       position: fixed;
       top: 0;
@@ -19,7 +25,11 @@
       height: 6.666667rem;
       background: black;
       transition: all 0.6s ease-in;
-      padding-left: 16.5rem;
+      padding-left: 23%;
+
+      @include respond(tablet) {
+        padding-left: 17%;
+      }
     }
   }
   &__list {
@@ -37,6 +47,11 @@
   &__item {
     margin: 1rem;
     float: left;
+
+    @include respond(tablet) {
+      float: none;
+      visibility: hidden;
+    }
 
     @include respond(phone) {
       float: none;
