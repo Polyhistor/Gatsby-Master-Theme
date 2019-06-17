@@ -6,7 +6,6 @@ import Navigation from "./header/navigation"
 
 import "../fonts/IconMonster/css/iconmonstr-iconic-font.css"
 import "../fonts/Nunito/css/stylesheet.css"
-import "../fonts/NexaRust/css/stylesheet.css"
 import "../fonts/NexaRustSans-Black2/css/styles.css"
 import "../styles/main.scss"
 
