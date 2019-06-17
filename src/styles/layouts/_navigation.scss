@@ -5,8 +5,8 @@
     left: 0;
     z-index: 1000;
     width: 100%;
-    padding: 4rem;
-    height: 12rem;
+    padding: 1.2rem;
+    height: 6.666667rem;
     transition: all 0.6s ease-in;
     padding-left: 16.5rem;
     &--dark {
@@ -15,11 +15,11 @@
       left: 0;
       z-index: 1000;
       width: 100%;
-      padding: 4rem;
-      height: 12rem;
+      padding: 1.2rem;
+      height: 6.666667rem;
       background: black;
       transition: all 0.6s ease-in;
-      padding-left: 18rem;
+      padding-left: 16.5rem;
     }
   }
   &__list {
@@ -48,12 +48,13 @@
     &:link,
     &:visited {
       display: inline-block;
-      font-size: 1.3rem;
-      font-family: Nunito-SemiBold;
+      font-size: 1rem;
+      font-family: Nunito-Black;
       padding: 1rem 0.5rem;
       color: $color-white;
       text-decoration: none;
       text-transform: uppercase;
+      letter-spacing: 1px;
 
       @include respond(tablet) {
         font-size: 1.1rem;

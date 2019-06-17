@@ -7,7 +7,7 @@
 
   &__logo-box {
     position: fixed;
-    top: 4rem;
+    top: 1.2rem;
     left: 4rem;
   }
 
@@ -17,7 +17,7 @@
 
   &__nav-button {
     position: fixed;
-    top: 3rem;
+    top: 0.7rem;
     right: 4rem;
 
     &-box-link {
@@ -48,17 +48,21 @@
   }
 
   &__button-box {
-    padding: 0.8rem 0rem;
+    margin-top: 3.6rem;
     text-align: left;
-    width: 50%;
 
-    @include respond(tablet) {
-      width: 100%;
+    & a:nth-child(1) {
+      display: block;
+      margin: 4.5rem 0 1.4rem 0;
+      width: 55%;
+    }
+    & a:nth-child(2) {
+      display: block;
+      width: 55%;
     }
 
     @include respond(phone) {
       text-align: center;
-      width: 100%;
       padding-top: 20rem;
     }
   }

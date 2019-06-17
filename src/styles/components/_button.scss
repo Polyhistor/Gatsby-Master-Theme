@@ -3,8 +3,9 @@
   position: relative;
   text-decoration: none;
   color: $color-white;
-  padding: 2rem 6rem;
+  padding: 1.6rem 1.2rem;
   font-size: 2rem;
+  text-align: center;
   @include bigUppercaseText;
 
   @include respond(phone) {
@@ -15,7 +16,7 @@
 
   &--red {
     background-color: $color-red;
-    padding: 1rem 3rem;
+    padding: 0.9rem 2.7rem;
     border-radius: 0.4rem;
   }
   &--red2 {
@@ -39,7 +40,7 @@
   }
   &--white {
     @include greenWhite;
-    padding: 2rem 4rem;
+    padding: 1.6rem 1.2rem;
   }
   &--transparent {
     @include transparentButton;

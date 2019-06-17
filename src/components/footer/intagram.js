@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import InstagramPosts from "../components/instagramPosts"
+import InstagramPosts from "./instagramPosts"
 
 const Instagram = () => {
   const instaPhotos = useStaticQuery(graphql`

@@ -2,7 +2,7 @@ import React from "react"
 
 import FooterTrips from "./footerTrips"
 import FooterInfo from "./footerInfo"
-import FooterContact from "../components/footerContact"
+import FooterContact from "./footerContact"
 import FooterForm from "./footerForm"
 
 const FooterContents = () => {

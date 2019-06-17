@@ -1,5 +1,5 @@
 import React from "react"
-import Trip from "../components/trip"
+import Trip from "./trip"
 import { graphql, useStaticQuery } from "gatsby"
 
 const Trips = () => {

@@ -2,12 +2,12 @@ import React from "react"
 
 import Instagram from "./intagram"
 import SocialNetowrk from "./socialNetworks"
-import FooterContents from "../components/footerContents"
-import FooterCopyright from "../components/footerCopyright"
+import FooterContents from "./footerContents"
+import FooterCopyright from "./footerCopyright"
 
 // mobile
-import WildkiwiTours from "../components/mobile/wildkiwiTours"
-import FooterFormMobile from "../components/mobile/footerFormMobile"
+import WildkiwiTours from "../mobile/wildkiwiTours"
+import FooterFormMobile from "../mobile/footerFormMobile"
 
 const Footer = () => {
   return (

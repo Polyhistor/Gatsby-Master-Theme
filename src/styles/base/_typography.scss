@@ -6,10 +6,9 @@
 
   &--main {
     display: block;
-    font-size: 9rem;
+    font-size: 7rem;
     animation: moveInleft 0.8s ease-out;
-    line-height: 10rem;
-    font-family: Nexa-Rust;
+    font-family: Nexa-Rust-2;
 
     @include respond(phone) {
       font-size: 7rem;
@@ -18,6 +17,7 @@
   }
 
   &--sub {
+    font-size: 1.6rem;
     animation: moveInleft 2s ease-out;
 
     @include respond(phone) {
