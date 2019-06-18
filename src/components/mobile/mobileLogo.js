@@ -15,14 +15,12 @@ const Logo = () => {
     }
   `)
   return (
-    <li className="navigation-mobile__item">
-      <Link className="navigation-mobile__logo" to="/">
-        <Img
-          fluid={data.logoMobile.childImageSharp.fluid}
-          style={{ width: "12rem" }}
-        />
-      </Link>
-    </li>
+    <Link className="navigation-mobile__logo" to="/">
+      <Img
+        fluid={data.logoMobile.childImageSharp.fluid}
+        style={{ width: "12rem" }}
+      />
+    </Link>
   )
 }
 

@@ -133,6 +133,7 @@
 
     &__logo {
       @include respond(phone) {
+        float: left;
         & > div:nth-of-type(1) {
           width: 8rem !important;
         }
