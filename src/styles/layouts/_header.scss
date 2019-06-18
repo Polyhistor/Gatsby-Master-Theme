@@ -7,32 +7,52 @@
 
   &__logo-box {
     position: fixed;
-    left: 3%;
+    left: 15%;
+
+    @include respond(laptop) {
+      left: 5%;
+    }
 
     @include respond(tablet) {
-      left: 3%;
+      left: 15%;
+      top: 1rem;
+    }
+
+    @include respond(phone) {
+      left: 5%;
     }
   }
 
   &__logo {
     height: 3.5rem;
+
+    &-literal {
+      @include respond(phone) {
+        width: 10rem !important;
+      }
+    }
   }
 
   &__nav-button {
     position: fixed;
     top: 0.7rem;
-    right: 2%;
+    right: 22%;
 
     &-box-link {
       text-decoration: none;
     }
 
-    @include respond(tablet) {
-      right: 2rem;
+    @include respond(phone) {
+      right: 0rem;
+      top: -2px;
     }
 
-    @include respond(phone) {
-      right: 2rem;
+    @include respond(laptop) {
+      right: 8%;
+    }
+
+    @include respond(tablet) {
+      right: 12%;
     }
   }
 
@@ -47,6 +67,7 @@
 
     @include respond(phone) {
       top: 20%;
+      left: 6%;
     }
   }
 
@@ -58,6 +79,11 @@
       display: block;
       margin: 4.5rem 0 1.4rem 0;
       width: 45%;
+
+      @include respond(phone) {
+        margin: 0;
+        width: 90%;
+      }
     }
     & a:nth-child(2) {
       display: block;
@@ -66,7 +92,13 @@
 
     @include respond(phone) {
       text-align: center;
-      padding-top: 20rem;
+      & a:nth-child(2) {
+        display: none;
+        font-size: 1rem;
+      }
     }
+  }
+  @include respond(phone) {
+    height: 55rem;
   }
 }

@@ -63,26 +63,35 @@ Laptop & Desktop >= 1025
 $breakpoints paraments: 
 - phone 
 - tablet 
+- laptop
 - desk
 */
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
-    // 768/16 = 48
+    // 320 - 840
     @media (max-width: 48em) {
       @content;
     }
   }
 
   @if $breakpoint == tablet {
-    // 1024/16 = 64
+    // 775-1025
     @media (min-width: 48.5em) and (max-width: 64em) {
       @content;
     }
   }
 
+  @if $breakpoint == laptop {
+    // 1025-1429
+    @media (min-width: 64em) and (max-width: 90em) {
+      @content;
+    }
+  }
+
   @if $breakpoint == desk {
-    @media (min-width: 64.1em) {
+    // 1442-higher
+    @media (min-width: 90em) {
       @content;
     }
   }

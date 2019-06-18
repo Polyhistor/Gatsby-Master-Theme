@@ -20,6 +20,7 @@ const Logo = () => {
         <Img
           fluid={data.logo.childImageSharp.fluid}
           style={{ width: "12rem" }}
+          className="header__logo-literal"
         />
       </Link>
     </div>

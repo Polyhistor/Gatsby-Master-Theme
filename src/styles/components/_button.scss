@@ -8,16 +8,15 @@
   text-align: center;
   @include bigUppercaseText;
 
-  @include respond(phone) {
-    padding: 4rem 15rem;
-    display: inline;
-    border-radius: 5px;
-  }
-
   &--red {
     background-color: $color-red;
     padding: 0.9rem 2.7rem;
     border-radius: 0.4rem;
+
+    @include respond(phone) {
+      padding: 1.7rem 2.7rem;
+      border-radius: 0rem;
+    }
   }
   &--red2 {
     background: $color-red;

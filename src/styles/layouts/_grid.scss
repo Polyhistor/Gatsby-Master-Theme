@@ -1,18 +1,19 @@
 .row {
-  max-width: $grid-width;
+  max-width: $grid-width-desk;
   // centering a block element inside another block element
   margin: 0 auto;
 
   // apply it to all the nodes except the last one
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
-    @include respond(phone) {
-      margin-bottom: $gutter-vertical-small;
-    }
+  }
+
+  @include respond(laptop) {
+    max-width: $grid-width-laptop;
   }
 
   @include respond(tablet) {
-    max-width: $grid-width-tablet !important;
+    max-width: $grid-width-tablet;
   }
 
   @include respond(phone) {
@@ -37,7 +38,7 @@
     }
 
     @include respond(phone) {
-      width: 100% !important;
+      width: 100%;
     }
   }
 

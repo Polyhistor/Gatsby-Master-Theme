@@ -132,6 +132,10 @@
 
 .u-font-size-medium {
   font-size: 4rem;
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
 }
 
 .u-font-size-big {

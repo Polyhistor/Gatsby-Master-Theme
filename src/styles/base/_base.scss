@@ -13,18 +13,18 @@ html {
   font-family: Nunito-Regular;
   overflow-x: hidden;
 
-  @include respond(tablet) {
-    // width < 1024?
-    font-size: 56.25%;
-  }
-  @include respond(phone) {
-    // width < 768?
-    font-size: 35%;
-  }
-  @include respond(desk) {
-    // width > 1025 ?
-    font-size: 75%;
-  }
+  // @include respond(tablet) {
+  //   // 775 - 1025
+  //   font-size: 56.25%;
+  // }
+  // @include respond(phone) {
+  //   // width < 768?
+  //   font-size: 35%;
+  // }
+  // @include respond(desk) {
+  //   // width > 1025 ?
+  //   font-size: 75%;
+  // }
 }
 
 /* making use of inheritance */
