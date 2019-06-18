@@ -97,12 +97,28 @@
   padding-right: 10rem;
 }
 
+.u-translateY-tiny {
+  transform: translateY(10%);
+}
+
 .u-translateY-small {
   transform: translateY(15%);
 }
 
+.u-translateY-medium {
+  transform: translateY(20%);
+}
+
+.u-translateY-small-negative {
+  transform: translateY(-10%);
+}
+
 .u-translateY-sedium-negative {
   transform: translateY(-20%);
+}
+
+.u-translateY-huge-negative {
+  transform: translateY(-75%);
 }
 
 .u-translateY-quarter {
@@ -128,6 +144,10 @@
 // size
 .u-font-size-small {
   font-size: 2rem;
+}
+
+.u-font-size-sedium {
+  font-size: 3rem;
 }
 
 .u-font-size-medium {
@@ -202,8 +222,27 @@
 .quasi-specific {
   height: 5rem;
   width: 5rem;
+
+  @include respond(tablet) {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  @include respond(phone) {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 
 .remove-width {
   width: 0;
+}
+
+.mobile-float-left {
+  @include respond(tablet) {
+    float: left;
+  }
+  @include respond(phone) {
+    float: left;
+  }
 }

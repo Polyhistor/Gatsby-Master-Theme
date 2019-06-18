@@ -3,24 +3,27 @@
   background: black;
   text-transform: uppercase;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-
-  @include respond(phone) {
-    height: 44rem;
-    margin-top: 14rem;
-  }
 
   &__container {
     text-align: center;
     transform: translateY(25%);
+    margin-left: 13rem;
+
+    @include respond(laptop) {
+      margin-left: 7rem;
+    }
 
     @include respond(tablet) {
-      padding-left: 5rem;
+      transform: translateY(36%);
+      max-width: 56rem;
+      margin: 0 auto;
     }
 
     @include respond(phone) {
-      transform: translateY(0%);
+      transform: translateY(16%);
+      max-width: 30rem;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
     }
 
     &-image {
@@ -29,12 +32,79 @@
       padding-right: 2rem;
       position: relative;
 
+      @include respond(laptop) {
+        width: 13rem;
+      }
+
       @include respond(tablet) {
-        width: 10rem;
+        width: 14rem;
       }
 
       @include respond(phone) {
-        margin-left: 7rem;
+        width: 13rem;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    display: none;
+  }
+
+  @include respond(tablet) {
+    display: none;
+  }
+
+  &--tablet {
+    height: 10rem;
+    background: black;
+    text-transform: uppercase;
+    position: relative;
+
+    &-float-left {
+      float: left;
+    }
+
+    @include respond(desk) {
+      display: none;
+    }
+
+    @include respond(laptop) {
+      display: none;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    height: 23rem;
+    background: black;
+    text-transform: uppercase;
+    position: relative;
+
+    @include respond(desk) {
+      display: none;
+    }
+
+    @include respond(laptop) {
+      display: none;
+    }
+
+    @include respond(tablet) {
+      display: none;
+    }
+
+    &__heading {
+      color: white;
+      text-align: left;
+      font-family: Nunito-Black;
+    }
+
+    &-top {
+      padding-bottom: 3rem;
+      &:nth-child(1) h2 {
+        padding-bottom: 2rem;
       }
     }
   }

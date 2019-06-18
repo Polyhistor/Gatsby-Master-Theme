@@ -38,6 +38,10 @@
         display: none;
       }
 
+      @include respond(laptop) {
+        display: none;
+      }
+
       @include respond(tablet) {
         display: none;
       }
@@ -45,17 +49,8 @@
       @include respond(phone) {
         display: block;
         text-align: center;
-        transform: translateY(-40%);
         padding: 4rem;
       }
     }
   }
-
-  // &-banner {
-  //   &-hero {
-  //     @include respond(tablet) {
-  //       margin-top: -1.5rem;
-  //     }
-  //   }
-  // }
 }

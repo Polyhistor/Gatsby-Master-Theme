@@ -44,7 +44,7 @@ const Header = () => {
                 expore tours
               </Link>
               <Link to="/s" className="btn btn--white btn-animated">
-                &nbsp;watch trailer
+                &nbsp;watch trail
               </Link>
             </div>
           </div>

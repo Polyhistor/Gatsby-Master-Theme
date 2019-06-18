@@ -38,6 +38,7 @@
 
   &--white {
     color: $color-white;
+    font-family: Nunito-Black;
 
     @include respond(phone) {
       color: #fff;

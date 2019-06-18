@@ -16,19 +16,25 @@ import Trips from "../components/trips/trips"
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
 import WhyWildKiwi from "../components/mobile/whyWildkiwi"
+import FeaturedMobile from "../components/mobile/featuredMobile"
+
+// tablet component
+import FeaturedTablet from "../components/tablet/featuredTablet"
 
 const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
     <Landing />
     <Featured />
+    <FeaturedTablet />
+    <FeaturedMobile />
     <WatchTrailer />
     <BannerHero
-      headerFirst="itat eritia"
-      headersecond="quam"
-      headerThird="eictempor"
-      subHeaderFirst="ga dandebis eliqui consedit"
-      subHeaderSecond="fugia quiatiis consequi as."
+      headerFirst="Ga dandebis eliqui"
+      headersecond="consedit fugia quiatiis"
+      headerThird="consequi doluptusam."
+      subHeaderFirst="Dandebis eliqui consedit fugia quiatiis consequi as. Pora dolorei ctibus doluptusam, sum quiscia acerumquo quis aut licatem enia non reius autestionsed quiatiu. Dandebis eliqui consedit fugia quiatiis consequi as. Pora dolorei ctibus doluptusam, sum quiscia acerumquo quis aut licatem enia non reius autestionsed quiatiu."
+      subHeaderSecond=""
       buttonText="how it works"
     />
     <BoxContainer />
