@@ -84,7 +84,7 @@ $breakpoints paraments:
 
   @if $breakpoint == laptop {
     // 1025-1429
-    @media (min-width: 64em) and (max-width: 90em) {
+    @media (min-width: 64.1em) and (max-width: 90em) {
       @content;
     }
   }

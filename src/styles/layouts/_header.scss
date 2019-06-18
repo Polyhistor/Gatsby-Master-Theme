@@ -36,7 +36,7 @@
   &__nav-button {
     position: fixed;
     top: 0.7rem;
-    right: 22%;
+    right: 25%;
 
     &-box-link {
       text-decoration: none;
@@ -63,10 +63,14 @@
   &__text-box {
     position: absolute;
     top: 30%;
-    left: 15%;
+    left: 18rem;
 
     @include respond(laptop) {
       left: 6%;
+    }
+
+    @include respond(tablet) {
+      left: 11rem;
     }
 
     @include respond(phone) {
@@ -86,7 +90,7 @@
 
       @include respond(phone) {
         margin: 0;
-        width: 90%;
+        width: 62%;
       }
     }
     & a:nth-child(2) {

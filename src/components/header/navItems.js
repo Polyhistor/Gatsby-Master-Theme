@@ -23,7 +23,6 @@ const NavItems = () => {
     // fragments are used to avoic react parent element error
     <>
       <Logo />
-      <i className="mobile__arrow-down im im-angle-down" />
       {renderNavItems()}
       <NavButton />
     </>

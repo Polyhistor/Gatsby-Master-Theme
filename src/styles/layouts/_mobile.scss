@@ -7,17 +7,10 @@
       display: none;
     }
     @include respond(tablet) {
-      display: inline-block;
       color: white;
-      float: left;
-      position: absolute;
-      left: 30%;
     }
     @include respond(phone) {
-      display: inline-block;
       color: white;
-      position: absolute;
-      padding-top: 1rem;
     }
   }
 

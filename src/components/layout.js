@@ -4,6 +4,9 @@ import PropTypes from "prop-types"
 import Footer from "./footer/footer"
 import Navigation from "./header/navigation"
 
+//mobile modules
+import NavigationMobile from "./mobile/navigationMobile"
+
 import "../fonts/IconMonster/css/iconmonstr-iconic-font.css"
 import "../fonts/Nunito/css/stylesheet.css"
 import "../fonts/NexaRustSans-Black2/css/styles.css"
@@ -17,6 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
+      <NavigationMobile />
       <main>{children}</main>
       <Footer />
     </>
