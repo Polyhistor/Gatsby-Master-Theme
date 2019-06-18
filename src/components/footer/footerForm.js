@@ -16,7 +16,7 @@ const FooterForm = () => {
         feel free to drop us a note with any question
       </p>
       <div className="footer__form-fields mobile-no">
-        <form name="contact">
+        <form name="contact" data-netlify="true">
           <div className="footer__form-group u-float-left">
             <input
               type="text"
