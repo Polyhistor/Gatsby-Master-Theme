@@ -9,15 +9,14 @@
     padding: 1.2rem;
     height: 6.666667rem;
     transition: all 0.6s ease-in;
-    padding-left: 25%;
 
-    // @include respond(laptop) {
-    //   padding-left: 18%;
-    // }
+    @include respond(desk) {
+      margin-left: 42vh;
+    }
 
-    // @include respond(tablet) {
-    //   padding-left: 17%;
-    // }
+    @include respond(laptop) {
+      padding-left: 15vh;
+    }
 
     &--dark {
       position: fixed;
