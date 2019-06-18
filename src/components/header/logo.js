@@ -15,7 +15,7 @@ const Logo = () => {
     }
   `)
   return (
-    <div className="header__logo-box">
+    <li className="navigation__item">
       <Link className="header__logo" to="/">
         <Img
           fluid={data.logo.childImageSharp.fluid}
@@ -23,7 +23,7 @@ const Logo = () => {
           className="header__logo-literal"
         />
       </Link>
-    </div>
+    </li>
   )
 }
 
