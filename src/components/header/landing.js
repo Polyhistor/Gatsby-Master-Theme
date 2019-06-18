@@ -44,7 +44,6 @@ const Header = () => {
                 expore tours
               </Link>
               <Link to="/s" className="btn btn--white btn-animated">
-                <i className="im im-google-play" />
                 &nbsp;watch trailer
               </Link>
             </div>
