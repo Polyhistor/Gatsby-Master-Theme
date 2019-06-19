@@ -8,12 +8,7 @@
     text-align: center;
 
     &:first-child h2 {
-      @include respond(desk) {
-        font-size: 1.2rem;
-      }
-      @include respond(laptop) {
-        font-size: 1.2rem;
-      }
+      font-size: 1.2rem;
     }
 
     @include respond(laptop) {
@@ -115,7 +110,7 @@
     &-top {
       padding-left: 2.1rem;
 
-      &:nth-child(2) h2 {
+      & h2:nth-child(2) {
         margin-left: 8rem;
       }
     }

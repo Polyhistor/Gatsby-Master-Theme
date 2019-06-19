@@ -132,6 +132,9 @@
     }
 
     &__logo {
+      @include respond(tablet) {
+        float: left;
+      }
       @include respond(phone) {
         float: left;
         & > div:nth-of-type(1) {

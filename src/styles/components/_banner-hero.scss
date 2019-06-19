@@ -6,8 +6,21 @@
   }
   &__text-box {
     position: absolute;
+    width: 40%;
     top: 20%;
     left: 3%;
+
+    @include respond(laptop) {
+      width: 55%;
+      top: 20%;
+    }
+
+    @include respond(tablet) {
+      width: 85%;
+      top: 22%;
+      left: 5%;
+    }
+
     &-2 {
       top: 10%;
     }
@@ -16,9 +29,9 @@
   &-heading {
     &--main {
       display: block;
-      font-size: 6rem;
-      line-height: 6rem;
-      padding-bottom: 2rem;
+      font-size: 3rem;
+      line-height: 3.5rem;
+      padding-bottom: 1.5rem;
       font-family: Nexa-Rust;
       &-2 {
         font-size: 1.8rem;
@@ -27,7 +40,7 @@
     }
     &--sub {
       font-family: Nunito-Regular;
-      padding-top: 5rem;
+      font-family: 1.5rem;
       &-2 {
         font-size: 2rem;
       }
@@ -35,6 +48,6 @@
   }
 
   &__button-box {
-    padding-top: 5rem;
+    padding-top: 4.2rem;
   }
 }

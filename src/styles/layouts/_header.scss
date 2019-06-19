@@ -4,6 +4,8 @@
   background-size: cover;
   background-position: top;
   position: relative;
+  max-width: 126.666rem;
+  margin: 0 auto;
 
   &__logo-box {
     position: fixed;
@@ -63,7 +65,6 @@
   &__text-box {
     position: absolute;
     top: 30%;
-    left: 18rem;
 
     @include respond(laptop) {
       left: 6%;
