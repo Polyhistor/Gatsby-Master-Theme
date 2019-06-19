@@ -4,6 +4,10 @@
   &__text-box {
     padding: 12rem 0rem;
     transform: translateY(10rem);
+
+    @include respond(laptop) {
+      padding: 2rem 0rem;
+    }
   }
 
   &__text {
@@ -21,6 +25,14 @@
     color: $color-white;
     width: 90%;
     margin: 0 auto;
+
+    @include respond(laptop) {
+      font-size: 1.3rem;
+    }
+  }
+
+  @include respond(laptop) {
+    height: 24rem;
   }
 
   @include respond(tablet) {
