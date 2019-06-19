@@ -26,8 +26,8 @@ const BannerHero = ({
     <section className="section-banner section-banner-hero mobile-no">
       <div className="row">
         <BackgroundImage
-          Tag="section"
           fluid={data.banner.childImageSharp.fluid}
+          className={"banner-hero__image"}
         >
           <div className="banner-hero">
             <div className="banner-hero__text-box">

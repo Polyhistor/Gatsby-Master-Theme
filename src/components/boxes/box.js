@@ -15,6 +15,10 @@ const Box = ({ textFirst, textSecond, imageData }) => {
             <br />
             {textSecond}
           </span>
+          <div className="feature-box__hover">
+            Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo
+            odiscia prate res ma sapiet qui dolorepratem esequatur, autemporibus
+          </div>
         </div>
       </BackgroundImage>
     </div>
