@@ -29,6 +29,9 @@
     @include respond(desk) {
       display: none;
     }
+    @include respond(laptop) {
+      display: none;
+    }
     @include respond(tablet) {
       display: none;
     }

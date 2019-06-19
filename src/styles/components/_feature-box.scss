@@ -1,4 +1,6 @@
 .feature-box {
+  border-radius: 3px;
+
   &__text-box {
     padding: 12rem 0rem;
     transform: translateY(10rem);
@@ -9,26 +11,21 @@
     color: $color-white;
     font-family: Nunito-Black;
     display: block;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 
-  &__hover {
-    display: none;
-  }
-
-  &:hover .feature-box__text {
-    visibility: hidden;
-  }
-
-  &:hover .feature-box__hover {
-    font-size: 2.4rem;
+  &__description {
+    font-family: Nunito-Extrabold;
+    font-size: 1.7rem;
     color: $color-white;
-    font-family: Nunito-Black;
-    display: block;
-    width: 100%;
-    margin-top: -27rem;
-    height: 100%;
-    padding: 3.2rem 1rem;
-    background-color: rgba($color-black, 0.5);
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @include respond(tablet) {
+    &:nth-child(1) {
+      margin-bottom: 1.3rem;
+    }
   }
 }

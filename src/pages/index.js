@@ -7,7 +7,6 @@ import Landing from "../components/header/landing"
 import Featured from "../components/featured"
 import BannerHero from "../components/banners/bannerHero"
 import BoxContainer from "../components/boxes/boxContainer"
-import BlackBar from "../components/blackBar"
 import TourBanner from "../components/banners/tourBanner"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
@@ -38,7 +37,6 @@ const IndexPage = props => (
       buttonText="how it works"
     />
     <BoxContainer />
-    <BlackBar text="destinations" />
     <TourBanner
       destination="newzealand"
       title="new zealand"

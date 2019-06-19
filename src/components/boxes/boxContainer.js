@@ -49,6 +49,7 @@ const BoxContainer = () => {
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
+        <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
         <Box
           imageData={imagedata.newVehiclesDesk.childImageSharp.fluid}
           textFirst="new"

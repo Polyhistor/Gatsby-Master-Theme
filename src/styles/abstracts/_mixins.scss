@@ -53,6 +53,11 @@
   text-transform: capitalize;
 }
 
+@mixin boldGreen {
+  font-size: 3rem;
+  color: $color-primary;
+}
+
 // Pouya's media query manager
 /* 
 specified dimensions : 
