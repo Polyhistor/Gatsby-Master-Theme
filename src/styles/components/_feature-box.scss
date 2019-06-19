@@ -6,7 +6,7 @@
     transform: translateY(10rem);
 
     @include respond(laptop) {
-      padding: 2rem 0rem;
+      padding: 1.2rem 0rem;
     }
   }
 
