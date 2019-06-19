@@ -49,16 +49,16 @@ const FeaturedTablet = () => {
         </div>
 
         <div className="featured--tablet-bottom">
-          <div className="featured__container-image tablet-float-left u-padding-top-sedium">
+          <div className="featured__container-image featured__container-image--metro tablet-float-left u-padding-top-sedium">
             <Img fluid={imageData.logoMetroTablet.childImageSharp.fluid} />
           </div>
-          <div className="featured__container-image tablet-float-left u-translateY-medium ">
+          <div className="featured__container-image featured__container-image--daily tablet-float-left u-translateY-medium ">
             <Img fluid={imageData.logoDailyTablet.childImageSharp.fluid} />
           </div>
-          <div className="featured__container-image u-translateY-small u-translateY-tiny ">
+          <div className="featured__container-image featured__container-image--west  ">
             <Img fluid={imageData.logoWestpacTablet.childImageSharp.fluid} />
           </div>
-          <div className="featured__container-image u-translateY-tiny">
+          <div className="featured__container-image  u-translateY-tiny">
             <Img
               className="quasi-specific"
               fluid={imageData.logoQualTablet.childImageSharp.fluid}

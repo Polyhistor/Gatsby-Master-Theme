@@ -1,21 +1,29 @@
 .featured {
-  height: 10rem;
+  height: 12.2rem;
   background: black;
   text-transform: uppercase;
   position: relative;
 
   &__container {
     text-align: center;
-    transform: translateY(25%);
-    margin-left: 13rem;
+
+    &:first-child h2 {
+      @include respond(desk) {
+        font-size: 1.2rem;
+      }
+      @include respond(laptop) {
+        font-size: 1.2rem;
+      }
+    }
 
     @include respond(laptop) {
-      margin-left: 7rem;
+      margin-left: 0rem;
+      transform: translateY(31%);
     }
 
     @include respond(tablet) {
-      transform: translateY(36%);
-      max-width: 56rem;
+      transform: translateY(30%);
+      max-width: 60rem;
       margin: 0 auto;
     }
 
@@ -28,20 +36,64 @@
 
     &-image {
       display: inline-block;
-      width: 20rem;
-      padding-right: 2rem;
+      padding-right: 2.1rem;
       position: relative;
 
-      @include respond(laptop) {
-        width: 13rem;
+      &--metro {
+        @include respond(desk) {
+          width: 18.4rem;
+          transform: translateY(30%);
+        }
+        @include respond(laptop) {
+          width: 15.8rem;
+          transform: translateY(30%);
+        }
+        @include respond(tablet) {
+          width: 14.3rem;
+        }
+
+        @include respond(phone) {
+          width: 11.3rem;
+          margin-left: 4px;
+        }
       }
 
-      @include respond(tablet) {
-        width: 14rem;
+      &--daily {
+        @include respond(desk) {
+          width: 24.4rem;
+          transform: translateY(51%);
+        }
+        @include respond(laptop) {
+          width: 20.9rem;
+          transform: translateY(51%);
+        }
+        @include respond(tablet) {
+          width: 17.3rem;
+        }
+        @include respond(phone) {
+          width: 14.3rem;
+          transform: translateY(30%);
+        }
       }
 
-      @include respond(phone) {
-        width: 13rem;
+      &--west {
+        @include respond(desk) {
+          width: 23.4rem;
+          transform: translateY(30%);
+        }
+        @include respond(laptop) {
+          width: 20rem;
+          transform: translateY(30%);
+        }
+        @include respond(tablet) {
+          width: 18.6rem;
+        }
+        @include respond(phone) {
+          width: 18.6rem;
+        }
+      }
+
+      &--qual {
       }
     }
   }
@@ -60,8 +112,26 @@
     text-transform: uppercase;
     position: relative;
 
+    &-top {
+      padding-left: 2.1rem;
+
+      &:nth-child(2) h2 {
+        margin-left: 8rem;
+      }
+    }
+
     &-float-left {
       float: left;
+    }
+
+    &-bottom {
+      margin-left: -3.5rem;
+      transform: translateY(-40%);
+      padding-left: 5.2rem;
+    }
+
+    &:nth-child(2) h2 {
+      margin-left: 8rem;
     }
 
     @include respond(desk) {

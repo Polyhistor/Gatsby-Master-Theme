@@ -42,19 +42,19 @@ const Featured = () => {
         <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
           featured in
         </h2>
-        <div className="featured__container-image u-translateY-quarter">
+        <div className="featured__container-image featured__container-image--metro">
           <Img fluid={imageData.logoMetro.childImageSharp.fluid} />
         </div>
-        <div className="featured__container-image u-translateY-half u-margin-right-big">
+        <div className="featured__container-image featured__container-image--daily u-translateY-half u-margin-right-big">
           <Img fluid={imageData.logoDaily.childImageSharp.fluid} />
         </div>
         <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
           recognised by
         </h2>
-        <div className="featured__container-image u-translateY-small">
+        <div className="featured__container-image featured__container-image--west u-translateY-small">
           <Img fluid={imageData.logoWestpac.childImageSharp.fluid} />
         </div>
-        <div className="featured__container-image u-translateY-quarter">
+        <div className="featured__container-image featured__container-image--qual u-translateY-quarter">
           <Img
             className="quasi-specific"
             fluid={imageData.logoQual.childImageSharp.fluid}
