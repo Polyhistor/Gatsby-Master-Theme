@@ -32,7 +32,7 @@ const Banner = ({ header, subHeaderFirst, subHeaderSecond, buttonText }) => {
                   {subHeaderFirst} <br /> {subHeaderSecond}
                 </span>
               </h2>
-              <div className="banner-hero__button-box">
+              <div className="banner-hero__button-box banner-hero__text-box-2">
                 <Link to="/s" className="btn btn--transparent btn-animated">
                   {buttonText}
                 </Link>

@@ -5,11 +5,13 @@
   }
 
   &__paragraph {
+    font-size: 1.2rem;
   }
 
   &__author {
     @include bigCapitalText;
     color: $color-primary;
+    font-size: 1.3rem;
   }
 
   @include respond(phone) {

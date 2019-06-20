@@ -6,7 +6,7 @@
   // apply to all elements except the last one
 
   &:not(:last-child) {
-    padding-right: 4rem;
+    padding-right: 1rem;
 
     @include respond(tablet) {
       padding-right: 1rem;
@@ -17,6 +17,8 @@
   &-header-box {
     @include bigCapitalText;
     color: $color-primary;
+    width: 100%;
+    float: left;
 
     @include respond(phone) {
       text-align: center;
@@ -25,6 +27,10 @@
 
   &__box {
     width: 100%;
+
+    & > div {
+      border-radius: 3px;
+    }
   }
 
   &__image {
@@ -76,5 +82,10 @@
         display: none;
       }
     }
+  }
+
+  &__text-box {
+    text-align: center;
+    transform: translateY(-80%);
   }
 }

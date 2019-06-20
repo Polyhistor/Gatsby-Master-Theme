@@ -4,7 +4,7 @@ import Review from "./review"
 const Reviews = () => {
   return (
     <section className="section-facebook-reviews">
-      <div className="row u-background-teal">
+      <div className="row">
         <div className="col-1-of-4">
           <div className="facebook-reviews">
             <span className="facebook-reviews__rating">
@@ -21,6 +21,13 @@ const Reviews = () => {
             <center className="facebook-reviews__subtitle">
               based on 650 reviews
             </center>
+            <a
+              aria-current="page"
+              class="btn btn--green tablet-green-button"
+              href="/"
+            >
+              view
+            </a>
           </div>
         </div>
         <div className="col-1-of-4">

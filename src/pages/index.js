@@ -89,7 +89,7 @@ const IndexPage = props => (
     />
     <WhyWildKiwi />
     <Banner
-      header="how it works"
+      header="How it works"
       subHeaderFirst="everything you need to"
       subHeaderSecond="know about our tours"
       buttonText="continue"

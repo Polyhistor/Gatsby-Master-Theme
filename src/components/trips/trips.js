@@ -66,8 +66,8 @@ const Trips = () => {
   return (
     <section className="section-trips mobile-no">
       <div className="row">
-        <div className="trips-header-box u-padding-bottom-medium ">
-          <h2 className="trips-header-box heading-secondary">our trips</h2>
+        <div className="trips-header-box u-padding-bottom-small ">
+          <h2 className="green-title">Popular Tours</h2>
         </div>
         <div className="trips-container">
           <Trip
@@ -121,6 +121,15 @@ const Trips = () => {
             priceDay="$177 per day"
           />
         </div>
+      </div>
+      <div className="row trips__text-box">
+        <a
+          aria-current="page"
+          class="btn btn--green tablet-green-button"
+          href="/"
+        >
+          view trips
+        </a>
       </div>
     </section>
   )

@@ -90,7 +90,7 @@
       width: 45%;
 
       @include respond(phone) {
-        margin: 0;
+        margin: 0 auto;
         width: 62%;
       }
     }
@@ -101,6 +101,7 @@
 
     @include respond(phone) {
       text-align: center;
+      margin-top: 9rem;
       & a:nth-child(2) {
         display: none;
         font-size: 1rem;
@@ -113,6 +114,6 @@
   }
 
   @include respond(phone) {
-    height: 55rem;
+    height: 40rem;
   }
 }

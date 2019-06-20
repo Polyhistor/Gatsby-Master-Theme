@@ -50,5 +50,9 @@ body {
     height: 6.666667rem;
     background: black;
     z-index: 1;
+
+    @include respond(phone) {
+      height: 4.9rem;
+    }
   }
 }
