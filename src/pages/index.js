@@ -14,10 +14,12 @@ import Trips from "../components/trips/trips"
 
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
+import DestinationsMobile from "../components/mobile/destinationsMobile"
 import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 import FeaturedMobile from "../components/mobile/featuredMobile"
 
 // tablet component
+import DestinationsTablet from "../components/tablet/destinationsTablet"
 import FeaturedTablet from "../components/tablet/featuredTablet"
 
 const IndexPage = props => (
@@ -50,6 +52,38 @@ const IndexPage = props => (
       title="australia"
       subtitle=" 6 - 14 day tours"
       departs="departs sydney & brisbane"
+      details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+      price="From $160 AUD per day"
+    />
+    <DestinationsTablet
+      destination="newzealand"
+      title="new zealand"
+      subtitle=" 1 - 4 day tours"
+      departs="departs ssydney & brisbane"
+      details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+      price="From $160 AUD per day"
+    />
+    <DestinationsTablet
+      destination="australia"
+      title="australia"
+      subtitle=" 1 - 4 day tours"
+      departs="departs ssydney & brisbane"
+      details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+      price="From $160 AUD per day"
+    />
+    <DestinationsMobile
+      destination="newzealand"
+      title="new zealand"
+      subtitle=" 1 - 4 day tours"
+      departs="departs ssydney & brisbane"
+      details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+      price="From $160 AUD per day"
+    />
+    <DestinationsMobile
+      destination="australia"
+      title="australia"
+      subtitle=" 1 - 4 day tours"
+      departs="departs ssydney & brisbane"
       details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
       price="From $160 AUD per day"
     />

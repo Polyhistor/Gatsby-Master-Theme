@@ -1,10 +1,9 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-
 import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 
-const TourBanner = ({
+const DestinationsTablet = ({
   destination,
   title,
   subtitle,
@@ -15,7 +14,7 @@ const TourBanner = ({
   // having the query for both new zealand and australia
   const imageData = useStaticQuery(graphql`
     query {
-      newzealand: file(
+      newzealandTablet: file(
         relativePath: { eq: "wild-kiwi-destinations-newzealand.jpg" }
       ) {
         childImageSharp {
@@ -24,7 +23,7 @@ const TourBanner = ({
           }
         }
       }
-      australia: file(
+      australiaTablet: file(
         relativePath: { eq: "wild-kiwi-destinations-australia.jpg" }
       ) {
         childImageSharp {
@@ -37,11 +36,25 @@ const TourBanner = ({
   `)
 
   return (
-    <section className={`section-tour-banner-${destination}`}>
+    <section className={`section-tour-banner-${destination}-tablet`}>
       <div className="row">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
-      </div>
-      <div className="row">
+        <div className="col-2-of-4 tablet-margin-left-negative-normal auto-width-height">
+          <figure className="tour-banner__figure">
+            {/* choosing image based on the given props */}
+            <Img
+              fluid={
+                destination === "newzealand"
+                  ? imageData.newzealandTablet.childImageSharp.fluid
+                  : imageData.australiaTablet.childImageSharp.fluid
+              }
+            />
+            <figcaption
+              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
+            >
+              {destination === "newzealand" ? "7 tours" : "3 tours"}
+            </figcaption>
+          </figure>
+        </div>
         <div className="col-1-of-4">
           <div className="tour-banner__description">
             <h3
@@ -64,8 +77,8 @@ const TourBanner = ({
               <Link
                 className={
                   destination === "newzealand"
-                    ? "btn btn--green tablet-green-button"
-                    : "btn btn--red2 tablet-red-button"
+                    ? "btn btn--green "
+                    : "btn btn--red2 "
                 }
                 to="/"
               >
@@ -74,23 +87,7 @@ const TourBanner = ({
             </div>
           </div>
         </div>
-        <div className="col-2-of-4 tablet-margin-left-negative-normal auto-width-height">
-          <figure className="tour-banner__figure">
-            {/* choosing image based on the given props */}
-            <Img
-              fluid={
-                destination === "newzealand"
-                  ? imageData.newzealand.childImageSharp.fluid
-                  : imageData.australia.childImageSharp.fluid
-              }
-            />
-            <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
-            >
-              {destination === "newzealand" ? "7 tours" : "3 tours"}
-            </figcaption>
-          </figure>
-        </div>
+
         <div className="col-1-of-4 tour-banner__svg-map tablet-margin-right-no">
           <div className="tour-banner__svg-map-container tablet-padding-top-medium">
             <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
@@ -112,4 +109,4 @@ const TourBanner = ({
   )
 }
 
-export default TourBanner
+export default DestinationsTablet

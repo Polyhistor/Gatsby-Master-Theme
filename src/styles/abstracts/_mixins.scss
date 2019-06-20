@@ -94,12 +94,6 @@ $breakpoints paraments:
     }
   }
 
-  @if $breakpoint == laptop15 {
-    @media (min-width: 96rem) and (max-width: 116) {
-      @content;
-    }
-  }
-
   @if $breakpoint == desk {
     // 1442-higher
     @media (min-width: 90em) {

@@ -7,6 +7,11 @@
 .section {
   &-tour-banner {
     &-newzealand {
+      & > .row:first-child {
+        border: 0;
+        margin-bottom: 0px !important;
+      }
+
       & > .row {
         border: 1px solid $color-primary;
 
@@ -14,13 +19,113 @@
           border: 0px;
         }
       }
+
+      @include respond(tablet) {
+        display: none;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+
+      &-tablet {
+        & > .row {
+          border: 1px solid $color-primary;
+        }
+
+        @include respond(phone) {
+          display: none;
+        }
+
+        @include respond(tablet) {
+          display: block;
+        }
+
+        @include respond(laptop) {
+          display: none;
+        }
+
+        @include respond(desktop) {
+          display: none;
+        }
+      }
+
+      &-mobile {
+        @include respond(phone) {
+          display: block;
+        }
+
+        @include respond(tablet) {
+          display: none;
+        }
+
+        @include respond(laptop) {
+          display: none;
+        }
+
+        @include respond(desktop) {
+          display: none;
+        }
+      }
     }
     &-australia {
+      & > .row:first-child {
+        display: none;
+      }
+
       & > .row {
         border: 1px solid $color-red;
 
         @include respond(phone) {
           border: 0px;
+        }
+      }
+
+      @include respond(tablet) {
+        display: none;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+
+      &-tablet {
+        & > .row {
+          border: 1px solid $color-red;
+        }
+
+        @include respond(phone) {
+          display: none;
+        }
+
+        @include respond(tablet) {
+          display: block;
+        }
+
+        @include respond(laptop) {
+          display: none;
+        }
+
+        @include respond(desktop) {
+          display: none;
+        }
+      }
+
+      &-mobile {
+        @include respond(phone) {
+          display: block;
+        }
+
+        @include respond(tablet) {
+          display: none;
+        }
+
+        @include respond(laptop) {
+          display: none;
+        }
+
+        @include respond(desktop) {
+          display: none;
         }
       }
     }
