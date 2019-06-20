@@ -71,7 +71,7 @@ const TourBanner = ({
             </div>
           </div>
         </div>
-        <div className="col-2-of-4 tablet-margin-left-negative-normal">
+        <div className="col-2-of-4 tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
             {/* choosing image based on the given props */}
             <Img
@@ -84,11 +84,11 @@ const TourBanner = ({
             <figcaption
               className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
             >
-              new tour added
+              {destination === "newzealand" ? "7 tours" : "3 tours"}
             </figcaption>
           </figure>
         </div>
-        <div className="col-1-of-4 u-margin-left-titan tablet-margin-right-no">
+        <div className="col-1-of-4 tablet-margin-right-no">
           <div className="tablet-padding-top-medium">
             <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
           </div>

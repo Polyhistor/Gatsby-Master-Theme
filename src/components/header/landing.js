@@ -41,7 +41,7 @@ const Header = () => {
                 to="/s"
                 className="btn btn--green btn-animated mobile-green-buton"
               >
-                expore tours
+                expore
               </Link>
               <Link to="/s" className="btn btn--white btn-animated">
                 &nbsp;watch trail

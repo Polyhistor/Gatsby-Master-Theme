@@ -67,6 +67,11 @@
           display: none;
         }
       }
+
+      &:first-child a .btn .btn-green {
+        padding: 1.2rem 5.5rem;
+        display: none;
+      }
     }
   }
 
@@ -78,9 +83,15 @@
       top: 3%;
       left: 3%;
       text-transform: uppercase;
-      font-family: Nunito-ExtraBold;
+      font-family: Nunito-Black;
       color: $color-white;
-      padding: 0.8rem 2rem;
+      padding: 0.8rem 0.5rem;
+      border-radius: 50%;
+      height: 5rem;
+      width: 5rem;
+      text-align: center;
+      font-size: 1.2rem;
+
       &-newzealand {
         background-color: $color-primary;
       }

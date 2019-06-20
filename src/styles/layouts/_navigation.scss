@@ -1,35 +1,19 @@
 .navigation {
-  max-width: 87.25rem;
   &__nav {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
     width: 100%;
     padding: 1.2rem;
     height: 6.666667rem;
     transition: all 0.6s ease-in;
-    padding-left: 18rem;
+    max-width: 126.666rem;
 
     @include respond(laptop) {
       padding-left: 8rem;
-    }
-
-    &--dark {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      width: 100%;
-      padding: 1.2rem;
-      height: 6.666667rem;
-      background: black;
-      transition: all 0.6s ease-in;
-      padding-left: 18rem;
-
-      @include respond(laptop) {
-        padding-left: 8rem;
-      }
+      max-width: 112.666rem;
     }
   }
   &__list {
