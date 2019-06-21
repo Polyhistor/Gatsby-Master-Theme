@@ -11,6 +11,13 @@
     @include respond(tablet) {
       padding-right: 1rem;
       padding-left: 1rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &:last-child {
+    @include respond(tablet) {
+      padding-left: 1rem;
     }
   }
 
@@ -36,6 +43,10 @@
   &__image {
     width: 20rem;
     height: 15rem;
+
+    @include respond(laptop) {
+      width: 24rem;
+    }
   }
 
   &__duration {
@@ -48,26 +59,45 @@
     display: block;
     @include whiteGreen;
 
+    @include respond(tablet) {
+      left: 10%;
+    }
+
     &-text {
       display: inherit;
       @include bigUppercaseText;
       padding-top: 0.7rem;
       word-spacing: 100vh;
       text-align: center;
+      font-size: 1.2rem;
+      &::first-letter {
+        font-family: Nunito-Black;
+      }
     }
   }
 
   &__description {
     &-sub {
       @include greySubtitle;
+
+      @include respond(tablet) {
+        font-size: 1rem;
+        font-family: Nunito-Extrabold;
+        color: $color-grey-dark;
+      }
     }
     &-main {
       @include bigCapitalText;
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
     &-price {
       color: $color-primary;
       @include bigCapitalText;
+
+      @include respond(tablet) {
+        font-size: 1.2rem;
+      }
+
       &--day {
         @include smallNormalText;
         padding-left: 4px;
@@ -75,17 +105,14 @@
     }
   }
 
-  // re
-  &-container {
-    @include respond(tablet) {
-      & div.trips:last-child {
-        display: none;
-      }
-    }
-  }
-
   &__text-box {
     text-align: center;
     transform: translateY(-80%);
+  }
+
+  @include respond(laptop) {
+    &:nth-last-child(-n + 2) {
+      display: none;
+    }
   }
 }

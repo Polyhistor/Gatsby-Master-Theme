@@ -1,6 +1,6 @@
 export default [
   {
-    section: "info",
+    section: "",
     links: ["Our Vehicles", "Blog", "FAQ", "About Us"],
   },
   {

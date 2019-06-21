@@ -46,8 +46,8 @@ const whyWildKiwi = () => {
   return (
     <>
       <div className="mobile-yes">
-        <BlackBar text="why wildkiwi" />
         <section className="section-why-us">
+          <h2 class="green-title u-margin-bottom-small">Why Wild?</h2>
           <div className="row">
             <MobileBox
               textFirst="new"

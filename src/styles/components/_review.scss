@@ -6,12 +6,20 @@
 
   &__paragraph {
     font-size: 1.2rem;
+
+    @include respond(tablet) {
+      font-size: 1.6rem;
+    }
   }
 
   &__author {
     @include bigCapitalText;
     color: $color-primary;
     font-size: 1.3rem;
+  }
+
+  @include respond(tablet) {
+    padding: 2rem 2rem;
   }
 
   @include respond(phone) {

@@ -132,6 +132,15 @@
     & > .row {
       transform: translateY(-15%);
     }
+
+    @include respond(tablet) {
+      padding-top: 13rem;
+      height: 78rem;
+    }
+
+    @include respond(laptop) {
+      height: 30rem;
+    }
   }
 
   &-mobile {

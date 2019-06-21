@@ -7,28 +7,41 @@
     &-box {
       display: inline-block;
       &:not(:last-child) {
-        padding-right: 2.8rem;
+        padding-right: 1.2rem;
       }
 
       @include respond(tablet) {
-        padding-right: 1.7rem !important;
-        padding-left: 1.7rem;
+        padding-bottom: 1.2rem;
       }
     }
     &-image {
-      width: 21rem;
+      width: 20rem;
       height: 20rem;
 
       @include respond(tablet) {
-        width: 24.1rem;
+        width: 22.1rem;
+        height: 22.1rem;
+      }
+
+      @include respond(laptop) {
+        width: 23.8rem;
+        height: 20rem;
       }
     }
 
-    // removing last two elements
-    @include respond(tablet) {
+    @include respond(laptop) {
       & figure:nth-last-child(-n + 2) {
         display: none;
       }
     }
+  }
+
+  &__name {
+    position: absolute;
+    margin-left: 8rem;
+    margin-top: -3.2rem;
+    color: white;
+    font-family: Nunito-Black;
+    font-size: 1.3rem;
   }
 }

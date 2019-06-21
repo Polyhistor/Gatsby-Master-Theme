@@ -2,6 +2,18 @@
   width: 100%;
   padding: 7rem 7rem;
 
+  @include respond(phone) {
+    text-align: center;
+  }
+
+  @include respond(tablet) {
+    margin-top: 14rem;
+  }
+
+  @include respond(laptop) {
+    padding: 7rem 4rem;
+  }
+
   &__rating {
     font-family: Nunito-Black;
     color: $color-primary;
@@ -43,13 +55,5 @@
     @include respond(phone) {
       font-size: 1.2rem;
     }
-  }
-
-  @include respond(phone) {
-    text-align: center;
-  }
-
-  @include respond(tablet) {
-    padding: 9rem 0rem 0rem 8rem;
   }
 }

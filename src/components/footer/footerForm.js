@@ -15,13 +15,13 @@ const FooterForm = () => {
       <p className="u-color-gray u-padding-top-big mobile-no">
         feel free to drop us a note with any question
       </p>
-      <div className="footer__form-fields mobile-no">
+      <div className="footer__form-fields  mobile-no ">
         <form name="contact" data-netlify="true">
           <div className="footer__form-group u-float-left">
             <input
               type="text"
               name="name"
-              className="footer__form-input"
+              className="footer__form-input foooter__form-input-name"
               placeholder="name"
             />
           </div>
@@ -29,7 +29,7 @@ const FooterForm = () => {
             <input
               type="email"
               name="email"
-              className="footer__form-input"
+              className="footer__form-input foooter__form-input-email"
               placeholder="email"
             />
           </div>

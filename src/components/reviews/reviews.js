@@ -23,7 +23,7 @@ const Reviews = () => {
             </center>
             <a
               aria-current="page"
-              class="btn btn--green tablet-green-button"
+              className="btn btn--green tablet-green-button"
               href="/"
             >
               view

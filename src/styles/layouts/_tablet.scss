@@ -5,7 +5,7 @@
       position: relative;
       text-decoration: none;
       color: #fff;
-      padding: 2rem 3rem;
+      padding: 1.2rem 7.4rem;
       font-size: 2rem;
       text-transform: uppercase;
       font-family: Nunito-Extrabold;
@@ -47,6 +47,30 @@
   &-no {
     @include respond(tablet) {
       display: none;
+    }
+  }
+
+  &-margin-left {
+    @include respond(tablet) {
+      margin-left: 33rem;
+    }
+  }
+
+  &-max-width {
+    @include respond(tablet) {
+      max-width: 20rem;
+    }
+  }
+
+  &-padding-left-medium {
+    @include respond(tablet) {
+      padding-left: 4rem;
+    }
+  }
+
+  &-margin-left-medium {
+    @include respond(tablet) {
+      margin-left: 4rem;
     }
   }
 }

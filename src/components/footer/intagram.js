@@ -65,7 +65,7 @@ const Instagram = () => {
   return (
     <React.Fragment>
       <div className="trips-header-box u-padding-bottom-medium mobile-no">
-        <h2 className="trips-header-box heading-secondary">#WILDKIWITOURS</h2>
+        <h2 className="green-title">#WILDKIWITOURS</h2>
       </div>
       <div className="instagram__posts mobile-no">
         <InstagramPosts

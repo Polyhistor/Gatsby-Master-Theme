@@ -135,7 +135,7 @@
     @include respond(laptop) {
       width: 45rem;
       &:first-child div {
-        height: 40rem;
+        height: 42rem;
       }
     }
 

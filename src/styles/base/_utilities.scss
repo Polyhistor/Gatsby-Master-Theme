@@ -35,6 +35,14 @@
 
 .u-margin-left-huge {
   margin-left: 15rem;
+
+  @include respond(tablet) {
+    margin-left: 0rem;
+  }
+
+  @include respond(laptop) {
+    margin-left: 7rem;
+  }
 }
 
 .u-margin-left-titan {
@@ -67,6 +75,11 @@
 
 .u-padding-top-big {
   padding-top: 3rem;
+
+  @include respond(tablet) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .u-padding-top-huge {
@@ -98,7 +111,15 @@
 }
 
 .u-padding-right-huge {
-  padding-right: 10rem;
+  padding-right: 8rem;
+
+  @include respond(tablet) {
+    padding-right: 3rem;
+  }
+
+  @include respond(laptop) {
+    padding-right: 5rem;
+  }
 }
 
 .u-translateY-tiny {
@@ -179,6 +200,10 @@
   text-transform: uppercase;
 }
 
+.u-regular {
+  font-family: Nunito-regular !important;
+}
+
 //colors
 .u-background-black {
   background-color: black;
@@ -227,10 +252,15 @@
 }
 
 .green-title {
-  font-family: Nunito-Extrabold;
+  font-family: Nunito-Black;
   font-size: 4rem;
   color: $color-primary;
   text-transform: capitalize;
+
+  @include respond(phone) {
+    font-size: 3rem;
+    text-align: center;
+  }
 }
 
 // abnormaly

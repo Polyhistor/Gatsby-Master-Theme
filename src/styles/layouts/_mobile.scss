@@ -55,9 +55,42 @@
 
   &__why-us {
     &-box {
-      display: inline-block;
-      width: 50% !important;
+      display: block;
+      width: 100%;
       float: left;
+      padding: 1rem 2rem;
+    }
+  }
+
+  &-tablet {
+    @include respond(desk) {
+      display: none;
+    }
+    @include respond(laptop) {
+      display: none;
+    }
+    @include respond(tablet) {
+      display: inline-block;
+      width: 100%;
+    }
+    @include respond(phone) {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  &-tablet-no {
+    @include respond(tablet) {
+      display: none;
+    }
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &-margin-top {
+    @include respond(phone) {
+      margin-top: 5rem;
     }
   }
 }

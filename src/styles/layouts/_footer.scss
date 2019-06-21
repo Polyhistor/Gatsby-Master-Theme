@@ -2,8 +2,10 @@
   padding-top: 4rem;
 
   &__social-networks {
-    float: right;
-    width: 100%;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 4.1rem;
     border-top: 1px solid rgba($color-grey-dark, 0.4);
     border-bottom: 1px solid rgba($color-grey-dark, 0.4);
     &-box {
@@ -30,12 +32,24 @@
       font-size: 1rem;
       text-transform: capitalize;
       font-family: Nunito-Extrabold;
-      padding: 1rem 0;
+
+      &:not(:first-child) {
+        padding-top: 1rem;
+      }
+
       &-contact {
         padding: 0rem;
       }
       &--left {
         float: left;
+
+        @include respond(tablet) {
+          font-size: 1.1rem;
+        }
+
+        @include respond(laptop) {
+          padding-right: 5rem;
+        }
       }
     }
 
@@ -49,8 +63,12 @@
     &-link {
       display: block;
       text-decoration: none;
-      color: $color-grey-dark-3;
+      color: $color-grey-dark-2;
       font-family: Nunito-Regular;
+
+      @include respond(tablet) {
+        font-size: 1.1rem;
+      }
     }
     &--left {
       float: left;
@@ -58,12 +76,13 @@
   }
 
   &__form {
+    width: 37rem;
     &-links {
       &-item {
         text-align: center;
         text-decoration: none;
         font-size: 1rem;
-        padding: 1rem 4rem;
+        padding: 1.2rem 3.6rem;
         color: $color-primary;
         border: 1px solid $color-primary;
         @include bigUppercaseText;
@@ -80,6 +99,10 @@
           @include respond(tablet) {
             margin-bottom: 1rem;
           }
+        }
+
+        &:nth-child(2) {
+          padding: 1.2rem 6.1rem;
         }
 
         @include respond(tablet) {
@@ -102,7 +125,7 @@
     }
 
     &-group {
-      margin-top: 2rem;
+      margin-top: 0.6rem;
 
       @include respond(tablet) {
         float: left;
@@ -115,17 +138,32 @@
 
     &-input {
       height: 2.5rem;
-      width: 14.5rem;
+      width: 18rem;
       margin-bottom: 2rem;
+      border: 1px solid $color-grey-dark;
+      border-radius: 3px;
+
+      @include respond(tablet) {
+        width: 19rem;
+        border: 1px solid $color-primary;
+      }
+
       &--big {
         height: 3.5rem;
-        width: 14.5rem;
+        width: 18rem;
+        border: 1px solid #aeaeae;
+        border-radius: 3px;
         &::-webkit-input-placeholder {
           @include placeholder;
 
           @include respond(phone) {
             padding-left: 3rem;
           }
+        }
+
+        @include respond(tablet) {
+          border: 1px solid $color-primary;
+          width: 19rem;
         }
 
         @include respond(phone) {
@@ -149,8 +187,15 @@
     }
 
     &-fields {
+      width: 37rem;
       @include respond(phone) {
         margin-top: -5rem;
+      }
+
+      @include respond(tablet) {
+        & > form {
+          max-width: 37rem;
+        }
       }
     }
   }

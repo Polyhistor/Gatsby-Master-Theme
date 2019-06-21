@@ -25,9 +25,15 @@
   &--green {
     background: $color-primary;
     &-footer {
-      padding: 1rem 2.5rem;
+      padding: 1rem 4.3rem;
       font-size: 1rem;
       background: $color-primary;
+
+      @include respond(tablet) {
+        padding: 1rem 4.6rem;
+        margin-top: 1.5rem;
+        margin-right: 18.1rem;
+      }
 
       @include respond(phone) {
         width: 100%;

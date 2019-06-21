@@ -38,7 +38,10 @@ const FooterInfo = () => {
 
   return (
     <>
-      <div className="footer__trips mobile-no">{renderList}</div>
+      <div className="footer__trips mobile-no">
+        <h6 className="footer__trips-header">our trips</h6>
+        {renderList}
+      </div>
       <Img
         fluid={data.qualmark.childImageSharp.fluid}
         style={{ width: "6rem" }}
