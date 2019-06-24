@@ -7,8 +7,8 @@ const Logo = () => {
     query {
       logo: file(relativePath: { eq: "WildKiwi.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
+          fixed(height: 42, width: 120) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -17,10 +17,7 @@ const Logo = () => {
   return (
     <li className="navigation__item">
       <Link className="header__logo" to="/">
-        <Img
-          fluid={data.logo.childImageSharp.fluid}
-          className="header__logo-literal"
-        />
+        <Img fixed={data.logo.childImageSharp.fixed} />
       </Link>
     </li>
   )

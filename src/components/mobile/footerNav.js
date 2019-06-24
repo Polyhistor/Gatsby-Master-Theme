@@ -7,8 +7,8 @@ const footerNav = ({ link1, link2, link3, link4 }) => {
     query {
       footerQuasi: file(relativePath: { eq: "QualMark_Footer.png" }) {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 54, height: 52) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -48,7 +48,7 @@ const footerNav = ({ link1, link2, link3, link4 }) => {
       <div className="footer-nav__copy">
         <div className="footer-nav__logo">
           <Img
-            fluid={imageData.footerQuasi.childImageSharp.fluid}
+            fixed={imageData.footerQuasi.childImageSharp.fixed}
             width="10rem"
           />
         </div>
