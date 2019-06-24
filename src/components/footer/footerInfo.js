@@ -44,8 +44,7 @@ const FooterInfo = () => {
       </div>
       <Img
         fluid={data.qualmark.childImageSharp.fluid}
-        style={{ width: "6rem" }}
-        className="mobile-no"
+        className="footer__logo-literal"
       />
     </>
   )

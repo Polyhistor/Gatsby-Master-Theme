@@ -26,6 +26,12 @@
     }
   }
 
+  &__logo {
+    &-literal {
+      width: 6rem;
+    }
+  }
+
   &__trips {
     &-header {
       color: $color-black;
