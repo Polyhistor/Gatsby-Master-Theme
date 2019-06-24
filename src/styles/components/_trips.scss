@@ -75,9 +75,15 @@
     border-radius: 50%;
     display: block;
     @include whiteGreen;
+    text-align: center;
 
     @include respond(tablet) {
       left: 10%;
+    }
+
+    &-days {
+      font-family: Nunito-black;
+      font-size: 2rem;
     }
 
     &-text {
@@ -87,6 +93,7 @@
       word-spacing: 100vh;
       text-align: center;
       font-size: 1.2rem;
+      margin-top: -1rem;
       &::first-letter {
         font-family: Nunito-Black;
       }

@@ -72,7 +72,7 @@ const Trips = () => {
         <div className="trips-container">
           <Trip
             imageData={toursImages.bigSouth.childImageSharp.fluid}
-            duration="7 days"
+            duration="7"
             subtitle="christchurch return"
             title="big south"
             price="from $2483 NZD"
@@ -80,7 +80,7 @@ const Trips = () => {
           />
           <Trip
             imageData={toursImages.northernVoyage.childImageSharp.fluid}
-            duration="7 days"
+            duration="7"
             subtitle="christchurch return"
             title="north voyager"
             price="from $2483 NZD"
@@ -89,7 +89,7 @@ const Trips = () => {
 
           <Trip
             imageData={toursImages.NZDiscovery.childImageSharp.fluid}
-            duration="7 days"
+            duration="7"
             subtitle="christchurch return"
             title="big south"
             price="from $2483 NZD"
@@ -97,7 +97,7 @@ const Trips = () => {
           />
           <Trip
             imageData={toursImages.nzExplorer.childImageSharp.fluid}
-            duration="7 days"
+            duration="7"
             subtitle="christchurch return"
             title="NZ Adventurer"
             price="from $2483 NZD"
@@ -106,7 +106,7 @@ const Trips = () => {
 
           <Trip
             imageData={toursImages.queensland.childImageSharp.fluid}
-            duration="14 days"
+            duration="14"
             subtitle="christchurch return"
             title="NZ explorer"
             price="from $2483 NZD"
@@ -114,7 +114,7 @@ const Trips = () => {
           />
           <Trip
             imageData={toursImages.southernLoop.childImageSharp.fluid}
-            duration="14 days"
+            duration="14"
             subtitle="christchurch return"
             title="Southern Voyager"
             price="from $2483 NZD"

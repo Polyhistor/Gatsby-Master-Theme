@@ -21,6 +21,7 @@
     &-image {
       width: 20rem;
       height: 20rem;
+      border-radius: 3px;
 
       @include respond(phone) {
         width: 27rem;

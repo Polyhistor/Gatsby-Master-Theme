@@ -69,7 +69,7 @@ const TourBanner = ({
                 }
                 to="/"
               >
-                view trips
+                trips
               </Link>
             </div>
           </div>
@@ -87,7 +87,7 @@ const TourBanner = ({
             <figcaption
               className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
             >
-              {destination === "newzealand" ? "7 tours" : "3 tours"}
+              <span className="tour-banner__days">7</span> tours
             </figcaption>
           </figure>
         </div>

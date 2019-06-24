@@ -117,7 +117,6 @@
       text-transform: uppercase;
       font-family: Nunito-Black;
       color: $color-white;
-      padding: 0.8rem 0.5rem;
       border-radius: 50%;
       height: 5rem;
       width: 5rem;
@@ -129,6 +128,14 @@
       }
       &-australia {
         background-color: $color-red;
+      }
+
+      @include respond(tablet) {
+        padding: 0.5rem;
+      }
+
+      @include respond(phone) {
+        padding: 0.5rem;
       }
     }
 
@@ -166,5 +173,9 @@
         padding-top: 2rem;
       }
     }
+  }
+
+  &__days {
+    font-size: 2rem;
   }
 }
