@@ -24,7 +24,7 @@ const FooterTrips = () => {
   })
 
   return (
-    <div className="footer__trips--left u-padding-right-huge mobile-no">
+    <div className="footer__trips--left u-padding-right-huge">
       <h6 className="footer__trips-header">our trips</h6>
       {renderList}
     </div>

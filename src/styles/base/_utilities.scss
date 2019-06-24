@@ -84,6 +84,10 @@
 
 .u-padding-top-huge {
   padding-top: 5rem;
+
+  @include respond(phone) {
+    display: none;
+  }
 }
 
 .u-padding-bottom-small {
@@ -164,6 +168,13 @@
 
 .u-translateY-full {
   transform: translateY(100%);
+}
+
+.parent-centralized {
+  &-tablet {
+    max-width: $grid-width-tablet;
+    margin: 0 auto;
+  }
 }
 
 // size

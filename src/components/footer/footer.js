@@ -6,8 +6,8 @@ import FooterContents from "./footerContents"
 import FooterCopyright from "./footerCopyright"
 
 // mobile
-import WildkiwiTours from "../mobile/wildkiwiTours"
 import FooterFormMobile from "../mobile/footerFormMobile"
+import FooterNav from "../mobile/footerNav"
 
 const Footer = () => {
   return (
@@ -15,11 +15,16 @@ const Footer = () => {
       <div className="row u-border-top-bottom">
         <div className="footer__main-container">
           <Instagram />
-          <WildkiwiTours />
           <SocialNetowrk />
           <FooterFormMobile />
           <FooterContents />
           <FooterCopyright />
+          <FooterNav
+            link1="Our Trips"
+            link2="Info"
+            link3="Social"
+            link4="Contacts"
+          />
         </div>
       </div>
     </footer>

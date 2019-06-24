@@ -1,7 +1,7 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 
-const Box = ({ textFirst, textSecond, imageData }) => {
+const Box = ({ textFirst, textSecond, imageData, description }) => {
   return (
     <div className="col-1-of-4">
       <BackgroundImage
@@ -15,9 +15,7 @@ const Box = ({ textFirst, textSecond, imageData }) => {
             <br />
             {textSecond}
           </span>
-          <div className="feature-box__description">
-            Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo
-          </div>
+          <div className="feature-box__description">{description}</div>
         </div>
       </BackgroundImage>
     </div>

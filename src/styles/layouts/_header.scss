@@ -91,7 +91,7 @@
 
       @include respond(phone) {
         margin: 0 auto;
-        width: 62%;
+        width: 97%;
       }
     }
     & a:nth-child(2) {
@@ -115,5 +115,6 @@
 
   @include respond(phone) {
     height: 40rem;
+    max-width: 32rem;
   }
 }

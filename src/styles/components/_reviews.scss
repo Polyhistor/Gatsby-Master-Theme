@@ -4,6 +4,7 @@
 
   @include respond(phone) {
     text-align: center;
+    padding-top: 17rem;
   }
 
   @include respond(tablet) {

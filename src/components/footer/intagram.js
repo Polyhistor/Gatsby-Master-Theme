@@ -64,10 +64,10 @@ const Instagram = () => {
 
   return (
     <React.Fragment>
-      <div className="trips-header-box u-padding-bottom-medium mobile-no">
+      <div className="trips-header-box u-padding-bottom-medium">
         <h2 className="green-title">#WILDKIWITOURS</h2>
       </div>
-      <div className="instagram__posts mobile-no">
+      <div className="instagram__posts">
         <InstagramPosts
           imageData={instaPhotos.instaOne.childImageSharp.fluid}
           name="NameHere"

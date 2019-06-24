@@ -37,6 +37,7 @@ const DestinationsMobile = ({
 
   return (
     <section className={`section-tour-banner-${destination}-mobile`}>
+      <h2 class="green-title u-margin-bottom-small">destinations</h2>
       <div className="row">
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">

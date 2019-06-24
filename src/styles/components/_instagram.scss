@@ -10,6 +10,10 @@
         padding-right: 1.2rem;
       }
 
+      @include respond(phone) {
+        margin-bottom: 1.5rem;
+      }
+
       @include respond(tablet) {
         padding-bottom: 1.2rem;
       }
@@ -17,6 +21,13 @@
     &-image {
       width: 20rem;
       height: 20rem;
+
+      @include respond(phone) {
+        width: 27rem;
+        height: 25rem;
+        border-radius: 4px;
+        margin-left: 2.5rem;
+      }
 
       @include respond(tablet) {
         width: 22.1rem;
@@ -43,5 +54,9 @@
     color: white;
     font-family: Nunito-Black;
     font-size: 1.3rem;
+
+    @include respond(phone) {
+      margin-left: 12.5rem;
+    }
   }
 }

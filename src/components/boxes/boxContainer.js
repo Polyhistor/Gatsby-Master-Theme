@@ -54,21 +54,25 @@ const BoxContainer = () => {
           imageData={imagedata.newVehiclesDesk.childImageSharp.fluid}
           textFirst="new"
           textSecond="vehicles"
+          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imagedata.localGuidsDesk.childImageSharp.fluid}
           textFirst="local"
           textSecond="guides"
+          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imagedata.smallGroupsDesk.childImageSharp.fluid}
           textFirst="small"
           textSecond="groups"
+          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imagedata.breathTakingSceneryDesk.childImageSharp.fluid}
           textFirst="breathtaking"
           textSecond="scenery"
+          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
       </div>
     </section>

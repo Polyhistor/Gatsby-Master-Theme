@@ -3,6 +3,12 @@
   float: left;
   position: relative;
 
+  @include respond(phone) {
+    margin-left: 2.1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
   // apply to all elements except the last one
 
   &:not(:last-child) {
@@ -27,6 +33,12 @@
     width: 100%;
     float: left;
 
+    & .heading-secondary {
+      @include respond(phone) {
+        font-size: 3rem;
+      }
+    }
+
     @include respond(phone) {
       text-align: center;
     }
@@ -46,6 +58,11 @@
 
     @include respond(laptop) {
       width: 24rem;
+    }
+
+    @include respond(phone) {
+      width: 27rem;
+      height: 20rem;
     }
   }
 

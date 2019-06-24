@@ -1,7 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import BlackBar from "../blackBar"
 import MobileBox from "./mobileBox"
 
 const whyWildKiwi = () => {
@@ -53,21 +52,25 @@ const whyWildKiwi = () => {
               textFirst="new"
               textSecond="vehicles"
               imageData={imageData.newVehicles.childImageSharp.fluid}
+              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
               textFirst="local"
               textSecond="guides"
               imageData={imageData.localGuids.childImageSharp.fluid}
+              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
               textFirst="small"
               textSecond="groups"
               imageData={imageData.smallGroups.childImageSharp.fluid}
+              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
               textFirst="breathtaking"
               textSecond="scenery"
               imageData={imageData.breathTakingScenery.childImageSharp.fluid}
+              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
           </div>
         </section>

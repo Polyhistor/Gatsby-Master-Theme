@@ -15,7 +15,6 @@ import Trips from "../components/trips/trips"
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
-import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 import FeaturedMobile from "../components/mobile/featuredMobile"
 
 // tablet component
@@ -87,7 +86,6 @@ const IndexPage = props => (
       details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
       price="From $160 AUD per day"
     />
-    <WhyWildKiwi />
     <Banner
       header="How it works"
       subHeaderFirst="everything you need to"

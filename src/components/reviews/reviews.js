@@ -37,14 +37,14 @@ const Reviews = () => {
             country="Australia"
           />
         </div>
-        <div className="col-1-of-4 mobile-no">
+        <div className="col-1-of-4">
           <Review
             text="Wild Kiwi also has the luxury that larger tour groups don’t have of being flexible on itinerary and being able to stop at places that are little more “off the beaten track.”"
             author="Chris Freimuth"
             country="United States"
           />
         </div>
-        <div className="col-1-of-4 mobile-no">
+        <div className="col-1-of-4">
           <Review
             text="Wild Kiwi also has the luxury that larger tour groups don’t have of being flexible on itinerary and being able to stop at places that are little more “off the beaten track.”"
             author="Sophora Cliff"
