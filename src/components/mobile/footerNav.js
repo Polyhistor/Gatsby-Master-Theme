@@ -47,10 +47,7 @@ const footerNav = ({ link1, link2, link3, link4 }) => {
       </nav>
       <div className="footer-nav__copy">
         <div className="footer-nav__logo">
-          <Img
-            fixed={imageData.footerQuasi.childImageSharp.fixed}
-            width="10rem"
-          />
+          <Img fixed={imageData.footerQuasi.childImageSharp.fixed} />
         </div>
         <div className="footer-nav__copy-text">
           <p>Privacy and Cookies Policy Terms and Conditions</p>

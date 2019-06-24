@@ -28,8 +28,8 @@ const Featured = () => {
       }
       logoQual: file(relativePath: { eq: "QualMark.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 69, height: 71) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -57,7 +57,7 @@ const Featured = () => {
         <div className="featured__container-image featured__container-image--qual u-translateY-quarter">
           <Img
             className="quasi-specific"
-            fluid={imageData.logoQual.childImageSharp.fluid}
+            fixed={imageData.logoQual.childImageSharp.fixed}
           />
         </div>
       </div>
