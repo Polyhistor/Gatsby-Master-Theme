@@ -37,8 +37,8 @@ const DestinationsTablet = ({
 
   return (
     <section className={`section-tour-banner-${destination}-tablet`}>
-      <div class="parent-centralized-tablet">
-        <h2 class="green-title u-margin-bottom-small">destinations</h2>
+      <div className="parent-centralized-tablet">
+        <h2 className="green-title u-margin-bottom-small">destinations</h2>
       </div>
       <div className="row">
         <div className="col-2-of-4 tablet-margin-left-negative-normal auto-width-height">

@@ -27,7 +27,7 @@
 
   &__logo {
     &-literal {
-      width: 12rem;
+      margin-bottom: -1rem;
       @include respond(phone) {
         width: 10rem !important;
       }

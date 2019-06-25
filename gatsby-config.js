@@ -40,14 +40,18 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: `www.wildkiwi.com`,
+        baseUrl: `darasarmaye.com`,
         // The protocol. This can be http or https.
-        protocol: `https`,
+        protocol: `http`,
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
         // If your site is hosted on wordpress.org, then set this to false.
         hostingWPCOM: false,
+        // If useACF is true, then the source plugin will try to import the Wordpress ACF Plugin contents.
+        // This feature is untested for sites hosted on wordpress.com.
+        // Defaults to true.
+        useACF: true,
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
         verboseOutput: false,
@@ -55,7 +59,7 @@ module.exports = {
         perPage: 50,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://www.wildkiwi.com/",
+          sourceUrl: "http://darasarmaye.com/",
           replacementUrl: "http://localhost:8000/",
         },
         // Set how many simultaneous requests are sent at once.
@@ -73,9 +77,9 @@ module.exports = {
           `**/categories`,
           `**/posts`,
           `**/pages`,
-          // `**/media`,
-          // `**/tags`,
-          // `**/taxonomies`,
+          `**/media`,
+          `**/tags`,
+          `**/taxonomies`,
           `**/users`,
         ],
         // use a custom normalizer which is applied after the built-in ones.

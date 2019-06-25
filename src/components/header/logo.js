@@ -17,7 +17,10 @@ const Logo = () => {
   return (
     <li className="navigation__item">
       <Link className="header__logo" to="/">
-        <Img fixed={data.logo.childImageSharp.fixed} />
+        <Img
+          className="header__logo-literal"
+          fixed={data.logo.childImageSharp.fixed}
+        />
       </Link>
     </li>
   )
