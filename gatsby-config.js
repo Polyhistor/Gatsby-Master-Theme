@@ -40,7 +40,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: `darasarmaye.com`,
+        baseUrl: `wildkiwi.com`,
         // The protocol. This can be http or https.
         protocol: `http`,
         // Indicates whether the site is hosted on wordpress.com.
@@ -54,16 +54,16 @@ module.exports = {
         useACF: true,
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
-        verboseOutput: false,
+        verboseOutput: true,
         // Set how many pages are retrieved per API request.
-        perPage: 50,
+        perPage: 5,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://darasarmaye.com/",
+          sourceUrl: "http://wildkiwi.com/",
           replacementUrl: "http://localhost:8000/",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
+        concurrentRequests: 200,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown
@@ -77,8 +77,8 @@ module.exports = {
           `**/categories`,
           `**/posts`,
           `**/pages`,
-          `**/media`,
           `**/tags`,
+          `**/media`,
           `**/taxonomies`,
           `**/users`,
         ],
