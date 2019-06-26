@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 
 const Blog = () => {
   const posts = useStaticQuery(graphql`
@@ -21,21 +21,24 @@ const Blog = () => {
 
   return (
     <Layout>
-      <div>
+      <>
         {posts.allWordpressPost.edges.map(({ node }, idx) => {
           return (
             <>
               <div key={idx}>
-                <Link to={`post/` + node.slug}>
-                  <h3>{node.title}</h3>
+                <Link key={idx + 1} to={`post/` + node.slug}>
+                  <h3 key={idx + 2}>{node.title}</h3>
                 </Link>
 
-                <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                <div
+                  key={idx + 1}
+                  dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                />
               </div>
             </>
           )
         })}
-      </div>
+      </>
     </Layout>
   )
 }

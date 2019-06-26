@@ -1,0 +1,13 @@
+.blog {
+  &-single {
+    margin-top: 5%;
+    font-size: 1.2rem;
+    color: $color-grey-dark-2;
+
+    &__header {
+      font-family: Nunito-black;
+      color: $color-grey-dark-3;
+      padding-bottom: 2rem;
+    }
+  }
+}

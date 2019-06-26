@@ -14,11 +14,14 @@ exports.createPages = ({ graphql, actions }) => {
             slug
             wordpress_id
             title
+            content
             date
-            format
+            excerpt
+            author {
+              name
+            }
             acf {
-              facebook
-              twitter
+              img
             }
           }
         }
@@ -37,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
       edges: BlogPosts,
       createPage: createPage,
       pageTemplate: "src/templates/posts.js",
-      pageLength: 5,
+      pageLength: 10,
       pathPrefix: "posts",
     })
 

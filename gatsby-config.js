@@ -6,6 +6,7 @@ module.exports = {
     copyright: `Navigate Group Ltd`,
   },
   plugins: [
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
@@ -42,7 +43,7 @@ module.exports = {
          */
         baseUrl: `wildkiwi.com`,
         // The protocol. This can be http or https.
-        protocol: `http`,
+        protocol: `https`,
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -59,11 +60,11 @@ module.exports = {
         perPage: 5,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "http://wildkiwi.com/",
-          replacementUrl: "http://localhost:8000/",
+          sourceUrl: "https://wildkiwi.com/",
+          replacementUrl: "https://wildkiwi.com/",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 200,
+        concurrentRequests: 10,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown
@@ -76,9 +77,6 @@ module.exports = {
         includedRoutes: [
           `**/categories`,
           `**/posts`,
-          `**/pages`,
-          `**/tags`,
-          `**/media`,
           `**/taxonomies`,
           `**/users`,
         ],

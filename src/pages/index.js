@@ -1,7 +1,7 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import Landing from "../components/header/landing"
 import Featured from "../components/featured"
