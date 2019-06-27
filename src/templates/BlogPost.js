@@ -7,6 +7,7 @@ import Layout2 from "../components/layout/layout2"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
+  // getting banner info
   const resolutions =
     data.wordpressPost.featured_media.localFile.childImageSharp.resolutions
   return (
