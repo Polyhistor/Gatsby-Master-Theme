@@ -14,11 +14,13 @@ const BlogPostTemplate = ({ data }, idx) => {
       />
       <article className="blog-single">
         {data.wordpressPost.acf !== null && (
-          <img
-            className="blog-single__banner"
-            alt={data.wordpressPost.title}
-            src={data.wordpressPost.acf.img}
-          />
+          <div className="blog-single__banner-container">
+            <img
+              className="blog-single__banner"
+              alt={data.wordpressPost.title}
+              src={data.wordpressPost.acf.img}
+            />
+          </div>
         )}
         <div className="row-blog">
           <div className="blog-single__categories">

@@ -1,9 +1,14 @@
 .blog {
   &-single {
+    &__banner-container {
+      background-color: #e7e7e7;
+    }
     &__banner {
-      height: 40rem;
       margin: 0 auto;
       display: block;
+      max-width: 150rem;
+      max-height: 50rem;
+      background-color: #aeaeae;
       width: 100%;
     }
 
