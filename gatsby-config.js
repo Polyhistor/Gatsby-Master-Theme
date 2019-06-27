@@ -116,6 +116,7 @@ module.exports = {
           `**/posts`,
           `**/taxonomies`,
           `**/users`,
+          `**/media`,
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {

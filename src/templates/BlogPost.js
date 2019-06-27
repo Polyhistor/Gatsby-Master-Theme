@@ -1,11 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 import moment from "moment"
+import Img from "gatsby-image"
 
 import Layout2 from "../components/layout/layout2"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
+  const resolutions =
+    data.wordpressPost.featured_media.localFile.childImageSharp.resolutions
   return (
     <Layout2>
       <SEO
@@ -13,15 +16,10 @@ const BlogPostTemplate = ({ data }, idx) => {
         description={data.wordpressPost.excerpt}
       />
       <article className="blog-single">
-        {data.wordpressPost.acf !== null && (
-          <div className="blog-single__banner-container">
-            <img
-              className="blog-single__banner"
-              alt={data.wordpressPost.title}
-              src={data.wordpressPost.acf.img}
-            />
-          </div>
-        )}
+        <div className="blog-single__banner-container">
+          <Img className="blog-single__banner" resolutions={resolutions} />
+        </div>
+
         <div className="row-blog">
           <div className="blog-single__categories">
             {data.wordpressPost.categories.name !== null &&
@@ -76,11 +74,23 @@ export const query = graphql`
           wordpress_96
         }
       }
-      acf {
-        img
-      }
+      # acf {
+      #   img
+      # }
       categories {
         name
+      }
+      featured_media {
+        localFile {
+          childImageSharp {
+            resolutions(width: 1500, height: 600) {
+              src
+              srcSet
+              width
+              height
+            }
+          }
+        }
       }
     }
   }

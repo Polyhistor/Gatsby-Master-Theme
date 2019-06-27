@@ -22,7 +22,7 @@ const IndexPage = ({ pageContext }) => {
                 <h3>{node.title}</h3>
               </Link>
               <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              {node.acf !== null && <img alt={node.title} src={node.acf.img} />}
+              {/* {node.acf !== null && <img alt={node.title} src={node.acf.img} />} */}
             </div>
           </>
         ))}

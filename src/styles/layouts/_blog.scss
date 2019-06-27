@@ -5,9 +5,10 @@
     }
     &__banner {
       margin: 0 auto;
-      display: block;
+      margin-top: 6rem;
+      display: block !important;
       max-width: 150rem;
-      max-height: 50rem;
+      max-height: 60rem;
       background-color: #aeaeae;
       width: 100%;
     }

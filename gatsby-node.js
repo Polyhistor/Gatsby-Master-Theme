@@ -23,9 +23,6 @@ exports.createPages = ({ graphql, actions }) => {
                 wordpress_96
               }
             }
-            acf {
-              img
-            }
             categories {
               name
             }
