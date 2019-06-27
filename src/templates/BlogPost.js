@@ -7,7 +7,6 @@ import Layout2 from "../components/layout/layout2"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
-  // getting banner info
   return (
     <Layout2>
       <SEO
@@ -15,6 +14,7 @@ const BlogPostTemplate = ({ data }, idx) => {
         description={data.wordpressPost.excerpt}
       />
       <article className="blog-single">
+        {/* error handling */}
         {data.wordpressPost.featured_media !== null && (
           <div className="blog-single__banner-container">
             <Img
