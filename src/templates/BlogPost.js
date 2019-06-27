@@ -8,10 +8,6 @@ import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
   // getting banner info
-  if (data.wordpressPost.featured_media.localFile !== null) {
-    const resolutions =
-      data.wordpressPost.featured_media.localFile.childImageSharp.resolutions
-  }
   return (
     <Layout2>
       <SEO
@@ -19,9 +15,15 @@ const BlogPostTemplate = ({ data }, idx) => {
         description={data.wordpressPost.excerpt}
       />
       <article className="blog-single">
-        {data.wordpressPost.data !== null && (
+        {data.wordpressPost.featured_media.localFile !== null && (
           <div className="blog-single__banner-container">
-            <Img className="blog-single__banner" resolutions={resolutions} />
+            <Img
+              className="blog-single__banner"
+              resolutions={
+                data.wordpressPost.featured_media.localFile.childImageSharp
+                  .resolutions
+              }
+            />
           </div>
         )}
 
