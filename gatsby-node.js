@@ -19,9 +19,15 @@ exports.createPages = ({ graphql, actions }) => {
             excerpt
             author {
               name
+              avatar_urls {
+                wordpress_96
+              }
             }
             acf {
               img
+            }
+            categories {
+              name
             }
           }
         }

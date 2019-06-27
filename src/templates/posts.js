@@ -17,7 +17,7 @@ const IndexPage = ({ pageContext }) => {
 
         {group.map(({ node }, idx) => (
           <>
-            <div key={idx}>
+            <div className="blog" key={idx}>
               <Link to={`post/` + node.slug}>
                 <h3>{node.title}</h3>
               </Link>

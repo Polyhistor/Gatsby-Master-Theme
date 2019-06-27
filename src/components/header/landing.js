@@ -38,7 +38,7 @@ const Header = () => {
             </h1>
             <div className="header__button-box">
               <Link
-                to="/blog"
+                to="/posts"
                 className="btn btn--green btn-animated mobile-green-buton"
               >
                 expore
