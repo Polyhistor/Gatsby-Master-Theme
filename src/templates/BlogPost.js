@@ -15,7 +15,7 @@ const BlogPostTemplate = ({ data }, idx) => {
         description={data.wordpressPost.excerpt}
       />
       <article className="blog-single">
-        {data.wordpressPost.featured_media.localFile !== null && (
+        {data.wordpressPost.featured_media !== null && (
           <div className="blog-single__banner-container">
             <Img
               className="blog-single__banner"
