@@ -23,6 +23,8 @@
   &-blog {
     max-width: 50rem;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60rem 5rem;
   }
 
   // mixins

@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import NavLink from "../components/blog/NavLink"
-
+import NavLink from "../components/blog/navLink"
 import Layout2 from "../components/layout/layout2"
 
 const IndexPage = ({ pageContext }) => {
@@ -18,11 +17,10 @@ const IndexPage = ({ pageContext }) => {
         {group.map(({ node }, idx) => (
           <>
             <div className="blog" key={idx}>
-              <Link to={`post/` + node.slug}>
+              <Link to={`posts/` + node.slug}>
                 <h3>{node.title}</h3>
               </Link>
               <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              {/* {node.acf !== null && <img alt={node.title} src={node.acf.img} />} */}
             </div>
           </>
         ))}

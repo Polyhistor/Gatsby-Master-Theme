@@ -1,12 +1,13 @@
 const path = require("path")
-const { createFilePath } = require(`gatsby-source-filesystem`)
 const createPaginatedPages = require("gatsby-paginate")
 
-exports.createPages = ({ graphql, actions }) => {
+// we are implementing gatsby API "createPages". The API will create pages for wordpress posts
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const BlogPostTemplate = path.resolve("./src/templates/BlogPost.js")
 
-  return graphql(`
+  // the graphql function allows us to run arbitrary queries against our local Gatsby Graphql schema.
+  // think of it as a built-in database constructed from the fetched data
+  return await graphql(`
     {
       allWordpressPost {
         edges {
@@ -31,24 +32,27 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
+    // error handling
     if (result.errors) {
       throw result.errors
     }
 
+    // accesing to data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
 
-    // test
+    // setting the link to the template via Node legacy modules
+    const BlogPostTemplate = path.resolve("./src/templates/blogPost.js")
 
+    // this is for paginated pages - basically our blog home page
     createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
-      pageTemplate: "src/templates/posts.js",
+      pageTemplate: "src/templates/blogMain.js",
       pageLength: 10,
-      pathPrefix: "posts",
+      pathPrefix: "post",
     })
 
-    // end test
-
+    // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
         path: `/post/${post.node.slug}`,

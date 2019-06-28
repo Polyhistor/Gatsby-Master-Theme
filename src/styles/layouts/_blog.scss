@@ -25,29 +25,34 @@
       color: $color-grey-dark-3;
       font-size: 2.8rem;
       padding-bottom: 2rem;
+      grid-column: 1;
     }
 
     &__avatar {
       border-radius: 50%;
       height: 4rem;
       float: left;
+      grid-column: 1;
     }
 
     &__author-container {
       color: $color-grey-dark-2;
       margin-top: 0.6rem;
-      padding-left: 5rem;
       font-family: Nunito-regular;
       font-size: 1.1rem;
+      grid-column: 1;
     }
 
-    &__author {
+    &__author,
+    &__date {
+      margin-left: 1rem;
     }
 
     &__content {
       color: $color-grey-dark-2;
       font-size: 1.2rem;
       margin-top: 5rem;
+      grid-column: 1/2;
 
       & h1 {
         color: $color-primary;

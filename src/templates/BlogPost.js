@@ -38,17 +38,17 @@ const BlogPostTemplate = ({ data }, idx) => {
             </h1>
           )}
 
-          <img
-            src={data.wordpressPost.author.avatar_urls.wordpress_96}
-            alt={data.wordpressPost.author.name}
-            className="blog-single__avatar"
-          />
           <div className="blog-single__author-container">
+            <img
+              src={data.wordpressPost.author.avatar_urls.wordpress_96}
+              alt={data.wordpressPost.author.name}
+              className="blog-single__avatar"
+            />
             <span className="blog-single__author" key={idx + 2}>
               By {data.wordpressPost.author.name}
             </span>
             <br />
-            <span>
+            <span className="blog-single__date">
               on &nbsp;
               {moment(data.wordpressPost.date)
                 .local()
@@ -59,7 +59,10 @@ const BlogPostTemplate = ({ data }, idx) => {
             className="blog-single__content"
             dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
           />
-          <div className="blog-single__sidebar">side bar</div>
+          <div className="blog-single__sidebar">
+            {/* {data.allWordpressPost.edges.next.title} */}
+            side bar
+          </div>
         </div>
       </article>
     </Layout2>
@@ -81,9 +84,6 @@ export const query = graphql`
           wordpress_96
         }
       }
-      # acf {
-      #   img
-      # }
       categories {
         name
       }
