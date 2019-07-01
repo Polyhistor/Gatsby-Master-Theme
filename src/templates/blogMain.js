@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import NavLink from "../components/blog/navLink"
+import NavLink from "../components/blog/blogNavLink"
 import Layout2 from "../components/layout/layout2"
 
 const IndexPage = ({ pageContext }) => {
