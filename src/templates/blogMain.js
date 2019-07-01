@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import NavLink from "../components/blog/navLink"
-import Layout2 from "../components/layout/layout2"
+import NavLink from "./../components/blog/navLink"
+import Layout2 from "./../components/layout/layout2"
 
 const IndexPage = ({ pageContext }) => {
   const { group, index, first, last, pageCount } = pageContext
