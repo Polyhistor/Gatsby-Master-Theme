@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useBlogQuery = () => {
   const blogData = useStaticQuery(graphql`
     query {
-      allWordpressPost(limit: 9) {
+      allWordpressPost(limit: 6) {
         edges {
           node {
             ...BlogPost

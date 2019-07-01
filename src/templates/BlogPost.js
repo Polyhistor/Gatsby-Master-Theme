@@ -19,6 +19,8 @@ import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
+  const shareUrl = `http://localhost:8000/posts/${data.wordpressPost.slug}`
+
   return (
     <Layout2>
       <SEO
@@ -89,7 +91,7 @@ const BlogPostTemplate = ({ data }, idx) => {
               Share this article on{" "}
             </span>
             <>
-              <FacebookShareButton size={10} round={true}>
+              <FacebookShareButton size={10} round={true} url={shareUrl}>
                 <FacebookIcon
                   size={32}
                   borderRadius={8}
@@ -99,7 +101,7 @@ const BlogPostTemplate = ({ data }, idx) => {
               </FacebookShareButton>
               <TwitterShareButton
                 title={data.wordpressPost.title}
-                url={`http://localhost:8000/posts/${data.wordpressPost.slug}`}
+                url={shareUrl}
               >
                 <TwitterIcon
                   size={32}
@@ -108,7 +110,10 @@ const BlogPostTemplate = ({ data }, idx) => {
                   logoFillColor={"#aeaeae"}
                 />
               </TwitterShareButton>
-              <WhatsappShareButton title={data.wordpressPost.title}>
+              <WhatsappShareButton
+                title={data.wordpressPost.title}
+                url={shareUrl}
+              >
                 <WhatsappIcon
                   size={32}
                   borderRadius={8}
@@ -117,8 +122,9 @@ const BlogPostTemplate = ({ data }, idx) => {
                 />
               </WhatsappShareButton>
               <EmailShareButton
+                url={shareUrl}
                 subject={data.wordpressPost.title}
-                body={`http://localhost:8000/posts/${data.wordpressPost.slug}`}
+                body={shareUrl}
               >
                 <EmailIcon
                   size={32}
