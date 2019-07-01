@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // setting the link to the template via Node legacy modules
-    const BlogPostTemplate = path.resolve("./src/templates/blogPost.js")
+    const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
 
     // this is for single blog pages
     BlogPosts.forEach(post => {
