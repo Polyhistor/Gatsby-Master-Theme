@@ -13,7 +13,7 @@ const FooterFormMobile = () => {
         </Link>
       </div>
       <div className="footer__form-fields mobile-yes">
-        <form name="contact" netlify>
+        <form name="contact">
           <div className="footer__form-group">
             <input
               type="text"

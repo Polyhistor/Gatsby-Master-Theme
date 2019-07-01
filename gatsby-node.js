@@ -40,22 +40,22 @@ exports.createPages = async ({ graphql, actions }) => {
     // accesing to data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
 
-    // setting the link to the template via Node legacy modules
-    const BlogPostTemplate = path.resolve("./src/templates/blogPost.js")
-
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
       pageTemplate: "src/templates/blogMain.js",
       pageLength: 10,
-      pathPrefix: "post",
+      pathPrefix: "posts",
     })
+
+    // setting the link to the template via Node legacy modules
+    const BlogPostTemplate = path.resolve("./src/templates/blogPost.js")
 
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/post/${post.node.slug}`,
+        path: `/posts/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,

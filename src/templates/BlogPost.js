@@ -2,8 +2,20 @@ import React from "react"
 import { graphql } from "gatsby"
 import moment from "moment"
 import Img from "gatsby-image"
+import { FacebookProvider, Comments } from "react-facebook"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  EmailIcon,
+} from "react-share"
 
 import Layout2 from "../components/layout/layout2"
+import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
@@ -29,6 +41,7 @@ const BlogPostTemplate = ({ data }, idx) => {
 
         <div className="row-blog">
           <div className="blog-single__categories">
+            {/* // getting only the first element of the categories array, because in this we do only need one category */}
             {data.wordpressPost.categories.name !== null &&
               data.wordpressPost.categories[0].name}
           </div>
@@ -50,6 +63,7 @@ const BlogPostTemplate = ({ data }, idx) => {
             <br />
             <span className="blog-single__date">
               on &nbsp;
+              {/* date formatting */}
               {moment(data.wordpressPost.date)
                 .local()
                 .format("MMMM DD, YYYY")}
@@ -60,9 +74,64 @@ const BlogPostTemplate = ({ data }, idx) => {
             dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
           />
           <div className="blog-single__sidebar">
-            {/* {data.allWordpressPost.edges.next.title} */}
-            side bar
+            <BlogRelated />
           </div>
+          <div className="blog-single__facebook">
+            <FacebookProvider appId="457654345055752">
+              <Comments
+                href="
+                http://www.facebook.com"
+              />
+            </FacebookProvider>
+          </div>
+          <div className="blog-single__share">
+            <span className="blog-single__share-heading">
+              Share this article on{" "}
+            </span>
+            <>
+              <FacebookShareButton size={10} round={true}>
+                <FacebookIcon
+                  size={32}
+                  borderRadius={8}
+                  iconBgStyle={{ fill: "white", border: "#aeaeae" }}
+                  logoFillColor={"#aeaeae"}
+                />
+              </FacebookShareButton>
+              <TwitterShareButton
+                title={data.wordpressPost.title}
+                url={`http://localhost:8000/posts/${data.wordpressPost.slug}`}
+              >
+                <TwitterIcon
+                  size={32}
+                  borderRadius={8}
+                  iconBgStyle={{ fill: "white", border: "#aeaeae" }}
+                  logoFillColor={"#aeaeae"}
+                />
+              </TwitterShareButton>
+              <WhatsappShareButton title={data.wordpressPost.title}>
+                <WhatsappIcon
+                  size={32}
+                  borderRadius={8}
+                  iconBgStyle={{ fill: "white", border: "#aeaeae" }}
+                  logoFillColor={"#aeaeae"}
+                />
+              </WhatsappShareButton>
+              <EmailShareButton
+                subject={data.wordpressPost.title}
+                body={`http://localhost:8000/posts/${data.wordpressPost.slug}`}
+              >
+                <EmailIcon
+                  size={32}
+                  borderRadius={8}
+                  iconBgStyle={{ fill: "white", border: "#aeaeae" }}
+                  logoFillColor={"#aeaeae"}
+                />
+              </EmailShareButton>
+            </>
+          </div>
+        </div>
+        <div className="blog-single__related">
+          <BlogRelated />
         </div>
       </article>
     </Layout2>
@@ -74,31 +143,7 @@ export default BlogPostTemplate
 export const query = graphql`
   query($id: Int!) {
     wordpressPost(wordpress_id: { eq: $id }) {
-      title
-      content
-      excerpt
-      date
-      author {
-        name
-        avatar_urls {
-          wordpress_96
-        }
-      }
-      categories {
-        name
-      }
-      featured_media {
-        localFile {
-          childImageSharp {
-            resolutions(width: 1500, height: 600) {
-              src
-              srcSet
-              width
-              height
-            }
-          }
-        }
-      }
+      ...BlogPost
     }
   }
 `
