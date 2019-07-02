@@ -67,11 +67,16 @@
       text-align: justify;
       font-size: 1.6rem;
 
+      & p {
+        padding-bottom: 2rem;
+      }
+
       & h1 {
         color: $color-primary;
         font-family: Nunito-Black;
         font-size: 2.5rem;
-        line-height: 8rem;
+        line-height: 3rem;
+        padding-bottom: 2rem;
       }
 
       & h2 {
@@ -90,7 +95,7 @@
 
       & img {
         display: block;
-        margin: 4rem 0 4rem -0.8rem;
+        margin: 2rem 0 2rem -3.2rem;
       }
 
       & a {
@@ -203,6 +208,10 @@
 
       & a:nth-of-type(1n + 4) {
         display: none;
+      }
+
+      & .gatsby-image-wrapper {
+        height: 11rem;
       }
     }
   }
