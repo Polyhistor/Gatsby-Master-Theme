@@ -79,12 +79,17 @@ const BlogPostTemplate = ({ data }, idx) => {
             <BlogRelated />
           </div>
           <div className="blog-single__facebook">
-            <FacebookProvider appId="457654345055752">
-              <Comments
-                href="
+            <input type="checkbox" className="read-more-state" id="post-1" />
+            <label htmlFor="post-1" className="read-more-trigger" />
+
+            <div className="read-more-target">
+              <FacebookProvider appId="457654345055752">
+                <Comments
+                  href="
                 http://www.facebook.com"
-              />
-            </FacebookProvider>
+                />
+              </FacebookProvider>
+            </div>
           </div>
           <div className="blog-single__share">
             <span className="blog-single__share-heading">
@@ -136,6 +141,7 @@ const BlogPostTemplate = ({ data }, idx) => {
             </>
           </div>
         </div>
+        <h2 class="green-title u-margin-top-big mobile-yes">related stories</h2>
         <div className="blog-single__related">
           <BlogRelated />
         </div>

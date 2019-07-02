@@ -29,9 +29,15 @@
     text-align: center;
     list-style: none;
 
-    @include respond(phone) {
-      width: 40%;
-    }
+    // @include respond(tablet) {
+    //   width: 40%;
+    //   display: none;
+    // }
+
+    // @include respond(phone) {
+    //   width: 40%;
+    //   display: none;
+    // }
   }
 
   &__item {

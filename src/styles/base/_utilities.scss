@@ -274,6 +274,60 @@
   }
 }
 
+// state changes
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-trigger {
+  display: none;
+  @include respond(phone) {
+    display: block;
+    text-align: center;
+    padding: 1.7rem 2rem;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+  }
+}
+
+.read-more-target {
+  display: block;
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.read-more-state:checked ~ .read-more-target {
+  display: block;
+  font-size: inherit;
+}
+
+.read-more-state ~ .read-more-trigger:before,
+.read-more-state:checked ~ .read-more-trigger:before {
+  text-transform: uppercase;
+  font-family: Nunito-Black;
+  font-size: 1.6rem;
+  color: $color-primary;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: "view comments";
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: "hide comments";
+}
+
+//editing outside library css
+
+.social-icon {
+  @include respond(phone) {
+    height: 5.2rem;
+    width: 5.8rem;
+  }
+}
+
 // abnormaly
 
 .quasi-specific {

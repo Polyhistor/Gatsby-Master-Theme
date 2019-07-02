@@ -2,6 +2,17 @@
   &-single {
     &__banner-container {
       background-color: #e7e7e7;
+
+      & > div {
+        @include respond(tablet) {
+          width: 100% !important;
+        }
+
+        @include respond(phone) {
+          width: 70rem !important;
+          height: 40rem !important;
+        }
+      }
     }
     &__banner {
       margin: 0 auto;
@@ -11,6 +22,10 @@
       max-height: 60rem;
       background-color: #aeaeae;
       width: 100%;
+
+      @include respond(phone) {
+        margin-top: 4rem;
+      }
     }
 
     &__categories {
@@ -18,6 +33,10 @@
       color: $color-primary;
       font-family: Nunito-Extrabold;
       font-size: 1.4rem;
+
+      @include respond(tablet) {
+        font-size: 1.8rem;
+      }
     }
 
     &__title {
@@ -26,6 +45,10 @@
       font-size: 2.8rem;
       padding-bottom: 2rem;
       grid-column: 1;
+
+      @include respond(tablet) {
+        font-size: 3.8rem;
+      }
     }
 
     &__title--side {
@@ -48,6 +71,14 @@
       font-size: 1.1rem;
       grid-column: 1;
       align-self: center;
+
+      @include respond(tablet) {
+        font-size: 1.5rem;
+      }
+
+      @include respond(phone) {
+        font-size: 1.5rem;
+      }
     }
 
     &__author,
@@ -57,6 +88,13 @@
     &__author {
       display: inline-block;
       margin-top: 0.5rem;
+      @include respond(tablet) {
+        margin-top: 0.2rem;
+      }
+
+      @include respond(phone) {
+        margin-top: 0rem;
+      }
     }
 
     &__content {
@@ -66,6 +104,10 @@
       grid-column: 1/2;
       text-align: justify;
       font-size: 1.6rem;
+
+      @include respond(phone) {
+        text-align: initial;
+      }
 
       & p {
         padding-bottom: 2rem;
@@ -83,7 +125,8 @@
         color: $color-grey-dark-2;
         font-family: Nunito-Black;
         font-family: 2.2rem;
-        line-height: 6rem;
+        line-height: 3rem;
+        padding-bottom: 2rem;
       }
 
       & h3 {
@@ -96,6 +139,10 @@
       & img {
         display: block;
         margin: 2rem 0 2rem -3.2rem;
+
+        @include respond(phone) {
+          margin: 2rem 0 2rem -17.2rem;
+        }
       }
 
       & a {
@@ -113,6 +160,12 @@
 
     &__facebook {
       margin-top: 5rem;
+
+      & > a {
+        @include respond(phone) {
+          padding: 1.6rem 6rem !important;
+        }
+      }
     }
 
     &__share {
@@ -124,14 +177,27 @@
       grid-template-rows: repeat(2, 1fr);
       grid-template-columns: repeat(5, min-content);
       grid-column-gap: 0.3rem;
+
+      @include respond(phone) {
+        grid-template-columns: repeat(4, 6rem);
+        margin-top: 7rem;
+        grid-column-gap: 1rem;
+        height: 11rem;
+      }
+
       &-heading {
         grid-column: 1/-1;
         color: $color-grey-dark;
         font-size: 1.2rem;
         text-align: center;
 
+        @include respond(phone) {
+          font-size: 1.8rem;
+        }
+
         & ~ div {
           border: 1px solid #aeaeae;
+          border-radius: 5px;
         }
       }
     }
@@ -148,28 +214,66 @@
       grid-row-gap: 2rem;
       justify-content: center;
 
+      @include respond(tablet) {
+        grid-template-columns: repeat(3, 25rem);
+      }
+
+      @include respond(phone) {
+        grid-template-columns: repeat(1, 30rem);
+        margin-top: 4rem;
+      }
+
       & a {
         text-decoration: none;
+
+        @include respond(phone) {
+          display: grid;
+          grid-template-columns: repeat(2, 15rem);
+          grid-template-rows: repeat(2, 4.5rem);
+          border-top: 1px solid $color-grey-dark;
+          border-radius: 4px;
+        }
       }
 
       & h3 {
         font-size: 1.5rem;
         padding-bottom: 0.8rem;
+
+        @include respond(phone) {
+          grid-column: 2;
+          margin-left: 1rem;
+        }
       }
 
       & h4 {
         font-family: Nunito-black;
         color: $color-primary;
+
+        @include respond(phone) {
+          grid-column: 2;
+          grid-row: 2;
+          margin-left: 1rem;
+          margin-top: 4rem;
+          font-size: 1.5rem;
+        }
       }
 
       & h5 {
         font-size: 1rem;
         color: $color-grey-dark-3;
+
+        @include respond(phone) {
+          display: none;
+        }
       }
 
       & .gatsby-image-wrapper {
         height: 20rem;
         width: auto;
+
+        @include respond(phone) {
+          height: 10rem;
+        }
       }
 
       & .gatsby-image-wrapper:nth-of-type(1) {
@@ -195,6 +299,14 @@
     }
 
     &__sidebar {
+      @include respond(tablet) {
+        display: none;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+
       & a {
         text-decoration: none;
       }

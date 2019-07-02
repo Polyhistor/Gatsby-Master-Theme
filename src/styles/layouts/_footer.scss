@@ -1,6 +1,10 @@
 .footer {
   padding-top: 4rem;
 
+  @include respond(phone) {
+    padding-top: 8rem;
+  }
+
   &__social-networks {
     width: 100vw;
     margin-left: 50%;
@@ -9,7 +13,7 @@
     border-top: 1px solid rgba($color-grey-dark, 0.4);
     border-bottom: 1px solid rgba($color-grey-dark, 0.4);
     &-box {
-      float: right;
+      text-align: center;
       & * {
         @include whiteGreen;
         padding: 0.8rem 1rem;

@@ -26,6 +26,16 @@
     display: grid;
     grid-template-columns: 55rem 15rem;
     grid-column-gap: 5rem;
+
+    @include respond(tablet) {
+      grid-template-columns: 55rem;
+      justify-content: center;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 28rem;
+      justify-content: center;
+    }
   }
 
   // mixins

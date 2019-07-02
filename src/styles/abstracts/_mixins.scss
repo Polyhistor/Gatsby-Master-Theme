@@ -75,28 +75,28 @@ $breakpoints paraments:
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
     // 320 - 840
-    @media (max-width: 48em) {
+    @media only screen and (max-width: 48em) {
       @content;
     }
   }
 
   @if $breakpoint == tablet {
     // 775-1025
-    @media (min-width: 48.5em) and (max-width: 64em) {
+    @media only screen and (min-width: 48.5em) and (max-width: 64em) {
       @content;
     }
   }
 
   @if $breakpoint == laptop {
     // 1025-1429
-    @media (min-width: 64.1em) and (max-width: 90em) {
+    @media only screen and (min-width: 64.1em) and (max-width: 90em) {
       @content;
     }
   }
 
   @if $breakpoint == desk {
     // 1442-higher
-    @media (min-width: 90em) {
+    @media only screen and (min-width: 90em) {
       @content;
     }
   }
