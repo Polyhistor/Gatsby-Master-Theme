@@ -60,6 +60,7 @@
     &__avatar {
       border-radius: 50%;
       height: 4rem;
+      width: 4rem;
       float: left;
       grid-column: 1;
     }
@@ -330,5 +331,57 @@
 
   ul li:nth-of-type(1n + 4) {
     display: none;
+  }
+
+  &-author {
+    max-width: 100rem;
+    margin: 0 auto;
+
+    &__info {
+      display: grid;
+      grid-template-columns: min-content 50rem;
+      grid-template-rows: repeat(3, 5.5rem);
+      grid-column-gap: 5rem;
+      grid-row-gap: 1rem;
+      margin-top: 12rem;
+    }
+
+    &__avatar {
+      grid-column: 1;
+      grid-row: 1;
+      width: 15rem;
+      height: 16rem;
+      border-radius: 5px;
+    }
+
+    &__name {
+      grid-row: 1;
+      grid-column: 2;
+      align-self: center;
+      font-family: Nunito-Black;
+      color: $color-grey-dark-3;
+    }
+
+    &__description {
+      grid-row: 2;
+      grid-column: 2;
+      color: $color-grey-dark-2;
+    }
+
+    &__social {
+      grid-row: 3;
+      grid-column: 2;
+      align-self: center;
+      display: flex;
+      justify-content: space-between;
+      width: 23%;
+    }
+
+    &__follow {
+      font-family: Nunito-Black;
+      font-size: 1.2rem;
+      color: $color-grey-dark-3;
+      text-transform: capitalize;
+    }
   }
 }

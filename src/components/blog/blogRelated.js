@@ -12,7 +12,7 @@ const BlogRelated = () => {
   const renderElements = () => {
     return blogQuery.map(element => {
       return (
-        <Link id="show" to={`/posts/${element.node.slug}`}>
+        <Link to={`/blog/${element.node.slug}`}>
           {/* error handling, without this line, the posts with featured images will crash */}
           {element.node.featured_media !== null && (
             <Img

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import moment from "moment"
 import Img from "gatsby-image"
 import { FacebookProvider, Comments } from "react-facebook"
@@ -19,7 +19,8 @@ import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
-  const shareUrl = `http://localhost:8000/posts/${data.wordpressPost.slug}`
+  const shareUrl = `http://localhost:8000/blog/${data.wordpressPost.slug}`
+  console.log(data)
 
   return (
     <Layout2>
@@ -33,6 +34,7 @@ const BlogPostTemplate = ({ data }, idx) => {
           <div className="blog-single__banner-container">
             <Img
               className="blog-single__banner"
+              alt={data.wordpressPost.title}
               resolutions={
                 data.wordpressPost.featured_media.localFile.childImageSharp
                   .resolutions
@@ -54,11 +56,19 @@ const BlogPostTemplate = ({ data }, idx) => {
           )}
 
           <div className="blog-single__author-container">
-            <img
-              src={data.wordpressPost.author.avatar_urls.wordpress_96}
-              alt={data.wordpressPost.author.name}
-              className="blog-single__avatar"
-            />
+            {/* some error checking */}
+            {data.wordpressPost.author.acf !== null && (
+              <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
+                <Img
+                  fluid={
+                    data.wordpressPost.author.acf.image.localFile
+                      .childImageSharp.fluid
+                  }
+                  alt={data.wordpressPost.author.name}
+                  className="blog-single__avatar"
+                />
+              </Link>
+            )}
             <span className="blog-single__author" key={idx + 2}>
               By {data.wordpressPost.author.name}
             </span>
@@ -141,7 +151,9 @@ const BlogPostTemplate = ({ data }, idx) => {
             </>
           </div>
         </div>
-        <h2 class="green-title u-margin-top-big mobile-yes">related stories</h2>
+        <h2 className="green-title u-margin-top-big mobile-yes">
+          related stories
+        </h2>
         <div className="blog-single__related">
           <BlogRelated />
         </div>

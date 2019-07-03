@@ -101,7 +101,7 @@ module.exports = {
           replacementUrl: "https://wildkiwi.com/",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 5,
+        concurrentRequests: 10,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown

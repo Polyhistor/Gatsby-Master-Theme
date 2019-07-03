@@ -17,7 +17,7 @@ const IndexPage = ({ pageContext }) => {
         {group.map(({ node }, idx) => (
           <>
             <div className="blog" key={idx}>
-              <Link to={`posts/` + node.slug}>
+              <Link to={`blog/` + node.slug}>
                 <h3>{node.title}</h3>
               </Link>
               <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
@@ -28,14 +28,14 @@ const IndexPage = ({ pageContext }) => {
         <div className="previousLink">
           <NavLink
             test={first}
-            url={`/posts/${previousUrl}`}
+            url={`/blog/${previousUrl}`}
             text="Go to Previous Page"
           />
         </div>
         <div className="nextLink">
           <NavLink
             test={last}
-            url={`/posts/${nextUrl}`}
+            url={`/blog/${nextUrl}`}
             text="Go to Next Page"
           />
         </div>

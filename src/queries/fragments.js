@@ -19,9 +19,18 @@ export const BlogPostFragment = graphql`
     date
     slug
     author {
+      slug
       name
-      avatar_urls {
-        wordpress_96
+      acf {
+        image {
+          localFile {
+            childImageSharp {
+              fluid(quality: 70, maxWidth: 210) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
     categories {
@@ -40,6 +49,36 @@ export const BlogPostFragment = graphql`
             ...GatsbyImageSharpFluid
           }
         }
+      }
+    }
+  }
+`
+
+// for authors that has been fetched
+export const BlogAuthorFragment = graphql`
+  fragment BlogAuthor on wordpress__wp_users {
+    name
+    description
+    slug
+    acf {
+      facebook
+      instagram
+      description
+      image {
+        localFile {
+          childImageSharp {
+            fluid(quality: 70, maxWidth: 210) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    authored_wordpress__POST {
+      title
+      slug
+      categories {
+        name
       }
     }
   }

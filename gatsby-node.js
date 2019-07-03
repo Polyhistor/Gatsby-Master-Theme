@@ -12,21 +12,18 @@ exports.createPages = async ({ graphql, actions }) => {
       allWordpressPost {
         edges {
           node {
+            title
+            excerpt
             slug
             wordpress_id
-            title
-            content
-            date
-            excerpt
-            author {
-              name
-              avatar_urls {
-                wordpress_96
-              }
-            }
-            categories {
-              name
-            }
+          }
+        }
+      }
+      allWordpressWpUsers {
+        edges {
+          node {
+            wordpress_id
+            slug
           }
         }
       }
@@ -40,25 +37,42 @@ exports.createPages = async ({ graphql, actions }) => {
     // accesing to data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
 
+    // accessing to data regarding to all the wp_users
+    const BlogAuthors = result.data.allWordpressWpUsers.edges
+
+    // setting the link to the template via Node legacy modules
+    const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
+
+    // seting the link to the author page template via node legacy modules
+    const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
+
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
       pageTemplate: "src/templates/blogMain.js",
       pageLength: 10,
-      pathPrefix: "posts",
+      pathPrefix: "blog",
     })
-
-    // setting the link to the template via Node legacy modules
-    const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
 
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/posts/${post.node.slug}`,
+        path: `/blog/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,
+        },
+      })
+    })
+
+    // this is for authors
+    BlogAuthors.forEach(author => {
+      createPage({
+        path: `/blog/author/${author.node.slug}`,
+        component: BlogAuthorTemplate,
+        context: {
+          id: author.node.wordpress_id,
         },
       })
     })
