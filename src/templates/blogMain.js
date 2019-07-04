@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
 import Layout2 from "../components/layout/layout2"
@@ -14,8 +15,12 @@ const IndexPage = ({ pageContext }) => {
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
           <Link className="blog__main-link" to={`blog/` + node.slug}>
+            <Img
+              fluid={node.featured_media.localFile.childImageSharp.fluid}
+              alt={node.title}
+            />
             <h3 className="blog__main-title">{node.title}</h3>
-            <h4 className="blog__main-category">{node.categories.name}</h4>
+            <h4 className="blog__main-category">{node.categories[0].name}</h4>
             <h5 className="blog__main-author">{node.author.name}</h5>
           </Link>
         </div>

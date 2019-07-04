@@ -22,6 +22,15 @@ exports.createPages = async ({ graphql, actions }) => {
             author {
               name
             }
+            featured_media {
+              localFile {
+                childImageSharp {
+                  fluid(quality: 70, maxWidth: 210) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
           }
         }
       }
