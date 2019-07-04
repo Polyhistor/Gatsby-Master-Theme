@@ -13,7 +13,6 @@ const BlogPostTemplate = ({ data }) => {
   const renderArticles = () => {
     return data.wordpressWpUsers.authored_wordpress__POST.map(
       ({ id, title, slug, categories, featured_media }, idx) => {
-        console.log(categories)
         // since our wordpress source plugin did not support limit method on the query, we use the index trick
         while (idx < 12) {
           return (
@@ -78,7 +77,7 @@ const BlogPostTemplate = ({ data }) => {
           buttonText="continue"
         />
       </div>
-      <div class="mobile-no">
+      <div className="mobile-no">
         <Reviews />
       </div>
       <div className="row">
