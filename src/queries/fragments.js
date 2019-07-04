@@ -57,6 +57,7 @@ export const BlogPostFragment = graphql`
 // for authors that has been fetched
 export const BlogAuthorFragment = graphql`
   fragment BlogAuthor on wordpress__wp_users {
+    id
     name
     description
     slug
@@ -67,7 +68,7 @@ export const BlogAuthorFragment = graphql`
       image {
         localFile {
           childImageSharp {
-            fluid(quality: 70, maxWidth: 210) {
+            fluid(quality: 80, maxWidth: 510) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -75,10 +76,20 @@ export const BlogAuthorFragment = graphql`
       }
     }
     authored_wordpress__POST {
+      id
       title
       slug
       categories {
         name
+      }
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 510) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

@@ -24,6 +24,13 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             wordpress_id
             slug
+            authored_wordpress__POST {
+              title
+              slug
+              categories {
+                name
+              }
+            }
           }
         }
       }

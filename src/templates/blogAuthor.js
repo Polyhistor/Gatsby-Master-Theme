@@ -1,11 +1,42 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout2 from "../components/layout/layout2"
 import SEO from "../components/seo"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
 
-const BlogPostTemplate = ({ data }, idx) => {
+const BlogPostTemplate = ({ data }) => {
+  // rendering articles
+  const renderArticles = () => {
+    return data.wordpressWpUsers.authored_wordpress__POST.map(
+      ({ id, title, slug, categories, featured_media }, idx) => {
+        console.log(categories)
+        // since our wordpress source plugin did not support limit method on the query, we use the index trick
+        while (idx < 12) {
+          return (
+            <Link to={`/blog/${slug}`} key={id} className="article-single">
+              {featured_media !== null && (
+                <Img
+                  className="article-single__thumb"
+                  fluid={featured_media.localFile.childImageSharp.fluid}
+                  alt={title}
+                  href={slug}
+                />
+              )}
+              <h2 className="article-single__title">{title}</h2>
+              <h3 className="article-single__sub-title">
+                {categories[0].name}
+              </h3>
+            </Link>
+          )
+        }
+      }
+    )
+  }
+
   return (
     <Layout2>
       <SEO
@@ -32,15 +63,26 @@ const BlogPostTemplate = ({ data }, idx) => {
               <a href={data.wordpressWpUsers}>
                 <i className="im im-instagram" />
               </a>
-              <a>
+              <a href="#">
                 <i className="im im-facebook" />
               </a>
             </div>
           </div>
-          <div className="blog-author__articles">
-            <h2 className="green-title u-margin-top-medium ">articles</h2>
-          </div>
+          <h2 className="green-title u-margin-top-medium "> articles</h2>
+          <div className="blog-author__article">{renderArticles()}</div>
         </div>
+        <Banner
+          header="How it works"
+          subHeaderFirst="everything you need to"
+          subHeaderSecond="know about our tours"
+          buttonText="continue"
+        />
+      </div>
+      <div class="mobile-no">
+        <Reviews />
+      </div>
+      <div className="row">
+        <Trips />
       </div>
     </Layout2>
   )

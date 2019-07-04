@@ -334,7 +334,7 @@
   }
 
   &-author {
-    max-width: 100rem;
+    max-width: 108rem;
     margin: 0 auto;
 
     &__info {
@@ -344,6 +344,13 @@
       grid-column-gap: 5rem;
       grid-row-gap: 1rem;
       margin-top: 12rem;
+
+      @include respond(phone) {
+        grid-template-columns: 32rem;
+        grid-template-rows: repeat(4, min-content);
+        margin-top: 7.5rem;
+        grid-row-gap: 2rem;
+      }
     }
 
     &__avatar {
@@ -352,6 +359,11 @@
       width: 15rem;
       height: 16rem;
       border-radius: 5px;
+
+      @include respond(phone) {
+        width: 31.9rem;
+        height: 31rem;
+      }
     }
 
     &__name {
@@ -360,12 +372,23 @@
       align-self: center;
       font-family: Nunito-Black;
       color: $color-grey-dark-3;
+
+      @include respond(phone) {
+        grid-row: 2;
+        grid-column: 1;
+        font-size: 2.5rem;
+      }
     }
 
     &__description {
       grid-row: 2;
       grid-column: 2;
       color: $color-grey-dark-2;
+
+      @include respond(phone) {
+        grid-row: 3;
+        grid-column: 1;
+      }
     }
 
     &__social {
@@ -375,6 +398,12 @@
       display: flex;
       justify-content: space-between;
       width: 23%;
+
+      @include respond(phone) {
+        grid-row: 4;
+        grid-column: 1;
+        width: 33%;
+      }
     }
 
     &__follow {
@@ -382,6 +411,23 @@
       font-size: 1.2rem;
       color: $color-grey-dark-3;
       text-transform: capitalize;
+    }
+
+    &__article {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 24rem);
+      grid-column-gap: 1.6rem;
+      grid-row-gap: 1.6rem;
+
+      @include respond(tablet) {
+        grid-template-columns: repeat(auto-fit, 22rem);
+        grid-row-gap: 3rem;
+      }
+
+      @include respond(phone) {
+        margin-top: 3rem;
+        grid-template-columns: repeat(auto-fit, 32rem);
+      }
     }
   }
 }

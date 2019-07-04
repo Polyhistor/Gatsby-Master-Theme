@@ -28,16 +28,6 @@
     width: 100%;
     text-align: center;
     list-style: none;
-
-    // @include respond(tablet) {
-    //   width: 40%;
-    //   display: none;
-    // }
-
-    // @include respond(phone) {
-    //   width: 40%;
-    //   display: none;
-    // }
   }
 
   &__item {
@@ -52,6 +42,10 @@
     @include respond(phone) {
       float: none;
       visibility: hidden;
+    }
+
+    &:not(last-of-type) {
+      display: none;
     }
   }
 
