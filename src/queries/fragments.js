@@ -13,6 +13,7 @@ export const FluidImageFragment = graphql`
 // for wordporess posts that has been fetched
 export const BlogPostFragment = graphql`
   fragment BlogPost on wordpress__POST {
+    id
     title
     content
     excerpt

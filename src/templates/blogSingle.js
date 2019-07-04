@@ -20,7 +20,6 @@ import SEO from "../components/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
   const shareUrl = `http://localhost:8000/blog/${data.wordpressPost.slug}`
-  console.log(data)
 
   return (
     <Layout2>

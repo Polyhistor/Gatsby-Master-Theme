@@ -12,6 +12,7 @@ const BlogPostTemplate = ({ data }) => {
   // rendering articles
 
   const renderArticles = () => {
+    // error handling
     if (data.wordpressWpUsers.authored_wordpress__POST !== null) {
       return data.wordpressWpUsers.authored_wordpress__POST.map(
         ({ id, title, slug, categories, featured_media }, idx) => {
@@ -24,7 +25,6 @@ const BlogPostTemplate = ({ data }) => {
                     className="article-single__thumb"
                     fluid={featured_media.localFile.childImageSharp.fluid}
                     alt={title}
-                    href={slug}
                   />
                 )}
                 <h2 className="article-single__title">{title}</h2>
@@ -37,6 +37,7 @@ const BlogPostTemplate = ({ data }) => {
         }
       )
     }
+    return null
   }
 
   return (
@@ -65,7 +66,7 @@ const BlogPostTemplate = ({ data }) => {
               <a href={data.wordpressWpUsers}>
                 <i className="im im-instagram" />
               </a>
-              <a href="#">
+              <a href={data.wordpressWpUsers}>
                 <i className="im im-facebook" />
               </a>
             </div>
