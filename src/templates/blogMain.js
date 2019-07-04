@@ -13,10 +13,11 @@ const IndexPage = ({ pageContext }) => {
     return group.map(({ node }) => {
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
-          <Link to={`blog/` + node.slug}>
-            <h3>{node.title}</h3>
+          <Link className="blog__main-link" to={`blog/` + node.slug}>
+            <h3 className="blog__main-title">{node.title}</h3>
+            <h4 className="blog__main-category">{node.categories.name}</h4>
+            <h5 className="blog__main-author">{node.author.name}</h5>
           </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       )
     })

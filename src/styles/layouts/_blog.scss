@@ -134,7 +134,8 @@
         color: $color-grey-dark-2;
         font-family: Nunito-Black;
         font-family: 2rem;
-        line-height: 6rem;
+        line-height: 3rem;
+        padding-bottom: 2rem;
       }
 
       & img {
@@ -436,5 +437,12 @@
     margin: 10rem auto 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 24rem) 75.2rem 50rem 32.4rem;
+
+    &-container {
+    }
+
+    &-link {
+      text-decoration: none;
+    }
   }
 }

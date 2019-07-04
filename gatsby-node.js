@@ -12,10 +12,16 @@ exports.createPages = async ({ graphql, actions }) => {
       allWordpressPost {
         edges {
           node {
+            wordpress_id
+            slug
             title
             excerpt
-            slug
-            wordpress_id
+            categories {
+              name
+            }
+            author {
+              name
+            }
           }
         }
       }
