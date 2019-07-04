@@ -45,7 +45,9 @@
     }
 
     &:not(last-of-type) {
-      display: none;
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
 

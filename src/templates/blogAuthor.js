@@ -10,30 +10,33 @@ import Trips from "../components/trips/trips"
 
 const BlogPostTemplate = ({ data }) => {
   // rendering articles
+
   const renderArticles = () => {
-    return data.wordpressWpUsers.authored_wordpress__POST.map(
-      ({ id, title, slug, categories, featured_media }, idx) => {
-        // since our wordpress source plugin did not support limit method on the query, we use the index trick
-        while (idx < 12) {
-          return (
-            <Link to={`/blog/${slug}`} key={id} className="article-single">
-              {featured_media !== null && (
-                <Img
-                  className="article-single__thumb"
-                  fluid={featured_media.localFile.childImageSharp.fluid}
-                  alt={title}
-                  href={slug}
-                />
-              )}
-              <h2 className="article-single__title">{title}</h2>
-              <h3 className="article-single__sub-title">
-                {categories[0].name}
-              </h3>
-            </Link>
-          )
+    if (data.wordpressWpUsers.authored_wordpress__POST !== null) {
+      return data.wordpressWpUsers.authored_wordpress__POST.map(
+        ({ id, title, slug, categories, featured_media }, idx) => {
+          // since our wordpress source plugin did not support limit method on the query, we use the index trick
+          while (idx < 12) {
+            return (
+              <Link to={`/blog/${slug}`} key={id} className="article-single">
+                {featured_media !== null && (
+                  <Img
+                    className="article-single__thumb"
+                    fluid={featured_media.localFile.childImageSharp.fluid}
+                    alt={title}
+                    href={slug}
+                  />
+                )}
+                <h2 className="article-single__title">{title}</h2>
+                <h3 className="article-single__sub-title">
+                  {categories[0].name}
+                </h3>
+              </Link>
+            )
+          }
         }
-      }
-    )
+      )
+    }
   }
 
   return (
