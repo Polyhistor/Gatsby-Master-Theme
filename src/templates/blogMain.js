@@ -15,10 +15,12 @@ const IndexPage = ({ pageContext }) => {
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
           <Link className="blog__main-link" to={`blog/` + node.slug}>
-            <Img
-              fluid={node.featured_media.localFile.childImageSharp.fluid}
-              alt={node.title}
-            />
+            {node.featured_media !== null && (
+              <Img
+                fluid={node.featured_media.localFile.childImageSharp.fluid}
+                alt={node.title}
+              />
+            )}
             <h3 className="blog__main-title">{node.title}</h3>
             <h4 className="blog__main-category">{node.categories[0].name}</h4>
             <h5 className="blog__main-author">{node.author.name}</h5>
