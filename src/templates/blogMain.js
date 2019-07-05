@@ -4,6 +4,10 @@ import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
 import Layout2 from "../components/layout/layout2"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
+import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 
 const IndexPage = ({ pageContext }) => {
   const { group, index, first, last } = pageContext
@@ -36,22 +40,37 @@ const IndexPage = ({ pageContext }) => {
         <div className="blog__main">
           {renderBlogs()}
           <div className="blog__main-pagination">
-            <div className="previousLink">
+            <div className="blog__main-previousLink">
               <NavLink
                 test={first}
                 url={`/blog/${previousUrl}`}
                 text="Go to Previous Page"
+                arrowLeft="&#8592;"
               />
             </div>
-            <div className="nextLink">
+            <div className="blog__main-nextLink">
               <NavLink
                 test={last}
                 url={`/blog/${nextUrl}`}
                 text="Go to Next Page"
+                arrow="&#8594;"
               />
             </div>
           </div>
         </div>
+        <Banner
+          header="How it works"
+          subHeaderFirst="everything you need to"
+          subHeaderSecond="know about our tours"
+          buttonText="continue"
+        />
+      </div>
+
+      <WhyWildKiwi />
+
+      <Reviews />
+      <div className="row">
+        <Trips />
       </div>
     </Layout2>
   )

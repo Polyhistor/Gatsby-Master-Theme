@@ -1,11 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const NavLink = props => {
-  if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>
+const NavLink = ({ test, url, text, arrow, arrowLeft }) => {
+  if (!test) {
+    return (
+      <Link className="btn btn--green" to={url}>
+        <span className="blog__main-arrow">{arrowLeft}</span>
+        {text}
+        <span className="blog__main-arrow">{arrow}</span>
+      </Link>
+    )
   } else {
-    return <span>{props.text}</span>
+    return null
   }
 }
 
