@@ -462,7 +462,7 @@
       &:nth-of-type(4) {
         & > a {
           display: grid;
-          grid-template-rows: 24rem 4rem 1.5rem 1.5rem;
+          grid-template-rows: 24rem repeat(3, min-content);
           grid-template-columns: 1fr;
           grid-row-gap: 0.5rem;
 
@@ -555,12 +555,12 @@
         & > a {
           display: grid;
           grid-template-columns: 75rem 25rem;
-          grid-template-rows: 21.5rem 2rem 2rem 24.5rem;
+          grid-template-rows: repeat(4, min-content);
           grid-column-gap: 1rem;
 
           @include respond(tablet) {
             grid-template-columns: 51rem 15rem;
-            grid-template-rows: 35.5rem 2rem 2rem 10.5rem;
+            grid-template-rows: repeat(4, min-content);
           }
 
           & > .gatsby-image-wrapper {
@@ -597,10 +597,10 @@
       &:nth-of-type(7) {
         & > a {
           display: grid;
-          grid-template-rows: 31rem 7rem 1.8rem 1.5rem;
+          grid-template-rows: 31rem repeat(3, min-content);
 
           @include respond(tablet) {
-            grid-template-rows: 31rem 7rem 1.8rem 1.5rem;
+            grid-template-rows: 31rem repeat(3, min-content);
             grid-template-columns: 34rem;
           }
 
@@ -610,6 +610,7 @@
           }
 
           & > .blog__main-title {
+            padding-top: 1rem;
             font-size: 1.5rem;
             grid-row: 2;
             align-self: center;
@@ -654,10 +655,10 @@
       &:nth-of-type(10) {
         & > a {
           display: grid;
-          grid-template-rows: 25rem 7rem 1.8rem 1.5rem;
+          grid-template-rows: 25rem repeat(3, min-content);
 
           @include respond(tablet) {
-            grid-template-rows: 25rem 10rem 1.8rem 1.5rem;
+            grid-template-rows: 25rem repeat(3, min-content);
           }
 
           @include respond(tablet) {
@@ -670,6 +671,7 @@
           }
 
           & > .blog__main-title {
+            padding-top: 1rem;
             font-size: 1.5rem;
             grid-row: 2;
             align-self: center;
@@ -740,7 +742,7 @@
         & > a {
           @include respond(phone) {
             display: grid;
-            grid-template-rows: 31rem 11rem 3.8rem 1.5rem;
+            grid-template-rows: 31rem repeat(3, min-content);
           }
 
           & > .gatsby-image-wrapper {
@@ -872,16 +874,27 @@
 
       & > div:nth-of-type(1) {
         margin-right: 2rem;
+
+        @include respond(phone) {
+          margin-right: 0;
+        }
       }
 
       @include respond(phone) {
-        display: none;
+        grid-row: 11;
+        text-align: center;
       }
     }
 
     &-arrow {
       padding: 0rem 1rem;
       font-size: 2rem;
+    }
+
+    &-previousLink {
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
 }

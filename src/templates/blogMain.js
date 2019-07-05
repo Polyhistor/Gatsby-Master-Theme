@@ -44,17 +44,11 @@ const IndexPage = ({ pageContext }) => {
               <NavLink
                 test={first}
                 url={`/blog/${previousUrl}`}
-                text="Go to Previous Page"
-                arrowLeft="&#8592;"
+                text="Previous"
               />
             </div>
             <div className="blog__main-nextLink">
-              <NavLink
-                test={last}
-                url={`/blog/${nextUrl}`}
-                text="Go to Next Page"
-                arrow="&#8594;"
-              />
+              <NavLink test={last} url={`/blog/${nextUrl}`} text="More" />
             </div>
           </div>
         </div>
