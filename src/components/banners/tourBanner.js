@@ -1,8 +1,9 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
+import useImageQuery from "../../queries/ImageQuery"
 
 const TourBanner = ({
   destination,
@@ -12,29 +13,8 @@ const TourBanner = ({
   details,
   price,
 }) => {
-  // having the query for both new zealand and australia
-  const imageData = useStaticQuery(graphql`
-    query {
-      newzealand: file(
-        relativePath: { eq: "wild-kiwi-destinations-newzealand.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 1550) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      australia: file(
-        relativePath: { eq: "wild-kiwi-destinations-australia.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 1550) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  // extracting from our custom hook
+  const imageQuery = useImageQuery()
 
   return (
     <section className={`section-tour-banner-${destination}`}>
@@ -80,8 +60,8 @@ const TourBanner = ({
             <Img
               fluid={
                 destination === "newzealand"
-                  ? imageData.newzealand.childImageSharp.fluid
-                  : imageData.australia.childImageSharp.fluid
+                  ? imageQuery.newzealand.childImageSharp.fluid
+                  : imageQuery.australia.childImageSharp.fluid
               }
             />
             <figcaption

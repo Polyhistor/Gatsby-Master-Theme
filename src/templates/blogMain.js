@@ -7,7 +7,7 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import WhyWildKiwi from "../components/mobile/whyWildkiwi"
+import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
 
 const IndexPage = ({ pageContext }) => {
   const { group, index, first, last } = pageContext
@@ -60,7 +60,7 @@ const IndexPage = ({ pageContext }) => {
         />
       </div>
 
-      <WhyWildKiwi />
+      <MobileBoxContainer />
 
       <Reviews />
       <div className="row">

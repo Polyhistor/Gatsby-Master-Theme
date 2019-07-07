@@ -1,23 +1,16 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
+import useImageQuery from "../../queries/ImageQuery"
+
 const Header = () => {
-  // fetching image from Gatsby's source file
-  const data = useStaticQuery(graphql`
-    query {
-      landing: file(relativePath: { eq: "wild-kiwi-header-image.jpg" }) {
-        childImageSharp {
-          fluid(quality: 80, maxWidth: 2160) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
+  // extracting our custom hook
+  const imageQuery = useImageQuery()
 
   // creating a variable out of image data
-  const imageData = data.landing.childImageSharp.fluid
+  const imageData = imageQuery.landing.childImageSharp.fluid
+  // rendering the contents
   return (
     <>
       <BackgroundImage
