@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import InstagramPosts from "./instagramPosts"
 import useImageQuery from "../../queries/ImageQuery"

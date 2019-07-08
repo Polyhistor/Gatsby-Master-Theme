@@ -1,7 +1,7 @@
 import React from "react"
 
 import Box from "./box"
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const BoxContainer = () => {
   // extracting our custom hook
@@ -12,25 +12,25 @@ const BoxContainer = () => {
       <div className="row">
         <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
         <Box
-          imageData={imageQuery.newVehiclesDesk.childImageSharp.fluid}
+          imageData={imageQuery.newVehicles.childImageSharp.fluid}
           textFirst="new"
           textSecond="vehicles"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
-          imageData={imageQuery.localGuidsDesk.childImageSharp.fluid}
+          imageData={imageQuery.localGuids.childImageSharp.fluid}
           textFirst="local"
           textSecond="guides"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
-          imageData={imageQuery.smallGroupsDesk.childImageSharp.fluid}
+          imageData={imageQuery.smallGroups.childImageSharp.fluid}
           textFirst="small"
           textSecond="groups"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
-          imageData={imageQuery.breathTakingSceneryDesk.childImageSharp.fluid}
+          imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
           textFirst="breathtaking"
           textSecond="scenery"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"

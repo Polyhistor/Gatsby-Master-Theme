@@ -3,7 +3,7 @@ import React from "react"
 // default components
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import Landing from "../components/header/landing"
+import Landing from "../components/header/landings/landing"
 import Featured from "../components/featured"
 import BannerHero from "../components/banners/bannerHero"
 import BoxContainer from "../components/boxes/boxContainer"

@@ -16,9 +16,11 @@
 @import "components/trips";
 @import "components/instagram";
 @import "components/article.scss";
+@import "components/banner-chartered";
+@import "components/green-bar";
 
 @import "layouts/header";
-@import "layouts/_grid";
+@import "layouts/grid";
 @import "layouts/navigation";
 @import "layouts/footer";
 @import "layouts/mobile";
@@ -26,3 +28,4 @@
 @import "layouts/blog";
 
 @import "pages/home";
+@import "pages/destinations";

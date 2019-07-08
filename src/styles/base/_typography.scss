@@ -60,3 +60,11 @@
     }
   }
 }
+
+.heading-alternative {
+  @include header-alternative;
+
+  &--white {
+    color: white;
+  }
+}
