@@ -7,6 +7,7 @@ import LandingChartered from "../components/header/landings/landingChartered"
 import GreenBar from "../components/greenBar"
 import DestinationStarter from "../components/textContainers/destinationStarter"
 import FixedTourDest from "../components/boxes/fixedTourDest"
+import BoxContainer from "../components/boxes/boxContainer"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -44,6 +45,12 @@ const Destinations = () => {
       <FixedTourDest
         imgData={WildkiwiMapNamed}
         imgeAlt="wild-kiwi-newzealand-tours"
+      />
+      <BoxContainer
+        imageOne={imageQuery.newVehicles.childImageSharp.fluid}
+        imageTwo={imageQuery.localGuids.childImageSharp.fluid}
+        imageThree={imageQuery.smallGroups.childImageSharp.fluid}
+        imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
       />
     </Layout2>
   )

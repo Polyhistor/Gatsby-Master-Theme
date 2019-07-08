@@ -4,7 +4,7 @@ const GreenBar = ({ text, imageData, imageAlt }) => {
   return (
     <section className="green-bar">
       <div className="green-bar__container">
-        <img src={imageData} alt={imageAlt} />
+        <img className="gree-bar__logo" src={imageData} alt={imageAlt} />
         <h2 className="heading-alternative heading-alternative--white">
           {text}
         </h2>
