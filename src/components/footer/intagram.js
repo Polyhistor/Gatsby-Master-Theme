@@ -1,7 +1,7 @@
 import React from "react"
 
 import InstagramPosts from "./instagramPosts"
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const Instagram = () => {
   //extracting query from our custom hook

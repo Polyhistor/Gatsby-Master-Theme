@@ -1,7 +1,7 @@
 import React from "react"
 
 import MobileBox from "./mobileBox"
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const MobileBoxContainer = () => {
   // extracting our custom hook

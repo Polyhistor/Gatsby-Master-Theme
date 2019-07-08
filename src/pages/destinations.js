@@ -16,13 +16,17 @@ import WildkiwiMapNamed from "../images/Wild_Kiwi_NZ_Map_Names.svg"
 const Destinations = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+
+  // implementing Intersection Observer API. This is the best way to watch and
+  // register callbacks to trigger when elements on a page come into view.
+
   return (
     <Layout2>
       <SEO title="Home" />
       <LandingChartered
         bannerFirst={imageQuery.landing.childImageSharp.fluid}
         bannerSecond={imageQuery.bannerHero.childImageSharp.fluid}
-        bannerThird={imageQuery.breathTakingSceneryDesk.childImageSharp.fluid}
+        bannerThird={imageQuery.breathTakingScenery.childImageSharp.fluid}
         bannerFourth={imageQuery.newzealand.childImageSharp.fluid}
         bannerFifth={imageQuery.australia.childImageSharp.fluid}
         buttonText="watch trail"

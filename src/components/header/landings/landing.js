@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import useImageQuery from "../../../queries/ImageQuery"
+import useImageQuery from "../../../queries/imageQuery"
 
 const Header = () => {
   // extracting our custom hook

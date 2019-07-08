@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const TourBanner = ({
   destination,

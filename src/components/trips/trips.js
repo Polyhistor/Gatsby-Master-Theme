@@ -1,7 +1,7 @@
 import React from "react"
 import Trip from "./trip"
 
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const Trips = () => {
   // extracting query from our custom hook

@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import useImageQuery from "../../queries/ImageQuery"
+import useImageQuery from "../../queries/imageQuery"
 
 const Banner = ({ header, subHeaderFirst, subHeaderSecond, buttonText }) => {
   // extracting query from our custom hook
