@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: top;
   position: relative;
-  max-width: 126.666rem;
+  max-width: $grid-width-desk;
   margin: 0 auto;
 
   &__logo-box {

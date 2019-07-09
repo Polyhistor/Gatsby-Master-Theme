@@ -1,0 +1,37 @@
+.itinerary {
+  max-width: 85rem;
+
+  &__container {
+  }
+
+  &__single {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 2rem 3rem 8rem;
+    border: 1px solid $color-gray-light-2;
+    grid-column-gap: 1.5rem;
+    padding: 1rem;
+
+    &-image {
+      grid-column: 1;
+      grid-row: 1/-1;
+    }
+
+    &-day {
+      grid-column: 2;
+      grid-row: 1;
+      font-family: Nunito-Extrabold;
+    }
+
+    &-title {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    &-paragraph {
+      grid-column: 2;
+      grid-row: 3;
+      width: 98%;
+    }
+  }
+}
