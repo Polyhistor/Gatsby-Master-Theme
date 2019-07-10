@@ -1,34 +1,30 @@
 import React from "react"
 
-import Box from "./box"
+import BoxText from "../boxes/boxText"
 
-const BoxContainer = ({ imageOne, imageTwo, imageThree, imageFour }) => {
+const Highlight = ({ title, imageOne, imageTwo, imageThree, imageFour }) => {
   return (
-    <section className="section-why-us mobile-no">
-      <div className="row">
-        <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
-        <Box
+    <section className="section-destination__highlight">
+      <div className="highlight-box__container">
+        <h2 className="green-title">{title}</h2>
+        <BoxText
           imageData={imageOne}
-          textFirst="new"
-          textSecond="vehicles"
+          title="Highlight One"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
-        <Box
+        <BoxText
           imageData={imageTwo}
-          textFirst="local"
-          textSecond="guides"
+          title="Highlight Two"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
-        <Box
+        <BoxText
           imageData={imageThree}
-          textFirst="small"
-          textSecond="groups"
+          title="Highlight Three"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
-        <Box
+        <BoxText
           imageData={imageFour}
-          textFirst="breathtaking"
-          textSecond="scenery"
+          title="Highlight Four"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
       </div>
@@ -36,4 +32,4 @@ const BoxContainer = ({ imageOne, imageTwo, imageThree, imageFour }) => {
   )
 }
 
-export default BoxContainer
+export default Highlight

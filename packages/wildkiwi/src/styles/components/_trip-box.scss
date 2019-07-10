@@ -1,0 +1,7 @@
+.trip-box {
+  &__title {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10rem;
+  }
+}

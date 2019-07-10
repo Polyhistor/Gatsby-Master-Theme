@@ -58,6 +58,11 @@
   color: $color-primary;
 }
 
+@mixin header-alternative {
+  font-size: 1.8rem;
+  font-family: Nunito-SemiBold;
+}
+
 // Pouya's media query manager
 /* 
 specified dimensions : 
@@ -75,14 +80,14 @@ $breakpoints paraments:
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
     // 320 - 840
-    @media only screen and (max-width: 48em) {
+    @media only screen and (max-width: 47.4em) {
       @content;
     }
   }
 
   @if $breakpoint == tablet {
     // 775-1025
-    @media only screen and (min-width: 48.5em) and (max-width: 64em) {
+    @media only screen and (min-width: 47.5em) and (max-width: 64em) {
       @content;
     }
   }

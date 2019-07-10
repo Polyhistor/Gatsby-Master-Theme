@@ -60,3 +60,28 @@
     }
   }
 }
+
+.heading-alternative {
+  @include header-alternative;
+
+  &--white {
+    color: white;
+  }
+}
+
+.bold-green {
+  font-size: 3rem;
+  color: $color-primary;
+}
+
+.green-title {
+  font-family: Nunito-Black;
+  font-size: 3.4rem;
+  color: $color-primary;
+  text-transform: capitalize;
+
+  @include respond(phone) {
+    font-size: 3rem;
+    text-align: center;
+  }
+}

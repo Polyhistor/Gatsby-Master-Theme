@@ -1,67 +1,11 @@
 import React from "react"
 import Trip from "./trip"
-import { graphql, useStaticQuery } from "gatsby"
+
+import useImageQuery from "../../queries/imageQuery"
 
 const Trips = () => {
-  const toursImages = useStaticQuery(graphql`
-    query {
-      bigSouth: file(relativePath: { eq: "wild-kiwi-tours-big-south.jpg" }) {
-        childImageSharp {
-          fluid(quality: 80, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      northernVoyage: file(
-        relativePath: { eq: "wild-kiwi-tours-northern-voyager.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      NZDiscovery: file(
-        relativePath: { eq: "wild-kiwi-tours-nz-discovery.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      nzExplorer: file(
-        relativePath: { eq: "wild-kiwi-tours-nz-explorer.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      queensland: file(relativePath: { eq: "wild-kiwi-tours-queensland.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      southernLoop: file(
-        relativePath: { eq: "wild-kiwi-tours-southern-loop.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  // extracting query from our custom hook
+  const imageQuery = useImageQuery()
 
   return (
     <section className="section-trips">
@@ -71,7 +15,7 @@ const Trips = () => {
         </div>
         <div className="trips-container">
           <Trip
-            imageData={toursImages.bigSouth.childImageSharp.fluid}
+            imageData={imageQuery.bigSouth.childImageSharp.fluid}
             duration="7"
             subtitle="christchurch return"
             title="big south"
@@ -79,7 +23,7 @@ const Trips = () => {
             priceDay="$177 per day"
           />
           <Trip
-            imageData={toursImages.northernVoyage.childImageSharp.fluid}
+            imageData={imageQuery.northernVoyage.childImageSharp.fluid}
             duration="7"
             subtitle="christchurch return"
             title="north voyager"
@@ -88,7 +32,7 @@ const Trips = () => {
           />
 
           <Trip
-            imageData={toursImages.NZDiscovery.childImageSharp.fluid}
+            imageData={imageQuery.NZDiscovery.childImageSharp.fluid}
             duration="7"
             subtitle="christchurch return"
             title="big south"
@@ -96,7 +40,7 @@ const Trips = () => {
             priceDay="$177 per day"
           />
           <Trip
-            imageData={toursImages.nzExplorer.childImageSharp.fluid}
+            imageData={imageQuery.nzExplorer.childImageSharp.fluid}
             duration="7"
             subtitle="christchurch return"
             title="NZ Adventurer"
@@ -105,7 +49,7 @@ const Trips = () => {
           />
 
           <Trip
-            imageData={toursImages.queensland.childImageSharp.fluid}
+            imageData={imageQuery.queensland.childImageSharp.fluid}
             duration="14"
             subtitle="christchurch return"
             title="NZ explorer"
@@ -113,7 +57,7 @@ const Trips = () => {
             priceDay="$177 per day"
           />
           <Trip
-            imageData={toursImages.southernLoop.childImageSharp.fluid}
+            imageData={imageQuery.southernLoop.childImageSharp.fluid}
             duration="14"
             subtitle="christchurch return"
             title="Southern Voyager"

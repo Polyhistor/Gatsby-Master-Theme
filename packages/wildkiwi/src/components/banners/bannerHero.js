@@ -1,6 +1,8 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
+
 import BackgroundImage from "gatsby-background-image"
+import useImageQuery from "../../queries/imageQuery"
 
 const BannerHero = ({
   headerFirst,
@@ -10,23 +12,14 @@ const BannerHero = ({
   subHeaderSecond,
   buttonText,
 }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      banner: file(relativePath: { eq: "wild-kiwi-what-we-stand-for.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 2260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  //extracting our query from custom hooks
+  const imageQuery = useImageQuery()
 
   return (
     <section className="section-banner section-banner-hero mobile-no">
       <div className="row">
         <BackgroundImage
-          fluid={data.banner.childImageSharp.fluid}
+          fluid={imageQuery.bannerHero.childImageSharp.fluid}
           className={"banner-hero__image"}
         >
           <div className="banner-hero">

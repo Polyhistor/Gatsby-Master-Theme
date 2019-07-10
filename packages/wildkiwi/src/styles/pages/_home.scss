@@ -1,7 +1,7 @@
 // the magic of regex again, this is an attribute selector
 
 [class^="section-"] {
-  margin-top: 6.6rem;
+  margin-top: 8rem;
 }
 
 .section {
@@ -61,6 +61,8 @@
       }
     }
     &-australia {
+      margin-top: 2rem;
+
       & > .row:first-child {
         display: none;
       }

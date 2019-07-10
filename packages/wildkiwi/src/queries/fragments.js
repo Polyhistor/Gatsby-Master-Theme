@@ -10,6 +10,18 @@ export const FluidImageFragment = graphql`
     }
   }
 `
+
+// for fluid images that we use on landing, big banners
+export const FluidImageFragmentBig = graphql`
+  fragment FluidImageBig on File {
+    childImageSharp {
+      fluid(quality: 80, maxWidth: 2160) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`
+
 // for wordporess posts that has been fetched
 export const BlogPostFragment = graphql`
   fragment BlogPost on wordpress__POST {
