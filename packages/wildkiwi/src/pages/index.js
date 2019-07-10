@@ -37,7 +37,7 @@ const IndexPage = props => {
       <FeaturedMobile />
       <WatchTrailer />
       <BannerHero
-        headerFirst="Ga dandebis eliqui"
+        headerFirst="Ga dandebis eliquis"
         headersecond="consedit fugia quiatiis"
         headerThird="consequi doluptusam."
         subHeaderFirst="Dandebis eliqui consedit fugia quiatiis consequi as. Pora dolorei ctibus doluptusam, sum quiscia acerumquo quis aut licatem enia non reius autestionsed quiatiu. "
