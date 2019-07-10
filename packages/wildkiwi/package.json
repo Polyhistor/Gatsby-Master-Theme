@@ -5,8 +5,7 @@
   "version": "0.1.0",
   "author": "Pouya Ataei",
   "dependencies": {
-    "gatsby": "^2.8.2",
-    "@nt-websites/shared":"0.1.0"
+    "gatsby": "^2.8.2"
   },
   "keywords": [
     "gatsby"
