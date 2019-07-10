@@ -66,7 +66,7 @@ const Destinations = () => {
           textThird="Flash-pack accomodation"
           iconFourth={toaster}
           textFourth="Breakfast everyday"
-          titleSecond="what's also included on this tour"
+          titleSecond="What's also included on this tour"
           specifics={[
             { label: "21 breakfasts" },
             { label: "3 dinners" },
