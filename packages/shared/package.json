@@ -1,0 +1,14 @@
+{
+    "name": "@nt-websites/shared",
+    "private": true,
+    "main": "index.js",
+    "description": "Shared UI for websites",
+    "version": "0.1.0",
+    "author": "Pouya Ataei",
+    "license": "MIT",
+    "scripts": {
+      "build": "gatsby build",
+      "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    }
+  }
+  

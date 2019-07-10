@@ -1,7 +1,7 @@
 {
-  "name": "wildkiwi-project",
+  "name": "@nt-websites/main",
   "private": true,
-  "description": "Wild Kiwi Website",
+  "description": "Navigate Travel",
   "version": "0.1.0",
   "author": "Pouya Ataei",
   "dependencies": {
@@ -27,6 +27,7 @@
     "gatsby-source-wordpress": "^3.0.64",
     "gatsby-transformer-sharp": "^2.1.21",
     "html-react-parser": "^0.8.0",
+    "lerna": "^3.15.0",
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
@@ -45,18 +46,20 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "bootstrap": "lerna clean -y && lerna bootstrap --hoist",
+    "start:wildkiwi": "cd packages/wildkiwi && npm run start",
+    "build:wildkiwi": "cd packages/wildkiwi && npm run build",
+    "test:wildkiwi": "cd packages/wildkiwi && npm run test",
+    "lint:wildkiwi": "cd packages/wildkiwi && npm run lint",
+    "start:medsailors": "cd packages/medsailors && npm run start",
+    "build:medsailors": "cd packages/medsailors && npm run build",
+    "test:medsailors": "cd packages/medsailors && npm run test",
+    "lint:medsailors": "cd packages/medsailors && npm run lint",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo test all applications"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/danai-limited/navigate-retail-websites"
   }
 }

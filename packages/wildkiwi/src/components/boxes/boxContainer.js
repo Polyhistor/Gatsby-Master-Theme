@@ -1,9 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Box from "./box"
+import {Box} from "@nt-websites/shared";
+
+console.log(Box);
 
 const BoxContainer = () => {
+  console.log(Box);
   const imagedata = useStaticQuery(graphql`
     query {
       newVehiclesDesk: file(

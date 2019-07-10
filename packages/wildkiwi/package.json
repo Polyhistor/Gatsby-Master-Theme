@@ -1,0 +1,30 @@
+{
+  "name": "@nt-websites/wildkiwi",
+  "private": true,
+  "description": "Wild Kiwi Website",
+  "version": "0.1.0",
+  "author": "Pouya Ataei",
+  "dependencies": {
+    "gatsby": "^2.8.2",
+    "@nt-websites/shared":"0.1.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
