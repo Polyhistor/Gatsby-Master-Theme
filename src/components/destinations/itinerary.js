@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Img from "gatsby-image"
 
 import useItineraryData from "./itineraryData"
@@ -8,6 +8,9 @@ import useItineraryData from "./itineraryData"
 const Itinerary = ({ title }) => {
   //extracting itinerary data from our custom hook
   const itineraryData = useItineraryData()
+
+  // using hooks to update our stylings
+  const [show, setShow] = useState(false)
 
   // rendering individual itineraries
   const renderItineraries = () => {
@@ -29,11 +32,20 @@ const Itinerary = ({ title }) => {
 
   return (
     <section className="section-destination__itinerary">
-      <div className="row">
-        <div className="itinerary">
-          <h2 className="green-title u-padding-bottom-sedium">{title}</h2>
-          <div className="itinerary__container">{renderItineraries()} </div>
+      <div className="itinerary">
+        <h2 className="green-title u-padding-bottom-sedium">{title}</h2>
+        <div
+          className={
+            show === false
+              ? "itinerary__container"
+              : "itinerary__container--show-more"
+          }
+        >
+          {renderItineraries()}
         </div>
+        <button onClick={() => setShow(!show)} className="itinerary__button">
+          {show === false ? "show full itinerary" : "show less"}
+        </button>
       </div>
     </section>
   )

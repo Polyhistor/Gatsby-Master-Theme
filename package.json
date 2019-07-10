@@ -26,7 +26,6 @@
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-source-wordpress": "^3.0.64",
     "gatsby-transformer-sharp": "^2.1.21",
-    "html-react-parser": "^0.8.0",
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
@@ -34,7 +33,6 @@
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
     "react-helmet": "^5.2.1",
-    "react-intersection-observer": "^8.23.0",
     "react-share": "^3.0.0"
   },
   "devDependencies": {

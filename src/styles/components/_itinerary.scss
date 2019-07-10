@@ -1,7 +1,17 @@
 .itinerary {
-  max-width: 85rem;
-
   &__container {
+    & div:nth-child(7) {
+      filter: blur(3px);
+    }
+    & div:nth-child(n + 8) {
+      display: none;
+    }
+
+    &--show-more {
+      & div:nth-child(n + 8) {
+        display: grid;
+      }
+    }
   }
 
   &__single {
@@ -21,17 +31,34 @@
       grid-column: 2;
       grid-row: 1;
       font-family: Nunito-Extrabold;
+      color: $color-primary;
     }
 
     &-title {
       grid-column: 2;
       grid-row: 2;
+      font-size: 1.8rem;
     }
 
     &-paragraph {
       grid-column: 2;
       grid-row: 3;
       width: 98%;
+      font-size: 1.4rem;
     }
+  }
+
+  &__button {
+    padding: 1rem 8rem;
+    font-family: Nunito-Black;
+    text-transform: uppercase;
+    color: white;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    transform: translateY(-10%);
+    margin-top: 2rem;
   }
 }

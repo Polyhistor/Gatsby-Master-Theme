@@ -1,6 +1,35 @@
 .section {
   &-destination {
-    &-highlight {
+    max-width: 126rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    // grid-template-rows: 11rem 30rem 117rem;
+    grid-column-gap: 5rem;
+
+    &__starter {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &__highlight {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &__itinerary {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    &__trip-box {
+      grid-column: 2;
+      grid-row: 1/6;
+    }
+
+    &__includes {
+      grid-column: 1;
+      grid-row: 4;
     }
   }
 }
