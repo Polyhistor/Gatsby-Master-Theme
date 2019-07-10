@@ -1,21 +1,30 @@
 .includes {
   display: grid;
   grid-template-columns: repeat(4, 18rem);
-  grid-template-rows: 4rem 8rem 2rem 8rem 2rem;
+  grid-template-rows: 5rem 8rem 4rem 8rem 2rem;
+  grid-column-gap: 6.8rem;
   font-size: 1.4rem;
   color: $color-grey-dark-3;
 
   &__title {
     grid-column: 1/3;
     grid-row: 1;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     &--second {
+      font-size: 2.2rem;
       grid-column: 3/5;
       grid-row: 1;
     }
   }
 
   &__icon {
+    &--first,
+    &--second,
+    &--third,
+    &--fourth {
+      justify-self: center;
+    }
+
     &--first {
       grid-column: 1;
       grid-row: 2;
@@ -35,6 +44,12 @@
   }
 
   &__text {
+    &--first,
+    &--second,
+    &--third,
+    &--fourth {
+      justify-self: center;
+    }
     &--first {
       grid-column: 1;
       grid-row: 3;
@@ -55,5 +70,7 @@
 
   &__specifics {
     margin-left: 1rem;
+    grid-column: 3/5;
+    grid-row: 2/5;
   }
 }
