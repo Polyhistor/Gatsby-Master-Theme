@@ -1,35 +1,54 @@
 import React from "react"
 
 const TripBox = ({
-  days,
   imageData,
   imageAlt,
+  days,
+  text,
   title,
   subTitle,
+  daysText,
+  daysNum,
+  priceText,
   price,
+  perDayText,
   perDay,
   earlyBird,
   availablity,
   hotText,
+  hotTextSecond,
 }) => {
   return (
     <div className="section-destination__trip-box">
-      <figure className="trip-box__figure">
-        <img className="trip-box__image" src={imageData} alt={imageAlt} />
-        <figcaption className="tour-banner__figure-caption tour-banner__figure-caption-newzealand">
-          <span className="tour-banner__days">{days}</span>
-        </figcaption>
-      </figure>
-      <h2 className="trip-box__title">{title} this is sticky</h2>
-      <h5 className="trip-box__subtitle">{subTitle}</h5>
-      <div className="trip-box__info">
-        <span className="trip-box__days">{days}</span>
-        <span className="trip-box__price">{price}</span>
-        <span className="trip-box__per-day">{perDay}</span>
+      <div className="trip-box">
+        <figure className="trip-box__figure">
+          <img className="trip-box__image" src={imageData} alt={imageAlt} />
+          <figcaption className="tour-banner__figure-caption tour-banner__figure-caption-newzealand">
+            <span className="trips__duration-days">{days}</span>
+            <span className="trips__duration-text">{text}</span>
+          </figcaption>
+        </figure>
+        <h2 className="trip-box__title">{title}</h2>
+        <h5 className="trip-box__subtitle">{subTitle}</h5>
+        <div className="trip-box__info">
+          <div className="trip-box__days">
+            <span className="green-title-alternative">{daysText}</span>
+            <span className="green-subtitle-alternative">{daysNum}</span>
+          </div>
+          <div className="trip-box__price">
+            <span className="green-title-alternative">{priceText}</span>
+            <span className="green-subtitle-alternative">{price}</span>
+          </div>
+          <div className="trip-box__per-day">
+            <span className="green-title-alternative">{perDayText}</span>
+            <span className="green-subtitle-alternative">{perDay}</span>
+          </div>
+        </div>
+        <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
+        <a className="trip-box__availablitity">{availablity}</a>
+        <p className="trip-box__hot-text">{hotText}</p>
+        <p className="trip-box__hot-text--2">{hotTextSecond}</p>
       </div>
-      <h5 className="trip-box__early-bird">{earlyBird}</h5>
-      <a className="trip-box__availablitity">{availablity}</a>
-      <p className="trip-box__hot-text">{hotText}</p>
     </div>
   )
 }

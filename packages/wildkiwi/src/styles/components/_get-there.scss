@@ -1,0 +1,34 @@
+.get-there {
+  display: grid;
+  grid-template-rows: 7rem 6rem 22rem;
+  font-size: 1.6rem;
+  color: $color-grey-dark-2;
+
+  &__paragraph {
+    grid-row: 2;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    &-title {
+      font-family: Nunito-Black;
+
+      color: $color-grey-dark-3;
+    }
+
+    &--left {
+      grid-column: 1;
+      margin-left: 2rem;
+    }
+
+    &--right {
+      grid-column: 2;
+    }
+  }
+
+  &__element {
+    line-height: 4rem;
+  }
+}
