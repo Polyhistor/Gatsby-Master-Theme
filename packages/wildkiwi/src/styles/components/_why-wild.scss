@@ -1,0 +1,33 @@
+.WhyWild-box {
+  display: grid;
+  grid-template-columns: repeat(3, 28rem);
+  grid-column-gap: 2rem;
+
+  &-single {
+    display: grid;
+    grid-template-rows: 38rem 4rem 3rem max-content;
+
+    &__image {
+      grid-row: 1;
+    }
+
+    &__title {
+      padding-top: 1.5rem;
+      grid-row: 2;
+      @include heading-15-black-green;
+    }
+
+    &__sub-title,
+    &__description {
+      color: $color-grey-dark-2;
+    }
+
+    &__sub-title {
+      grid-row: 3;
+    }
+
+    &__description {
+      grid-row: 4;
+    }
+  }
+}

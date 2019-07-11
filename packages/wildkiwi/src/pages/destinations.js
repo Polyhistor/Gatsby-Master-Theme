@@ -11,11 +11,19 @@ import TripBox from "../components/destinations/tripBox"
 import HighLight from "../components/destinations/highlight"
 import Itinerary from "../components/destinations/itinerary"
 import Includes from "../components/destinations/includes"
+import ActivitiesBox from "../components/destinations/activitiesBox"
+import Reviews from "../components/reviews/reviews"
+import WhyWild from "../components/destinations/whyWild"
+import Booking from "../components/destinations/booking"
+import GetThere from "../components/destinations/getThere"
+import Banner from "../components/banners/banner"
+import Trips from "../components/trips/trips"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+// the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-import WildkiwiMapNamed from "../images/Wild_Kiwi_NZ_Map_Names.svg"
+import WildkiwiMapNamed from "../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 import localGuide from "../images/Guide.svg"
 import van from "../images/Van.svg"
 import bed from "../images/Bed.svg"
@@ -43,7 +51,25 @@ const Destinations = () => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <DestinationSection>
-        <TripBox />
+        <TripBox
+          imageData={WildkiwiMapNamed}
+          imageAlt="NZ disovery Tour"
+          days="21"
+          text="days"
+          title="NZ Discover"
+          subTitle="auckland - christchurch or christchurch - auckland"
+          daysText="Days"
+          daysNum="21"
+          priceText="Price from"
+          price="$3789 NZD"
+          perDayText="Per day"
+          perDay="$189"
+          earlyBird="Early Bird Sale"
+          availablity="check availability"
+          hotText="This tour is getting a lot of attention.
+        "
+          hotTextSecond="It’s been viewed 500+ time in the past week."
+        />
         <DestinationStarter
           title="NZ Discovery"
           body="Travel New Zealand on our 21-day tour like never before. This could possibly be the best 3 weeks of your life as you road trip through the land of the long white cloud, hitting all the best spots and none of the rest!"
@@ -76,7 +102,37 @@ const Destinations = () => {
             { label: "New Zealand’s most incredible spots." },
           ]}
         />
+        <ActivitiesBox />
+        <div className="hotfix--reviews">
+          <Reviews />
+        </div>
+        <WhyWild />
+        <Booking />
+        <GetThere
+          title="Getting there"
+          paragraph="You can fly directly to Auckland with most International carriers, as well as domestically within New Zealand."
+          titleLeft="International"
+          leftList={[
+            { label: "International" },
+            { label: "www.qantas.com" },
+            { label: "www.airnewzealand.com" },
+            { label: "www.emirates.com" },
+            { label: "wwww.ba.com" },
+          ]}
+          titleRight="Domestic"
+          rightList={[
+            { label: "www.airnewzealand.com" },
+            { label: "www.jetstar.com/nz" },
+          ]}
+        />
       </DestinationSection>
+      <Banner
+        header="Looking for adventure?"
+        subHeaderFirst="Read our top 10 adrenalin "
+        subHeaderSecond="activites to do in New Zealand."
+        buttonText="learn more"
+      />
+      <Trips />
     </Layout2>
   )
 }

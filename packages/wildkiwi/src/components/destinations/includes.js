@@ -27,16 +27,32 @@ const includes = ({
           {title}
         </h4>
         {/* first quarter */}
-        <img className="includes__icon--first" src={iconFirst} />
+        <img
+          className="includes__icon--first"
+          src={iconFirst}
+          alt={textFirst}
+        />
         <span className="includes__text--first">{textFirst}</span>
         {/* second quarter */}
-        <img className="includes__icon--second" src={iconSecond} />
+        <img
+          className="includes__icon--second"
+          src={iconSecond}
+          alt={textFirst}
+        />
         <span className="includes__text--second">{textSecond}</span>
         {/* third quarter */}
-        <img className="includes__icon--third" src={iconThird} />
+        <img
+          className="includes__icon--third"
+          src={iconThird}
+          alt={textFirst}
+        />
         <span className="includes__text--third">{textThird}</span>
         {/* fourth quarter */}
-        <img className="includes__icon--fourth" src={iconFourth} />
+        <img
+          className="includes__icon--fourth"
+          src={iconFourth}
+          alt={textFirst}
+        />
         <span className="includes__text--fourth">{textFourth}</span>
 
         <h4 className="includes__title--second heading-alternative u-color-green">

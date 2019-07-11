@@ -47,6 +47,8 @@
   "scripts": {
     "bootstrap": "lerna clean -y && lerna bootstrap --hoist",
     "start:wildkiwi": "cd packages/wildkiwi && npm run start",
+    "gatsby:wildkiwi": "cd packages/wildkiwi && gatsby develop",
+    "gatsby:clean:wildkiwi": "cd packages/wildkiwi && gatsby clean",
     "build:wildkiwi": "cd packages/wildkiwi && npm run build",
     "test:wildkiwi": "cd packages/wildkiwi && npm run test",
     "lint:wildkiwi": "cd packages/wildkiwi && npm run lint",

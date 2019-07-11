@@ -1,0 +1,73 @@
+.acitivity-box {
+  display: grid;
+  grid-template-columns: repeat(4, 21rem);
+
+  grid-column-gap: 1.2rem;
+
+  &-single {
+    display: grid;
+    grid-template-rows: 22rem 2.5rem 1.5rem 2rem;
+    &__image-container {
+      position: relative;
+      grid-row: 1;
+
+      & > .gatsby-image-wrapper {
+        height: 21rem;
+      }
+    }
+
+    &__image {
+    }
+
+    &__caption {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      border-radius: 50%;
+      padding: 0.7rem;
+      color: white;
+      text-align: center;
+      height: 4.4rem;
+      width: 4.4rem;
+      @include bigUppercaseText;
+
+      & > span {
+        font-size: 1.3rem;
+        margin-top: 0.7rem;
+        display: block;
+      }
+
+      &--free {
+        background-color: $color-primary;
+      }
+
+      &--top {
+        background-color: $color-red;
+      }
+    }
+
+    &__title {
+      grid-row: 2;
+      @include heading-18-black-gray;
+    }
+
+    &__sub-title {
+      grid-row: 3;
+      @include heading-11-black-light-gray;
+    }
+
+    &__price {
+      grid-row: 4;
+      @include heading-11-black-green;
+    }
+  }
+
+  &-button {
+    @include whiteGreen;
+    @include bigCapitalText;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 4.9rem;
+    font-size: 1.4rem;
+  }
+}

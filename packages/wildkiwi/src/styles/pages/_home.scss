@@ -155,9 +155,6 @@
 
   &-trips {
     & > .row > .trips-header-box {
-      @include respond(desk) {
-        margin-top: -5rem;
-      }
     }
   }
 
