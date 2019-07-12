@@ -47,7 +47,6 @@ const TripBox = ({
         <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
         <a className="trip-box__availablitity">{availablity}</a>
         <p className="trip-box__hot-text">{hotText}</p>
-        <p className="trip-box__hot-text--2">{hotTextSecond}</p>
       </div>
     </div>
   )

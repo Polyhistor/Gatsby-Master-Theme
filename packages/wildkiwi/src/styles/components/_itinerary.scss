@@ -30,7 +30,8 @@
     &-day {
       grid-column: 2;
       grid-row: 1;
-      font-family: Nunito-Extrabold;
+      font-family: Nunito-Black;
+      font-size: 1.4rem;
       color: $color-primary;
     }
 
@@ -38,6 +39,8 @@
       grid-column: 2;
       grid-row: 2;
       font-size: 1.8rem;
+      color: $color-grey-dark-3;
+      font-family: Nunito-Black;
     }
 
     &-paragraph {
@@ -45,6 +48,7 @@
       grid-row: 3;
       width: 98%;
       font-size: 1.4rem;
+      color: $color-grey-dark-2;
     }
   }
 

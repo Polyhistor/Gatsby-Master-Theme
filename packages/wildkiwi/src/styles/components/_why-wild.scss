@@ -3,18 +3,52 @@
   grid-template-columns: repeat(3, 28rem);
   grid-column-gap: 2rem;
 
+  @include respond(laptop) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 2rem;
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(3, 22rem);
+  }
+
   &-single {
     display: grid;
     grid-template-rows: 38rem 4rem 3rem max-content;
 
+    @include respond(laptop) {
+      grid-template-rows: 5rem 3rem 10rem;
+      grid-template-columns: 50% 50%;
+      grid-column-gap: 1.5rem;
+    }
+
+    @include respond(tablet) {
+      grid-template-rows: 18rem 5rem 4rem max-content;
+    }
+
     &__image {
       grid-row: 1;
+
+      @include respond(laptop) {
+        grid-row: 1/-1;
+      }
     }
 
     &__title {
       padding-top: 1.5rem;
       grid-row: 2;
       @include heading-15-black-green;
+
+      @include respond(laptop) {
+        font-size: 2rem;
+        grid-row: 1;
+        grid-column: 2;
+        padding-top: 0;
+      }
+
+      @include respond(tablet) {
+        font-size: 2rem;
+      }
     }
 
     &__sub-title,
@@ -24,10 +58,20 @@
 
     &__sub-title {
       grid-row: 3;
+
+      @include respond(laptop) {
+        grid-row: 2;
+        grid-column: 2;
+      }
     }
 
     &__description {
       grid-row: 4;
+
+      @include respond(laptop) {
+        grid-row: 3;
+        grid-column: 2;
+      }
     }
   }
 }

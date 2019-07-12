@@ -14,6 +14,7 @@
     border-bottom: 1px solid rgba($color-grey-dark, 0.4);
     &-box {
       text-align: center;
+      background-color: $color-primary;
       & * {
         @include whiteGreen;
         padding: 0.8rem 1rem;

@@ -12,12 +12,28 @@ html {
   font-size: 62.5%;
   font-family: Nunito-Regular;
   // overflow-x: hidden;
+
+  @include respond(tablet) {
+    overflow-x: hidden;
+  }
+
+  @include respond(phone) {
+    overflow-x: hidden;
+  }
 }
 
 /* making use of inheritance */
 body {
   box-sizing: border-box;
   // overflow-x: hidden;
+
+  @include respond(tablet) {
+    overflow-x: hidden;
+  }
+
+  @include respond(phone) {
+    overflow-x: hidden;
+  }
 }
 
 .wrapper {

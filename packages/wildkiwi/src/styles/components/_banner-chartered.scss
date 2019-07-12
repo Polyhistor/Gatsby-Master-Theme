@@ -4,16 +4,50 @@
   grid-template-rows: repeat(2, min-content);
   grid-template-columns: 50% 25% 25%;
 
+  @include respond(laptop) {
+    grid-template-columns: 70% 30%;
+  }
+
+  @include respond(tablet) {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  @include respond(phone) {
+    margin-top: 4rem;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
   &--1 {
     grid-column: 1;
     grid-row: 1/-1;
     height: 64rem;
     position: relative;
 
+    @include respond(laptop) {
+      height: 44rem;
+    }
+
+    @include respond(phone) {
+      height: 40rem;
+    }
+
     & > a {
       position: absolute;
       bottom: 2%;
       left: 2%;
+
+      @include respond(phone) {
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1.5rem 8.5rem;
+        font-size: 1.8rem;
+        bottom: 5%;
+        background: $color-primary;
+        color: white;
+        white-space: nowrap;
+      }
     }
   }
 
@@ -41,6 +75,11 @@
       position: absolute;
       bottom: 5%;
       right: 5%;
+
+      @include respond(laptop) {
+        grid-column: 1;
+        grid-row: 1;
+      }
     }
   }
 }

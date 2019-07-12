@@ -46,6 +46,12 @@
         display: none;
       }
     }
+
+    & figure:nth-child(1n + 4) {
+      @include respond(tablet) {
+        display: none;
+      }
+    }
   }
 
   &__name {
