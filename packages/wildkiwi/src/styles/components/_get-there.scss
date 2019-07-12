@@ -6,6 +6,10 @@
 
   &__paragraph {
     grid-row: 2;
+
+    @include respond(tablet) {
+      display: none;
+    }
   }
 
   &__list {

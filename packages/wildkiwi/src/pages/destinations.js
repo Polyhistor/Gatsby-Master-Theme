@@ -66,9 +66,7 @@ const Destinations = () => {
           perDay="$189"
           earlyBird="Early Bird Sale"
           availablity="check availability"
-          hotText="This tour is getting a lot of attention.
-        "
-          hotTextSecond="It’s been viewed 500+ time in the past week."
+          hotText="This tour is getting a lot of attention. It’s been viewed 500+ time in the past week."
         />
         <DestinationStarter
           title="NZ Discovery"
@@ -125,13 +123,15 @@ const Destinations = () => {
             { label: "www.jetstar.com/nz" },
           ]}
         />
+        <div className="hotfix--banner">
+          <Banner
+            header="Looking for adventure?"
+            subHeaderFirst="Read our top 10 adrenalin "
+            subHeaderSecond="activites to do in New Zealand."
+            buttonText="learn more"
+          />
+        </div>
       </DestinationSection>
-      <Banner
-        header="Looking for adventure?"
-        subHeaderFirst="Read our top 10 adrenalin "
-        subHeaderSecond="activites to do in New Zealand."
-        buttonText="learn more"
-      />
       <Trips />
     </Layout2>
   )

@@ -13,7 +13,6 @@
 
     @include respond(laptop) {
       margin-left: 0rem;
-      transform: translateY(31%);
     }
 
     @include respond(tablet) {

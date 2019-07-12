@@ -18,9 +18,20 @@ const LandingChartered = ({
         <Link to="/s" className="btn btn--white btn-animated">
           {buttonText}
         </Link>
+        <div className="tablet-button__chartered-landing">
+          <Link to="/s" className="btn btn--white btn-animated">
+            {buttonTextSecond}
+          </Link>
+        </div>
       </BackgroundIamge>
       <BackgroundIamge fluid={bannerSecond} className="banner-chartered--2" />
-      <BackgroundIamge fluid={bannerThird} className="banner-chartered--3" />
+      <BackgroundIamge fluid={bannerThird} className="banner-chartered--3">
+        <div className="laptop-button__chartered-landing">
+          <Link to="/s" className="btn btn--white btn-animated">
+            {buttonTextSecond}
+          </Link>
+        </div>
+      </BackgroundIamge>
       <BackgroundIamge fluid={bannerFourth} className="banner-chartered--4" />
       <BackgroundIamge fluid={bannerFifth} className="banner-chartered--5">
         <Link to="/s" className="btn btn--white btn-animated">

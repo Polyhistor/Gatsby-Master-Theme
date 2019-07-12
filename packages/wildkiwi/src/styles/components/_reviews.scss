@@ -23,6 +23,10 @@
     &-decimal {
       font-size: 3rem;
     }
+
+    @include respond(tablet) {
+      padding-left: 2rem;
+    }
   }
 
   &__stars-box {

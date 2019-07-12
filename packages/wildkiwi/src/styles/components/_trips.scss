@@ -9,6 +9,14 @@
     text-align: center;
   }
 
+  &-container {
+    & div:nth-child(1n + 4) {
+      @include respond(tablet) {
+        display: none;
+      }
+    }
+  }
+
   // apply to all elements except the last one
 
   &:not(:last-child) {
@@ -58,6 +66,10 @@
 
     @include respond(laptop) {
       width: 24rem;
+    }
+
+    @include respond(tablet) {
+      width: 21.3rem;
     }
 
     @include respond(phone) {

@@ -1,12 +1,25 @@
 .acitivity-box {
   display: grid;
   grid-template-columns: repeat(4, 21rem);
-
   grid-column-gap: 1.2rem;
+
+  @include respond(laptop) {
+    grid-template-columns: repeat(2, 24rem);
+    grid-row-gap: 2rem;
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(3, 22.5rem);
+  }
 
   &-single {
     display: grid;
     grid-template-rows: 22rem 2.5rem 1.5rem 2rem;
+
+    @include respond(tablet) {
+      grid-template-rows: 22rem 2.5rem 2rem 2rem;
+    }
+
     &__image-container {
       position: relative;
       grid-row: 1;
@@ -54,11 +67,28 @@
     &__sub-title {
       grid-row: 3;
       @include heading-11-black-light-gray;
+
+      @include respond(laptop) {
+        color: $color-grey-dark;
+        font-size: 1.3rem;
+      }
+
+      @include respond(tablet) {
+        font-size: 1.4rem;
+        color: $color-grey-dark;
+        font-family: Nunito-Extrabold;
+      }
     }
 
     &__price {
       grid-row: 4;
       @include heading-11-black-green;
+
+      @include respond(tablet) {
+        font-size: 1.5rem;
+        font-family: Nunito-Extrabold;
+        text-transform: capitalize;
+      }
     }
   }
 
@@ -69,5 +99,18 @@
     margin-top: 2rem;
     padding: 1rem 4.9rem;
     font-size: 1.4rem;
+
+    @include respond(tablet) {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      margin-top: 3rem;
+    }
+  }
+
+  & .acitivity-box-single:last-child {
+    @include respond(tablet) {
+      display: none;
+    }
   }
 }
