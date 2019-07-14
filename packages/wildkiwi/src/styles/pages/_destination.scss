@@ -43,7 +43,6 @@
 
       @include respond(phone) {
         grid-row: 3;
-        grid-column: 1/-1;
       }
     }
 
@@ -54,6 +53,10 @@
       @include respond(tablet) {
         grid-row: 4;
         grid-column: 1/-1;
+      }
+
+      @include respond(phone) {
+        grid-row: 4;
       }
     }
 
@@ -80,6 +83,10 @@
         grid-row: 5;
         grid-column: 1/-1;
       }
+
+      @include respond(phone) {
+        grid-row: 5;
+      }
     }
 
     &__activities {
@@ -89,6 +96,10 @@
       @include respond(tablet) {
         grid-row: 6;
         grid-column: 1/-1;
+      }
+
+      @include respond(phone) {
+        grid-row: 6;
       }
     }
 
@@ -103,6 +114,11 @@
       @include respond(tablet) {
         margin-top: 8rem;
       }
+
+      @include respond(phone) {
+        grid-row: 8;
+        margin-top: 8rem;
+      }
     }
 
     &__booking {
@@ -113,6 +129,10 @@
 
       @include respond(tablet) {
         grid-row: 9;
+      }
+
+      @include respond(phone) {
+        display: none;
       }
 
       & > h1 {
@@ -126,6 +146,10 @@
 
       @include respond(tablet) {
         grid-row: 10;
+      }
+
+      @include respond(phone) {
+        display: none;
       }
     }
   }

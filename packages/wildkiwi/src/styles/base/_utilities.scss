@@ -338,6 +338,11 @@
       height: 69rem;
     }
 
+    @include respond(phone) {
+      grid-row: 7;
+      height: 88rem;
+    }
+
     & > section {
       position: absolute;
       left: 0;
@@ -346,6 +351,10 @@
 
       @include respond(tablet) {
         height: 60rem;
+      }
+
+      @include respond(phone) {
+        height: 80rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -358,6 +367,10 @@
         @include respond(tablet) {
           margin-left: 0;
           margin-top: -10rem;
+        }
+
+        @include respond(phone) {
+          margin-left: 0rem;
         }
       }
 
@@ -377,6 +390,7 @@
   &--banner {
     grid-row: 10;
     grid-column: 1/-1;
+    margin-top: 8rem;
 
     @include respond(tablet) {
       grid-row: 11;
@@ -384,6 +398,10 @@
 
     & > section {
       margin-top: 0;
+
+      @include respond(phone) {
+        display: block;
+      }
     }
   }
 }

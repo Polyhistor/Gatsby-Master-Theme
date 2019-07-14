@@ -11,7 +11,7 @@ const MobileBoxContainer = () => {
     <>
       <div className="mobile-yes">
         <section className="section-why-us">
-          <h2 class="green-title u-margin-bottom-small">Why Wild?</h2>
+          <h2 className="green-title u-margin-bottom-small">Why Wild?</h2>
           <div className="row">
             <MobileBox
               textFirst="new"
