@@ -18,6 +18,10 @@
     border: 1px solid $color-gray-light-2;
   }
 
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+
   &__image {
     width: 100%;
     height: 14rem;
@@ -28,6 +32,10 @@
     }
 
     @include respond(tablet) {
+    }
+
+    @include respond(phone) {
+      height: 22rem;
     }
   }
 
@@ -40,6 +48,10 @@
     }
 
     @include respond(tablet) {
+      border: 0px;
+    }
+
+    @include respond(phone) {
       border: 0px;
     }
   }
@@ -89,6 +101,10 @@
     @include respond(tablet) {
       grid-template-columns: repeat(3, 22.5rem);
       grid-column-gap: 1.5rem;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
     }
 
     & > h2 {

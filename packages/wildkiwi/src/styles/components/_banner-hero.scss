@@ -9,6 +9,10 @@
 
   &-2 {
     height: 24rem;
+
+    @include respond(phone) {
+      height: 35rem;
+    }
   }
   &__text-box {
     position: absolute;
@@ -32,6 +36,13 @@
       padding-top: 2.2rem !important;
       top: 10%;
       left: 2%;
+
+      @include respond(phone) {
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
   }
 

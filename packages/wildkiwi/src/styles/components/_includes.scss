@@ -17,6 +17,12 @@
     grid-column-gap: 3rem;
   }
 
+  @include respond(phone) {
+    grid-template-rows: 8rem 8rem 6rem 8rem 5rem 7rem min-content;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  }
+
   &__title {
     grid-column: 1/3;
     grid-row: 1;
@@ -24,6 +30,12 @@
 
     @include respond(tablet) {
       font-size: 1.9rem;
+    }
+
+    @include respond(phone) {
+      font-size: 2rem;
+      font-family: Nunito-Black;
+      text-align: center;
     }
 
     &--second {
@@ -38,6 +50,13 @@
 
       @include respond(tablet) {
         font-size: 1.9rem;
+      }
+
+      @include respond(phone) {
+        grid-row: 6;
+        grid-column: 1/3;
+        font-family: Nunito-Black;
+        font-size: 2rem;
       }
     }
   }
@@ -101,6 +120,12 @@
     @include respond(laptop) {
       grid-column: 1/-1;
       grid-row: 7;
+      margin-left: 2rem;
+    }
+
+    @include respond(phone) {
+      grid-row: 7;
+      grid-column: 1/3;
       margin-left: 2rem;
     }
   }

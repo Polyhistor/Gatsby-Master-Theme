@@ -4,6 +4,11 @@
   font-size: 1.6rem;
   color: $color-grey-dark-2;
 
+  @include respond(phone) {
+    grid-template-rows: 7rem 10rem 22rem;
+    grid-template-columns: 30rem;
+  }
+
   &__paragraph {
     grid-row: 2;
 
