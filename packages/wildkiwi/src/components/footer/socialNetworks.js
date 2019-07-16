@@ -5,7 +5,6 @@ const SocialNetowrk = () => {
     <div className="u-margin-bottom-medium u-padding-top-huge ">
       <div className="footer__social-networks">
         <div className="footer__social-networks-box">
-          {/* <i className="im im-angle-down " /> */}
           <i className="im im-instagram" />
           <i className="im im-facebook" />
           <i className="im im-youtube" />

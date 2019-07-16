@@ -27,6 +27,7 @@
 
   &__logo {
     &-literal {
+      width: 10rem;
       margin-top: -0.7rem;
       @include respond(phone) {
         width: 10rem !important;
@@ -43,6 +44,12 @@
       text-decoration: none;
     }
 
+    & a:nth-child(1) {
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
     @include respond(phone) {
       right: 0rem;
       top: -2px;
@@ -54,6 +61,7 @@
 
     @include respond(tablet) {
       right: 12%;
+      margin-top: -1rem;
     }
   }
 

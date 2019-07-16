@@ -1,19 +1,11 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+import useImageQuery from "../../queries/imageQuery"
+
 const footerNav = ({ link1, link2, link3, link4 }) => {
-  const imageData = useStaticQuery(graphql`
-    query {
-      footerQuasi: file(relativePath: { eq: "QualMark_Footer.png" }) {
-        childImageSharp {
-          fixed(width: 54, height: 52) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+  const imageData = useImageQuery()
 
   return (
     <div className="footer-nav">
@@ -47,7 +39,7 @@ const footerNav = ({ link1, link2, link3, link4 }) => {
       </nav>
       <div className="footer-nav__copy">
         <div className="footer-nav__logo">
-          <Img fixed={imageData.footerQuasi.childImageSharp.fixed} />
+          <Img fluid={imageData.qualmark.childImageSharp.fluid} />
         </div>
         <div className="footer-nav__copy-text">
           <p>Privacy and Cookies Policy Terms and Conditions</p>

@@ -16,7 +16,6 @@ const TripBox = ({
   earlyBird,
   availablity,
   hotText,
-  hotTextSecond,
 }) => {
   return (
     <div className="section-destination__trip-box">
@@ -45,7 +44,9 @@ const TripBox = ({
           </div>
         </div>
         <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
-        <a className="trip-box__availablitity">{availablity}</a>
+        <a href="wildkiwi.com" className="trip-box__availablitity">
+          {availablity}
+        </a>
         <p className="trip-box__hot-text">{hotText}</p>
       </div>
     </div>

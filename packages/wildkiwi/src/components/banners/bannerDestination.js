@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import Trip from "../../components/trips/trip"
 
 import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
-import useImageQuery from "../../queries/imageQuery"
 
 const BannerDestination = ({
   header,
@@ -18,9 +17,6 @@ const BannerDestination = ({
   tourThree,
   tourFour,
 }) => {
-  // extracting from our custom hook
-  const imageQuery = useImageQuery()
-
   return (
     <section className={`section-tour-banner-destination`}>
       <div className="row">
@@ -74,7 +70,7 @@ const BannerDestination = ({
               priceDay="$177 per day"
             />
             <Trip
-              imageData={tourThree}
+              imageData={tourFour}
               duration="7"
               subtitle="christchurch return"
               title="big south"

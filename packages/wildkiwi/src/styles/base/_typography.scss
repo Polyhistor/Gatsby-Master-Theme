@@ -10,6 +10,7 @@
     animation: moveInleft 0.8s ease-out;
     font-family: Nexa-Rust-2;
     line-height: 5rem;
+    white-space: nowrap;
 
     @include respond(phone) {
       font-size: 3.5rem;

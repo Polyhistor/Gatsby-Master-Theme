@@ -34,6 +34,7 @@ const BlogPostTemplate = ({ data }) => {
               </Link>
             )
           }
+          return null
         }
       )
     }

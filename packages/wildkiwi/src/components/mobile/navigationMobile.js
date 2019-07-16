@@ -2,6 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 
 import MobileLogo from "../mobile/mobileLogo"
+import MobileNavItems from "../mobile/mobileNavItems"
 
 const NavigationMobile = () => {
   // using some cool hooks instead of class based components
@@ -32,9 +33,17 @@ const NavigationMobile = () => {
       >
         <ul className="navigation-mobile__list">
           <li className="navigation-mobile__item">
-            <MobileLogo />
-            <i className="mobile__arrow-down im im-angle-down" />
+            <input
+              className="navigation-mobile-btn"
+              type="checkbox"
+              id="menu-btn"
+            />
+            <label class="navigation-mobile__icon" htmlFor="menu-btn">
+              <span class="navigation-mobile__hamburger" />
+            </label>
+            <ul className="navigation-mobile__sub">{MobileNavItems()}</ul>
           </li>
+          <MobileLogo />
         </ul>
       </nav>
     </div>

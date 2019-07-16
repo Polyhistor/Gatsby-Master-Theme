@@ -1,25 +1,18 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+import useImageQuery from "../../queries/imageQuery"
+
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "WildKiwi.png" }) {
-        childImageSharp {
-          fixed(height: 42, width: 120) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+  const imageData = useImageQuery()
+
   return (
     <li className="navigation__item">
       <Link className="header__logo" to="/">
         <Img
           className="header__logo-literal"
-          fixed={data.logo.childImageSharp.fixed}
+          fluid={imageData.logo.childImageSharp.fluid}
         />
       </Link>
     </li>
