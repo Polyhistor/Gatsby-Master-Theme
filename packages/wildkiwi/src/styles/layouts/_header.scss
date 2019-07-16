@@ -64,6 +64,7 @@
   &__text-box {
     position: absolute;
     top: 35%;
+    width: 31.7%;
 
     @include respond(laptop) {
       left: 6%;
@@ -82,11 +83,29 @@
   &__button-box {
     margin-top: 7.5rem;
     text-align: left;
+    margin-right: 22rem;
+
+    @include respond(laptop) {
+      margin-right: 14.8rem;
+    }
+
+    @include respond(tablet) {
+      margin-right: 6rem;
+    }
+
+    @include respond(phone) {
+      width: 27rem;
+    }
+
+    &--dest {
+      @include respond(phone) {
+        margin-top: 18rem !important;
+      }
+    }
 
     & a:nth-child(1) {
       display: block;
       margin: 4.5rem 0 1.4rem 0;
-      width: 45%;
 
       @include respond(phone) {
         margin: 0 auto;
@@ -95,7 +114,6 @@
     }
     & a:nth-child(2) {
       display: block;
-      width: 45%;
     }
 
     @include respond(phone) {

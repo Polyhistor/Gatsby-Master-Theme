@@ -16,6 +16,7 @@ import Trips from "../components/trips/trips"
 import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
 import FeaturedMobile from "../components/mobile/featuredMobile"
+import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 
 // tablet component
 import DestinationsTablet from "../components/tablet/destinationsTablet"
@@ -31,11 +32,24 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Landing />
+      <Landing
+        imageData={imageQuery.landing.childImageSharp.fluid}
+        titleFirst="epic"
+        TitleSecond="adventure"
+        TitleThird="tours"
+        subTitle="for 18 to 35 year olds"
+        buttonFirst="expore"
+        buttonFirstURL="/blog"
+        buttonSecond="watch trail"
+        buttonSecondURL="/blog"
+        buttonStyles={["green", "white"]}
+        variation={null}
+      />
       <Featured />
       <FeaturedTablet />
       <FeaturedMobile />
       <WatchTrailer />
+      <WhyWildKiwi />
       <BannerHero
         headerFirst="Ga dandebis eliqui"
         headersecond="consedit fugia quiatiis"
