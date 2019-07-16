@@ -62,6 +62,7 @@ const NewZealand = () => {
         tourOne={imageQuery.bigSouth.childImageSharp.fluid}
         tourTwo={imageQuery.northernVoyage.childImageSharp.fluid}
         tourThree={imageQuery.NZDiscovery.childImageSharp.fluid}
+        tourFour={imageQuery.NZDiscovery.childImageSharp.fluid}
       />
       <BannerDestination
         header={null}

@@ -1,23 +1,16 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+import useImageQuery from "../../queries/imageQuery"
+
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logoMobile: file(relativePath: { eq: "WildKiwi.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  const imageData = useImageQuery()
+
   return (
     <Link className="navigation-mobile__logo" to="/">
       <Img
-        fluid={data.logoMobile.childImageSharp.fluid}
+        fluid={imageData.logo.childImageSharp.fluid}
         style={{ width: "12rem" }}
       />
     </Link>

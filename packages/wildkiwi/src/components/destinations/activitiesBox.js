@@ -42,7 +42,9 @@ const ActivitiesBox = () => {
     <div className="section-destination__activities">
       <h2 className="green-title u-padding-bottom-sedium">Activities</h2>
       <div className="acitivity-box">{renderActivities()}</div>
-      <a className="acitivity-box-button">All Activities</a>
+      <a href="wildkiwi.com" className="acitivity-box-button">
+        All Activities
+      </a>
     </div>
   )
 }

@@ -1,21 +1,12 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import InfoList from "./infoList"
+import useImageQuery from "../../queries/imageQuery"
 
 const FooterInfo = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      qualmark: file(relativePath: { eq: "QualMark_Footer.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  const imageData = useImageQuery()
 
   const renderList = InfoList.map(({ section, links }, idx) => {
     return (
@@ -43,7 +34,7 @@ const FooterInfo = () => {
         {renderList}
       </div>
       <Img
-        fluid={data.qualmark.childImageSharp.fluid}
+        fluid={imageData.qualmark.childImageSharp.fluid}
         className="footer__logo-literal"
       />
     </>

@@ -1,40 +1,10 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import useImageQuery from "../queries/imageQuery"
+
 const Featured = () => {
-  const imageData = useStaticQuery(graphql`
-    query {
-      logoMetro: file(relativePath: { eq: "Metro.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoDaily: file(relativePath: { eq: "Daily_Mail.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoWestpac: file(relativePath: { eq: "Westpac_Awards.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoQual: file(relativePath: { eq: "QualMark.png" }) {
-        childImageSharp {
-          fixed(width: 69, height: 71) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+  const imageData = useImageQuery()
 
   return (
     <div className="featured">
@@ -57,7 +27,7 @@ const Featured = () => {
         <div className="featured__container-image featured__container-image--qual u-translateY-quarter">
           <Img
             className="quasi-specific"
-            fixed={imageData.logoQual.childImageSharp.fixed}
+            fluid={imageData.logoQual.childImageSharp.fluid}
           />
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import MobileBox from "./mobileBox"
 import useImageQuery from "../../queries/imageQuery"

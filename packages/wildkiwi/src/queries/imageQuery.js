@@ -115,6 +115,30 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      qualmark: file(relativePath: { eq: "QualMark_Footer.png" }) {
+        ...FluidImage
+      }
+
+      logoMetro: file(relativePath: { eq: "Metro.png" }) {
+        ...FluidImage
+      }
+
+      logoDaily: file(relativePath: { eq: "Daily_Mail.png" }) {
+        ...FluidImage
+      }
+
+      logoWestpac: file(relativePath: { eq: "Westpac_Awards.png" }) {
+        ...FluidImage
+      }
+
+      logoQual: file(relativePath: { eq: "QualMark.png" }) {
+        ...FluidImage
+      }
+
+      logo: file(relativePath: { eq: "WildKiwi.png" }) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData

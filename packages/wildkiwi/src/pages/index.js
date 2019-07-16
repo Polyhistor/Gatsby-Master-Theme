@@ -25,7 +25,7 @@ import FeaturedTablet from "../components/tablet/featuredTablet"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 
-const IndexPage = props => {
+const IndexPage = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
