@@ -2,7 +2,7 @@
   padding-top: 4rem;
 
   @include respond(phone) {
-    padding-top: 8rem;
+    margin-top: -8rem;
   }
 
   &__social-networks {

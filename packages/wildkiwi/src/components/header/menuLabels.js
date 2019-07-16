@@ -1,7 +1,15 @@
 export default [
-  { label: "destination", link: "/destinations" },
-  { label: "how it works", link: "/" },
-  { label: "our vehicles", link: "/" },
-  { label: "faqs", link: "/" },
-  { label: "get in touch", link: "/" },
+  {
+    label: "destination",
+    link: "/destinations",
+    sub: [
+      { label: "new zealand", link: "/newzealand" },
+      { label: "australia", link: "/australia" },
+      { label: "europe", link: "/europe" },
+    ],
+  },
+  { label: "how it works", link: "/", sub: null },
+  { label: "our vehicles", link: "/", sub: null },
+  { label: "faqs", link: "/", sub: null },
+  { label: "get in touch", link: "/", sub: null },
 ]

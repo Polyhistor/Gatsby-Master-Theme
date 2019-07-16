@@ -149,12 +149,16 @@
     }
 
     @include respond(phone) {
-      height: 92rem;
+      height: 95rem;
     }
   }
 
   &-trips {
     & > .row > .trips-header-box {
+    }
+
+    @include respond(phone) {
+      transform: translateY(-6%);
     }
   }
 

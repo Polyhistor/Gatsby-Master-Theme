@@ -12,7 +12,7 @@
     line-height: 5rem;
 
     @include respond(phone) {
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       line-height: 3.5rem;
     }
   }
@@ -24,6 +24,15 @@
 
     @include respond(phone) {
       font-size: 1.2rem;
+    }
+  }
+
+  &--description {
+    color: white;
+    font-size: 1.6rem;
+
+    @include respond(phone) {
+      display: none;
     }
   }
 }

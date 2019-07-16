@@ -109,6 +109,12 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      destinationNewZealand: file(
+        relativePath: { eq: "Wild Kiwi Homepage - 16-9 Imagery2.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData

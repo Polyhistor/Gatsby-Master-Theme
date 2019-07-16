@@ -2,51 +2,17 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import MobileBox from "./mobileBox"
+import useImageQuery from "../../queries/imageQuery"
 
 const whyWildKiwi = () => {
-  const imageData = useStaticQuery(graphql`
-    query {
-      newVehicles: file(relativePath: { eq: "wild-kiwi-new-vehicles.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      localGuids: file(relativePath: { eq: "wild-kiwi-local-guides.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      smallGroups: file(relativePath: { eq: "wild-kiwi-small-groups.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      breathTakingScenery: file(
-        relativePath: { eq: "wild-kiwi-breathtaking-scenary.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  // extracting queries from our custom hook
+  const imageData = useImageQuery()
 
   return (
     <>
       <div className="mobile-yes">
         <section className="section-why-us">
-          <h2 class="green-title u-margin-bottom-small">Why Wild?</h2>
+          <h2 className="green-title u-margin-bottom-small">Why Wild?</h2>
           <div className="row">
             <MobileBox
               textFirst="new"
