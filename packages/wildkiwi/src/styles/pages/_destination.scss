@@ -153,4 +153,22 @@
       }
     }
   }
+
+  &-filtered-tour {
+    max-width: 152rem;
+    margin: 0 auto;
+    display: block;
+
+    @include respond(laptop) {
+      max-width: 100rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 70rem;
+    }
+
+    @include respond(phone) {
+      max-width: 32rem;
+    }
+  }
 }
