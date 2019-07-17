@@ -117,6 +117,7 @@ module.exports = {
           `**/taxonomies`,
           `**/users`,
           `**/media`,
+          `/yoast/**`,
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {

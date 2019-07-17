@@ -408,6 +408,15 @@
       }
     }
   }
+
+  &--destination {
+    & .section-mobile__watch-trailer {
+      & h2,
+      div {
+        display: none;
+      }
+    }
+  }
 }
 
 // abnormaly

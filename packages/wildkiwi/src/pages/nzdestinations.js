@@ -8,6 +8,8 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
 import Banner from "../components/banners/banner"
+import FilteredTours from "../components/destinations/filteredTours"
+import WatchTrailer from "../components/mobile/watchTrailer"
 
 // tablet components
 import FeaturedTablet from "../components/tablet/featuredTablet"
@@ -37,7 +39,10 @@ const NZDestinations = () => {
       />
       <Featured />
       <FeaturedTablet />
-      <FeaturedMobile />
+      <div className="hotfix--destination">
+        <WatchTrailer />
+      </div>
+      <FilteredTours />
       <Banner
         header="How it works"
         subHeaderFirst="everything you need to"
