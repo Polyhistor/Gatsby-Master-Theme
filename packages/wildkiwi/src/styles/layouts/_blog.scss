@@ -171,8 +171,7 @@
     }
 
     &__share {
-      display: block;
-      margin: 0 auto;
+      @include centralize;
       margin-top: 4rem;
       grid-column: 1;
       display: grid;

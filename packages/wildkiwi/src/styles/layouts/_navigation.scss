@@ -92,9 +92,9 @@
     }
 
     &:not(last-of-type) {
-      @include respond(phone) {
-        display: none;
-      }
+      // @include respond(phone) {
+      //   display: none;
+      // }
     }
   }
 
@@ -164,6 +164,11 @@
 
       &:checked ~ .navigation-mobile__sub {
         background: white;
+
+        @include respond(tablet) {
+          margin-left: -3rem;
+          margin-top: 1rem;
+        }
       }
 
       &:checked + .navigation-mobile__icon .navigation-mobile__hamburger {

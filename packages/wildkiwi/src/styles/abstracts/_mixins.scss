@@ -119,6 +119,16 @@
   text-transform: uppercase;
 }
 
+@mixin centralize {
+  display: block;
+  margin: 0 auto;
+}
+
+@mixin black-upper {
+  font-family: Nunito-Black;
+  text-transform: uppercase;
+}
+
 // Pouya's media query manager
 /* 
 specified dimensions : 

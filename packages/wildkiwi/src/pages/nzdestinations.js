@@ -14,9 +14,6 @@ import WatchTrailer from "../components/mobile/watchTrailer"
 // tablet components
 import FeaturedTablet from "../components/tablet/featuredTablet"
 
-// mobile components
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
 // utilities
 import useImageQuery from "../queries/imageQuery"
 

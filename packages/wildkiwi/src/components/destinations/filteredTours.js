@@ -22,6 +22,7 @@ const FilteredTour = () => {
       }
       // update the state
       setData(filteredData)
+      return
     })
   }
 

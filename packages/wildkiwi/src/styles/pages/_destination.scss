@@ -156,8 +156,7 @@
 
   &-filtered-tour {
     max-width: 152rem;
-    margin: 0 auto;
-    display: block;
+    @include centralize;
 
     @include respond(laptop) {
       max-width: 100rem;
