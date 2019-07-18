@@ -66,7 +66,13 @@ exports.createPages = async ({ graphql, actions }) => {
               localFile {
                 childImageSharp {
                   fluid(quality: 80, maxWidth: 70) {
-                    ...GatsbyImageSharpFluid
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                    originalImg
+                    originalName
                   }
                 }
               }
