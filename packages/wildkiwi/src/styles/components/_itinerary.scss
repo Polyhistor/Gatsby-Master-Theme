@@ -94,8 +94,7 @@
     background-color: $color-primary;
     border: 1px solid $color-primary;
     border-radius: 4px;
-    display: block;
-    margin: 0 auto;
+    @include centralize;
     transform: translateY(-10%);
     margin-top: 2rem;
   }

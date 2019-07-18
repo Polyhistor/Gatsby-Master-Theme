@@ -55,6 +55,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulActivity {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `).then(result => {
     // error handling
@@ -62,17 +69,23 @@ exports.createPages = async ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // accesing to data via a variable
+    // accesing the wordpress blog data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
-
-    // accessing to data regarding to all the wp_users
-    const BlogAuthors = result.data.allWordpressWpUsers.edges
 
     // setting the link to the template via Node legacy modules
     const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
 
+    // accessing to data regarding to all the wp_users
+    const BlogAuthors = result.data.allWordpressWpUsers.edges
+
     // seting the link to the author page template via node legacy modules
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
+
+    // access the data for our contentful activities section
+    const Activities = result.data.allContentfulActivity.edges
+
+    // setting the link to the activities page template
+    const ActivitiesTemplate = path.resolve("./src/templates/activities.js")
 
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
@@ -101,6 +114,17 @@ exports.createPages = async ({ graphql, actions }) => {
         component: BlogAuthorTemplate,
         context: {
           id: author.node.wordpress_id,
+        },
+      })
+    })
+
+    // this is for activities
+    Activities.forEach(acitivity => {
+      createPage({
+        path: `/activities/${acitivity.node.slug}`,
+        component: ActivitiesTemplate,
+        context: {
+          slug: acitivity.node.slug,
         },
       })
     })

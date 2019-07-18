@@ -18,6 +18,10 @@
       margin-right: auto;
       padding-bottom: 1rem;
     }
+
+    & > h2 {
+      align-self: center;
+    }
   }
 
   &__logo {

@@ -107,3 +107,30 @@ export const BlogAuthorFragment = graphql`
     }
   }
 `
+
+// for activities that has been fetched
+export const ActivitiesFragment = graphql`
+  fragment Activities on ContentfulActivity {
+    slug
+    title
+    subtitle
+    price
+    svgMap {
+      file {
+        url
+      }
+    }
+    bodyContent {
+      bodyContent
+    }
+    bannerImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 80, maxWidth: 70) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`

@@ -38,9 +38,8 @@
       left: 2%;
 
       @include respond(phone) {
-        display: block;
+        @include centralize;
         width: 95%;
-        margin: 0 auto;
         text-align: center;
       }
     }

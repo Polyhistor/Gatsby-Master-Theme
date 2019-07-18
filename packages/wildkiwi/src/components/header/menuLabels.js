@@ -4,8 +4,8 @@ export default [
     link: "/destinations",
     sub: [
       { label: "new zealand", link: "/newzealand" },
-      { label: "australia", link: "/australia" },
-      { label: "europe", link: "/europe" },
+      { label: "australia", link: "/nzdestinations" },
+      { label: "europe", link: "/activities/skydive-abel-tasman" },
     ],
   },
   { label: "how it works", link: "/", sub: null },
