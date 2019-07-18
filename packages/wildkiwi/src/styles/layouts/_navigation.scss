@@ -26,6 +26,10 @@
     width: 100%;
     text-align: center;
     list-style: none;
+
+    @include respond(phone) {
+      transform: translateY(-30rem);
+    }
   }
 
   &__dropdown {
@@ -169,10 +173,25 @@
           margin-left: -3rem;
           margin-top: 1rem;
         }
+
+        @include respond(phone) {
+          width: 100vh;
+          height: 100vh;
+          position: absolute;
+          left: 0;
+          top: 0;
+          max-width: 100%;
+          padding-top: 25vh;
+        }
       }
 
       &:checked + .navigation-mobile__icon .navigation-mobile__hamburger {
         background: transparent;
+
+        @include respond(phone) {
+          z-index: 9999;
+          color: black;
+        }
       }
 
       &:checked + .navigation-mobile__icon .navigation-mobile__hamburger:after {
@@ -189,6 +208,10 @@
         + .navigation-mobile__icon
         .navigation-mobile__hamburger:before {
         top: 0;
+
+        @include respond(phone) {
+          background: black;
+        }
       }
     }
 
