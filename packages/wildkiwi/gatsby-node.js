@@ -59,6 +59,25 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            title
+            subtitle
+            price
+            country
+            bannerImages {
+              localFile {
+                childImageSharp {
+                  fluid(quality: 80, maxWidth: 70) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                    originalImg
+                    originalName
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -85,7 +104,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const Activities = result.data.allContentfulActivity.edges
 
     // setting the link to the activities page template
-    const ActivitiesTemplate = path.resolve("./src/templates/activities.js")
+    const ActivitiesTemplate = path.resolve(
+      "./src/templates/activitiesSingle.js"
+    )
 
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
@@ -94,6 +115,15 @@ exports.createPages = async ({ graphql, actions }) => {
       pageTemplate: "src/templates/blogMain.js",
       pageLength: 10,
       pathPrefix: "blog",
+    })
+
+    // creating another set of paginated page for activities home page
+    createPaginatedPages({
+      edges: Activities,
+      createPage: createPage,
+      pageTemplate: "src/templates/activitiesMain.js",
+      pageLength: 16,
+      pathPrefix: "activities",
     })
 
     // this is for single blog pages

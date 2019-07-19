@@ -139,6 +139,34 @@ const useImageQuery = () => {
       logo: file(relativePath: { eq: "WildKiwi.png" }) {
         ...FluidImage
       }
+
+      vehiclesLady: file(relativePath: { eq: "WildKiwi-1866.jpg" }) {
+        ...FluidImage
+      }
+
+      vehicleAdventure: file(
+        relativePath: {
+          eq: "wild-kiwi-adventure-holidays-new-zealand-south-island-holiday-packages-kiwi-bus-tour.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      vehicleInterior: file(
+        relativePath: {
+          eq: "wild-kiwi-backpacking-new-zealand-south-island-road-trip-kiwi-bus-tour-interior.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      vehicleSouth: file(
+        relativePath: {
+          eq: "wild-kiwi-tour-new-zealand-south-island-road-trip-kiwi-bus-tour-solo-travel.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData

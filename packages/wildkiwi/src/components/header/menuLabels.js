@@ -9,7 +9,7 @@ export default [
     ],
   },
   { label: "how it works", link: "/", sub: null },
-  { label: "our vehicles", link: "/", sub: null },
+  { label: "our vehicles", link: "/our-vehicles", sub: null },
   { label: "faqs", link: "/", sub: null },
   { label: "get in touch", link: "/", sub: null },
 ]

@@ -409,6 +409,22 @@
     }
   }
 
+  &--narrow-banner {
+    & .bannerHero {
+      & .header {
+        height: 45rem;
+
+        & .header__button-box {
+          display: none;
+        }
+
+        & .header__text-box {
+          top: 25%;
+        }
+      }
+    }
+  }
+
   &--destination {
     & .section-mobile__watch-trailer {
       & h2,

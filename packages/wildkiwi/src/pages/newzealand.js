@@ -83,6 +83,7 @@ const NewZealand = () => {
         imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
       />
       <Banner
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

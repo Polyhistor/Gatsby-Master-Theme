@@ -16,7 +16,7 @@ import Trips from "../components/trips/trips"
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const Activities = ({ data }) => {
+const ActivitiesSingle = ({ data }) => {
   return (
     <Layout2>
       <LandingChartered
@@ -70,7 +70,7 @@ const Activities = ({ data }) => {
   )
 }
 
-export default Activities
+export default ActivitiesSingle
 
 export const query = graphql`
   query($slug: String!) {

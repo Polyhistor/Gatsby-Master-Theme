@@ -1,0 +1,21 @@
+.section {
+  &-vehicles {
+    max-width: 152rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 8rem;
+
+    @include respond(laptop) {
+      max-width: 100rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 70rem;
+    }
+
+    @include respond(phone) {
+      max-width: 30rem;
+      margin-top: 4rem;
+    }
+  }
+}
