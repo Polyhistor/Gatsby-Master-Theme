@@ -113,6 +113,7 @@ const IndexPage = () => {
         price="From $160 AUD per day"
       />
       <Banner
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

@@ -125,6 +125,7 @@ const Destinations = () => {
         />
         <div className="hotfix--banner">
           <Banner
+            imageData={imageQuery.banner.childImageSharp.fluid}
             header="Looking for adventure?"
             subHeaderFirst="Read our top 10 adrenalin "
             subHeaderSecond="activites to do in New Zealand."

@@ -129,6 +129,11 @@
   text-transform: uppercase;
 }
 
+@mixin regular-16 {
+  font-family: Nunito-Regular;
+  font-size: 1.6rem;
+}
+
 // Pouya's media query manager
 /* 
 specified dimensions : 
