@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             subtitle
             price
+            country
             bannerImages {
               localFile {
                 childImageSharp {
@@ -117,13 +118,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // creating another set of paginated page for activities home page
-    // createPaginatedPages({
-    //   edges: Activities,
-    //   createPage: createPage,
-    //   pageTemplate: "src/templates/activitiesMain.js",
-    //   pageLength: 16,
-    //   pathPrefix: "activities",
-    // })
+    createPaginatedPages({
+      edges: Activities,
+      createPage: createPage,
+      pageTemplate: "src/templates/activitiesMain.js",
+      pageLength: 16,
+      pathPrefix: "activities",
+    })
 
     // this is for single blog pages
     BlogPosts.forEach(post => {
