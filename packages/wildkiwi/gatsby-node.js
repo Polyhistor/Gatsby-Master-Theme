@@ -62,7 +62,6 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             subtitle
             price
-            country
             bannerImages {
               localFile {
                 childImageSharp {
