@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Trip from "../../components/trips/trip"
 
-import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
+import useCountryQuery from "../../queries/countryQuery"
 
 const BannerDestination = ({
   header,
@@ -12,11 +12,28 @@ const BannerDestination = ({
   departs,
   details,
   price,
-  tourOne,
-  tourTwo,
-  tourThree,
-  tourFour,
+  link,
+  svgMap,
 }) => {
+  // extracting from our custom hook
+  const countryQuery = useCountryQuery()
+
+  //rendering tours based on given data from our Contentful Query
+  const renderTours = () => {
+    return countryQuery.map(({ node }, idx) => {
+      return (
+        <Trip
+          imageData={node.tourBoxImages[idx].localFile.childImageSharp.fluid}
+          duration={node.tourBoxDays[idx]}
+          title={node.tourBoxTitles[idx]}
+          subtitle={node.tourBoxSubtitle[idx]}
+          price={node.tourBoxPrice[idx]}
+          priceDay={node.tourBoxPerDay[idx]}
+        />
+      )
+    })
+  }
+
   return (
     <section className={`section-tour-banner-destination`}>
       <div className="row">
@@ -42,42 +59,13 @@ const BannerDestination = ({
             </span>
           </div>
           <div className="destination-banner__map">
-            <img src={newzealandMap} alt="newzealnd map" />
+            <img src={svgMap} alt="newzealnd map" />
           </div>
           <div className="destination-banner__tours">
-            <Trip
-              imageData={tourOne}
-              duration="7"
-              subtitle="christchurch return"
-              title="big south"
-              price="from $2483 NZD"
-              priceDay="$177 per day"
-            />
-            <Trip
-              imageData={tourTwo}
-              duration="7"
-              subtitle="christchurch return"
-              title="big south"
-              price="from $2483 NZD"
-              priceDay="$177 per day"
-            />
-            <Trip
-              imageData={tourThree}
-              duration="7"
-              subtitle="christchurch return"
-              title="big south"
-              price="from $2483 NZD"
-              priceDay="$177 per day"
-            />
-            <Trip
-              imageData={tourFour}
-              duration="7"
-              subtitle="christchurch return"
-              title="big south"
-              price="from $2483 NZD"
-              priceDay="$177 per day"
-            />
-            <Link className="btn btn--green">all tours</Link>
+            {renderTours()}
+            <Link to={`/${link}`} className="btn btn--green">
+              all tours
+            </Link>
           </div>
         </div>
       </div>

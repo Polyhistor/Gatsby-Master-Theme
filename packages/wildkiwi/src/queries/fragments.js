@@ -108,9 +108,9 @@ export const BlogAuthorFragment = graphql`
   }
 `
 
-// for activities that has been fetched
+// for activities that has been fetched from Contetnful
 export const ActivitiesFragment = graphql`
-  fragment Activities on ContentfulActivity {
+  fragment Activities on ContentfulActivities {
     slug
     title
     subtitle
@@ -124,6 +124,37 @@ export const ActivitiesFragment = graphql`
       bodyContent
     }
     bannerImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 80, maxWidth: 70) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+// for countries that has been fetched from Contetnful
+export const CountriesFragment = graphql`
+  fragment Country on ContentfulCountry {
+    slug
+    title
+    days
+    departure
+    description
+    price
+    tourBoxDays
+    tourBoxTitles
+    tourBoxSubtitle
+    tourBoxPrice
+    tourBoxPerDay
+    svgMap {
+      file {
+        url
+      }
+    }
+    tourBoxImages {
       localFile {
         childImageSharp {
           fluid(quality: 80, maxWidth: 70) {

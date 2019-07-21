@@ -2,30 +2,44 @@ import React from "react"
 
 import BoxText from "../boxes/boxText"
 
-const Highlight = ({ title, imageOne, imageTwo, imageThree, imageFour }) => {
+const Highlight = ({
+  title,
+  imageOne,
+  titleOne,
+  descriptionOne,
+  imageTwo,
+  titleTwo,
+  descriptionTwo,
+  imageThree,
+  titleThree,
+  descriptionThree,
+  imageFour,
+  titleFour,
+  descriptionFour,
+}) => {
   return (
     <section className="section-destination__highlight">
       <div className="highlight-box__container">
         <h2 className="green-title">{title}</h2>
         <BoxText
           imageData={imageOne}
-          title="Highlight One"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+          title={titleOne}
+          description={descriptionOne}
         />
         <BoxText
           imageData={imageTwo}
-          title="Highlight Two"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+          title={titleTwo}
+          description={descriptionTwo}
         />
         <BoxText
           imageData={imageThree}
-          title="Highlight Three"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+          title={titleThree}
+          description={descriptionThree}
         />
         <BoxText
           imageData={imageFour}
-          title="Highlight Four"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+          title={titleFour}
+          description={descriptionFour}
         />
       </div>
     </section>

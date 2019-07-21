@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulActivity {
+      allContentfulActivities {
         edges {
           node {
             slug
@@ -101,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
 
     // access the data for our contentful activities section
-    const Activities = result.data.allContentfulActivity.edges
+    const Activities = result.data.allContentfulActivities.edges
 
     // setting the link to the activities page template
     const ActivitiesTemplate = path.resolve(
