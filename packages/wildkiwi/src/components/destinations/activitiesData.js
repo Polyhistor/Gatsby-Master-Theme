@@ -10,6 +10,7 @@ const useActivitiesData = () => {
       subtitle: "ROTORUA",
       price: "from $140",
       caption: "free",
+      country: "newzealand",
     },
     {
       imageData: imageData.newVehicles.childImageSharp.fluid,
@@ -17,6 +18,7 @@ const useActivitiesData = () => {
       subtitle: "ABEL TASMAN",
       price: "from $140",
       caption: null,
+      country: "australia",
     },
     {
       imageData: imageData.newVehicles.childImageSharp.fluid,
@@ -24,6 +26,7 @@ const useActivitiesData = () => {
       subtitle: "ROTORUA",
       price: "from $140",
       caption: "top",
+      country: "europe",
     },
     {
       imageData: imageData.newVehicles.childImageSharp.fluid,
@@ -31,6 +34,7 @@ const useActivitiesData = () => {
       subtitle: "ABEL TASMAN",
       price: "from $140",
       caption: null,
+      country: "newzealand",
     },
   ]
 
