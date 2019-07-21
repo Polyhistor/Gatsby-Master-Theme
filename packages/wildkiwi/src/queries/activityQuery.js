@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useActivityQuery = () => {
   const activityData = useStaticQuery(graphql`
     query {
-      allContentfulActivity(limit: 4) {
+      allContentfulActivities(limit: 4) {
         edges {
           node {
             ...Activities
@@ -13,7 +13,7 @@ const useActivityQuery = () => {
       }
     }
   `)
-  return activityData.allContentfulActivity.edges
+  return activityData.allContentfulActivities.edges
 }
 
 export default useActivityQuery

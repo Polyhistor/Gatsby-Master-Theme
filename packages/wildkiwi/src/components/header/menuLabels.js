@@ -8,6 +8,7 @@ export default [
       { label: "europe", link: "/activities/skydive-abel-tasman" },
     ],
   },
+  { label: "activities", link: "/activities", sub: null },
   { label: "how it works", link: "/", sub: null },
   { label: "our vehicles", link: "/our-vehicles", sub: null },
   { label: "faqs", link: "/", sub: null },
