@@ -15,7 +15,7 @@ const BannerDestination = ({
   link,
   svgMap,
 }) => {
-  // extracting our custom hook
+  // extracting from our custom hook
   const countryQuery = useCountryQuery()
 
   //rendering tours based on given data from our Contentful Query
