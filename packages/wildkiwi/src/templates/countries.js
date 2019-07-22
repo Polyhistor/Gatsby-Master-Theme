@@ -41,7 +41,7 @@ const countries = ({ data }) => {
       <div className="hotfix--destination">
         <WatchTrailer />
       </div>
-      <FilteredTours country={data.contentfulCountry.title} />
+      <FilteredTours country={data.contentfulCountry.slug} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"

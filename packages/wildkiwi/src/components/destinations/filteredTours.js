@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import useDestinationQuery from "../../queries/destinationQuery"
@@ -15,9 +16,9 @@ const FilteredTour = ({ country }) => {
     e.preventDefault()
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
-    return data.filter(element => {
+    return destinationData.filter(element => {
       // filter logic
-      if (element.days > 3) {
+      if (element.node.duration <= 7) {
         filteredData.push(element)
       }
       // update the state
@@ -30,50 +31,55 @@ const FilteredTour = ({ country }) => {
   const renderTours = data => {
     return data
       .filter(element => {
-        return element.node.country.title === country
+        return element.node.destinationCountry === country
       })
-      .map(
-        (
-          { imageData, days, title, subtitle, description, price, svgMap },
-          idx
-        ) => {
-          return (
-            <div key={idx} className="filtered-tour">
-              <figure className="filtered-tour__image-container">
-                <Img fluid={imageData} alt={title} />
-                <figcaption className="trips__duration">
-                  <span className="trips__duration-days">{days}</span>
-                  <span className="trips__duration-text">days</span>
-                </figcaption>
-              </figure>
-              <div className="destination-banner__description">
-                <h3 className="tour-banner__description-title tour-banner__description-title-newzealand">
-                  {title}
-                </h3>
-                <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
-                  {subtitle}
-                </h5>
-                <p className="tour-banner__description-details">
-                  {description}
-                </p>
-                <span className="tour-banner__description-price tour-banner__description-price-newzealand">
-                  {price}
+      .map((element, idx) => {
+        return (
+          <div key={idx} className="filtered-tour">
+            <figure className="filtered-tour__image-container">
+              <Img
+                fluid={
+                  element.node.bannerImages[0].localFile.childImageSharp.fluid
+                }
+                alt={element.node.title}
+              />
+              <figcaption className="trips__duration">
+                <span className="trips__duration-days">
+                  {element.node.duration}
                 </span>
-              </div>
-              <div className="filtered-tour__svg-map">
-                <img src={svgMap} alt={title} />
-              </div>
-              <a
-                aria-current="page"
-                className="btn btn--green tablet-green-button"
-                href="/"
-              >
-                view Itinerary
-              </a>
+                <span className="trips__duration-text">days</span>
+              </figcaption>
+            </figure>
+            <div className="destination-banner__description">
+              <h3 className="tour-banner__description-title tour-banner__description-title-newzealand">
+                {element.node.title}
+              </h3>
+              <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
+                {element.node.route}
+              </h5>
+              <p className="tour-banner__description-details">
+                {element.node.description}
+              </p>
+              <span className="tour-banner__description-price tour-banner__description-price-newzealand">
+                From {element.node.priceFrom} NZD
+              </span>
             </div>
-          )
-        }
-      )
+            <div className="filtered-tour__svg-map">
+              <img
+                src={element.node.svgMap.localFile.url}
+                alt={element.title}
+              />
+            </div>
+            <Link
+              aria-current="page"
+              className="btn btn--green tablet-green-button"
+              to={`destinations/${country}/${element.node.slug}`}
+            >
+              View Itinerary
+            </Link>
+          </div>
+        )
+      })
   }
 
   return (

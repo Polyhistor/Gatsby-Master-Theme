@@ -45,13 +45,16 @@ const ActivitiesMain = ({ pageContext }) => {
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
 
+    if (e.target.value === "all") {
+      return setData(group)
+    }
+
     return group.filter(element => {
       // filter logic
-      if (element.node.country === e.target.value) {
+      if (element.node.country.slug === e.target.value) {
         filteredData.push(element)
       }
 
-      console.log(filteredData)
       // update the state
       setData(filteredData)
       return
@@ -62,7 +65,7 @@ const ActivitiesMain = ({ pageContext }) => {
     <Layout2>
       <div className="row">
         <div className="activity__filter">
-          <h1 className="green-title u-padding-bottom-mediumw">
+          <h1 className="green-title u-padding-bottom-medium">
             Add-on Activities
           </h1>
           <div className="activity__selector">
@@ -71,7 +74,7 @@ const ActivitiesMain = ({ pageContext }) => {
               id="country"
               onChange={handleSubmit}
             >
-              <option value="newzealand">Country</option>
+              <option value="all">Country</option>
               <option value="newzealand">New Zealand</option>
               <option value="australia"> Australia </option>
               <option value="europe"> Europe</option>
