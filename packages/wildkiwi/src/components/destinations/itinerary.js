@@ -1,30 +1,30 @@
 import React, { useState } from "react"
 import Img from "gatsby-image"
 
-import useItineraryData from "./itineraryData"
-
 // extracting query out of our custom hook
 
-const Itinerary = ({ title }) => {
-  //extracting itinerary data from our custom hook
-  const itineraryData = useItineraryData()
-
+const Itinerary = ({
+  title,
+  itineraryDescriptions,
+  itineraryImages,
+  itineraryTitles,
+}) => {
   // using hooks to update our stylings
   const [show, setShow] = useState(false)
 
   // rendering individual itineraries
   const renderItineraries = () => {
-    return itineraryData.map((itinerary, index) => {
+    return itineraryDescriptions.map((itineraryDescription, index) => {
       return (
         <div className="itinerary__single" key={index}>
           <Img
             className="itinerary__single-image"
-            fluid={itinerary.imageData}
-            alt={itinerary.title}
+            fluid={itineraryImages[index].localFile.childImageSharp.fluid}
+            alt={itineraryTitles[index]}
           />
           <span className="itinerary__single-day">Day {index + 1}</span>
-          <h2 className="itinerary__single-title">{itinerary.title}</h2>
-          <p className="itinerary__single-paragraph">{itinerary.description}</p>
+          <h2 className="itinerary__single-title">{itineraryTitles[index]}</h2>
+          <p className="itinerary__single-paragraph">{itineraryDescription}</p>
         </div>
       )
     })
