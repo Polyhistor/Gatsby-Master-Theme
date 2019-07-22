@@ -171,6 +171,7 @@ export const DestinationsFragment = graphql`
   fragment Destination on ContentfulDestinations {
     slug
     title
+    destinationCountry
     duration
     description
     activity {

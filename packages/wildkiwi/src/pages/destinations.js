@@ -36,7 +36,7 @@ const NewZealand = () => {
           departs={node.departure}
           details={node.description}
           price={node.price}
-          svgMap={node.svgMap.file.url}
+          svgMap={node.svgMap.localFile.url}
           link={node.slug}
         />
       )

@@ -62,6 +62,9 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             subtitle
             price
+            country {
+              slug
+            }
             bannerImages {
               localFile {
                 childImageSharp {
@@ -84,9 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
-            country {
-              slug
-            }
+            destinationCountry
           }
         }
       }
@@ -192,7 +193,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // this is for destinations
     Destinations.forEach(destination => {
       createPage({
-        path: `/destinations/${destination.node.country.slug}/${
+        path: `/destinations/${destination.node.destinationCountry}/${
           destination.node.slug
         }`,
         component: DestinationsTemplate,
