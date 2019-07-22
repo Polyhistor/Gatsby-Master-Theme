@@ -8,7 +8,7 @@ const useActivitiesData = () => {
     {
       imageData: imageData.newVehicles.childImageSharp.fluid,
       days: 3,
-      title: "Skydive Abel Tasman",
+      title: "New Zealand",
       subtitle: "CHRISTCHURCH RETURN ",
       description:
         "Hit all the key spots in the upper South Island. Wind along coastal roads, wine country. See NZ’s best beaches and epic mountain scenery, travelling the South Island has never looked so good! ",
@@ -18,7 +18,7 @@ const useActivitiesData = () => {
     {
       imageData: imageData.newVehicles.childImageSharp.fluid,
       days: 5,
-      title: "Rotorua Canopy Tour",
+      title: "New Zealand",
       subtitle: "AUCKLAND RETURN",
       description:
         "Hit all the key spots in the upper South Island. Wind along coastal roads, wine country. See NZ’s best beaches and epic mountain scenery, travelling the South Island has never looked so good! ",

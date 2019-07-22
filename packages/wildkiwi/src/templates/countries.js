@@ -4,51 +4,31 @@ import React from "react"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import Landing from "../components/header/landings/landing"
-import BannerDestination from "../components/banners/bannerDestination"
-import BoxContainer from "../components/boxes/boxContainer"
-import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
+import Banner from "../components/banners/banner"
+import FilteredTours from "../components/destinations/filteredTours"
+import WatchTrailer from "../components/mobile/watchTrailer"
 
 // tablet components
 import FeaturedTablet from "../components/tablet/featuredTablet"
 
-// mobile components
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
 // utilities
 import useImageQuery from "../queries/imageQuery"
-import useCountryQuery from "../queries/countryQuery"
 
-const NewZealand = () => {
+const countries = ({ data }) => {
+  console.log(data)
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
-  const countryQuery = useCountryQuery()
-
-  // rendering countries data fetced from contentful
-  const renderCountries = () => {
-    return countryQuery.map(({ node }) => {
-      return (
-        <BannerDestination
-          title={node.title}
-          subtitle={node.days}
-          departs={node.departure}
-          details={node.description}
-          price={node.price}
-          svgMap={node.svgMap.file.url}
-          link={node.slug}
-        />
-      )
-    })
-  }
 
   return (
     <Layout>
       <SEO title="Home" />
       <Landing
         imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
-        titleFirst="DESTINATIONS"
+        titleFirst="NEW ZEALAND"
         buttonFirst="expore"
         buttonFirstURL="/blog"
         description="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci."
@@ -58,14 +38,10 @@ const NewZealand = () => {
       />
       <Featured />
       <FeaturedTablet />
-      <FeaturedMobile />
-      {renderCountries()}
-      <BoxContainer
-        imageOne={imageQuery.newVehicles.childImageSharp.fluid}
-        imageTwo={imageQuery.localGuids.childImageSharp.fluid}
-        imageThree={imageQuery.smallGroups.childImageSharp.fluid}
-        imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
-      />
+      <div className="hotfix--destination">
+        <WatchTrailer />
+      </div>
+      <FilteredTours country={data.contentfulCountry.title} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
@@ -79,4 +55,12 @@ const NewZealand = () => {
   )
 }
 
-export default NewZealand
+export default countries
+
+export const query = graphql`
+  query($slug: String!) {
+    contentfulCountry(slug: { eq: $slug }) {
+      ...Country
+    }
+  }
+`

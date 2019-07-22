@@ -15,8 +15,8 @@ const includes = ({
 }) => {
   // rendering specific labels
   const renderSpecifics = () => {
-    return specifics.map(({ label }, id) => {
-      return <li key={id}>{label}</li>
+    return specifics.map((specific, id) => {
+      return <li key={id}>{specific}</li>
     })
   }
 

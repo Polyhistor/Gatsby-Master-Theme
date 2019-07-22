@@ -80,6 +80,23 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulDestinations {
+        edges {
+          node {
+            slug
+            country {
+              slug
+            }
+          }
+        }
+      }
+      allContentfulCountry {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `).then(result => {
     // error handling
@@ -99,13 +116,27 @@ exports.createPages = async ({ graphql, actions }) => {
     // seting the link to the author page template via node legacy modules
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
 
-    // access the data for our contentful activities section
+    // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
 
     // setting the link to the activities page template
     const ActivitiesTemplate = path.resolve(
       "./src/templates/activitiesSingle.js"
     )
+
+    // accessing the data for our contentful destination section
+    const Destinations = result.data.allContentfulDestinations.edges
+
+    // setting the link to the activities page template
+    const DestinationsTemplate = path.resolve(
+      "./src/templates/destinationsSingle.js"
+    )
+
+    // accessing the data for our contentful country section
+    const Countries = result.data.allContentfulCountry.edges
+
+    // setting the link to the countries page template
+    const CountriesTemplate = path.resolve("./src/templates/countries.js")
 
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
@@ -154,6 +185,30 @@ exports.createPages = async ({ graphql, actions }) => {
         component: ActivitiesTemplate,
         context: {
           slug: acitivity.node.slug,
+        },
+      })
+    })
+
+    // this is for destinations
+    Destinations.forEach(destination => {
+      createPage({
+        path: `/destinations/${destination.node.country.slug}/${
+          destination.node.slug
+        }`,
+        component: DestinationsTemplate,
+        context: {
+          slug: destination.node.slug,
+        },
+      })
+    })
+
+    // this is for countries
+    Countries.forEach(country => {
+      createPage({
+        path: `/destinations/${country.node.slug}`,
+        component: CountriesTemplate,
+        context: {
+          slug: country.node.slug,
         },
       })
     })

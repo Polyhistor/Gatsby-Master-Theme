@@ -116,7 +116,7 @@ export const ActivitiesFragment = graphql`
     subtitle
     price
     svgMap {
-      file {
+      localFile {
         url
       }
     }
@@ -150,11 +150,82 @@ export const CountriesFragment = graphql`
     tourBoxPrice
     tourBoxPerDay
     svgMap {
-      file {
+      localFile {
         url
       }
     }
     tourBoxImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 80, maxWidth: 70) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+// for destinations that has been fetched from Contetnful
+export const DestinationsFragment = graphql`
+  fragment Destination on ContentfulDestinations {
+    slug
+    title
+    duration
+    description
+    activity {
+      title
+      subtitle
+      slug
+      price
+      status
+      bannerImages {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    highlightsTitles
+    highlightsDescriptions
+    highlightsImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 70, maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+    svgMap {
+      localFile {
+        url
+      }
+    }
+    route
+    priceFrom
+    pricePerDay
+    included
+    itinerary {
+      itineraryTitles
+      itineraryDescriptions
+      itineraryImages {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    country {
+      title
+    }
+    bannerImages {
       localFile {
         childImageSharp {
           fluid(quality: 80, maxWidth: 70) {
