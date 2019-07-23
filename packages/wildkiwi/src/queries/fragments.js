@@ -140,6 +140,15 @@ export const CountriesFragment = graphql`
   fragment Country on ContentfulCountry {
     slug
     title
+    banner {
+      localFile {
+        childImageSharp {
+          fluid(quality: 80, maxWidth: 70) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
     days
     departure
     description
@@ -230,6 +239,27 @@ export const DestinationsFragment = graphql`
       localFile {
         childImageSharp {
           fluid(quality: 80, maxWidth: 70) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+// for how-it-works boxes that has been fetched from Contetnful
+export const HowItWorksFragment = graphql`
+  fragment HowItWorks on ContentfulHowItWorks {
+    title
+    description {
+      description
+    }
+    buttonText
+    featureList
+    bannerImage {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 70) {
             ...GatsbyImageSharpFluid
           }
         }

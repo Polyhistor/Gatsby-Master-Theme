@@ -19,7 +19,6 @@ import useImageQuery from "../queries/imageQuery"
 
 const countries = ({ data }) => {
   console.log(data)
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
@@ -27,8 +26,10 @@ const countries = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <Landing
-        imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
-        titleFirst="NEW ZEALAND"
+        imageData={
+          data.contentfulCountry.banner.localFile.childImageSharp.fluid
+        }
+        titleFirst={data.contentfulCountry.title}
         buttonFirst="expore"
         buttonFirstURL="/blog"
         description="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci."

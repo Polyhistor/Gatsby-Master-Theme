@@ -3,7 +3,6 @@ import React from "react"
 import BoxText from "../boxes/boxText"
 
 const Highlight = ({ title, images, titles, descriptions }) => {
-  console.log(images)
   const renderHighlights = () => {
     return titles.map((higlight, idx) => {
       return (
