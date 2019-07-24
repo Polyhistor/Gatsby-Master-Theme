@@ -9,8 +9,8 @@ export default [
     ],
   },
   { label: "activities", link: "/activities", sub: null },
-  { label: "how it works", link: "/", sub: null },
+  { label: "how it works", link: "/how-it-works", sub: null },
   { label: "our vehicles", link: "/our-vehicles", sub: null },
-  { label: "faqs", link: "/", sub: null },
-  { label: "get in touch", link: "/", sub: null },
+  { label: "faqs", link: "/faq", sub: null },
+  { label: "get in touch", link: "/get-in-touch", sub: null },
 ]

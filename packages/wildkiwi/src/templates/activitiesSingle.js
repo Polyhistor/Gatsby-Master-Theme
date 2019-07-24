@@ -54,7 +54,7 @@ const ActivitiesSingle = ({ data }) => {
           subtitle={data.contentfulActivities.subtitle}
           price={data.contentfulActivities.price}
           body={data.contentfulActivities.bodyContent.bodyContent}
-          svgMap={data.contentfulActivities.svgMap.file.url}
+          svgMap={data.contentfulActivities.svgMap.localFile.url}
         />
         <ActivityRelated />
       </SectionActivity>

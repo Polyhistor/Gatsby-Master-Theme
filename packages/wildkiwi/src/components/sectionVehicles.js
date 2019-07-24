@@ -19,7 +19,7 @@ const SectionVehicles = ({
   }
 
   return (
-    <div className="section-vehicles">
+    <section className="section-vehicles">
       <div className="vehicles__container">
         <div className="vehicles__images">
           <Img fluid={imageOne} alt="vehicles-wildkiwi-1" />
@@ -43,7 +43,7 @@ const SectionVehicles = ({
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
