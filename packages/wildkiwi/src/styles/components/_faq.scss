@@ -1,0 +1,81 @@
+.FAQ {
+  &__container {
+    min-height: 4rem;
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(7, max-content);
+    grid-column-gap: 2rem;
+
+    &-item {
+      position: relative;
+      border-bottom: 1px solid $color-gray-light-2;
+      padding-bottom: 1.5rem;
+      padding-top: 1.5rem;
+
+      & input:checked ~ .FAQ__answer-container {
+        font-size: 1.3rem;
+        min-height: 20rem;
+        width: 90%;
+        transform: translate(0, 10%);
+      }
+    }
+  }
+
+  &__answer-container {
+    animation-direction: reverse;
+    transition: all 0.3s ease-in;
+    transform: translate(0);
+    height: 0;
+    overflow: hidden;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    max-width: 80rem;
+  }
+
+  &__button {
+    position: relative;
+    @include greenWhite;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    padding: 1.5rem 4rem;
+    font-family: Nunito-Black;
+
+    &--active {
+      @include whiteGreen;
+    }
+  }
+
+  &__input {
+    visibility: hidden;
+  }
+
+  &__icon {
+    @include whiteGreen;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    padding: 1rem;
+    display: inline-block;
+    float: left;
+    font-family: Nunito-Black;
+    text-align: center;
+    margin-right: 1rem;
+  }
+
+  &__accordian {
+    margin-top: 6rem;
+  }
+
+  &__question {
+    font-size: 1.6rem;
+    color: $color-primary;
+    transform: translateY(-0.8rem);
+  }
+}

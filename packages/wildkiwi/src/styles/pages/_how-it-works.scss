@@ -1,8 +1,7 @@
 .section {
   &-how-it-works {
     max-width: 126rem;
-    display: block;
-    margin: 0 auto;
+    @include centralize;
     margin-top: 8rem;
 
     @include respond(laptop) {

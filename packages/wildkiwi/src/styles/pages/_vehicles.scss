@@ -1,8 +1,7 @@
 .section {
   &-vehicles {
     max-width: 152rem;
-    display: block;
-    margin: 0 auto;
+    @include centralize;
     margin-top: 8rem;
 
     @include respond(laptop) {

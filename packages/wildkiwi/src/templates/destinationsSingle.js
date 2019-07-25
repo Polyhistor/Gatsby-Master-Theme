@@ -31,7 +31,6 @@ import toaster from "../images/Toaster.svg"
 const DestinationsSingle = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
-  console.log(data)
 
   return (
     <Layout2>

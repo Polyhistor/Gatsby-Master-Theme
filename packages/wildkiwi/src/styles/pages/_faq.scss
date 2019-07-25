@@ -1,0 +1,7 @@
+.section {
+  &-FAQ {
+    max-width: 126rem;
+    @include centralize;
+    margin-top: 8rem;
+  }
+}
