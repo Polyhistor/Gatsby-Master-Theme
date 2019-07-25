@@ -7,8 +7,20 @@
     list-style: none;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(7, max-content);
+    grid-template-rows: repeat(7, min-content);
     grid-column-gap: 2rem;
+
+    @include respond(laptop) {
+      grid-template-columns: 48% 48%;
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: 100%;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 100%;
+    }
 
     &-item {
       position: relative;
@@ -21,13 +33,20 @@
         min-height: 20rem;
         width: 90%;
         transform: translate(0, 10%);
+
+        @include respond(laptop) {
+          min-height: 26rem;
+        }
+      }
+
+      & input:checked ~ .arrow.down {
+        transform: rotate(45deg);
       }
     }
   }
 
   &__answer-container {
-    animation-direction: reverse;
-    transition: all 0.3s ease-in;
+    transition: all 0.1s ease-in;
     transform: translate(0);
     height: 0;
     overflow: hidden;
@@ -37,6 +56,10 @@
     display: flex;
     justify-content: space-around;
     max-width: 80rem;
+
+    & ~ .mobile-yes > .activity__selector > .activity__dropdown {
+      padding: 1rem 2.5rem 1rem 1rem;
+    }
   }
 
   &__button {
@@ -46,6 +69,12 @@
     border-radius: 4px;
     padding: 1.5rem 4rem;
     font-family: Nunito-Black;
+    transition: all 0.1s ease-in;
+    margin: 1rem;
+
+    @include respond(phone) {
+      display: none;
+    }
 
     &--active {
       @include whiteGreen;
@@ -67,6 +96,7 @@
     font-family: Nunito-Black;
     text-align: center;
     margin-right: 1rem;
+    margin-top: 0.4rem;
   }
 
   &__accordian {
@@ -77,5 +107,20 @@
     font-size: 1.6rem;
     color: $color-primary;
     transform: translateY(-0.8rem);
+    line-height: 3rem;
+
+    @include respond(phone) {
+      width: 85%;
+    }
+  }
+
+  &__video-box {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(phone) {
+      flex-wrap: wrap;
+    }
   }
 }
