@@ -23,7 +23,6 @@ import Trips from "../components/trips/trips"
 import useImageQuery from "../queries/imageQuery"
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-import WildkiwiMapNamed from "../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 import localGuide from "../images/Guide.svg"
 import van from "../images/Van.svg"
 import bed from "../images/Bed.svg"
@@ -32,7 +31,6 @@ import toaster from "../images/Toaster.svg"
 const DestinationsSingle = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
-  console.log(data)
 
   return (
     <Layout2>

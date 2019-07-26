@@ -385,9 +385,6 @@
           display: block;
         }
       }
-
-      & > .row > .col-1-of-4 > .review {
-      }
     }
   }
 
@@ -433,6 +430,33 @@
       }
     }
   }
+}
+
+// css made elements
+
+.arrow {
+  // display: inline-block;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border-top: 2px solid $color-primary;
+  border-left: 2px solid $color-primary;
+  transition: all 250ms ease-in-out;
+  text-decoration: none;
+  color: transparent;
+  z-index: -1;
+}
+
+.arrow:hover {
+  border-color: gray;
+  border-width: 5px;
+}
+
+.arrow.down {
+  transform: rotate(-135deg);
+  right: 1.6rem;
+  top: 2.5rem;
 }
 
 // abnormaly

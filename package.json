@@ -12,8 +12,10 @@
     "gatsby-image": "^2.1.2",
     "gatsby-paginate": "^1.1.0",
     "gatsby-plugin-catch-links": "^2.1.0",
+    "gatsby-plugin-layout": "^1.1.2",
     "gatsby-plugin-less": "^2.0.13",
     "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-modal-routing": "^1.0.2",
     "gatsby-plugin-nprogress": "^2.1.0",
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -35,7 +37,8 @@
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
     "react-helmet": "^5.2.1",
-    "react-share": "^3.0.0"
+    "react-share": "^3.0.0",
+    "react-spring": "^8.0.27"
   },
   "devDependencies": {
     "gatsby-plugin-playground": "^1.0.6",

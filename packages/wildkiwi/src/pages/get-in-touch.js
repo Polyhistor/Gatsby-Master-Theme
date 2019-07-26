@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/greenBar"
 import Banner from "../components/banners/banner"
-import SectionHowItWorks from "../components/sectionHowItWorks"
+import SectionGetInTouch from "../components/sectionGetInTouch.js"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
@@ -15,7 +15,7 @@ import useImageQuery from "../queries/imageQuery"
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const HowItWorks = () => {
+const GetInTouch = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
@@ -25,7 +25,7 @@ const HowItWorks = () => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.bannerHero.childImageSharp.fluid}
-          titleFirst="How it works"
+          titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Part of the adventure is getting there, so you may as well do it in style."
@@ -39,7 +39,7 @@ const HowItWorks = () => {
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionHowItWorks />
+      <SectionGetInTouch />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
@@ -53,4 +53,4 @@ const HowItWorks = () => {
   )
 }
 
-export default HowItWorks
+export default GetInTouch

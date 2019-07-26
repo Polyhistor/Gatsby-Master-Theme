@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import useHowItWorksQuery from "../../queries/howItWorksQuery"
+import useHowItWorksQuery from "../queries/howItWorksQuery"
 
 const HowItWorks = () => {
   // extracting query out of our custom hook
@@ -43,14 +43,14 @@ const HowItWorks = () => {
   return (
     <section className="section-how-it-works">
       <div className="mobile-yes">
-        <h2 class="bold-green u-margin-bottom-small ">
+        <h2 className="bold-green u-margin-bottom-small ">
           Part of the adventure is getting there, so you may as well do it in
           style.
         </h2>
       </div>
       <div className="how-it-works__container">
         {renderHowBoxes()}
-        <h2 class="green-title u-margin-bottom-small">
+        <h2 className="green-title u-margin-bottom-small">
           Our travel experiences
         </h2>
       </div>

@@ -267,3 +267,12 @@ export const HowItWorksFragment = graphql`
     }
   }
 `
+
+// for FAQ lists that has been fetched from Contetnful
+export const FAQFragment = graphql`
+  fragment FAQ on ContentfulFaq {
+    questions
+    answers
+    category
+  }
+`
