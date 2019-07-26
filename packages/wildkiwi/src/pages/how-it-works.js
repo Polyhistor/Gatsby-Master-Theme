@@ -24,7 +24,7 @@ const HowItWorks = () => {
       <SEO title="Home" />
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.bannerHero.childImageSharp.fluid}
+          imageData={imageQuery.vehiclesLady.childImageSharp.fluid}
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"

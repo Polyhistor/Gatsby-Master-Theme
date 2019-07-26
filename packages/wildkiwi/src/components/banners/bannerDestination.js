@@ -23,6 +23,7 @@ const BannerDestination = ({
     return countryQuery.map(({ node }, idx) => {
       return (
         <Trip
+          key={idx}
           imageData={node.tourBoxImages[idx].localFile.childImageSharp.fluid}
           duration={node.tourBoxDays[idx]}
           title={node.tourBoxTitles[idx]}

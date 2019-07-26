@@ -6,9 +6,10 @@
   &__list {
     list-style: none;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(7, min-content);
     grid-column-gap: 2rem;
+    width: 95%;
 
     @include respond(laptop) {
       grid-template-columns: 48% 48%;
@@ -30,9 +31,8 @@
 
       & input:checked ~ .FAQ__answer-container {
         font-size: 1.3rem;
-        min-height: 20rem;
+        min-height: 19rem;
         width: 90%;
-        transform: translate(0, 10%);
 
         @include respond(laptop) {
           min-height: 26rem;
@@ -101,6 +101,8 @@
 
   &__accordian {
     margin-top: 6rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 
   &__question {

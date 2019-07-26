@@ -79,24 +79,54 @@ const SectionVehicles = () => {
   const renderFAQs = () => {
     return initialCategory.map(element => {
       return element.node.questions.map((questtion, idx) => {
-        return (
-          <li className="FAQ__list-item" key={idx}>
-            <input
-              className="FAQ__input"
-              id={`FAQ__tab-${idx}`}
-              type="checkbox"
-              name="tabs"
-            />
-            <label htmlFor={`FAQ__tab-${idx}`}>
-              <span className="FAQ__icon">{idx + 1}</span>
-              <h3 className="FAQ__question">{questtion}</h3>
-            </label>
-            <a className="arrow down" />
-            <div className="FAQ__answer-container">
-              <p className="FAQ__paragraph">{element.node.answers}</p>
-            </div>
-          </li>
-        )
+        while (idx <= 1) {
+          return (
+            <li className="FAQ__list-item" key={idx}>
+              <input
+                className="FAQ__input"
+                id={`FAQ__tab-${idx}`}
+                type="checkbox"
+                name="tabs"
+              />
+              <label htmlFor={`FAQ__tab-${idx}`}>
+                <span className="FAQ__icon">{idx + 1}</span>
+                <h3 className="FAQ__question">{questtion}</h3>
+              </label>
+              <a className="arrow down" />
+              <div className="FAQ__answer-container">
+                <p className="FAQ__paragraph">{element.node.answers}</p>
+              </div>
+            </li>
+          )
+        }
+      })
+    })
+  }
+
+  // rendering another set of FAQs because I can't come up with a smarter idea
+  const renderFAQs2 = () => {
+    return initialCategory.map(element => {
+      return element.node.questions.map((questtion, idx) => {
+        while (idx >= 2) {
+          return (
+            <li className="FAQ__list-item" key={idx}>
+              <input
+                className="FAQ__input"
+                id={`FAQ__tab-${idx}`}
+                type="checkbox"
+                name="tabs"
+              />
+              <label htmlFor={`FAQ__tab-${idx}`}>
+                <span className="FAQ__icon">{idx + 1}</span>
+                <h3 className="FAQ__question">{questtion}</h3>
+              </label>
+              <a className="arrow down" />
+              <div className="FAQ__answer-container">
+                <p className="FAQ__paragraph">{element.node.answers}</p>
+              </div>
+            </li>
+          )
+        }
       })
     })
   }
@@ -150,6 +180,7 @@ const SectionVehicles = () => {
         </div>
         <div className="FAQ__accordian">
           <ul className="FAQ__list">{renderFAQs()}</ul>
+          <ul className="FAQ__list">{renderFAQs2()}</ul>
         </div>
         <div className="FAQ__video-box">
           {renderVideoBoxes()} {renderVideoBoxes()} {renderVideoBoxes()}

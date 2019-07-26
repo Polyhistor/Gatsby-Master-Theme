@@ -24,7 +24,7 @@ const GetInTouch = () => {
       <SEO title="Home" />
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.bannerHero.childImageSharp.fluid}
+          imageData={imageQuery.vehicleSouth.childImageSharp.fluid}
           titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
