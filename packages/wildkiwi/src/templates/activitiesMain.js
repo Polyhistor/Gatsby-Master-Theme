@@ -7,9 +7,20 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
+import Landing from "../components/header/landings/landing"
 import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
+import GreenBar from "../components/greenBar"
+
+// the svgs shall later be compiled into one SVG-Sprite
+import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
+
+// utilities
+import useImageQuery from "../queries/imageQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
+  // extracting our custom hook
+  const imageQuery = useImageQuery()
+
   //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
   const { group, index, first, last } = pageContext
   // previous and next page logic
@@ -63,6 +74,23 @@ const ActivitiesMain = ({ pageContext }) => {
 
   return (
     <Layout2>
+      <div className="hotfix--narrow-banner">
+        <Landing
+          imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
+          titleFirst="Activities"
+          buttonFirst="expore"
+          buttonFirstURL="/blog"
+          description="Part of the adventure is getting there, so you may as well do it in style."
+          buttonStyles={["white", "white"]}
+          optMargin="u-margin-top-percent-10"
+          variation="dest"
+        />
+      </div>
+      <GreenBar
+        text="Epic adventure for 18 to 35 year olds"
+        imageData={wildKiwiMountains}
+        imageAlt="Wild-Kiwi-Mountaints-Logo"
+      />
       <div className="row">
         <div className="activity__filter">
           <h1 className="green-title u-padding-bottom-medium">
