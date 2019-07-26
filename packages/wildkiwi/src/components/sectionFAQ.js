@@ -135,10 +135,10 @@ const SectionVehicles = () => {
       <div className="FAQ__container">
         <div className="FAQ__buttons">{renderButtons()}</div>
         <div className="mobile-yes">
-          <div class="activity__selector">
+          <div className="activity__selector">
             <select
               onChange={handleDropdown}
-              class="activity__dropdown"
+              className="activity__dropdown"
               id="country"
             >
               <option value="ABOUT YOUR TRIP">ABOUT YOUR TRIP</option>
