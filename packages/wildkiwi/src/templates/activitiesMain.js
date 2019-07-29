@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
-import Layout2 from "../components/layout/layout2"
+import Layout from "../components/layout/layout"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
@@ -30,7 +30,7 @@ const ActivitiesMain = ({ pageContext }) => {
   // using useState hook for the pourposes of our filter
   const [data, setData] = useState(group)
 
-  const renderBlogs = () => {
+  const renderActivities = () => {
     return data.map(({ node }, idx) => {
       return (
         <div className="activity__main-container" key={idx}>
@@ -73,7 +73,7 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   return (
-    <Layout2>
+    <Layout>
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
@@ -122,7 +122,7 @@ const ActivitiesMain = ({ pageContext }) => {
           </div>
         </div>
         <div className="activity__main">
-          {renderBlogs()}
+          {renderActivities()}
           <div className="blog__main-pagination">
             <div className="blog__main-previousLink">
               <NavLink
@@ -150,7 +150,7 @@ const ActivitiesMain = ({ pageContext }) => {
       <div className="row">
         <Trips />
       </div>
-    </Layout2>
+    </Layout>
   )
 }
 export default ActivitiesMain
