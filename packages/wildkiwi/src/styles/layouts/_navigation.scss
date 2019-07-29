@@ -71,6 +71,10 @@
     margin: 1rem;
     float: left;
 
+    @include respond(laptop) {
+      margin: 1rem 0.89rem;
+    }
+
     &:not(:first-child) {
       &:hover {
         border-bottom: 2px solid $color-primary;

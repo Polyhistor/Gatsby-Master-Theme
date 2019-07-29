@@ -148,6 +148,15 @@ exports.createPages = async ({ graphql, actions }) => {
       pathPrefix: "blog",
     })
 
+    // creating another set of paginated page for the blog
+    createPaginatedPages({
+      edges: BlogPosts,
+      createPage: createPage,
+      pageTemplate: "src/templates/blogSearch.js",
+      pageLength: 18,
+      pathPrefix: "blog/categorized",
+    })
+
     // creating another set of paginated page for activities home page
     createPaginatedPages({
       edges: Activities,
