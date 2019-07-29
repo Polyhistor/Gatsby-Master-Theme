@@ -38,7 +38,7 @@ export const BlogPostFragment = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid(quality: 70, maxWidth: 210) {
+              fluid(quality: 70, maxWidth: 770) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -52,13 +52,13 @@ export const BlogPostFragment = graphql`
     featured_media {
       localFile {
         childImageSharp {
-          resolutions(width: 1500, height: 600) {
+          resolutions(width: 1500, height: 770) {
             src
             srcSet
             width
             height
           }
-          fluid(quality: 70, maxWidth: 210) {
+          fluid(quality: 70, maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -81,7 +81,7 @@ export const BlogAuthorFragment = graphql`
       image {
         localFile {
           childImageSharp {
-            fluid(quality: 80, maxWidth: 510) {
+            fluid(quality: 80, maxWidth: 770) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -98,7 +98,7 @@ export const BlogAuthorFragment = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            fluid(quality: 80, maxWidth: 510) {
+            fluid(quality: 80, maxWidth: 770) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -126,7 +126,7 @@ export const ActivitiesFragment = graphql`
     bannerImages {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 70) {
+          fluid(quality: 80, maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -143,7 +143,7 @@ export const CountriesFragment = graphql`
     banner {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 70) {
+          fluid(quality: 80, maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -166,7 +166,7 @@ export const CountriesFragment = graphql`
     tourBoxImages {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 70) {
+          fluid(quality: 80, maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -192,7 +192,7 @@ export const DestinationsFragment = graphql`
       bannerImages {
         localFile {
           childImageSharp {
-            fluid(quality: 80, maxWidth: 70) {
+            fluid(quality: 80, maxWidth: 770) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -204,7 +204,7 @@ export const DestinationsFragment = graphql`
     highlightsImages {
       localFile {
         childImageSharp {
-          fluid(quality: 70, maxWidth: 120) {
+          fluid(quality: 70, maxWidth: 720) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -225,7 +225,7 @@ export const DestinationsFragment = graphql`
       itineraryImages {
         localFile {
           childImageSharp {
-            fluid(quality: 80, maxWidth: 70) {
+            fluid(quality: 80, maxWidth: 770) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -238,7 +238,7 @@ export const DestinationsFragment = graphql`
     bannerImages {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 70) {
+          fluid(quality: 80, maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -259,7 +259,7 @@ export const HowItWorksFragment = graphql`
     bannerImage {
       localFile {
         childImageSharp {
-          fluid(maxWidth: 70) {
+          fluid(maxWidth: 770) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -274,5 +274,42 @@ export const FAQFragment = graphql`
     questions
     answers
     category
+  }
+`
+
+// for aboutUs boxes that has been fetched from Contentful
+export const AboutUsFragment = graphql`
+  fragment AboutUs on ContentfulAboutUs {
+    title
+    content {
+      content
+    }
+    order
+    banner {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+// for Our Team section that has been fetched from Contetnful
+export const TeamFragment = graphql`
+  fragment Team on ContentfulTeam {
+    name
+    title
+    image {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `
