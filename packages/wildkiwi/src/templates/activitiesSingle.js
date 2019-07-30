@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 // default components
 import Layout2 from "../components/layout/layout2"
 import LandingChartered from "../components/header/landings/landingChartered"
-import GreenBar from "../components/greenBar"
+import GreenBar from "../components/bars/greenBar"
 import SectionActivity from "../components/activity/sectionActivity"
 import ActivityScaffold from "../components/activity/activityScaffold"
 import ActivityRelated from "../components/activity/activityRelated"

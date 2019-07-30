@@ -69,5 +69,9 @@
 
   &__button-box {
     padding-top: 4.2rem;
+
+    & > a {
+      padding: 1.67rem 6.6rem;
+    }
   }
 }

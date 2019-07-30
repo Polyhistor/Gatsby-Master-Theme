@@ -9,26 +9,22 @@ const BoxContainer = ({ imageOne, imageTwo, imageThree, imageFour }) => {
         <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
         <Box
           imageData={imageOne}
-          textFirst="new"
-          textSecond="vehicles"
+          title="new vehicles"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imageTwo}
-          textFirst="local"
-          textSecond="guides"
+          title="local guides"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imageThree}
-          textFirst="small"
-          textSecond="groups"
+          title="small groups"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
         <Box
           imageData={imageFour}
-          textFirst="breathtaking"
-          textSecond="scenery"
+          title="breathtaking scenary"
           description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
         />
       </div>

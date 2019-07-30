@@ -1,8 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import useAboutUsQuery from "../queries/aboutUsQuery"
-import useTeamQuery from "../queries/teamQuery"
+import useAboutUsQuery from "../../queries/aboutUsQuery"
+import useTeamQuery from "../../queries/teamQuery"
 
 const AboutUs = () => {
   // extracting query out of our custom hook

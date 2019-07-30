@@ -4,6 +4,15 @@ import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import useImageQuery from "../../queries/imageQuery"
 
+// default components
+import Featured from "../featured"
+
+// tablet components
+import FeaturedTablet from "../tablet/featuredTablet"
+
+// mobile components
+import FeaturedMobile from "../mobile/featuredMobile"
+
 const BannerHero = ({
   headerFirst,
   headersecond,
@@ -40,6 +49,9 @@ const BannerHero = ({
             </div>
           </div>
         </BackgroundImage>
+        <Featured />
+        <FeaturedTablet />
+        <FeaturedMobile />
       </div>
     </section>
   )

@@ -14,26 +14,22 @@ const whyWildKiwi = () => {
           <h2 className="green-title u-margin-bottom-small">Why Wild?</h2>
           <div className="row">
             <MobileBox
-              textFirst="new"
-              textSecond="vehicles"
+              title="new vehicles"
               imageData={imageData.newVehicles.childImageSharp.fluid}
               description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
-              textFirst="local"
-              textSecond="guides"
+              title="local guides"
               imageData={imageData.localGuids.childImageSharp.fluid}
               description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
-              textFirst="small"
-              textSecond="groups"
+              title="small groups"
               imageData={imageData.smallGroups.childImageSharp.fluid}
               description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />
             <MobileBox
-              textFirst="breathtaking"
-              textSecond="scenery"
+              title="breathtaking scenery"
               imageData={imageData.breathTakingScenery.childImageSharp.fluid}
               description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
             />

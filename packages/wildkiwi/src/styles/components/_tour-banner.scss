@@ -88,6 +88,10 @@
     &-button-box {
       padding-top: 10.5rem;
 
+      & > a {
+        padding: 1.65rem 9.4rem;
+      }
+
       @include respond(tablet) {
         padding-top: 6rem;
         &:first-child {
@@ -105,10 +109,6 @@
   &__figure {
     position: relative;
     width: 60rem;
-
-    &:nth-child(1) div {
-      border-radius: 4px;
-    }
 
     &-caption {
       position: absolute;

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import useFAQQuery from "../queries/faqQuery"
+import useFAQQuery from "../../queries/faqQuery"
 
 const SectionVehicles = () => {
   // extracting our custom hook

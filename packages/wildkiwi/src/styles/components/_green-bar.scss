@@ -34,4 +34,71 @@
       margin-right: auto;
     }
   }
+
+  &__alt {
+    display: flex;
+    justify-content: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    @include bigUppercaseText;
+    color: white;
+    font-size: 1.6rem;
+    flex-basis: 16rem;
+    padding: 3rem 0;
+
+    @include respond(tablet) {
+      font-size: 1.7rem;
+      flex-basis: 16rem;
+    }
+
+    @include respond(phone) {
+      flex-basis: 4.2rem;
+      text-align: center;
+      padding: 0.2rem 0;
+    }
+
+    &:first-child {
+      margin-left: 5rem;
+
+      @include respond(laptop) {
+        margin-left: 5rem;
+      }
+
+      @include respond(tablet) {
+        margin-left: 8rem;
+      }
+
+      @include respond(phone) {
+        margin-top: 3rem;
+      }
+    }
+
+    &:last-of-type {
+      @include respond(phone) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__bar {
+    &:not(:last-child) {
+      height: 1.7rem;
+      border-left: 2px solid white;
+      flex-basis: 5rem;
+      align-self: center;
+
+      @include respond(tablet) {
+        flex-basis: 3.5rem;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
 }

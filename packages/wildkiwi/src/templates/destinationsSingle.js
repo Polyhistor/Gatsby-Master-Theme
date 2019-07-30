@@ -2,10 +2,10 @@ import React from "react"
 
 // default components
 import Layout2 from "../components/layout/layout2"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 import DestinationSection from "../components/destinations/destinationSection"
 import LandingChartered from "../components/header/landings/landingChartered"
-import GreenBar from "../components/greenBar"
+import GreenBar from "../components/bars/greenBar"
 import DestinationStarter from "../components/destinations/destinationStarter"
 import TripBox from "../components/destinations/tripBox"
 import HighLight from "../components/destinations/highlight"

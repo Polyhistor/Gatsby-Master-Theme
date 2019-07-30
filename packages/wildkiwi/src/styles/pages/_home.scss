@@ -7,11 +7,6 @@
 .section {
   &-tour-banner {
     &-newzealand {
-      & > .row:first-child {
-        border: 0;
-        margin-bottom: 0px !important;
-      }
-
       & > .row {
         border: 1px solid $color-primary;
 
@@ -181,6 +176,8 @@
         text-align: center;
         padding: 4rem;
         margin-top: 2rem;
+        max-width: 31rem;
+        margin: 0 auto;
       }
     }
   }

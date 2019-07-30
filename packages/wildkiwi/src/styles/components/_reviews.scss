@@ -53,8 +53,9 @@
     font-size: 1.1rem;
 
     & + a {
-      padding: 1.2rem 7.4rem;
+      padding: 1.65rem 9.5rem;
       margin-top: 2.5rem;
+      margin-left: -2.8rem;
     }
 
     @include respond(phone) {

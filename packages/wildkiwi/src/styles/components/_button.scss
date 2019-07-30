@@ -3,10 +3,11 @@
   position: relative;
   text-decoration: none;
   color: $color-white;
-  padding: 1.4rem 7.4rem;
+  padding: 1.65rem 7.4rem;
   font-size: 1.1rem;
   text-align: center;
   border-radius: 3px;
+  white-space: pre;
   @include bigUppercaseText;
 
   &--red {
@@ -46,9 +47,10 @@
   }
   &--white {
     @include greenWhite;
-    padding: 1.2rem 4.2rem;
+    padding: 1.67rem 4.2rem;
   }
   &--transparent {
     @include transparentButton;
+    padding: 1.55rem 8.04rem !important;
   }
 }

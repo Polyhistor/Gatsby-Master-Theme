@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout2 from "../components/layout/layout2"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"

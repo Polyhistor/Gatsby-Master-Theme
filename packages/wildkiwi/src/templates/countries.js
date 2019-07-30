@@ -2,7 +2,7 @@ import React from "react"
 
 // default components
 import Layout from "../components/layout/layout"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 import Landing from "../components/header/landings/landing"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
