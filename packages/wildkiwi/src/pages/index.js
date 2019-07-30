@@ -23,6 +23,7 @@ import DestinationsTablet from "../components/tablet/destinationsTablet"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import newzealandMap from "../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 
 const IndexPage = () => {
   // extracting our custom hook
@@ -37,7 +38,7 @@ const IndexPage = () => {
         TitleSecond="adventure"
         TitleThird="tours"
         subTitle="for 18 to 35 year olds"
-        buttonFirst="expore"
+        buttonFirst="Explore Tours"
         buttonFirstURL="/blog"
         buttonSecond="watch trail"
         buttonSecondURL="/blog"
@@ -68,6 +69,10 @@ const IndexPage = () => {
         imageThree={imageQuery.smallGroups.childImageSharp.fluid}
         imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
       />
+
+      <div className="row row--patched">
+        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+      </div>
       <TourBanner
         destination="newzealand"
         title="new zealand"
@@ -75,6 +80,8 @@ const IndexPage = () => {
         departs="departs auckland & christchurch"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $180 NZD per day"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap={newzealandMap}
       />
       <TourBanner
         destination="australia"
@@ -83,6 +90,18 @@ const IndexPage = () => {
         departs="departs sydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap={newzealandMap}
+      />
+      <TourBanner
+        destination="europe"
+        title="europe"
+        subtitle=" 6 - 14 day tours"
+        departs="departs sydney & brisbane"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap={newzealandMap}
       />
       <DestinationsTablet
         destination="newzealand"

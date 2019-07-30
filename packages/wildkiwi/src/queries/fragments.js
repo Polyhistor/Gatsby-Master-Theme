@@ -192,7 +192,7 @@ export const DestinationsFragment = graphql`
       bannerImages {
         localFile {
           childImageSharp {
-            fluid(quality: 80, maxWidth: 770) {
+            fluid(quality: 80, maxWidth: 1100) {
               ...GatsbyImageSharpFluid
             }
           }

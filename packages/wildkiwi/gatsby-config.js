@@ -13,7 +13,19 @@ module.exports = {
   plugins: [
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Wild Kiwi`,
+        short_name: `WK`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#1abc9c`,
+        display: `standalone`,
+      },
+    },
     {
       resolve: `gatsby-plugin-modal-routing`,
       options: {

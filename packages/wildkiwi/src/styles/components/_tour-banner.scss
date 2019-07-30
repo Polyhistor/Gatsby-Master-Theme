@@ -88,6 +88,10 @@
     &-button-box {
       padding-top: 10.5rem;
 
+      & > a {
+        padding: 1.65rem 9.4rem;
+      }
+
       @include respond(tablet) {
         padding-top: 6rem;
         &:first-child {

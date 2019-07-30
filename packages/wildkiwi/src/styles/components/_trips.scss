@@ -145,6 +145,10 @@
   &__text-box {
     text-align: center;
     transform: translateY(-80%);
+
+    & > a {
+      padding: 1.65rem 7.77rem;
+    }
   }
 
   @include respond(laptop) {

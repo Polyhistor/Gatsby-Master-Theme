@@ -66,15 +66,6 @@ const Trips = () => {
           />
         </div>
       </div>
-      <div className="row trips__text-box">
-        <a
-          aria-current="page"
-          className="btn btn--green tablet-green-button"
-          href="/"
-        >
-          view trips
-        </a>
-      </div>
     </section>
   )
 }

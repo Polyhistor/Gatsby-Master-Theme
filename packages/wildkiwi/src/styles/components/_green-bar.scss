@@ -63,6 +63,8 @@
     }
 
     &:first-child {
+      margin-left: 5rem;
+
       @include respond(laptop) {
         margin-left: 5rem;
       }
