@@ -2,9 +2,9 @@ import React from "react"
 
 // default components
 import Layout from "../components/layout/layout"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 import Landing from "../components/header/landings/landing"
-import Featured from "../components/featured"
+import GreenbarAlt from "../components/bars/greenbar-alt"
 import BannerHero from "../components/banners/bannerHero"
 import BoxContainer from "../components/boxes/boxContainer"
 import TourBanner from "../components/banners/tourBanner"
@@ -15,12 +15,11 @@ import Trips from "../components/trips/trips"
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
-import FeaturedMobile from "../components/mobile/featuredMobile"
+
 import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 
 // tablet component
 import DestinationsTablet from "../components/tablet/destinationsTablet"
-import FeaturedTablet from "../components/tablet/featuredTablet"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -45,9 +44,14 @@ const IndexPage = () => {
         buttonStyles={["green", "white"]}
         variation={null}
       />
-      <Featured />
-      <FeaturedTablet />
-      <FeaturedMobile />
+      <GreenbarAlt
+        textList={[
+          { label: "destinations" },
+          { label: "new zealand" },
+          { label: "australia" },
+          { label: "europe" },
+        ]}
+      />
       <WatchTrailer />
       <WhyWildKiwi />
       <BannerHero

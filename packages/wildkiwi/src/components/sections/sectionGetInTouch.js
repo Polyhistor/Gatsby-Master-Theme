@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import GetInTouchData from "../components/getInTouchData"
+import GetInTouchData from "../getInTouchData"
 
 const SectionGetInTouch = () => {
   const addressData = [

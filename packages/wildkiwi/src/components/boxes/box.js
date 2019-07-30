@@ -1,23 +1,18 @@
 import React from "react"
-import BackgroundImage from "gatsby-background-image"
+import Image from "gatsby-image"
 
-const Box = ({ textFirst, textSecond, imageData, description }) => {
+const Box = ({ title, imageData, description }) => {
   return (
     <div className="col-1-of-4">
-      <BackgroundImage
+      <Image
         fluid={imageData}
         className="feature-box"
         backgroundColor={`#040e18`}
-      >
-        <div className="feature-box__text-box u-center-text">
-          <span className="feature-box__text u-uppercase">
-            {textFirst}
-            <br />
-            {textSecond}
-          </span>
-          <div className="feature-box__description">{description}</div>
-        </div>
-      </BackgroundImage>
+      />
+      <div className="feature-box__text-box">
+        <span className="feature-box__text">{title}</span>
+        <div className="feature-box__description">{description}</div>
+      </div>
     </div>
   )
 }

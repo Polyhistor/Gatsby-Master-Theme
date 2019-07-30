@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import useHowItWorksQuery from "../queries/howItWorksQuery"
+import useHowItWorksQuery from "../../queries/howItWorksQuery"
 
 const HowItWorks = () => {
   // extracting query out of our custom hook
