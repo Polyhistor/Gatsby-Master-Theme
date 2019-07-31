@@ -28,6 +28,7 @@
     &-subtitle {
       font-family: Nunito-Extrabold;
       font-size: 2rem;
+      color: $color-grey-dark-3;
 
       @include respond(phone) {
         color: $color-primary;
@@ -58,6 +59,7 @@
     &-details {
       font-size: 1.4rem;
       padding-bottom: 0.5rem;
+      color: $color-grey-dark-3;
 
       @include respond(tablet) {
         font-size: 2rem;

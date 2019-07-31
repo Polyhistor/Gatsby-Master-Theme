@@ -1,19 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-
-import useImageQuery from "../../queries/imageQuery"
+import { Link, withPrefix } from "gatsby"
 
 const Logo = () => {
-  const imageData = useImageQuery()
-
   return (
     <li className="navigation__item">
       <Link className="header__logo" to="/">
-        <Img
-          className="header__logo-literal"
-          fluid={imageData.logo.childImageSharp.fluid}
-        />
+        <svg className="svg-icon--wildkiwi-logo">
+          <use xlinkHref={withPrefix("sprite.svg#icon-WildKiwi")} />
+        </svg>
       </Link>
     </li>
   )

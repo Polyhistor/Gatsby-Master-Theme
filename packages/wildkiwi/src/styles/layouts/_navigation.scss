@@ -68,8 +68,14 @@
   }
 
   &__item {
-    margin: 1rem;
+    margin: 1.39rem;
     float: left;
+
+    &:first-of-type {
+      margin-right: 6.8rem;
+      margin-left: -1.1rem;
+      margin-top: -2px;
+    }
 
     @include respond(laptop) {
       margin: 1rem 0.89rem;
@@ -111,7 +117,7 @@
     &:visited {
       display: inline-block;
       font-size: 1rem;
-      font-family: Nunito-Black;
+      font-family: Nunito-Extrabold;
       padding: 1rem 0.5rem;
       color: $color-white;
       text-decoration: none;

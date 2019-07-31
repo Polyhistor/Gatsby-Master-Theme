@@ -23,7 +23,6 @@ import DestinationsTablet from "../components/tablet/destinationsTablet"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
-import newzealandMap from "../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 
 const IndexPage = () => {
   // extracting our custom hook
@@ -39,18 +38,18 @@ const IndexPage = () => {
         TitleThird="tours"
         subTitle="for 18 to 35 year olds"
         buttonFirst="Explore Tours"
-        buttonFirstURL="/blog"
-        buttonSecond="watch trail"
+        buttonFirstURL="/destinations"
+        buttonSecond="watch trailer"
         buttonSecondURL="/blog"
         buttonStyles={["green", "white"]}
         variation={null}
       />
       <GreenbarAlt
         textList={[
-          { label: "destinations" },
-          { label: "new zealand" },
-          { label: "australia" },
-          { label: "europe" },
+          { label: "destinations", link: "/" },
+          { label: "new zealand", link: "/destinations/newzealand" },
+          { label: "australia", link: "/destinations/australia" },
+          { label: "europe", link: "/destinations/europe" },
         ]}
       />
       <WatchTrailer />
@@ -81,7 +80,7 @@ const IndexPage = () => {
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $180 NZD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap={newzealandMap}
+        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
       />
       <TourBanner
         destination="australia"
@@ -91,7 +90,7 @@ const IndexPage = () => {
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap={newzealandMap}
+        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
       />
       <TourBanner
         destination="europe"
@@ -101,7 +100,7 @@ const IndexPage = () => {
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap={newzealandMap}
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage"
       />
       <DestinationsTablet
         destination="newzealand"

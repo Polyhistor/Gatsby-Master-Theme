@@ -12,8 +12,9 @@
 
   &--red {
     background-color: $color-red;
-    padding: 0.9rem 2.7rem;
+    padding: 1.27rem 4rem;
     border-radius: 0.4rem;
+    transform: translateY(-0.5rem);
 
     @include respond(phone) {
       padding: 1.7rem 2.7rem;
@@ -47,7 +48,7 @@
   }
   &--white {
     @include greenWhite;
-    padding: 1.67rem 4.2rem;
+    padding: 0.7rem 4.2rem;
   }
   &--transparent {
     @include transparentButton;

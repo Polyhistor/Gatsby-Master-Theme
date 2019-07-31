@@ -38,6 +38,8 @@
   &__alt {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 8rem;
 
     @include respond(phone) {
       flex-direction: column;
@@ -49,7 +51,23 @@
     color: white;
     font-size: 1.6rem;
     flex-basis: 16rem;
-    padding: 3rem 0;
+    padding: 1.2rem 4.9rem;
+    text-align: center;
+    white-space: pre;
+    margin-right: 3rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+
+    &:nth-child(2) {
+      padding: 1.2rem 6.3rem;
+    }
+
+    &:not(:first-child) {
+      border: 1px solid #5ed0b9;
+      &:hover {
+        background: #5ed0b9;
+      }
+    }
 
     @include respond(tablet) {
       font-size: 1.7rem;
@@ -63,8 +81,6 @@
     }
 
     &:first-child {
-      margin-left: 5rem;
-
       @include respond(laptop) {
         margin-left: 5rem;
       }

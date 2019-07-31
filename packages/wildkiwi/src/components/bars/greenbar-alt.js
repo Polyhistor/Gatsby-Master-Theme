@@ -1,13 +1,15 @@
 import React, { Fragment } from "react"
+import { Link } from "gatsby"
 
 const GreenBarAlt = ({ textList }) => {
   // rendering our banner elements
   const renderElements = () => {
-    return textList.map((e, idx) => {
+    return textList.map(({ label, link }, idx) => {
       return (
         <Fragment key={idx}>
-          <a className="green-bar__title">{e.label}</a>
-          <div className="green-bar__bar" />
+          <Link to={link} className="green-bar__title">
+            {label}
+          </Link>
         </Fragment>
       )
     })
