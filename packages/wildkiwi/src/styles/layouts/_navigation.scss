@@ -104,12 +104,6 @@
       float: none;
       visibility: hidden;
     }
-
-    &:not(last-of-type) {
-      // @include respond(phone) {
-      //   display: none;
-      // }
-    }
   }
 
   &__link {

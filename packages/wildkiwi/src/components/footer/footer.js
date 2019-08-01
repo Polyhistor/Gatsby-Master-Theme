@@ -14,7 +14,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="row u-border-top-bottom">
         <div className="footer__main-container">
-          <Instagram />
           <SocialNetowrk />
           <FooterFormMobile />
           <FooterContents />
