@@ -12,8 +12,9 @@
 
   &--red {
     background-color: $color-red;
-    padding: 0.9rem 2.7rem;
+    padding: 1.27rem 4rem;
     border-radius: 0.4rem;
+    transform: translateY(-0.5rem);
 
     @include respond(phone) {
       padding: 1.7rem 2.7rem;
@@ -28,7 +29,11 @@
     &-footer {
       padding: 1rem 4.3rem;
       font-size: 1rem;
-      background: $color-primary;
+      color: $color-primary;
+      background: white;
+      border: 1px solid $color-primary;
+      width: 22rem;
+      height: 4.8rem;
 
       @include respond(tablet) {
         padding: 1rem 4.6rem;
@@ -47,7 +52,7 @@
   }
   &--white {
     @include greenWhite;
-    padding: 1.67rem 4.2rem;
+    padding: 0.7rem 4.2rem;
   }
   &--transparent {
     @include transparentButton;

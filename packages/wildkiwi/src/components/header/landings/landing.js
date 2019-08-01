@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 const Header = ({
@@ -66,7 +66,10 @@ const Header = ({
                 to={buttonSecondURL}
                 className={`btn btn--${buttonStyles[1]} btn-animated`}
               >
-                &nbsp;{buttonSecond}
+                <svg className="svg-icon--play-button">
+                  <use xlinkHref={withPrefix("sprite.svg#icon-Play-Button")} />
+                </svg>
+                <span className="">{buttonSecond}</span>
               </Link>
             ) : null}
           </div>

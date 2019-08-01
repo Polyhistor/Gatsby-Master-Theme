@@ -26,7 +26,7 @@ const Reviews = () => {
               className="btn btn--green tablet-green-button"
               href="/"
             >
-              view
+              more reviews
             </a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import Img from "gatsby-image"
 
 const TourBanner = ({
@@ -52,8 +52,12 @@ const TourBanner = ({
           </figure>
         </div>
         <div className="col-1-of-4 tour-banner__svg-map tablet-margin-right-no">
-          <div className="tour-banner__svg-map-container tablet-padding-top-medium">
-            <img src={SVGMap} alt="wild-kiwi-tour-banners" />
+          <div
+            className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title}  tablet-padding-top-medium`}
+          >
+            <svg className={`svg-icon--countries`}>
+              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
+            </svg>
           </div>
         </div>
 
