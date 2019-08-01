@@ -178,6 +178,14 @@
       }
     }
 
+    &--europe {
+      & > svg {
+        width: 46rem;
+        height: 38rem;
+        margin-left: -7.1rem;
+      }
+    }
+
     @include respond(tablet) {
       padding-top: 0 !important;
       &:nth-child(1) img {
