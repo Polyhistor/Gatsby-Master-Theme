@@ -100,7 +100,7 @@ const IndexPage = () => {
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
       />
       <DestinationsTablet
         destination="newzealand"
