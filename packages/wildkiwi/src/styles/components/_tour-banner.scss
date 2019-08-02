@@ -95,7 +95,8 @@
       }
 
       @include respond(tablet) {
-        padding-top: 6rem;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
         &:first-child {
           display: none;
         }
@@ -133,11 +134,12 @@
       }
 
       @include respond(tablet) {
-        padding: 0.5rem;
+        padding: 0.8rem;
+        font-size: 1.3rem;
       }
 
       @include respond(phone) {
-        padding: 0.5rem;
+        padding: 1rem;
       }
     }
 
@@ -163,11 +165,23 @@
   }
 
   &__svg-map-container {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
     &:nth-child(1) img {
       height: 38rem;
       padding-top: 2rem;
+    }
+
+    &--newzealand {
+      & > svg {
+        @include respond(laptop) {
+          margin-right: 1rem;
+        }
+
+        @include respond(tablet) {
+          // margin-top: 1rem;
+        }
+      }
     }
 
     &--australia {
@@ -175,6 +189,22 @@
         width: 60.57rem;
         height: 38rem;
         margin-left: -20rem;
+
+        @include respond(laptop) {
+          width: 55.57rem;
+        }
+
+        @include respond(tablet) {
+          width: 41.57rem;
+          height: 38rem;
+          margin-left: -4rem;
+          margin-top: 1rem;
+        }
+
+        @include respond(phone) {
+          width: 35.57rem;
+          margin-left: 0;
+        }
       }
     }
 
@@ -183,11 +213,16 @@
         width: 46rem;
         height: 38rem;
         margin-left: -7.1rem;
+
+        @include respond(laptop) {
+          width: 30rem;
+          height: 38rem;
+          margin-left: -1.4rem;
+        }
       }
     }
 
     @include respond(tablet) {
-      padding-top: 0 !important;
       &:nth-child(1) img {
         height: 48rem;
         padding-top: 2rem;

@@ -37,6 +37,10 @@
   margin-top: 10%;
 }
 
+.u-margin-left-medium {
+  margin-left: 6rem;
+}
+
 .u-margin-left-huge {
   margin-left: 15rem;
 
@@ -88,6 +92,10 @@
 
 .u-padding-top-huge {
   padding-top: 5rem;
+
+  @include respond(tablet) {
+    padding-top: 3rem;
+  }
 
   @include respond(phone) {
     display: none;

@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { withPrefix, Link } from "gatsby"
 import Img from "gatsby-image"
 import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 
@@ -10,56 +10,27 @@ const DestinationsMobile = ({
   departs,
   details,
   price,
+  tours,
+  imageData,
+  SVGMap,
 }) => {
-  // having the query for both new zealand and australia
-  const imageData = useStaticQuery(graphql`
-    query {
-      newzealandMobile: file(
-        relativePath: { eq: "wild-kiwi-destinations-newzealand.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 1550) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      australiaMobile: file(
-        relativePath: { eq: "wild-kiwi-destinations-australia.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 1550) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
-    <section className={`section-tour-banner-${destination}-mobile`}>
-      <h2 className="green-title u-margin-bottom-small">destinations</h2>
+    <section className={`section-tour-banner-newzealand-mobile`}>
       <div className="row">
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
-            {/* choosing image based on the given props */}
-            <Img
-              fluid={
-                destination === "newzealand"
-                  ? imageData.newzealandMobile.childImageSharp.fluid
-                  : imageData.australiaMobile.childImageSharp.fluid
-              }
-            />
+            <Img fluid={imageData} />
             <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
+              className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
             >
-              {destination === "newzealand" ? "7 tours" : "3 tours"}
+              {tours}
             </figcaption>
           </figure>
         </div>
         <div className="">
           <div className="tour-banner__description">
             <h3
-              className={`tour-banner__description-title tour-banner__description-title-${destination}`}
+              className={`tour-banner__description-title tour-banner__description-title-newzealand`}
             >
               {title}
             </h3>
@@ -70,7 +41,7 @@ const DestinationsMobile = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={`tour-banner__description-price tour-banner__description-price-${destination}`}
+              className={`tour-banner__description-price tour-banner__description-price-newzealand`}
             >
               {price}
             </span>
@@ -78,18 +49,17 @@ const DestinationsMobile = ({
         </div>
 
         <div className="tour-banner__svg-map tablet-margin-right-no">
-          <div className="tour-banner__svg-map-container tablet-padding-top-medium">
-            <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
+          <div
+            className={`tour-banner__svg-map-container tour-banner__svg-map-container--${destination}`}
+          >
+            <svg className={`svg-icon--countries`}>
+              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
+            </svg>
           </div>
         </div>
 
         <div className="u-center-text u-margin-top-small">
-          <Link
-            className={
-              destination === "newzealand" ? "btn btn--green" : "btn btn--red2"
-            }
-            to="/"
-          >
+          <Link className="btn btn--green" to="/">
             view trips
           </Link>
         </div>

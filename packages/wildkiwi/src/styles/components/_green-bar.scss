@@ -1,6 +1,10 @@
 .green-bar {
   background-color: $color-primary;
 
+  @include respond(tablet) {
+    height: 20rem;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: repeat(2, max-content);
@@ -41,8 +45,16 @@
     align-items: center;
     height: 8rem;
 
+    @include respond(tablet) {
+      display: grid;
+      grid-template-rows: repeat(2, 10rem);
+      grid-template-columns: 22rem 22rem 22rem;
+      grid-column-gap: 2rem;
+    }
+
     @include respond(phone) {
       flex-direction: column;
+      height: 20rem;
     }
   }
 
@@ -57,6 +69,11 @@
     margin-right: 3rem;
     text-decoration: none;
     transition: all 0.2s ease-in;
+
+    @include respond(phone) {
+      margin-right: 0rem;
+      font-size: 1.5rem;
+    }
 
     &:nth-child(2) {
       padding: 1.2rem 4.9rem;
@@ -76,33 +93,43 @@
 
     &:not(:first-child) {
       border: 1px solid #5ed0b9;
+
+      @include respond(phone) {
+        border: 0px;
+      }
+
       &:hover {
         background: #5ed0b9;
       }
     }
 
+    @include respond(laptop) {
+      margin-right: 2rem;
+    }
+
     @include respond(tablet) {
       font-size: 1.7rem;
       flex-basis: 16rem;
+      margin-right: 0rem;
+      margin-bottom: 1rem;
     }
 
     @include respond(phone) {
-      flex-basis: 4.2rem;
-      text-align: center;
-      padding: 0.2rem 0;
     }
 
     &:first-child {
       @include respond(laptop) {
-        margin-left: 5rem;
+        margin-left: 0rem;
       }
 
       @include respond(tablet) {
-        margin-left: 8rem;
+        margin-left: 0rem;
+        margin-top: 1rem;
+        grid-column: 1/-1;
       }
 
       @include respond(phone) {
-        margin-top: 3rem;
+        margin-top: 2.5rem;
       }
     }
 

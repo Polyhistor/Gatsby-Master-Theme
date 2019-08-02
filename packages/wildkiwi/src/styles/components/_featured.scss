@@ -19,7 +19,7 @@
 
     @include respond(tablet) {
       transform: translateY(30%);
-      max-width: 60rem;
+      max-width: 68rem;
       margin: 0 auto;
     }
 
@@ -83,6 +83,7 @@
         }
         @include respond(tablet) {
           width: 18.6rem;
+          margin-left: 2.4rem;
         }
         @include respond(phone) {
           width: 19rem;
@@ -111,8 +112,12 @@
     &-top {
       padding-left: 2.1rem;
 
+      & h2:nth-child(1) {
+        margin-left: 2rem;
+      }
+
       & h2:nth-child(2) {
-        margin-left: 8rem;
+        margin-left: 6rem;
       }
     }
 
@@ -124,6 +129,11 @@
       margin-left: -3.5rem;
       transform: translateY(-40%);
       padding-left: 5.2rem;
+
+      @include respond(tablet) {
+        padding-left: 0rem;
+        margin-left: 0rem;
+      }
     }
 
     &:nth-child(2) h2 {

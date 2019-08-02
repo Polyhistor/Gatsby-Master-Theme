@@ -23,6 +23,10 @@
     color: $color-grey-dark-3;
     display: block;
     padding-bottom: 0.5rem;
+
+    @include respond(laptop) {
+      font-size: 2rem;
+    }
   }
 
   &__description {

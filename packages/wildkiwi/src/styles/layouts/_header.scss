@@ -50,18 +50,18 @@
       }
     }
 
-    @include respond(phone) {
-      right: 0rem;
-      top: -2px;
-    }
-
     @include respond(laptop) {
-      right: 8%;
+      right: 6.8%;
     }
 
     @include respond(tablet) {
-      right: 12%;
+      right: 7.5%;
       margin-top: -1rem;
+    }
+
+    @include respond(phone) {
+      right: 0rem;
+      top: -2px;
     }
   }
 
@@ -79,7 +79,7 @@
     }
 
     @include respond(tablet) {
-      left: 11rem;
+      left: 4.1rem;
     }
 
     @include respond(phone) {
@@ -94,11 +94,11 @@
     margin-right: 18.1rem;
 
     @include respond(laptop) {
-      margin-right: 14.8rem;
+      margin-right: 10.6rem;
     }
 
     @include respond(tablet) {
-      margin-right: 6rem;
+      margin-right: 3rem;
     }
 
     @include respond(phone) {
@@ -122,6 +122,10 @@
     }
     & a:nth-child(2) {
       display: block;
+
+      @include respond(tablet) {
+        display: inline-block;
+      }
     }
 
     @include respond(phone) {

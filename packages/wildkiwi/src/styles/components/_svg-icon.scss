@@ -47,6 +47,10 @@
   &--countries {
     width: 28.57rem;
     height: 38rem;
+
+    @include respond(laptop) {
+      width: 27.57rem;
+    }
   }
 
   &--Instagram {

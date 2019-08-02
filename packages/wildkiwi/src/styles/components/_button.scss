@@ -53,6 +53,10 @@
   &--white {
     @include greenWhite;
     padding: 0.7rem 4.2rem;
+
+    @include respond(tablet) {
+      padding: 0.7rem 4.73rem;
+    }
   }
   &--transparent {
     @include transparentButton;
