@@ -15,7 +15,7 @@ const WatchTrailer = () => {
       </p>
       <Link
         to="/s"
-        className="btn btn--green btn-animated mobile-green-buton u-margin-top-medium "
+        className="btn btn--green btn-animated  u-margin-top-medium "
       >
         <svg className="svg-icon--play-button">
           <use xlinkHref={withPrefix("sprite.svg#icon-Play-Button")} />
