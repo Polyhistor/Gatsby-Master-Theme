@@ -31,6 +31,7 @@ const NewZealand = () => {
     return countryQuery.map(({ node }) => {
       return (
         <BannerDestination
+          key={node.title}
           title={node.title}
           subtitle={node.days}
           departs={node.departure}

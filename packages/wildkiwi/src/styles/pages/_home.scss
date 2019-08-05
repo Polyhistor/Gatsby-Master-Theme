@@ -121,6 +121,10 @@
   }
 
   &-why-us {
+    @include respond(phone) {
+      margin-top: 4.5rem;
+    }
+
     & > .row > .col-1-of-4 {
       @include respond(tablet) {
         width: 34.3rem;
@@ -147,6 +151,16 @@
     }
 
     & > .row {
+      & .col-1-of-4:nth-child(2) {
+        @include respond(phone) {
+          display: none;
+        }
+      }
+      & .col-1-of-4:nth-child(3) {
+        @include respond(phone) {
+          display: none;
+        }
+      }
       & .col-1-of-4:nth-child(4) {
         @include respond(tablet) {
           display: none;
@@ -164,7 +178,7 @@
     }
 
     @include respond(phone) {
-      height: 95rem;
+      height: 62rem;
     }
   }
 
@@ -180,6 +194,7 @@
 
     @include respond(phone) {
       transform: translateY(-6%);
+      margin-top: 18.5rem;
     }
   }
 
@@ -200,10 +215,22 @@
       @include respond(phone) {
         display: block;
         text-align: center;
-        padding: 4rem;
+        padding: 7rem 1rem;
         margin-top: 2rem;
         max-width: 31rem;
         margin: 0 auto;
+      }
+
+      & > h2 {
+        @include respond(phone) {
+          font-family: Nunito-Black;
+        }
+      }
+
+      & > a {
+        @include respond(phone) {
+          font-size: 1.8rem;
+        }
       }
     }
   }

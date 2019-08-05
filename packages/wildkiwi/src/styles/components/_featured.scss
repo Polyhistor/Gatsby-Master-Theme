@@ -1,12 +1,17 @@
 .featured {
-  height: 12.2rem;
+  height: 9.8rem;
   background: black;
   text-transform: uppercase;
   position: relative;
   border-radius: 0 0 0.3rem 0.3rem;
+  display: flex;
+  justify-content: center;
 
   &__container {
     text-align: center;
+    display: grid;
+    grid-template-columns: 12rem 15rem 21rem 5rem 12rem 20rem 10rem;
+    align-items: center;
 
     &:first-child h2 {
       font-size: 1.2rem;
@@ -32,65 +37,19 @@
 
     &-image {
       display: inline-block;
-      padding-right: 2.1rem;
       position: relative;
 
-      &--metro {
-        @include respond(desk) {
-          width: 18.4rem;
-          transform: translateY(30%);
-        }
-        @include respond(laptop) {
-          width: 15.8rem;
-          transform: translateY(30%);
-        }
-        @include respond(tablet) {
-          width: 14.3rem;
-        }
-
-        @include respond(phone) {
-          width: 10.9rem;
-          margin-left: 4px;
-        }
+      &--metro,
+      &--daily,
+      &--west,
+      &--qual {
+        justify-self: center;
       }
 
       &--daily {
-        @include respond(desk) {
-          width: 24.4rem;
-          transform: translateY(51%);
+        & ~ h2 {
+          grid-column: 5;
         }
-        @include respond(laptop) {
-          width: 20.9rem;
-          transform: translateY(51%);
-        }
-        @include respond(tablet) {
-          width: 17.3rem;
-        }
-        @include respond(phone) {
-          width: 14.7rem;
-          transform: translateY(30%);
-        }
-      }
-
-      &--west {
-        @include respond(desk) {
-          width: 23.4rem;
-          transform: translateY(30%);
-        }
-        @include respond(laptop) {
-          width: 20rem;
-          transform: translateY(30%);
-        }
-        @include respond(tablet) {
-          width: 18.6rem;
-          margin-left: 2.4rem;
-        }
-        @include respond(phone) {
-          width: 19rem;
-        }
-      }
-
-      &--qual {
       }
     }
   }

@@ -37,7 +37,7 @@
 
   &__nav-button {
     position: fixed;
-    top: 1.3rem;
+    top: 1.5rem;
     right: 0;
 
     &-box-link {
@@ -61,7 +61,7 @@
 
     @include respond(phone) {
       right: 0rem;
-      top: -2px;
+      top: 0px;
     }
   }
 
@@ -94,15 +94,15 @@
     margin-right: 18.1rem;
 
     @include respond(laptop) {
-      margin-right: 10.6rem;
+      margin-right: 13.7rem;
     }
 
     @include respond(tablet) {
-      margin-right: 3rem;
+      margin-right: 4.5rem;
     }
 
     @include respond(phone) {
-      width: 27rem;
+      width: 28.8rem;
     }
 
     &--dest {
@@ -114,14 +114,23 @@
     & a:nth-child(1) {
       display: block;
       margin: 4.5rem 0 1.4rem 0;
+      padding: 1.45rem 0rem;
+      font-size: 1.38rem;
 
       @include respond(phone) {
         margin: 0 auto;
         width: 97%;
+        background: white;
+        color: $color-primary;
+        padding: 1.8rem 0rem;
+        font-family: Nunito-Black;
+        font-size: 1.8rem;
       }
     }
     & a:nth-child(2) {
-      display: block;
+      display: inline-block;
+      font-size: 1.38rem;
+      padding: 1.15rem 4.1rem;
 
       @include respond(tablet) {
         display: inline-block;

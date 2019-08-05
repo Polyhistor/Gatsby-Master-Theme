@@ -24,7 +24,9 @@ const Itinerary = ({
           />
           <span className="itinerary__single-day">Day {index + 1}</span>
           <h2 className="itinerary__single-title">{itineraryTitles[index]}</h2>
-          <p className="itinerary__single-paragraph">{itineraryDescription}</p>
+          <p className="itinerary__single-paragraph">
+            {itineraryDescription.description.description}
+          </p>
         </div>
       )
     })

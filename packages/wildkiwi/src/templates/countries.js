@@ -18,7 +18,6 @@ import FeaturedTablet from "../components/tablet/featuredTablet"
 import useImageQuery from "../queries/imageQuery"
 
 const countries = ({ data }) => {
-  console.log(data)
   // extracting our custom hook
   const imageQuery = useImageQuery()
 

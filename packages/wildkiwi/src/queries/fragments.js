@@ -221,7 +221,6 @@ export const DestinationsFragment = graphql`
     included
     itinerary {
       itineraryTitles
-      itineraryDescriptions
       itineraryImages {
         localFile {
           childImageSharp {
@@ -229,6 +228,12 @@ export const DestinationsFragment = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+      days {
+        title
+        description {
+          description
         }
       }
     }

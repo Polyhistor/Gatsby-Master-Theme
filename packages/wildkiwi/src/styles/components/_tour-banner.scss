@@ -46,7 +46,7 @@
         @include greySubtitle;
 
         @include respond(phone) {
-          font-size: 2rem;
+          font-size: 1.5rem;
           padding-top: 0.5rem;
           font-family: Nunito-Extrabold;
         }
@@ -202,7 +202,7 @@
         }
 
         @include respond(phone) {
-          width: 35.57rem;
+          width: 33rem;
           margin-left: 0;
         }
       }
