@@ -4,8 +4,7 @@
   src: url("../fonts/NexaRustSans-Black2.eot?#iefix")
       format("embedded-opentype"),
     url("../fonts/NexaRustSans-Black2.woff") format("woff"),
-    url("../fonts/NexaRustSans-Black2.ttf") format("truetype"),
-    url("../fonts/NexaRustSans-Black2.svg#Nunito-Regular") format("svg");
+    url("../fonts/NexaRustSans-Black2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: auto;
