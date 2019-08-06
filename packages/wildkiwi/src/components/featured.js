@@ -1,12 +1,7 @@
 import React from "react"
-import Img from "gatsby-image"
 import { withPrefix } from "gatsby"
 
-import useImageQuery from "../queries/imageQuery"
-
 const Featured = () => {
-  const imageData = useImageQuery()
-
   return (
     <div className="featured">
       <div className="featured__container">

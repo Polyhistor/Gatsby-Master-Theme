@@ -100,10 +100,6 @@
   @include respond(tablet) {
     padding-top: 3rem;
   }
-
-  @include respond(phone) {
-    display: none;
-  }
 }
 
 .u-padding-bottom-small {

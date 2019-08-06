@@ -230,6 +230,7 @@
       & > a {
         @include respond(phone) {
           font-size: 1.8rem;
+          padding: 1.7rem 5.75rem;
         }
       }
     }

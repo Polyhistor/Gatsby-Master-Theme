@@ -11,9 +11,6 @@ import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
 import WatchTrailer from "../components/mobile/watchTrailer"
 
-// tablet components
-import FeaturedTablet from "../components/tablet/featuredTablet"
-
 // utilities
 import useImageQuery from "../queries/imageQuery"
 
@@ -37,7 +34,6 @@ const countries = ({ data }) => {
         variation="dest"
       />
       <Featured />
-      <FeaturedTablet />
       <div className="hotfix--destination">
         <WatchTrailer />
       </div>

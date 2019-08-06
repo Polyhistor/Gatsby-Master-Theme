@@ -15,6 +15,7 @@ import Trips from "../components/trips/trips"
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
+import FeaturedMobile from "../components/mobile/featuredMobile"
 
 import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 
@@ -53,6 +54,7 @@ const IndexPage = () => {
         ]}
       />
       <WatchTrailer />
+      <FeaturedMobile />
       <WhyWildKiwi />
       <BannerHero
         headerFirst="Ga dandebis eliqui"

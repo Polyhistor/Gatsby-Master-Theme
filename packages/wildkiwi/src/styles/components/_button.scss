@@ -31,11 +31,11 @@
     &-footer {
       padding: 1rem 4.3rem;
       font-size: 1rem;
-      color: $color-primary;
-      background: white;
+      color: $color-white;
+      background: $color-primary;
       border: 1px solid $color-primary;
       width: 22rem;
-      height: 4.8rem;
+      height: 6rem;
 
       @include respond(tablet) {
         padding: 1rem 4.6rem;

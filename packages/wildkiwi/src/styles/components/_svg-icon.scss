@@ -26,23 +26,57 @@
   &--logo-metro {
     width: 16.3rem;
     height: 2.5rem;
+
+    @include respond(tablet) {
+      width: 10rem;
+    }
+
+    @include respond(phone) {
+      width: 12rem;
+    }
   }
 
   &--logo-daily {
     width: 22.3rem;
     height: 2.8rem;
     margin-top: 1rem;
+
+    @include respond(tablet) {
+      width: 13rem;
+    }
+
+    @include respond(phone) {
+      width: 15rem;
+      margin-top: 0;
+    }
   }
 
   &--logo-westpac {
     width: 21.3rem;
     height: 2.2rem;
     margin-top: 0.5rem;
+
+    @include respond(tablet) {
+      width: 13rem;
+    }
+
+    @include respond(phone) {
+      margin-left: 4.4rem;
+    }
   }
 
   &--logo-qualmark {
     width: 6.9rem;
     height: 5.1rem;
+
+    @include respond(tablet) {
+      height: 4.5rem;
+    }
+
+    @include respond(phone) {
+      width: 10rem;
+      margin-left: 3rem;
+    }
   }
 
   &--countries {
@@ -72,5 +106,9 @@
   &--QualMark_Footer {
     width: 80%;
     margin-top: 2.7rem;
+
+    @include respond(phone) {
+      width: 45%;
+    }
   }
 }
