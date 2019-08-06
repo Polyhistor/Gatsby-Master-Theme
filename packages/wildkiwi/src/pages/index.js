@@ -57,11 +57,11 @@ const IndexPage = () => {
       <FeaturedMobile />
       <WhyWildKiwi />
       <BannerHero
-        headerFirst="Ga dandebis eliqui"
-        headersecond="consedit fugia quiatiis"
-        headerThird="consequi doluptusam."
-        subHeaderFirst="Dandebis eliqui consedit fugia quiatiis consequi as. Pora dolorei ctibus doluptusam, sum quiscia acerumquo quis aut licatem enia non reius autestionsed quiatiu. "
-        subHeaderSecond="Dandebis eliqui consedit fugia quiatiis consequi as. Pora dolorei ctibus doluptusam, sum quiscia acerumquo quis aut licatem enia non reius autestionsed quiatiu."
+        headerFirst="Venture off the beaten"
+        headersecond="track on an adventure full"
+        headerThird="of incredible sights."
+        subHeaderFirst="Experience flashpacker luxury on a backpacker budget as we travel through the best of New Zealand, Australia and Europe. Discover cultural heritage, culinary"
+        subHeaderSecond="delights, spectacular scenery and adreniline pumping adventures on whatever adventure you choose. Let us show you our backyard."
         buttonText="how it works"
       />
       <BoxContainer
@@ -79,7 +79,7 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 7 - 21 day tours"
         departs="departs auckland & christchurch"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Kayak crystal clear waters, swim with dolphins, hike over glaciers and through pristine native bush. If you love nature, you’ll love exploring New Zealand with us. we need more text"
         price="From $180 NZD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
@@ -89,7 +89,7 @@ const IndexPage = () => {
         title="australia"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Road trip along the dramatic Australia coastline while sampling locally crafted wine, trying your hand at surfing and exploring the underwater world of the Great Barrier Reef."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
@@ -99,7 +99,7 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the beaten track."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"

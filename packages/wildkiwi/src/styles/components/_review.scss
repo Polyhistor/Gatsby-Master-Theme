@@ -1,7 +1,8 @@
 .review {
   padding: 10rem 4rem;
   &__stars-box {
-    color: #ffd127;
+    display: flex;
+    width: 14rem;
   }
 
   &__paragraph {

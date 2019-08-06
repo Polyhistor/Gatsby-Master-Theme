@@ -36,6 +36,10 @@
       top: 10%;
       left: 2%;
 
+      & > a {
+        padding: 1.35rem 7.31rem !important;
+      }
+
       @include respond(phone) {
         @include centralize;
         width: 95%;
@@ -70,7 +74,8 @@
     padding-top: 4.2rem;
 
     & > a {
-      padding: 1.67rem 6.6rem;
+      padding: 1.45rem 5.47rem;
+      font-size: 1.38rem;
     }
   }
 }

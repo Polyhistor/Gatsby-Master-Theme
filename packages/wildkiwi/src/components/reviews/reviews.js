@@ -1,4 +1,6 @@
 import React from "react"
+import { withPrefix } from "gatsby"
+
 import Review from "./review"
 
 const Reviews = () => {
@@ -11,11 +13,21 @@ const Reviews = () => {
               4.9<span className="facebook-reviews__rating-decimal">/5</span>
             </span>
             <center className="facebook-reviews__stars-box">
-              <i className="im im-star" />
-              <i className="im im-star" />
-              <i className="im im-star" />
-              <i className="im im-star" />
-              <i className="im im-star" />
+              <svg className="svg-icon--star-big">
+                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+              </svg>
+              <svg className="svg-icon--star-big">
+                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+              </svg>
+              <svg className="svg-icon--star-big">
+                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+              </svg>
+              <svg className="svg-icon--star-big">
+                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+              </svg>
+              <svg className="svg-icon--star-big">
+                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+              </svg>
             </center>
             <center className="facebook-reviews__title">Facebook Review</center>
             <center className="facebook-reviews__subtitle">
