@@ -12,7 +12,7 @@
 
   &--red {
     background-color: $color-red;
-    padding: 1.27rem 4rem;
+    padding: 1.27rem 2.8rem;
     border-radius: 0.4rem;
     transform: translateY(-0.5rem);
 
@@ -62,6 +62,6 @@
   }
   &--transparent {
     @include transparentButton;
-    padding: 1.55rem 8.04rem !important;
+    padding: 1.55rem 8.04rem;
   }
 }
