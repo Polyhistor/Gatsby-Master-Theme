@@ -6,7 +6,7 @@ const BoxContainer = ({ imageOne, imageTwo, imageThree, imageFour }) => {
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
-        <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
+        <h2 className="green-title u-margin-bottom-sedium">why wild kiwi?</h2>
         <Box
           imageData={imageOne}
           title="new vehicles"

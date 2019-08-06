@@ -4,11 +4,11 @@
 
   @include respond(phone) {
     text-align: center;
-    padding-top: 17rem;
+    padding-top: 10rem;
   }
 
   @include respond(tablet) {
-    margin-top: 14rem;
+    margin-top: 0rem;
   }
 
   @include respond(laptop) {

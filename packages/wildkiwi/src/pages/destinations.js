@@ -11,9 +11,6 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
 
-// tablet components
-import FeaturedTablet from "../components/tablet/featuredTablet"
-
 // mobile components
 import FeaturedMobile from "../components/mobile/featuredMobile"
 
@@ -31,6 +28,7 @@ const NewZealand = () => {
     return countryQuery.map(({ node }) => {
       return (
         <BannerDestination
+          key={node.title}
           title={node.title}
           subtitle={node.days}
           departs={node.departure}
@@ -57,7 +55,6 @@ const NewZealand = () => {
         variation="dest"
       />
       <Featured />
-      <FeaturedTablet />
       <FeaturedMobile />
       {renderCountries()}
       <BoxContainer

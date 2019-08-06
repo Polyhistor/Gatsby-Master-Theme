@@ -37,7 +37,7 @@
 
   &__nav-button {
     position: fixed;
-    top: 1.3rem;
+    top: 1.5rem;
     right: 0;
 
     &-box-link {
@@ -50,18 +50,18 @@
       }
     }
 
-    @include respond(phone) {
-      right: 0rem;
-      top: -2px;
-    }
-
     @include respond(laptop) {
-      right: 8%;
+      right: 6.8%;
     }
 
     @include respond(tablet) {
-      right: 12%;
+      right: 7.5%;
       margin-top: -1rem;
+    }
+
+    @include respond(phone) {
+      right: 0rem;
+      top: 0px;
     }
   }
 
@@ -79,12 +79,13 @@
     }
 
     @include respond(tablet) {
-      left: 11rem;
+      left: 4.1rem;
     }
 
     @include respond(phone) {
       top: 20%;
       left: 6%;
+      width: 60%;
     }
   }
 
@@ -94,15 +95,16 @@
     margin-right: 18.1rem;
 
     @include respond(laptop) {
-      margin-right: 14.8rem;
+      margin-right: 13.7rem;
     }
 
     @include respond(tablet) {
-      margin-right: 6rem;
+      margin-right: 2.2rem;
     }
 
     @include respond(phone) {
-      width: 27rem;
+      width: 28.8rem;
+      margin-top: 10.5rem;
     }
 
     &--dest {
@@ -114,19 +116,32 @@
     & a:nth-child(1) {
       display: block;
       margin: 4.5rem 0 1.4rem 0;
+      padding: 1.45rem 0rem;
+      font-size: 1.38rem;
 
       @include respond(phone) {
         margin: 0 auto;
         width: 97%;
+        background: white;
+        color: $color-primary;
+        padding: 1.8rem 0rem;
+        font-family: Nunito-Black;
+        font-size: 1.8rem;
       }
     }
     & a:nth-child(2) {
-      display: block;
+      display: inline-block;
+      font-size: 1.38rem;
+      padding: 1.15rem 4.1rem;
+
+      @include respond(tablet) {
+        display: inline-block;
+      }
     }
 
     @include respond(phone) {
       text-align: center;
-      margin-top: 9rem;
+      margin-top: 13rem;
       & a:nth-child(2) {
         display: none;
         font-size: 1rem;
@@ -139,7 +154,7 @@
   }
 
   @include respond(phone) {
-    height: 40rem;
+    height: 43rem;
     max-width: 32rem;
   }
 }

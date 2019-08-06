@@ -9,6 +9,10 @@
   margin-bottom: 1.5rem !important;
 }
 
+.u-margin-bottom-sedium {
+  margin-bottom: 2.5rem;
+}
+
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
 }
@@ -35,6 +39,10 @@
 
 .u-margin-top-percent-10 {
   margin-top: 10%;
+}
+
+.u-margin-left-medium {
+  margin-left: 6rem;
 }
 
 .u-margin-left-huge {
@@ -89,8 +97,8 @@
 .u-padding-top-huge {
   padding-top: 5rem;
 
-  @include respond(phone) {
-    display: none;
+  @include respond(tablet) {
+    padding-top: 3rem;
   }
 }
 

@@ -89,6 +89,8 @@
   & .destination-banner__description p {
     width: 85%;
     font-size: 1.7rem;
+    z-index: 10;
+    position: relative;
 
     @include respond(laptop) {
       font-size: 1.4rem;
@@ -118,6 +120,26 @@
   &__svg-map {
     width: 26rem;
     transform: translateX(-10rem);
+
+    & > img {
+      width: 27rem;
+      z-index: -1;
+      margin-top: 5rem;
+
+      @include respond(laptop) {
+        width: 22.5rem;
+        margin-top: 7rem;
+      }
+
+      @include respond(tablet) {
+        width: 22.5rem;
+        margin-top: 7rem;
+      }
+
+      @include respond(phone) {
+        width: 20rem;
+      }
+    }
 
     @include respond(laptop) {
       width: 23rem;

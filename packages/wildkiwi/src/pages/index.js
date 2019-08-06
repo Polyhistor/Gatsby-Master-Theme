@@ -15,6 +15,7 @@ import Trips from "../components/trips/trips"
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
+import FeaturedMobile from "../components/mobile/featuredMobile"
 
 import WhyWildKiwi from "../components/mobile/whyWildkiwi"
 
@@ -53,6 +54,7 @@ const IndexPage = () => {
         ]}
       />
       <WatchTrailer />
+      <FeaturedMobile />
       <WhyWildKiwi />
       <BannerHero
         headerFirst="Ga dandebis eliqui"
@@ -100,7 +102,7 @@ const IndexPage = () => {
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
       />
       <DestinationsTablet
         destination="newzealand"
@@ -109,6 +111,9 @@ const IndexPage = () => {
         departs="departs ssydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
       />
       <DestinationsTablet
         destination="australia"
@@ -117,6 +122,20 @@ const IndexPage = () => {
         departs="departs ssydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
+      />
+      <DestinationsTablet
+        destination="europe"
+        title="europe"
+        subtitle=" 1 - 4 day tours"
+        departs="departs ssydney & brisbane"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
       />
       <DestinationsMobile
         destination="newzealand"
@@ -125,6 +144,9 @@ const IndexPage = () => {
         departs="departs ssydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
       />
       <DestinationsMobile
         destination="australia"
@@ -133,6 +155,20 @@ const IndexPage = () => {
         departs="departs ssydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
+      />
+      <DestinationsMobile
+        destination="europe"
+        title="europe"
+        subtitle=" 1 - 4 day tours"
+        departs="departs ssydney & brisbane"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        tours="7 tours"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
       />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}

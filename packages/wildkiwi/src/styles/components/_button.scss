@@ -17,8 +17,10 @@
     transform: translateY(-0.5rem);
 
     @include respond(phone) {
-      padding: 1.7rem 2.7rem;
+      padding: 1rem 2rem;
       border-radius: 0rem;
+      margin-top: 1.5rem;
+      margin-right: 1rem;
     }
   }
   &--red2 {
@@ -29,11 +31,11 @@
     &-footer {
       padding: 1rem 4.3rem;
       font-size: 1rem;
-      color: $color-primary;
-      background: white;
+      color: $color-white;
+      background: $color-primary;
       border: 1px solid $color-primary;
       width: 22rem;
-      height: 4.8rem;
+      height: 6rem;
 
       @include respond(tablet) {
         padding: 1rem 4.6rem;
@@ -53,6 +55,10 @@
   &--white {
     @include greenWhite;
     padding: 0.7rem 4.2rem;
+
+    @include respond(tablet) {
+      padding: 0.7rem 4.73rem;
+    }
   }
   &--transparent {
     @include transparentButton;
