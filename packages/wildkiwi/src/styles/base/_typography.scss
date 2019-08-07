@@ -88,7 +88,6 @@
   font-family: Nunito-Black;
   font-size: 3.4rem;
   color: $color-primary;
-  text-transform: capitalize;
 
   @include respond(phone) {
     font-size: 3rem;

@@ -34,6 +34,10 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      europe: file(relativePath: { eq: "the-colliseum-rome-italy.jpg" }) {
+        ...FluidImage
+      }
+
       landing: file(relativePath: { eq: "wild-kiwi-header-image.jpg" }) {
         ...FluidImageBig
       }

@@ -92,7 +92,7 @@ const FilteredTour = ({ country }) => {
           <div className="filtered-tour__head">
             <h3>How long are you travelling for?</h3>
             <button onClick={e => handleSubmit(e)}>
-              <span>1 weeks</span>
+              <span>1 week</span>
             </button>
             <button>
               <span>2 weeks</span>

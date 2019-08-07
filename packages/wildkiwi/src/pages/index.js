@@ -90,7 +90,7 @@ const IndexPage = () => {
         departs="departs sydney & brisbane"
         details="Road trip along the dramatic Australia coastline while sampling locally crafted wine, trying your hand at surfing and exploring the underwater world of the Great Barrier Reef."
         price="From $160 AUD per day"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        imageData={imageQuery.australia.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
       />
       <TourBanner
@@ -100,7 +100,7 @@ const IndexPage = () => {
         departs="departs sydney & brisbane"
         details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the beaten track."
         price="From $160 AUD per day"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
       />
       <DestinationsTablet
