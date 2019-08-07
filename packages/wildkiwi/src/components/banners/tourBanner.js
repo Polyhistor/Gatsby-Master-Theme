@@ -35,7 +35,7 @@ const TourBanner = ({
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link className="btn btn--green tablet-green-button" to="/">
-                trips
+                explore
               </Link>
             </div>
           </div>
@@ -63,7 +63,7 @@ const TourBanner = ({
 
         <div className="mobile-yes u-padding-big ">
           <Link className={destination === "btn btn--green"} to="/">
-            view trips
+            explore
           </Link>
         </div>
       </div>

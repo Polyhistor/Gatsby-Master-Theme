@@ -90,7 +90,7 @@ const FilteredTour = ({ country }) => {
       <div className="section-filtered-tour">
         <div className="filtered-tour__container">
           <div className="filtered-tour__head">
-            <h3>How long are you traveling for?</h3>
+            <h3>How long are you travelling for?</h3>
             <button onClick={e => handleSubmit(e)}>
               <span>1 weeks</span>
             </button>

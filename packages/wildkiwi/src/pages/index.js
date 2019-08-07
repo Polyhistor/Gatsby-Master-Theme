@@ -70,7 +70,6 @@ const IndexPage = () => {
         imageThree={imageQuery.smallGroups.childImageSharp.fluid}
         imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
       />
-
       <div className="row row--patched">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>

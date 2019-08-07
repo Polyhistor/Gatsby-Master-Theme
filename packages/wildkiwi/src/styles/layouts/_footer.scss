@@ -12,6 +12,13 @@
     height: 4.1rem;
     border-top: 1px solid rgba($color-grey-dark, 0.4);
     border-bottom: 1px solid rgba($color-grey-dark, 0.4);
+
+    @include respond(phone) {
+      border-top: 0;
+      border-bottom: 0;
+      height: 100%;
+    }
+
     &-box {
       text-align: center;
       background-color: $color-primary;
@@ -19,15 +26,10 @@
         @include whiteGreen;
         padding: 0.8rem 1rem;
       }
-
       @include respond(phone) {
-        float: none;
-        text-align: center;
-        margin-left: 100.5%;
-        -webkit-transform: translateX(-101%);
-        transform: translateX(-100%);
+        display: flex;
+        justify-content: center;
         width: 100vw;
-        margin-left: 49.5%;
       }
     }
   }
@@ -467,10 +469,6 @@
         color: $color-grey-dark;
         font-size: 1.5rem;
       }
-    }
-
-    & > div:nth-child(2) {
-      margin-top: 2rem;
     }
   }
 

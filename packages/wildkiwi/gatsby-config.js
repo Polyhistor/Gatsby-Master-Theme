@@ -16,17 +16,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Wild Kiwi`,
-        short_name: `WK`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#1abc9c`,
-        display: `standalone`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-modal-routing`,
       options: {
         // A selector to set react-modal's app root to, default is `#___gatsby`
@@ -96,13 +85,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Wild Kiwi`,
+        short_name: `WK`,
         start_url: `/`,
-        // background_color: `#663399`,
-        // theme_color: `#ffffff`,
-        // display: `minimal-ui`,
-        icon: `src/images/wild_kiwi_favicon.png`, // This path is relative to the root of the site.
+        background_color: `#f7f0eb`,
+        theme_color: `#1abc9c`,
+        display: `standalone`,
+        icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
