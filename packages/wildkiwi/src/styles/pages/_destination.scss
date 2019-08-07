@@ -155,7 +155,7 @@
   }
 
   &-filtered-tour {
-    max-width: 152rem;
+    max-width: 126rem;
     @include centralize;
 
     @include respond(laptop) {

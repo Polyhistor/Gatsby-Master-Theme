@@ -1,6 +1,6 @@
 .filtered-tour {
   display: grid;
-  grid-template-columns: 2rem 28rem 15rem 1rem;
+  grid-template-columns: 2rem 28rem 9rem 1rem;
   grid-template-rows: 30rem 35rem 1rem 0.1rem;
   grid-row-gap: 2rem;
   border: 1px solid $color-primary;
@@ -23,7 +23,7 @@
 
   &__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45rem, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(40rem, max-content));
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
 
@@ -109,8 +109,10 @@
     grid-column: 2;
     grid-row: 3;
     align-self: end;
-    justify-self: start;
-    padding: 1.4rem 5rem;
+    width: 22rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
 
     @include respond(phone) {
       display: none;
@@ -119,7 +121,8 @@
 
   &__svg-map {
     width: 26rem;
-    transform: translateX(-10rem);
+    transform: translateX(-17rem);
+    margin-top: 5rem;
 
     & > img {
       width: 27rem;
@@ -140,21 +143,21 @@
         width: 20rem;
       }
     }
+  }
 
-    @include respond(laptop) {
-      width: 23rem;
-      transform: translateX(-11.2rem);
-    }
+  @include respond(laptop) {
+    width: 23rem;
+    transform: translateX(-11.2rem);
+  }
 
-    @include respond(tablet) {
-      width: 23rem;
-      transform: translateX(-11.2rem);
-    }
+  @include respond(tablet) {
+    width: 23rem;
+    transform: translateX(-11.2rem);
+  }
 
-    @include respond(phone) {
-      width: 20rem;
-      -webkit-transform: translateX(-3rem);
-    }
+  @include respond(phone) {
+    width: 20rem;
+    -webkit-transform: translateX(-3rem);
   }
 
   &__head {
