@@ -78,7 +78,7 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 7 - 21 day tours"
         departs="departs auckland & christchurch"
-        details="Kayak crystal clear waters, swim with dolphins, hike over glaciers and through pristine native bush. If you love nature, you’ll love exploring New Zealand with us. we need more text"
+        details="Kayak crystal clear waters, swim with dolphins, hike over glaciers and through pristine native bush. If you love nature, you’ll love exploring New Zealand with us. we need more"
         price="From $180 NZD per day"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
@@ -98,10 +98,10 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the beaten track."
+        details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the."
         price="From $160 AUD per day"
         imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-5"
       />
       <DestinationsTablet
         destination="newzealand"
