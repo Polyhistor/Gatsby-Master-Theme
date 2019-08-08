@@ -212,9 +212,9 @@
 
     &--europe {
       & > svg {
-        width: 46rem;
+        width: 34rem;
         height: 38rem;
-        margin-left: -7.1rem;
+        margin-left: -1rem;
 
         @include respond(laptop) {
           width: 30rem;

@@ -8,9 +8,6 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
-  console.log("our prop:", country)
-  console.log(destinationData)
-
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
@@ -92,7 +89,7 @@ const FilteredTour = ({ country }) => {
           <div className="filtered-tour__head">
             <h3>How long are you travelling for?</h3>
             <button onClick={e => handleSubmit(e)}>
-              <span>1 weeks</span>
+              <span>1 week</span>
             </button>
             <button>
               <span>2 weeks</span>

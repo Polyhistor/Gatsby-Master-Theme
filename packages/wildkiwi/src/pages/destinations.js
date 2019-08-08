@@ -56,7 +56,9 @@ const NewZealand = () => {
       />
       <Featured />
       <FeaturedMobile />
+
       {renderCountries()}
+
       <BoxContainer
         imageOne={imageQuery.newVehicles.childImageSharp.fluid}
         imageTwo={imageQuery.localGuids.childImageSharp.fluid}

@@ -37,7 +37,8 @@
       left: 2%;
 
       & > a {
-        padding: 1.35rem 7.31rem !important;
+        width: 22rem;
+        height: 4.8rem;
       }
 
       @include respond(phone) {

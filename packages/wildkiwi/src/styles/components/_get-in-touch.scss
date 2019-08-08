@@ -61,6 +61,8 @@
       &:after {
         left: 16.5rem;
         color: $color-grey-dark-3;
+        border-left: 2px solid $color-grey-dark;
+        border-bottom: 2px solid $color-grey-dark;
       }
     }
   }

@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
             bannerImages {
               localFile {
                 childImageSharp {
-                  fluid(quality: 80, maxWidth: 70) {
+                  fluid(quality: 80, maxWidth: 700) {
                     base64
                     aspectRatio
                     src

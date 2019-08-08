@@ -17,16 +17,20 @@
     grid-column-gap: 0;
   }
 
+  & > a {
+    text-decoration: none;
+  }
+
   &-single {
     display: grid;
-    grid-template-rows: 22rem 2.5rem 1.5rem 2rem;
+    grid-template-rows: 15rem 2.5rem 1.5rem 2rem;
 
     @include respond(tablet) {
-      grid-template-rows: 22rem 2.5rem 2rem 2rem;
+      grid-template-rows: 15rem 2.5rem 2rem 2rem;
     }
 
     @include respond(phone) {
-      grid-template-rows: 22rem 5rem 1.5rem 4rem;
+      grid-template-rows: 15rem 5rem 1.5rem 4rem;
     }
 
     &__image-container {
@@ -34,7 +38,9 @@
       grid-row: 1;
 
       & > .gatsby-image-wrapper {
-        height: 21rem;
+        height: 14rem;
+        width: 21rem;
+        border-radius: 4px;
 
         @include respond(phone) {
           width: 14.5rem;
@@ -110,9 +116,14 @@
     @include bigCapitalText;
     display: inline-block;
     margin-top: 2rem;
-    padding: 1rem 4.9rem;
-    font-size: 1.4rem;
+    font-size: 1.38rem;
     text-decoration: none;
+    width: 22rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
 
     @include respond(tablet) {
       margin-left: auto;

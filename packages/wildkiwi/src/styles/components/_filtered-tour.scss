@@ -3,7 +3,9 @@
   grid-template-columns: 2rem 28rem 9rem 1rem;
   grid-template-rows: 30rem 35rem 1rem 0.1rem;
   grid-row-gap: 2rem;
-  border: 1px solid $color-primary;
+  border: 1px solid $color-gray-light-2;
+  border-radius: 3px;
+  overflow: hidden;
 
   @include respond(laptop) {
     grid-template-columns: 1rem 21.4rem 10rem;
@@ -113,6 +115,8 @@
     height: 4.8rem;
     display: flex;
     justify-content: center;
+    font-size: 1.38rem;
+    align-items: center;
 
     @include respond(phone) {
       display: none;
@@ -123,6 +127,10 @@
     width: 26rem;
     transform: translateX(-17rem);
     margin-top: 5rem;
+
+    @include respond(phone) {
+      transform: translateX(-3rem);
+    }
 
     & > img {
       width: 27rem;
@@ -141,23 +149,9 @@
 
       @include respond(phone) {
         width: 20rem;
+        margin-top: 0;
       }
     }
-  }
-
-  @include respond(laptop) {
-    width: 23rem;
-    transform: translateX(-11.2rem);
-  }
-
-  @include respond(tablet) {
-    width: 23rem;
-    transform: translateX(-11.2rem);
-  }
-
-  @include respond(phone) {
-    width: 20rem;
-    -webkit-transform: translateX(-3rem);
   }
 
   &__head {
@@ -178,9 +172,8 @@
 
     & h3 {
       grid-column: 1/-1;
-      @include bigUppercaseText;
       @include greenWhite;
-      font-size: 1.5rem;
+      font-size: 2rem;
 
       @include respond(phone) {
         font-size: 1.8rem;
@@ -194,7 +187,7 @@
       border: 1px solid $color-primary;
       border-radius: 4px;
       @include greenWhite;
-      @include bigCapitalText;
+      text-transform: uppercase;
       font-size: 1.6rem;
 
       &:nth-of-type(3) {

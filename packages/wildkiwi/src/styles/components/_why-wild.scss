@@ -18,7 +18,7 @@
 
   &-single {
     display: grid;
-    grid-template-rows: 38rem 4rem 3rem max-content;
+    grid-template-rows: 18.5rem 4rem 3rem max-content;
 
     @include respond(laptop) {
       grid-template-rows: 5rem 3rem 10rem;
@@ -32,6 +32,8 @@
 
     &__image {
       grid-row: 1;
+      height: 18.6rem;
+      border-radius: 4px;
 
       @include respond(laptop) {
         grid-row: 1/-1;

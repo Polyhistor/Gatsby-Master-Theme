@@ -65,6 +65,7 @@
       grid-template-columns: 50% 50%;
       grid-template-rows: 45% 45%;
       grid-row: 1/-1;
+      grid-row-gap: 4rem;
     }
 
     @include respond(tablet) {
@@ -132,8 +133,8 @@
           }
 
           @include respond(tablet) {
-            width: 27.7rem;
-            height: 20rem;
+            width: 26rem;
+            height: 19rem;
           }
 
           @include respond(phone) {
@@ -150,6 +151,10 @@
       align-self: center;
       height: 4.8rem;
       width: 22rem;
+      font-size: 1.38rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       @include respond(tablet) {
         margin: 0 1rem;
@@ -157,8 +162,10 @@
       }
 
       @include respond(phone) {
-        transform: translateX(50%);
-        margin-left: -50%;
+        margin-left: 1rem;
+        height: 6rem;
+        width: 28rem;
+        font-size: 1.8rem;
       }
     }
   }
