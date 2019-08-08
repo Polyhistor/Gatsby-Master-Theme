@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 const ActivityScaffold = ({ title, subtitle, price, body, svgMap }) => {
   return (
@@ -9,15 +10,12 @@ const ActivityScaffold = ({ title, subtitle, price, body, svgMap }) => {
       <p className="activity__body">{body}</p>
       <img className="activity__svg-map" src={svgMap} alt={title} />
       <div className="activity__button-box">
-        <a
-          href="wildkiwi.com"
-          className="acitivity-box-button acitivity-box-button--red"
-        >
+        <Link to="/" className="acitivity-box-button acitivity-box-button--red">
           add to card
-        </a>
-        <a href="wildkiwi.com" className="acitivity-box-button">
+        </Link>
+        <Link to="/activities" className="acitivity-box-button">
           All Activities
-        </a>
+        </Link>
       </div>
     </div>
   )

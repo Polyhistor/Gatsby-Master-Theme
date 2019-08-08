@@ -18,9 +18,9 @@
 
     @include respond(phone) {
       padding: 1rem 2rem;
-      border-radius: 0rem;
-      margin-top: 1.5rem;
-      margin-right: 1rem;
+      border-radius: 0.3rem;
+      margin-top: 1.2rem;
+      margin-right: 0.9rem;
     }
   }
   &--red2 {
@@ -45,10 +45,12 @@
 
       @include respond(phone) {
         width: 100%;
-        padding: 1.5rem;
         margin-top: 4rem;
-        font-size: 2.3rem;
+        font-size: 1.8rem;
         border: 0;
+        width: 28rem;
+        height: 6rem;
+        justify-self: center;
       }
     }
   }

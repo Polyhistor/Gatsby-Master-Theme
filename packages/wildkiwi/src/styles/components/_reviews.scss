@@ -54,10 +54,18 @@
       margin-top: 2.5rem;
       margin-left: -2.8rem;
       font-size: 1.38rem;
+
+      @include respond(phone) {
+        width: 28rem;
+        height: 6rem;
+        margin-left: -5rem;
+        padding: 2rem;
+        font-size: 1.8rem;
+      }
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
   }
 }

@@ -31,7 +31,7 @@
 
       & input:checked ~ .FAQ__answer-container {
         font-size: 1.3rem;
-        min-height: 19rem;
+        max-height: 500rem;
         width: 90%;
 
         @include respond(laptop) {
@@ -48,8 +48,8 @@
   &__answer-container {
     transition: all 0.1s ease-in;
     transform: translate(0);
-    height: 0;
     overflow: hidden;
+    max-height: 0;
   }
 
   &__buttons {

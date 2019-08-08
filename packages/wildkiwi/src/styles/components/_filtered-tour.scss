@@ -128,6 +128,10 @@
     transform: translateX(-17rem);
     margin-top: 5rem;
 
+    @include respond(phone) {
+      transform: translateX(-3rem);
+    }
+
     & > img {
       width: 27rem;
       z-index: -1;
@@ -145,23 +149,9 @@
 
       @include respond(phone) {
         width: 20rem;
+        margin-top: 0;
       }
     }
-  }
-
-  @include respond(laptop) {
-    width: 23rem;
-    transform: translateX(-11.2rem);
-  }
-
-  @include respond(tablet) {
-    width: 23rem;
-    transform: translateX(-11.2rem);
-  }
-
-  @include respond(phone) {
-    width: 20rem;
-    -webkit-transform: translateX(-3rem);
   }
 
   &__head {
