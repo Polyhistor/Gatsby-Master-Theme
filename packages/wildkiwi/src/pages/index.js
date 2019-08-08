@@ -101,7 +101,7 @@ const IndexPage = () => {
         details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the."
         price="From $160 AUD per day"
         imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-5"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-8"
       />
       <DestinationsTablet
         destination="newzealand"

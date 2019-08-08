@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
@@ -30,6 +30,64 @@ const ActivitiesMain = ({ pageContext }) => {
   // using useState hook for the pourposes of our filter
   const [data, setData] = useState(group)
 
+  // we need another static query to fetch activities
+  const activitiesData = useStaticQuery(graphql`
+    query {
+      allContentfulActivities {
+        edges {
+          node {
+            slug
+            title
+            subtitle
+            price
+            country {
+              slug
+            }
+            bannerImages {
+              localFile {
+                childImageSharp {
+                  fluid(quality: 80, maxWidth: 700) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                    originalImg
+                    originalName
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  // embracing the variables
+  const ourData = activitiesData.allContentfulActivities.edges
+
+  // handling the filter functionality
+  const handleSubmit = e => {
+    // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
+    const filteredData = []
+
+    if (e.target.value === "all") {
+      return setData(group)
+    }
+
+    return ourData.filter(element => {
+      // filter logic
+      if (element.node.country.slug === e.target.value) {
+        filteredData.push(element)
+      }
+
+      // update the state
+      setData(filteredData)
+      return
+    })
+  }
+
   const renderActivities = () => {
     return data.map(({ node }, idx) => {
       return (
@@ -47,28 +105,6 @@ const ActivitiesMain = ({ pageContext }) => {
           </Link>
         </div>
       )
-    })
-  }
-
-  // handling the filter functionality
-
-  const handleSubmit = e => {
-    // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
-    const filteredData = []
-
-    if (e.target.value === "all") {
-      return setData(group)
-    }
-
-    return group.filter(element => {
-      // filter logic
-      if (element.node.country.slug === e.target.value) {
-        filteredData.push(element)
-      }
-
-      // update the state
-      setData(filteredData)
-      return
     })
   }
 

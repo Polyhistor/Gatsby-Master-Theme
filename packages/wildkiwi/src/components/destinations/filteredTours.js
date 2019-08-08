@@ -8,9 +8,6 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
-  console.log("our prop:", country)
-  console.log(destinationData)
-
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
