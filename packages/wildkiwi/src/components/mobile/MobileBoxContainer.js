@@ -17,25 +17,25 @@ const MobileBoxContainer = () => {
               textFirst="new"
               textSecond="vehicles"
               imageData={imageQuery.newVehicles.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+              description="Travel in style with our fleet of luxury vehicles, complete with USB chargers, WIFI and comfortable seats."
             />
             <MobileBox
               textFirst="local"
               textSecond="guides"
               imageData={imageQuery.localGuids.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+              description="Explore local spots with our guides who are passionate about showing you their backyard."
             />
             <MobileBox
               textFirst="small"
               textSecond="groups"
               imageData={imageQuery.smallGroups.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+              description="With a maximum group size of 18, you are bound to bond with your travel family."
             />
             <MobileBox
               textFirst="breathtaking"
               textSecond="scenery"
               imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+              description="Natural backdrops include pristine beaches, jagged cliffs, mountain ranges and crystal clear lakes."
             />
           </div>
         </section>
