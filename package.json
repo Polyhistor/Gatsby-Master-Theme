@@ -64,7 +64,8 @@
     "test:medsailors": "cd packages/medsailors && npm run test",
     "lint:medsailors": "cd packages/medsailors && npm run lint",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "test": "echo test all applications"
+    "test": "echo test all applications",
+    "build": "cd packages/wildkiwi && npm run build"
   },
   "repository": {
     "type": "git",
