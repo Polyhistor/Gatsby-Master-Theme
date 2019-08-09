@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-offline`,
+    "gatsby-plugin-preload-link-crossorigin",
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-modal-routing`,
