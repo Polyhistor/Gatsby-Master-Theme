@@ -11,6 +11,7 @@ html {
   /* the perfect root size 10 divided by 16, it will be used to define what 1rem is*/
   font-size: 62.5%;
   font-family: Nunito-Regular;
+  color: $color-grey-dark-3;
   // overflow-x: hidden;
 
   @include respond(tablet) {

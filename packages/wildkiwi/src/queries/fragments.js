@@ -120,6 +120,9 @@ export const ActivitiesFragment = graphql`
         url
       }
     }
+    description {
+      json
+    }
     bodyContent {
       bodyContent
     }
