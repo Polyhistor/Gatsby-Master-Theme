@@ -117,6 +117,7 @@ export const ActivitiesFragment = graphql`
     price
     svgMap {
       localFile {
+        publicURL
         childImageSharp {
           original {
             src
