@@ -57,11 +57,9 @@ const IndexPage = () => {
       <FeaturedMobile />
       <WhyWildKiwi />
       <BannerHero
-        headerFirst="Venture off the beaten"
-        headersecond="track on an adventure full"
-        headerThird="of incredible sights."
-        subHeaderFirst="Experience flashpacker luxury on a backpacker budget as we travel through the best of New Zealand, Australia and Europe. Discover cultural heritage, culinary"
-        subHeaderSecond="delights, spectacular scenery and adreniline pumping adventures on whatever adventure you choose. Let us show you our backyard."
+        headerFirst="Flash-pack your way around New Zealand,"
+        headersecond="Australia and Europe."
+        subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
         buttonText="how it works"
       />
       <BoxContainer
@@ -98,7 +96,7 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the."
+        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all."
         price="From $160 AUD per day"
         imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-10"

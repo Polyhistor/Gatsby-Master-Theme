@@ -54,8 +54,12 @@ const ActivitiesSingle = ({ data }) => {
           subtitle={data.contentfulActivities.subtitle}
           price={data.contentfulActivities.price}
           body={data.contentfulActivities.bodyContent.bodyContent}
-          svgMap={data.contentfulActivities.svgMap.localFile.url}
-          description={data.contentfulActivities.description.json}
+          svgMap={data.contentfulActivities.svgMap.localFile.relativePath}
+          description={
+            data.contentfulActivities.description !== null
+              ? data.contentfulActivities.description.json
+              : "there has been no description found for this tour on Contentful, please consider adding one"
+          }
         />
         <ActivityRelated />
       </SectionActivity>

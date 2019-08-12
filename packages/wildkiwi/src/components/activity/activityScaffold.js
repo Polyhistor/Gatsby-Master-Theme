@@ -15,7 +15,11 @@ const ActivityScaffold = ({
       <h1 className="activity__title">{title}</h1>
       <h3 className="activity__subtitle">{subtitle}</h3>
       <h4 className="activity__price">{price}</h4>
-      <p className="activity__body">{documentToReactComponents(description)}</p>
+      {description !== null && (
+        <p className="activity__body">
+          {documentToReactComponents(description)}
+        </p>
+      )}
       <img className="activity__svg-map" src={svgMap} alt={title} />
       <div className="activity__button-box">
         <Link to="/" className="acitivity-box-button acitivity-box-button--red">
