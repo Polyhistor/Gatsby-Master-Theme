@@ -117,7 +117,11 @@ export const ActivitiesFragment = graphql`
     price
     svgMap {
       localFile {
-        relativePath
+        childImageSharp {
+          original {
+            src
+          }
+        }
       }
     }
     description {
@@ -189,7 +193,9 @@ export const DestinationsFragment = graphql`
     title
     destinationCountry
     duration
-    description
+    descriptionLong {
+      descriptionLong
+    }
     activity {
       title
       subtitle
@@ -219,7 +225,11 @@ export const DestinationsFragment = graphql`
     }
     svgMap {
       localFile {
-        url
+        childImageSharp {
+          original {
+            src
+          }
+        }
       }
     }
     route

@@ -96,7 +96,7 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all."
+        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
         price="From $160 AUD per day"
         imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-10"

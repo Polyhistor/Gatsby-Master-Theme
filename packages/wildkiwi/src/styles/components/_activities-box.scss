@@ -76,6 +76,10 @@
       &--top {
         background-color: $color-red;
       }
+
+      &--null {
+        display: none;
+      }
     }
 
     &__title {

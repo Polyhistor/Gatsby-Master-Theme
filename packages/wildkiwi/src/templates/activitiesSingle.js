@@ -54,7 +54,10 @@ const ActivitiesSingle = ({ data }) => {
           subtitle={data.contentfulActivities.subtitle}
           price={data.contentfulActivities.price}
           body={data.contentfulActivities.bodyContent.bodyContent}
-          svgMap={data.contentfulActivities.svgMap.localFile.relativePath}
+          svgMap={
+            data.contentfulActivities.svgMap.localFile.childImageSharp.original
+              .src
+          }
           description={
             data.contentfulActivities.description !== null
               ? data.contentfulActivities.description.json

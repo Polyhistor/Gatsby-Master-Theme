@@ -1,7 +1,7 @@
 .filtered-tour {
   display: grid;
   grid-template-columns: 2rem 28rem 9rem 1rem;
-  grid-template-rows: 30rem 35rem 1rem 0.1rem;
+  grid-template-rows: 22.5rem 35rem 1rem 0.1rem;
   grid-row-gap: 2rem;
   border: 1px solid $color-gray-light-2;
   border-radius: 3px;
@@ -50,7 +50,7 @@
     position: relative;
     grid-column: 1/-1;
     & .gatsby-image-wrapper {
-      height: 30rem;
+      height: 22.5rem;
 
       @include respond(laptop) {
         height: 22rem;
