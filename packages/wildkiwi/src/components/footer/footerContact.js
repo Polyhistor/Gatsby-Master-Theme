@@ -19,7 +19,7 @@ const FooterContact = () => {
           id="country"
         >
           <option value="newzealand">NEW ZEALAND</option>
-          <option value="uk">THE UK</option>
+          <option value="uk">UNITED KINGDOM</option>
           <option value="australia">AUSTRALIA</option>
         </select>
       </div>
