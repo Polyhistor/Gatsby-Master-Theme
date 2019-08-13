@@ -48,7 +48,7 @@ const IndexPage = ({ pageContext }) => {
               />
             </div>
             <div className="blog__main-nextLink">
-              <NavLink test={last} url={`/blog/${nextUrl}`} text="More" />
+              <NavLink test={last} url={`/blog/${nextUrl}`} text="Next" />
             </div>
           </div>
         </div>

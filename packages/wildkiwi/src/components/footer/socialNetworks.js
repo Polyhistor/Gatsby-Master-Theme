@@ -6,15 +6,21 @@ const SocialNetowrk = () => {
     <div className="u-margin-bottom-medium u-padding-top-huge ">
       <div className="footer__social-networks">
         <div className="footer__social-networks-box">
-          <svg className="svg-icon--Facebook">
-            <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />
-          </svg>
-          <svg className="svg-icon--Instagram">
-            <use xlinkHref={withPrefix("sprite.svg#icon-Instagram")} />
-          </svg>
-          <svg className="svg-icon--Youtube">
-            <use xlinkHref={withPrefix("sprite.svg#icon-Youtube")} />
-          </svg>
+          <a href="https://www.facebook.com/wildkiwitours">
+            <svg className="svg-icon--Facebook">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/wildkiwitours/">
+            <svg className="svg-icon--Instagram">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Instagram")} />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/c/WildkiwiTours">
+            <svg className="svg-icon--Youtube">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Youtube")} />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

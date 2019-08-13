@@ -27,6 +27,14 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      //   <script
+      //   src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
+      //   type="text/javascript"
+      //   charset="utf-8"
+      // />
+
+      // <script src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6" type="text/javascript" charset="utf-8"></script>
+
       meta={[
         {
           name: `description`,
@@ -60,13 +68,14 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-        <script
-          src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
-          type="text/javascript"
-          charset="utf-8"
-        />,
       ].concat(meta)}
-    />
+    >
+      <script
+        src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
+        type="text/javascript"
+        charset="utf-8"
+      />
+    </Helmet>
   )
 }
 

@@ -335,6 +335,21 @@
   }
 }
 
+._form-content {
+  & > ._form-title {
+    font-family: Nunito-Black;
+  }
+  & > ._form-body {
+    font-family: Nunito-Regular;
+  }
+}
+
+._form-element {
+  & input::placeholder {
+    font-family: Nunito-Regular;
+  }
+}
+
 //hotfixes
 .hotfix {
   &--reviews {

@@ -117,11 +117,16 @@ export const ActivitiesFragment = graphql`
     price
     svgMap {
       localFile {
-        url
+        publicURL
+        childImageSharp {
+          original {
+            src
+          }
+        }
       }
     }
-    bodyContent {
-      bodyContent
+    description {
+      json
     }
     bannerImages {
       localFile {
@@ -143,7 +148,7 @@ export const CountriesFragment = graphql`
     banner {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 770) {
+          fluid(quality: 100, maxWidth: 4070) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -160,7 +165,11 @@ export const CountriesFragment = graphql`
     tourBoxPerDay
     svgMap {
       localFile {
-        url
+        childImageSharp {
+          original {
+            src
+          }
+        }
       }
     }
     tourBoxImages {
@@ -182,7 +191,9 @@ export const DestinationsFragment = graphql`
     title
     destinationCountry
     duration
-    description
+    descriptionLong {
+      descriptionLong
+    }
     activity {
       title
       subtitle
@@ -212,7 +223,11 @@ export const DestinationsFragment = graphql`
     }
     svgMap {
       localFile {
-        url
+        childImageSharp {
+          original {
+            src
+          }
+        }
       }
     }
     route

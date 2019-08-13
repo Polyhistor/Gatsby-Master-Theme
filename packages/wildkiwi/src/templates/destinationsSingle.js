@@ -66,7 +66,10 @@ const DestinationsSingle = ({ data }) => {
       />
       <DestinationSection>
         <TripBox
-          imageData={data.contentfulDestinations.svgMap.localFile.url}
+          imageData={
+            data.contentfulDestinations.svgMap.localFile.childImageSharp
+              .original.src
+          }
           imageAlt={data.contentfulDestinations.title}
           days={data.contentfulDestinations.duration}
           text="days"
@@ -84,7 +87,7 @@ const DestinationsSingle = ({ data }) => {
         />
         <DestinationStarter
           title={data.contentfulDestinations.title}
-          body={data.contentfulDestinations.description}
+          body={data.contentfulDestinations.descriptionLong.descriptionLong}
         />
         <HighLight
           title="Highlights"

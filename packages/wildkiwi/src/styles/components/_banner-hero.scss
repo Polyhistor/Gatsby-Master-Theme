@@ -15,10 +15,10 @@
   }
   &__text-box {
     position: absolute;
-    width: 40%;
+    width: 80%;
     top: 28%;
     left: 3%;
-    max-width: 38rem;
+    max-width: 40rem;
 
     @include respond(laptop) {
       width: 55%;

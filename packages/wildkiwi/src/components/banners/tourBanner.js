@@ -9,6 +9,7 @@ const TourBanner = ({
   departs,
   details,
   price,
+  tours,
   imageData,
   SVGMap,
 }) => {
@@ -34,7 +35,10 @@ const TourBanner = ({
               {price}
             </span>
             <div className="tour-banner__description-button-box mobile-no">
-              <Link className="btn btn--green tablet-green-button" to="/">
+              <Link
+                className="btn btn--green tablet-green-button"
+                to={`destinations/${destination}`}
+              >
                 explore
               </Link>
             </div>
@@ -47,7 +51,7 @@ const TourBanner = ({
             <figcaption
               className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
             >
-              <span className="tour-banner__days">7</span> tours
+              <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
           </figure>
         </div>

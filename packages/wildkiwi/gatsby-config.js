@@ -14,7 +14,6 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-offline`,
-    "gatsby-plugin-preload-link-crossorigin",
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-modal-routing`,
@@ -164,5 +163,6 @@ module.exports = {
         transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
       },
     },
+    `gatsby-plugin-preload-link-crossorigin`,
   ],
 }

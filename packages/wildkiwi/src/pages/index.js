@@ -11,6 +11,7 @@ import TourBanner from "../components/banners/tourBanner"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
+import Popup from "../components/popup"
 
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
@@ -32,6 +33,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <Popup />
       <Landing
         imageData={imageQuery.landing.childImageSharp.fluid}
         titleFirst="epic"
@@ -41,7 +43,7 @@ const IndexPage = () => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/destinations"
         buttonSecond="watch trailer"
-        buttonSecondURL="/blog"
+        buttonSecondURL="#popup"
         buttonStyles={["green", "white"]}
         variation={null}
       />
@@ -57,11 +59,9 @@ const IndexPage = () => {
       <FeaturedMobile />
       <WhyWildKiwi />
       <BannerHero
-        headerFirst="Venture off the beaten"
-        headersecond="track on an adventure full"
-        headerThird="of incredible sights."
-        subHeaderFirst="Experience flashpacker luxury on a backpacker budget as we travel through the best of New Zealand, Australia and Europe. Discover cultural heritage, culinary"
-        subHeaderSecond="delights, spectacular scenery and adreniline pumping adventures on whatever adventure you choose. Let us show you our backyard."
+        headerFirst="Flash-pack your way around New Zealand,"
+        headersecond="Australia and Europe."
+        subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
         buttonText="how it works"
       />
       <BoxContainer
@@ -78,8 +78,9 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 7 - 21 day tours"
         departs="departs auckland & christchurch"
-        details="Kayak crystal clear waters, swim with dolphins, hike over glaciers and through pristine native bush. If you love nature, you’ll love exploring New Zealand with us. we need more"
+        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring New Zealand with us."
         price="From $180 NZD per day"
+        tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
       />
@@ -90,6 +91,7 @@ const IndexPage = () => {
         departs="departs sydney & brisbane"
         details="Road trip along the dramatic Australia coastline while sampling locally crafted wine, trying your hand at surfing and exploring the underwater world of the Great Barrier Reef."
         price="From $160 AUD per day"
+        tours="3"
         imageData={imageQuery.australia.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
       />
@@ -98,10 +100,11 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="departs sydney & brisbane"
-        details="Become awestruck by Europe's epic history and natural beauty. Embark on a journey across the region that uncovers glorious scenery, cultural heritage and dazzling artistry all off the."
+        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
         price="From $160 AUD per day"
+        tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT-10"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-330x390"
       />
       <DestinationsTablet
         destination="newzealand"
@@ -110,7 +113,7 @@ const IndexPage = () => {
         departs="departs ssydney & brisbane"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
-        tours="7 tours"
+        tours="12"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
       />
@@ -134,7 +137,7 @@ const IndexPage = () => {
         price="From $160 AUD per day"
         tours="7 tours"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
       />
       <DestinationsMobile
         destination="newzealand"
@@ -167,7 +170,7 @@ const IndexPage = () => {
         price="From $160 AUD per day"
         tours="7 tours"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-Homepage-ALT5"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
       />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}

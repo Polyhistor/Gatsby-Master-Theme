@@ -485,17 +485,21 @@
           & > .blog__main-title {
             grid-column: 1;
             grid-row: 2;
+            font-size: 1.4rem;
           }
 
           & > .blog__main-category {
             grid-column: 1;
             grid-row: 3;
+            font-size: 1rem;
+            text-transform: uppercase;
           }
         }
 
         & > a > .blog__main-author {
           grid-column: 1;
           grid-row: 4;
+          font-size: 1rem;
         }
       }
 
@@ -583,11 +587,14 @@
           & > .blog__main-category {
             grid-column: 2;
             grid-row: 2;
+            font-size: 1.2rem;
+            text-transform: uppercase;
           }
 
           & > .blog__main-author {
             grid-column: 2;
             grid-row: 3;
+            font-size: 1.2rem;
           }
         }
       }
@@ -610,17 +617,20 @@
 
           & > .blog__main-title {
             padding-top: 1rem;
-            font-size: 1.5rem;
+            font-size: 2.4rem;
             grid-row: 2;
             align-self: center;
           }
 
           & > .blog__main-category {
             grid-row: 3;
+            font-size: 1.2rem;
+            text-transform: uppercase;
           }
 
           & > .blog__main-author {
             grid-row: 4;
+            font-size: 1.2rem;
           }
         }
       }
@@ -671,17 +681,20 @@
 
           & > .blog__main-title {
             padding-top: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             grid-row: 2;
             align-self: center;
           }
 
           & > .blog__main-category {
             grid-row: 3;
+            font-size: 1.2rem;
+            text-transform: uppercase;
           }
 
           & > .blog__main-author {
             grid-row: 4;
+            font-size: 1.2rem;
           }
         }
       }
