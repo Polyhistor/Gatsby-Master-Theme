@@ -128,9 +128,6 @@ export const ActivitiesFragment = graphql`
     description {
       json
     }
-    bodyContent {
-      bodyContent
-    }
     bannerImages {
       localFile {
         childImageSharp {

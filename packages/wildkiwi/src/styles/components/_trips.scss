@@ -9,6 +9,10 @@
     text-align: center;
   }
 
+  & > a {
+    text-decoration: none;
+  }
+
   &-container {
     & div:nth-child(1n + 4) {
       @include respond(tablet) {
