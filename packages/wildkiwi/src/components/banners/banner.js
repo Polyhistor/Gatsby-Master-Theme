@@ -32,7 +32,10 @@ const Banner = ({
                 </span>
               </h2>
               <div className="banner-hero__button-box banner-hero__text-box-2">
-                <Link to="/s" className="btn btn--transparent btn-animated">
+                <Link
+                  to="/how-it-works"
+                  className="btn btn--transparent btn-animated"
+                >
                   {buttonText}
                 </Link>
               </div>

@@ -31,7 +31,7 @@ const Reviews = () => {
             </center>
             <center className="facebook-reviews__title">Facebook Review</center>
             <center className="facebook-reviews__subtitle">
-              based on 650 reviews
+              based on 151 reviews
             </center>
             <a
               aria-current="page"
@@ -44,23 +44,23 @@ const Reviews = () => {
         </div>
         <div className="col-1-of-4">
           <Review
-            text="Wild Kiwi also has the luxury that larger tour groups don’t have of being flexible on itinerary and being able to stop at places that are little more “off the beaten track.”"
-            author="Sam Kelly"
+            text="Where do I start! Absolutely fantastic tour! The places are all breathtaking, postcard quality views around every corner. I am in love with New Zealand now and can’t wait to be back."
+            author="Melissa James"
             country="Australia"
           />
         </div>
         <div className="col-1-of-4">
           <Review
-            text="Wild Kiwi also has the luxury that larger tour groups don’t have of being flexible on itinerary and being able to stop at places that are little more “off the beaten track.”"
-            author="Chris Freimuth"
-            country="United States"
+            text="Had the most amazing tour in the south island. I was nervous about travelling solo the first time but such a small group of awesome people made it a great experience and I never felt like I was alone!"
+            author="Isabella Durham"
+            country="Australia"
           />
         </div>
         <div className="col-1-of-4">
           <Review
-            text="Wild Kiwi also has the luxury that larger tour groups don’t have of being flexible on itinerary and being able to stop at places that are little more “off the beaten track.”"
-            author="Sophora Cliff"
-            country="United Kingdom"
+            text="The itinerary was great, we got to see so much and even the driving days were fun because we got to stop off at so many beautiful and out of the way places."
+            author="Hayley Fraser"
+            country="Australia"
           />
         </div>
       </div>
