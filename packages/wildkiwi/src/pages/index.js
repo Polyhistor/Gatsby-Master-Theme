@@ -11,6 +11,7 @@ import TourBanner from "../components/banners/tourBanner"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
+import Popup from "../components/popup"
 
 // mobile components
 import WatchTrailer from "../components/mobile/watchTrailer"
@@ -32,6 +33,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <Popup />
       <Landing
         imageData={imageQuery.landing.childImageSharp.fluid}
         titleFirst="epic"
@@ -41,7 +43,7 @@ const IndexPage = () => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/destinations"
         buttonSecond="watch trailer"
-        buttonSecondURL="/blog"
+        buttonSecondURL="#popup"
         buttonStyles={["green", "white"]}
         variation={null}
       />

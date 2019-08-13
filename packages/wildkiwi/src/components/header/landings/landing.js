@@ -19,7 +19,7 @@ const Header = ({
 }) => {
   // rendering the contents
   return (
-    <BackgroundImage fluid={imageData} className="bannerHero">
+    <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
       <div className="header">
         <div className={`header__text-box ${optMargin}`}>
           <h1
@@ -62,15 +62,15 @@ const Header = ({
             {/* adding one more level of modularity, if the secondbutton text and
             URL is not given, don't show it */}
             {buttonSecond && buttonSecondURL !== null ? (
-              <Link
-                to={buttonSecondURL}
+              <a
+                href={buttonSecondURL}
                 className={`btn btn--${buttonStyles[1]} btn-animated`}
               >
                 <svg className="svg-icon--play-button">
                   <use xlinkHref={withPrefix("sprite.svg#icon-Play-Button")} />
                 </svg>
                 <span className="">{buttonSecond}</span>
-              </Link>
+              </a>
             ) : null}
           </div>
         </div>

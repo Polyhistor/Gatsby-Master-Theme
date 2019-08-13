@@ -8,7 +8,10 @@ const FooterInstagramBox = () => {
   const imageQuery = useImageQuery()
 
   return (
-    <>
+    <a
+      className="footer__instagram"
+      href="https://www.instagram.com/explore/tags/wildkiwitours/?hl=en"
+    >
       <div className="footer__instagram-box">
         <h2>#WildKiwiTours</h2>
         <Img fluid={imageQuery.instaOne.childImageSharp.fluid} />
@@ -16,7 +19,7 @@ const FooterInstagramBox = () => {
         <Img fluid={imageQuery.instaThree.childImageSharp.fluid} />
         <Img fluid={imageQuery.instaFour.childImageSharp.fluid} />
       </div>
-    </>
+    </a>
   )
 }
 

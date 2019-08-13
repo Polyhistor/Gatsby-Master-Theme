@@ -1,6 +1,6 @@
 export default [
   {
-    label: "destination",
+    label: "destinations",
     link: "/destinations",
     sub: [
       { label: "new zealand", link: "/destinations/newzealand" },

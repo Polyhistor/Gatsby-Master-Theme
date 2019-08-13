@@ -39,18 +39,18 @@ const FooterContact = () => {
           {state === "newzealand"
             ? "+64 9 973 5676"
             : state === "australia"
-            ? "+61 3 973 5676"
+            ? "+61 2 9133 8646"
             : "+44 7 973 5676"}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
           {state === "newzealand"
             ? "Level 2, 29 Hargreaves Street, St Marys Bay, New Zealand"
             : state === "australia"
-            ? "Level 3, 10 High Buildings, Simpson Street, The UK"
+            ? "22 Bardsley Lane, Greenwich, London SE10 9RF, UK"
             : "Level 9, 10 Queens Buildings, Victoria Street, Australia"}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
-          hello@wildkiwi.com
+          hello@WildKiwi.com
         </li>
       </ul>
     </div>
