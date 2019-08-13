@@ -2,14 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const ActivityScaffold = ({
-  title,
-  subtitle,
-  price,
-  body,
-  svgMap,
-  description,
-}) => {
+const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
   return (
     <div className="activity activity--single">
       <h1 className="activity__title">{title}</h1>

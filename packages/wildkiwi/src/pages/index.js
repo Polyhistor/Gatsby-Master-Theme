@@ -104,7 +104,7 @@ const IndexPage = () => {
         price="From $160 AUD per day"
         tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-330x330"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-330x390"
       />
       <DestinationsTablet
         destination="newzealand"
