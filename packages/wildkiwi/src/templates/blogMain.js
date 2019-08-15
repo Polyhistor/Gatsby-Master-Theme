@@ -8,10 +8,16 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
+// utilities
+import useHomePageQuery from "../queries/homePageQuery"
+
 const IndexPage = ({ pageContext }) => {
+  // our pagination helpers
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+  // extracting our custom hook
+  const homeQuery = useHomePageQuery()
 
   const renderBlogs = () => {
     return group.map(({ node }) => {
@@ -60,7 +66,7 @@ const IndexPage = ({ pageContext }) => {
       </div>
       <Reviews />
       <div className="row">
-        <Trips />
+        <Trips data={homeQuery[0].node.popularTours} />
       </div>
     </Layout2>
   )
