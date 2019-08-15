@@ -66,7 +66,7 @@ const FilteredTour = ({ country }) => {
             </div>
             <div className="filtered-tour__svg-map">
               <img
-                src={element.node.svgMap.localFile.childImageSharp.original.src}
+                src={element.node.svgMap.localFile.publicURL}
                 alt={element.title}
               />
             </div>

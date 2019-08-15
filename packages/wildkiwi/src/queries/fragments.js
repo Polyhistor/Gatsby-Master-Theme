@@ -118,11 +118,6 @@ export const ActivitiesFragment = graphql`
     svgMap {
       localFile {
         publicURL
-        childImageSharp {
-          original {
-            src
-          }
-        }
       }
     }
     description {
@@ -165,11 +160,7 @@ export const CountriesFragment = graphql`
     tourBoxPerDay
     svgMap {
       localFile {
-        childImageSharp {
-          original {
-            src
-          }
-        }
+        publicURL
       }
     }
     tourBoxImages {
@@ -223,11 +214,7 @@ export const DestinationsFragment = graphql`
     }
     svgMap {
       localFile {
-        childImageSharp {
-          original {
-            src
-          }
-        }
+        publicURL
       }
     }
     route
