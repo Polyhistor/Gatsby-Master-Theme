@@ -14,7 +14,6 @@ import Trips from "../components/trips/trips"
 import Popup from "../components/popup"
 
 // mobile components
-import WatchTrailer from "../components/mobile/watchTrailer"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
 import FeaturedMobile from "../components/mobile/featuredMobile"
 
@@ -25,10 +24,12 @@ import DestinationsTablet from "../components/tablet/destinationsTablet"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
 
 const IndexPage = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
@@ -49,28 +50,58 @@ const IndexPage = () => {
       />
       <GreenbarAlt
         textList={[
-          { label: "destinations", link: "/" },
+          { label: "destinations", link: "/destinations" },
           { label: "new zealand", link: "/destinations/newzealand" },
           { label: "australia", link: "/destinations/australia" },
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WatchTrailer />
+      <WhyWildKiwi data={homeQuery[0].node.whyWildKiwi} />
       <FeaturedMobile />
-      <WhyWildKiwi />
+      <div className="row row--patched mobile-yes">
+        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+      </div>
+      <DestinationsMobile
+        destination="newzealand"
+        title="new zealand"
+        subtitle=" 1 - 4 day tours"
+        departs="departs ssydney & brisbane"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        tours="7"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
+      />
+      <DestinationsMobile
+        destination="australia"
+        title="australia"
+        subtitle=" 1 - 4 day tours"
+        departs="departs ssydney & brisbane"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        tours="7"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
+      />
+      <DestinationsMobile
+        destination="europe"
+        title="europe"
+        subtitle=" 1 - 4 day tours"
+        departs="Multiple Departure Cities"
+        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        price="From $160 AUD per day"
+        tours="7"
+        imageData={imageQuery.newzealand.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
+      />
       <BannerHero
         headerFirst="Flash-pack your way around New Zealand,"
         headersecond="Australia and Europe."
         subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
         buttonText="how it works"
       />
-      <BoxContainer
-        imageOne={imageQuery.newVehicles.childImageSharp.fluid}
-        imageTwo={imageQuery.localGuids.childImageSharp.fluid}
-        imageThree={imageQuery.smallGroups.childImageSharp.fluid}
-        imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
-      />
-      <div className="row row--patched">
+      <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
+      <div className="row row--patched mobile-no">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
       <TourBanner
@@ -99,12 +130,12 @@ const IndexPage = () => {
         destination="europe"
         title="europe"
         subtitle=" 6 - 14 day tours"
-        departs="departs sydney & brisbane"
+        departs="Multiple Departure Cities"
         details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
         price="From $160 AUD per day"
         tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-330x390"
+        SVGMap="icon-Wild-Kiwi-Europe-Map-330x366-8"
       />
       <DestinationsTablet
         destination="newzealand"
@@ -132,40 +163,7 @@ const IndexPage = () => {
         destination="europe"
         title="europe"
         subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7 tours"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
-      />
-      <DestinationsMobile
-        destination="newzealand"
-        title="new zealand"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7 tours"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
-      />
-      <DestinationsMobile
-        destination="australia"
-        title="australia"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7 tours"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
-      />
-      <DestinationsMobile
-        destination="europe"
-        title="europe"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
+        departs="Multiple Departure Cities"
         details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
         price="From $160 AUD per day"
         tours="7 tours"
@@ -180,7 +178,7 @@ const IndexPage = () => {
         buttonText="continue"
       />
       <Reviews />
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout>
   )
 }

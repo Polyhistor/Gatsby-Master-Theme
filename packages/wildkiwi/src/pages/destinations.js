@@ -17,11 +17,13 @@ import FeaturedMobile from "../components/mobile/featuredMobile"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useCountryQuery from "../queries/countryQuery"
+import useHomePageQuery from "../queries/homePageQuery"
 
 const NewZealand = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
+  const homeQuery = useHomePageQuery()
 
   // rendering countries data fetced from contentful
   const renderCountries = () => {
@@ -57,12 +59,7 @@ const NewZealand = () => {
       <Featured />
       <FeaturedMobile />
       {renderCountries()}
-      <BoxContainer
-        imageOne={imageQuery.newVehicles.childImageSharp.fluid}
-        imageTwo={imageQuery.localGuids.childImageSharp.fluid}
-        imageThree={imageQuery.smallGroups.childImageSharp.fluid}
-        imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
-      />
+      <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"

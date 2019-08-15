@@ -1,7 +1,7 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 
-const GreenBar = ({ text, imageData, imageAlt }) => {
+const GreenBar = ({ text }) => {
   return (
     <section className="green-bar">
       <div className="green-bar__container">

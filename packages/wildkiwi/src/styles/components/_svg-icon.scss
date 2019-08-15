@@ -7,7 +7,13 @@
 
     & ~ span {
       display: inline-block;
-      transform: translateY(-3px);
+      transform: translateY(-0.4rem);
+    }
+
+    &--mobile {
+      height: 4rem;
+      width: 4rem;
+      margin-right: 2rem;
     }
   }
 
@@ -123,5 +129,25 @@
   &--mountains {
     height: 4rem;
     width: 22rem;
+  }
+
+  &--icon-Bus {
+    width: 5.4rem;
+    height: 6rem;
+  }
+
+  &--icon-Guide {
+    width: 7.7rem;
+    height: 6rem;
+  }
+
+  &--icon-Group-Tours {
+    width: 7rem;
+    height: 5.1rem;
+  }
+
+  &--icon-Scenery {
+    width: 6rem;
+    height: 6.4rem;
   }
 }

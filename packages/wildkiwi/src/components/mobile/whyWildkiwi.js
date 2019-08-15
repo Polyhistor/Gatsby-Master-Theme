@@ -1,43 +1,48 @@
 import React from "react"
+import { Link, withPrefix } from "gatsby"
+import Image from "gatsby-image"
 
-import MobileBox from "./mobileBox"
-import useImageQuery from "../../queries/imageQuery"
+import Box from "../boxes/box"
 
-const whyWildKiwi = () => {
-  // extracting queries from our custom hook
-  const imageData = useImageQuery()
+const WhyWildKiwi = ({ data }) => {
+  // rendering data
+  const renderData = () =>
+    data.map((box, idx) => (
+      <Box
+        key={idx}
+        imageData={box.banner.localFile.childImageSharp.fluid}
+        title={box.titleMobile}
+        description={box.descriptionMobile.descriptionMobile}
+      />
+    ))
 
   return (
-    <>
-      <div className="mobile-yes">
-        <section className="section-why-us">
-          <h2 className="green-title u-margin-bottom-small">Why Wild?</h2>
-          <div className="row">
-            <MobileBox
-              title="new vehicles"
-              imageData={imageData.newVehicles.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+    <div className="section-mobile__why-wild">
+      <h2 className="green-title bold-green u-margin-bottom-small">
+        Why Wild Kiwi
+      </h2>
+      <div className="whywild">
+        <div className="whywild__container">{renderData()}</div>
+        <Link
+          to="/s"
+          className="btn btn--green btn-animated  u-margin-top-medium "
+        >
+          <svg className="svg-icon--play-button svg-icon--play-button--mobile">
+            <use
+              xlinkHref={withPrefix("sprite.svg#icon-Play-Button-White-A-1")}
             />
-            <MobileBox
-              title="local guides"
-              imageData={imageData.localGuids.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-            <MobileBox
-              title="small groups"
-              imageData={imageData.smallGroups.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-            <MobileBox
-              title="breathtaking scenery"
-              imageData={imageData.breathTakingScenery.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-          </div>
-        </section>
+          </svg>
+          <span>watch trailer</span>
+        </Link>
+        <Link
+          to="/how-it-works"
+          className="btn btn--white  u-margin-top-medium"
+        >
+          <span>How wild kiwi works</span>
+        </Link>
       </div>
-    </>
+    </div>
   )
 }
 
-export default whyWildKiwi
+export default WhyWildKiwi

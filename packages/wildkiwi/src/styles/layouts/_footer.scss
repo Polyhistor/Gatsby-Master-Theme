@@ -371,6 +371,10 @@
       display: none;
     }
 
+    @include respond(phone) {
+      margin-top: -2.5rem;
+    }
+
     &-box {
       display: grid;
       grid-template-columns: repeat(2, 10rem);
@@ -383,8 +387,8 @@
       }
 
       @include respond(phone) {
-        grid-template-columns: repeat(2, 15rem);
-        grid-template-rows: 3rem 10.4rem 10.4rem;
+        grid-template-columns: repeat(4, 7.17rem);
+        grid-template-rows: 3rem 8rem;
         grid-column-gap: 0.7rem;
         grid-row-gap: 0.7rem;
       }

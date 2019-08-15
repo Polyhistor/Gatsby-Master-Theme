@@ -1,10 +1,8 @@
 import React from "react"
-import { withPrefix, Link } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
-import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
 
 const DestinationsMobile = ({
-  destination,
   title,
   subtitle,
   departs,
@@ -12,18 +10,18 @@ const DestinationsMobile = ({
   price,
   tours,
   imageData,
-  SVGMap,
 }) => {
   return (
     <section className={`section-tour-banner-newzealand-mobile`}>
       <div className="row">
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
+            {/* choosing image based on the given props */}
             <Img fluid={imageData} />
             <figcaption
               className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
             >
-              {tours}
+              <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
           </figure>
         </div>
@@ -47,17 +45,6 @@ const DestinationsMobile = ({
             </span>
           </div>
         </div>
-
-        <div className="tour-banner__svg-map tablet-margin-right-no">
-          <div
-            className={`tour-banner__svg-map-container tour-banner__svg-map-container--${destination}`}
-          >
-            <svg className={`svg-icon--countries`}>
-              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
-            </svg>
-          </div>
-        </div>
-
         <div className="u-center-text u-margin-top-small">
           <Link className="btn btn--green" to="/">
             view trips

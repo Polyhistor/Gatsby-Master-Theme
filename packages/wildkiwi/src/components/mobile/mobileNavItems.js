@@ -36,8 +36,8 @@ const MobileNavItems = () => {
   return (
     // fragments are used to avoic react parent element error
     <>
-      {renderNavItems()}
       <NavButton />
+      {renderNavItems()}
     </>
   )
 }

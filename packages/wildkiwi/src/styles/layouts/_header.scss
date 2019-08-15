@@ -60,7 +60,7 @@
     }
 
     @include respond(phone) {
-      right: 0rem;
+      right: 7rem;
       top: 0px;
     }
   }
@@ -83,7 +83,7 @@
     }
 
     @include respond(phone) {
-      top: 20%;
+      top: 18%;
       left: 6%;
       width: 60%;
     }
@@ -103,8 +103,9 @@
     }
 
     @include respond(phone) {
-      width: 28.8rem;
-      margin-top: 10.5rem;
+      width: 30.4rem;
+      margin-top: 14rem;
+      margin-left: -1.1rem;
     }
 
     &--dest {

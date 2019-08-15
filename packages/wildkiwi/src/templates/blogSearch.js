@@ -8,7 +8,6 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
 
 // we retrieve node data through the context system, the obj is called pageContext
 const BlogSearch = ({ pageContext }) => {
@@ -189,9 +188,6 @@ const BlogSearch = ({ pageContext }) => {
           buttonText="continue"
         />
       </div>
-
-      <MobileBoxContainer />
-
       <Reviews />
       <div className="row">
         <Trips />

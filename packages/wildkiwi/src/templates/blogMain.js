@@ -7,7 +7,6 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
 
 const IndexPage = ({ pageContext }) => {
   const { group, index, first, last } = pageContext
@@ -59,9 +58,6 @@ const IndexPage = ({ pageContext }) => {
           buttonText="continue"
         />
       </div>
-
-      <MobileBoxContainer />
-
       <Reviews />
       <div className="row">
         <Trips />
