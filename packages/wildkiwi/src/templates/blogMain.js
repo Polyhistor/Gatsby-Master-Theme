@@ -12,7 +12,7 @@ import Trips from "../components/trips/trips"
 import useHomePageQuery from "../queries/homePageQuery"
 
 const IndexPage = ({ pageContext }) => {
-  // our pagination helpers
+  // our pagination
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()

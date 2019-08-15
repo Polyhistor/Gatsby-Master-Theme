@@ -12,10 +12,12 @@ import FilteredTours from "../components/destinations/filteredTours"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
 
 const countries = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
@@ -42,7 +44,7 @@ const countries = ({ data }) => {
         buttonText="continue"
       />
       <Reviews />
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout>
   )
 }
