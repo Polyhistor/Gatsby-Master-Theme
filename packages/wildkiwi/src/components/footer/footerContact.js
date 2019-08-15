@@ -46,8 +46,8 @@ const FooterContact = () => {
           {state === "newzealand"
             ? "Level 2, 29 Hargreaves Street, St Marys Bay, New Zealand"
             : state === "australia"
-            ? "22 Bardsley Lane, Greenwich, London SE10 9RF, UK"
-            : "Level 9, 10 Queens Buildings, Victoria Street, Australia"}
+            ? "Level 9, 10 Queens Buildings, Victoria Street, Australia 22"
+            : " Bardsley Lane, Greenwich, London SE10 9RF, UK"}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
           hello@WildKiwi.com

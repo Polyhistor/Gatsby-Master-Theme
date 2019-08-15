@@ -9,7 +9,6 @@ import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
 import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
-import WatchTrailer from "../components/mobile/watchTrailer"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -34,9 +33,6 @@ const countries = ({ data }) => {
         variation="dest"
       />
       <Featured />
-      <div className="hotfix--destination">
-        <WatchTrailer />
-      </div>
       <FilteredTours country={data.contentfulCountry.slug} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}

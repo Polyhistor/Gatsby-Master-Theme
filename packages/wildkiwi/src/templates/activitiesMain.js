@@ -8,7 +8,6 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
-import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
 import GreenBar from "../components/bars/greenBar"
 
 // the svgs shall later be compiled into one SVG-Sprite
@@ -179,8 +178,6 @@ const ActivitiesMain = ({ pageContext }) => {
           buttonText="continue"
         />
       </div>
-
-      <MobileBoxContainer />
 
       <Reviews />
       <div className="row">

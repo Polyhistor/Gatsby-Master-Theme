@@ -333,3 +333,45 @@ export const TeamFragment = graphql`
     }
   }
 `
+
+// for why wild kiwi section that has been fetched from Contentful
+export const HomePageFragment = graphql`
+  fragment HomePage on ContentfulHomePage {
+    whyWildKiwi {
+      banner {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      title
+      titleMobile
+      description {
+        description
+      }
+      descriptionMobile {
+        descriptionMobile
+      }
+    }
+    popularTours {
+      slug
+      title
+      route
+      priceFrom
+      pricePerDay
+      duration
+      bannerImages {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`

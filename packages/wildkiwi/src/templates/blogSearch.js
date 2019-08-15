@@ -8,7 +8,9 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
+
+// utilities
+import useHomePageQuery from "../queries/homePageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
 const BlogSearch = ({ pageContext }) => {
@@ -16,6 +18,9 @@ const BlogSearch = ({ pageContext }) => {
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+
+  // extracting our custom hook
+  const homeQuery = useHomePageQuery()
 
   // setting the inital set
   const [data, setData] = useState(group)
@@ -189,12 +194,9 @@ const BlogSearch = ({ pageContext }) => {
           buttonText="continue"
         />
       </div>
-
-      <MobileBoxContainer />
-
       <Reviews />
       <div className="row">
-        <Trips />
+        <Trips data={homeQuery[0].node.popularTours} />
       </div>
     </Layout2>
   )
