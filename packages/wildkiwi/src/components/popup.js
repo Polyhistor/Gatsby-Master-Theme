@@ -11,7 +11,7 @@ const Popup = () => {
         <iframe
           width="90%"
           height="90%"
-          src="https://www.youtube.com/embed/19GIN9tj-NY?autoplay=1"
+          src="https://www.youtube.com/embed/19GIN9tj-NY"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
