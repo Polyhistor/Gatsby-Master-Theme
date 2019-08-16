@@ -79,7 +79,7 @@
     }
 
     @include respond(tablet) {
-      left: 4.1rem;
+      left: 6.1rem;
     }
 
     @include respond(phone) {
@@ -99,7 +99,7 @@
     }
 
     @include respond(tablet) {
-      margin-right: 2.2rem;
+      margin-right: 8.3rem;
     }
 
     @include respond(phone) {
@@ -119,6 +119,14 @@
       margin: 4.5rem 0 1.4rem 0;
       padding: 1.45rem 0rem;
       font-size: 1.38rem;
+
+      @include respond(laptop) {
+        width: 22rem;
+      }
+
+      @include respond(tablet) {
+        width: 22rem;
+      }
 
       @include respond(phone) {
         margin: 0 auto;

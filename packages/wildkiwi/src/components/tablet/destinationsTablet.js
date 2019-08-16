@@ -20,7 +20,7 @@ const DestinationsTablet = ({
           <figure className="tour-banner__figure">
             <Img fluid={imageData} />
             <figcaption className="tour-banner__figure-caption tour-banner__figure-caption-newzealand">
-              {tours}
+              <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
           </figure>
         </div>

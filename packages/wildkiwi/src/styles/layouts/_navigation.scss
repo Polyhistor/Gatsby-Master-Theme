@@ -317,6 +317,11 @@
 
     &__item {
       float: right;
+
+      @include respond(tablet) {
+        float: left;
+        margin-left: -1rem;
+      }
     }
 
     &__logo {

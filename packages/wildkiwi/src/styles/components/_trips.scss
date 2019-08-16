@@ -130,7 +130,7 @@
     @include respond(phone) {
       margin-top: 1rem;
       display: grid;
-      grid-template-rows: 4rem 1.6rem 2rem;
+      grid-template-rows: 4rem min-content 2rem;
       align-items: left;
       justify-content: left;
       text-align: left;

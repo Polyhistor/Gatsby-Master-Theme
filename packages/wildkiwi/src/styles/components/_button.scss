@@ -29,7 +29,7 @@
     background: $color-primary;
 
     @include respond(phone) {
-      width: 30.4rem;
+      width: 30.4rem !important;
       height: 6rem;
       font-size: 1.8rem;
     }

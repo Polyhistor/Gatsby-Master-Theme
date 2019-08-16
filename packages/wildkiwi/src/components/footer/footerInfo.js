@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 
 const FooterInfo = () => {
   return (
@@ -43,6 +43,11 @@ const FooterInfo = () => {
             </Link>
           </li>
         </ul>
+        <div className="mobile-yes u-center-text">
+          <svg className="svg-icon--QualMark_Footer">
+            <use xlinkHref={withPrefix("sprite.svg#icon-Qualmark-Silver")} />
+          </svg>
+        </div>
       </div>
     </>
   )
