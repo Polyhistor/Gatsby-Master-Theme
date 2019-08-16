@@ -66,7 +66,7 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 1 - 4 day tours"
         departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring with us."
         price="From $160 AUD per day"
         tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
@@ -77,7 +77,7 @@ const IndexPage = () => {
         title="australia"
         subtitle=" 1 - 4 day tours"
         departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Road trip along the dramatic Australia coastline while sampling locally crafted wine, trying your hand at surfing and exploring the underwater world of the Great Barrier Reef."
         price="From $160 AUD per day"
         tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
@@ -88,7 +88,7 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 1 - 4 day tours"
         departs="Multiple Departure Cities"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
+        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
         price="From $160 AUD per day"
         tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
@@ -109,7 +109,7 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 7 - 21 day tours"
         departs="departs auckland & christchurch"
-        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring New Zealand with us."
+        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring with us."
         price="From $180 NZD per day"
         tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
@@ -142,7 +142,7 @@ const IndexPage = () => {
         title="new zealand"
         subtitle=" 7 - 21 day tours"
         departs="departs auckland & christchurch"
-        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring New Zealand with us."
+        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring with us."
         price="From $180 NZD per day"
         tours="7"
         imageData={imageQuery.newzealand.childImageSharp.fluid}
