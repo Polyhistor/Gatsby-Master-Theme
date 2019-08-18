@@ -70,11 +70,11 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <script
+      {/* <script
         src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
         type="text/javascript"
         charset="utf-8"
-      />
+      /> */}
     </Helmet>
   )
 }
