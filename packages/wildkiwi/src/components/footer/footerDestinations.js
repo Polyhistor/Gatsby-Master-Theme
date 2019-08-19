@@ -6,13 +6,13 @@ const FooterDestinations = () => {
     <div className="footer__trips--destination">
       <h6 className="footer__trips-header">destinations</h6>
       <ul className="footer__trips-list">
-        <Link to="/" className="footer__trips-link">
+        <Link to="/destinations/newzealand" className="footer__trips-link">
           New Zealand
         </Link>
-        <Link to="/" className="footer__trips-link">
+        <Link to="/destinations/australia" className="footer__trips-link">
           Australia
         </Link>
-        <Link to="/" className="footer__trips-link">
+        <Link to="/destinations/europe" className="footer__trips-link">
           Europe
         </Link>
       </ul>
