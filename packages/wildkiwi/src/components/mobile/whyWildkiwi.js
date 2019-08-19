@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
-import Image from "gatsby-image"
 
 import Box from "../boxes/box"
 
@@ -38,7 +37,7 @@ const WhyWildKiwi = ({ data }) => {
           to="/how-it-works"
           className="btn btn--white  u-margin-top-medium"
         >
-          <span>How wild kiwi works</span>
+          <span>How it works</span>
         </Link>
       </div>
     </div>

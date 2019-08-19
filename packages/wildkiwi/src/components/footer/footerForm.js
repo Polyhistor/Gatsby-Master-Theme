@@ -44,8 +44,8 @@ const FooterForm = () => {
                 I agree to be contacted for marketing etc...
               </p>
             </div>
-            <button className="btn btn--green-footer " type="submit">
-              leave a message
+            <button className="btn btn--green-footer" type="submit">
+              submit
             </button>
           </form>
         </div>
