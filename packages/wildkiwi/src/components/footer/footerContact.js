@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 
 const FooterContact = () => {
   // setting our hook with initial state

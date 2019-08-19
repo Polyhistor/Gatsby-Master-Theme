@@ -7,6 +7,15 @@
   max-width: 126.666rem;
   margin: 0 auto;
 
+  @include respond(laptop) {
+    max-width: 112.666rem;
+  }
+
+  @include respond(phone) {
+    height: 43rem;
+    max-width: 32rem;
+  }
+
   &__logo-box {
     position: fixed;
     left: 15%;
@@ -72,7 +81,8 @@
   &__text-box {
     position: absolute;
     top: 35%;
-    width: 31.7%;
+    display: grid;
+    grid-template-rows: 25rem 12rem;
 
     @include respond(laptop) {
       left: 6%;
@@ -84,15 +94,14 @@
 
     @include respond(phone) {
       top: 18%;
-      left: 6%;
-      width: 60%;
+      left: 2.5%;
+      grid-template-rows: 27rem 12rem;
     }
   }
 
   &__button-box {
-    margin-top: 7.5rem;
-    text-align: left;
-    margin-right: 18.1rem;
+    display: grid;
+    grid-template-rows: 6rem 5rem;
 
     @include respond(laptop) {
       margin-right: 13.7rem;
@@ -102,12 +111,6 @@
       margin-right: 8.3rem;
     }
 
-    @include respond(phone) {
-      width: 30.4rem;
-      margin-top: 14rem;
-      margin-left: -1.1rem;
-    }
-
     &--dest {
       @include respond(phone) {
         margin-top: 18rem !important;
@@ -115,9 +118,9 @@
     }
 
     & a:nth-child(1) {
-      display: block;
-      margin: 4.5rem 0 1.4rem 0;
-      padding: 1.45rem 0rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 1.38rem;
 
       @include respond(laptop) {
@@ -129,41 +132,23 @@
       }
 
       @include respond(phone) {
-        margin: 0 auto;
         width: 97%;
         background: white;
         color: $color-primary;
-        padding: 1.8rem 0rem;
         font-family: Nunito-Black;
         font-size: 1.8rem;
       }
     }
     & a:nth-child(2) {
-      display: inline-block;
       font-size: 1.38rem;
-      padding: 1.15rem 4.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0rem 0.1rem;
 
-      @include respond(tablet) {
-        display: inline-block;
-      }
-    }
-
-    @include respond(phone) {
-      text-align: center;
-      margin-top: 13rem;
-      & a:nth-child(2) {
+      @include respond(phone) {
         display: none;
-        font-size: 1rem;
       }
     }
-  }
-
-  @include respond(laptop) {
-    max-width: 112.666rem;
-  }
-
-  @include respond(phone) {
-    height: 43rem;
-    max-width: 32rem;
   }
 }

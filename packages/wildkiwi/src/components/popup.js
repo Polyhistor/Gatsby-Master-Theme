@@ -9,6 +9,7 @@ const Popup = () => {
           &times;
         </a>
         <iframe
+          title="Wild kiwi"
           width="90%"
           height="90%"
           src="https://www.youtube.com/embed/19GIN9tj-NY"

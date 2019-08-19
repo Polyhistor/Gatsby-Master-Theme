@@ -23,7 +23,6 @@ const FilteredTour = ({ country }) => {
       }
       // update the state
       setData(filteredData)
-      return
     })
   }
 

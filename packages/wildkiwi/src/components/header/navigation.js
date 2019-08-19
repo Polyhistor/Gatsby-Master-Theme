@@ -4,7 +4,7 @@ import NavItems from "./navItems"
 
 const Navigation = () => {
   // using some cool hooks instead of class based components
-  const [scroll, setScroll] = useState(1)
+  const [scroll, setScroll] = useState(0.1)
 
   useEffect(() => {
     const onScroll = () => {
