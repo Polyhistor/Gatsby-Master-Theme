@@ -88,8 +88,8 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="Multiple Departure Cities"
-        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
-        price="From $160 AUD per day"
+        details=" Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. With it's glorious scenery, this is a continent which truly does have it all."
+        price="from €98 per day"
         tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-04"
@@ -131,8 +131,8 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="Multiple Departure Cities"
-        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
-        price="From $160 AUD per day"
+        details=" Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. With it's glorious scenery, this is a continent which truly does have it all."
+        price="from €98 per day"
         tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-04"
@@ -164,8 +164,8 @@ const IndexPage = () => {
         title="europe"
         subtitle=" 6 - 14 day tours"
         departs="Multiple Departure Cities"
-        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
-        price="From $160 AUD per day"
+        details=" Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. With it's glorious scenery, this is a continent which truly does have it all."
+        price="from €98 per day"
         tours="12"
         imageData={imageQuery.europe.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Europe-Map-04"
