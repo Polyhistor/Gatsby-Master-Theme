@@ -83,6 +83,17 @@ const IndexPage = () => {
         imageData={imageQuery.australia.childImageSharp.fluid}
         SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
       />
+      <DestinationsMobile
+        destination="europe"
+        title="europe"
+        subtitle=" 6 - 14 day tours"
+        departs="Multiple Departure Cities"
+        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
+        price="From $160 AUD per day"
+        tours="12"
+        imageData={imageQuery.europe.childImageSharp.fluid}
+        SVGMap="icon-Wild-Kiwi-Europe-Map-04"
+      />
       <BannerHero
         headerFirst="Flash-pack your way around New Zealand,"
         headersecond="Australia and Europe."
