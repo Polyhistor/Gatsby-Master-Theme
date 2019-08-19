@@ -4,11 +4,11 @@ import NavItems from "./navItems"
 
 const Navigation = () => {
   // using some cool hooks instead of class based components
-  const [scroll, setScroll] = useState(0.1)
+  const [scroll, setScroll] = useState(1)
 
   useEffect(() => {
     const onScroll = () => {
-      const scrollCheck = window.scrollY < 100
+      const scrollCheck = window.scrollY < 10
       if (scrollCheck !== scroll) {
         setScroll(scrollCheck)
       }

@@ -173,7 +173,7 @@ const IndexPage = () => {
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
-        subHeaderFirst="everything you need to"
+        subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
       />

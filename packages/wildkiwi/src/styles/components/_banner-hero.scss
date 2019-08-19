@@ -16,18 +16,18 @@
   &__text-box {
     position: absolute;
     width: 80%;
-    top: 28%;
+    top: 19%;
     left: 3%;
     max-width: 40rem;
+    display: grid;
+    grid-template-rows: 12rem 20rem 5rem;
 
     @include respond(laptop) {
       width: 55%;
-      top: 30%;
     }
 
     @include respond(tablet) {
       width: 85%;
-      top: 30%;
       left: 5%;
     }
 
@@ -64,6 +64,7 @@
     &--sub {
       font-family: Nunito-Regular;
       font-weight: 300;
+      font-size: 1.6rem;
 
       &-2 {
         font-size: 2rem;
@@ -72,8 +73,6 @@
   }
 
   &__button-box {
-    padding-top: 4.2rem;
-
     @include respond(tablet) {
       padding-top: 2.8rem;
     }

@@ -25,7 +25,7 @@ const WhyWild = () => {
   }
   return (
     <div className="section-destination__why-wild">
-      <h2 className="green-title u-padding-bottom-sedium">Why Wild Kiwi?</h2>
+      <h2 className="green-title u-padding-bottom-small">Why Wild Kiwi?</h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
     </div>
   )
