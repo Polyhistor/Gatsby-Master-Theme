@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // default components
 import Layout from "../components/layout/layout"
@@ -47,9 +47,9 @@ const IndexPage = () => {
   const renderCountries = () => {
     return countryQuery.map((country, idx) => {
       return (
-        <>
+        <Fragment key={idx}>
           <DestinationsMobile
-            key={idx}
+            key={idx + 4}
             destination={country.node.slug}
             title={country.node.title}
             subtitle={country.node.days}
@@ -60,18 +60,6 @@ const IndexPage = () => {
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
           <DestinationsTablet
-            key={idx + 4}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          />
-          <TourBanner
             key={idx + 8}
             destination={country.node.slug}
             title={country.node.title}
@@ -83,7 +71,19 @@ const IndexPage = () => {
             imageData={country.node.banner.localFile.childImageSharp.fluid}
             SVGMap={country.node.svgMap.localFile.publicURL}
           />
-        </>
+          <TourBanner
+            key={idx + 12}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+        </Fragment>
       )
     })
   }

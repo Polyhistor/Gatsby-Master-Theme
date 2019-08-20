@@ -182,32 +182,36 @@
 
     &:nth-child(1) img {
       margin-left: -1.5rem;
+
+      @include respond(tablet) {
+        border-left: 1px solid #e7e7e7;
+      }
     }
 
     &--newzealand {
-      & > svg {
+      & > img {
         @include respond(laptop) {
-          margin-right: 1rem;
+          width: 33rem;
         }
 
         @include respond(tablet) {
-          // margin-top: 1rem;
         }
       }
     }
 
     &--australia {
-      & > svg {
-        width: 60.57rem;
+      & > img {
+        width: 36.57rem;
         height: 38rem;
         margin-left: -20rem;
 
         @include respond(laptop) {
-          width: 55.57rem;
+          width: 29.9rem;
+          margin-top: 2rem;
         }
 
         @include respond(tablet) {
-          width: 41.57rem;
+          width: 37rem;
           height: 38rem;
           margin-left: -4rem;
           margin-top: 1rem;
@@ -221,20 +225,20 @@
     }
 
     &--europe {
-      & > svg {
-        width: 35.9rem;
+      & > img {
+        width: 34.3rem;
         height: 39.9rem;
         margin-left: -3rem;
-        margin-top: -1.6rem;
+        margin-top: -1px;
 
         @include respond(laptop) {
-          width: 30rem;
+          width: 29.7rem;
           height: 41rem;
-          margin-left: -1.7rem;
+          margin-top: 0.1px;
         }
 
         @include respond(tablet) {
-          width: 43rem;
+          width: 37.1rem;
           height: 42.9rem;
           margin-left: -7.4rem;
           margin-top: -1.6rem;
