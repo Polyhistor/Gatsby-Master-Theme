@@ -35,8 +35,6 @@ const IndexPage = () => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  console.log(homeQuery)
-
   // getting the number of yours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
@@ -47,10 +45,11 @@ const IndexPage = () => {
 
   // rendering all the destination boxes
   const renderCountries = () => {
-    return countryQuery.map(country => {
+    return countryQuery.map((country, idx) => {
       return (
         <>
           <DestinationsMobile
+            key={idx}
             destination={country.node.slug}
             title={country.node.title}
             subtitle={country.node.days}
@@ -61,6 +60,7 @@ const IndexPage = () => {
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
           <DestinationsTablet
+            key={idx + 4}
             destination={country.node.slug}
             title={country.node.title}
             subtitle={country.node.days}
@@ -72,6 +72,7 @@ const IndexPage = () => {
             SVGMap={country.node.svgMap.localFile.publicURL}
           />
           <TourBanner
+            key={idx + 8}
             destination={country.node.slug}
             title={country.node.title}
             subtitle={country.node.days}
