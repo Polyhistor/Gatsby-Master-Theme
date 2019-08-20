@@ -50,9 +50,7 @@ const DestinationsTablet = ({
           <div
             className={`tour-banner__svg-map-container tour-banner__svg-map-container--${destination}`}
           >
-            <svg className={`svg-icon--countries`}>
-              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
-            </svg>
+            <img src={SVGMap} />
           </div>
         </div>
 

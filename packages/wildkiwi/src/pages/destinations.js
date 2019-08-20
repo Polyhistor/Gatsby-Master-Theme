@@ -25,6 +25,8 @@ const NewZealand = () => {
   const countryQuery = useCountryQuery()
   const homeQuery = useHomePageQuery()
 
+  console.log(countryQuery)
+
   // rendering countries data fetced from contentful
   const renderCountries = () => {
     return countryQuery.map(({ node }) => {
@@ -38,6 +40,7 @@ const NewZealand = () => {
           price={node.price}
           svgMap={node.svgMap.localFile.publicURL}
           link={`/destinations/${node.slug}`}
+          tripsData={node.destinations}
         />
       )
     })

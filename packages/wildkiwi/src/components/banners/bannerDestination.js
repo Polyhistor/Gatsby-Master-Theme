@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 
 import Trip from "../../components/trips/trip"
 
-import useCountryQuery from "../../queries/countryQuery"
-
 const BannerDestination = ({
   header,
   title,
@@ -14,22 +12,22 @@ const BannerDestination = ({
   price,
   link,
   svgMap,
+  tripsData,
 }) => {
-  // extracting from our custom hook
-  const countryQuery = useCountryQuery()
-
   //rendering tours based on given data from our Contentful Query
   const renderTours = () => {
-    return countryQuery.map(({ node }, idx) => {
+    return tripsData.map((dest, idx) => {
       return (
         <Trip
           key={idx}
-          imageData={node.tourBoxImages[idx].localFile.childImageSharp.fluid}
-          duration={node.tourBoxDays[idx]}
-          title={node.tourBoxTitles[idx]}
-          subtitle={node.tourBoxSubtitle[idx]}
-          price={node.tourBoxPrice[idx]}
-          priceDay={node.tourBoxPerDay[idx]}
+          imageData={dest.bannerImages[0].localFile.childImageSharp.fluid}
+          duration={dest.duration}
+          title={dest.title}
+          subtitle={dest.route}
+          slug={dest.slug}
+          country={dest.destinationCountry}
+          price={`from ${dest.priceFrom} NZD`}
+          priceDay={`${dest.pricePerDay} per day`}
         />
       )
     })

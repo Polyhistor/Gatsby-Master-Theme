@@ -12,8 +12,9 @@ const Trips = ({ data }) => {
         subtitle={trip.route}
         title={trip.title}
         slug={trip.slug}
-        price={`from $${trip.priceFrom} NZD`}
-        priceDay={`$${trip.pricePerDay} per day`}
+        country={trip.destinationCountry}
+        price={`from ${trip.priceFrom} NZD`}
+        priceDay={`${trip.pricePerDay} per day`}
       />
     ))
 

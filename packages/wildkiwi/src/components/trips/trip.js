@@ -2,10 +2,19 @@ import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 
-const Trip = ({ imageData, duration, subtitle, title, price, priceDay }) => {
+const Trip = ({
+  imageData,
+  duration,
+  subtitle,
+  title,
+  price,
+  priceDay,
+  slug,
+  country,
+}) => {
   return (
     <div className="trips">
-      <Link to={`/destinations/${title}`}>
+      <Link to={`/destinations/${country}/${slug}`}>
         <figure className="trips__box">
           <Img className="trips__image" fluid={imageData} />
           <figcaption className="trips__duration">

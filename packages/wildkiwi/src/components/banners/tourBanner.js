@@ -59,9 +59,7 @@ const TourBanner = ({
           <div
             className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title}  tablet-padding-top-medium`}
           >
-            <svg className={`svg-icon--countries`}>
-              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
-            </svg>
+            <img src={SVGMap} />
           </div>
         </div>
 
