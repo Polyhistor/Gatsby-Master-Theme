@@ -28,28 +28,28 @@ const FooterInfo = () => {
         <h6 className="footer__trips-header">Social</h6>
         <ul className="footer__trips-list">
           <li className="footer__trips-item">
-            <Link
-              to="https://www.facebook.com/wildkiwitours"
+            <a
+              href="https://www.facebook.com/wildkiwitours"
               className="footer__trips-link"
             >
               facebook
-            </Link>
+            </a>
           </li>
           <li>
             <a
-              to="https://www.instagram.com/wildkiwitours/"
+              href="https://www.instagram.com/wildkiwitours/"
               className="footer__trips-link"
             >
               instagram
             </a>
           </li>
           <li>
-            <Link
-              to="https://www.youtube.com/c/WildkiwiTours"
+            <a
+              href="https://www.youtube.com/c/WildkiwiTours"
               className="footer__trips-link"
             >
               youtube
-            </Link>
+            </a>
           </li>
         </ul>
         <div className="mobile-yes u-center-text">

@@ -97,6 +97,15 @@
       left: 2.5%;
       grid-template-rows: 27rem 12rem;
     }
+
+    &--dest {
+      grid-template-rows: 30rem 12rem;
+      @include respond(phone) {
+        text-align: center;
+        grid-template-rows: 27rem 5rem;
+        top: 20%;
+      }
+    }
   }
 
   &__button-box {
@@ -112,8 +121,10 @@
     }
 
     &--dest {
-      @include respond(phone) {
-        margin-top: 18rem !important;
+      & > a {
+        @include respond(phone) {
+          display: none;
+        }
       }
     }
 
@@ -132,7 +143,8 @@
       }
 
       @include respond(phone) {
-        width: 97%;
+        width: 30.4rem;
+        height: 6rem;
         background: white;
         color: $color-primary;
         font-family: Nunito-Black;

@@ -2,6 +2,10 @@
 
 [class^="section-"] {
   margin-top: 8rem;
+
+  @include respond(phone) {
+    margin-top: 1.5rem;
+  }
 }
 
 .section {
@@ -196,11 +200,8 @@
   }
 
   &-trips {
-    & > .row > .trips-header-box {
-    }
-
     @include respond(phone) {
-      transform: translateY(-6%);
+      margin-top: 3rem;
     }
   }
 
@@ -208,6 +209,7 @@
     &__why-wild {
       justify-content: center;
       margin-top: 3.2rem;
+      margin-bottom: 3rem;
 
       @include respond(desk) {
         display: none;

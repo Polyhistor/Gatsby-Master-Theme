@@ -151,6 +151,10 @@
       display: none;
     }
 
+    &-consent {
+      margin-left: 0.8rem;
+    }
+
     &-links {
       &-item {
         text-align: center;
@@ -285,7 +289,6 @@
       grid-row: 2;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
 
       @include respond(laptop) {
         grid-column: 1;

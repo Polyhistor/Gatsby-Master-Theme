@@ -39,9 +39,9 @@ const FooterForm = () => {
               placeholder="Message"
             />
             <div className="footer__form-consent-box">
-              <input type="radio" className="footer__form-radio" />
+              <input type="checkbox" className="footer__form-radio" />
               <p className="footer__form-consent u-color-gray">
-                I agree to be contacted for marketing etc...
+                I agree to terms & service
               </p>
             </div>
             <button className="btn btn--green-footer" type="submit">
