@@ -28,11 +28,10 @@ const FooterContact = () => {
         <li className="footer__trips-item">8:30am - 5:30pm (GMT+12)</li>
         <li className="footer__trips-item u-padding-top-sedium">
           {state === "newzealand"
-            ? "new zealand"
+            ? "New Zealand"
             : state === "australia"
-            ? "australia"
-            : "the united kingdom"}
-          &nbsp; Phone
+            ? "Australia"
+            : "United Kingdom"}
         </li>
         <li className="footer__trips-item">
           {state === "newzealand"
@@ -49,7 +48,7 @@ const FooterContact = () => {
             : "22 Bardsley Lane, Greenwich, London SE10 9RF, UK"}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
-          hello@WildKiwi.com
+          hello@wildkiwi.com
         </li>
       </ul>
     </div>

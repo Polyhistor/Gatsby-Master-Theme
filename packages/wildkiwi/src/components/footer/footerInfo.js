@@ -33,7 +33,7 @@ const FooterInfo = () => {
               target="_blank"
               className="footer__trips-link"
             >
-              facebook
+              Facebook
             </a>
           </li>
           <li>
@@ -42,7 +42,7 @@ const FooterInfo = () => {
               target="_blank"
               className="footer__trips-link"
             >
-              instagram
+              Instagram
             </a>
           </li>
           <li>
@@ -51,7 +51,7 @@ const FooterInfo = () => {
               target="_blank"
               className="footer__trips-link"
             >
-              youtube
+              Youtube
             </a>
           </li>
         </ul>
