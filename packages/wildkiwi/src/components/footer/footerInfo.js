@@ -30,6 +30,7 @@ const FooterInfo = () => {
           <li className="footer__trips-item">
             <a
               href="https://www.facebook.com/wildkiwitours"
+              target="_blank"
               className="footer__trips-link"
             >
               facebook
@@ -38,6 +39,7 @@ const FooterInfo = () => {
           <li>
             <a
               href="https://www.instagram.com/wildkiwitours/"
+              target="_blank"
               className="footer__trips-link"
             >
               instagram
@@ -46,6 +48,7 @@ const FooterInfo = () => {
           <li>
             <a
               href="https://www.youtube.com/c/WildkiwiTours"
+              target="_blank"
               className="footer__trips-link"
             >
               youtube
