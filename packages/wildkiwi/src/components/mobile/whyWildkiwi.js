@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
-import Image from "gatsby-image"
 
 import Box from "../boxes/box"
 
@@ -23,7 +22,8 @@ const WhyWildKiwi = ({ data }) => {
       </h2>
       <div className="whywild">
         <div className="whywild__container">{renderData()}</div>
-        <Link
+        <a
+          href="#popup"
           to="/s"
           className="btn btn--green btn-animated  u-margin-top-medium "
         >
@@ -33,12 +33,12 @@ const WhyWildKiwi = ({ data }) => {
             />
           </svg>
           <span>watch trailer</span>
-        </Link>
+        </a>
         <Link
           to="/how-it-works"
           className="btn btn--white  u-margin-top-medium"
         >
-          <span>How wild kiwi works</span>
+          <span>How it works</span>
         </Link>
       </div>
     </div>

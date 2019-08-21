@@ -9,24 +9,28 @@ import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
 import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
+import Popup from "../components/popup"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
 
 const countries = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
       <SEO title="Home" />
+      <Popup />
       <Landing
         imageData={
           data.contentfulCountry.banner.localFile.childImageSharp.fluid
         }
         titleFirst={data.contentfulCountry.title}
-        buttonFirst="expore"
-        buttonFirstURL="/blog"
+        buttonSecond="watch trailer"
+        buttonSecondURL="#popup"
         description="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci."
         buttonStyles={["white", "white"]}
         optMargin="u-margin-top-percent-10"
@@ -42,7 +46,7 @@ const countries = ({ data }) => {
         buttonText="continue"
       />
       <Reviews />
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout>
   )
 }

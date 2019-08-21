@@ -8,6 +8,8 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
+  console.log(destinationData)
+
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
@@ -23,7 +25,6 @@ const FilteredTour = ({ country }) => {
       }
       // update the state
       setData(filteredData)
-      return
     })
   }
 
@@ -58,7 +59,7 @@ const FilteredTour = ({ country }) => {
                 {element.node.route}
               </h5>
               <p className="tour-banner__description-details">
-                {element.node.description}
+                {element.node.descriptionLong.descriptionLong}
               </p>
               <span className="tour-banner__description-price tour-banner__description-price-newzealand">
                 From {element.node.priceFrom} NZD
@@ -66,7 +67,7 @@ const FilteredTour = ({ country }) => {
             </div>
             <div className="filtered-tour__svg-map">
               <img
-                src={element.node.svgMap.localFile.childImageSharp.original.src}
+                src={element.node.svgMap.localFile.publicURL}
                 alt={element.title}
               />
             </div>

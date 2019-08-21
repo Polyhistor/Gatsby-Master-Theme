@@ -10,6 +10,7 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
+import Popup from "../components/popup"
 
 // mobile components
 import FeaturedMobile from "../components/mobile/featuredMobile"
@@ -36,8 +37,9 @@ const NewZealand = () => {
           departs={node.departure}
           details={node.description}
           price={node.price}
-          svgMap={node.svgMap.localFile.childImageSharp.original.src}
+          svgMap={node.svgMap.localFile.publicURL}
           link={`/destinations/${node.slug}`}
+          tripsData={node.destinations}
         />
       )
     })
@@ -46,11 +48,12 @@ const NewZealand = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <Popup />
       <Landing
         imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
         titleFirst="DESTINATIONS"
-        buttonFirst="expore"
-        buttonFirstURL="/blog"
+        buttonSecond="watch trailer"
+        buttonSecondURL="#popup"
         description="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci."
         buttonStyles={["white", "white"]}
         optMargin="u-margin-top-percent-10"
@@ -68,7 +71,7 @@ const NewZealand = () => {
         buttonText="continue"
       />
       <Reviews />
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout>
   )
 }

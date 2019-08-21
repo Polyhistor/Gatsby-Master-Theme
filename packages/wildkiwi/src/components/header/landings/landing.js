@@ -13,7 +13,6 @@ const Header = ({
   buttonSecond,
   buttonSecondURL,
   buttonStyles,
-  description,
   optMargin,
   variation,
 }) => {
@@ -21,7 +20,7 @@ const Header = ({
   return (
     <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
       <div className="header">
-        <div className={`header__text-box ${optMargin}`}>
+        <div className={`header__text-box header__text-box--${variation}`}>
           <h1
             className={
               variation === null
@@ -41,9 +40,6 @@ const Header = ({
               <span className="heading-primary--sub">{subTitle}</span>
             ) : null}
           </h1>
-          {description !== null ? (
-            <p className="heading-primary--description">{description}</p>
-          ) : null}
           <div
             className={
               variation === null
@@ -51,14 +47,16 @@ const Header = ({
                 : `header__button-box header__button-box--${variation}`
             }
           >
-            <Link
-              to={buttonFirstURL}
-              className={`btn btn--${
-                buttonStyles[0]
-              } btn-animated mobile-green-buton`}
-            >
-              {buttonFirst}
-            </Link>
+            {buttonFirst && buttonFirst !== null ? (
+              <Link
+                to={buttonFirstURL}
+                className={`btn btn--${
+                  buttonStyles[0]
+                } btn-animated mobile-green-buton`}
+              >
+                {buttonFirst}
+              </Link>
+            ) : null}
             {/* adding one more level of modularity, if the secondbutton text and
             URL is not given, don't show it */}
             {buttonSecond && buttonSecondURL !== null ? (

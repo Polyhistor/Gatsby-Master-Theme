@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // default components
 import Layout from "../components/layout/layout"
@@ -25,11 +25,68 @@ import DestinationsTablet from "../components/tablet/destinationsTablet"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useCountryQuery from "../queries/countryQuery"
+import useDestinationQuery from "../queries/destinationQuery"
 
 const IndexPage = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const countryQuery = useCountryQuery()
+  const destinationQuery = useDestinationQuery()
+
+  // getting the number of yours for each country
+  const filterDestinations = destination => {
+    const result = destinationQuery.filter(
+      dest => dest.node.destinationCountry === destination
+    )
+    return result.length
+  }
+
+  // rendering all the destination boxes
+  const renderCountries = () => {
+    return countryQuery.map((country, idx) => {
+      return (
+        <Fragment key={idx}>
+          <DestinationsMobile
+            key={idx + 4}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+          />
+          <DestinationsTablet
+            key={idx + 8}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+          <TourBanner
+            key={idx + 12}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+        </Fragment>
+      )
+    })
+  }
 
   return (
     <Layout>
@@ -61,39 +118,6 @@ const IndexPage = () => {
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
-      <DestinationsMobile
-        destination="newzealand"
-        title="new zealand"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
-      />
-      <DestinationsMobile
-        destination="australia"
-        title="australia"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
-      />
-      <DestinationsMobile
-        destination="europe"
-        title="europe"
-        subtitle=" 1 - 4 day tours"
-        departs="Multiple Departure Cities"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
-      />
       <BannerHero
         headerFirst="Flash-pack your way around New Zealand,"
         headersecond="Australia and Europe."
@@ -104,76 +128,12 @@ const IndexPage = () => {
       <div className="row row--patched mobile-no">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
-      <TourBanner
-        destination="newzealand"
-        title="new zealand"
-        subtitle=" 7 - 21 day tours"
-        departs="departs auckland & christchurch"
-        details="Kayak crystal clear waters, swim with dolphins, relax on pristine beaches, hike over glaciers and through native bush. If you love nature, you’ll love exploring New Zealand with us."
-        price="From $180 NZD per day"
-        tours="7"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
-      />
-      <TourBanner
-        destination="australia"
-        title="australia"
-        subtitle=" 6 - 14 day tours"
-        departs="departs sydney & brisbane"
-        details="Road trip along the dramatic Australia coastline while sampling locally crafted wine, trying your hand at surfing and exploring the underwater world of the Great Barrier Reef."
-        price="From $160 AUD per day"
-        tours="3"
-        imageData={imageQuery.australia.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
-      />
-      <TourBanner
-        destination="europe"
-        title="europe"
-        subtitle=" 6 - 14 day tours"
-        departs="Multiple Departure Cities"
-        details="Immerse yourself in Europe’s epic history, dramatic natural beauty and inspiring contemporary culture. This is a continent which truly does have it all. we need more text"
-        price="From $160 AUD per day"
-        tours="12"
-        imageData={imageQuery.europe.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-330x366-8"
-      />
-      <DestinationsTablet
-        destination="newzealand"
-        title="new zealand"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="12"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-New-Zealand-Map-Map-Homepage_1"
-      />
-      <DestinationsTablet
-        destination="australia"
-        title="australia"
-        subtitle=" 1 - 4 day tours"
-        departs="departs ssydney & brisbane"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7 tours"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Australia-Map-Homepage-1"
-      />
-      <DestinationsTablet
-        destination="europe"
-        title="europe"
-        subtitle=" 1 - 4 day tours"
-        departs="Multiple Departure Cities"
-        details="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci cuptatempor as nonecte inctate mporuptatem. Apit fugit endempe ribus, a nit labora."
-        price="From $160 AUD per day"
-        tours="7 tours"
-        imageData={imageQuery.newzealand.childImageSharp.fluid}
-        SVGMap="icon-Wild-Kiwi-Europe-Map-259x300-1"
-      />
+      {/* rendering all destinations */}
+      {renderCountries()}
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
-        subHeaderFirst="everything you need to"
+        subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
       />

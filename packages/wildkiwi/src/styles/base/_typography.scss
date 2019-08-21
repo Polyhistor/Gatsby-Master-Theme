@@ -4,6 +4,14 @@
   margin-bottom: 1rem;
   @include bigUppercaseText;
 
+  &--dest {
+    & > span {
+      @include respond(phone) {
+        font-size: 3.4rem;
+      }
+    }
+  }
+
   &--main {
     display: block;
     font-size: 6.21rem;

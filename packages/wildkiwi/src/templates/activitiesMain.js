@@ -15,10 +15,12 @@ import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
 
   //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
   const { group, index, first, last } = pageContext
@@ -181,7 +183,7 @@ const ActivitiesMain = ({ pageContext }) => {
 
       <Reviews />
       <div className="row">
-        <Trips />
+        <Trips data={homeQuery[0].node.popularTours} />
       </div>
     </Layout>
   )

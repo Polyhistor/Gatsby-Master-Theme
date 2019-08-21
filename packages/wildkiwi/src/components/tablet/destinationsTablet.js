@@ -20,7 +20,7 @@ const DestinationsTablet = ({
           <figure className="tour-banner__figure">
             <Img fluid={imageData} />
             <figcaption className="tour-banner__figure-caption tour-banner__figure-caption-newzealand">
-              {tours}
+              <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
           </figure>
         </div>
@@ -50,9 +50,7 @@ const DestinationsTablet = ({
           <div
             className={`tour-banner__svg-map-container tour-banner__svg-map-container--${destination}`}
           >
-            <svg className={`svg-icon--countries`}>
-              <use xlinkHref={withPrefix(`sprite.svg#${SVGMap}`)} />
-            </svg>
+            <img src={SVGMap} />
           </div>
         </div>
 

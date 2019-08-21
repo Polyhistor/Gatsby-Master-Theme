@@ -118,11 +118,6 @@ export const ActivitiesFragment = graphql`
     svgMap {
       localFile {
         publicURL
-        childImageSharp {
-          original {
-            src
-          }
-        }
       }
     }
     description {
@@ -158,25 +153,25 @@ export const CountriesFragment = graphql`
     departure
     description
     price
-    tourBoxDays
-    tourBoxTitles
-    tourBoxSubtitle
-    tourBoxPrice
-    tourBoxPerDay
     svgMap {
       localFile {
-        childImageSharp {
-          original {
-            src
-          }
-        }
+        publicURL
       }
     }
-    tourBoxImages {
-      localFile {
-        childImageSharp {
-          fluid(quality: 80, maxWidth: 770) {
-            ...GatsbyImageSharpFluid
+    destinations {
+      title
+      route
+      priceFrom
+      pricePerDay
+      slug
+      destinationCountry
+      duration
+      bannerImages {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 770) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -223,11 +218,7 @@ export const DestinationsFragment = graphql`
     }
     svgMap {
       localFile {
-        childImageSharp {
-          original {
-            src
-          }
-        }
+        publicURL
       }
     }
     route
@@ -358,6 +349,7 @@ export const HomePageFragment = graphql`
     }
     popularTours {
       slug
+      destinationCountry
       title
       route
       priceFrom

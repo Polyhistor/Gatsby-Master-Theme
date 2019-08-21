@@ -2,6 +2,10 @@
 
 [class^="section-"] {
   margin-top: 8rem;
+
+  @include respond(phone) {
+    margin-top: 1.5rem;
+  }
 }
 
 .section {
@@ -26,7 +30,7 @@
 
       &-tablet {
         & > .row {
-          border: 1px solid $color-primary;
+          border: 1px solid $color-gray-light-2;
         }
 
         @include respond(phone) {
@@ -154,7 +158,7 @@
     }
 
     @include respond(phone) {
-      height: 62rem;
+      height: 69rem;
       margin-top: 4rem;
     }
 
@@ -163,7 +167,7 @@
     }
 
     & > .row {
-      transform: translateY(-7%);
+      transform: translateY(-9%);
     }
 
     & > .row {
@@ -181,6 +185,10 @@
         @include respond(tablet) {
           display: none;
         }
+
+        @include respond(phone) {
+          margin-top: -3rem;
+        }
       }
     }
   }
@@ -192,11 +200,8 @@
   }
 
   &-trips {
-    & > .row > .trips-header-box {
-    }
-
     @include respond(phone) {
-      transform: translateY(-6%);
+      margin-top: 3rem;
     }
   }
 
@@ -204,6 +209,7 @@
     &__why-wild {
       justify-content: center;
       margin-top: 3.2rem;
+      margin-bottom: 3rem;
 
       @include respond(desk) {
         display: none;

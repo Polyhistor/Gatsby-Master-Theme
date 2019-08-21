@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 
 const FooterInfo = () => {
   return (
@@ -8,19 +8,19 @@ const FooterInfo = () => {
         <h6 className="footer__trips-header">Info</h6>
         <ul className="footer__trips-list">
           <li className="footer__trips-item">
-            <Link to="/" className="footer__trips-link">
+            <Link to="/our-vehicles" className="footer__trips-link">
               Our Vehicles
             </Link>
-            <Link to="/" className="footer__trips-link">
+            <Link to="/blog" className="footer__trips-link">
               Blog
             </Link>
-            <Link to="/" className="footer__trips-link">
+            <Link to="/faq" className="footer__trips-link">
               FAQ
             </Link>
-            <Link to="/" className="footer__trips-link">
+            <Link to="/how-it-works" className="footer__trips-link">
               How it Works
             </Link>
-            <Link to="/" className="footer__trips-link">
+            <Link to="/about-us" className="footer__trips-link">
               About Us
             </Link>
           </li>
@@ -28,21 +28,38 @@ const FooterInfo = () => {
         <h6 className="footer__trips-header">Social</h6>
         <ul className="footer__trips-list">
           <li className="footer__trips-item">
-            <Link to="/" className="footer__trips-link">
-              facebook
-            </Link>
+            <a
+              href="https://www.facebook.com/wildkiwitours"
+              target="_blank"
+              className="footer__trips-link"
+            >
+              Facebook
+            </a>
           </li>
           <li>
-            <Link to="/" className="footer__trips-link">
-              instagram
-            </Link>
+            <a
+              href="https://www.instagram.com/wildkiwitours/"
+              target="_blank"
+              className="footer__trips-link"
+            >
+              Instagram
+            </a>
           </li>
           <li>
-            <Link to="/" className="footer__trips-link">
-              youtube
-            </Link>
+            <a
+              href="https://www.youtube.com/c/WildkiwiTours"
+              target="_blank"
+              className="footer__trips-link"
+            >
+              Youtube
+            </a>
           </li>
         </ul>
+        <div className="mobile-yes u-center-text">
+          <svg className="svg-icon--QualMark_Footer">
+            <use xlinkHref={withPrefix("sprite.svg#icon-Qualmark-Silver")} />
+          </svg>
+        </div>
       </div>
     </>
   )

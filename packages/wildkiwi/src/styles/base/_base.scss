@@ -55,6 +55,10 @@ body {
     background: black;
     z-index: 1;
 
+    @include respond(tablet) {
+      height: 6.5rem;
+    }
+
     @include respond(phone) {
       height: 4.9rem;
     }

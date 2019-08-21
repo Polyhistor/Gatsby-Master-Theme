@@ -9,8 +9,6 @@ const SectionGetInTouch = () => {
     "Level 4, Hight Screet\nStree,\nSt Marys Bay,\nLondon",
   ]
 
-  console.log(addressData)
-
   // setting our inital state
   const [state, setState] = useState("newzealand")
 

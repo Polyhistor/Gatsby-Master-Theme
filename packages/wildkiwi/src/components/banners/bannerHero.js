@@ -27,14 +27,12 @@ const BannerHero = ({
         >
           <div className="banner-hero">
             <div className="banner-hero__text-box">
-              <h2 className="banner-hero-heading">
-                <span className="banner-hero-heading--main">
-                  {headerFirst} <br /> {headersecond} <br /> {headerThird}
-                </span>
-                <span className="banner-hero-heading--sub">
-                  {subHeaderFirst} <br /> {subHeaderSecond}
-                </span>
+              <h2 className="banner-hero-heading--main">
+                {headerFirst} <br /> {headersecond} <br /> {headerThird}
               </h2>
+              <p className="banner-hero-heading--sub">
+                {subHeaderFirst} <br /> {subHeaderSecond}
+              </p>
               <div className="banner-hero__button-box">
                 <Link
                   to="/how-it-works"

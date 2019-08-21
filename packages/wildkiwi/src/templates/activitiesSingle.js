@@ -13,10 +13,15 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
 // utilities
+import useHomePageQuery from "../queries/homePageQuery"
+
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 const ActivitiesSingle = ({ data }) => {
+  // extracting our custom hook
+  const homeQuery = useHomePageQuery()
+
   return (
     <Layout2>
       <LandingChartered
@@ -69,7 +74,7 @@ const ActivitiesSingle = ({ data }) => {
         buttonText="continue"
       />
       <Reviews />
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout2>
   )
 }

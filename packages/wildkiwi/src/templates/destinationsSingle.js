@@ -21,6 +21,8 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
+
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 import localGuide from "../images/Guide.svg"
@@ -31,6 +33,7 @@ import toaster from "../images/Toaster.svg"
 const DestinationsSingle = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
 
   return (
     <Layout2>
@@ -66,10 +69,7 @@ const DestinationsSingle = ({ data }) => {
       />
       <DestinationSection>
         <TripBox
-          imageData={
-            data.contentfulDestinations.svgMap.localFile.childImageSharp
-              .original.src
-          }
+          imageData={data.contentfulDestinations.svgMap.localFile.publicURL}
           imageAlt={data.contentfulDestinations.title}
           days={data.contentfulDestinations.duration}
           text="days"
@@ -151,7 +151,7 @@ const DestinationsSingle = ({ data }) => {
           />
         </div>
       </DestinationSection>
-      <Trips />
+      <Trips data={homeQuery[0].node.popularTours} />
     </Layout2>
   )
 }

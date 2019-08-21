@@ -10,6 +10,7 @@ const DestinationsMobile = ({
   price,
   tours,
   imageData,
+  destination,
 }) => {
   return (
     <section className={`section-tour-banner-newzealand-mobile`}>
@@ -46,7 +47,7 @@ const DestinationsMobile = ({
           </div>
         </div>
         <div className="u-center-text u-margin-top-small">
-          <Link className="btn btn--green" to="/">
+          <Link className="btn btn--green" to={`/destinations/${destination}`}>
             view trips
           </Link>
         </div>

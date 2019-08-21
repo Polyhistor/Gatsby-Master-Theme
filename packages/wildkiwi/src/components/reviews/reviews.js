@@ -63,6 +63,15 @@ const Reviews = () => {
             country="Australia"
           />
         </div>
+        <div className="mobile-yes u-center-text u-margin-top-small">
+          <a
+            aria-current="page"
+            className="btn btn--green tablet-green-button"
+            href="/"
+          >
+            more reviews
+          </a>
+        </div>
       </div>
     </section>
   )

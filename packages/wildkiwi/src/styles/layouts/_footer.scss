@@ -1,8 +1,15 @@
 .footer {
-  padding-top: 6rem;
+  padding-top: 2.8rem;
+
+  &__input {
+    display: none !important;
+    &:checked ~ .footer__form {
+      display: block;
+    }
+  }
 
   @include respond(phone) {
-    margin-top: -15rem;
+    margin-top: -1rem;
   }
 
   &__social-networks {
@@ -46,13 +53,20 @@
       text-transform: capitalize;
       font-family: Nunito-Extrabold;
       padding-bottom: 0.8rem;
+      font-size: 1.5rem;
 
       @include respond(phone) {
-        font-size: 2.5rem;
+        display: none;
       }
 
       &:not(:first-child) {
         padding-top: 1.5rem;
+      }
+
+      &:nth-of-type(2) {
+        @include respond(phone) {
+          display: none;
+        }
       }
 
       &-contact {
@@ -80,15 +94,24 @@
 
       @include respond(phone) {
         padding-bottom: 2rem;
-        border-bottom: 1px solid $color-grey-dark;
         font-size: 1.6rem;
         max-width: 30rem;
+      }
+
+      &:nth-of-type(2) {
+        @include respond(phone) {
+          display: none;
+        }
       }
     }
 
     &-item {
-      text-transform: capitalize;
       color: $color-grey-dark;
+      font-size: 1.4rem;
+
+      @include respond(phone) {
+        border-top: 1px solid $color-gray-light-2;
+      }
 
       &:nth-child(2),
       &:nth-child(4),
@@ -104,6 +127,7 @@
       text-decoration: none;
       color: $color-grey-dark;
       font-family: Nunito-Regular;
+      font-size: 1.4rem;
 
       @include respond(tablet) {
         font-size: 1.1rem;
@@ -111,19 +135,28 @@
 
       @include respond(phone) {
         font-size: 2rem;
-        margin-top: 2rem;
+        padding: 1.5rem 0rem;
+        text-align: center;
+        border-bottom: 1px solid $color-gray-light-2;
+        font-family: Nunito-Semibold;
       }
     }
     &--destination {
       @include respond(phone) {
-        border-top: 1px solid $color-grey-dark;
-        padding-top: 2rem;
-        margin-right: 1.4rem;
+        display: none;
       }
     }
   }
 
   &__form {
+    @include respond(phone) {
+      display: none;
+    }
+
+    &-consent {
+      margin-left: 0.8rem;
+    }
+
     &-links {
       &-item {
         text-align: center;
@@ -210,10 +243,11 @@
         border-radius: 3px;
         grid-row: 2/4;
         &::-webkit-input-placeholder {
-          @include placeholder;
-
+          color: $color-grey-dark;
+          padding-left: 0.4rem;
           @include respond(phone) {
-            padding-left: 3rem;
+            padding-left: 0.5rem;
+            color: $color-grey-dark;
           }
         }
 
@@ -230,14 +264,9 @@
         @include respond(phone) {
           width: 100%;
           height: 16rem;
-          border: 1px solid $color-grey-dark-2;
           grid-row: 3;
           grid-column: 1;
         }
-      }
-
-      &::-webkit-input-placeholder {
-        @include placeholder;
       }
 
       @include respond(phone) {
@@ -258,7 +287,6 @@
       grid-row: 2;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
 
       @include respond(laptop) {
         grid-column: 1;
@@ -342,12 +370,12 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 21rem 8rem 8rem 14rem 47rem;
-    grid-column-gap: 4rem;
-    margin-left: 6rem;
+    grid-template-columns: 21rem 10rem 10rem 16rem 47rem;
+    grid-column-gap: 5.5rem;
 
     @include respond(laptop) {
       grid-template-columns: 21rem 8rem 8rem 14rem 22rem;
+      grid-column-gap: 6.7rem;
     }
 
     @include respond(tablet) {
@@ -358,7 +386,7 @@
 
     @include respond(phone) {
       grid-template-columns: 32rem;
-      grid-row-gap: 4rem;
+      grid-row-gap: 3rem;
       margin-left: 0.6rem;
       margin-top: -3rem;
     }
@@ -368,7 +396,8 @@
     text-decoration: none;
 
     @include respond(tablet) {
-      display: none;
+      grid-column: 1/-1;
+      height: 18.2rem;
     }
 
     @include respond(phone) {
@@ -383,14 +412,16 @@
       grid-row-gap: 0.5rem;
 
       @include respond(tablet) {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(4, 14.5rem);
+        grid-column-gap: 1rem;
       }
 
       @include respond(phone) {
         grid-template-columns: repeat(4, 7.17rem);
         grid-template-rows: 3rem 8rem;
         grid-column-gap: 0.7rem;
-        grid-row-gap: 0.7rem;
+        grid-row-gap: 2.5rem;
       }
 
       & h2 {
@@ -401,6 +432,7 @@
 
         @include respond(phone) {
           font-size: 2.5rem;
+          text-align: center;
         }
       }
     }
@@ -435,9 +467,19 @@
       border-left: 2px solid #767676;
       border-bottom: 2px solid #767676;
       transform: rotate(315deg);
-      margin-left: 12.5rem;
-      margin-top: -2.2rem;
-      position: absolute;
+      margin-left: -2.5rem;
+
+      @include respond(laptop) {
+        margin-left: 12.5rem;
+        position: absolute;
+        margin-top: -2.2rem;
+      }
+
+      @include respond(tablet) {
+        margin-left: 12.5rem;
+        margin-top: -2.3rem;
+        position: absolute;
+      }
     }
   }
 
@@ -472,25 +514,35 @@
     margin-right: 7rem;
 
     @include respond(phone) {
-      margin-left: 0rem;
-      margin-right: 0rem;
+      text-align: center;
+      margin-top: -2rem;
+    }
+
+    & > div:nth-child(1) {
+      margin-bottom: 1.5rem;
     }
 
     & > div:nth-child(1),
     & > div:nth-child(2) {
       @include respond(phone) {
         color: $color-grey-dark;
-        font-size: 1.2rem;
+        font-size: 1.8rem;
       }
     }
   }
 
   &__info {
     @include respond(phone) {
-      border-top: 1px solid #aeaeae;
-      padding-top: 2rem;
       margin-right: 1.4rem;
       padding-bottom: 1rem;
+      grid-row: 4;
+      margin-top: -1rem;
+    }
+  }
+
+  &__contact {
+    @include respond(phone) {
+      display: none;
     }
   }
 }
