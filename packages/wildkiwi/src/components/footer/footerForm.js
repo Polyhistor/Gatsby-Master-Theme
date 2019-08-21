@@ -13,8 +13,8 @@ const FooterForm = () => {
       </label>
       <div className="footer__form ">
         <h6 className="footer__trips-header">send us a message</h6>
-        <p className="u-color-gray u-padding-bottom-small">
-          feel free to drop us a note with any question
+        <p className="u-color-gray u-padding-bottom-small u-font-size-tiny">
+          Feel free to drop us a note with any question
         </p>
         <div className="footer__form-fields">
           <form className="footer__contact-form" name="contact">
@@ -22,18 +22,18 @@ const FooterForm = () => {
               type="text"
               name="name"
               className="footer__form-input foooter__form-input-name"
-              placeholder="name"
+              placeholder="Name"
             />
 
             <input
-              type="email"
+              type="text"
               name="email"
               className="footer__form-input foooter__form-input-email"
-              placeholder="email"
+              placeholder="Email"
             />
 
             <input
-              type="messsage"
+              type="text"
               name="messsage"
               className="footer__form-input--big"
               placeholder="Message"

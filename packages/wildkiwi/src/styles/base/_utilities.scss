@@ -198,6 +198,11 @@
 }
 
 // size
+
+.u-font-size-tiny {
+  font-size: 1.4rem;
+}
+
 .u-font-size-small {
   font-size: 2rem;
 }
@@ -525,4 +530,9 @@
 .auto-width-height {
   height: auto !important;
   width: auto !important;
+}
+
+input::placeholder {
+  padding-left: 0.5rem;
+  color: $color-grey-dark;
 }

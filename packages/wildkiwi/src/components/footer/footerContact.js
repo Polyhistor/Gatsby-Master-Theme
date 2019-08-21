@@ -28,13 +28,6 @@ const FooterContact = () => {
         <li className="footer__trips-item">8:30am - 5:30pm (GMT+12)</li>
         <li className="footer__trips-item u-padding-top-sedium">
           {state === "newzealand"
-            ? "New Zealand"
-            : state === "australia"
-            ? "Australia"
-            : "United Kingdom"}
-        </li>
-        <li className="footer__trips-item">
-          {state === "newzealand"
             ? "+64 9 973 5676"
             : state === "australia"
             ? "+61 2 9133 8646"
