@@ -269,10 +269,6 @@
         }
       }
 
-      &::-webkit-input-placeholder {
-        @include placeholder;
-      }
-
       @include respond(phone) {
         grid-row: 0;
       }
