@@ -11,6 +11,7 @@ module.exports = {
     copyright: `Navigate Group Ltd`,
   },
   plugins: [
+    "gatsby-plugin-preload-link-crossorigin",
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-offline`,
