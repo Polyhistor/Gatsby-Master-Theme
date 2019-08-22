@@ -14,13 +14,15 @@ const FilteredTour = ({ country }) => {
   const [data, setData] = useState(destinationData)
 
   // handling the filter functionality
-  const handleSubmit = e => {
+  const handleSubmit = (e, n) => {
+    console.log(n)
+
     e.preventDefault()
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
     return destinationData.filter(element => {
       // filter logic
-      if (element.node.duration <= 7) {
+      if (element.node.duration === n) {
         filteredData.push(element)
       }
       // update the state
@@ -51,17 +53,21 @@ const FilteredTour = ({ country }) => {
                 <span className="trips__duration-text">days</span>
               </figcaption>
             </figure>
-            <div className="destination-banner__description">
-              <h3 className="tour-banner__description-title tour-banner__description-title-newzealand">
+            <div className="filtered-tour__description">
+              <h3 className="filtered-tour__description-title">
                 {element.node.title}
               </h3>
-              <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
+              <h5 className="filtered-tour__description-subtitle">
                 {element.node.route}
               </h5>
-              <p className="tour-banner__description-details">
-                {element.node.descriptionLong.descriptionLong}
-              </p>
-              <span className="tour-banner__description-price tour-banner__description-price-newzealand">
+
+              {element.node.numberOfCountries !== null ? (
+                <h5 className="filtered-tour__description-subtitle">
+                  {`${element.node.numberOfCountries} countries`}
+                </h5>
+              ) : null}
+
+              <span className="filtered-tour__description-price">
                 From {element.node.priceFrom} NZD
               </span>
             </div>
@@ -89,13 +95,13 @@ const FilteredTour = ({ country }) => {
         <div className="filtered-tour__container">
           <div className="filtered-tour__head">
             <h3>How long are you travelling for?</h3>
-            <button onClick={e => handleSubmit(e)}>
+            <button onClick={(e, n = 7) => handleSubmit(e, n)}>
               <span>1 week</span>
             </button>
-            <button>
+            <button onClick={(e, n = 14) => handleSubmit(e, n)}>
               <span>2 weeks</span>
             </button>
-            <button>
+            <button onClick={(e, n = 21) => handleSubmit(e, n)}>
               <span>3 weeks</span>
             </button>
           </div>

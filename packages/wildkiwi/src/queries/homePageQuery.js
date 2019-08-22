@@ -1,4 +1,4 @@
-import { graphql, userStaticQuery, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 // our reusable graphql Query for Home page contents utilizing predefined fragment
 const useHomePageQuery = () => {

@@ -1,8 +1,8 @@
 .trip-box {
-  top: 7rem;
+  top: 10rem;
   position: sticky;
   display: grid;
-  grid-template-rows: 41rem 3rem 2.5rem 5rem 3rem 7rem 1.5rem 2rem;
+  grid-template-rows: 41rem 4rem 2.5rem 5rem 3rem 7rem 1.5rem 2rem;
   grid-template-columns: 1.5rem max-content 1.5rem;
   border: 1px solid $color-gray-light-2;
   width: 41.5rem;
@@ -125,6 +125,7 @@
   }
 
   &__availablitity {
+    text-decoration: none;
     grid-row: 6;
     grid-column: 2;
     background-color: $color-red;

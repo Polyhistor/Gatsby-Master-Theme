@@ -1,5 +1,8 @@
 import React from "react"
 
+//utilities
+import useGetThereQuery from "../../queries/getThereQuery"
+
 const getThere = ({
   title,
   paragraph,
@@ -8,21 +11,27 @@ const getThere = ({
   titleRight,
   rightList,
 }) => {
+  // extracting our query out of our custom hook
+  const getThereData = useGetThereQuery()
+
+  console.log(getThereData)
+  console.log(getThereData[0].node)
+
   const renderListLeft = () => {
-    return leftList.map((element, idx) => {
+    return getThereData[0].node.international.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element.label}
+          {element}
         </li>
       )
     })
   }
 
   const renderListRight = () => {
-    return rightList.map((element, idx) => {
+    return getThereData[0].node.domestic.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element.label}
+          {element}
         </li>
       )
     })

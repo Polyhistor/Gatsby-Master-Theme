@@ -1,0 +1,26 @@
+.WhyWild {
+  &-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 28.4rem);
+    grid-column-gap: 1.5rem;
+
+    &-single {
+      display: grid;
+      grid-template-rows: 26rem 4rem min-content min-content;
+
+      &__image {
+        height: 25;
+      }
+
+      &__title {
+        padding: 1rem 0rem;
+        @include blackUpperCaseGreen;
+        font-size: 1.7rem;
+      }
+
+      &__description {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
