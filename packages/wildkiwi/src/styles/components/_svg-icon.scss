@@ -128,7 +128,11 @@
 
   &--mountains {
     height: 4rem;
-    width: 22rem;
+    width: 17rem;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &--icon-Bus {

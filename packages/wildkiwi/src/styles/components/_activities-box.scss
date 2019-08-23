@@ -23,7 +23,7 @@
 
   &-single {
     display: grid;
-    grid-template-rows: 15rem 2.5rem 1.5rem 2rem;
+    grid-template-rows: 15rem 2.5rem 2rem 2rem;
 
     @include respond(tablet) {
       grid-template-rows: 15rem 2.5rem 2rem 2rem;
@@ -46,9 +46,6 @@
           width: 14.5rem;
         }
       }
-    }
-
-    &__image {
     }
 
     &__caption {
@@ -89,7 +86,9 @@
 
     &__sub-title {
       grid-row: 3;
-      @include heading-11-black-light-gray;
+      font-family: Nunito-Black;
+      font-size: 1.2rem;
+      @include greySubtitle;
 
       @include respond(laptop) {
         color: $color-grey-dark;
@@ -105,7 +104,8 @@
 
     &__price {
       grid-row: 4;
-      @include heading-11-black-green;
+      @include blackUpperCaseGreen;
+      font-size: 1.2rem;
 
       @include respond(tablet) {
         font-size: 1.5rem;

@@ -376,7 +376,7 @@
 
     @include respond(phone) {
       grid-row: 7;
-      height: 88rem;
+      height: 70rem;
     }
 
     & > section {
@@ -390,7 +390,7 @@
       }
 
       @include respond(phone) {
-        height: 80rem;
+        height: 70rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -402,7 +402,7 @@
 
         @include respond(tablet) {
           margin-left: 0;
-          margin-top: -10rem;
+          margin-top: 1rem;
         }
 
         @include respond(phone) {
@@ -434,6 +434,10 @@
 
       @include respond(phone) {
         display: block;
+      }
+
+      & > .row {
+        margin-left: 0;
       }
     }
   }

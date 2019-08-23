@@ -1,10 +1,6 @@
 .green-bar {
   background-color: $color-primary;
 
-  @include respond(tablet) {
-    height: 20rem;
-  }
-
   &__container {
     display: grid;
     grid-template-columns: repeat(2, max-content);
@@ -86,7 +82,7 @@
 
     @include respond(phone) {
       margin-right: 0rem;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
 
     &:nth-child(2) {

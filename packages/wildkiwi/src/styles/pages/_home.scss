@@ -168,6 +168,10 @@
 
     & > .row {
       transform: translateY(-9%);
+
+      @include respond(tablet) {
+        transform: translateY(-15%);
+      }
     }
 
     & > .row {

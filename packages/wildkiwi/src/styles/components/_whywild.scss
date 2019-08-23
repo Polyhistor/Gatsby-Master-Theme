@@ -4,12 +4,31 @@
     grid-template-columns: repeat(auto-fit, 28.4rem);
     grid-column-gap: 1.5rem;
 
+    @include respond(laptop) {
+      grid-row-gap: 3rem;
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(auto-fit, 22.3rem);
+    }
+
     &-single {
       display: grid;
       grid-template-rows: 26rem 4rem min-content min-content;
 
+      @include respond(laptop) {
+        grid-template-rows: 5.2rem 23.2rem;
+        grid-template-columns: 27rem 27rem;
+        grid-column-gap: 2rem;
+      }
+
       &__image {
         height: 25;
+        border-radius: 3px;
+
+        @include respond(laptop) {
+          grid-row: 1/-1;
+        }
       }
 
       &__title {
