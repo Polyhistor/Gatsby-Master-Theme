@@ -99,7 +99,7 @@ const DestinationsSingle = ({ data }) => {
           iconFirst="Guide"
           textFirst="Expert local guide/driver"
           iconSecond="Bus"
-          textSecond="New 18 sea vehicle"
+          textSecond="New 18 seat vehicle"
           iconThird="Bed"
           textThird="Flash-pack accomodation"
           iconFourth="Toaster"

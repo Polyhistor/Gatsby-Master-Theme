@@ -111,6 +111,7 @@
     }
 
     @include respond(phone) {
+      grid-template-columns: 24% 42% 33%;
       grid-column-gap: 0;
     }
   }

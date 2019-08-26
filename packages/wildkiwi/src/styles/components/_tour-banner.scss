@@ -127,6 +127,26 @@
     position: relative;
     width: 60rem;
 
+    @include respond(laptop) {
+      width: 45rem;
+      &:first-child div {
+        height: 42rem;
+      }
+    }
+
+    @include respond(tablet) {
+      width: 70rem;
+      margin-left: 4.9rem;
+
+      &:first-child(1) div {
+        border-radius: 6px;
+      }
+    }
+
+    @include respond(phone) {
+      width: 32rem;
+    }
+
     &-caption {
       position: absolute;
       top: 3%;
@@ -160,29 +180,13 @@
       }
     }
 
-    @include respond(laptop) {
-      width: 45rem;
-      &:first-child div {
-        height: 42rem;
-      }
-    }
-
-    @include respond(tablet) {
-      width: 70rem;
-      margin-left: 4.9rem;
-
-      &:first-child(1) div {
-        border-radius: 6px;
-      }
-    }
-
-    @include respond(phone) {
-      width: 32rem;
+    & > .gatsby-image-wrapper {
+      height: 40rem;
     }
   }
 
   &__svg-map-container {
-    margin-top: -0.1rem;
+    margin-top: 0.1rem;
 
     &:nth-child(1) img {
       margin-left: -1.5rem;

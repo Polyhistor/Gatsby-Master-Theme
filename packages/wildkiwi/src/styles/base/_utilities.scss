@@ -434,6 +434,12 @@
           display: block;
         }
       }
+
+      & > .row > .col-1-of-4:nth-child(4) {
+        @include respond(desk) {
+          display: none;
+        }
+      }
     }
   }
 

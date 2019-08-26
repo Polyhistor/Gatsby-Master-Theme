@@ -8,15 +8,11 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
-  console.log(destinationData)
-
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
   // handling the filter functionality
   const handleSubmit = (e, n) => {
-    console.log(n)
-
     e.preventDefault()
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
@@ -30,6 +26,16 @@ const FilteredTour = ({ country }) => {
     })
   }
 
+  let currency
+
+  // function that programatically adds comma to the price
+  let commaAdder = price => {
+    const priceArray = price.toString().split("")
+    const beforeComma = priceArray.slice(0, 1).join("")
+    const afterComma = priceArray.slice(1, 4).join("")
+    return `${beforeComma},${afterComma}`
+  }
+
   // rendering elements out of our data file
   const renderTours = data => {
     return data
@@ -37,8 +43,19 @@ const FilteredTour = ({ country }) => {
         return element.node.destinationCountry === country
       })
       .map((element, idx) => {
+        // logic for adding currency text
+        element.node.destinationCountry === "newzealand"
+          ? (currency = ["NZD", "$"])
+          : element.node.destinationCountry === "australia"
+          ? (currency = ["AUD", "$"])
+          : (currency = ["EURO", "€"])
+
         return (
-          <div key={idx} className="filtered-tour">
+          <Link
+            key={idx}
+            className="filtered-tour"
+            to={`destinations/${country}/${element.node.slug}`}
+          >
             <figure className="filtered-tour__image-container">
               <Img
                 fluid={
@@ -68,7 +85,9 @@ const FilteredTour = ({ country }) => {
               ) : null}
 
               <span className="filtered-tour__description-price">
-                From {element.node.priceFrom} NZD
+                {`from ${currency[1]}${commaAdder(element.node.priceFrom)} ${
+                  currency[0]
+                }`}
               </span>
             </div>
             <div className="filtered-tour__svg-map">
@@ -84,7 +103,7 @@ const FilteredTour = ({ country }) => {
             >
               View Itinerary
             </Link>
-          </div>
+          </Link>
         )
       })
   }

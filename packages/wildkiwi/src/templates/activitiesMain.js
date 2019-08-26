@@ -65,6 +65,8 @@ const ActivitiesMain = ({ pageContext }) => {
     }
   `)
 
+  let currency
+
   // embracing the variables
   const ourData = activitiesData.allContentfulActivities.edges
 
@@ -91,6 +93,12 @@ const ActivitiesMain = ({ pageContext }) => {
 
   const renderActivities = () => {
     return data.map(({ node }, idx) => {
+      // logic for adding currency text
+      node.country.slug === "newzealand"
+        ? (currency = ["NZD", "$"])
+        : node.country.slug === "australia"
+        ? (currency = ["AUD", "$"])
+        : (currency = ["EURO", "€"])
       return (
         <div className="activity__main-container" key={idx}>
           <Link className="activity__main-link" to={`activities/` + node.slug}>
@@ -102,7 +110,14 @@ const ActivitiesMain = ({ pageContext }) => {
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
-            <h5 className="activity__price">{node.price}</h5>
+            <h5 className="activity__price">
+              {node.price === "free"
+                ? "free"
+                : node.price === "included"
+                ? "included"
+                : `${node.price} ${currency[0]}`}
+              {/* {`${node.price} ${currency[0]}`} */}
+            </h5>
           </Link>
         </div>
       )
