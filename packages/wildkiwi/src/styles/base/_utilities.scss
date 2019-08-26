@@ -3,6 +3,8 @@
 // positioning
 .u-center-text {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .u-margin-bottom-small {
@@ -14,11 +16,19 @@
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
+  margin-bottom: 4rem;
+
+  @include respond(phone) {
+    margin-bottom: 7rem;
+  }
 }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important;
+}
+
+.u-margin-top-tiny {
+  margin-top: 1rem;
 }
 
 .u-margin-top-small {
@@ -39,6 +49,10 @@
 
 .u-margin-top-percent-10 {
   margin-top: 10%;
+}
+
+.u-margin-left-tiny {
+  margin-left: 0.8rem;
 }
 
 .u-margin-left-medium {
@@ -99,6 +113,9 @@
 
   @include respond(tablet) {
     padding-top: 3rem;
+  }
+  @include respond(phone) {
+    padding-top: 1.5rem;
   }
 }
 
@@ -198,6 +215,11 @@
 }
 
 // size
+
+.u-font-size-tiny {
+  font-size: 1.4rem;
+}
+
 .u-font-size-small {
   font-size: 2rem;
 }
@@ -371,7 +393,7 @@
 
     @include respond(phone) {
       grid-row: 7;
-      height: 88rem;
+      height: 70rem;
     }
 
     & > section {
@@ -385,7 +407,7 @@
       }
 
       @include respond(phone) {
-        height: 80rem;
+        height: 70rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -397,7 +419,7 @@
 
         @include respond(tablet) {
           margin-left: 0;
-          margin-top: -10rem;
+          margin-top: 1rem;
         }
 
         @include respond(phone) {
@@ -410,6 +432,12 @@
 
         @include respond(laptop) {
           display: block;
+        }
+      }
+
+      & > .row > .col-1-of-4:nth-child(4) {
+        @include respond(desk) {
+          display: none;
         }
       }
     }
@@ -429,6 +457,10 @@
 
       @include respond(phone) {
         display: block;
+      }
+
+      & > .row {
+        margin-left: 0;
       }
     }
   }
@@ -525,4 +557,22 @@
 .auto-width-height {
   height: auto !important;
   width: auto !important;
+}
+
+input::placeholder {
+  padding-left: 0.5rem;
+  color: $color-grey-dark;
+}
+
+input:focus {
+  border: 2px solid $color-primary;
+}
+
+textarea::placeholder {
+  padding-left: 1rem;
+  font-family: Nunito-Semibold;
+}
+
+textarea:focus {
+  border: 2px solid $color-primary;
 }

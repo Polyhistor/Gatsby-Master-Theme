@@ -1,6 +1,7 @@
 import React from "react"
 
 const TripBox = ({
+  destinationCountry,
   imageData,
   imageAlt,
   days,
@@ -17,6 +18,23 @@ const TripBox = ({
   availablity,
   hotText,
 }) => {
+  let currency
+
+  // function that programatically adds comma to the price
+  let commaAdder = price => {
+    const priceArray = price.toString().split("")
+    const beforeComma = priceArray.slice(0, 1).join("")
+    const afterComma = priceArray.slice(1, 4).join("")
+    return `${beforeComma},${afterComma}`
+  }
+
+  // logic for adding currency text
+  destinationCountry === "newzealand"
+    ? (currency = ["NZD", "$"])
+    : destinationCountry === "australia"
+    ? (currency = ["AUD", "$"])
+    : (currency = ["EUR", "€"])
+
   return (
     <div className="section-destination__trip-box">
       <div className="trip-box">
@@ -36,11 +54,15 @@ const TripBox = ({
           </div>
           <div className="trip-box__price">
             <span className="green-title-alternative">{priceText}</span>
-            <span className="green-subtitle-alternative">{price}</span>
+            <span className="green-subtitle-alternative">
+              {`${currency[1]}${commaAdder(price)} ${currency[0]}`}
+            </span>
           </div>
           <div className="trip-box__per-day">
             <span className="green-title-alternative">{perDayText}</span>
-            <span className="green-subtitle-alternative">{perDay}</span>
+            <span className="green-subtitle-alternative">
+              {`${currency[1]}${commaAdder(perDay)} ${currency[0]}`}
+            </span>
           </div>
         </div>
         <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>

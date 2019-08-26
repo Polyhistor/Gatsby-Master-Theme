@@ -47,7 +47,7 @@
       }
 
       &-mobile {
-        margin-top: 2rem;
+        margin-top: 4.1rem;
         @include respond(tablet) {
           display: none;
         }
@@ -158,7 +158,7 @@
     }
 
     @include respond(phone) {
-      height: 69rem;
+      height: 61.5rem;
       margin-top: 4rem;
     }
 
@@ -168,6 +168,10 @@
 
     & > .row {
       transform: translateY(-9%);
+
+      @include respond(tablet) {
+        transform: translateY(-15%);
+      }
     }
 
     & > .row {

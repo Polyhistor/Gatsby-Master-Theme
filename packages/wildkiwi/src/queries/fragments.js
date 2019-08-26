@@ -225,6 +225,7 @@ export const DestinationsFragment = graphql`
     priceFrom
     pricePerDay
     included
+    numberOfCountries
     itinerary {
       itineraryTitles
       itineraryImages {
@@ -254,6 +255,15 @@ export const DestinationsFragment = graphql`
           }
         }
       }
+    }
+    gettingThere {
+      description {
+        description
+      }
+      international
+      internationalLinks
+      domestic
+      domesticLinks
     }
   }
 `
@@ -365,5 +375,35 @@ export const HomePageFragment = graphql`
         }
       }
     }
+  }
+`
+
+// for why wild kiwi section on itinerary page
+export const WhyWildFragment = graphql`
+  fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
+    title
+    description {
+      description
+    }
+    banner {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+// for How to get there section on itinerary page
+export const GettingThereFragment = graphql`
+  fragment GettingThere on ContentfulGettingThereDestinations {
+    description {
+      description
+    }
+    international
+    domestic
   }
 `

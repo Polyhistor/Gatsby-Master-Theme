@@ -1,26 +1,36 @@
 .filtered-tour {
   display: grid;
-  grid-template-columns: 2rem 28rem 9rem 1rem;
-  grid-template-rows: 22.5rem 35rem 1rem 0.1rem;
-  grid-row-gap: 2rem;
+  grid-template-columns: 1rem 38rem 1rem;
+  grid-template-rows: 22.5rem min-content 40rem 6.5rem;
+  grid-row-gap: 1rem;
   border: 1px solid $color-gray-light-2;
   border-radius: 3px;
   overflow: hidden;
+  position: relative;
+  text-decoration: none;
 
-  @include respond(laptop) {
-    grid-template-columns: 1rem 21.4rem 10rem;
-    grid-template-rows: 22rem 31rem 1rem 0.1rem;
-  }
+  &__description {
+    display: grid;
+    grid-template-rows: repeat(4, min-content);
+    grid-column: 2;
+    grid-row-gap: 0.3rem;
 
-  @include respond(tablet) {
-    grid-template-columns: 1rem 22.8rem 10rem;
-    grid-template-rows: 22rem 31rem 1rem 0.1rem;
-  }
+    &-title {
+      @include black-25-capital-drak-gray;
+      font-size: 2.2rem;
+    }
 
-  @include respond(phone) {
-    grid-template-columns: 1rem 15rem 15rem 1rem;
-    grid-template-rows: 30rem 27rem;
-    border: 0;
+    &-subtitle {
+      @include bigUppercaseText;
+      font-size: 1.4rem;
+      color: $color-grey-dark;
+    }
+
+    &-price {
+      @include bigUppercaseText;
+      font-size: 1.4rem;
+      color: $color-primary;
+    }
   }
 
   &__container {
@@ -108,8 +118,6 @@
   }
 
   & a {
-    grid-column: 2;
-    grid-row: 3;
     align-self: end;
     width: 22rem;
     height: 4.8rem;
@@ -117,39 +125,34 @@
     justify-content: center;
     font-size: 1.38rem;
     align-items: center;
+    position: absolute;
+    bottom: 2%;
+    left: 3.5%;
 
     @include respond(phone) {
-      display: none;
+      bottom: 1.5%;
+      left: 2.5%;
     }
   }
 
   &__svg-map {
-    width: 26rem;
-    transform: translateX(-17rem);
-    margin-top: 5rem;
+    grid-column: 1/-1;
+    grid-row: 3;
 
     @include respond(phone) {
       transform: translateX(-3rem);
     }
 
     & > img {
-      width: 27rem;
-      z-index: -1;
-      margin-top: 5rem;
+      width: 40rem;
+      height: 47.5rem;
 
       @include respond(laptop) {
-        width: 22.5rem;
-        margin-top: 7rem;
+        width: 32.5rem;
       }
 
       @include respond(tablet) {
-        width: 22.5rem;
-        margin-top: 7rem;
-      }
-
-      @include respond(phone) {
-        width: 20rem;
-        margin-top: 0;
+        width: 34.3rem;
       }
     }
   }

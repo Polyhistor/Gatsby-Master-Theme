@@ -46,9 +46,9 @@ const DestinationsMobile = ({
             </span>
           </div>
         </div>
-        <div className="u-center-text u-margin-top-small">
+        <div className="u-center-text u-margin-top-tiny">
           <Link className="btn btn--green" to={`/destinations/${destination}`}>
-            view trips
+            explore
           </Link>
         </div>
       </div>

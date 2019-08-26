@@ -5,14 +5,21 @@ const getThere = ({
   paragraph,
   titleLeft,
   leftList,
+  leftListLinks,
   titleRight,
   rightList,
+  rightListLinks,
 }) => {
+  console.log(leftList)
+  console.log(leftListLinks)
+
   const renderListLeft = () => {
     return leftList.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element.label}
+          <a href={leftListLinks[idx]} target="_blank">
+            {element}
+          </a>
         </li>
       )
     })
@@ -22,7 +29,9 @@ const getThere = ({
     return rightList.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element.label}
+          <a href={rightListLinks[idx]} target="_blank">
+            {element}
+          </a>
         </li>
       )
     })

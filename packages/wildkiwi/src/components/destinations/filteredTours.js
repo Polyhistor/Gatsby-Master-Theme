@@ -8,24 +8,32 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
-  console.log(destinationData)
-
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
   // handling the filter functionality
-  const handleSubmit = e => {
+  const handleSubmit = (e, n) => {
     e.preventDefault()
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
     return destinationData.filter(element => {
       // filter logic
-      if (element.node.duration <= 7) {
+      if (element.node.duration === n) {
         filteredData.push(element)
       }
       // update the state
       setData(filteredData)
     })
+  }
+
+  let currency
+
+  // function that programatically adds comma to the price
+  let commaAdder = price => {
+    const priceArray = price.toString().split("")
+    const beforeComma = priceArray.slice(0, 1).join("")
+    const afterComma = priceArray.slice(1, 4).join("")
+    return `${beforeComma},${afterComma}`
   }
 
   // rendering elements out of our data file
@@ -35,8 +43,19 @@ const FilteredTour = ({ country }) => {
         return element.node.destinationCountry === country
       })
       .map((element, idx) => {
+        // logic for adding currency text
+        element.node.destinationCountry === "newzealand"
+          ? (currency = ["NZD", "$"])
+          : element.node.destinationCountry === "australia"
+          ? (currency = ["AUD", "$"])
+          : (currency = ["EURO", "€"])
+
         return (
-          <div key={idx} className="filtered-tour">
+          <Link
+            key={idx}
+            className="filtered-tour"
+            to={`destinations/${country}/${element.node.slug}`}
+          >
             <figure className="filtered-tour__image-container">
               <Img
                 fluid={
@@ -51,18 +70,24 @@ const FilteredTour = ({ country }) => {
                 <span className="trips__duration-text">days</span>
               </figcaption>
             </figure>
-            <div className="destination-banner__description">
-              <h3 className="tour-banner__description-title tour-banner__description-title-newzealand">
+            <div className="filtered-tour__description">
+              <h3 className="filtered-tour__description-title">
                 {element.node.title}
               </h3>
-              <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
+              <h5 className="filtered-tour__description-subtitle">
                 {element.node.route}
               </h5>
-              <p className="tour-banner__description-details">
-                {element.node.descriptionLong.descriptionLong}
-              </p>
-              <span className="tour-banner__description-price tour-banner__description-price-newzealand">
-                From {element.node.priceFrom} NZD
+
+              {element.node.numberOfCountries !== null ? (
+                <h5 className="filtered-tour__description-subtitle">
+                  {`${element.node.numberOfCountries} countries`}
+                </h5>
+              ) : null}
+
+              <span className="filtered-tour__description-price">
+                {`from ${currency[1]}${commaAdder(element.node.priceFrom)} ${
+                  currency[0]
+                }`}
               </span>
             </div>
             <div className="filtered-tour__svg-map">
@@ -78,7 +103,7 @@ const FilteredTour = ({ country }) => {
             >
               View Itinerary
             </Link>
-          </div>
+          </Link>
         )
       })
   }
@@ -89,13 +114,13 @@ const FilteredTour = ({ country }) => {
         <div className="filtered-tour__container">
           <div className="filtered-tour__head">
             <h3>How long are you travelling for?</h3>
-            <button onClick={e => handleSubmit(e)}>
+            <button onClick={(e, n = 7) => handleSubmit(e, n)}>
               <span>1 week</span>
             </button>
-            <button>
+            <button onClick={(e, n = 14) => handleSubmit(e, n)}>
               <span>2 weeks</span>
             </button>
-            <button>
+            <button onClick={(e, n = 21) => handleSubmit(e, n)}>
               <span>3 weeks</span>
             </button>
           </div>

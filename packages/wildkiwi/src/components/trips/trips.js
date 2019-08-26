@@ -4,6 +4,14 @@ import Trip from "./trip"
 const Trips = ({ data }) => {
   let currency
 
+  // function that programatically adds comma to the price
+  let commaAdder = price => {
+    const priceArray = price.toString().split("")
+    const beforeComma = priceArray.slice(0, 1).join("")
+    const afterComma = priceArray.slice(1, 4).join("")
+    return `${beforeComma},${afterComma}`
+  }
+
   // function to render trips based on fectched contentful data
   const renderTrips = () =>
     data.map((trip, key) => {
@@ -23,7 +31,9 @@ const Trips = ({ data }) => {
           title={trip.title}
           slug={trip.slug}
           country={trip.destinationCountry}
-          price={`from ${currency[1]}${trip.priceFrom} ${currency[0]}`}
+          price={`from ${currency[1]}${commaAdder(trip.priceFrom)} ${
+            currency[0]
+          }`}
           priceDay={`${trip.pricePerDay} per day`}
         />
       )

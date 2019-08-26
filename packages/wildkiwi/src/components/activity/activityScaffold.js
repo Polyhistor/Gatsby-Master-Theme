@@ -15,9 +15,9 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
       )}
       <img className="activity__svg-map" src={svgMap} alt={title} />
       <div className="activity__button-box">
-        <Link to="/" className="acitivity-box-button acitivity-box-button--red">
+        {/* <Link to="/" className="acitivity-box-button acitivity-box-button--red">
           add to card
-        </Link>
+        </Link> */}
         <Link to="/activities" className="acitivity-box-button">
           All Activities
         </Link>

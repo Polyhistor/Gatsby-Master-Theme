@@ -58,7 +58,7 @@
       }
     }
     &-details {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       padding-bottom: 0.5rem;
       color: $color-grey-dark-3;
 
@@ -90,7 +90,19 @@
       }
     }
     &-button-box {
-      padding-top: 10.5rem;
+      padding-top: 7rem;
+
+      @include respond(laptop) {
+        padding-top: 4.5rem;
+      }
+
+      @include respond(tablet) {
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        &:first-child {
+          display: none;
+        }
+      }
 
       & > a {
         font-size: 1.38rem;
@@ -104,14 +116,6 @@
         }
       }
 
-      @include respond(tablet) {
-        padding-top: 3rem;
-        padding-bottom: 1rem;
-        &:first-child {
-          display: none;
-        }
-      }
-
       &:first-child a .btn .btn-green {
         padding: 1.2rem 5.5rem;
         display: none;
@@ -122,6 +126,26 @@
   &__figure {
     position: relative;
     width: 60rem;
+
+    @include respond(laptop) {
+      width: 45rem;
+      &:first-child div {
+        height: 42rem;
+      }
+    }
+
+    @include respond(tablet) {
+      width: 70rem;
+      margin-left: 4.9rem;
+
+      &:first-child(1) div {
+        border-radius: 6px;
+      }
+    }
+
+    @include respond(phone) {
+      width: 32rem;
+    }
 
     &-caption {
       position: absolute;
@@ -156,24 +180,8 @@
       }
     }
 
-    @include respond(laptop) {
-      width: 45rem;
-      &:first-child div {
-        height: 42rem;
-      }
-    }
-
-    @include respond(tablet) {
-      width: 70rem;
-      margin-left: 4.9rem;
-
-      &:first-child(1) div {
-        border-radius: 6px;
-      }
-    }
-
-    @include respond(phone) {
-      width: 32rem;
+    & > .gatsby-image-wrapper {
+      height: 40rem;
     }
   }
 

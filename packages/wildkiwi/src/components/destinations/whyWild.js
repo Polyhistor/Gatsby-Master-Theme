@@ -1,11 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import useWhyWildData from "./whyWildData"
+// utilities
+import useWildkiwiQuery from "../../queries/wildkiwiQuery"
 
 const WhyWild = () => {
   // taking data out of our custom hook
-  const WhyWildData = useWhyWildData()
+  const WhyWildData = useWildkiwiQuery()
 
   const renderWhyWildData = () => {
     return WhyWildData.map((why, idx) => {
@@ -13,12 +14,13 @@ const WhyWild = () => {
         <div key={idx} className="WhyWild-box-single">
           <Img
             className="WhyWild-box-single__image"
-            alt={why.title}
-            fluid={why.imageData}
+            alt={why.node.title}
+            fluid={why.node.banner.localFile.childImageSharp.fluid}
           />
-          <h3 className="WhyWild-box-single__title">{why.title}</h3>
-          <p className="WhyWild-box-single__sub-title">{why.subtitle}</p>
-          <p className="WhyWild-box-single__description">{why.description}</p>
+          <h3 className="WhyWild-box-single__title">{why.node.title}</h3>
+          <p className="WhyWild-box-single__description">
+            {why.node.description.description}
+          </p>
         </div>
       )
     })

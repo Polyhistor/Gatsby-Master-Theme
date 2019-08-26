@@ -1,13 +1,17 @@
 .trip-box {
-  top: 7rem;
+  top: 10rem;
   position: sticky;
   display: grid;
-  grid-template-rows: 41rem 3rem 2.5rem 5rem 3rem 7rem 1.5rem 2rem;
+  grid-template-rows: 41rem 4rem 2.5rem 5rem 3rem 7rem 1.5rem 2rem;
   grid-template-columns: 1.5rem max-content 1.5rem;
   border: 1px solid $color-gray-light-2;
   width: 41.5rem;
   border-radius: 0.4rem;
   background-color: white;
+
+  @include respond(laptop) {
+    grid-template-rows: 35rem 4rem 2.5rem 5rem 3rem 5.5rem 1.5rem 2rem;
+  }
 
   @include respond(tablet) {
     width: 69.5rem;
@@ -34,15 +38,20 @@
 
   &__image {
     height: 40rem;
-    width: 40rem;
+    width: 38.1rem;
+
+    @include respond(laptop) {
+      width: 38.1rem;
+      height: 33.5rem;
+    }
 
     @include respond(tablet) {
       height: 50rem;
-      width: 69.5rem;
+      width: 64.5rem;
     }
 
     @include respond(phone) {
-      width: 30rem;
+      width: 27rem;
     }
 
     & + .tour-banner__figure-caption {
@@ -51,6 +60,14 @@
 
       & .trips__duration-days {
         margin-top: 1.3rem;
+
+        @include respond(tablet) {
+          margin-top: 0.6rem;
+        }
+
+        @include respond(phone) {
+          margin-top: 0;
+        }
       }
     }
   }
@@ -94,6 +111,7 @@
     }
 
     @include respond(phone) {
+      grid-template-columns: 24% 42% 33%;
       grid-column-gap: 0;
     }
   }
@@ -125,6 +143,7 @@
   }
 
   &__availablitity {
+    text-decoration: none;
     grid-row: 6;
     grid-column: 2;
     background-color: $color-red;
