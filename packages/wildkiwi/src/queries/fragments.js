@@ -256,6 +256,15 @@ export const DestinationsFragment = graphql`
         }
       }
     }
+    gettingThere {
+      description {
+        description
+      }
+      international
+      internationalLinks
+      domestic
+      domesticLinks
+    }
   }
 `
 

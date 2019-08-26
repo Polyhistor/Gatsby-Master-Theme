@@ -18,7 +18,7 @@ const WhyWildKiwi = ({ data }) => {
   return (
     <div className="section-mobile__why-wild">
       <h2 className="green-title bold-green u-margin-bottom-small">
-        Why Wild Kiwi
+        Why Wild Kiwi ?
       </h2>
       <div className="whywild">
         <div className="whywild__container">{renderData()}</div>

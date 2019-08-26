@@ -1,37 +1,37 @@
 import React from "react"
 
-//utilities
-import useGetThereQuery from "../../queries/getThereQuery"
-
 const getThere = ({
   title,
   paragraph,
   titleLeft,
   leftList,
+  leftListLinks,
   titleRight,
   rightList,
+  rightListLinks,
 }) => {
-  // extracting our query out of our custom hook
-  const getThereData = useGetThereQuery()
-
-  console.log(getThereData)
-  console.log(getThereData[0].node)
+  console.log(leftList)
+  console.log(leftListLinks)
 
   const renderListLeft = () => {
-    return getThereData[0].node.international.map((element, idx) => {
+    return leftList.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element}
+          <a href={leftListLinks[idx]} target="_blank">
+            {element}
+          </a>
         </li>
       )
     })
   }
 
   const renderListRight = () => {
-    return getThereData[0].node.domestic.map((element, idx) => {
+    return rightList.map((element, idx) => {
       return (
         <li className="get-there__element" key={idx}>
-          {element}
+          <a href={rightListLinks[idx]} target="_blank">
+            {element}
+          </a>
         </li>
       )
     })

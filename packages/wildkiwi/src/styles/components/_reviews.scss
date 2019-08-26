@@ -2,17 +2,17 @@
   width: 100%;
   padding: 7rem 7rem;
 
-  @include respond(phone) {
-    text-align: center;
-    padding-top: 10rem;
+  @include respond(laptop) {
+    padding: 7rem 4rem;
   }
 
   @include respond(tablet) {
     margin-top: 0rem;
   }
 
-  @include respond(laptop) {
-    padding: 7rem 4rem;
+  @include respond(phone) {
+    text-align: center;
+    padding-top: 7rem;
   }
 
   &__rating {

@@ -32,7 +32,7 @@ const FooterForm = () => {
               placeholder="Email"
             />
 
-            <input
+            <textarea
               type="text"
               name="messsage"
               className="footer__form-input--big"

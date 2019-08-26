@@ -63,7 +63,7 @@ const Reviews = () => {
             country="Australia"
           />
         </div>
-        <div className="mobile-yes u-center-text u-margin-top-small">
+        <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
           <a
             aria-current="page"
             className="btn btn--green tablet-green-button"

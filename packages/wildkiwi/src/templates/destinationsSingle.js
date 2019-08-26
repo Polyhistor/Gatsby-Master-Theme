@@ -23,13 +23,6 @@ import Trips from "../components/trips/trips"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-import localGuide from "../images/Guide.svg"
-import van from "../images/Van.svg"
-import bed from "../images/Bed.svg"
-import toaster from "../images/Toaster.svg"
-
 const DestinationsSingle = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -62,11 +55,7 @@ const DestinationsSingle = ({ data }) => {
         buttonText="watch trail"
         buttonTextSecond="view photos"
       />
-      <GreenBar
-        text="Epic adventure tours for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar text="Epic adventure tours for 18 to 35 year olds" />
       <DestinationSection>
         <TripBox
           imageData={data.contentfulDestinations.svgMap.localFile.publicURL}
@@ -107,13 +96,13 @@ const DestinationsSingle = ({ data }) => {
         />
         <Includes
           title="What’s included on every Wild Kiwi tour"
-          iconFirst={localGuide}
+          iconFirst="Guide"
           textFirst="Expert local guide/driver"
-          iconSecond={van}
+          iconSecond="Bus"
           textSecond="New 18 sea vehicle"
-          iconThird={bed}
+          iconThird="Bed"
           textThird="Flash-pack accomodation"
-          iconFourth={toaster}
+          iconFourth="Toaster"
           textFourth="Breakfast everyday"
           titleSecond="What's also included on this tour"
           specifics={data.contentfulDestinations.included}
@@ -126,20 +115,19 @@ const DestinationsSingle = ({ data }) => {
         <Booking />
         <GetThere
           title="Getting there"
-          paragraph="You can fly directly to Auckland with most International carriers, as well as domestically within New Zealand."
+          paragraph={
+            data.contentfulDestinations.gettingThere.description.description
+          }
           titleLeft="International"
-          leftList={[
-            { label: "International" },
-            { label: "www.qantas.com" },
-            { label: "www.airnewzealand.com" },
-            { label: "www.emirates.com" },
-            { label: "wwww.ba.com" },
-          ]}
+          leftList={data.contentfulDestinations.gettingThere.international}
+          leftListLinks={
+            data.contentfulDestinations.gettingThere.internationalLinks
+          }
           titleRight="Domestic"
-          rightList={[
-            { label: "www.airnewzealand.com" },
-            { label: "www.jetstar.com/nz" },
-          ]}
+          rightList={data.contentfulDestinations.gettingThere.domestic}
+          rightListLinks={
+            data.contentfulDestinations.gettingThere.domesticLinks
+          }
         />
         <div className="hotfix--banner">
           <Banner

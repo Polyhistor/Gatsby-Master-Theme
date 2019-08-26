@@ -3,6 +3,8 @@
 // positioning
 .u-center-text {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .u-margin-bottom-small {
@@ -14,11 +16,19 @@
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
+  margin-bottom: 4rem;
+
+  @include respond(phone) {
+    margin-bottom: 7rem;
+  }
 }
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important;
+}
+
+.u-margin-top-tiny {
+  margin-top: 1rem;
 }
 
 .u-margin-top-small {
@@ -39,6 +49,10 @@
 
 .u-margin-top-percent-10 {
   margin-top: 10%;
+}
+
+.u-margin-left-tiny {
+  margin-left: 0.8rem;
 }
 
 .u-margin-left-medium {
@@ -99,6 +113,9 @@
 
   @include respond(tablet) {
     padding-top: 3rem;
+  }
+  @include respond(phone) {
+    padding-top: 1.5rem;
   }
 }
 
@@ -539,4 +556,17 @@
 input::placeholder {
   padding-left: 0.5rem;
   color: $color-grey-dark;
+}
+
+input:focus {
+  border: 2px solid $color-primary;
+}
+
+textarea::placeholder {
+  padding-left: 1rem;
+  font-family: Nunito-Semibold;
+}
+
+textarea:focus {
+  border: 2px solid $color-primary;
 }

@@ -23,8 +23,9 @@
 
     &-title {
       font-family: Nunito-Black;
-
       color: $color-grey-dark-3;
+      display: block;
+      padding-bottom: 1.5rem;
     }
 
     &--left {
@@ -39,5 +40,10 @@
 
   &__element {
     line-height: 4rem;
+
+    & > a {
+      text-decoration: none;
+      color: $color-grey-dark-2;
+    }
   }
 }
