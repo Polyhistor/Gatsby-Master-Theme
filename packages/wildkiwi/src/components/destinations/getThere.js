@@ -10,9 +10,6 @@ const getThere = ({
   rightList,
   rightListLinks,
 }) => {
-  console.log(leftList)
-  console.log(leftListLinks)
-
   const renderListLeft = () => {
     return leftList.map((element, idx) => {
       return (

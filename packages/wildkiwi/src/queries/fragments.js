@@ -183,6 +183,7 @@ export const CountriesFragment = graphql`
 export const DestinationsFragment = graphql`
   fragment Destination on ContentfulDestinations {
     slug
+    filterTag
     title
     destinationCountry
     duration
@@ -394,16 +395,5 @@ export const WhyWildFragment = graphql`
         }
       }
     }
-  }
-`
-
-// for How to get there section on itinerary page
-export const GettingThereFragment = graphql`
-  fragment GettingThere on ContentfulGettingThereDestinations {
-    description {
-      description
-    }
-    international
-    domestic
   }
 `

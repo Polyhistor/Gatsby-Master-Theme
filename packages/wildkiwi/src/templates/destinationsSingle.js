@@ -58,6 +58,7 @@ const DestinationsSingle = ({ data }) => {
       <GreenBar text="Epic adventure tours for 18 to 35 year olds" />
       <DestinationSection>
         <TripBox
+          destinationCountry={data.contentfulDestinations.destinationCountry}
           imageData={data.contentfulDestinations.svgMap.localFile.publicURL}
           imageAlt={data.contentfulDestinations.title}
           days={data.contentfulDestinations.duration}

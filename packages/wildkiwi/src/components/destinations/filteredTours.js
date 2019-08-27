@@ -8,22 +8,49 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
+  // setting the state of our filters
+  const [filter, setFilter] = useState({ a: false, b: false, c: false })
+
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
 
   // handling the filter functionality
   const handleSubmit = (e, n) => {
+    // preventing browser's default behaviour
     e.preventDefault()
-    // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
+
+    const updatedFilter = Object.assign(filter, n)
+
+    setFilter(updatedFilter)
+
+    console.log(filter)
+
     const filteredData = []
-    return destinationData.filter(element => {
-      // filter logic
-      if (element.node.duration === n) {
-        filteredData.push(element)
+
+    if (filter.a && filter.b && filter.c) {
+      destinationData.filter(e => {
+        if (
+          e.node.filterTag === "1 Week" ||
+          e.node.filterTag === "2 Weeks" ||
+          e.node.filterTag === "3 Weeks"
+        ) {
+          filteredData.push(e)
+        }
+        setData(filteredData)
+      })
+    } else if (filter.a && filter.b === false && filter.c === false) {
+      destinationData.filter(e => {
+        if (e.node.filterTag === "1 Week") {
+          filteredData.push(e)
+        }
+        setData(filteredData)
+      })
+    } else if (filter.a === false && filter.b && filter.c === false) {
+      if (e.node.filterTag === " 2 Weeks") {
+        filteredData.push(e)
       }
-      // update the state
       setData(filteredData)
-    })
+    }
   }
 
   let currency
@@ -109,25 +136,56 @@ const FilteredTour = ({ country }) => {
   }
 
   return (
-    <>
-      <div className="section-filtered-tour">
-        <div className="filtered-tour__container">
-          <div className="filtered-tour__head">
-            <h3>How long are you travelling for?</h3>
-            <button onClick={(e, n = 7) => handleSubmit(e, n)}>
-              <span>1 week</span>
-            </button>
-            <button onClick={(e, n = 14) => handleSubmit(e, n)}>
-              <span>2 weeks</span>
-            </button>
-            <button onClick={(e, n = 21) => handleSubmit(e, n)}>
-              <span>3 weeks</span>
-            </button>
-          </div>
-          {renderTours(data)}
+    <div className="section-filtered-tour">
+      <div className="filtered-tour__container">
+        <div className="filtered-tour__head">
+          <h3>How long are you travelling for?</h3>
+          <button
+            className={
+              filter.a === true && filter.b === true && filter.c === true
+                ? "filtered-tour__button filtered-tour__button--active"
+                : "filtered-tour__button"
+            }
+            onClick={(e, n = { a: true, b: true, c: true }) =>
+              handleSubmit(e, n)
+            }
+          >
+            <span>All</span>
+          </button>
+          <button
+            className={
+              filter.a === true
+                ? "filtered-tour__button filtered-tour__button--active"
+                : "filtered-tour__button"
+            }
+            onClick={(e, n = { a: !filter.a }) => handleSubmit(e, n)}
+          >
+            <span>1 week</span>
+          </button>
+          <button
+            className={
+              filter.b === true
+                ? "filtered-tour__button filtered-tour__button--active"
+                : "filtered-tour__button"
+            }
+            onClick={(e, n = { b: !filter.b }) => handleSubmit(e, n)}
+          >
+            <span>2 weeks</span>
+          </button>
+          <button
+            className={
+              filter.c === true
+                ? "filtered-tour__button filtered-tour__button--active"
+                : "filtered-tour__button"
+            }
+            onClick={(e, n = { c: !filter.c }) => handleSubmit(e, n)}
+          >
+            <span>3 weeks</span>
+          </button>
         </div>
+        {renderTours(data)}
       </div>
-    </>
+    </div>
   )
 }
 

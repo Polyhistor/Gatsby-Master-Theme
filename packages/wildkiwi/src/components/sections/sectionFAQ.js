@@ -27,7 +27,6 @@ const SectionVehicles = () => {
     if (idx === 3) {
       setCategory(categoryDData)
     }
-    // setColor("FAQ__button FAQ__button--active")
   }
 
   // creating variables to store category strings
