@@ -45,47 +45,49 @@ const IndexPage = () => {
 
   // rendering all the destination boxes
   const renderCountries = () => {
-    return countryQuery.map((country, idx) => {
-      return (
-        <Fragment key={idx}>
-          <DestinationsMobile
-            key={idx + 4}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-          />
-          <DestinationsTablet
-            key={idx + 8}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          />
-          <TourBanner
-            key={idx + 12}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          />
-        </Fragment>
-      )
-    })
+    return countryQuery
+      .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
+      .map((country, idx) => {
+        return (
+          <Fragment key={idx}>
+            <DestinationsMobile
+              key={idx + 4}
+              destination={country.node.slug}
+              title={country.node.title}
+              subtitle={country.node.days}
+              departs={country.node.departure}
+              details={country.node.description}
+              price={country.node.price}
+              tours={filterDestinations(country.node.slug)}
+              imageData={country.node.banner.localFile.childImageSharp.fluid}
+            />
+            <DestinationsTablet
+              key={idx + 8}
+              destination={country.node.slug}
+              title={country.node.title}
+              subtitle={country.node.days}
+              departs={country.node.departure}
+              details={country.node.description}
+              price={country.node.price}
+              tours={filterDestinations(country.node.slug)}
+              imageData={country.node.banner.localFile.childImageSharp.fluid}
+              SVGMap={country.node.svgMap.localFile.publicURL}
+            />
+            <TourBanner
+              key={idx + 12}
+              destination={country.node.slug}
+              title={country.node.title}
+              subtitle={country.node.days}
+              departs={country.node.departure}
+              details={country.node.description}
+              price={country.node.price}
+              tours={filterDestinations(country.node.slug)}
+              imageData={country.node.banner.localFile.childImageSharp.fluid}
+              SVGMap={country.node.svgMap.localFile.publicURL}
+            />
+          </Fragment>
+        )
+      })
   }
 
   return (
@@ -135,7 +137,7 @@ const IndexPage = () => {
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
-        buttonText="continue"
+        buttonText="explore"
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} />

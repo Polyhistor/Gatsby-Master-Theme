@@ -28,9 +28,9 @@ const FilteredTour = ({ country }) => {
 
   // setting the state of our filters
   const [filter, setFilter] = useState({
-    week: true,
-    twoWeeks: true,
-    threeWeeks: true,
+    week: false,
+    twoWeeks: false,
+    threeWeeks: false,
   })
 
   // using useState hook for the purposes of our filter
@@ -43,8 +43,6 @@ const FilteredTour = ({ country }) => {
 
     //over riding certain part of our filter object
     const updatedFilter = Object.assign(filter, n)
-
-    // console.log(filter)
 
     // updating our filter state
     setFilter(updatedFilter)
@@ -59,7 +57,7 @@ const FilteredTour = ({ country }) => {
       }
     }
 
-    setData(filteredData)
+    filteredData.length === 0 ? setData(destinationData) : setData(filteredData)
   }
 
   let currency
