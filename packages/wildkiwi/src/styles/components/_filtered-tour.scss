@@ -36,7 +36,7 @@
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40rem, max-content));
-    grid-column-gap: 2rem;
+    grid-column-gap: 1.6rem;
     grid-row-gap: 2rem;
 
     @include respond(laptop) {

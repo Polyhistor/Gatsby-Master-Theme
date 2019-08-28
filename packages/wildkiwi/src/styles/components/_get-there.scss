@@ -1,8 +1,17 @@
 .get-there {
   display: grid;
-  grid-template-rows: 7rem 6rem 22rem;
+  grid-template-rows: 7rem 10rem 22rem;
   font-size: 1.6rem;
   color: $color-grey-dark-2;
+
+  @include respond(laptop) {
+    grid-template-rows: 7rem 14rem 22rem;
+    width: 187%;
+  }
+
+  @include respond(tablet) {
+    grid-template-rows: 7rem 10rem 11rem;
+  }
 
   @include respond(phone) {
     grid-template-rows: 7rem 10rem 22rem;
@@ -26,6 +35,7 @@
       color: $color-grey-dark-3;
       display: block;
       padding-bottom: 1.5rem;
+      margin-left: -1.6rem;
     }
 
     &--left {
@@ -39,7 +49,7 @@
   }
 
   &__element {
-    line-height: 4rem;
+    line-height: 2.5rem;
 
     & > a {
       text-decoration: none;

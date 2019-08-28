@@ -138,6 +138,7 @@ export const ActivitiesFragment = graphql`
 // for countries that has been fetched from Contetnful
 export const CountriesFragment = graphql`
   fragment Country on ContentfulCountry {
+    contentfulid
     slug
     title
     banner {
@@ -272,6 +273,7 @@ export const DestinationsFragment = graphql`
 // for how-it-works boxes that has been fetched from Contetnful
 export const HowItWorksFragment = graphql`
   fragment HowItWorks on ContentfulHowItWorks {
+    contentfulid
     title
     description {
       description
