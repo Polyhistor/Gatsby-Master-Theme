@@ -25,7 +25,7 @@ const FooterContact = () => {
       <h6 className="footer__trips-header footer__trips-link" />
       <ul className="footer__trips-list">
         <li className="footer__trips-item">Opening Hours</li>
-        <li className="footer__trips-item">8:30am - 5:30pm (GMT+12)</li>
+        <li className="footer__trips-item">8:30am - 5:30pm</li>
         <li className="footer__trips-item u-padding-top-sedium">
           {state === "newzealand"
             ? "+64 9 973 5676"

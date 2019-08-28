@@ -42,9 +42,9 @@ const ActivitiesBox = ({ activityData }) => {
     <div className="section-destination__activities">
       <h2 className="green-title u-padding-bottom-sedium">Activities</h2>
       <div className="acitivity-box">{renderActivities()}</div>
-      {/* <Link to="/activities" className="acitivity-box-button">
+      <Link to="/activities" className="acitivity-box-button">
         All Activities
-      </Link> */}
+      </Link>
     </div>
   )
 }

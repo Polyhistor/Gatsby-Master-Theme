@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import Img from "gatsby-image"
 
-// extracting query out of our custom hook
-
 const Itinerary = ({
   title,
   itineraryDescriptions,
@@ -22,7 +20,9 @@ const Itinerary = ({
             fluid={itineraryImages[index].localFile.childImageSharp.fluid}
             alt={itineraryTitles[index]}
           />
-          <span className="itinerary__single-day">Day {index + 1}</span>
+          <span className="itinerary__single-day">
+            {itineraryDescription.title}
+          </span>
           <h2 className="itinerary__single-title">{itineraryTitles[index]}</h2>
           <p className="itinerary__single-paragraph">
             {itineraryDescription.description.description}

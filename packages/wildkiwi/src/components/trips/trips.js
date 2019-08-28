@@ -34,7 +34,7 @@ const Trips = ({ data }) => {
           price={`from ${currency[1]}${commaAdder(trip.priceFrom)} ${
             currency[0]
           }`}
-          priceDay={`${trip.pricePerDay} per day`}
+          priceDay={`${currency[1]}${trip.pricePerDay} per day`}
         />
       )
     })

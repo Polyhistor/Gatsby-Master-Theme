@@ -1,14 +1,14 @@
 .itinerary {
   &__container {
-    & div:nth-child(7) {
+    & div:nth-child(5) {
       filter: blur(3px);
     }
-    & div:nth-child(n + 8) {
+    & div:nth-child(n + 6) {
       display: none;
     }
 
     &--show-more {
-      & div:nth-child(n + 8) {
+      & div:nth-child(n + 6) {
         display: grid;
       }
     }
