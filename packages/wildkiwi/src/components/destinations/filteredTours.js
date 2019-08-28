@@ -8,8 +8,30 @@ const FilteredTour = ({ country }) => {
   // taking data out of our custom hook
   const destinationData = useDestinationQuery()
 
+  // categorizing data on the load
+  let groupByData = {
+    week: [],
+    twoWeeks: [],
+    threeWeeks: [],
+  }
+
+  // the actual categorizer function
+  destinationData.forEach(e => {
+    if (e.node.filterTag === "1 Week") {
+      groupByData.week.push(e)
+    } else if (e.node.filterTag === "2 Weeks") {
+      groupByData.twoWeeks.push(e)
+    } else {
+      groupByData.threeWeeks.push(e)
+    }
+  })
+
   // setting the state of our filters
-  const [filter, setFilter] = useState({ a: false, b: false, c: false })
+  const [filter, setFilter] = useState({
+    week: true,
+    twoWeeks: true,
+    threeWeeks: true,
+  })
 
   // using useState hook for the purposes of our filter
   const [data, setData] = useState(destinationData)
@@ -19,38 +41,25 @@ const FilteredTour = ({ country }) => {
     // preventing browser's default behaviour
     e.preventDefault()
 
+    //over riding certain part of our filter object
     const updatedFilter = Object.assign(filter, n)
 
+    // console.log(filter)
+
+    // updating our filter state
     setFilter(updatedFilter)
 
-    console.log(filter)
-
+    // creating an empty array that will be later on used to render the dom, this is to avoid mutation
     const filteredData = []
 
-    if (filter.a && filter.b && filter.c) {
-      destinationData.filter(e => {
-        if (
-          e.node.filterTag === "1 Week" ||
-          e.node.filterTag === "2 Weeks" ||
-          e.node.filterTag === "3 Weeks"
-        ) {
-          filteredData.push(e)
-        }
-        setData(filteredData)
-      })
-    } else if (filter.a && filter.b === false && filter.c === false) {
-      destinationData.filter(e => {
-        if (e.node.filterTag === "1 Week") {
-          filteredData.push(e)
-        }
-        setData(filteredData)
-      })
-    } else if (filter.a === false && filter.b && filter.c === false) {
-      if (e.node.filterTag === " 2 Weeks") {
-        filteredData.push(e)
+    // handling filter pushing gracefully
+    for (let key in filter) {
+      if (filter[key]) {
+        filteredData.push(...groupByData[key])
       }
-      setData(filteredData)
     }
+
+    setData(filteredData)
   }
 
   let currency
@@ -142,43 +151,35 @@ const FilteredTour = ({ country }) => {
           <h3>How long are you travelling for?</h3>
           <button
             className={
-              filter.a === true && filter.b === true && filter.c === true
+              filter.week === true
                 ? "filtered-tour__button filtered-tour__button--active"
                 : "filtered-tour__button"
             }
-            onClick={(e, n = { a: true, b: true, c: true }) =>
-              handleSubmit(e, n)
-            }
-          >
-            <span>All</span>
-          </button>
-          <button
-            className={
-              filter.a === true
-                ? "filtered-tour__button filtered-tour__button--active"
-                : "filtered-tour__button"
-            }
-            onClick={(e, n = { a: !filter.a }) => handleSubmit(e, n)}
+            onClick={(e, n = { week: !filter.week }) => handleSubmit(e, n)}
           >
             <span>1 week</span>
           </button>
           <button
             className={
-              filter.b === true
+              filter.twoWeeks === true
                 ? "filtered-tour__button filtered-tour__button--active"
                 : "filtered-tour__button"
             }
-            onClick={(e, n = { b: !filter.b }) => handleSubmit(e, n)}
+            onClick={(e, n = { twoWeeks: !filter.twoWeeks }) =>
+              handleSubmit(e, n)
+            }
           >
             <span>2 weeks</span>
           </button>
           <button
             className={
-              filter.c === true
+              filter.threeWeeks === true
                 ? "filtered-tour__button filtered-tour__button--active"
                 : "filtered-tour__button"
             }
-            onClick={(e, n = { c: !filter.c }) => handleSubmit(e, n)}
+            onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
+              handleSubmit(e, n)
+            }
           >
             <span>3 weeks</span>
           </button>
