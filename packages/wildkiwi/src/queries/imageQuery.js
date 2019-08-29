@@ -171,6 +171,10 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      reviews: file(relativePath: { eq: "wild-kiwi-tours-reviews.jpg" }) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData

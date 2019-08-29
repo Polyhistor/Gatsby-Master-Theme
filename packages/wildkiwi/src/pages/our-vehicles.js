@@ -31,7 +31,7 @@ const OurVehicles = () => {
           titleFirst="our vehicle"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Our luxury vehicles raise the bar when it comes to road trip comfort."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

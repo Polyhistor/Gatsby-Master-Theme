@@ -31,7 +31,7 @@ const countries = ({ data }) => {
         titleFirst={data.contentfulCountry.title}
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
-        description="Equo to estrupt aquodic tecus doluptatiis expedita autaquam ratur ab iniam voloribus, siti ad estinci."
+        description={data.contentfulCountry.bannerDescription}
         buttonStyles={["white", "white"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
