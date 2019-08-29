@@ -31,7 +31,7 @@ const FAQ = () => {
           titleFirst="FAQ"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

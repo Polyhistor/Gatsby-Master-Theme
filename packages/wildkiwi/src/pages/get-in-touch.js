@@ -14,9 +14,6 @@ import Trips from "../components/trips/trips"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-
 const GetInTouch = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -31,7 +28,7 @@ const GetInTouch = () => {
           titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="We're always here to help, just send us a message and a member of the Wild Kiwi team will be in touch."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
@@ -39,7 +36,6 @@ const GetInTouch = () => {
       </div>
       <GreenBar
         text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionGetInTouch />

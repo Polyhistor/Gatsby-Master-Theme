@@ -153,6 +153,7 @@ export const CountriesFragment = graphql`
     days
     departure
     description
+    bannerDescription
     price
     svgMap {
       localFile {
@@ -397,5 +398,16 @@ export const WhyWildFragment = graphql`
         }
       }
     }
+  }
+`
+
+// for reviews section
+export const ReviewsFragment = graphql`
+  fragment Reviews on ContentfulReviews {
+    contentful_id
+    reccomended
+    name
+    reviewText
+    date
   }
 `

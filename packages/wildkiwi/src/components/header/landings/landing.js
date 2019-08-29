@@ -8,6 +8,7 @@ const Header = ({
   TitleSecond,
   TitleThird,
   subTitle,
+  description,
   buttonFirst,
   buttonFirstURL,
   buttonSecond,
@@ -36,6 +37,9 @@ const Header = ({
                 </>
               ) : null}
             </span>
+            {description !== null ? (
+              <p className="heading-primary--description">{description}</p>
+            ) : null}
             {subTitle !== null ? (
               <span className="heading-primary--sub">{subTitle}</span>
             ) : null}

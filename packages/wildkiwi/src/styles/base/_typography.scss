@@ -39,6 +39,10 @@
   &--description {
     color: white;
     font-size: 1.6rem;
+    font-family: Nunito-Semibold;
+    padding-top: 2rem;
+    max-width: 52rem;
+    text-transform: none;
 
     @include respond(phone) {
       display: none;

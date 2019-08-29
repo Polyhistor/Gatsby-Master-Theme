@@ -14,10 +14,10 @@
 
     &-single {
       display: grid;
-      grid-template-rows: 26rem 4rem min-content min-content;
+      grid-template-rows: 16rem 4rem min-content min-content;
 
       @include respond(laptop) {
-        grid-template-rows: 5.2rem 23.2rem;
+        grid-template-rows: 5.2rem 15.5rem;
         grid-template-columns: 27rem 27rem;
         grid-column-gap: 2rem;
       }
