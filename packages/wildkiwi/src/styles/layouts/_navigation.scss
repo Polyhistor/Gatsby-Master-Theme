@@ -27,7 +27,7 @@
     list-style: none;
 
     @include respond(phone) {
-      transform: translateY(-30rem);
+      transform: translateY(-35rem);
     }
   }
 
