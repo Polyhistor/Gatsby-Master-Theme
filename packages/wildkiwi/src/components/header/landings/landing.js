@@ -37,7 +37,7 @@ const Header = ({
                 </>
               ) : null}
             </span>
-            {description !== null ? (
+            {description !== undefined ? (
               <p className="heading-primary--description">{description}</p>
             ) : null}
             {subTitle !== null ? (

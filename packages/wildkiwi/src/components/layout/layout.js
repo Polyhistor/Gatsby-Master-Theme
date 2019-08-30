@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+// import { withPrefix } from "gatsby"
 
 import Footer from "../footer/footer"
 import Navigation from "../header/navigation"
@@ -7,8 +8,8 @@ import Navigation from "../header/navigation"
 //mobile modules
 import NavigationMobile from "./../mobile/navigationMobile"
 
-import "../../fonts/Nunito/css/stylesheet.css"
-import "../../fonts/NexaRustSans-Black2/css/styles.css"
+// import "../../fonts/Nunito/css/stylesheet.css"
+// import "../../fonts/NexaRustSans-Black2/css/styles.css"
 import "../../styles/main.scss"
 
 const Layout = ({ children }) => {

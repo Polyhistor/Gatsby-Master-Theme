@@ -14,8 +14,9 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
-const ActivitiesSingle = ({ data }) => {
+const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
@@ -50,7 +51,11 @@ const ActivitiesSingle = ({ data }) => {
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
+
       <SectionActivity>
+        <div>
+          <Breadcrumb location={location} crumbLabel="activities" />
+        </div>
         <ActivityScaffold
           title={data.contentfulActivities.title}
           subtitle={data.contentfulActivities.subtitle}
