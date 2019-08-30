@@ -2,18 +2,18 @@ import { graphql, useStaticQuery } from "gatsby"
 
 // our reusable graphql Query for blogs utlizing predefined fragment
 const useReviewQuery = () => {
-  const aboutUsData = useStaticQuery(graphql`
+  const reviewData = useStaticQuery(graphql`
     query {
-      allContentfulAboutUs(limit: 8, sort: { fields: [order], order: ASC }) {
+      allContentfulReviews {
         edges {
           node {
-            ...AboutUs
+            ...Reviews
           }
         }
       }
     }
   `)
-  return aboutUsData.allContentfulAboutUs.edges
+  return reviewData.allContentfulReviews.edges
 }
 
-export default useAboutUsQuery
+export default useReviewQuery

@@ -189,20 +189,20 @@
       text-decoration: none;
 
       & > .gatsby-image-wrapper {
-        height: 32rem;
+        height: 20rem;
         margin-bottom: 2rem;
         border-radius: 4px;
 
         @include respond(laptop) {
-          height: 25rem;
+          height: 16rem;
         }
 
         @include respond(tablet) {
-          height: 25rem;
+          height: 16rem;
         }
 
         @include respond(phone) {
-          height: 18rem;
+          height: 12rem;
         }
 
         & ~ .activity__title {

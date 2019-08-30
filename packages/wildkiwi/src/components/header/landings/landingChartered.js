@@ -1,6 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
-import BackgroundIamge from "gatsby-background-image"
+import BackgroundImage from "gatsby-background-image"
 
 const LandingChartered = ({
   bannerFirst,
@@ -10,11 +9,16 @@ const LandingChartered = ({
   bannerFifth,
   buttonText,
   buttonTextSecond,
+  country,
 }) => {
   return (
     // for increase reuseability we fetch all the image data and text from the parent component
-    <div className="banner-chartered">
-      <BackgroundIamge fluid={bannerFirst} className="banner-chartered--1">
+    <div
+      className={
+        country === "Europe" ? "banner-chartered--europe" : "banner-chartered"
+      }
+    >
+      <BackgroundImage fluid={bannerFirst} className="banner-chartered--1">
         {/* <Link to="/s" className="btn btn--white btn-animated">
           {buttonText}
         </Link>
@@ -23,21 +27,21 @@ const LandingChartered = ({
             {buttonTextSecond}
           </Link>
         </div> */}
-      </BackgroundIamge>
-      <BackgroundIamge fluid={bannerSecond} className="banner-chartered--2" />
-      <BackgroundIamge fluid={bannerThird} className="banner-chartered--3">
+      </BackgroundImage>
+      <BackgroundImage fluid={bannerSecond} className="banner-chartered--2" />
+      <BackgroundImage fluid={bannerThird} className="banner-chartered--3">
         <div className="laptop-button__chartered-landing">
           {/* <Link to="/s" className="btn btn--white btn-animated">
             {buttonTextSecond}
           </Link> */}
         </div>
-      </BackgroundIamge>
-      <BackgroundIamge fluid={bannerFourth} className="banner-chartered--4" />
-      <BackgroundIamge fluid={bannerFifth} className="banner-chartered--5">
+      </BackgroundImage>
+      <BackgroundImage fluid={bannerFourth} className="banner-chartered--4" />
+      <BackgroundImage fluid={bannerFifth} className="banner-chartered--5">
         {/* <Link to="/s" className="btn btn--white btn-animated">
           {buttonTextSecond}
         </Link> */}
-      </BackgroundIamge>
+      </BackgroundImage>
     </div>
   )
 }

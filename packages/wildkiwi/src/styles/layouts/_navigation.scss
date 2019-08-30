@@ -42,6 +42,17 @@
       left: 18rem;
     }
 
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      left: 0;
+      top: 0;
+      padding-top: 0;
+      border-bottom: 1px solid $color-grey-dark;
+    }
+
     &:hover {
       .navigation__dropdown-item {
         display: block;
@@ -54,6 +65,11 @@
       background: white;
       text-align: left;
 
+      @include respond(phone) {
+        display: block;
+        padding: 1.5rem;
+      }
+
       & > a {
         text-decoration: none;
         font-family: Nunito-Black;
@@ -62,6 +78,13 @@
         font-size: 1.3rem;
         color: $color-grey-dark-2;
         text-transform: capitalize;
+
+        @include respond(phone) {
+          font-family: Nunito-Regular;
+          font-size: 1.8rem;
+          color: #767676;
+          text-transform: capitalize;
+        }
 
         &:hover {
           border-bottom: 1px solid gray;
@@ -94,6 +117,14 @@
         margin-right: 0;
         margin-left: 0;
         margin-top: 0;
+      }
+
+      & > a {
+        @include respond(phone) {
+          color: $color-primary !important;
+          font-family: Nunito-Semibold;
+          text-transform: uppercase;
+        }
       }
     }
 
@@ -144,6 +175,11 @@
 
       @include respond(phone) {
         display: block;
+        padding: 0.8rem 0.5rem;
+        font-size: 1.8rem;
+        color: $color-grey-dark-2 !important;
+        font-family: Nunito-Regular;
+        text-transform: capitalize;
       }
     }
   }
@@ -205,7 +241,7 @@
           left: 0;
           top: 0;
           max-width: 100%;
-          padding-top: 25vh;
+          padding-top: 10vh;
           margin-top: 0rem;
         }
       }

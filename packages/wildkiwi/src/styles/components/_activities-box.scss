@@ -30,7 +30,7 @@
     }
 
     @include respond(phone) {
-      grid-template-rows: 15rem 5rem 1.5rem 4rem;
+      grid-template-rows: 15rem repeat(3, min-content);
     }
 
     &__image-container {

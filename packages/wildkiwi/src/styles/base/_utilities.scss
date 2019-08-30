@@ -407,7 +407,7 @@
       }
 
       @include respond(phone) {
-        height: 70rem;
+        height: 61.89rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -446,7 +446,7 @@
   &--banner {
     grid-row: 10;
     grid-column: 1/-1;
-    margin-top: 8rem;
+    margin-top: 5rem;
 
     @include respond(tablet) {
       grid-row: 11;

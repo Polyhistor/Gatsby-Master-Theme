@@ -115,6 +115,9 @@ export const ActivitiesFragment = graphql`
     title
     subtitle
     price
+    country {
+      title
+    }
     svgMap {
       localFile {
         publicURL
@@ -405,6 +408,8 @@ export const WhyWildFragment = graphql`
 export const ReviewsFragment = graphql`
   fragment Reviews on ContentfulReviews {
     contentful_id
+    title
+    country
     reccomended
     name
     reviewText

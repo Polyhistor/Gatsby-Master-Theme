@@ -87,6 +87,7 @@ const DestinationsSingle = ({ data }) => {
         />
         <Itinerary
           title="Itinerary"
+          country={data.contentfulDestinations.destinationCountry}
           itineraryDescriptions={data.contentfulDestinations.itinerary.days}
           itineraryImages={
             data.contentfulDestinations.itinerary.itineraryImages

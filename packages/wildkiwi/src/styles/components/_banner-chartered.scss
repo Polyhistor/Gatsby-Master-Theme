@@ -19,6 +19,10 @@
     grid-template-columns: 1fr;
   }
 
+  &--europe {
+    grid-template-columns: 1fr;
+  }
+
   &--1 {
     grid-column: 1;
     grid-row: 1/-1;

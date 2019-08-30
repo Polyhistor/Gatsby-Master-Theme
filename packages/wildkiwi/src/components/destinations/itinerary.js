@@ -6,6 +6,7 @@ const Itinerary = ({
   itineraryDescriptions,
   itineraryImages,
   itineraryTitles,
+  country,
 }) => {
   // using hooks to update our stylings
   const [show, setShow] = useState(false)
@@ -36,6 +37,13 @@ const Itinerary = ({
     <section className="section-destination__itinerary">
       <div className="itinerary">
         <h2 className="green-title u-padding-bottom-sedium">{title}</h2>
+        {country === "europe" ? (
+          <div className="u-margin-bottom-sedium">
+            <h3 className="acitivity-box-single__title">
+              You can start this tour from various countries
+            </h3>
+          </div>
+        ) : null}
         <div
           className={
             show === false
