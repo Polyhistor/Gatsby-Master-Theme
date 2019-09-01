@@ -12,7 +12,7 @@ const IndexPage = () => (
     <h1>
       <Header text="This is a fancy title" />
     </h1>
-    <p>Welcome to your new Gatsby site.</p>
+    <p>MSSS UPDATE.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
