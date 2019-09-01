@@ -62,6 +62,10 @@
     "build:medsailors": "cd packages/medsailors && npm run build",
     "test:medsailors": "cd packages/medsailors && npm run test",
     "lint:medsailors": "cd packages/medsailors && npm run lint",
+    "start:yachtgetaways": "cd packages/yachtgetaways && npm run start",
+    "build:yachtgetaways": "cd packages/yachtgetaways && npm run build",
+    "test:yachtgetaways": "cd packages/yachtgetaways && npm run test",
+    "lint:yachtgetaways": "cd packages/yachtgetaways && npm run lint",
     "format": "prettier --write src/**/*.{js,jsx}",
     "test": "echo test all applications",
     "build": "cd packages/wildkiwi && npm run build"
