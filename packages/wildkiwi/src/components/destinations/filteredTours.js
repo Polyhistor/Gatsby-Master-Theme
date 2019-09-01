@@ -82,7 +82,7 @@ const FilteredTour = ({ country }) => {
           ? (currency = ["NZD", "$"])
           : element.node.destinationCountry === "australia"
           ? (currency = ["AUD", "$"])
-          : (currency = ["EURO", "€"])
+          : (currency = ["EUR", "€"])
 
         return (
           <Link

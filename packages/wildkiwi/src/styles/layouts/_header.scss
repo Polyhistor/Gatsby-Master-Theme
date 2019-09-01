@@ -59,6 +59,11 @@
       }
     }
 
+    & + .navigation__item {
+      border-top: 1px solid $color-grey-dark;
+      margin-top: -0.4rem;
+    }
+
     @include respond(laptop) {
       right: 6.8%;
     }

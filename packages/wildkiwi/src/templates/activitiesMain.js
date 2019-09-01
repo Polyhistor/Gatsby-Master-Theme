@@ -65,8 +65,6 @@ const ActivitiesMain = ({ pageContext }) => {
     }
   `)
 
-  let currency
-
   // embracing the variables
   const ourData = activitiesData.allContentfulActivities.edges
 
@@ -93,12 +91,6 @@ const ActivitiesMain = ({ pageContext }) => {
 
   const renderActivities = () => {
     return data.map(({ node }, idx) => {
-      // logic for adding currency text
-      node.country.slug === "newzealand"
-        ? (currency = ["NZD", "$"])
-        : node.country.slug === "australia"
-        ? (currency = ["AUD", "$"])
-        : (currency = ["EURO", "€"])
       return (
         <div className="activity__main-container" key={idx}>
           <Link className="activity__main-link" to={`activities/` + node.slug}>
@@ -115,8 +107,7 @@ const ActivitiesMain = ({ pageContext }) => {
                 ? "free"
                 : node.price === "included"
                 ? "included"
-                : `${node.price} ${currency[0]}`}
-              {/* {`${node.price} ${currency[0]}`} */}
+                : `${node.price}`}
             </h5>
           </Link>
         </div>
@@ -139,7 +130,7 @@ const ActivitiesMain = ({ pageContext }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure tours for 18 to 35 year olds"
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />

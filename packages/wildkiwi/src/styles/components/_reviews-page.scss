@@ -1,0 +1,11 @@
+.reviews {
+  &__block {
+    margin: 5rem 0rem;
+    max-width: 50%;
+  }
+
+  &__star-box {
+    max-width: 16%;
+    display: flex;
+  }
+}

@@ -47,7 +47,7 @@
     & .how-it-works__box:nth-child(12),
     & .how-it-works__box:nth-child(13) {
       & > .how-it-works__image > .gatsby-image-wrapper {
-        height: 33rem;
+        height: 26.93rem;
 
         @include respond(tablet) {
           height: 27rem;
@@ -238,7 +238,7 @@
     & .how-it-works__box:nth-child(9),
     & .how-it-works__box:nth-child(10) {
       & > .how-it-works__image > .gatsby-image-wrapper {
-        height: 50rem;
+        height: 41rem;
         width: 61.5rem;
 
         @include respond(laptop) {
@@ -372,6 +372,7 @@
   &__description {
     max-width: 75rem;
     padding: 0 1rem;
+    margin-bottom: 3.5rem;
   }
 
   &__header {
@@ -379,7 +380,7 @@
   }
 
   &__button {
-    margin: 2rem 0 0 2rem;
+    margin: 1rem 0 0 1rem;
 
     @include respond(tablet) {
       margin: 3rem 0 0 1.5rem;

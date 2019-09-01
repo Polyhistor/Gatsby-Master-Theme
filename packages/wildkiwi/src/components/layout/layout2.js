@@ -7,8 +7,8 @@ import Navigation2 from "../header/navigation2"
 //mobile modules
 import NavigationMobile from "./../mobile/navigationMobile"
 
-import "../../fonts/Nunito/css/stylesheet.css"
-import "../../fonts/NexaRustSans-Black2/css/styles.css"
+// import "../../fonts/Nunito/css/stylesheet.css"
+// import "../../fonts/NexaRustSans-Black2/css/styles.css"
 import "../../styles/main.scss"
 
 const Layout = ({ children }) => {

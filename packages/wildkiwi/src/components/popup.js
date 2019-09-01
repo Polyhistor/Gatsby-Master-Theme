@@ -8,7 +8,7 @@ const Popup = () => {
         <a className="popup__close" href="#bannerHero">
           &times;
         </a>
-        <iframe
+        {/* <iframe
           title="Wild kiwi"
           width="90%"
           height="90%"
@@ -16,7 +16,7 @@ const Popup = () => {
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        />
+        /> */}
       </div>
     </div>
   )

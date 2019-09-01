@@ -38,7 +38,11 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      landing: file(relativePath: { eq: "wild-kiwi-header-image.jpg" }) {
+      landing: file(
+        relativePath: {
+          eq: "wild-kiwi-adventure-tours-youth-new-zealand-australia-d-v3.jpg"
+        }
+      ) {
         ...FluidImageBig
       }
 
@@ -47,7 +51,9 @@ const useImageQuery = () => {
       }
 
       bannerHero: file(
-        relativePath: { eq: "wild-kiwi-what-we-stand-for.jpg" }
+        relativePath: {
+          eq: "wild-kiwi-adventure-tours-flashpacking-new-zealand-australia-small-groups.jpg"
+        }
       ) {
         ...FluidImageBig
       }

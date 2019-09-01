@@ -5,6 +5,7 @@ import Layout from "../components/layout/layout2"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 import SEO from "../components/seo/seo"
+import SectionReview from "../components/sections/sectionReview"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -32,6 +33,7 @@ const Reviews = () => {
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
+      <SectionReview />
     </Layout>
   )
 }
