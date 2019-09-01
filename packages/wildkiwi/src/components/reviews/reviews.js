@@ -1,5 +1,5 @@
 import React from "react"
-import { withPrefix } from "gatsby"
+import { withPrefix, Link } from "gatsby"
 
 import Review from "./review"
 
@@ -33,13 +33,13 @@ const Reviews = () => {
             <center className="facebook-reviews__subtitle">
               based on 151 reviews
             </center>
-            <a
+            <Link
               aria-current="page"
               className="btn btn--green tablet-green-button"
-              href="/"
+              to="/reviews"
             >
               more reviews
-            </a>
+            </Link>
           </div>
         </div>
         <div className="col-1-of-4">
@@ -64,13 +64,13 @@ const Reviews = () => {
           />
         </div>
         <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
-          <a
+          <Link
             aria-current="page"
             className="btn btn--green tablet-green-button"
-            href="/"
+            to="/reviews"
           >
             more reviews
-          </a>
+          </Link>
         </div>
       </div>
     </section>
