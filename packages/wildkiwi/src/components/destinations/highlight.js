@@ -2,31 +2,24 @@ import React from "react"
 
 import BoxText from "../boxes/boxText"
 
-const Highlight = ({ title, imageOne, imageTwo, imageThree, imageFour }) => {
+const Highlight = ({ title, images, titles, descriptions }) => {
+  const renderHighlights = () => {
+    return titles.map((higlight, idx) => {
+      return (
+        <BoxText
+          key={idx}
+          imageData={images[idx].localFile.childImageSharp.fluid}
+          title={titles[idx]}
+          description={descriptions[idx]}
+        />
+      )
+    })
+  }
   return (
     <section className="section-destination__highlight">
       <div className="highlight-box__container">
         <h2 className="green-title">{title}</h2>
-        <BoxText
-          imageData={imageOne}
-          title="Highlight One"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <BoxText
-          imageData={imageTwo}
-          title="Highlight Two"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <BoxText
-          imageData={imageThree}
-          title="Highlight Three"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <BoxText
-          imageData={imageFour}
-          title="Highlight Four"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
+        {renderHighlights()}
       </div>
     </section>
   )

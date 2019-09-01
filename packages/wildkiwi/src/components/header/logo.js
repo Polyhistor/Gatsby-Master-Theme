@@ -1,26 +1,13 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { Link, withPrefix } from "gatsby"
 
 const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "WildKiwi.png" }) {
-        childImageSharp {
-          fixed(height: 42, width: 120) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
   return (
     <li className="navigation__item">
       <Link className="header__logo" to="/">
-        <Img
-          className="header__logo-literal"
-          fixed={data.logo.childImageSharp.fixed}
-        />
+        <svg className="svg-icon--wildkiwi-logo">
+          <use xlinkHref={withPrefix("sprite.svg#icon-WildKiwi")} />
+        </svg>
       </Link>
     </li>
   )

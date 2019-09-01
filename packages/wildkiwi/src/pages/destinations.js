@@ -1,84 +1,119 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // default components
-import Layout2 from "../components/layout/layout2"
-import SEO from "../components/seo"
-import DestinationSection from "../components/destinations/destinationSection"
-import LandingChartered from "../components/header/landings/landingChartered"
-import GreenBar from "../components/greenBar"
-import DestinationStarter from "../components/destinations/destinationStarter"
-import TripBox from "../components/destinations/tripBox"
-import HighLight from "../components/destinations/highlight"
-import Itinerary from "../components/destinations/itinerary"
-import Includes from "../components/destinations/includes"
+import Layout from "../components/layout/layout"
+import SEO from "../components/seo/seo"
+import Landing from "../components/header/landings/landing"
+import BoxContainer from "../components/boxes/boxContainer"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
+import Featured from "../components/featured"
+import Popup from "../components/popup"
+import TourBanner from "../components/banners/tourBanner"
+
+// mobile components
+import DestinationsMobile from "../components/mobile/destinationsMobile"
+import FeaturedMobile from "../components/mobile/featuredMobile"
+
+// tablet component
+import DestinationsTablet from "../components/tablet/destinationsTablet"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-import WildkiwiMapNamed from "../images/Wild_Kiwi_NZ_Map_Names.svg"
-import localGuide from "../images/Guide.svg"
-import van from "../images/Van.svg"
-import bed from "../images/Bed.svg"
-import toaster from "../images/Toaster.svg"
+import useCountryQuery from "../queries/countryQuery"
+import useHomePageQuery from "../queries/homePageQuery"
+import useDestinationQuery from "../queries/destinationQuery"
 
-const Destinations = () => {
+const NewZealand = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+  const countryQuery = useCountryQuery()
+  const homeQuery = useHomePageQuery()
+  const destinationQuery = useDestinationQuery()
+
+  // getting the number of yours for each country
+  const filterDestinations = destination => {
+    const result = destinationQuery.filter(
+      dest => dest.node.destinationCountry === destination
+    )
+    return result.length
+  }
+
+  // rendering all the destination boxes
+  const renderCountries = () => {
+    return countryQuery.map((country, idx) => {
+      return (
+        <Fragment key={idx}>
+          <DestinationsMobile
+            key={idx + 4}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+          />
+          <DestinationsTablet
+            key={idx + 8}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+          <TourBanner
+            key={idx + 12}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+        </Fragment>
+      )
+    })
+  }
 
   return (
-    <Layout2>
+    <Layout>
       <SEO title="Home" />
-      <LandingChartered
-        bannerFirst={imageQuery.landing.childImageSharp.fluid}
-        bannerSecond={imageQuery.bannerHero.childImageSharp.fluid}
-        bannerThird={imageQuery.breathTakingScenery.childImageSharp.fluid}
-        bannerFourth={imageQuery.newzealand.childImageSharp.fluid}
-        bannerFifth={imageQuery.australia.childImageSharp.fluid}
-        buttonText="watch trail"
-        buttonTextSecond="view photos"
+      <Popup />
+      <Landing
+        imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
+        titleFirst="DESTINATIONS"
+        buttonSecond="watch trailer"
+        buttonSecondURL="#popup"
+        description="Choose your Wild Kiwi adventure from our destinations below and embark on your next flashpacking adventure full of incredible sites and amazing people."
+        buttonStyles={["white", "white"]}
+        optMargin="u-margin-top-percent-10"
+        variation="dest"
       />
-      <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
+      <Featured />
+      <FeaturedMobile />
+      {renderCountries()}
+      <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
+      <Banner
+        imageData={imageQuery.banner.childImageSharp.fluid}
+        header="How it works"
+        subHeaderFirst="everything you need to"
+        subHeaderSecond="know about our tours"
+        buttonText="continue"
       />
-      <DestinationSection>
-        <TripBox />
-        <DestinationStarter
-          title="NZ Discovery"
-          body="Travel New Zealand on our 21-day tour like never before. This could possibly be the best 3 weeks of your life as you road trip through the land of the long white cloud, hitting all the best spots and none of the rest!"
-        />
-        <HighLight
-          title="Highlights"
-          imageOne={imageQuery.newVehicles.childImageSharp.fluid}
-          imageTwo={imageQuery.localGuids.childImageSharp.fluid}
-          imageThree={imageQuery.smallGroups.childImageSharp.fluid}
-          imageFour={imageQuery.breathTakingScenery.childImageSharp.fluid}
-        />
-        <Itinerary title="Itinerary" />
-        <Includes
-          title="What’s included on every Wild Kiwi tour"
-          iconFirst={localGuide}
-          textFirst="Expert local guide/driver"
-          iconSecond={van}
-          textSecond="New 18 sea vehicle"
-          iconThird={bed}
-          textThird="Flash-pack accomodation"
-          iconFourth={toaster}
-          textFourth="Breakfast everyday"
-          titleSecond="What's also included on this tour"
-          specifics={[
-            { label: "21 breakfasts" },
-            { label: "3 dinners" },
-            { label: "Surf lesson in Raglan" },
-            { label: "Wai O Tapu geothermal park" },
-            { label: "Flights to Auckland or Christchurch" },
-            { label: "New Zealand’s most incredible spots." },
-          ]}
-        />
-      </DestinationSection>
-    </Layout2>
+      <Reviews />
+      <Trips data={homeQuery[0].node.popularTours} />
+    </Layout>
   )
 }
 
-export default Destinations
+export default NewZealand

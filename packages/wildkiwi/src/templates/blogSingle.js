@@ -16,7 +16,7 @@ import {
 
 import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
   const shareUrl = `http://localhost:8000/blog/${data.wordpressPost.slug}`

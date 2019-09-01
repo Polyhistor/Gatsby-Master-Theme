@@ -1,4 +1,5 @@
 import React from "react"
+import { withPrefix } from "gatsby"
 
 const includes = ({
   title,
@@ -15,8 +16,8 @@ const includes = ({
 }) => {
   // rendering specific labels
   const renderSpecifics = () => {
-    return specifics.map(({ label }, id) => {
-      return <li key={id}>{label}</li>
+    return specifics.map((specific, id) => {
+      return <li key={id}>{specific}</li>
     })
   }
 
@@ -27,16 +28,25 @@ const includes = ({
           {title}
         </h4>
         {/* first quarter */}
-        <img className="includes__icon--first" src={iconFirst} />
+        <svg className="includes__icon--first">
+          <use xlinkHref={withPrefix(`sprite.svg#icon-${iconFirst}`)} />
+        </svg>
         <span className="includes__text--first">{textFirst}</span>
         {/* second quarter */}
-        <img className="includes__icon--second" src={iconSecond} />
+        <svg className="includes__icon--second">
+          <use xlinkHref={withPrefix(`sprite.svg#icon-${iconSecond}`)} />
+        </svg>
         <span className="includes__text--second">{textSecond}</span>
         {/* third quarter */}
-        <img className="includes__icon--third" src={iconThird} />
+
+        <svg className="includes__icon--third">
+          <use xlinkHref={withPrefix(`sprite.svg#icon-${iconThird}`)} />
+        </svg>
         <span className="includes__text--third">{textThird}</span>
         {/* fourth quarter */}
-        <img className="includes__icon--fourth" src={iconFourth} />
+        <svg className="includes__icon--fourth">
+          <use xlinkHref={withPrefix(`sprite.svg#icon-${iconFourth}`)} />
+        </svg>
         <span className="includes__text--fourth">{textFourth}</span>
 
         <h4 className="includes__title--second heading-alternative u-color-green">

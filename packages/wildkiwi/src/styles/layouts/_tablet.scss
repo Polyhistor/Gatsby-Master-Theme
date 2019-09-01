@@ -50,6 +50,18 @@
     }
   }
 
+  &-yes {
+    @include respond(desktop) {
+      display: none;
+    }
+    @include respond(laptop) {
+      display: none;
+    }
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
   &-margin-left {
     @include respond(tablet) {
       margin-left: 33rem;
@@ -71,6 +83,28 @@
   &-margin-left-medium {
     @include respond(tablet) {
       margin-left: 4rem;
+    }
+  }
+
+  &-button {
+    &__chartered-landing {
+      @include respond(phone) {
+        display: none;
+      }
+
+      @include respond(tablet) {
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+      }
+
+      @include respond(laptop) {
+        display: none;
+      }
+
+      @include respond(desk) {
+        display: none;
+      }
     }
   }
 }

@@ -1,14 +1,26 @@
 import React from "react"
+import { withPrefix } from "gatsby"
 
 const SocialNetowrk = () => {
   return (
     <div className="u-margin-bottom-medium u-padding-top-huge ">
       <div className="footer__social-networks">
         <div className="footer__social-networks-box">
-          {/* <i className="im im-angle-down " /> */}
-          <i className="im im-instagram" />
-          <i className="im im-facebook" />
-          <i className="im im-youtube" />
+          <a href="https://www.facebook.com/wildkiwitours" target="_blank">
+            <svg className="svg-icon--Facebook">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/wildkiwitours/" target="_blank">
+            <svg className="svg-icon--Instagram">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Instagram")} />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/c/WildkiwiTours" target="_blank">
+            <svg className="svg-icon--Youtube">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Youtube")} />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

@@ -2,17 +2,17 @@
   width: 100%;
   padding: 7rem 7rem;
 
-  @include respond(phone) {
-    text-align: center;
-    padding-top: 17rem;
+  @include respond(laptop) {
+    padding: 7rem 4rem;
   }
 
   @include respond(tablet) {
-    margin-top: 14rem;
+    margin-top: 0rem;
   }
 
-  @include respond(laptop) {
-    padding: 7rem 4rem;
+  @include respond(phone) {
+    text-align: center;
+    padding-top: 7rem;
   }
 
   &__rating {
@@ -23,13 +23,14 @@
     &-decimal {
       font-size: 3rem;
     }
+
+    @include respond(tablet) {
+      padding-left: 2rem;
+    }
   }
 
   &__stars-box {
-    color: #ffd127;
-    & > * {
-      font-size: 3rem;
-    }
+    display: flex;
   }
 
   &__title {
@@ -40,6 +41,7 @@
     @include respond(phone) {
       padding-top: 2rem;
       font-size: 2rem;
+      font-family: Nunito-Extrabold;
     }
   }
 
@@ -49,12 +51,18 @@
     font-size: 1.1rem;
 
     & + a {
-      padding: 1.2rem 7.4rem;
+      padding: 1.45rem 5.6rem;
       margin-top: 2.5rem;
+      margin-left: -2.8rem;
+      font-size: 1.38rem;
+
+      @include respond(phone) {
+        display: none;
+      }
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
   }
 }

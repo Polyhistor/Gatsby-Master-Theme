@@ -1,0 +1,87 @@
+.heading-primary {
+  color: $color-white;
+  backface-visibility: hidden;
+  margin-bottom: 1rem;
+  @include bigUppercaseText;
+
+  &--main {
+    display: block;
+    font-size: 5.5rem;
+    animation: moveInleft 0.8s ease-out;
+    font-family: Nexa-Rust-2;
+    line-height: 5rem;
+
+    @include respond(phone) {
+      font-size: 3.8rem;
+      line-height: 3.5rem;
+    }
+  }
+
+  &--sub {
+    font-size: 1.6rem;
+    font-family: Nexa-Rust-2;
+    animation: moveInleft 2s ease-out;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.heading-tertiary {
+  @include tertiaryHeading;
+
+  &--white {
+    color: $color-white;
+    font-family: Nunito-Black;
+
+    @include respond(phone) {
+      color: #fff;
+      padding: 6rem;
+      font-family: nexa-rust;
+      font-size: 6rem;
+    }
+  }
+
+  &--inline {
+    display: inline;
+
+    @include respond(phone) {
+      font-family: Nexa-Rust;
+      display: block;
+      padding-top: 4rem;
+      height: 5rem;
+      padding-bottom: 10rem;
+    }
+  }
+}
+
+.heading-alternative {
+  @include header-alternative;
+
+  &--white {
+    color: white;
+  }
+}
+
+.bold-green {
+  font-size: 3rem;
+  color: $color-primary;
+}
+
+.green-title {
+  font-family: Nunito-Black;
+  font-size: 3.4rem;
+  color: $color-primary;
+  text-transform: capitalize;
+
+  @include respond(phone) {
+    font-size: 3rem;
+    text-align: center;
+  }
+}

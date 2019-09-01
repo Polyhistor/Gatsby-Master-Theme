@@ -1,36 +1,79 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import useImageQuery from "../../../queries/imageQuery"
-
-const Header = () => {
-  // extracting our custom hook
-  const imageQuery = useImageQuery()
-
-  // creating a variable out of image data
-  const imageData = imageQuery.landing.childImageSharp.fluid
+const Header = ({
+  imageData,
+  titleFirst,
+  TitleSecond,
+  TitleThird,
+  subTitle,
+  description,
+  buttonFirst,
+  buttonFirstURL,
+  buttonSecond,
+  buttonSecondURL,
+  buttonStyles,
+  optMargin,
+  variation,
+}) => {
   // rendering the contents
   return (
-    <BackgroundImage fluid={imageData} className="bannerHero">
+    <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
       <div className="header">
-        <div className="header__text-box">
-          <h1 className="heading-primary">
+        <div className={`header__text-box header__text-box--${variation}`}>
+          <h1
+            className={
+              variation === null
+                ? `heading-primary`
+                : `heading-primary heading-primary--${variation}`
+            }
+          >
             <span className="heading-primary--main">
-              epic <br /> adventure <br /> tours
+              {titleFirst} <br />
+              {TitleSecond && TitleThird !== null ? (
+                <>
+                  {TitleSecond} <br /> {TitleThird}
+                </>
+              ) : null}
             </span>
-            <span className="heading-primary--sub">for 18 to 35 year olds</span>
+            {description !== undefined ? (
+              <p className="heading-primary--description">{description}</p>
+            ) : null}
+            {subTitle !== null ? (
+              <span className="heading-primary--sub">{subTitle}</span>
+            ) : null}
           </h1>
-          <div className="header__button-box">
-            <Link
-              to="/blog"
-              className="btn btn--green btn-animated mobile-green-buton"
-            >
-              expore
-            </Link>
-            <Link to="/s" className="btn btn--white btn-animated">
-              &nbsp;watch trail
-            </Link>
+          <div
+            className={
+              variation === null
+                ? `header__button-box`
+                : `header__button-box header__button-box--${variation}`
+            }
+          >
+            {buttonFirst && buttonFirst !== null ? (
+              <Link
+                to={buttonFirstURL}
+                className={`btn btn--${
+                  buttonStyles[0]
+                } btn-animated mobile-green-buton`}
+              >
+                {buttonFirst}
+              </Link>
+            ) : null}
+            {/* adding one more level of modularity, if the secondbutton text and
+            URL is not given, don't show it */}
+            {buttonSecond && buttonSecondURL !== null ? (
+              <a
+                href={buttonSecondURL}
+                className={`btn btn--${buttonStyles[1]} btn-animated`}
+              >
+                <svg className="svg-icon--play-button">
+                  <use xlinkHref={withPrefix("sprite.svg#icon-Play-Button")} />
+                </svg>
+                <span className="">{buttonSecond}</span>
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

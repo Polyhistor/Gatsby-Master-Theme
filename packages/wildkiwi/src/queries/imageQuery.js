@@ -34,7 +34,15 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      landing: file(relativePath: { eq: "wild-kiwi-header-image.jpg" }) {
+      europe: file(relativePath: { eq: "the-colliseum-rome-italy.jpg" }) {
+        ...FluidImage
+      }
+
+      landing: file(
+        relativePath: {
+          eq: "wild-kiwi-adventure-tours-youth-new-zealand-australia-d-v3.jpg"
+        }
+      ) {
         ...FluidImageBig
       }
 
@@ -43,7 +51,9 @@ const useImageQuery = () => {
       }
 
       bannerHero: file(
-        relativePath: { eq: "wild-kiwi-what-we-stand-for.jpg" }
+        relativePath: {
+          eq: "wild-kiwi-adventure-tours-flashpacking-new-zealand-australia-small-groups.jpg"
+        }
       ) {
         ...FluidImageBig
       }
@@ -107,6 +117,68 @@ const useImageQuery = () => {
       instaSix: file(
         relativePath: { eq: "wild-kiwi-tours-kayak-byron-bay.jpg" }
       ) {
+        ...FluidImage
+      }
+
+      destinationNewZealand: file(
+        relativePath: { eq: "Wild Kiwi Homepage - 16-9 Imagery2.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      qualmark: file(relativePath: { eq: "QualMark_Footer.png" }) {
+        ...FluidImage
+      }
+
+      logoMetro: file(relativePath: { eq: "Metro.png" }) {
+        ...FluidImage
+      }
+
+      logoDaily: file(relativePath: { eq: "Daily_Mail.png" }) {
+        ...FluidImage
+      }
+
+      logoWestpac: file(relativePath: { eq: "Westpac_Awards.png" }) {
+        ...FluidImage
+      }
+
+      logoQual: file(relativePath: { eq: "QualMark.png" }) {
+        ...FluidImage
+      }
+
+      logo: file(relativePath: { eq: "WildKiwi.png" }) {
+        ...FluidImage
+      }
+
+      vehiclesLady: file(relativePath: { eq: "WildKiwi-1866.jpg" }) {
+        ...FluidImage
+      }
+
+      vehicleAdventure: file(
+        relativePath: {
+          eq: "wild-kiwi-adventure-holidays-new-zealand-south-island-holiday-packages-kiwi-bus-tour.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      vehicleInterior: file(
+        relativePath: {
+          eq: "wild-kiwi-backpacking-new-zealand-south-island-road-trip-kiwi-bus-tour-interior.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      vehicleSouth: file(
+        relativePath: {
+          eq: "wild-kiwi-tour-new-zealand-south-island-road-trip-kiwi-bus-tour-solo-travel.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      reviews: file(relativePath: { eq: "wild-kiwi-tours-reviews.jpg" }) {
         ...FluidImage
       }
     }

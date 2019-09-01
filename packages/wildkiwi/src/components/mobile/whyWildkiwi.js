@@ -1,82 +1,48 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 
-import MobileBox from "./mobileBox"
+import Box from "../boxes/box"
 
-const whyWildKiwi = () => {
-  const imageData = useStaticQuery(graphql`
-    query {
-      newVehicles: file(relativePath: { eq: "wild-kiwi-new-vehicles.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      localGuids: file(relativePath: { eq: "wild-kiwi-local-guides.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      smallGroups: file(relativePath: { eq: "wild-kiwi-small-groups.jpg" }) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      breathTakingScenery: file(
-        relativePath: { eq: "wild-kiwi-breathtaking-scenary.jpg" }
-      ) {
-        childImageSharp {
-          fluid(quality: 70, maxWidth: 1260) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+const WhyWildKiwi = ({ data }) => {
+  // rendering data
+  const renderData = () =>
+    data.map((box, idx) => (
+      <Box
+        key={idx}
+        imageData={box.banner.localFile.childImageSharp.fluid}
+        title={box.titleMobile}
+        description={box.descriptionMobile.descriptionMobile}
+      />
+    ))
 
   return (
-    <>
-      <div className="mobile-yes">
-        <section className="section-why-us">
-          <h2 class="green-title u-margin-bottom-small">Why Wild?</h2>
-          <div className="row">
-            <MobileBox
-              textFirst="new"
-              textSecond="vehicles"
-              imageData={imageData.newVehicles.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
+    <div className="section-mobile__why-wild">
+      <h2 className="green-title bold-green u-margin-bottom-small">
+        Why Wild Kiwi ?
+      </h2>
+      <div className="whywild">
+        <div className="whywild__container">{renderData()}</div>
+        <a
+          href="#popup"
+          to="/s"
+          className="btn btn--green btn-animated  u-margin-top-medium "
+        >
+          <svg className="svg-icon--play-button svg-icon--play-button--mobile">
+            <use
+              xlinkHref={withPrefix("sprite.svg#icon-Play-Button-White-A-1")}
             />
-            <MobileBox
-              textFirst="local"
-              textSecond="guides"
-              imageData={imageData.localGuids.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-            <MobileBox
-              textFirst="small"
-              textSecond="groups"
-              imageData={imageData.smallGroups.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-            <MobileBox
-              textFirst="breathtaking"
-              textSecond="scenery"
-              imageData={imageData.breathTakingScenery.childImageSharp.fluid}
-              description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-            />
-          </div>
-        </section>
+          </svg>
+          <span>watch trailer</span>
+        </a>
+        <Link
+          to="/how-it-works"
+          className="btn btn--white  u-margin-top-medium"
+        >
+          <span>How it works</span>
+        </Link>
       </div>
-    </>
+    </div>
   )
 }
 
-export default whyWildKiwi
+export default WhyWildKiwi

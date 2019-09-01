@@ -4,6 +4,9 @@ import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import useImageQuery from "../../queries/imageQuery"
 
+// default components
+import Featured from "../featured"
+
 const BannerHero = ({
   headerFirst,
   headersecond,
@@ -24,22 +27,24 @@ const BannerHero = ({
         >
           <div className="banner-hero">
             <div className="banner-hero__text-box">
-              <h2 className="banner-hero-heading">
-                <span className="banner-hero-heading--main">
-                  {headerFirst} <br /> {headersecond} <br /> {headerThird}
-                </span>
-                <span className="banner-hero-heading--sub">
-                  {subHeaderFirst} <br /> {subHeaderSecond}
-                </span>
+              <h2 className="banner-hero-heading--main">
+                {headerFirst} <br /> {headersecond} <br /> {headerThird}
               </h2>
+              <p className="banner-hero-heading--sub">
+                {subHeaderFirst} <br /> {subHeaderSecond}
+              </p>
               <div className="banner-hero__button-box">
-                <Link to="/" className="btn btn--white btn-animated">
+                <Link
+                  to="/how-it-works"
+                  className="btn btn--white btn-animated"
+                >
                   {buttonText}
                 </Link>
               </div>
             </div>
           </div>
         </BackgroundImage>
+        <Featured />
       </div>
     </section>
   )

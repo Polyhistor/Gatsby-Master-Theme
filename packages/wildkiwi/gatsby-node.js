@@ -55,6 +55,49 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulActivities {
+        edges {
+          node {
+            slug
+            title
+            subtitle
+            price
+            country {
+              slug
+            }
+            bannerImages {
+              localFile {
+                childImageSharp {
+                  fluid(quality: 80, maxWidth: 700) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    sizes
+                    originalImg
+                    originalName
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      allContentfulDestinations {
+        edges {
+          node {
+            slug
+            destinationCountry
+          }
+        }
+      }
+      allContentfulCountry {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `).then(result => {
     // error handling
@@ -62,17 +105,39 @@ exports.createPages = async ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // accesing to data via a variable
+    // accesing the wordpress blog data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
-
-    // accessing to data regarding to all the wp_users
-    const BlogAuthors = result.data.allWordpressWpUsers.edges
 
     // setting the link to the template via Node legacy modules
     const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
 
+    // accessing to data regarding to all the wp_users
+    const BlogAuthors = result.data.allWordpressWpUsers.edges
+
     // seting the link to the author page template via node legacy modules
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
+
+    // accessing the data for our contentful activities section
+    const Activities = result.data.allContentfulActivities.edges
+
+    // setting the link to the activities page template
+    const ActivitiesTemplate = path.resolve(
+      "./src/templates/activitiesSingle.js"
+    )
+
+    // accessing the data for our contentful destination section
+    const Destinations = result.data.allContentfulDestinations.edges
+
+    // setting the link to the activities page template
+    const DestinationsTemplate = path.resolve(
+      "./src/templates/destinationsSingle.js"
+    )
+
+    // accessing the data for our contentful country section
+    const Countries = result.data.allContentfulCountry.edges
+
+    // setting the link to the countries page template
+    const CountriesTemplate = path.resolve("./src/templates/countries.js")
 
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
@@ -81,6 +146,24 @@ exports.createPages = async ({ graphql, actions }) => {
       pageTemplate: "src/templates/blogMain.js",
       pageLength: 10,
       pathPrefix: "blog",
+    })
+
+    // creating another set of paginated page for the blog
+    createPaginatedPages({
+      edges: BlogPosts,
+      createPage: createPage,
+      pageTemplate: "src/templates/blogSearch.js",
+      pageLength: 18,
+      pathPrefix: "blog/categorized",
+    })
+
+    // creating another set of paginated page for activities home page
+    createPaginatedPages({
+      edges: Activities,
+      createPage: createPage,
+      pageTemplate: "src/templates/activitiesMain.js",
+      pageLength: 16,
+      pathPrefix: "activities",
     })
 
     // this is for single blog pages
@@ -101,6 +184,41 @@ exports.createPages = async ({ graphql, actions }) => {
         component: BlogAuthorTemplate,
         context: {
           id: author.node.wordpress_id,
+        },
+      })
+    })
+
+    // this is for activities
+    Activities.forEach(acitivity => {
+      createPage({
+        path: `/activities/${acitivity.node.slug}`,
+        component: ActivitiesTemplate,
+        context: {
+          slug: acitivity.node.slug,
+        },
+      })
+    })
+
+    // this is for destinations
+    Destinations.forEach(destination => {
+      createPage({
+        path: `/destinations/${destination.node.destinationCountry}/${
+          destination.node.slug
+        }`,
+        component: DestinationsTemplate,
+        context: {
+          slug: destination.node.slug,
+        },
+      })
+    })
+
+    // this is for countries
+    Countries.forEach(country => {
+      createPage({
+        path: `/destinations/${country.node.slug}`,
+        component: CountriesTemplate,
+        context: {
+          slug: country.node.slug,
         },
       })
     })

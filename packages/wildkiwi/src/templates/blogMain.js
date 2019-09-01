@@ -7,12 +7,17 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import MobileBoxContainer from "../components/mobile/MobileBoxContainer"
+
+// utilities
+import useHomePageQuery from "../queries/homePageQuery"
 
 const IndexPage = ({ pageContext }) => {
+  // our pagination
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+  // extracting our custom hook
+  const homeQuery = useHomePageQuery()
 
   const renderBlogs = () => {
     return group.map(({ node }) => {
@@ -48,7 +53,7 @@ const IndexPage = ({ pageContext }) => {
               />
             </div>
             <div className="blog__main-nextLink">
-              <NavLink test={last} url={`/blog/${nextUrl}`} text="More" />
+              <NavLink test={last} url={`/blog/${nextUrl}`} text="Next" />
             </div>
           </div>
         </div>
@@ -59,12 +64,9 @@ const IndexPage = ({ pageContext }) => {
           buttonText="continue"
         />
       </div>
-
-      <MobileBoxContainer />
-
       <Reviews />
       <div className="row">
-        <Trips />
+        <Trips data={homeQuery[0].node.popularTours} />
       </div>
     </Layout2>
   )

@@ -3,14 +3,19 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout2 from "../components/layout/layout2"
-import SEO from "../components/seo"
+import SEO from "../components/seo/seo"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
-const BlogPostTemplate = ({ data }) => {
-  // rendering articles
+// utilities
+import useHomePageQuery from "../queries/homePageQuery"
 
+const BlogPostTemplate = ({ data }) => {
+  // extracting our custom hook
+  const homeQuery = useHomePageQuery()
+
+  // rendering articles
   const renderArticles = () => {
     // error handling
     if (data.wordpressWpUsers.authored_wordpress__POST !== null) {
@@ -34,6 +39,7 @@ const BlogPostTemplate = ({ data }) => {
               </Link>
             )
           }
+          return null
         }
       )
     }
@@ -85,7 +91,7 @@ const BlogPostTemplate = ({ data }) => {
         <Reviews />
       </div>
       <div className="row">
-        <Trips />
+        <Trips data={homeQuery[0].node.popularTours} />
       </div>
     </Layout2>
   )

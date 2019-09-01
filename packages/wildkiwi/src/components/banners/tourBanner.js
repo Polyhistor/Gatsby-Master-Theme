@@ -2,9 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import newzealandMap from "../../images/Wild_Kiwi_NZ_Discovery_Map.svg"
-import useImageQuery from "../../queries/imageQuery"
-
 const TourBanner = ({
   destination,
   title,
@@ -12,20 +9,17 @@ const TourBanner = ({
   departs,
   details,
   price,
+  tours,
+  imageData,
+  SVGMap,
 }) => {
-  // extracting from our custom hook
-  const imageQuery = useImageQuery()
-
   return (
-    <section className={`section-tour-banner-${destination}`}>
-      <div className="row">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
-      </div>
+    <section className={`section-tour-banner-newzealand`}>
       <div className="row">
         <div className="col-1-of-4">
           <div className="tour-banner__description">
             <h3
-              className={`tour-banner__description-title tour-banner__description-title-${destination}`}
+              className={`tour-banner__description-title tour-banner__description-title-newzealand`}
             >
               {title}
             </h3>
@@ -36,20 +30,16 @@ const TourBanner = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={`tour-banner__description-price tour-banner__description-price-${destination}`}
+              className={`tour-banner__description-price tour-banner__description-price-newzealand`}
             >
               {price}
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className={
-                  destination === "newzealand"
-                    ? "btn btn--green tablet-green-button"
-                    : "btn btn--red2 tablet-red-button"
-                }
-                to="/"
+                className="btn btn--green tablet-green-button"
+                to={`destinations/${destination}`}
               >
-                trips
+                explore
               </Link>
             </div>
           </div>
@@ -57,34 +47,27 @@ const TourBanner = ({
         <div className="col-2-of-4 tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
             {/* choosing image based on the given props */}
-            <Img
-              fluid={
-                destination === "newzealand"
-                  ? imageQuery.newzealand.childImageSharp.fluid
-                  : imageQuery.australia.childImageSharp.fluid
-              }
-            />
+            <Img fluid={imageData} />
             <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-${destination}`}
+              className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
             >
-              <span className="tour-banner__days">7</span> tours
+              <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
           </figure>
         </div>
         <div className="col-1-of-4 tour-banner__svg-map tablet-margin-right-no">
-          <div className="tour-banner__svg-map-container tablet-padding-top-medium">
-            <img src={newzealandMap} alt="wild-kiwi-tour-banners" />
+          <div
+            className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title
+              .toLowerCase()
+              .replace(/ /g, "")}  tablet-padding-top-medium`}
+          >
+            <img src={SVGMap} />
           </div>
         </div>
 
         <div className="mobile-yes u-padding-big ">
-          <Link
-            className={
-              destination === "newzealand" ? "btn btn--green" : "btn btn--red2"
-            }
-            to="/"
-          >
-            view trips
+          <Link className={destination === "btn btn--green"} to="/">
+            explore
           </Link>
         </div>
       </div>

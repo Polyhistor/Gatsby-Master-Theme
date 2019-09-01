@@ -6,6 +6,12 @@
   }
 }
 
+@mixin blackUpperCaseGreen {
+  text-transform: uppercase;
+  font-family: Nunito-Black;
+  color: $color-primary;
+}
+
 @mixin bigUppercaseText {
   text-transform: uppercase;
   font-family: Nunito-Extrabold;
@@ -43,14 +49,8 @@
 }
 
 @mixin greySubtitle {
-  color: $color-grey-dark-2;
-  text-transform: uppercase;
-}
-
-@mixin placeholder {
   color: $color-grey-dark;
-  padding-left: 0.5rem;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 @mixin boldGreen {
@@ -61,6 +61,71 @@
 @mixin header-alternative {
   font-size: 1.8rem;
   font-family: Nunito-SemiBold;
+}
+
+@mixin heading-18-black-gray {
+  font-family: Nunito-Black;
+  font-size: 1.8rem;
+  color: $color-grey-dark-3;
+}
+
+@mixin heading-11-black-light-gray {
+  font-family: Nunito-Black;
+  font-size: 11;
+  color: $color-grey-dark-2;
+}
+
+@mixin heading-11-black-green {
+  font-family: Nunito-Black;
+  font-size: 1.1rem;
+  color: $color-primary;
+}
+
+@mixin heading-15-black-green {
+  font-family: Nunito-Black;
+  font-size: 1.5rem;
+  color: $color-primary;
+}
+
+@mixin heading-18-black-white {
+  font-size: 1.8rem;
+  color: white;
+  font-family: Nunito-Black;
+}
+
+@mixin subheading-12-gray-upper {
+  font-family: Nunito-Black;
+  font-size: 1.1rem;
+  color: $color-grey-dark;
+  text-transform: uppercase;
+}
+
+@mixin black-25-capital-drak-gray {
+  font-family: Nunito-Black;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: $color-grey-dark-3;
+}
+
+@mixin white-black-upper {
+  font-family: Nunito-Black;
+  color: white;
+  text-transform: uppercase;
+}
+
+@mixin centralize {
+  display: block;
+  margin: 0 auto;
+}
+
+@mixin black-upper {
+  font-family: Nunito-Black;
+  text-transform: uppercase;
+}
+
+@mixin regular-16 {
+  font-family: Nunito-Regular;
+  font-size: 1.6rem;
 }
 
 // Pouya's media query manager

@@ -1,64 +1,52 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { withPrefix } from "gatsby"
 
 const Featured = () => {
-  const imageData = useStaticQuery(graphql`
-    query {
-      logoMetro: file(relativePath: { eq: "Metro.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoDaily: file(relativePath: { eq: "Daily_Mail.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoWestpac: file(relativePath: { eq: "Westpac_Awards.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logoQual: file(relativePath: { eq: "QualMark.png" }) {
-        childImageSharp {
-          fixed(width: 69, height: 71) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <div className="featured">
       <div className="featured__container">
-        <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
+        <h2 className="heading-tertiary--inline heading-tertiary--white">
           featured in
         </h2>
         <div className="featured__container-image featured__container-image--metro">
-          <Img fluid={imageData.logoMetro.childImageSharp.fluid} />
+          <a
+            href="https://metro.co.uk/2019/05/04/terrifying-cliff-jumps-sunrise-mountain-hikes-and-sea-kayaking-an-action-packed-tour-of-new-zealands-magical-south-island-9200094/"
+            target="__blank"
+          >
+            <svg className="svg-icon--logo-metro">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Metro")} />
+            </svg>
+          </a>
         </div>
-        <div className="featured__container-image featured__container-image--daily u-translateY-half u-margin-right-big">
-          <Img fluid={imageData.logoDaily.childImageSharp.fluid} />
+        <div className="featured__container-image featured__container-image--daily">
+          <a
+            href="https://www.dailymail.co.uk/travel/travel_news/article-7077305/Can-Air-New-Zealand-make-24-hour-flight-bearable-Flying-premium-economy-London-Auckland.html"
+            target="__blank"
+          >
+            <svg className="svg-icon--logo-daily">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Daily_Mail")} />
+            </svg>
+          </a>
         </div>
-        <h2 className="heading-tertiary--inline heading-tertiary--white u-padding-right-medium">
+        <h2 className="heading-tertiary--inline heading-tertiary--white">
           recognised by
         </h2>
-        <div className="featured__container-image featured__container-image--west u-translateY-small">
-          <Img fluid={imageData.logoWestpac.childImageSharp.fluid} />
+        <div className="featured__container-image featured__container-image--west">
+          <a
+            href="http://www.westpacchampionawards.co.nz/2018+Finalists.html"
+            target="__blank"
+          >
+            <svg className="svg-icon--logo-westpac">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Westpac_Awards")} />
+            </svg>
+          </a>
         </div>
-        <div className="featured__container-image featured__container-image--qual u-translateY-quarter">
-          <Img
-            className="quasi-specific"
-            fixed={imageData.logoQual.childImageSharp.fixed}
-          />
+        <div className="featured__container-image featured__container-image--qual">
+          <a href="https://www.qualmark.co.nz/" target="__blank">
+            <svg className="svg-icon--logo-qualmark">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Qualmark")} />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

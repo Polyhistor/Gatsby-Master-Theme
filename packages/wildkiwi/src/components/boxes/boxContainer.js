@@ -2,35 +2,23 @@ import React from "react"
 
 import Box from "./box"
 
-const BoxContainer = ({ imageOne, imageTwo, imageThree, imageFour }) => {
+const BoxContainer = ({ dataArray }) => {
+  // function that takes an array of data and render jsx for it
+  const renderBoxes = () =>
+    dataArray.map((box, idx) => (
+      <Box
+        key={idx}
+        imageData={box.banner.localFile.childImageSharp.fluid}
+        title={box.title}
+        description={box.description.description}
+      />
+    ))
+
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
-        <h2 className="green-title u-margin-bottom-small">why wild kiwi?</h2>
-        <Box
-          imageData={imageOne}
-          textFirst="new"
-          textSecond="vehicles"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <Box
-          imageData={imageTwo}
-          textFirst="local"
-          textSecond="guides"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <Box
-          imageData={imageThree}
-          textFirst="small"
-          textSecond="groups"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
-        <Box
-          imageData={imageFour}
-          textFirst="breathtaking"
-          textSecond="scenery"
-          description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-        />
+        <h2 className="green-title u-margin-bottom-sedium">Why Wild Kiwi?</h2>
+        {renderBoxes()}
       </div>
     </section>
   )

@@ -1,43 +1,58 @@
 .feature-box {
-  border-radius: 3px;
-
-  &__text-box {
-    padding: 12rem 0rem;
-    transform: translateY(10rem);
-
-    @include respond(laptop) {
-      padding: 5rem 0rem;
-    }
-  }
-
-  &__text {
-    font-size: 2.4rem;
-    color: $color-white;
-    font-family: Nunito-Black;
-    display: block;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  &__description {
-    font-family: Nunito-Extrabold;
-    font-size: 1.7rem;
-    color: $color-white;
-    width: 90%;
-    margin: 0 auto;
-
-    @include respond(laptop) {
-      font-size: 1.3rem;
-    }
-  }
+  border-radius: 0.3rem 0.3rem 0 0;
+  height: 25rem;
+  overflow: hidden;
 
   @include respond(laptop) {
     height: 28rem;
   }
 
   @include respond(tablet) {
-    &:nth-child(1) {
-      margin-bottom: 1.3rem;
+  }
+
+  @include respond(phone) {
+    height: 10rem;
+    border-radius: 4px;
+  }
+
+  &__text-box {
+    padding: 2.5rem 1rem 1.7rem 1.5rem;
+    border: 1px solid $color-gray-light-2;
+    border-radius: 0 0 0.4rem 0.4rem;
+
+    @include respond(phone) {
+      padding: 1.5rem 0.3rem 1.7rem 0.5rem;
+      border: 0;
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      @include respond(tablet) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 2.1rem;
+    font-family: Nunito-ExtraBold;
+    text-transform: capitalize;
+    color: $color-grey-dark-3;
+    display: block;
+    padding-bottom: 0.5rem;
+
+    @include respond(laptop) {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    font-family: Nunito-Regular;
+    font-size: 1.6rem;
+    color: $color-grey-dark-3;
+
+    @include respond(laptop) {
+      font-size: 1.3rem;
     }
   }
 }

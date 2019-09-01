@@ -90,4 +90,14 @@
       3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
     );
   }
+
+  &--patched {
+    margin-bottom: 0 !important;
+    transform: translateY(7rem);
+
+    @include respond(phone) {
+      transform: translateY(2rem);
+      margin-top: 1.3rem;
+    }
+  }
 }

@@ -1,55 +1,56 @@
 import React from "react"
-import { Link } from "gatsby"
 
 const FooterForm = () => {
   return (
-    <div className="footer__form u-padding-top-sedium mobile-no">
-      <div className="footer__form-links">
-        <Link to="/" className="footer__form-links-item u-background-teal">
-          send us a message
-        </Link>
-        <Link to="/" className="footer__form-links-item">
-          subscribe
-        </Link>
-      </div>
-      <p className="u-color-gray u-padding-top-big mobile-no">
-        feel free to drop us a note with any question
-      </p>
-      <div className="footer__form-fields  mobile-no ">
-        <form name="contact">
-          <div className="footer__form-group u-float-left">
+    <>
+      <input
+        id="footer__input"
+        className="footer__input mobile-yes"
+        type="checkbox"
+      />
+      <label htmlFor="footer__input" className="btn btn--green mobile-yes">
+        send message
+      </label>
+      <div className="footer__form ">
+        <h6 className="footer__trips-header">send us a message</h6>
+        <p className="u-color-gray u-padding-bottom-small u-font-size-tiny">
+          Feel free to drop us a note with any questions
+        </p>
+        <div className="footer__form-fields">
+          <form className="footer__contact-form" name="contact">
             <input
               type="text"
               name="name"
               className="footer__form-input foooter__form-input-name"
-              placeholder="name"
+              placeholder="Name"
             />
-          </div>
-          <div className="footer__form-group u-float-right">
+
             <input
-              type="email"
+              type="text"
               name="email"
               className="footer__form-input foooter__form-input-email"
-              placeholder="email"
+              placeholder="Email"
             />
-          </div>
-          <div className="footer__form-group">
-            <input
-              type="messsage"
+
+            <textarea
+              type="text"
               name="messsage"
               className="footer__form-input--big"
               placeholder="Message"
             />
-            <button
-              className="btn btn--green-footer u-float-right"
-              type="submit"
-            >
-              leave a message
+            <div className="footer__form-consent-box">
+              <input type="checkbox" className="footer__form-radio" />
+              <p className="footer__form-consent u-color-gray">
+                I agree to terms & service
+              </p>
+            </div>
+            <button className="btn btn--green-footer" type="submit">
+              submit
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
