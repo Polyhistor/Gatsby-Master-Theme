@@ -166,6 +166,17 @@ exports.createPages = async ({ graphql, actions }) => {
       pathPrefix: "activities",
     })
 
+    // creating another set of paginated page for activities home page
+    createPaginatedPages({
+      edges: Activities,
+      createPage: createPage,
+      pageTemplate: "src/templates/activitiesMain.js",
+      pageLength: 16,
+      pathPrefix: `activities`,
+      buildPath: (Activities, pathPrefix) =>
+        `${Activities.node.country.slug + pathPrefix}`,
+    })
+
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
@@ -189,12 +200,12 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // this is for activities
-    Activities.forEach(acitivity => {
+    Activities.forEach(activity => {
       createPage({
-        path: `/activities/${acitivity.node.slug}`,
+        path: `/activities/${activity.node.country.slug}/${activity.node.slug}`,
         component: ActivitiesTemplate,
         context: {
-          slug: acitivity.node.slug,
+          slug: activity.node.slug,
         },
       })
     })
