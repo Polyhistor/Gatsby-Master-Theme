@@ -61,14 +61,10 @@
   }
 
   & > a:nth-of-type(1) {
-    & > svg {
-      margin-top: -1rem;
-    }
-
     & > span {
       font-size: 1.8rem;
       font-family: Nunito-Black;
-      transform: translateY(-0.4rem);
+      transform: translateY(1.9px);
       text-transform: uppercase;
     }
   }
