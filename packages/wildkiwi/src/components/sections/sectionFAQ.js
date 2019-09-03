@@ -75,38 +75,10 @@ const SectionVehicles = () => {
   }
 
   // using useState hook to set our inital state
-  const renderFAQs = () => {
+  const renderFAQs = (min, max) => {
     return initialCategory.map(element => {
       return element.node.questions.map((questtion, idx) => {
-        while (idx <= 1) {
-          return (
-            <li className="FAQ__list-item" key={idx}>
-              <input
-                className="FAQ__input"
-                id={`FAQ__tab-${idx}`}
-                type="checkbox"
-                name="tabs"
-              />
-              <label htmlFor={`FAQ__tab-${idx}`}>
-                <span className="FAQ__icon">{idx + 1}</span>
-                <h3 className="FAQ__question">{questtion}</h3>
-              </label>
-              <a className="arrow down" />
-              <div className="FAQ__answer-container">
-                <p className="FAQ__paragraph">{element.node.answers}</p>
-              </div>
-            </li>
-          )
-        }
-      })
-    })
-  }
-
-  // rendering another set of FAQs because I can't come up with a smarter idea
-  const renderFAQs2 = () => {
-    return initialCategory.map(element => {
-      return element.node.questions.map((questtion, idx) => {
-        while (idx >= 2) {
+        while (idx >= min && idx < max) {
           return (
             <li className="FAQ__list-item" key={idx}>
               <input
@@ -178,8 +150,8 @@ const SectionVehicles = () => {
           </div>
         </div>
         <div className="FAQ__accordian">
-          <ul className="FAQ__list">{renderFAQs()}</ul>
-          <ul className="FAQ__list">{renderFAQs2()}</ul>
+          <ul className="FAQ__list">{renderFAQs(0, 6)}</ul>
+          <ul className="FAQ__list">{renderFAQs(6, 30)}</ul>
         </div>
         <div className="FAQ__video-box">
           {renderVideoBoxes()} {renderVideoBoxes()} {renderVideoBoxes()}
