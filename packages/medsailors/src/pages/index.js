@@ -1,24 +1,37 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo/seo"
-import { Header } from "@nt-websites/shared"
+import SEO from "../components/seo"
+import { Landing, Layout } from "@nt-websites/shared"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>
-      <Header text="This is a fancy title" />
-    </h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+// utilities
+import useImageQuery from "../queries/imageQuery"
+
+const IndexPage = () => {
+  // extracting our custom hook
+  const imageQuery = useImageQuery()
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Landing
+        imageData={imageQuery.landing.childImageSharp.fluid}
+        titleFirst="epic"
+        TitleSecond="adventure"
+        TitleThird="tours"
+        subTitle="for 18 to 35 year olds"
+        buttonFirst="Explore Tours"
+        buttonFirstURL="/destinations"
+        buttonSecond="watch trailer"
+        buttonSecondURL="#popup"
+        buttonStyles={["green", "white"]}
+        variation={null}
+      />
+      <p>Welcome to your new Gatsby site.</p>
+      <p>Now go build something great.</p>
+      <Link to="/page-2/">Go to page 2</Link>
+    </Layout>
+  )
+}
 
 export default IndexPage
