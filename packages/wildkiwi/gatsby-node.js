@@ -100,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    // error handling
+    // error handling after the query
     if (result.errors) {
       throw result.errors
     }
@@ -123,6 +123,11 @@ exports.createPages = async ({ graphql, actions }) => {
     // setting the link to the activities page template
     const ActivitiesTemplate = path.resolve(
       "./src/templates/activitiesSingle.js"
+    )
+
+    // setting the link the activities countries page
+    const ActCountriesTemplate = path.resolve(
+      "./src/templates/activitiesCountries.js"
     )
 
     // accessing the data for our contentful destination section
@@ -189,12 +194,12 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // this is for activities
-    Activities.forEach(acitivity => {
+    Activities.forEach(activity => {
       createPage({
-        path: `/activities/${acitivity.node.slug}`,
+        path: `/activities/${activity.node.country.slug}/${activity.node.slug}`,
         component: ActivitiesTemplate,
         context: {
-          slug: acitivity.node.slug,
+          slug: activity.node.slug,
         },
       })
     })
@@ -217,6 +222,13 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/destinations/${country.node.slug}`,
         component: CountriesTemplate,
+        context: {
+          slug: country.node.slug,
+        },
+      })
+      createPage({
+        path: `/activities/${country.node.slug}`,
+        component: ActCountriesTemplate,
         context: {
           slug: country.node.slug,
         },
