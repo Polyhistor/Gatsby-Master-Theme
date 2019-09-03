@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
@@ -17,83 +17,21 @@ import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 
-const ActivitiesCountries = ({ pageContext }) => {
+const ActivitiesCountries = ({ pageContext, data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
-  //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
-  const { group, index, first, last } = pageContext
-  // previous and next page logic
-  const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
-
-  // using useState hook for the pourposes of our filter
-  const [data, setData] = useState(group)
-
-  // we need another static query to fetch activities
-  const activitiesData = useStaticQuery(graphql`
-    query {
-      allContentfulActivities {
-        edges {
-          node {
-            slug
-            title
-            subtitle
-            price
-            country {
-              slug
-            }
-            bannerImages {
-              localFile {
-                childImageSharp {
-                  fluid(quality: 80, maxWidth: 700) {
-                    base64
-                    aspectRatio
-                    src
-                    srcSet
-                    sizes
-                    originalImg
-                    originalName
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  // embracing the variables
-  const ourData = activitiesData.allContentfulActivities.edges
-
-  // handling the filter functionality
-  const handleSubmit = e => {
-    // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
-    const filteredData = []
-
-    if (e.target.value === "all") {
-      return setData(group)
-    }
-
-    return ourData.filter(element => {
-      // filter logic
-      if (element.node.country.slug === e.target.value) {
-        filteredData.push(element)
-      }
-
-      // update the state
-      setData(filteredData)
-      return
-    })
-  }
+  console.log(data)
 
   const renderActivities = () => {
-    return data.map(({ node }, idx) => {
+    return data.allContentfulActivities.edges.map(({ node }, idx) => {
       return (
         <div className="activity__main-container" key={idx}>
-          <Link className="activity__main-link" to={`activities/` + node.slug}>
+          <Link
+            className="activity__main-link"
+            to={`activities/${node.country.slug}` + node.slug}
+          >
             {node.featured_media !== null && (
               <Img
                 fluid={node.bannerImages[0].localFile.childImageSharp.fluid}
@@ -135,38 +73,9 @@ const ActivitiesCountries = ({ pageContext }) => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <div className="row">
-        <div className="activity__filter">
-          <h1 className="green-title u-padding-bottom-medium">
-            Add-on Activities
-          </h1>
-          <div className="activity__selector">
-            <select
-              className="activity__dropdown"
-              id="country"
-              onChange={handleSubmit}
-            >
-              <option value="all">Country</option>
-              <option value="newzealand">New Zealand</option>
-              <option value="australia"> Australia </option>
-              <option value="europe"> Europe</option>
-            </select>
-          </div>
-          <div className="activity__selector">
-            <select
-              className="activity__dropdown"
-              id="country"
-              onChange={handleSubmit}
-            >
-              <option value="newzealand">Tour</option>
-              <option value="newzealand">New Zealand</option>
-              <option value="australia"> Australia </option>
-              <option value="europe"> Europe</option>
-            </select>
-          </div>
-        </div>
         <div className="activity__main">
           {renderActivities()}
-          <div className="blog__main-pagination">
+          {/* <div className="blog__main-pagination">
             <div className="blog__main-previousLink">
               <NavLink
                 test={first}
@@ -177,7 +86,7 @@ const ActivitiesCountries = ({ pageContext }) => {
             <div className="blog__main-nextLink">
               <NavLink test={last} url={`/activities/${nextUrl}`} text="More" />
             </div>
-          </div>
+          </div> */}
         </div>
         <Banner
           header="How it works"
@@ -195,3 +104,15 @@ const ActivitiesCountries = ({ pageContext }) => {
   )
 }
 export default ActivitiesCountries
+
+export const query = graphql`
+  query($slug: String!) {
+    allContentfulActivities(filter: { country: { slug: { eq: $slug } } }) {
+      edges {
+        node {
+          ...Activities
+        }
+      }
+    }
+  }
+`

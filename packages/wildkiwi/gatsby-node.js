@@ -125,6 +125,11 @@ exports.createPages = async ({ graphql, actions }) => {
       "./src/templates/activitiesSingle.js"
     )
 
+    // setting the link the activities countries page
+    const ActCountriesTemplate = path.resolve(
+      "./src/templates/activitiesCountries.js"
+    )
+
     // accessing the data for our contentful destination section
     const Destinations = result.data.allContentfulDestinations.edges
 
@@ -164,17 +169,6 @@ exports.createPages = async ({ graphql, actions }) => {
       pageTemplate: "src/templates/activitiesMain.js",
       pageLength: 16,
       pathPrefix: "activities",
-    })
-
-    // creating another set of paginated page for activities home page
-    createPaginatedPages({
-      edges: Activities,
-      createPage: createPage,
-      pageTemplate: "src/templates/activitiesMain.js",
-      pageLength: 16,
-      pathPrefix: `activities`,
-      buildPath: (Activities, pathPrefix) =>
-        `${Activities.node.country.slug + pathPrefix}`,
     })
 
     // this is for single blog pages
@@ -228,6 +222,13 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/destinations/${country.node.slug}`,
         component: CountriesTemplate,
+        context: {
+          slug: country.node.slug,
+        },
+      })
+      createPage({
+        path: `/activities/${country.node.slug}`,
+        component: ActCountriesTemplate,
         context: {
           slug: country.node.slug,
         },
