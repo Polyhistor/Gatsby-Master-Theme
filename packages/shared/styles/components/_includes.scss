@@ -1,0 +1,134 @@
+.includes {
+  display: grid;
+  grid-template-columns: repeat(4, 18rem);
+  grid-template-rows: 5rem 8rem 4rem 8rem 2rem;
+  grid-column-gap: 6.8rem;
+  font-size: 1.4rem;
+  color: $color-grey-dark-3;
+
+  @include respond(laptop) {
+    grid-template-columns: repeat(2, 22rem);
+    grid-template-rows: 5rem 8rem 4rem 8rem 6rem 5rem 1fr;
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(4, 16.7rem);
+    grid-template-rows: 4.5rem 8rem 4rem 8rem 2rem;
+    grid-column-gap: 3rem;
+  }
+
+  @include respond(phone) {
+    grid-template-rows: 8rem 8rem 6rem 8rem 5rem 7rem min-content;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+  }
+
+  &__title {
+    grid-column: 1/3;
+    grid-row: 1;
+    font-size: 2.2rem;
+
+    @include respond(tablet) {
+      font-size: 1.9rem;
+    }
+
+    @include respond(phone) {
+      font-size: 2rem;
+      font-family: Nunito-Black;
+      text-align: center;
+    }
+
+    &--second {
+      font-size: 2.2rem;
+      grid-column: 3/5;
+      grid-row: 1;
+
+      @include respond(laptop) {
+        grid-column: 1/-1;
+        grid-row: 6;
+      }
+
+      @include respond(tablet) {
+        font-size: 1.9rem;
+      }
+
+      @include respond(phone) {
+        grid-row: 6;
+        grid-column: 1/3;
+        font-family: Nunito-Black;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__icon {
+    &--first,
+    &--second,
+    &--third,
+    &--fourth {
+      justify-self: center;
+      width: 6.7rem;
+      height: 7rem;
+    }
+
+    &--first {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    &--second {
+      grid-column: 1;
+      grid-row: 4;
+    }
+    &--third {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    &--fourth {
+      grid-column: 2;
+      grid-row: 4;
+    }
+  }
+
+  &__text {
+    &--first,
+    &--second,
+    &--third,
+    &--fourth {
+      justify-self: center;
+    }
+    &--first {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    &--second {
+      grid-column: 1;
+      grid-row: 5;
+    }
+    &--third {
+      grid-column: 2;
+      grid-row: 3;
+    }
+    &--fourth {
+      grid-column: 2;
+      grid-row: 5;
+    }
+  }
+
+  &__specifics {
+    margin-left: 1rem;
+    grid-column: 3/5;
+    grid-row: 2/5;
+
+    @include respond(laptop) {
+      grid-column: 1/-1;
+      grid-row: 7;
+      margin-left: 2rem;
+    }
+
+    @include respond(phone) {
+      grid-row: 7;
+      grid-column: 1/3;
+      margin-left: 2rem;
+    }
+  }
+}

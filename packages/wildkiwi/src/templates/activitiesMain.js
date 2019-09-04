@@ -24,6 +24,7 @@ const ActivitiesMain = ({ pageContext }) => {
 
   //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
   const { group, index, first, last } = pageContext
+
   // previous and next page logic
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
@@ -93,7 +94,10 @@ const ActivitiesMain = ({ pageContext }) => {
     return data.map(({ node }, idx) => {
       return (
         <div className="activity__main-container" key={idx}>
-          <Link className="activity__main-link" to={`activities/` + node.slug}>
+          <Link
+            className="activity__main-link"
+            to={`activities/${node.country.slug}/` + node.slug}
+          >
             {node.featured_media !== null && (
               <Img
                 fluid={node.bannerImages[0].localFile.childImageSharp.fluid}

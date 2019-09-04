@@ -109,34 +109,34 @@ export const FluidImageFragmentBig = graphql`
 // `
 
 // for activities that has been fetched from Contetnful
-export const ActivitiesFragment = graphql`
-  fragment Activities on ContentfulActivities {
-    slug
-    title
-    subtitle
-    price
-    country {
-      title
-    }
-    svgMap {
-      localFile {
-        publicURL
-      }
-    }
-    description {
-      json
-    }
-    bannerImages {
-      localFile {
-        childImageSharp {
-          fluid(quality: 80, maxWidth: 770) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
+// export const ActivitiesFragment = graphql`
+//   fragment Activities on ContentfulActivities {
+//     slug
+//     title
+//     subtitle
+//     price
+//     country {
+//       title
+//     }
+//     svgMap {
+//       localFile {
+//         publicURL
+//       }
+//     }
+//     description {
+//       json
+//     }
+//     bannerImages {
+//       localFile {
+//         childImageSharp {
+//           fluid(quality: 80, maxWidth: 770) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 // for countries that has been fetched from Contetnful
 export const CountriesFragment = graphql`
@@ -274,7 +274,7 @@ export const DestinationsFragment = graphql`
   }
 `
 
-// for how-it-works boxes that has been fetched from Contetnful
+// // for how-it-works boxes that has been fetched from Contetnful
 export const HowItWorksFragment = graphql`
   fragment HowItWorks on ContentfulHowItWorks {
     contentfulid
@@ -305,42 +305,42 @@ export const FAQFragment = graphql`
   }
 `
 
-// for aboutUs boxes that has been fetched from Contentful
-export const AboutUsFragment = graphql`
-  fragment AboutUs on ContentfulAboutUs {
-    title
-    content {
-      content
-    }
-    order
-    banner {
-      localFile {
-        childImageSharp {
-          fluid(maxWidth: 770) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
+// // for aboutUs boxes that has been fetched from Contentful
+// export const AboutUsFragment = graphql`
+//   fragment AboutUs on ContentfulAboutUs {
+//     title
+//     content {
+//       content
+//     }
+//     order
+//     banner {
+//       localFile {
+//         childImageSharp {
+//           fluid(maxWidth: 770) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
-// for Our Team section that has been fetched from Contetnful
-export const TeamFragment = graphql`
-  fragment Team on ContentfulTeam {
-    name
-    title
-    image {
-      localFile {
-        childImageSharp {
-          fluid(maxWidth: 770) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
+// // for Our Team section that has been fetched from Contetnful
+// export const TeamFragment = graphql`
+//   fragment Team on ContentfulTeam {
+//     name
+//     title
+//     image {
+//       localFile {
+//         childImageSharp {
+//           fluid(maxWidth: 770) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 // for why wild kiwi section that has been fetched from Contentful
 export const HomePageFragment = graphql`
@@ -385,7 +385,7 @@ export const HomePageFragment = graphql`
   }
 `
 
-// for why wild kiwi section on itinerary page
+// // for why wild kiwi section on itinerary page
 export const WhyWildFragment = graphql`
   fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
     title
@@ -404,15 +404,15 @@ export const WhyWildFragment = graphql`
   }
 `
 
-// for reviews section
-export const ReviewsFragment = graphql`
-  fragment Reviews on ContentfulReviews {
-    contentful_id
-    title
-    country
-    reccomended
-    name
-    reviewText
-    date
-  }
-`
+// // for reviews section
+// export const ReviewsFragment = graphql`
+//   fragment Reviews on ContentfulReviews {
+//     contentful_id
+//     title
+//     country
+//     reccomended
+//     name
+//     reviewText
+//     date
+//   }
+// `

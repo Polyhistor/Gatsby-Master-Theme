@@ -1,0 +1,21 @@
+.laptop {
+  &-button__chartered-landing {
+    @include respond(desk) {
+      display: none;
+    }
+
+    @include respond(laptop) {
+      display: inline-block;
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+    }
+
+    @include respond(tablet) {
+      display: none;
+    }
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}

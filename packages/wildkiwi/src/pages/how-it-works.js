@@ -13,6 +13,7 @@ import Trips from "../components/trips/trips"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useHowItWorksQuery from "../queries/howItWorksQuery"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
@@ -21,6 +22,7 @@ const HowItWorks = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const howItWorksData = useHowItWorksQuery()
 
   return (
     <Layout>
@@ -42,7 +44,7 @@ const HowItWorks = () => {
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionHowItWorks />
+      <SectionHowItWorks data={howItWorksData} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
