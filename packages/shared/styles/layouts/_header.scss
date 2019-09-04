@@ -1,0 +1,172 @@
+.header {
+  /* 95% of the user's view port */
+  height: 60rem;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  max-width: 126.666rem;
+  margin: 0 auto;
+
+  @include respond(laptop) {
+    max-width: 112.666rem;
+  }
+
+  @include respond(phone) {
+    height: 43rem;
+    max-width: 32rem;
+  }
+
+  &__logo-box {
+    position: fixed;
+    left: 15%;
+
+    @include respond(laptop) {
+      left: 5%;
+    }
+
+    @include respond(tablet) {
+      left: 15%;
+      top: 1rem;
+    }
+
+    @include respond(phone) {
+      left: 5%;
+    }
+  }
+
+  &__logo {
+    &-literal {
+      width: 10rem;
+      margin-top: -0.7rem;
+      @include respond(phone) {
+        width: 10rem !important;
+      }
+    }
+  }
+
+  &__nav-button {
+    position: fixed;
+    top: 1.5rem;
+    right: 0;
+
+    &-box-link {
+      text-decoration: none;
+    }
+
+    & a:nth-child(1) {
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    & + .navigation__item {
+      border-top: 1px solid $color-grey-dark;
+      margin-top: -0.4rem;
+    }
+
+    @include respond(laptop) {
+      right: 6.8%;
+    }
+
+    @include respond(tablet) {
+      right: 7.5%;
+      margin-top: -1rem;
+    }
+
+    @include respond(phone) {
+      right: 7rem;
+      top: 0px;
+    }
+  }
+
+  &-low-height {
+    height: 50vh;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 35%;
+    display: grid;
+    grid-template-rows: 25rem 12rem;
+
+    @include respond(laptop) {
+      left: 6%;
+    }
+
+    @include respond(tablet) {
+      left: 6.1rem;
+    }
+
+    @include respond(phone) {
+      top: 18%;
+      left: 2.5%;
+      grid-template-rows: 27rem 12rem;
+    }
+
+    &--dest {
+      grid-template-rows: 21rem 12rem;
+      top: 50% !important;
+      @include respond(phone) {
+        text-align: center;
+        grid-template-rows: 27rem 5rem;
+        top: 20%;
+      }
+    }
+  }
+
+  &__button-box {
+    display: grid;
+    grid-template-rows: 6rem 5rem;
+
+    @include respond(laptop) {
+      margin-right: 13.7rem;
+    }
+
+    @include respond(tablet) {
+      margin-right: 8.3rem;
+    }
+
+    &--dest {
+      & > a {
+        @include respond(phone) {
+          display: none;
+        }
+      }
+    }
+
+    & a:nth-child(1) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.38rem;
+
+      @include respond(laptop) {
+        width: 22rem;
+      }
+
+      @include respond(tablet) {
+        width: 22rem;
+      }
+
+      @include respond(phone) {
+        width: 30.4rem;
+        height: 6rem;
+        background: white;
+        color: $color-primary;
+        font-family: Nunito-Black;
+        font-size: 1.8rem;
+      }
+    }
+    & a:nth-child(2) {
+      font-size: 1.38rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0rem 0.1rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+}

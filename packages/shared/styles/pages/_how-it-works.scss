@@ -1,0 +1,35 @@
+.section {
+  &-how-it-works {
+    max-width: 126rem;
+    @include centralize;
+    margin-top: 8rem;
+
+    @include respond(laptop) {
+      max-width: 100rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 70rem;
+    }
+
+    @include respond(phone) {
+      max-width: 31rem;
+      margin-top: 5rem;
+    }
+
+    & .mobile-yes {
+      @include respond(phone) {
+        margin-bottom: 5rem;
+      }
+    }
+
+    & .mobile-yes h2 {
+      @include respond(phone) {
+        color: $color-primary;
+        font-size: 2rem;
+        text-align: center;
+        padding: 0 3rem;
+      }
+    }
+  }
+}

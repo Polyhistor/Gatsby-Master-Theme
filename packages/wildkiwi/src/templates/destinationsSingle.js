@@ -22,11 +22,13 @@ import Trips from "../components/trips/trips"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useWildkiwiQuery from "../queries/wildkiwiQuery"
 
 const DestinationsSingle = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const WhyWildData = useWildkiwiQuery()
 
   return (
     <Layout2>
@@ -113,7 +115,7 @@ const DestinationsSingle = ({ data }) => {
         <div className="hotfix--reviews">
           <Reviews />
         </div>
-        <WhyWild />
+        <WhyWild WhyWildData={WhyWildData} />
         <Booking />
         <GetThere
           title="Getting there"

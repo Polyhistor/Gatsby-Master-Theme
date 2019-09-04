@@ -1,0 +1,60 @@
+.get-there {
+  display: grid;
+  grid-template-rows: 7rem min-content 22rem;
+  font-size: 1.6rem;
+  color: $color-grey-dark-2;
+
+  @include respond(laptop) {
+    grid-template-rows: 7rem min-content 22rem;
+    width: 187%;
+  }
+
+  @include respond(tablet) {
+    grid-template-rows: 7rem min-content 11rem;
+  }
+
+  @include respond(phone) {
+    grid-template-rows: 7rem min-content 22rem;
+    grid-template-columns: 30rem;
+  }
+
+  &__paragraph {
+    grid-row: 2;
+    padding-bottom: 2rem;
+
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    &-title {
+      font-family: Nunito-Black;
+      color: $color-grey-dark-3;
+      display: block;
+      padding-bottom: 1.5rem;
+      margin-left: -1.6rem;
+    }
+
+    &--left {
+      grid-column: 1;
+      margin-left: 2rem;
+    }
+
+    &--right {
+      grid-column: 2;
+    }
+  }
+
+  &__element {
+    line-height: 2.5rem;
+
+    & > a {
+      text-decoration: none;
+      color: $color-grey-dark-2;
+    }
+  }
+}
