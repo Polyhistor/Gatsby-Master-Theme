@@ -33,7 +33,7 @@ const IndexPage = () => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  // getting the number of tours for each country
+  // getting the number of tours
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
       dest => dest.node.destinationCountry === destination
