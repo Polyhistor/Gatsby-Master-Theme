@@ -23,120 +23,120 @@ export const FluidImageFragmentBig = graphql`
 `
 
 // for wordporess posts that has been fetched
-// export const BlogPostFragment = graphql`
-//   fragment BlogPost on wordpress__POST {
-//     id
-//     title
-//     content
-//     excerpt
-//     date
-//     slug
-//     author {
-//       slug
-//       name
-//       acf {
-//         image {
-//           localFile {
-//             childImageSharp {
-//               fluid(quality: 70, maxWidth: 770) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     categories {
-//       name
-//     }
-//     featured_media {
-//       localFile {
-//         childImageSharp {
-//           resolutions(width: 1500, height: 770) {
-//             src
-//             srcSet
-//             width
-//             height
-//           }
-//           fluid(quality: 70, maxWidth: 770) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const BlogPostFragment = graphql`
+  fragment BlogPost on wordpress__POST {
+    id
+    title
+    content
+    excerpt
+    date
+    slug
+    author {
+      slug
+      name
+      acf {
+        image {
+          localFile {
+            childImageSharp {
+              fluid(quality: 70, maxWidth: 770) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+    }
+    featured_media {
+      localFile {
+        childImageSharp {
+          resolutions(width: 1500, height: 770) {
+            src
+            srcSet
+            width
+            height
+          }
+          fluid(quality: 70, maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 // for authors that has been fetched
-// export const BlogAuthorFragment = graphql`
-//   fragment BlogAuthor on wordpress__wp_users {
-//     id
-//     name
-//     description
-//     slug
-//     acf {
-//       facebook
-//       instagram
-//       description
-//       image {
-//         localFile {
-//           childImageSharp {
-//             fluid(quality: 80, maxWidth: 770) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     }
-//     authored_wordpress__POST {
-//       id
-//       title
-//       slug
-//       categories {
-//         name
-//       }
-//       featured_media {
-//         localFile {
-//           childImageSharp {
-//             fluid(quality: 80, maxWidth: 770) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const BlogAuthorFragment = graphql`
+  fragment BlogAuthor on wordpress__wp_users {
+    id
+    name
+    description
+    slug
+    acf {
+      facebook
+      instagram
+      description
+      image {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 770) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    authored_wordpress__POST {
+      id
+      title
+      slug
+      categories {
+        name
+      }
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 770) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 // for activities that has been fetched from Contetnful
-// export const ActivitiesFragment = graphql`
-//   fragment Activities on ContentfulActivities {
-//     slug
-//     title
-//     subtitle
-//     price
-//     country {
-//       title
-//     }
-//     svgMap {
-//       localFile {
-//         publicURL
-//       }
-//     }
-//     description {
-//       json
-//     }
-//     bannerImages {
-//       localFile {
-//         childImageSharp {
-//           fluid(quality: 80, maxWidth: 770) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const ActivitiesFragment = graphql`
+  fragment Activities on ContentfulActivities {
+    slug
+    title
+    subtitle
+    price
+    country {
+      title
+    }
+    svgMap {
+      localFile {
+        publicURL
+      }
+    }
+    description {
+      json
+    }
+    bannerImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 80, maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 // for countries that has been fetched from Contetnful
 export const CountriesFragment = graphql`
@@ -305,42 +305,42 @@ export const FAQFragment = graphql`
   }
 `
 
-// // for aboutUs boxes that has been fetched from Contentful
-// export const AboutUsFragment = graphql`
-//   fragment AboutUs on ContentfulAboutUs {
-//     title
-//     content {
-//       content
-//     }
-//     order
-//     banner {
-//       localFile {
-//         childImageSharp {
-//           fluid(maxWidth: 770) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+// for aboutUs boxes that has been fetched from Contentful
+export const AboutUsFragment = graphql`
+  fragment AboutUs on ContentfulAboutUs {
+    title
+    content {
+      content
+    }
+    order
+    banner {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
-// // for Our Team section that has been fetched from Contetnful
-// export const TeamFragment = graphql`
-//   fragment Team on ContentfulTeam {
-//     name
-//     title
-//     image {
-//       localFile {
-//         childImageSharp {
-//           fluid(maxWidth: 770) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+// for Our Team section that has been fetched from Contetnful
+export const TeamFragment = graphql`
+  fragment Team on ContentfulTeam {
+    name
+    title
+    image {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 770) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 // for why wild kiwi section that has been fetched from Contentful
 export const HomePageFragment = graphql`
@@ -405,14 +405,14 @@ export const WhyWildFragment = graphql`
 `
 
 // // for reviews section
-// export const ReviewsFragment = graphql`
-//   fragment Reviews on ContentfulReviews {
-//     contentful_id
-//     title
-//     country
-//     reccomended
-//     name
-//     reviewText
-//     date
-//   }
-// `
+export const ReviewsFragment = graphql`
+  fragment Reviews on ContentfulReviews {
+    contentful_id
+    title
+    country
+    reccomended
+    name
+    reviewText
+    date
+  }
+`

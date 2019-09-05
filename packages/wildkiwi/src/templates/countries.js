@@ -14,11 +14,13 @@ import Popup from "../components/popup"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useDestinationQuery from "../queries/destinationQuery"
 
 const countries = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const destinationData = useDestinationQuery()
 
   return (
     <Layout>
@@ -37,7 +39,10 @@ const countries = ({ data }) => {
         variation="dest"
       />
       <Featured />
-      <FilteredTours country={data.contentfulCountry.slug} />
+      <FilteredTours
+        country={data.contentfulCountry.slug}
+        destinationData={destinationData}
+      />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"

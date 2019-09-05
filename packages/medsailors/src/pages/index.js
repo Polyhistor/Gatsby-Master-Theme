@@ -26,7 +26,7 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
 import useDestinationQuery from "../queries/destinationQuery"
 
-const IndexPage = () => {
+const Index = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -143,4 +143,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Index
