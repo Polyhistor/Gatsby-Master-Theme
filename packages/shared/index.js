@@ -39,7 +39,7 @@ export { default as FooterForm } from "./components/footer/footerForm"
 export {
   default as FooterInstagramBox,
 } from "./components/footer/footerInstagramBox"
-export { default as Landing } from "./components/header/landing/landing"
+export { default as Landing } from "./components/header/landings/landing"
 export {
   default as LandingChartered,
 } from "./components/header/landings/landingChartered"
