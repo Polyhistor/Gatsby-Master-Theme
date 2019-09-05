@@ -2,14 +2,9 @@ import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 
-import useHowItWorksQuery from "../../queries/howItWorksQuery"
-
-const HowItWorks = () => {
-  // extracting query out of our custom hook
-  const howItWorksData = useHowItWorksQuery()
-
+const HowItWorks = ({ data }) => {
   const renderHowBoxes = () => {
-    return howItWorksData
+    return data
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((element, idx) => {
         return (

@@ -1,0 +1,122 @@
+.heading-primary {
+  color: $color-white;
+  backface-visibility: hidden;
+  margin-bottom: 1rem;
+  @include bigUppercaseText;
+
+  &--dest {
+    & > span {
+      @include respond(phone) {
+        font-size: 3.4rem;
+      }
+    }
+  }
+
+  &--main {
+    display: block;
+    font-size: 6.21rem;
+    animation: moveInleft 0.8s ease-out;
+    font-family: Nexa-Rust-2;
+    line-height: 5rem;
+    white-space: nowrap;
+
+    @include respond(phone) {
+      font-size: 4rem;
+      line-height: 3.5rem;
+    }
+  }
+
+  &--sub {
+    font-size: 1.6rem;
+    font-family: Nexa-Rust-2;
+    animation: moveInleft 2s ease-out;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &--description {
+    color: white;
+    font-size: 1.6rem;
+    font-family: Nunito-Semibold;
+    padding-top: 2rem;
+    max-width: 52rem;
+    text-transform: none;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.heading-tertiary {
+  @include tertiaryHeading;
+
+  &--white {
+    color: $color-white;
+    font-family: Nunito-Black;
+
+    @include respond(phone) {
+      color: #fff;
+      padding: 6rem;
+      font-family: nexa-rust;
+      font-size: 6rem;
+    }
+  }
+
+  &--inline {
+    display: inline;
+
+    @include respond(phone) {
+      font-family: Nexa-Rust;
+      display: block;
+      padding-top: 4rem;
+      height: 5rem;
+      padding-bottom: 10rem;
+    }
+  }
+}
+
+.heading-alternative {
+  @include header-alternative;
+
+  &--white {
+    color: white;
+  }
+}
+
+.bold-green {
+  font-size: 3rem;
+  color: $color-primary;
+}
+
+.green-title {
+  font-family: Nunito-Black;
+  font-size: 3.4rem;
+  color: $color-primary;
+
+  @include respond(phone) {
+    font-size: 3.7rem;
+    text-align: center;
+  }
+}
+
+.green-title-alternative {
+  font-family: Nunito-Black;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: capitalize;
+}
+
+.green-subtitle-alternative {
+  font-family: Nunito-Regular;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: uppercase;
+}
