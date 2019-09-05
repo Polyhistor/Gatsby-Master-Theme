@@ -26,14 +26,14 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
 import useDestinationQuery from "../queries/destinationQuery"
 
-const IndexPage = () => {
+const Index = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  // getting the number of tours for each country
+  // getting the number of tours
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
       dest => dest.node.destinationCountry === destination
@@ -143,4 +143,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Index

@@ -1,10 +1,10 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { FooterCopyright } from "@nt-websites/shared"
+
 import SocialNetowrk from "./socialNetworks"
 import FooterContents from "./footerContents"
-// import FooterCopyright from "./footerCopyright"
-import { FooterCopyright } from "@nt-websites/shared"
 
 const Footer = () => {
   const data = useStaticQuery(graphql`

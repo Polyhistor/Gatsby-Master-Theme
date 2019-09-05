@@ -14,12 +14,17 @@ import {
   EmailIcon,
 } from "react-share"
 
+import useBlogQuery from "../queries/blogQuery"
+
 import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
   const shareUrl = `http://localhost:8000/blog/${data.wordpressPost.slug}`
+
+  // taking out our custom hook
+  const blogQuery = useBlogQuery()
 
   return (
     <Layout2>
@@ -85,7 +90,7 @@ const BlogPostTemplate = ({ data }, idx) => {
             dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
           />
           <div className="blog-single__sidebar">
-            <BlogRelated />
+            <BlogRelated blogQuery={blogQuery} />
           </div>
           <div className="blog-single__facebook">
             <input type="checkbox" className="read-more-state" id="post-1" />
@@ -154,7 +159,7 @@ const BlogPostTemplate = ({ data }, idx) => {
           related stories
         </h2>
         <div className="blog-single__related">
-          <BlogRelated />
+          <BlogRelated blogQuery={blogQuery} />
         </div>
       </article>
     </Layout2>
