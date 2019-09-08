@@ -14,11 +14,13 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import useActivityQuery from "../queries/activityQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+  const activityQuery = useActivityQuery()
 
   return (
     <Layout2>
@@ -67,7 +69,7 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
               : "there has been no description found for this tour on Contentful, please consider adding one"
           }
         />
-        <ActivityRelated />
+        <ActivityRelated activityQuery={activityQuery} />
       </SectionActivity>
       <Banner
         header="How it works"
