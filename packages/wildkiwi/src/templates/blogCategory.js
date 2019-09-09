@@ -16,9 +16,6 @@ const BlogCategory = ({ data, pageContext }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
-  console.log(data)
-  console.log(pageContext.slug)
-
   const filteredData = data.allWordpressPost.edges.filter(
     e => e.node.categories[0].slug === pageContext.slug
   )
