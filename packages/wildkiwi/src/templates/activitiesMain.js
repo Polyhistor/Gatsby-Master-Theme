@@ -31,6 +31,8 @@ const ActivitiesMain = ({ pageContext }) => {
 
   // using useState hook for the pourposes of our filter
   const [data, setData] = useState(group)
+  const [CountryData, setCountryData] = useState(null)
+  const [filter, setFilter] = useState(null)
 
   // we need another static query to fetch activities
   const activitiesData = useStaticQuery(graphql`
@@ -43,6 +45,9 @@ const ActivitiesMain = ({ pageContext }) => {
             subtitle
             price
             country {
+              slug
+            }
+            Destinations {
               slug
             }
             bannerImages {
@@ -63,31 +68,74 @@ const ActivitiesMain = ({ pageContext }) => {
           }
         }
       }
+      allContentfulDestinations {
+        edges {
+          node {
+            slug
+            title
+            destinationCountry
+          }
+        }
+      }
     }
   `)
 
   // embracing the variables
   const ourData = activitiesData.allContentfulActivities.edges
+  const ourFilter = activitiesData.allContentfulDestinations.edges
+
+  // console.log(ourFilter)
 
   // handling the filter functionality
-  const handleSubmit = e => {
+  const handleSubmit = ({ target }) => {
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
+    const filteredData2 = []
 
-    if (e.target.value === "all") {
+    if (target.value === "all") {
       return setData(group)
     }
 
-    return ourData.filter(element => {
+    ourData.filter(element => {
       // filter logic
-      if (element.node.country.slug === e.target.value) {
+      if (element.node.country.slug === target.value) {
         filteredData.push(element)
       }
 
+      setCountryData(filteredData)
+
       // update the state
-      setData(filteredData)
-      return
+      return setData(filteredData)
     })
+
+    ourFilter.filter(element => {
+      // filter logic for our second filter
+      if (element.node.destinationCountry === target.value) {
+        filteredData2.push(element)
+      }
+
+      // update the state
+      return setFilter(filteredData2)
+    })
+  }
+
+  const handleFilter = ({ target }) => {
+    const filteredData3 = []
+
+    if (target.value === "all") {
+      return setData(filter)
+    }
+
+    CountryData.filter(e =>
+      e.node.Destinations.forEach(s => {
+        if (s.slug === target.value) {
+          filteredData3.push(e)
+        }
+      })
+    )
+
+    // update the state
+    return setData(filteredData3)
   }
 
   const renderActivities = () => {
@@ -155,16 +203,26 @@ const ActivitiesMain = ({ pageContext }) => {
               <option value="europe"> Europe</option>
             </select>
           </div>
-          <div className="activity__selector">
+          <div
+            className={
+              filter === null
+                ? "activity__selector activity__selector--hidden"
+                : "activity__selector"
+            }
+          >
             <select
               className="activity__dropdown"
               id="country"
-              onChange={handleSubmit}
+              onChange={handleFilter}
             >
-              <option value="newzealand">Tour</option>
-              <option value="newzealand">New Zealand</option>
-              <option value="australia"> Australia </option>
-              <option value="europe"> Europe</option>
+              <option value="all">Tour</option>
+              {filter !== null
+                ? filter.map(e => (
+                    <option key={e.node.title} value={e.node.slug}>
+                      {e.node.title}
+                    </option>
+                  ))
+                : null}
             </select>
           </div>
         </div>
