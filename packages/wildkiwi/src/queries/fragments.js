@@ -47,6 +47,7 @@ export const BlogPostFragment = graphql`
       }
     }
     categories {
+      slug
       name
     }
     featured_media {

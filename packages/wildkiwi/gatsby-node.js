@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             excerpt
             categories {
+              slug
               name
             }
             author {
@@ -52,6 +53,14 @@ exports.createPages = async ({ graphql, actions }) => {
                 name
               }
             }
+          }
+        }
+      }
+      allWordpressCategory {
+        edges {
+          node {
+            slug
+            name
           }
         }
       }
@@ -117,6 +126,14 @@ exports.createPages = async ({ graphql, actions }) => {
     // seting the link to the author page template via node legacy modules
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
 
+    // accesing the data responsible for Wordpress categories
+    const BlogCategories = result.data.allWordpressCategory.edges
+
+    // the category blog page template
+    const BlogCategoriesTemplate = path.resolve(
+      "./src/templates/blogCategory.js"
+    )
+
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
 
@@ -174,7 +191,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/blog/${post.node.slug}`,
+        path: `/blog/${post.node.categories.slug}/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,
@@ -189,6 +206,18 @@ exports.createPages = async ({ graphql, actions }) => {
         component: BlogAuthorTemplate,
         context: {
           id: author.node.wordpress_id,
+        },
+      })
+    })
+
+    // this is for categories (blog)
+    BlogCategories.forEach(category => {
+      createPage({
+        path: `/blog/${category.node.slug}`,
+        component: BlogCategoriesTemplate,
+        context: {
+          slug: category.node.slug,
+          name: category.node.name,
         },
       })
     })
