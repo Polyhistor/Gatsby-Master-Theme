@@ -139,6 +139,9 @@
         text-align: center;
         border-bottom: 1px solid $color-gray-light-2;
         font-family: Nunito-Semibold;
+        left: calc(-50vw + 50%);
+        width: 100vw;
+        position: relative;
       }
     }
     &--destination {

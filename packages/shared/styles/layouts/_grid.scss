@@ -96,8 +96,7 @@
     transform: translateY(7rem);
 
     @include respond(phone) {
-      transform: translateY(2rem);
-      margin-top: 1.3rem;
+      transform: translateY(4rem);
     }
   }
 }

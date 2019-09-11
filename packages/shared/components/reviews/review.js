@@ -5,20 +5,8 @@ const Review = ({ text, author, country }) => {
   return (
     <div className="review">
       <div className="review__stars-box u-padding-bottom-small">
-        <svg className="svg-icon--star">
-          <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-        </svg>
-        <svg className="svg-icon--star">
-          <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-        </svg>
-        <svg className="svg-icon--star">
-          <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-        </svg>
-        <svg className="svg-icon--star">
-          <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-        </svg>
-        <svg className="svg-icon--star">
-          <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+        <svg className="svg-icon--facebook">
+          <use xlinkHref={withPrefix("sprite.svg#icon-Facebook-Review-01")} />
         </svg>
       </div>
       <p className="review__paragraph u-padding-bottom-small">{text}</p>
