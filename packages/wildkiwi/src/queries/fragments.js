@@ -244,6 +244,9 @@ export const DestinationsFragment = graphql`
           }
         }
       }
+      itineraryDescription {
+        itineraryDescription
+      }
       days {
         title
         description {

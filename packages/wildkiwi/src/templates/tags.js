@@ -11,15 +11,13 @@ import Trips from "../components/trips/trips"
 import useHomePageQuery from "../queries/homePageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
-const BlogCategory = ({ data, pageContext }) => {
+const Tags = ({ data, pageContext }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
   const filteredData = data.allWordpressPost.edges.filter(
-    e => e.node.categories[0].slug === pageContext.slug
+    e => e.node.tags.slug === pageContext.slug
   )
-
-  console.log(filteredData)
 
   // rendering blogs
   const renderBlogs = () => {
@@ -45,7 +43,7 @@ const BlogCategory = ({ data, pageContext }) => {
     <Layout2>
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
-          Category : {pageContext.name}
+          Tag : {pageContext.name}
         </h2>
         <div className="blog__categorized">{renderBlogs()}</div>
         <Banner
@@ -62,7 +60,7 @@ const BlogCategory = ({ data, pageContext }) => {
     </Layout2>
   )
 }
-export default BlogCategory
+export default Tags
 
 export const query = graphql`
   query {

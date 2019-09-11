@@ -64,6 +64,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressTag {
+        edges {
+          node {
+            slug
+            name
+          }
+        }
+      }
       allContentfulActivities {
         edges {
           node {
@@ -133,6 +141,12 @@ exports.createPages = async ({ graphql, actions }) => {
     const BlogCategoriesTemplate = path.resolve(
       "./src/templates/blogCategory.js"
     )
+
+    // accessing the data responsible for blog tags
+    // const BlogTags = result.data.allWordpressTag.edges
+
+    // the tags page template
+    // const BlogTagsTemplate = path.resolve("./src/templates/tags.js")
 
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
@@ -221,6 +235,18 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     })
+
+    // this is for tags
+    // BlogTags.forEach(tag => {
+    //   createPage({
+    //     path: `/tag/${tag.node.slug}`,
+    //     component: BlogTagsTemplate,
+    //     contenxt: {
+    //       slug: tag.node.slug,
+    //       name: tag.node.name,
+    //     },
+    //   })
+    // })
 
     // this is for activities
     Activities.forEach(activity => {

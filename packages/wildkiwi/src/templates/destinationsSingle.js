@@ -89,7 +89,9 @@ const DestinationsSingle = ({ data }) => {
         />
         <Itinerary
           title="Itinerary"
-          country={data.contentfulDestinations.destinationCountry}
+          itineraryConditional={
+            data.contentfulDestinations.itinerary.itineraryDescription
+          }
           itineraryDescriptions={data.contentfulDestinations.itinerary.days}
           itineraryImages={
             data.contentfulDestinations.itinerary.itineraryImages

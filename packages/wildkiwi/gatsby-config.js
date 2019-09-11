@@ -11,6 +11,7 @@ module.exports = {
     copyright: `Navigate Group Ltd`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-offline`,
@@ -130,10 +131,9 @@ module.exports = {
         includedRoutes: [
           `**/categories`,
           `**/posts`,
-          `**/taxonomies`,
           `**/users`,
           `**/media`,
-          `/yoast/**`,
+          `**/tags`,
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
