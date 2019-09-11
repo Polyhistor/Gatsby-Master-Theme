@@ -1,25 +1,23 @@
 import React from "react"
 
 // default components
-import {
-  Layout2,
-  SEO,
-  DestinationSection,
-  LandingChartered,
-  GreenBar,
-  DestinationStarter,
-  TripBox,
-  HighLight,
-  Itinerary,
-  Includes,
-  ActivitiesBox,
-  Reviews,
-  WhyUs,
-  Booking,
-  GetThere,
-  Banner,
-  Trips,
-} from "@nt-websites/shared"
+import Layout2 from "../components/layout/layout2"
+import SEO from "../components/seo/seo"
+import DestinationSection from "../components/destinations/destinationSection"
+import LandingChartered from "../components/header/landings/landingChartered"
+import GreenBar from "../components/bars/greenBar"
+import DestinationStarter from "../components/destinations/destinationStarter"
+import TripBox from "../components/destinations/tripBox"
+import HighLight from "../components/destinations/highlight"
+import Itinerary from "../components/destinations/itinerary"
+import Includes from "../components/destinations/includes"
+import ActivitiesBox from "../components/destinations/activitiesBox"
+import Reviews from "../components/reviews/reviews"
+import WhyWild from "../components/destinations/whyWild"
+import Booking from "../components/destinations/booking"
+import GetThere from "../components/destinations/getThere"
+import Banner from "../components/banners/banner"
+import Trips from "../components/trips/trips"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -117,7 +115,7 @@ const DestinationsSingle = ({ data }) => {
         <div className="hotfix--reviews">
           <Reviews />
         </div>
-        <WhyUs WhyWildData={WhyWildData} />
+        <WhyWild WhyWildData={WhyWildData} />
         <Booking />
         <GetThere
           title="Getting there"

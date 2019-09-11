@@ -2,17 +2,15 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // default components
-import {
-  Layout2,
-  LandingChartered,
-  GreenBar,
-  SectionActivity,
-  ActivityScaffold,
-  ActivityRelated,
-  Banner,
-  Reviews,
-  Trips,
-} from "@nt-websites/shared"
+import Layout2 from "../components/layout/layout2"
+import LandingChartered from "../components/header/landings/landingChartered"
+import GreenBar from "../components/bars/greenBar"
+import SectionActivity from "../components/activity/sectionActivity"
+import ActivityScaffold from "../components/activity/activityScaffold"
+import ActivityRelated from "../components/activity/activityRelated"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"

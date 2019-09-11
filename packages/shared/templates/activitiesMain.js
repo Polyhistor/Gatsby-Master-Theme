@@ -2,15 +2,13 @@ import React, { useState } from "react"
 import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-import {
-  NavLink,
-  Layout,
-  Banner,
-  Reviews,
-  Trips,
-  Landing,
-  GreenBar,
-} from "@nt-websites/shared"
+import NavLink from "../components/blog/blogNavLink"
+import Layout from "../components/layout/layout"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
+import Landing from "../components/header/landings/landing"
+import GreenBar from "../components/bars/greenBar"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"

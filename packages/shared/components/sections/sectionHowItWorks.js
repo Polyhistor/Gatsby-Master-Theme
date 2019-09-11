@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 
-const SectionHowItWorks = ({ data }) => {
+const HowItWorks = ({ data }) => {
   const renderHowBoxes = () => {
     return data
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
@@ -56,4 +56,4 @@ const SectionHowItWorks = ({ data }) => {
   )
 }
 
-export default SectionHowItWorks
+export default HowItWorks

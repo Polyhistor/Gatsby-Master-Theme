@@ -1,7 +1,24 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const FooterCopyright = ({ data }) => {
+const FooterCopyright = () => {
+  const data = {
+    site: {
+      siteMetadata: {
+        copyright: "blabla",
+      },
+    },
+  }
+
+  /*const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          copyright
+        }
+      }
+    }
+  `)*/
   return (
     <>
       <div className="row">

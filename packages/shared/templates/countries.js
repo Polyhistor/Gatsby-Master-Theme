@@ -1,17 +1,15 @@
 import React from "react"
 
 // default components
-import {
-  Layout,
-  SEO,
-  Landing,
-  Reviews,
-  Trips,
-  Featured,
-  Banner,
-  FilteredTours,
-  Popup,
-} from "@nt-websites/shared"
+import Layout from "../components/layout/layout"
+import SEO from "../components/seo/seo"
+import Landing from "../components/header/landings/landing"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
+import Featured from "../components/featured"
+import Banner from "../components/banners/banner"
+import FilteredTours from "../components/destinations/filteredTours"
+import Popup from "../components/popup"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"

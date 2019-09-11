@@ -1,26 +1,23 @@
 import React, { Fragment } from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenbarAlt from "../components/bars/greenbar-alt"
-import BannerHero from "../components/banners/bannerHero"
-import BoxContainer from "../components/boxes/boxContainer"
-import TourBanner from "../components/banners/tourBanner"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-import Popup from "../components/popup"
-
-// mobile components
-import DestinationsMobile from "../components/mobile/destinationsMobile"
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
-import WhyWildKiwi from "../components/mobile/whyWildkiwi"
-
-// tablet component
-import DestinationsTablet from "../components/tablet/destinationsTablet"
+import {
+  Layout,
+  DestinationsMobile,
+  SEO,
+  Landing,
+  GreenBarAlt,
+  BannerHero,
+  BoxContainer,
+  TourBanner,
+  Banner,
+  Reviews,
+  Popup,
+  Trips,
+  WhyUsMobile,
+  FeaturedMobile,
+  DestinationsTablet,
+} from "@nt-websites/shared"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -107,7 +104,7 @@ const IndexPage = () => {
         buttonStyles={["green", "white"]}
         variation={null}
       />
-      <GreenbarAlt
+      <GreenBarAlt
         textList={[
           { label: "destinations", link: "/destinations" },
           { label: "new zealand", link: "/destinations/newzealand" },
@@ -115,7 +112,7 @@ const IndexPage = () => {
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WhyWildKiwi data={homeQuery[0].node.whyWildKiwi} />
+      <WhyUsMobile data={homeQuery[0].node.whyWildKiwi} />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>

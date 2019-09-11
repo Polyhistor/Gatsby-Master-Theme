@@ -2,7 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import { NavLink, Layout2, Banner, Reviews, Trips } from "@nt-websites/shared"
+import NavLink from "../components/blog/blogNavLink"
+import Layout2 from "../components/layout/layout2"
+import Banner from "../components/banners/banner"
+import Reviews from "../components/reviews/reviews"
+import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
