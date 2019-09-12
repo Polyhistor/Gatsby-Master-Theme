@@ -184,11 +184,8 @@
   }
 
   &__svg-map-container {
-    margin-top: 0.1rem;
-
     &:nth-child(1) img {
       margin-left: -1.5rem;
-      height: 39.5rem;
 
       @include respond(tablet) {
         border-left: 1px solid #e7e7e7;
@@ -208,10 +205,6 @@
 
     &--australia {
       & > img {
-        width: 36.57rem;
-        height: 38rem;
-        margin-left: -20rem;
-
         @include respond(laptop) {
           width: 29.9rem;
           margin-top: 2rem;
@@ -232,12 +225,8 @@
     }
 
     &--europe {
+      height: 40rem;
       & > img {
-        width: 34.3rem;
-        height: 39.7rem;
-        margin-left: -3rem;
-        margin-top: -1px;
-
         @include respond(laptop) {
           width: 29.7rem;
           height: 41rem;
