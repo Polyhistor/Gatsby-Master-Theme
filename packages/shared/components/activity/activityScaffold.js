@@ -3,6 +3,15 @@ import { Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
+  // this allows us to render specific node types
+  // const options = {
+  //   renderNode: {
+  //     "embedded-asset-block": node => {
+  //       return
+  //     }
+  //   }
+  // }
+
   return (
     <div className="activity activity--single">
       <h1 className="activity__title">{title}</h1>
