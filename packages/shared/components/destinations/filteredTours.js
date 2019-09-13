@@ -80,7 +80,7 @@ const FilteredTour = ({ country, destinationData }) => {
           : (currency = ["EUR", "€"])
 
         return (
-          <Link
+          <div
             key={idx}
             className="filtered-tour"
             to={`destinations/${country}/${element.node.slug}`}
@@ -132,7 +132,7 @@ const FilteredTour = ({ country, destinationData }) => {
             >
               View Itinerary
             </Link>
-          </Link>
+          </div>
         )
       })
   }

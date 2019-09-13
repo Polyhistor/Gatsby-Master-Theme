@@ -202,6 +202,9 @@ export const DestinationsFragment = graphql`
       slug
       price
       status
+      country {
+        slug
+      }
       bannerImages {
         localFile {
           childImageSharp {

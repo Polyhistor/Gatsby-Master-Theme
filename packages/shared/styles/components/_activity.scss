@@ -71,6 +71,15 @@
     }
   }
 
+  &__paragraph {
+    margin-bottom: 2rem;
+  }
+
+  &__hyperlink {
+    color: #1abc9c;
+    font-family: Nunito-Extrabold;
+  }
+
   &__svg-map {
     grid-column: 1;
     grid-row: 1;

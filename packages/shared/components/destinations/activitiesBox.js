@@ -5,9 +5,12 @@ import { Link } from "gatsby"
 const ActivitiesBox = ({ activityData }) => {
   const renderActivities = () => {
     return activityData.map(
-      ({ status, bannerImages, title, subtitle, price, slug }, idx) => {
+      (
+        { status, bannerImages, title, subtitle, price, slug, country },
+        idx
+      ) => {
         return (
-          <Link to={`/activities/${slug}`} key={idx}>
+          <Link to={`/activities/${country.slug}/${slug}`} key={idx}>
             <div key={idx} className="acitivity-box-single">
               <figure className="acitivity-box-single__image-container">
                 <Img

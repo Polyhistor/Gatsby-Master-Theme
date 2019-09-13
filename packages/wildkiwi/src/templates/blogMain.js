@@ -19,7 +19,10 @@ const IndexPage = ({ pageContext }) => {
     return group.map(({ node }) => {
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
-          <Link className="blog__main-link" to={`blog/` + node.slug}>
+          <Link
+            className="blog__main-link"
+            to={`blog/${node.categories.slug}/${node.slug}`}
+          >
             {node.featured_media !== null && (
               <Img
                 fluid={node.featured_media.localFile.childImageSharp.fluid}

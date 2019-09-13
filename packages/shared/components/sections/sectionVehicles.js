@@ -1,5 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
+import { withPrefix } from "gatsby"
 
 const SectionVehicles = ({
   imageOne,
@@ -35,11 +36,24 @@ const SectionVehicles = ({
             {renderList()}
           </ul>
           <p>{paragraphSecond}</p>
-          <a
+          {/* <a
             className="btn btn--green btn-animated mobile-green-buton"
             href="/blog"
           >
             Watch Vehicles Tour
+          </a> */}
+
+          <a
+            href="#popup"
+            to="/s"
+            className="btn btn--green btn-animated  u-margin-top-medium "
+          >
+            <svg className="svg-icon--play-button svg-icon--play-button--mobile">
+              <use
+                xlinkHref={withPrefix("sprite.svg#icon-Play-Button-White-A-1")}
+              />
+            </svg>
+            <span>VEHICLE TOUR</span>
           </a>
         </div>
       </div>

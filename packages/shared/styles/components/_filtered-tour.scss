@@ -168,7 +168,6 @@
 
     & > img {
       width: 20rem;
-      padding: 1rem;
 
       @include respond(laptop) {
         width: 15.5rem;
