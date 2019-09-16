@@ -24,8 +24,6 @@ const HowItWorks = () => {
   const homeQuery = useHomePageQuery()
   const howItWorksData = useHowItWorksQuery()
 
-  console.log(howItWorksData)
-
   return (
     <Layout>
       <SEO title="Home" />

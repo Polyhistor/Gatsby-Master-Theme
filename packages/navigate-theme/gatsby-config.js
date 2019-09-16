@@ -1,6 +1,7 @@
+//TODO: add flow type or typescript to type 'themeOptions'
+//TODO: Add joi validation for themeOptions
+
 module.exports = themeOptions => {
-  console.log(themeOptions)
-  // logs `postsPath` and `colors`
   return {
     plugins: [
       `gatsby-plugin-catch-links`,

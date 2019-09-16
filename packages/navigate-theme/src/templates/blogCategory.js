@@ -20,8 +20,6 @@ const BlogCategory = ({ data, pageContext }) => {
     e => e.node.categories[0].slug === pageContext.slug
   )
 
-  console.log(filteredData)
-
   // rendering blogs
   const renderBlogs = () => {
     return filteredData.map(({ node }) => {
