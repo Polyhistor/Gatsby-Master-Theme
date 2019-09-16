@@ -236,6 +236,9 @@ export const DestinationsFragment = graphql`
     numberOfCountries
     itinerary {
       itineraryTitles
+      itineraryDescription {
+        itineraryDescription
+      }
       itineraryImages {
         localFile {
           childImageSharp {

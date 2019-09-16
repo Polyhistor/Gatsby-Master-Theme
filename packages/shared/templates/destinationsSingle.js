@@ -97,6 +97,9 @@ const DestinationsSingle = ({ data }) => {
           itineraryTitles={
             data.contentfulDestinations.itinerary.itineraryTitles
           }
+          itineraryConditional={
+            data.contentfulDestinations.itinerary.itineraryDescription
+          }
         />
         <Includes
           title="What’s included on every Wild Kiwi tour"
