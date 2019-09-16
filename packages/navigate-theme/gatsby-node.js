@@ -1,8 +1,8 @@
-/*const path = require("path")
+const path = require("path")
 const createPaginatedPages = require("gatsby-paginate")
 
 // we are implementing gatsby API "createPages". The API will create pages for wordpress posts
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }, themeOptions) => {
   const { createPage } = actions
 
   // the graphql function allows us to run arbitrary queries against our local Gatsby Graphql schema.
@@ -291,4 +291,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-*/
