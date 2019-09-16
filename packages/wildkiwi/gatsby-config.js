@@ -1,3 +1,8 @@
+// getting our environment variables
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Wild Kiwi`,
@@ -8,7 +13,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-breadcrumb`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -37,6 +52,7 @@ module.exports = {
             "Nunito-Extrabold",
             "Nexa-Rust-2",
           ],
+          urls: ["fonts.css"],
         },
       },
     },
@@ -59,13 +75,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Wild Kiwi`,
+        short_name: `WK`,
         start_url: `/`,
-        // background_color: `#663399`,
-        // theme_color: `#ffffff`,
-        // display: `minimal-ui`,
-        icon: `src/images/wild_kiwi_favicon.png`, // This path is relative to the root of the site.
+        background_color: `#f7f0eb`,
+        theme_color: `#1abc9c`,
+        display: `standalone`,
+        icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -78,7 +94,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: `wildkiwi.com`,
+        baseUrl: `devygacademy.wpengine.com/`,
         // The protocol. This can be http or https.
         protocol: `https`,
         // Indicates whether the site is hosted on wordpress.com.
@@ -97,11 +113,11 @@ module.exports = {
         perPage: 5,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://wildkiwi.com/",
-          replacementUrl: "https://wildkiwi.com/",
+          sourceUrl: "https://devygacademy.wpengine.com/",
+          replacementUrl: "https://devygacademy.wpengine.com/",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
+        concurrentRequests: 4,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown
@@ -114,14 +130,25 @@ module.exports = {
         includedRoutes: [
           `**/categories`,
           `**/posts`,
-          `**/taxonomies`,
           `**/users`,
           `**/media`,
+          `**/tags`,
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
           return entities
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-netlify-headers`,
+      options: {
+        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
       },
     },
   ],

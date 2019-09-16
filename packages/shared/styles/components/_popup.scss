@@ -1,0 +1,64 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-gray-light-1, 0.9);
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+
+  &:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:target &__video {
+    transform: scale(1);
+  }
+
+  &__container {
+    filter: blur(10rem);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__video {
+    height: 100%;
+    width: 100%;
+    filter: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+  }
+
+  &__content {
+    filter: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2.5rem;
+    right: 4.5rem;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: $color-grey-dark-3;
+    text-decoration: none;
+
+    @include respond(laptop) {
+      top: 0.5rem;
+      right: 2rem;
+    }
+
+    @include respond(phone) {
+      top: -0.6rem;
+      right: 0.2rem;
+    }
+  }
+}
