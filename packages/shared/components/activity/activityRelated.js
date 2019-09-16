@@ -8,7 +8,9 @@ const ActivityRelated = ({ activityQuery }) => {
     return activityQuery.map(acitivity => {
       return (
         <Link
-          to={`/activities/${acitivity.node.slug}`}
+          to={`/activities/${acitivity.node.country.slug}/${
+            acitivity.node.slug
+          }`}
           key={acitivity.node.title}
         >
           {/* error handling, without this line, the activities with featured images will crash */}

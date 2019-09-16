@@ -117,6 +117,7 @@ export const ActivitiesFragment = graphql`
     subtitle
     price
     country {
+      slug
       title
     }
     svgMap {
