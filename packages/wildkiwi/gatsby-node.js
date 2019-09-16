@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             excerpt
             categories {
+              slug
               name
             }
             author {
@@ -52,6 +53,22 @@ exports.createPages = async ({ graphql, actions }) => {
                 name
               }
             }
+          }
+        }
+      }
+      allWordpressCategory {
+        edges {
+          node {
+            slug
+            name
+          }
+        }
+      }
+      allWordpressTag {
+        edges {
+          node {
+            slug
+            name
           }
         }
       }
@@ -100,7 +117,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    // error handling
+    // error handling after the query
     if (result.errors) {
       throw result.errors
     }
@@ -117,12 +134,31 @@ exports.createPages = async ({ graphql, actions }) => {
     // seting the link to the author page template via node legacy modules
     const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
 
+    // accesing the data responsible for Wordpress categories
+    const BlogCategories = result.data.allWordpressCategory.edges
+
+    // the category blog page template
+    const BlogCategoriesTemplate = path.resolve(
+      "./src/templates/blogCategory.js"
+    )
+
+    // accessing the data responsible for blog tags
+    // const BlogTags = result.data.allWordpressTag.edges
+
+    // the tags page template
+    // const BlogTagsTemplate = path.resolve("./src/templates/tags.js")
+
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
 
     // setting the link to the activities page template
     const ActivitiesTemplate = path.resolve(
       "./src/templates/activitiesSingle.js"
+    )
+
+    // setting the link the activities countries page
+    const ActCountriesTemplate = path.resolve(
+      "./src/templates/activitiesCountries.js"
     )
 
     // accessing the data for our contentful destination section
@@ -169,7 +205,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/blog/${post.node.slug}`,
+        path: `/blog/${post.node.categories.slug}/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,
@@ -188,13 +224,37 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     })
 
-    // this is for activities
-    Activities.forEach(acitivity => {
+    // this is for categories (blog)
+    BlogCategories.forEach(category => {
       createPage({
-        path: `/activities/${acitivity.node.slug}`,
+        path: `/blog/${category.node.slug}`,
+        component: BlogCategoriesTemplate,
+        context: {
+          slug: category.node.slug,
+          name: category.node.name,
+        },
+      })
+    })
+
+    // this is for tags
+    // BlogTags.forEach(tag => {
+    //   createPage({
+    //     path: `/tag/${tag.node.slug}`,
+    //     component: BlogTagsTemplate,
+    //     contenxt: {
+    //       slug: tag.node.slug,
+    //       name: tag.node.name,
+    //     },
+    //   })
+    // })
+
+    // this is for activities
+    Activities.forEach(activity => {
+      createPage({
+        path: `/activities/${activity.node.country.slug}/${activity.node.slug}`,
         component: ActivitiesTemplate,
         context: {
-          slug: acitivity.node.slug,
+          slug: activity.node.slug,
         },
       })
     })
@@ -217,6 +277,13 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/destinations/${country.node.slug}`,
         component: CountriesTemplate,
+        context: {
+          slug: country.node.slug,
+        },
+      })
+      createPage({
+        path: `/activities/${country.node.slug}`,
+        component: ActCountriesTemplate,
         context: {
           slug: country.node.slug,
         },

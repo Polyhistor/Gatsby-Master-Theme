@@ -94,7 +94,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: `wildkiwi.com`,
+        baseUrl: `devygacademy.wpengine.com/`,
         // The protocol. This can be http or https.
         protocol: `https`,
         // Indicates whether the site is hosted on wordpress.com.
@@ -113,8 +113,8 @@ module.exports = {
         perPage: 5,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://wildkiwi.com/",
-          replacementUrl: "https://wildkiwi.com/",
+          sourceUrl: "https://devygacademy.wpengine.com/",
+          replacementUrl: "https://devygacademy.wpengine.com/",
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 4,
@@ -130,10 +130,9 @@ module.exports = {
         includedRoutes: [
           `**/categories`,
           `**/posts`,
-          `**/taxonomies`,
           `**/users`,
           `**/media`,
-          `/yoast/**`,
+          `**/tags`,
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {

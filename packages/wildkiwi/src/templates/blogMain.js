@@ -2,11 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import NavLink from "../components/blog/blogNavLink"
-import Layout2 from "../components/layout/layout2"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
+import { NavLink, Layout2, Banner, Reviews, Trips } from "@nt-websites/shared"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
@@ -23,7 +19,10 @@ const IndexPage = ({ pageContext }) => {
     return group.map(({ node }) => {
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
-          <Link className="blog__main-link" to={`blog/` + node.slug}>
+          <Link
+            className="blog__main-link"
+            to={`blog/${node.categories.slug}/${node.slug}`}
+          >
             {node.featured_media !== null && (
               <Img
                 fluid={node.featured_media.localFile.childImageSharp.fluid}

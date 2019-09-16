@@ -2,23 +2,27 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // default components
-import Layout2 from "../components/layout/layout2"
-import LandingChartered from "../components/header/landings/landingChartered"
-import GreenBar from "../components/bars/greenBar"
-import SectionActivity from "../components/activity/sectionActivity"
-import ActivityScaffold from "../components/activity/activityScaffold"
-import ActivityRelated from "../components/activity/activityRelated"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
+import {
+  Layout2,
+  LandingChartered,
+  GreenBar,
+  SectionActivity,
+  ActivityScaffold,
+  ActivityRelated,
+  Banner,
+  Reviews,
+  Trips,
+} from "@nt-websites/shared"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import useActivityQuery from "../queries/activityQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+  const activityQuery = useActivityQuery()
 
   return (
     <Layout2>
@@ -67,7 +71,7 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
               : "there has been no description found for this tour on Contentful, please consider adding one"
           }
         />
-        <ActivityRelated />
+        <ActivityRelated activityQuery={activityQuery} />
       </SectionActivity>
       <Banner
         header="How it works"

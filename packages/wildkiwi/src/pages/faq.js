@@ -1,18 +1,19 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenBar from "../components/bars/greenBar"
-import Banner from "../components/banners/banner"
-import SectionFAQ from "../components/sections/sectionFAQ"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
+import { Layout } from "@nt-websites/shared"
+import { SEO } from "@nt-websites/shared"
+import { Landing } from "@nt-websites/shared"
+import { GreenBar } from "@nt-websites/shared"
+import { Banner } from "@nt-websites/shared"
+import { SectionFAQ } from "@nt-websites/shared"
+import { Reviews } from "@nt-websites/shared"
+import { Trips } from "@nt-websites/shared"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useFAQQuery from "../queries/faqQuery"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
@@ -21,6 +22,7 @@ const FAQ = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const FAQData = useFAQQuery()
 
   return (
     <Layout>
@@ -42,7 +44,15 @@ const FAQ = () => {
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionFAQ />
+      <SectionFAQ
+        FAQData={FAQData}
+        categories={[
+          { label: "ABOUT YOUR TRIP" },
+          { label: "BUDGET & PAYMENT" },
+          { label: "TRANSPORT" },
+          { label: "TRAVEL & SAFTEY" },
+        ]}
+      />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"

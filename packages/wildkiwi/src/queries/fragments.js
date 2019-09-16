@@ -47,6 +47,7 @@ export const BlogPostFragment = graphql`
       }
     }
     categories {
+      slug
       name
     }
     featured_media {
@@ -201,6 +202,9 @@ export const DestinationsFragment = graphql`
       slug
       price
       status
+      country {
+        slug
+      }
       bannerImages {
         localFile {
           childImageSharp {
@@ -242,6 +246,9 @@ export const DestinationsFragment = graphql`
             }
           }
         }
+      }
+      itineraryDescription {
+        itineraryDescription
       }
       days {
         title

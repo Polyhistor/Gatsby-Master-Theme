@@ -3,11 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { useStaticQuery } from "gatsby"
 
-import NavLink from "../components/blog/blogNavLink"
-import Layout2 from "../components/layout/layout2"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
+import { NavLink, Layout2, Banner, Reviews, Trips } from "@nt-websites/shared"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"

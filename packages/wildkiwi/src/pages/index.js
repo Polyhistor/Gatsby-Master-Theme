@@ -1,26 +1,23 @@
 import React, { Fragment } from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenbarAlt from "../components/bars/greenbar-alt"
-import BannerHero from "../components/banners/bannerHero"
-import BoxContainer from "../components/boxes/boxContainer"
-import TourBanner from "../components/banners/tourBanner"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-import Popup from "../components/popup"
-
-// mobile components
-import DestinationsMobile from "../components/mobile/destinationsMobile"
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
-import WhyWildKiwi from "../components/mobile/whyWildkiwi"
-
-// tablet component
-import DestinationsTablet from "../components/tablet/destinationsTablet"
+import {
+  Layout,
+  DestinationsMobile,
+  SEO,
+  Landing,
+  GreenBarAlt,
+  BannerHero,
+  BoxContainer,
+  TourBanner,
+  Banner,
+  Reviews,
+  Popup,
+  Trips,
+  WhyUsMobile,
+  FeaturedMobile,
+  DestinationsTablet,
+} from "@nt-websites/shared"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -35,7 +32,7 @@ const IndexPage = () => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  // getting the number of yours for each country
+  // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
       dest => dest.node.destinationCountry === destination
@@ -49,7 +46,7 @@ const IndexPage = () => {
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((country, idx) => {
         return (
-          <Fragment key={idx}>
+          <React.Fragment key={idx}>
             <DestinationsMobile
               key={idx + 4}
               destination={country.node.slug}
@@ -85,7 +82,7 @@ const IndexPage = () => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
             />
-          </Fragment>
+          </React.Fragment>
         )
       })
   }
@@ -107,7 +104,7 @@ const IndexPage = () => {
         buttonStyles={["green", "white"]}
         variation={null}
       />
-      <GreenbarAlt
+      <GreenBarAlt
         textList={[
           { label: "destinations", link: "/destinations" },
           { label: "new zealand", link: "/destinations/newzealand" },
@@ -115,12 +112,13 @@ const IndexPage = () => {
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WhyWildKiwi data={homeQuery[0].node.whyWildKiwi} />
+      <WhyUsMobile data={homeQuery[0].node.whyWildKiwi} />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
       <BannerHero
+        imageData={imageQuery.bannerHero.childImageSharp.fluid}
         headerFirst="Flash-pack your way around New Zealand,"
         headersecond="Australia and Europe."
         subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
