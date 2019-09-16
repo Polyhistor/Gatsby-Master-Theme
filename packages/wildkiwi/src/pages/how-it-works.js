@@ -1,19 +1,19 @@
 import React from "react"
 
 // default components
-import { Layout } from "@nt-websites/shared"
-import { SEO } from "@nt-websites/shared"
-import { Landing } from "@nt-websites/shared"
-import { GreenBar } from "@nt-websites/shared"
-import { Banner } from "@nt-websites/shared"
-import { SectionHowItWorks } from "@nt-websites/shared"
-import { Reviews } from "@nt-websites/shared"
-import { Trips } from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useHowItWorksQuery from "../queries/howItWorksQuery"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  SectionHowItWorks,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+  useHowItWorksQuery,
+} from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
@@ -23,6 +23,8 @@ const HowItWorks = () => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const howItWorksData = useHowItWorksQuery()
+
+  console.log(howItWorksData)
 
   return (
     <Layout>

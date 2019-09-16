@@ -7,10 +7,10 @@ import {
   GreenBar,
   SEO,
   SectionReview,
-} from "@nt-websites/shared"
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 // utilities
-import useImageQuery from "../queries/imageQuery"
 
 const Reviews = () => {
   // extracting our custom hook

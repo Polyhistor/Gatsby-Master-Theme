@@ -10,11 +10,9 @@ import {
   SectionVehicle,
   Reviews,
   Trips,
-} from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
+  useHomePageQuery,
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"

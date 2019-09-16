@@ -15,13 +15,13 @@ import {
   DestinationsMobile,
   FeaturedMobile,
   DestinationsTablet,
-} from "@nt-websites/shared"
+  useImageQuery,
+  useCountryQuery,
+  useHomePageQuery,
+  useDestinationQuery,
+} from "@nt-websites/navigate-theme"
 
 // utilities
-import useImageQuery from "../queries/imageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useDestinationQuery from "../queries/destinationQuery"
 
 const NewZealand = () => {
   // extracting our custom hook

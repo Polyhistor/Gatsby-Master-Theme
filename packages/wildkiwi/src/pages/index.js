@@ -17,16 +17,14 @@ import {
   WhyUsMobile,
   FeaturedMobile,
   DestinationsTablet,
-} from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import useDestinationQuery from "../queries/destinationQuery"
+  useImageQuery,
+  useHomePageQuery,
+  useCountryQuery,
+  useDestinationQuery,
+} from "@nt-websites/navigate-theme"
 
 const IndexPage = () => {
-  // extracting our custom hook
+  // extrac;ting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()

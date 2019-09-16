@@ -50,8 +50,13 @@
     "gatsby"
   ],
   "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
-    "bootstrap": "lerna clean -y && lerna bootstrap --hoist",
+    "bootstrap": "lerna bootstrap ",
     "gatsby:wildkiwi": "cd packages/wildkiwi && gatsby develop",
     "gatsby:clean:wildkiwi": "cd packages/wildkiwi && gatsby clean",
     "build:wildkiwi": "cd packages/wildkiwi && npm run build",

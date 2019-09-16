@@ -1,18 +1,18 @@
 import React from "react"
 
 // default components
-import { Layout } from "@nt-websites/shared"
-import { SEO } from "@nt-websites/shared"
-import { Landing } from "@nt-websites/shared"
-import { GreenBar } from "@nt-websites/shared"
-import { Banner } from "@nt-websites/shared"
-import { SectionGetInTouch } from "@nt-websites/shared"
-import { Reviews } from "@nt-websites/shared"
-import { Trips } from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  SectionGetInTouch,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+} from "@nt-websites/navigate-theme"
 
 const GetInTouch = () => {
   // extracting our custom hook
