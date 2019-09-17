@@ -53,13 +53,7 @@ export const BlogPostFragment = graphql`
     featured_media {
       localFile {
         childImageSharp {
-          resolutions(width: 1500, height: 770) {
-            src
-            srcSet
-            width
-            height
-          }
-          fluid(quality: 70, maxWidth: 770) {
+          fluid(quality: 90, maxWidth: 3000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -94,6 +88,7 @@ export const BlogAuthorFragment = graphql`
       title
       slug
       categories {
+        slug
         name
       }
       featured_media {

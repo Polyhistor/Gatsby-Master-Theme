@@ -184,7 +184,9 @@
   }
 
   &__svg-map-container {
+    height: 40rem;
     &:nth-child(1) img {
+      height: 40rem;
       margin-left: -1.5rem;
 
       @include respond(tablet) {

@@ -18,7 +18,6 @@
       margin: 0 auto;
       margin-top: 6rem;
       display: block !important;
-      max-width: 150rem;
       max-height: 60rem;
       background-color: #aeaeae;
       width: 100%;
@@ -485,7 +484,7 @@
           & > .blog__main-title {
             grid-column: 1;
             grid-row: 2;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
           }
 
           & > .blog__main-category {

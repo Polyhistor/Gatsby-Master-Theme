@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, withPrefix } from "gatsby"
 import Img from "gatsby-image"
 
 import { Layout2, SEO, Banner, Reviews, Trips } from "@nt-websites/shared"
@@ -20,7 +20,11 @@ const BlogPostTemplate = ({ data }) => {
           // since our wordpress source plugin did not support limit method on the query, we use the index trick
           while (idx < 12) {
             return (
-              <Link to={`/blog/${slug}`} key={id} className="article-single">
+              <Link
+                to={`/blog/${categories[0].slug}/${slug}`}
+                key={id}
+                className="article-single"
+              >
                 {featured_media !== null && (
                   <Img
                     className="article-single__thumb"
@@ -64,16 +68,21 @@ const BlogPostTemplate = ({ data }) => {
             </p>
             <div className="blog-author__social">
               <span className="blog-author__follow">follow</span>
-
-              <a href={data.wordpressWpUsers}>
-                <i className="im im-instagram" />
+              <a href="#">
+                <svg className="svg-icon--Instagram">
+                  <use xlinkHref={withPrefix("sprite.svg#icon-Instagram")} />
+                </svg>
               </a>
-              <a href={data.wordpressWpUsers}>
-                <i className="im im-facebook" />
+              <a href="#">
+                <svg className="svg-icon--Facebook">
+                  <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />
+                </svg>
               </a>
             </div>
           </div>
-          <h2 className="green-title u-margin-top-medium "> articles</h2>
+          <h2 className="green-title u-margin-top-medium u-margin-bottom-medium ">
+            My latest articles
+          </h2>
           <div className="blog-author__article">{renderArticles()}</div>
         </div>
         <Banner
