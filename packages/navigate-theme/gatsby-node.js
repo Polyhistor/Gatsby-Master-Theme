@@ -206,7 +206,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/blog/${post.node.categories.slug}/${post.node.slug}`,
+        path: `/blog/${post.node.categories[0].slug}/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,

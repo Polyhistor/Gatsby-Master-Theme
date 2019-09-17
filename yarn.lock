@@ -723,6 +723,14 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
+"@babel/runtime@7.0.0-beta.51":
+  version "7.0.0-beta.51"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.51.tgz#48b8ed18307034c6620f643514650ca2ccc0165a"
+  integrity sha1-SLjtGDBwNMZiD2Q1FGUMoszAFlo=
+  dependencies:
+    core-js "^2.5.7"
+    regenerator-runtime "^0.11.1"
+
 "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.0.tgz#4fc1d642a9fd0299754e8b5de62c631cf5568205"
@@ -6652,6 +6660,13 @@ gatsby-plugin-breadcrumb@^3.2.0:
     prop-types "^15.7.2"
     xml2js "^0.4.19"
 
+gatsby-plugin-canonical-urls@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-2.1.7.tgz#3d19e7bea11722bfb6ea4e17870377daf1f28714"
+  integrity sha512-X6GryQvA8X3aVYH8yB97g1xmIaLYXa2ccjzqj/FGi/TcQY8ljl96zkhwTXBC3/GMIubTvIwcub7t8WFOZc4gYA==
+  dependencies:
+    "@babel/runtime" "^7.6.0"
+
 gatsby-plugin-catch-links@^2.1.0:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-2.1.9.tgz#74a21ca7a55e1cb49f1776d8913b7da8b1d02779"
@@ -6659,6 +6674,13 @@ gatsby-plugin-catch-links@^2.1.0:
   dependencies:
     "@babel/runtime" "^7.6.0"
     escape-string-regexp "^1.0.5"
+
+gatsby-plugin-force-trailing-slashes@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-force-trailing-slashes/-/gatsby-plugin-force-trailing-slashes-1.0.4.tgz#acbf1730aa63807a18a02960e96d4d6f98341df0"
+  integrity sha512-agzlGb1wou8lAMCfiLdKRgGCFrtsqMTANye3uUHbViHV1hPogh3MALlh5TzUMQLXTdlhRdoOtLedqCfLZF1/IQ==
+  dependencies:
+    "@babel/runtime" "7.0.0-beta.51"
 
 gatsby-plugin-layout@^1.1.2:
   version "1.1.7"
@@ -12400,7 +12422,7 @@ regenerator-runtime@^0.10.5:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
   integrity sha1-M2w+/BIgrc7dosn6tntaeVWjNlg=
 
-regenerator-runtime@^0.11.0:
+regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==

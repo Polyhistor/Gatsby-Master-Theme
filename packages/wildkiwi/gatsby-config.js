@@ -39,6 +39,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-offline`,

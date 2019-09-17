@@ -39,20 +39,23 @@ const BlogPostTemplate = ({ data }, idx) => {
             <Img
               className="blog-single__banner"
               alt={data.wordpressPost.title}
-              resolutions={
+              fluid={
                 data.wordpressPost.featured_media.localFile.childImageSharp
-                  .resolutions
+                  .fluid
               }
             />
           </div>
         )}
 
         <div className="row-blog">
-          <div className="blog-single__categories">
+          <Link
+            className="blog-single__categories"
+            to={`blog/${data.wordpressPost.categories[0].slug}`}
+          >
             {/* // getting only the first element of the categories array, because in this we do only need one category */}
             {data.wordpressPost.categories.name !== null &&
               data.wordpressPost.categories[0].name}
-          </div>
+          </Link>
           {data.wordpressPost.data !== null && (
             <h1 className="blog-single__title" key={idx}>
               {data.wordpressPost.title}
@@ -156,7 +159,7 @@ const BlogPostTemplate = ({ data }, idx) => {
           </div>
         </div>
         <h2 className="green-title u-margin-top-big mobile-yes">
-          related stories
+          Related stories
         </h2>
         <div className="blog-single__related">
           <BlogRelated blogQuery={blogQuery} />
