@@ -13,7 +13,6 @@ module.exports = {
   plugins: [
     {
       resolve: "@nt-websites/navigate-theme",
-
       options: {
         nprogress: {
           color: `#1abc9c`,
@@ -26,7 +25,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `devygacademy.wpengine.com/`,
+          baseUrl: `www.wildkiwi.com/`,
           perPage: 5,
           concurrentRequests: 4,
           includedRoutes: [
@@ -45,16 +44,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-breadcrumb`,
-    /*{
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        color: `#1abc9c`,
-        // Disable the loading spinner.
-        showSpinner: true,
-      },
-    },
-    */
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
