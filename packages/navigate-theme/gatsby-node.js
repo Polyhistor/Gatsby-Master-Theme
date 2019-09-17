@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
 
   // the graphql function allows us to run arbitrary queries against our local Gatsby Graphql schema.
   // think of it as a built-in database constructed from the fetched data
+
   return await graphql(`
     {
       allWordpressPost {
@@ -262,9 +263,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for destinations
     Destinations.forEach(destination => {
       createPage({
-        path: `/destinations/${destination.node.destinationCountry}/${
-          destination.node.slug
-        }`,
+        path: `/destinations/${destination.node.destinationCountry}/${destination.node.slug}`,
         component: DestinationsTemplate,
         context: {
           slug: destination.node.slug,

@@ -117,7 +117,6 @@ export const ActivitiesFragment = graphql`
     subtitle
     price
     country {
-      slug
       title
     }
     svgMap {
@@ -203,6 +202,9 @@ export const DestinationsFragment = graphql`
       slug
       price
       status
+      country {
+        slug
+      }
       bannerImages {
         localFile {
           childImageSharp {
@@ -236,9 +238,6 @@ export const DestinationsFragment = graphql`
     numberOfCountries
     itinerary {
       itineraryTitles
-      itineraryDescription {
-        itineraryDescription
-      }
       itineraryImages {
         localFile {
           childImageSharp {
@@ -247,6 +246,9 @@ export const DestinationsFragment = graphql`
             }
           }
         }
+      }
+      itineraryDescription {
+        itineraryDescription
       }
       days {
         title

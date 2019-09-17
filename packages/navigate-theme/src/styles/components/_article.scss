@@ -15,7 +15,8 @@
 
     &__thumb {
       width: 24rem;
-      height: 24rem;
+      height: 16rem;
+      border-radius: 3px;
 
       @include respond(tablet) {
         width: 22rem;
