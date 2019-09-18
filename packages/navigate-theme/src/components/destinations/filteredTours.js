@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
 
 const FilteredTour = ({ country, destinationData }) => {
@@ -114,7 +115,7 @@ const FilteredTour = ({ country, destinationData }) => {
               ) : null}
 
               <span className="filtered-tour__description-price">
-                {`from ${currency[1]}${commaAdder(element.node.priceFrom)} ${
+                {`from ${currency[1]}${commaHandler(element.node.priceFrom)} ${
                   currency[0]
                 }`}
               </span>

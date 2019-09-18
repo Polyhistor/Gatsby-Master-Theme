@@ -33,7 +33,7 @@ const HowItWorks = () => {
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Everything you need to know about travelling with us."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

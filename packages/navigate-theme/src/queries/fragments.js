@@ -76,6 +76,7 @@ export const BlogAuthorFragment = graphql`
     description
     slug
     acf {
+      title
       facebook
       instagram
       description
@@ -94,6 +95,7 @@ export const BlogAuthorFragment = graphql`
       title
       slug
       categories {
+        slug
         name
       }
       featured_media {
@@ -291,6 +293,7 @@ export const HowItWorksFragment = graphql`
     }
     buttonText
     featureList
+    buttonUrlRelativeUrl
     bannerImage {
       localFile {
         childImageSharp {
@@ -335,6 +338,7 @@ export const AboutUsFragment = graphql`
 // for Our Team section that has been fetched from Contetnful
 export const TeamFragment = graphql`
   fragment Team on ContentfulTeam {
+    contentfulid
     name
     title
     image {

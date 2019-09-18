@@ -29,7 +29,10 @@ const HowItWorks = ({ data }) => {
               {element.node.description.description}
             </p>
             {element.node.buttonText !== null && (
-              <Link className="how-it-works__button footer__form-links-item">
+              <Link
+                to={element.node.buttonUrlRelativeUrl}
+                className="how-it-works__button footer__form-links-item"
+              >
                 {element.node.buttonText}
               </Link>
             )}

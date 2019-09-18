@@ -67,19 +67,26 @@ const BlogAuthorTemplate = ({ data }) => {
               className="blog-author__avatar"
             />
             <h2 className="blog-author__name">{data.wordpressWpUsers.name}</h2>
+            <h3 className="blog-author__title">
+              {data.wordpressWpUsers.acf.title}
+            </h3>
             <p className="blog-author__description">
               {data.wordpressWpUsers.acf.description}
             </p>
             <div className="blog-author__social">
               <span className="blog-author__follow">follow</span>
-              <a href="#">
-                <svg className="svg-icon--Instagram">
-                  <use xlinkHref={withPrefix("sprite.svg#icon-Instagram")} />
+              <a href={data.wordpressWpUsers.acf.facebook}>
+                <svg className="svg-icon--Facebook-grey">
+                  <use
+                    xlinkHref={withPrefix("sprite.svg#icon-Facebook--grey")}
+                  />
                 </svg>
               </a>
-              <a href="#">
-                <svg className="svg-icon--Facebook">
-                  <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />
+              <a href={data.wordpressWpUsers.acf.instagram}>
+                <svg className="svg-icon--Instagram-grey">
+                  <use
+                    xlinkHref={withPrefix("sprite.svg#icon-Instagram--grey")}
+                  />
                 </svg>
               </a>
             </div>

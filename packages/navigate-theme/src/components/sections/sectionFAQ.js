@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 
 const SectionVehicles = ({ FAQData, categories }) => {
+  console.log(FAQData)
+
   // function that handles the state change
   const handleClick = idx => {
     // setting the color
@@ -80,7 +82,7 @@ const SectionVehicles = ({ FAQData, categories }) => {
               </label>
               <a className="arrow down" />
               <div className="FAQ__answer-container">
-                <p className="FAQ__paragraph">{element.node.answers}</p>
+                <p className="FAQ__paragraph">{element.node.answers[idx]}</p>
               </div>
             </li>
           )

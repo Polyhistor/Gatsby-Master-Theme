@@ -95,8 +95,14 @@
   }
 
   &--Instagram {
+    fill: red !important;
     height: 4.5rem;
     width: 4.5rem;
+
+    &-grey {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   &--Youtube {
@@ -107,6 +113,11 @@
   &--Facebook {
     height: 4.5rem;
     width: 3rem;
+
+    &-grey {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   &--QualMark_Footer {

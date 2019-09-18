@@ -35,22 +35,24 @@ export const AboutUs = () => {
 
   // rendering boxes for team members
   const renderTeam = () => {
-    return teamData.map((element, idx) => {
-      return (
-        <div className="about-us__box" key={idx}>
-          <div className="about-us__image">
-            <Img
-              fluid={element.node.image.localFile.childImageSharp.fluid}
-              alt={element.node.title}
-            />
+    return teamData
+      .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
+      .map((element, idx) => {
+        return (
+          <div className="about-us__box" key={idx}>
+            <div className="about-us__image">
+              <Img
+                fluid={element.node.image.localFile.childImageSharp.fluid}
+                alt={element.node.title}
+              />
+            </div>
+            <h3 className="about-us__header activity__title">
+              {element.node.name}
+            </h3>
+            <p className="about-us__description">{element.node.title}</p>
           </div>
-          <h3 className="about-us__header activity__title">
-            {element.node.name}
-          </h3>
-          <p className="about-us__description">{element.node.title}</p>
-        </div>
-      )
-    })
+        )
+      })
   }
 
   return (
@@ -66,5 +68,3 @@ export const AboutUs = () => {
     </section>
   )
 }
-
-
