@@ -25,7 +25,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `www.wildkiwi.com/`,
+          baseUrl: `devygacademy.wpengine.com/`,
           perPage: 5,
           concurrentRequests: 4,
           includedRoutes: [
