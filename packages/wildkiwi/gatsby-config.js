@@ -25,7 +25,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `https://wildkiwi.com`,
+          baseUrl: `wildkiwi.com`,
           perPage: 5,
           concurrentRequests: 4,
           includedRoutes: [

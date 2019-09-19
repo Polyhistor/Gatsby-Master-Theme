@@ -74,7 +74,7 @@
     "lint:yachtgetaways": "cd packages/yachtgetaways && npm run lint",
     "format": "prettier --write src/**/*.{js,jsx}",
     "test": "echo test all applications",
-    "build": "npm run bootstrap && npm install && cd packages/wildkiwi && gatsby build --output-dir public"
+    "build": "yarn bootstrap && cd packages/wildkiwi && gatsby build --output-dir public"
   },
   "repository": {
     "type": "git",
