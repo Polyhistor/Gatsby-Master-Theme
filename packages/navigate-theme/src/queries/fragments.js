@@ -118,6 +118,7 @@ export const ActivitiesFragment = graphql`
     title
     subtitle
     price
+    status
     country {
       title
     }

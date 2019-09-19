@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
+import { useScrollHandler } from "../../hooks/useScrollHandler"
 import NavItems from "./navItems"
 
 const Navigation = () => {
-  // using some cool hooks instead of class based components
-  const [scroll, setScroll] = useState(1)
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollCheck = window.scrollY < 10
-      if (scrollCheck !== scroll) {
-        setScroll(scrollCheck)
-      }
-    }
-
-    document.addEventListener("scroll", onScroll)
-
-    return () => {
-      document.removeEventListener("scroll", onScroll)
-    }
-  }, [scroll])
+  // calling our custom hook
+  const scroll = useScrollHandler()
 
   return (
     <>

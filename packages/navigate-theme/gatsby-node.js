@@ -80,6 +80,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
             title
             subtitle
             price
+            status
             country {
               slug
             }

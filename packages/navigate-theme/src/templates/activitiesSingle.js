@@ -22,6 +22,8 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
   const homeQuery = useHomePageQuery()
   const activityQuery = useActivityQuery()
 
+  console.log(data)
+
   return (
     <Layout2>
       <LandingChartered
@@ -69,7 +71,7 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
               : "there has been no description found for this tour on Contentful, please consider adding one"
           }
         />
-        <ActivityRelated activityQuery={activityQuery} />
+        <ActivityRelated country={data.contentfulActivities.country} />
       </SectionActivity>
       <Banner
         header="How it works"

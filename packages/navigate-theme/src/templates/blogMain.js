@@ -19,8 +19,6 @@ const IndexPage = ({ pageContext }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
-  console.log(group)
-
   const renderBlogs = () => {
     return group.map(({ node }) => {
       return (

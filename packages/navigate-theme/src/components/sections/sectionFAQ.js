@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 
 const SectionVehicles = ({ FAQData, categories }) => {
-  console.log(FAQData)
-
   // function that handles the state change
   const handleClick = idx => {
     // setting the color

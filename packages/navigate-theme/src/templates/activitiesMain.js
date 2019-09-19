@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
+// main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
 import Banner from "../components/banners/banner"
@@ -9,9 +10,6 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
-
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -44,6 +42,7 @@ const ActivitiesMain = ({ pageContext }) => {
             title
             subtitle
             price
+            status
             country {
               slug
             }
@@ -83,8 +82,6 @@ const ActivitiesMain = ({ pageContext }) => {
   // embracing the variables
   const ourData = activitiesData.allContentfulActivities.edges
   const ourFilter = activitiesData.allContentfulDestinations.edges
-
-  // console.log(ourFilter)
 
   // handling the filter functionality
   const handleSubmit = ({ target }) => {
@@ -147,10 +144,25 @@ const ActivitiesMain = ({ pageContext }) => {
             to={`activities/${node.country.slug}/` + node.slug}
           >
             {node.featured_media !== null && (
-              <Img
-                fluid={node.bannerImages[0].localFile.childImageSharp.fluid}
-                alt={node.title}
-              />
+              <figure className="acitivity__image-container">
+                <Img
+                  fluid={node.bannerImages[0].localFile.childImageSharp.fluid}
+                  alt={node.title}
+                />
+                {node.status !== null && (
+                  <figcaption
+                    className={`acitivity-box-single__caption ${
+                      node.status === "null"
+                        ? "acitivity-box-single__caption--null"
+                        : "Free"
+                        ? "acitivity-box-single__caption--free"
+                        : "acitivity-box-single__caption--top"
+                    }`}
+                  >
+                    <span>{node.status}</span>
+                  </figcaption>
+                )}
+              </figure>
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
@@ -183,7 +195,6 @@ const ActivitiesMain = ({ pageContext }) => {
       </div>
       <GreenBar
         text="Epic adventure tours for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <div className="row">
