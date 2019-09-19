@@ -1,19 +1,19 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenBar from "../components/bars/greenBar"
-import Banner from "../components/banners/banner"
-import SectionHowItWorks from "../components/sections/sectionHowItWorks"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useHowItWorksQuery from "../queries/howItWorksQuery"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  SectionHowItWorks,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+  useHowItWorksQuery,
+} from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
@@ -33,7 +33,7 @@ const HowItWorks = () => {
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Everything you need to know about travelling with us."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

@@ -1,19 +1,19 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenBar from "../components/bars/greenBar"
-import Banner from "../components/banners/banner"
-import SectionFAQ from "../components/sections/sectionFAQ"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useFAQQuery from "../queries/faqQuery"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  SectionFAQ,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+  useFAQQuery,
+} from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"

@@ -1,0 +1,20 @@
+.section {
+  &-vehicles {
+    max-width: 126.666rem;
+    @include centralize;
+    margin-top: 8rem;
+
+    @include respond(laptop) {
+      max-width: 100rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 70rem;
+    }
+
+    @include respond(phone) {
+      max-width: 30rem;
+      margin-top: 4rem;
+    }
+  }
+}

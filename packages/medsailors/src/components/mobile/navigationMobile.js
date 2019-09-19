@@ -1,27 +1,12 @@
 import React from "react"
-import { useState, useEffect } from "react"
 
+import { useScrollHandler } from "../../hooks/useScrollHandler"
 import MobileLogo from "../mobile/mobileLogo"
 import MobileNavItems from "../mobile/mobileNavItems"
 
 const NavigationMobile = () => {
-  // using some cool hooks instead of class based components
-  const [scroll, setScroll] = useState(1)
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollCheck = window.scrollY < 100
-      if (scrollCheck !== scroll) {
-        setScroll(scrollCheck)
-      }
-    }
-
-    document.addEventListener("scroll", onScroll)
-
-    return () => {
-      document.removeEventListener("scroll", onScroll)
-    }
-  }, [scroll])
+  // calling our custom hook
+  const scroll = useScrollHandler()
 
   return (
     <div className="navigation-mobile">

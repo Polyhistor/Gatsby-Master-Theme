@@ -1,29 +1,27 @@
 import React, { Fragment } from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import BoxContainer from "../components/boxes/boxContainer"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-import Featured from "../components/featured"
-import Popup from "../components/popup"
-import TourBanner from "../components/banners/tourBanner"
-
-// mobile components
-import DestinationsMobile from "../components/mobile/destinationsMobile"
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
-// tablet component
-import DestinationsTablet from "../components/tablet/destinationsTablet"
+import {
+  Layout,
+  SEO,
+  Landing,
+  BoxContainer,
+  Banner,
+  Reviews,
+  Trips,
+  Featured,
+  Popup,
+  TourBanner,
+  DestinationsMobile,
+  FeaturedMobile,
+  DestinationsTablet,
+  useImageQuery,
+  useCountryQuery,
+  useHomePageQuery,
+  useDestinationQuery,
+} from "@nt-websites/navigate-theme"
 
 // utilities
-import useImageQuery from "../queries/imageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useDestinationQuery from "../queries/destinationQuery"
 
 const NewZealand = () => {
   // extracting our custom hook

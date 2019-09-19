@@ -1,21 +1,23 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout2"
-import Landing from "../components/header/landings/landing"
-import GreenBar from "../components/bars/greenBar"
-import SEO from "../components/seo/seo"
-import SectionReview from "../components/sections/sectionReview"
+import {
+  Layout2,
+  Landing,
+  GreenBar,
+  SEO,
+  SectionReview,
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 // utilities
-import useImageQuery from "../queries/imageQuery"
 
 const Reviews = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
   return (
-    <Layout>
+    <Layout2>
       <SEO title="Reviews" />
       <div className="hotfix--narrow-banner">
         <Landing
@@ -34,7 +36,7 @@ const Reviews = () => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionReview />
-    </Layout>
+    </Layout2>
   )
 }
 

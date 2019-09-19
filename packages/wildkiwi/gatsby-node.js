@@ -1,4 +1,4 @@
-const path = require("path")
+/*const path = require("path")
 const createPaginatedPages = require("gatsby-paginate")
 
 // we are implementing gatsby API "createPages". The API will create pages for wordpress posts
@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             excerpt
             categories {
+              slug
               name
             }
             author {
@@ -52,6 +53,22 @@ exports.createPages = async ({ graphql, actions }) => {
                 name
               }
             }
+          }
+        }
+      }
+      allWordpressCategory {
+        edges {
+          node {
+            slug
+            name
+          }
+        }
+      }
+      allWordpressTag {
+        edges {
+          node {
+            slug
+            name
           }
         }
       }
@@ -109,24 +126,38 @@ exports.createPages = async ({ graphql, actions }) => {
     const BlogPosts = result.data.allWordpressPost.edges
 
     // setting the link to the template via Node legacy modules
-    const BlogPostTemplate = path.resolve("./src/templates/blogSingle.js")
+    const BlogPostTemplate = require.resolve("./src/templates/blogSingle.js")
 
     // accessing to data regarding to all the wp_users
     const BlogAuthors = result.data.allWordpressWpUsers.edges
 
     // seting the link to the author page template via node legacy modules
-    const BlogAuthorTemplate = path.resolve("./src/templates/blogAuthor.js")
+    const BlogAuthorTemplate = require.resolve("./src/templates/blogAuthor.js")
+
+    // accesing the data responsible for Wordpress categories
+    const BlogCategories = result.data.allWordpressCategory.edges
+
+    // the category blog page template
+    const BlogCategoriesTemplate = require.resolve(
+      "./src/templates/blogCategory.js"
+    )
+
+    // accessing the data responsible for blog tags
+    // const BlogTags = result.data.allWordpressTag.edges
+
+    // the tags page template
+    // const BlogTagsTemplate = require.resolve("./src/templates/tags.js")
 
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
 
     // setting the link to the activities page template
-    const ActivitiesTemplate = path.resolve(
+    const ActivitiesTemplate = require.resolve(
       "./src/templates/activitiesSingle.js"
     )
 
     // setting the link the activities countries page
-    const ActCountriesTemplate = path.resolve(
+    const ActCountriesTemplate = require.resolve(
       "./src/templates/activitiesCountries.js"
     )
 
@@ -134,7 +165,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const Destinations = result.data.allContentfulDestinations.edges
 
     // setting the link to the activities page template
-    const DestinationsTemplate = path.resolve(
+    const DestinationsTemplate = require.resolve(
       "./src/templates/destinationsSingle.js"
     )
 
@@ -142,13 +173,13 @@ exports.createPages = async ({ graphql, actions }) => {
     const Countries = result.data.allContentfulCountry.edges
 
     // setting the link to the countries page template
-    const CountriesTemplate = path.resolve("./src/templates/countries.js")
+    const CountriesTemplate = require.resolve("./src/templates/countries.js")
 
     // this is for paginated pages - basically our blog home page
     createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
-      pageTemplate: "src/templates/blogMain.js",
+      pageTemplate: require.resolve("./src/templates/blogMain.js"),
       pageLength: 10,
       pathPrefix: "blog",
     })
@@ -157,7 +188,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
-      pageTemplate: "src/templates/blogSearch.js",
+      pageTemplate: require.resolve("./src/templates/blogSearch.js"),
       pageLength: 18,
       pathPrefix: "blog/categorized",
     })
@@ -166,7 +197,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPaginatedPages({
       edges: Activities,
       createPage: createPage,
-      pageTemplate: "src/templates/activitiesMain.js",
+      pageTemplate: require.resolve("./src/templates/activitiesMain.js"),
       pageLength: 16,
       pathPrefix: "activities",
     })
@@ -174,7 +205,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // this is for single blog pages
     BlogPosts.forEach(post => {
       createPage({
-        path: `/blog/${post.node.slug}`,
+        path: `/blog/${post.node.categories[0].slug}/${post.node.slug}`,
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,
@@ -192,6 +223,30 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     })
+
+    // this is for categories (blog)
+    BlogCategories.forEach(category => {
+      createPage({
+        path: `/blog/${category.node.slug}`,
+        component: BlogCategoriesTemplate,
+        context: {
+          slug: category.node.slug,
+          name: category.node.name,
+        },
+      })
+    })
+
+    // this is for tags
+    // BlogTags.forEach(tag => {
+    //   createPage({
+    //     path: `/tag/${tag.node.slug}`,
+    //     component: BlogTagsTemplate,
+    //     contenxt: {
+    //       slug: tag.node.slug,
+    //       name: tag.node.name,
+    //     },
+    //   })
+    // })
 
     // this is for activities
     Activities.forEach(activity => {
@@ -236,3 +291,4 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+*/
