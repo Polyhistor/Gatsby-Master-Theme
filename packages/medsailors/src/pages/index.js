@@ -1,24 +1,23 @@
-import React from "react"
+import React, { Fragment } from "react"
 
-import SEO from "../components/seo/seo"
-import Layout from "../components/layout/layout"
-import BannerHero from "../components/banners/bannerHero"
-import Reviews from "../components/reviews/reviews"
-
-// shared components
-import { Landing } from "@nt-websites/shared"
-import { TourBanner } from "@nt-websites/shared"
-import { Popup } from "@nt-websites/shared"
-import { GreenBarAlt } from "@nt-websites/shared"
-import { WhyWildKiwi } from "@nt-websites/shared"
-import { Banner } from "@nt-websites/shared"
-import { BoxContainer } from "@nt-websites/shared"
-import { DestinationsMobile } from "@nt-websites/shared"
-import { DestinationsTablet } from "@nt-websites/shared"
-import { Trips } from "@nt-websites/shared"
-
-// mobile components
-import FeaturedMobile from "../components/mobile/featuredMobile"
+// default components
+import {
+  Layout,
+  DestinationsMobile,
+  SEO,
+  Landing,
+  GreenBarAlt,
+  BannerHero,
+  BoxContainer,
+  TourBanner,
+  Banner,
+  Reviews,
+  Popup,
+  Trips,
+  WhyUsMobile,
+  FeaturedMobile,
+  DestinationsTablet,
+} from "@nt-websites/shared"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -26,14 +25,14 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
 import useDestinationQuery from "../queries/destinationQuery"
 
-const Index = () => {
+const IndexPage = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  // getting the number of tours
+  // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
       dest => dest.node.destinationCountry === destination
@@ -113,7 +112,7 @@ const Index = () => {
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WhyWildKiwi data={homeQuery[0].node.whyWildKiwi} />
+      <WhyUsMobile data={homeQuery[0].node.whyWildKiwi} />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
@@ -129,6 +128,7 @@ const Index = () => {
       <div className="row row--patched mobile-no">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
+      {/* rendering all destinations */}
       {renderCountries()}
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
@@ -143,4 +143,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default IndexPage

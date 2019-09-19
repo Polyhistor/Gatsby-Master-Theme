@@ -23,8 +23,6 @@ const ActivitiesCountries = ({ pageContext, data }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
-  console.log(data)
-
   const renderActivities = () => {
     return data.allContentfulActivities.edges.map(({ node }, idx) => {
       return (

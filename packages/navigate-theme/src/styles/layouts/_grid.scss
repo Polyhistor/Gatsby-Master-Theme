@@ -1,0 +1,102 @@
+.row {
+  max-width: $grid-width-desk;
+  // centering a block element inside another block element
+  margin: 0 auto;
+
+  // apply it to all the nodes except the last one
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include respond(laptop) {
+    max-width: $grid-width-laptop;
+  }
+
+  @include respond(tablet) {
+    max-width: $grid-width-tablet;
+  }
+
+  @include respond(phone) {
+    max-width: $grid-width-phone;
+  }
+
+  &-blog {
+    max-width: 60rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 55rem 15rem;
+    grid-column-gap: 10rem;
+
+    @include respond(tablet) {
+      grid-template-columns: 55rem;
+      justify-content: center;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 28rem;
+      justify-content: center;
+    }
+  }
+
+  // mixins
+  @include clearfix;
+
+  // using the magic of regex, this is an attribute selector
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+
+    @include respond(phone) {
+      margin-right: 0;
+      margin-bottom: 0;
+      width: 100% !important;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+
+    @include respond(tablet) {
+      width: calc((100% - 3 * #{$gutter-horizontal}) / 2);
+    }
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * (((100% - 3 * #{$gutter-horizontal}) / 4) / 4) + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
+    );
+  }
+
+  &--patched {
+    margin-bottom: 0 !important;
+    transform: translateY(7rem);
+
+    @include respond(phone) {
+      transform: translateY(4rem);
+    }
+  }
+}
