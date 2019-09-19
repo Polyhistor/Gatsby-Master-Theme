@@ -25,7 +25,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `devygacademy.wpengine.com/`,
+          baseUrl: `https://wildkiwi.com`,
           perPage: 5,
           concurrentRequests: 4,
           includedRoutes: [
@@ -38,13 +38,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-playground`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-breadcrumb`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -52,7 +45,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       options: {
@@ -83,17 +75,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-
-    {
-      resolve: `gatsby-plugin-netlify-headers`,
-      options: {
-        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-      },
-    },
   ],
 }

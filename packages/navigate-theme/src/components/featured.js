@@ -20,7 +20,7 @@ const Featured = () => {
         </div>
         <div className="featured__container-image featured__container-image--daily">
           <a
-            href="https://www.dailymail.co.uk/travel/travel_news/article-7077305/Can-Air-New-Zealand-make-24-hour-flight-bearable-Flying-premium-economy-London-Auckland.html"
+            href="https://www.dailymail.co.uk/travel/travel_news/article-6931413/Experiencing-terror-Shotover-Canyon-Swing-Queenstown-New-Zealand.html"
             target="__blank"
           >
             <svg className="svg-icon--logo-daily">

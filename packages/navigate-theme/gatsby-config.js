@@ -11,6 +11,8 @@ module.exports = themeOptions => {
       `gatsby-plugin-sass`,
       `gatsby-plugin-preload-fonts`,
       `gatsby-plugin-breadcrumb`,
+      `gatsby-plugin-react-helmet`,
+      `gatsby-transformer-sharp`,
       {
         resolve: `gatsby-source-contentful`,
         options: {
@@ -28,9 +30,7 @@ module.exports = themeOptions => {
           showSpinner: themeOptions.nprogress.showSpinner,
         },
       },
-      `gatsby-plugin-react-helmet`,
 
-      `gatsby-transformer-sharp`,
       // this (optional) plugin enables Progressive Web App + Offline functionality
       // To learn more, visit: https://gatsby.dev/offline
       // `gatsby-plugin-offline`,
