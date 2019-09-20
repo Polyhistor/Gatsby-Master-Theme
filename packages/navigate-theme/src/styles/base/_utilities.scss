@@ -350,7 +350,7 @@
   display: none;
 }
 
-//editing outside library css
+//editing external library css
 
 .social-icon {
   @include respond(phone) {
@@ -372,6 +372,12 @@
   & input::placeholder {
     font-family: Nunito-Regular;
   }
+}
+
+.styles_modalCenter__L9F2w {
+  height: 100vw;
+  width: 100vw;
+  max-width: 100%;
 }
 
 //hotfixes

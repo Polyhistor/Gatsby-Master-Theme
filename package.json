@@ -40,8 +40,8 @@
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
     "react-helmet": "^5.2.1",
-    "react-share": "^3.0.0",
-    "react-spring": "^8.0.27"
+    "react-responsive-modal": "^4.0.1",
+    "react-share": "^3.0.0"
   },
   "devDependencies": {
     "gatsby-plugin-playground": "^1.0.6",
@@ -74,7 +74,7 @@
     "lint:yachtgetaways": "cd packages/yachtgetaways && npm run lint",
     "format": "prettier --write src/**/*.{js,jsx}",
     "test": "echo test all applications",
-    "build": "yarn bootstrap && cd packages/wildkiwi && gatsby build --output-dir public"
+    "build": "npm run bootstrap && npm run build:wildkiwi"
   },
   "repository": {
     "type": "git",

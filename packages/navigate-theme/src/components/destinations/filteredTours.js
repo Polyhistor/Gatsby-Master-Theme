@@ -58,14 +58,6 @@ const FilteredTour = ({ country, destinationData }) => {
 
   let currency
 
-  // function that programatically adds comma to the price
-  let commaAdder = price => {
-    const priceArray = price.toString().split("")
-    const beforeComma = priceArray.slice(0, 1).join("")
-    const afterComma = priceArray.slice(1, 4).join("")
-    return `${beforeComma},${afterComma}`
-  }
-
   // rendering elements out of our data file
   const renderTours = data => {
     return data
@@ -165,18 +157,20 @@ const FilteredTour = ({ country, destinationData }) => {
           >
             <span>2 weeks</span>
           </button>
-          <button
-            className={
-              filter.threeWeeks === true
-                ? "filtered-tour__button filtered-tour__button--active"
-                : "filtered-tour__button"
-            }
-            onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
-              handleSubmit(e, n)
-            }
-          >
-            <span>3 weeks</span>
-          </button>
+          {country === "australia" ? null : (
+            <button
+              className={
+                filter.threeWeeks === true
+                  ? "filtered-tour__button filtered-tour__button--active"
+                  : "filtered-tour__button"
+              }
+              onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
+                handleSubmit(e, n)
+              }
+            >
+              <span>3 weeks</span>
+            </button>
+          )}
         </div>
         {renderTours(data)}
       </div>

@@ -14,9 +14,6 @@ import {
   useImageQuery,
 } from "@nt-websites/navigate-theme"
 
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-
 const OurVehicles = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -39,7 +36,6 @@ const OurVehicles = () => {
       </div>
       <GreenBar
         text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionVehicle

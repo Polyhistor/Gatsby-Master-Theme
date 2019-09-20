@@ -10,7 +10,6 @@ import {
   Reviews,
   Trips,
   Featured,
-  Popup,
   TourBanner,
   DestinationsMobile,
   FeaturedMobile,
@@ -21,9 +20,7 @@ import {
   useDestinationQuery,
 } from "@nt-websites/navigate-theme"
 
-// utilities
-
-const NewZealand = () => {
+const Destination = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
@@ -86,7 +83,6 @@ const NewZealand = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Popup />
       <Landing
         imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
         titleFirst="DESTINATIONS"
@@ -96,6 +92,7 @@ const NewZealand = () => {
         buttonStyles={["white", "white"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <Featured />
       <FeaturedMobile />
@@ -114,4 +111,4 @@ const NewZealand = () => {
   )
 }
 
-export default NewZealand
+export default Destination

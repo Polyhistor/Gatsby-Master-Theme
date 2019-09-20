@@ -196,5 +196,4 @@ export { default as Trips } from "./src/components/trips/trips"
 /*General Items*/
 export { default as Featured } from "./src/components/featured"
 export { default as GetInTouchData } from "./src/components/getInTouchData"
-export { default as Popup } from "./src/components/popup"
 export { default as Row } from "./src/components/row"

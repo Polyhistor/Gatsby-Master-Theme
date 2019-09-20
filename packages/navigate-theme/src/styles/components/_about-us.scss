@@ -134,8 +134,8 @@
   }
 
   &__image {
-    & > .gatsby-image-wrapper {
-      height: 36.8rem;
+    & > .gatsby-image-wrapper:nth-of-type(2n) {
+      height: 20.2rem;
 
       @include respond(laptop) {
         height: 22rem;

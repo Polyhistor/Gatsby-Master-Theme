@@ -12,7 +12,6 @@ import {
   TourBanner,
   Banner,
   Reviews,
-  Popup,
   Trips,
   WhyUsMobile,
   FeaturedMobile,
@@ -24,7 +23,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = () => {
-  // extrac;ting our custom hook
+  // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
@@ -88,7 +87,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Popup />
       <Landing
         imageData={imageQuery.landing.childImageSharp.fluid}
         titleFirst="epic"
@@ -98,9 +96,10 @@ const IndexPage = () => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/destinations"
         buttonSecond="watch trailer"
-        buttonSecondURL="#popup"
+        buttonSecondURL=""
         buttonStyles={["green", "white"]}
         variation={null}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <GreenBarAlt
         textList={[

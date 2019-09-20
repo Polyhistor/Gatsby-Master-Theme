@@ -22,10 +22,10 @@ export const AboutUs = () => {
               alt={element.node.title}
             />
           </div>
-          <h3 className="about-us__header activity__title">
+          <h3 className="how-it-works__header activity__title">
             {element.node.title}
           </h3>
-          <p className="about-us__description">
+          <p className="how-it-works__description">
             {element.node.content.content}
           </p>
         </div>
