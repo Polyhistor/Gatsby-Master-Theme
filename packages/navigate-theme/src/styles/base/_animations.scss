@@ -1,0 +1,43 @@
+@keyframes moveInleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blinkText {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+
+  25% {
+    scale: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes borderBottom {
+  0% {
+    border-bottom: 0.2px solid gray;
+  }
+
+  25% {
+    border-bottom: 0.5px solid gray;
+  }
+
+  100% {
+    border-bottom: 1px solid gray;
+  }
+}

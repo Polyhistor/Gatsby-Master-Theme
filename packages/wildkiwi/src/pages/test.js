@@ -1,24 +1,30 @@
-import React from "react"
-import { FacebookProvider, Comments } from "react-facebook"
-
-import useImageQuery from "../queries/imageQuery"
-import Box from "../components/boxes/box"
+import React, { useState } from "react"
+import Modal from "react-responsive-modal"
 
 const Test = () => {
-  const imageQuery = useImageQuery()
+  const [{ open }, setModal] = useState({ open: false })
+
   return (
     <div>
-      <p>we are testing here mate</p>
-      <Box
-        imageData={imageQuery}
-        textFirst="local"
-        textSecond="guides"
-        description="Alitis dolorepra verum excepe vendiciantur re voluptatur? Laboratquo"
-      />
-
-      <FacebookProvider appId="457654345055752">
-        <Comments href="http://www.facebook.com" />
-      </FacebookProvider>
+      <button onClick={() => setModal({ open: true })}>Open Modal</button>
+      <Modal
+        open={open}
+        onClose={() => setModal({ open: false })}
+        className={{ overlay: "overlay", modal: "popup" }}
+        center
+      >
+        <div className="popup">
+          <iframe
+            title="Wild kiwi"
+            width="95%"
+            height="95%"
+            src="https://www.youtube.com/embed/19GIN9tj-NY"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </Modal>
     </div>
   )
 }

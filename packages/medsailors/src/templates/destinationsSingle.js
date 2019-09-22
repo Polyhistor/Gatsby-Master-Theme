@@ -1,0 +1,161 @@
+import React from "react"
+
+// default components
+import Layout2 from "../components/layout/layout2"
+import SEO from "../components/seo/seo"
+import Reviews from "../components/reviews/reviews"
+
+// shared components
+import { Banner } from "@nt-websites/shared"
+import { Trips } from "@nt-websites/shared"
+import { GreenBar } from "@nt-websites/shared"
+import { LandingChartered } from "@nt-websites/shared"
+import { DestinationSection } from "@nt-websites/shared"
+import { TripBox } from "@nt-websites/shared"
+import { DestinationStarter } from "@nt-websites/shared"
+import { HighLight } from "@nt-websites/shared"
+import { Itinerary } from "@nt-websites/shared"
+import { Includes } from "@nt-websites/shared"
+import { ActivitiesBox } from "@nt-websites/shared"
+import { WhyWild } from "@nt-websites/shared"
+import { Booking } from "@nt-websites/shared"
+import { GetThere } from "@nt-websites/shared"
+
+// utilities
+import useImageQuery from "../queries/imageQuery"
+import useHomePageQuery from "../queries/homePageQuery"
+import useWildkiwiQuery from "../queries/wildkiwiQuery"
+
+const DestinationsSingle = ({ data }) => {
+  // extracting our custom hook
+  const imageQuery = useImageQuery()
+  const homeQuery = useHomePageQuery()
+  const WhyWildData = useWildkiwiQuery()
+
+  return (
+    <Layout2>
+      <SEO title="Home" />
+      <LandingChartered
+        bannerFirst={
+          data.contentfulDestinations.bannerImages[0].localFile.childImageSharp
+            .fluid
+        }
+        bannerSecond={
+          data.contentfulDestinations.bannerImages[1].localFile.childImageSharp
+            .fluid
+        }
+        bannerThird={
+          data.contentfulDestinations.bannerImages[2].localFile.childImageSharp
+            .fluid
+        }
+        bannerFourth={
+          data.contentfulDestinations.bannerImages[3].localFile.childImageSharp
+            .fluid
+        }
+        bannerFifth={
+          data.contentfulDestinations.bannerImages[4].localFile.childImageSharp
+            .fluid
+        }
+        buttonText="watch trail"
+        buttonTextSecond="view photos"
+      />
+      <GreenBar text="Epic adventure tours for 18 to 35 year olds" />
+      <DestinationSection>
+        <TripBox
+          destinationCountry={data.contentfulDestinations.destinationCountry}
+          imageData={data.contentfulDestinations.svgMap.localFile.publicURL}
+          imageAlt={data.contentfulDestinations.title}
+          days={data.contentfulDestinations.duration}
+          text="days"
+          title={data.contentfulDestinations.title}
+          subTitle={data.contentfulDestinations.route}
+          daysText="Days"
+          daysNum={data.contentfulDestinations.duration}
+          priceText="Price from"
+          price={data.contentfulDestinations.priceFrom}
+          perDayText="Per day"
+          perDay={data.contentfulDestinations.pricePerDay}
+          earlyBird="Early Bird Sale"
+          availablity="check availability"
+          hotText="This tour is getting a lot of attention. It’s been viewed 500+ time in the past week."
+        />
+        <DestinationStarter
+          title={data.contentfulDestinations.title}
+          body={data.contentfulDestinations.descriptionLong.descriptionLong}
+        />
+        <HighLight
+          title="Highlights"
+          images={data.contentfulDestinations.highlightsImages}
+          titles={data.contentfulDestinations.highlightsTitles}
+          descriptions={data.contentfulDestinations.highlightsDescriptions}
+        />
+        <Itinerary
+          title="Itinerary"
+          country={data.contentfulDestinations.destinationCountry}
+          itineraryDescriptions={data.contentfulDestinations.itinerary.days}
+          itineraryImages={
+            data.contentfulDestinations.itinerary.itineraryImages
+          }
+          itineraryTitles={
+            data.contentfulDestinations.itinerary.itineraryTitles
+          }
+        />
+        <Includes
+          title="What’s included on every Wild Kiwi tour"
+          iconFirst="Guide"
+          textFirst="Expert local guide/driver"
+          iconSecond="Bus"
+          textSecond="New 18 seat vehicle"
+          iconThird="Bed"
+          textThird="Flash-pack accomodation"
+          iconFourth="Toaster"
+          textFourth="Breakfast everyday"
+          titleSecond="What's also included on this tour"
+          specifics={data.contentfulDestinations.included}
+        />
+        <ActivitiesBox activityData={data.contentfulDestinations.activity} />
+        <div className="hotfix--reviews">
+          <Reviews />
+        </div>
+        <WhyWild WhyWildData={WhyWildData} />
+        <Booking />
+        <GetThere
+          title="Getting there"
+          paragraph={
+            data.contentfulDestinations.gettingThere.description.description
+          }
+          titleLeft="International"
+          leftList={data.contentfulDestinations.gettingThere.international}
+          leftListLinks={
+            data.contentfulDestinations.gettingThere.internationalLinks
+          }
+          titleRight="Domestic"
+          rightList={data.contentfulDestinations.gettingThere.domestic}
+          rightListLinks={
+            data.contentfulDestinations.gettingThere.domesticLinks
+          }
+        />
+        <div className="hotfix--banner">
+          <Banner
+            imageData={imageQuery.banner.childImageSharp.fluid}
+            header="Looking for adventure?"
+            subHeaderFirst="Read our top 10 adrenalin "
+            subHeaderSecond="activites to do in New Zealand."
+            buttonText="learn more"
+          />
+        </div>
+      </DestinationSection>
+      <Trips data={homeQuery[0].node.popularTours} />
+    </Layout2>
+  )
+}
+
+export default DestinationsSingle
+
+export const query = graphql`
+  query($slug: String!) {
+    contentfulDestinations(slug: { eq: $slug }) {
+      ...Destination
+    }
+  }
+`
