@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
 
+// todo - clean up this file and separate the concerns
+
 const FilteredTour = ({ country, destinationData }) => {
   // categorizing data on the load
   let groupByData = {
