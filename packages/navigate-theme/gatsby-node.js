@@ -65,14 +65,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           }
         }
       }
-      allWordpressTag {
-        edges {
-          node {
-            slug
-            name
-          }
-        }
-      }
+
       allContentfulActivities {
         edges {
           node {
@@ -123,6 +116,17 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     if (result.errors) {
       throw result.errors
     }
+
+    // cut off
+
+    // allWordpressTag {
+    //   edges {
+    //     node {
+    //       slug
+    //       name
+    //     }
+    //   }
+    // }
 
     // accesing the wordpress blog data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
