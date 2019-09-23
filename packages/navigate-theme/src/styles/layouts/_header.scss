@@ -99,8 +99,9 @@
 
     @include respond(phone) {
       top: 18%;
-      left: 2.5%;
+      left: 1.2%;
       grid-template-rows: 27rem 12rem;
+      grid-template-columns: 31rem;
     }
 
     &--dest {

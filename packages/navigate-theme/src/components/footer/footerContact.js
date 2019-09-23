@@ -31,7 +31,7 @@ const FooterContact = () => {
             ? "+64 9 973 5676"
             : state === "australia"
             ? "+61 2 9133 8646"
-            : "+44 7 973 5676"}
+            : "+44 20 3637 6466"}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
           {state === "newzealand"

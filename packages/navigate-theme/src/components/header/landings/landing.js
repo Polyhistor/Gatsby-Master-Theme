@@ -71,6 +71,7 @@ const Header = ({
             URL is not given, don't show it */}
               {buttonSecond && buttonSecondURL !== null ? (
                 <a
+                  href="#"
                   onClick={() => setModal({ open: true })}
                   className={`btn btn--${buttonStyles[1]} btn-animated`}
                 >

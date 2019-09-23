@@ -11,10 +11,6 @@
     grid-column-gap: 2rem;
     width: 95%;
 
-    @include respond(laptop) {
-      grid-template-columns: 48% 48%;
-    }
-
     @include respond(tablet) {
       grid-template-columns: 100%;
     }
@@ -103,6 +99,14 @@
     margin-top: 6rem;
     display: grid;
     grid-template-columns: 50% 50%;
+
+    @include respond(tablet) {
+      grid-template-columns: 100%;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 100%;
+    }
   }
 
   &__question {
