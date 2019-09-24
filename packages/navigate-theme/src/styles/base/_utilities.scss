@@ -499,11 +499,11 @@
 .arrow {
   // display: inline-block;
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
   background: transparent;
-  border-top: 2px solid $color-primary;
-  border-left: 2px solid $color-primary;
+  border-top: 3px solid #1abc9c;
+  border-left: 3px solid #1abc9c;
   transition: all 250ms ease-in-out;
   text-decoration: none;
   color: transparent;
