@@ -5,6 +5,7 @@ import { Formik } from "formik"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
 import { useFetchHook } from "../../hooks/useFetchHook"
+import BookingForm from "./bookingForm"
 
 const TripBox = ({
   destinationCountry,
@@ -24,6 +25,7 @@ const TripBox = ({
   availablity,
   hotText,
   slug,
+  country,
 }) => {
   const ourData = useFetchHook(slug)
 
@@ -34,8 +36,6 @@ const TripBox = ({
   const [{ open }, setModal] = useState({
     open: false,
   })
-
-  console.log(ourData)
 
   return (
     <>
@@ -86,18 +86,7 @@ const TripBox = ({
         className={{ overlay: "overlay", modal: "popup" }}
         center
       >
-        <section className="booking-form">
-          <div className="booking-form__header">
-            <div className="booking-form__steps booking-from__steps--arrow">
-              <span className="booking-from__phase">1</span>
-              <h2 className="booking-form__headline">select tour and date</h2>
-            </div>
-            <div className="booking-from__steps "></div>
-          </div>
-          <div className="booking-form__body">
-            <p>asdad</p>
-          </div>
-        </section>
+        <BookingForm data={ourData} country={country}></BookingForm>
       </Modal>
     </>
   )

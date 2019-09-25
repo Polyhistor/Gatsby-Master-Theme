@@ -1,31 +1,37 @@
-import React, { useState } from "react"
-import Modal from "react-responsive-modal"
+import React from "react"
+import { Formik } from "formik"
 
 const Test = () => {
-  const [{ open }, setModal] = useState({ open: false })
-
   return (
-    <div>
-      <button onClick={() => setModal({ open: true })}>Open Modal</button>
-      <Modal
-        open={open}
-        onClose={() => setModal({ open: false })}
-        className={{ overlay: "overlay", modal: "popup" }}
-        center
-      >
-        <div className="popup">
-          <iframe
-            title="Wild kiwi"
-            width="95%"
-            height="95%"
-            src="https://www.youtube.com/embed/19GIN9tj-NY"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-      </Modal>
-    </div>
+    <Formik initialValues={{ name: "", email: "" }}>
+      {({ values, errors, touched, handleChange, handleBlur }) => (
+        <form>
+          {JSON.stringify(values)}
+          <div className="input-row">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="enter your name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.name}
+            ></input>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              place="enter your email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+            ></input>
+            <button type="submit">submit</button>
+          </div>
+        </form>
+      )}
+    </Formik>
   )
 }
 

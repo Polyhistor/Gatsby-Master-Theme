@@ -77,6 +77,7 @@ const DestinationsSingle = ({ data }) => {
           availablity="check availability"
           hotText="This tour is getting a lot of attention. It’s been viewed 500+ time in the past week."
           slug={data.contentfulDestinations.slug}
+          country={data.contentfulDestinations.destinationCountry}
         />
         <DestinationStarter
           title={data.contentfulDestinations.title}
