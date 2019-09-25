@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Modal from "react-responsive-modal"
 import { Formik } from "formik"
 
@@ -25,13 +25,17 @@ const TripBox = ({
   hotText,
   slug,
 }) => {
+  const ourData = useFetchHook(slug)
+
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
 
-  const [{ count1, count2 }, setCount] = useState({ count1: 0, count2: 2 })
-
   // setting the initial state for the modal
-  const [{ open }, setModal] = useState({ open: false })
+  const [{ open }, setModal] = useState({
+    open: false,
+  })
+
+  console.log(ourData)
 
   return (
     <>
@@ -83,19 +87,15 @@ const TripBox = ({
         center
       >
         <section className="booking-form">
-          <div className="booking-form__header"></div>
-          <div style={{ padding: "20rem" }} className="booking-form__body">
-            <button
-              onClick={() =>
-                setCount(currentState => ({
-                  ...currentState,
-                  count1: currentState.count1 + 1,
-                }))
-              }
-            >
-              + count1
-            </button>
-            <h5>{count1}</h5>
+          <div className="booking-form__header">
+            <div className="booking-form__steps booking-from__steps--arrow">
+              <span className="booking-from__phase">1</span>
+              <h2 className="booking-form__headline">select tour and date</h2>
+            </div>
+            <div className="booking-from__steps "></div>
+          </div>
+          <div className="booking-form__body">
+            <p>asdad</p>
           </div>
         </section>
       </Modal>

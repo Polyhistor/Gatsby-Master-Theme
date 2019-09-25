@@ -2,6 +2,19 @@
   &__header {
   }
 
+  &__steps {
+    background: $color-primary;
+    clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
+    width: 50%;
+  }
+
   &__body {
+    height: 70vh;
+    width: 50vw;
+  }
+
+  &__steps {
+    &--arrow {
+    }
   }
 }

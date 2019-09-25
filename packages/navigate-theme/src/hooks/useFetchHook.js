@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 
 export const useFetchHook = slug => {
   // setting inital state
@@ -11,7 +11,7 @@ export const useFetchHook = slug => {
       .then(y => {
         setState({ data: y, loading: false })
       })
-  }, [slug, setState])
+  }, [])
 
   return state
 }
