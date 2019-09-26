@@ -20,16 +20,110 @@ const BookingForm = ({ data, country }) => {
   console.log(entries)
 
   // function that renders the entries (available tours)
-  const renderEntries = () =>
-    entries.months.map(e => (
+  const renderEntries = () => {
+    return entries.months.map((e, idx) => (
       <div className="booking-form__entry">
         <div className="booking-form__shown">
           <span className="booking-form__month"> {e.description}</span>
-          <span className="booking-form__plus">+</span>
+          <input
+            className="booking-form__input"
+            id={`plus-holder-${idx}`}
+            type="checkbox"
+          ></input>
+          <label
+            className="booking-form__plus-holder"
+            for={`plus-holder-${idx}`}
+          ></label>
+          <div className="booking-form__hidden">
+            {e.dates.map(d => (
+              <div
+                className={
+                  d.availability === "Sold Out"
+                    ? "booking-form__hidden-entries booking-form__hidden-entries--soldout"
+                    : "booking-form__hidden-entries"
+                }
+              >
+                <div className="booking-form__left">
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date">
+                      {d.startDateFormated}
+                    </span>
+                    <span className="booking-form__destination">
+                      {d.startLocation}
+                    </span>
+                  </div>
+                  <div className="booking-form__mediator">
+                    <span className="booking-form__duration">
+                      {d.durationInDays} Days
+                    </span>
+                    <div className="booking-form__line-container">
+                      <div
+                        className={
+                          d.availability === "Sold Out"
+                            ? "booking-form__dot booking-form__dot--soldout"
+                            : "booking-form__dot"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          d.availability === "Sold Out"
+                            ? "booking-form__line booking-form__line--soldout"
+                            : "booking-form__line"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          d.availability === "Sold Out"
+                            ? "booking-form__dot booking-form__dot--soldout"
+                            : "booking-form__dot"
+                        }
+                      ></div>
+                    </div>
+                    <span
+                      className={
+                        d.availability === "Sold Out"
+                          ? "booking-form__promo booking-form__promo--soldout"
+                          : "booking-form__promo"
+                      }
+                    >
+                      {d.sale}
+                    </span>
+                  </div>
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date">
+                      {d.endDateFormated}
+                    </span>
+                    <span className="booking-form__destination">
+                      {d.endLocation}
+                    </span>
+                  </div>
+                </div>
+                <div className="booking-form__right">
+                  <div className="booking-form__price">
+                    <span className="booking-form__original">
+                      € {d.prices[0].rrp}
+                    </span>
+                    <span className="booking-form__discount">
+                      € {d.prices[0].rrpWithDiscount}
+                    </span>
+                  </div>
+                  <div
+                    className={
+                      d.availability === "Sold Out"
+                        ? "booking-form__availability booking-form__availability--sold-out"
+                        : "booking-form__availability"
+                    }
+                  >
+                    {d.availability}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="booking-form__hiden"></div>
       </div>
     ))
+  }
 
   // function that renders destinaion dropdown options
   const renderDestinations = () =>
@@ -42,7 +136,7 @@ const BookingForm = ({ data, country }) => {
     console.log(e.target.value)
     await fetch(`https://mtiapi.ntbeta.com/v1/prices/${e.target.value}`)
       .then(x => x.json())
-      .then(y => console.log(y))
+      .then(y => setEntries(y.data))
   }
 
   return (

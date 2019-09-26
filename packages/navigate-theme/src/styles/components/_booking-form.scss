@@ -52,6 +52,33 @@
     margin-bottom: 5rem;
   }
 
+  &__input {
+    visibility: hidden;
+  }
+
+  &__plus {
+    &-holder {
+      &::after,
+      &::before {
+        transition: all 0.6s;
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: $color-grey-dark-2;
+        height: 0.2rem;
+        width: 2rem;
+        right: 2rem;
+        top: 1.1rem;
+      }
+      &::after {
+        transform: rotate(90deg);
+      }
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
   &__entry {
     font-size: 1.6rem;
     color: $color-grey-dark-2;
@@ -59,6 +86,7 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     text-transform: uppercase;
+    overflow: hidden;
 
     &:first-of-type {
       border-top: 1px solid $color-gray-light-2;
@@ -66,14 +94,146 @@
   }
 
   &__shown {
+    position: relative;
+
+    & input:checked ~ .booking-form__hidden {
+      max-height: 20rem;
+    }
+
+    & input:checked ~ .booking-form__plus-holder::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__hidden {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    max-height: 0rem;
+    transition: all 0.3s;
+
+    &-entries {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      &--soldout {
+        color: $color-gray-light-2;
+        pointer-events: none;
+      }
+    }
   }
 
   &__month {
   }
 
-  &__plus {
-    font-size: 2rem;
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    width: 44%;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+  }
+
+  &__date-container {
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+  }
+
+  &__date {
+    font-family: Nunito-Black;
+  }
+
+  &__destination {
+    font-size: 0.9rem;
+  }
+
+  &__line {
+    background-color: $color-grey-dark;
+    width: 13.5rem;
+    height: 0.2rem;
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__line-container {
+    display: flex;
+    width: 14.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__dot {
+    height: 0.4rem;
+    width: 0.4rem;
+    display: block;
+    background-color: $color-primary;
+    border-radius: 50%;
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__duration {
+    font-size: 0.9rem;
+    padding-bottom: 0.2rem;
+  }
+
+  &__promo {
+    color: $color-primary;
+    font-size: 0.9rem;
+    padding-top: 0.2rem;
+
+    &--soldout {
+      color: $color-gray-light-2;
+    }
+  }
+
+  &__mediator {
+    align-items: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price {
+    display: flex;
+    width: 36%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__original {
+    font-size: 0.9rem;
+    text-decoration-line: line-through;
+  }
+
+  &__discount {
+    font-family: Nunito-Black;
+  }
+
+  &__availability {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    color: $color-primary;
+
+    &--selected {
+      color: $color-red;
+    }
+
+    &--sold-out {
+      color: $color-gray-light-2;
+    }
   }
 }

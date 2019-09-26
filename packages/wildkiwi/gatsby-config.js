@@ -27,7 +27,7 @@ module.exports = {
         wordpress: {
           baseUrl: `wildkiwi.com`,
           perPage: 5,
-          concurrentRequests: 4,
+          concurrentRequests: 3,
           includedRoutes: [
             `**/categories`,
             `**/posts`,
