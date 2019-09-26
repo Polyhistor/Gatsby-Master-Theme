@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 
 import useDestinationQuery from "../../queries/destinationQuery"
 
@@ -19,6 +19,9 @@ const BookingForm = ({ data, country }) => {
 
   console.log(entries)
 
+  // test
+  const inputRef = useRef()
+
   // function that renders the entries (available tours)
   const renderEntries = () => {
     return entries.months.map((e, idx) => (
@@ -37,6 +40,8 @@ const BookingForm = ({ data, country }) => {
           <div className="booking-form__hidden">
             {e.dates.map(d => (
               <div
+                ref={inputRef}
+                onClick={() => console.log(inputRef)}
                 className={
                   d.availability === "Sold Out"
                     ? "booking-form__hidden-entries booking-form__hidden-entries--soldout"
