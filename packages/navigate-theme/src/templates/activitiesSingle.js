@@ -30,25 +30,25 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
             .fluid
         }
         bannerSecond={
-          data.contentfulActivities.bannerImages[1] !== null
+          data.contentfulActivities.bannerImages[1] !== undefined
             ? data.contentfulActivities.bannerImages[1].localFile
                 .childImageSharp.fluid
             : null
         }
         bannerThird={
-          data.contentfulActivities.bannerImages[2] !== null
+          data.contentfulActivities.bannerImages[2] !== undefined
             ? data.contentfulActivities.bannerImages[2].localFile
                 .childImageSharp.fluid
             : null
         }
         bannerFourth={
-          data.contentfulActivities.bannerImages[3] !== null
+          data.contentfulActivities.bannerImages[3] !== undefined
             ? data.contentfulActivities.bannerImages[3].localFile
                 .childImageSharp.fluid
             : null
         }
         bannerFifth={
-          data.contentfulActivities.bannerImages[4] !== null
+          data.contentfulActivities.bannerImages[4] !== undefined
             ? data.contentfulActivities.bannerImages[4].localFile
                 .childImageSharp.fluid
             : null
