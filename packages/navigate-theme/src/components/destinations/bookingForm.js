@@ -210,6 +210,13 @@ const BookingForm = ({ data, country }) => {
           <div className="phase-2">yo phase2!</div>
         )}
       </div>
+      <div className="booking-form__footer">
+        {phase ? (
+          <button className="btn btn--green" onClick={() => setPhase(!phase)}>
+            Previous
+          </button>
+        ) : null}
+      </div>
     </section>
   )
 }

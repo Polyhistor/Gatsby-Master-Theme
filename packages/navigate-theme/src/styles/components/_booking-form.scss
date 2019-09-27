@@ -259,5 +259,9 @@
     &--sold-out {
       color: $color-gray-light-2;
     }
+
+    &__footer {
+      height: 5rem;
+    }
   }
 }
