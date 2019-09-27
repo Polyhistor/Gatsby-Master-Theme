@@ -13,10 +13,12 @@
     display: flex;
     align-items: center;
     height: 3.7rem;
+    background: $color-primary;
+    clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
 
     &--arrow {
-      background: $color-primary;
-      clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
+      background: white;
+      border-bottom: 1px solid $color-primary;
     }
   }
 
@@ -25,6 +27,10 @@
     margin-left: 1rem;
     text-transform: uppercase;
     color: white;
+
+    &--arrow {
+      color: $color-primary;
+    }
   }
 
   &__body {
@@ -46,6 +52,10 @@
     align-items: center;
     margin-left: 1rem;
     font-family: Nunito-Black;
+
+    &--arrow {
+      border: 1px solid $color-primary;
+    }
   }
 
   &__dropdown {
@@ -58,6 +68,12 @@
 
   &__plus {
     &-holder {
+      display: block;
+      height: 3rem;
+      width: 5.5rem;
+      position: absolute;
+      right: 0;
+      top: 0;
       &::after,
       &::before {
         transition: all 0.6s;
@@ -119,9 +135,17 @@
       overflow: hidden;
       cursor: pointer;
 
+      &:hover {
+        background: $color-gray-light-2;
+      }
+
       &--soldout {
         color: $color-gray-light-2;
         pointer-events: none;
+      }
+
+      &--selected {
+        background-color: red;
       }
     }
   }

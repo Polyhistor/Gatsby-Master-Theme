@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 
+import Step from "./step"
 import useDestinationQuery from "../../queries/destinationQuery"
 
 const BookingForm = ({ data, country }) => {
@@ -17,10 +18,31 @@ const BookingForm = ({ data, country }) => {
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
   const [entries, setEntries] = useState(data.data.data)
 
-  console.log(entries)
+  // initiating an empty array that stores references to our nodes
+  const refs = []
 
-  // test
-  const inputRef = useRef()
+  // storing data that we need for the second phase
+  const [gState, setGState] = useState(null)
+
+  // setting the phases
+  const [phase, setPhase] = useState(false)
+
+  console.log(phase)
+
+  // function that fetches data that has been clicked
+  const handleClick = (_, idx, idx2) => {
+    const ourElement = refs[idx].childNodes[idx2]
+    const ourDate = ourElement.childNodes[0].innerText.slice(0, 10)
+
+    entries.months.forEach(e =>
+      e.dates.forEach(d => {
+        if (d.startDateFormated === ourDate) {
+          setGState(d)
+        }
+      })
+    )
+    setPhase(!phase)
+  }
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
@@ -37,11 +59,11 @@ const BookingForm = ({ data, country }) => {
             className="booking-form__plus-holder"
             for={`plus-holder-${idx}`}
           ></label>
-          <div className="booking-form__hidden">
-            {e.dates.map(d => (
+          <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
+            {e.dates.map((d, idx2) => (
               <div
-                ref={inputRef}
-                onClick={() => console.log(inputRef)}
+                key={idx2}
+                onClick={_ => handleClick(_, idx, idx2)}
                 className={
                   d.availability === "Sold Out"
                     ? "booking-form__hidden-entries booking-form__hidden-entries--soldout"
@@ -147,35 +169,46 @@ const BookingForm = ({ data, country }) => {
   return (
     <section className="booking-form">
       <div className="booking-form__header">
-        <div className="booking-form__steps booking-form__steps--arrow">
-          <span className="booking-form__phase">1</span>
-          <h2 className="booking-form__headline">select tour and date</h2>
-        </div>
-        <div className="booking-form__steps"></div>
+        {!phase ? (
+          <>
+            <Step num="1" text="select tour and date" variation={false}></Step>
+            <Step num="2" text="enter your details" variation={true}></Step>
+          </>
+        ) : (
+          <>
+            <Step num="1" text="enter your details" variation={true}></Step>
+            <Step num="2" text="enter your details" variation={false}></Step>
+          </>
+        )}
       </div>
       <div className="booking-form__body">
-        <div className="booking-form__dropdown">
-          {data ? null : (
-            <div className="activity__selector">
-              <select class="activity__dropdown" id="country">
-                <option value="all">Region</option>
-              </select>
+        {!phase ? (
+          <div className="booking-form__phase-1">
+            <div className="booking-form__dropdown">
+              {data ? null : (
+                <div className="activity__selector">
+                  <select class="activity__dropdown" id="country">
+                    <option value="all">Region</option>
+                  </select>
+                </div>
+              )}
+
+              <div className="activity__selector">
+                <select
+                  onChange={e => handleDestDropdown(e)}
+                  className="activity__dropdown"
+                  id="country"
+                >
+                  <option value="all">Tour</option>
+                  {renderDestinations()}
+                </select>
+              </div>
             </div>
-          )}
-
-          <div className="activity__selector">
-            <select
-              onChange={e => handleDestDropdown(e)}
-              className="activity__dropdown"
-              id="country"
-            >
-              <option value="all">Tour</option>
-              {renderDestinations()}
-            </select>
+            <div className="booking-form__entries">{renderEntries()}</div>
           </div>
-        </div>
-
-        <div className="booking-form__entries">{renderEntries()}</div>
+        ) : (
+          <div className="phase-2">yo phase2!</div>
+        )}
       </div>
     </section>
   )
