@@ -26,6 +26,7 @@ const TripBox = ({
   hotText,
   slug,
   country,
+  banner,
 }) => {
   const ourData = useFetchHook(slug)
 
@@ -86,7 +87,11 @@ const TripBox = ({
         className={{ overlay: "overlay", modal: "popup" }}
         center
       >
-        <BookingForm data={ourData} country={country}></BookingForm>
+        <BookingForm
+          data={ourData}
+          country={country}
+          banner={banner}
+        ></BookingForm>
       </Modal>
     </>
   )

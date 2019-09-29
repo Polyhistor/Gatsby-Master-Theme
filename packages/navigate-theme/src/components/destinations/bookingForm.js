@@ -43,7 +43,9 @@ const BookingForm = ({ data, country }) => {
     setPhase(!phase)
   }
 
-  console.log(gState)
+  // console.log(gState)
+
+  // console.log(entries)
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
@@ -168,79 +170,85 @@ const BookingForm = ({ data, country }) => {
   }
 
   return (
-    <section className="booking-form">
-      <div className="booking-form__header">
-        {!phase ? (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={false}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={true}
-              last={false}
-            ></Step>
-          </>
-        ) : (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={true}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={false}
-              last={true}
-            ></Step>
-          </>
-        )}
-      </div>
-      <div className="booking-form__body">
-        {!phase ? (
-          <div className="booking-form__phase-1">
-            <div className="booking-form__dropdown">
-              {data ? null : (
+    <React.Suspense fallback={"loading"}>
+      <section className="booking-form">
+        <div className="booking-form__header">
+          {!phase ? (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={false}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={true}
+                last={false}
+              ></Step>
+            </>
+          ) : (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={true}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={false}
+                last={true}
+              ></Step>
+            </>
+          )}
+        </div>
+        <div className="booking-form__body">
+          {!phase ? (
+            <div className="booking-form__phase-1">
+              <div className="booking-form__dropdown">
+                {data ? null : (
+                  <div className="activity__selector">
+                    <select class="activity__dropdown" id="country">
+                      <option value="all">Region</option>
+                    </select>
+                  </div>
+                )}
+
                 <div className="activity__selector">
-                  <select class="activity__dropdown" id="country">
-                    <option value="all">Region</option>
+                  <select
+                    onChange={e => handleDestDropdown(e)}
+                    className="activity__dropdown"
+                    id="country"
+                  >
+                    <option value="all">Tour</option>
+                    {renderDestinations()}
                   </select>
                 </div>
-              )}
-
-              <div className="activity__selector">
-                <select
-                  onChange={e => handleDestDropdown(e)}
-                  className="activity__dropdown"
-                  id="country"
-                >
-                  <option value="all">Tour</option>
-                  {renderDestinations()}
-                </select>
               </div>
+              <div className="booking-form__entries">{renderEntries()}</div>
             </div>
-            <div className="booking-form__entries">{renderEntries()}</div>
-          </div>
-        ) : (
-          <div className="booking-form__phase-2">
-            <DetailsForm />
-          </div>
-        )}
-      </div>
-      <div className="booking-form__footer">
-        {phase ? (
-          <button className="btn btn--green" onClick={() => setPhase(!phase)}>
-            Previous
-          </button>
-        ) : null}
-      </div>
-    </section>
+          ) : (
+            <div className="booking-form__phase-2">
+              <DetailsForm
+                state={gState}
+                imgSlug={entries.slug}
+                title={entries.description}
+              />
+            </div>
+          )}
+        </div>
+        <div className="booking-form__footer">
+          {phase ? (
+            <button className="btn btn--green" onClick={() => setPhase(!phase)}>
+              Previous
+            </button>
+          ) : null}
+        </div>
+      </section>
+    </React.Suspense>
   )
 }
 

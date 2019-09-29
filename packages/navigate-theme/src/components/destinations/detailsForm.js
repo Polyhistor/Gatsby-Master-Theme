@@ -1,11 +1,15 @@
-import React from "react"
-import Img from "gatsby"
+import React, { useEffect } from "react"
+import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
+import Recaptcha from "react-recaptcha"
+import useDestinationQuery from "../../queries/destinationQuery"
 
 import Error from "./error"
 
 // TODO - DRY up this component
+
+// Our schema validation logich ere
 const validationSchema = Yup.object().shape({
   guests: Yup.number()
     .min(1, "At least one guest has to be entered")
@@ -22,19 +26,47 @@ const validationSchema = Yup.object().shape({
     .required("email confirm is required"),
   countryCode: Yup.number()
     .positive("value must be positive")
-    .required(),
+    .required("country code is required"),
   mobileNumber: Yup.number()
     .positive("value must be positive")
-    .required(),
+    .required("number is required"),
   age: Yup.number()
     .positive("value must be positive")
-    .required(),
-  gender: Yup.string().required(),
-  comments: Yup.required(),
-  consent: Yup.boolean().required(),
+    .required("age is required"),
+  gender: Yup.string().required("gender is required"),
+  // recaptcha: Yup.string().required(),
 })
 
-const DetailsForm = () => {
+const DetailsForm = ({ state, imgSlug, title }) => {
+  // running recaptcha necessary files on mount
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://www.google.com/recaptcha/api.js"
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+  })
+
+  // taking all the data and filtering out what we need
+  const destinationsData = useDestinationQuery()
+  const filteredData = destinationsData.filter(e => e.node.slug === imgSlug)
+
+  // our final data to be sent to the API
+  let finalAPI
+
+  console.log(state)
+
+  console.log(state.prices[0].id)
+  console.log(state.prices[0].rrpWithDiscount)
+  console.log(state.startDate)
+  console.log(state.currencyCode)
+
+  // {
+  // id,
+  // priceWithDiscount,
+  // startDate,
+  // currencyCode,
+
   return (
     <>
       <h3 class="WhyWild-box-single__title">Enter your details</h3>
@@ -51,6 +83,7 @@ const DetailsForm = () => {
             gender: "male",
             comments: "",
             consent: false,
+            // recaptcha: "",
           }}
           validationSchema={validationSchema}
           onSubmit={(values, actions) => {
@@ -59,9 +92,11 @@ const DetailsForm = () => {
               actions.setSubmitting(false)
             }, 1000)
             actions.setSubmitting(true)
+            finalAPI = values
+            console.log(finalAPI)
           }}
         >
-          {({ errors, touched, handleChange, isSubmitting }) => (
+          {({ errors, touched, handleChange, isSubmitting, setFieldValue }) => (
             <Form className="booking-details">
               <Field
                 type="number"
@@ -127,9 +162,24 @@ const DetailsForm = () => {
                 placeholder="Comments"
               ></Field>
               <Error touched={touched.comments} message={errors.comments} />
-              <label>I accept the terms and conditions</label>
-              <Field type="checkbox" name="consent"></Field>
-              <Error touched={touched.consent} message={errors.consent} />
+              <label htmlFor="consent">I accept the terms and conditions</label>
+              <Field
+                id="consent"
+                name="consent"
+                type="checkbox"
+                required
+              ></Field>
+              {/* <Recaptcha
+                sitekey="6Le_6boUAAAAAEx3rg9B5Fbck_vMM8y3O7yBXy3K"
+                render="explicit"
+                theme="dark"
+                verifyCallback={response => {
+                  setFieldValue("recaptcha", response)
+                }}
+                onloadCallback={() => {
+                  console.log("done loading!")
+                }}
+              /> */}
               <button type="submit" disabled={isSubmitting}>
                 Submit
               </button>
@@ -137,7 +187,25 @@ const DetailsForm = () => {
           )}
         </Formik>
       </div>
-      <div className="booking-form__booking-details">{/* <Img></Img> */}</div>
+      <div className="booking-form__booking-details">
+        <Image
+          fluid={
+            filteredData[0].node.bannerImages[0].localFile.childImageSharp.fluid
+          }
+          className="booking-form__banner"
+        ></Image>
+        <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
+          {title}
+        </h2>
+        <div className="booking-form__details">
+          <div className="booking-form__sub-title">
+            {state.durationInDays}Days
+          </div>
+          <div className="booking-form__sub-title">
+            {state.durationInDays}Days
+          </div>
+        </div>
+      </div>
     </>
   )
 }
