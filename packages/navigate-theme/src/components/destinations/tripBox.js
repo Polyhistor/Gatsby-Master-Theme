@@ -80,16 +80,14 @@ const TripBox = ({
         </div>
       </div>
       {/* Setting our Modal values */}
-      <React.Suspense fallback={"loading"}>
-        <Modal
-          open={open}
-          onClose={() => setModal({ open: false })}
-          className={{ overlay: "overlay", modal: "popup" }}
-          center
-        >
-          <BookingForm data={ourData} country={country}></BookingForm>
-        </Modal>
-      </React.Suspense>
+      <Modal
+        open={open}
+        onClose={() => setModal({ open: false })}
+        className={{ overlay: "overlay", modal: "popup" }}
+        center
+      >
+        <BookingForm data={ourData} country={country}></BookingForm>
+      </Modal>
     </>
   )
 }

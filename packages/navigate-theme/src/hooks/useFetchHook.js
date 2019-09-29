@@ -5,13 +5,16 @@ export const useFetchHook = slug => {
   const [state, setState] = useState({ data: null, loading: true })
 
   // loading our data
-  useEffect(() => {
-    fetch(`https://mtiapi.ntbeta.com/v1/prices/${slug}`)
-      .then(x => x.json())
-      .then(y => {
-        setState({ data: y, loading: false })
-      })
-  }, [])
+  setTimeout(
+    useEffect(() => {
+      fetch(`https://api2.ntstage.com/tours/${slug}`)
+        .then(x => x.json())
+        .then(y => {
+          setState({ data: y, loading: false })
+        })
+    }, []),
+    5000
+  )
 
   return state
 }

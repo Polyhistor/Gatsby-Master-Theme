@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import Recaptcha from "react-recaptcha"
+
 import useDestinationQuery from "../../queries/destinationQuery"
 
 import Error from "./error"
@@ -24,10 +25,10 @@ const validationSchema = Yup.object().shape({
   emailConfirm: Yup.string()
     .oneOf([Yup.ref("email")], "email must match")
     .required("email confirm is required"),
-  countryCode: Yup.number()
+  phoneCountryCode: Yup.number()
     .positive("value must be positive")
     .required("country code is required"),
-  mobileNumber: Yup.number()
+  phoneNumber: Yup.number()
     .positive("value must be positive")
     .required("number is required"),
   age: Yup.number()
@@ -56,16 +57,16 @@ const DetailsForm = ({ state, imgSlug, title }) => {
 
   console.log(state)
 
-  console.log(state.prices[0].id)
-  console.log(state.prices[0].rrpWithDiscount)
-  console.log(state.startDate)
-  console.log(state.currencyCode)
-
-  // {
-  // id,
-  // priceWithDiscount,
-  // startDate,
-  // currencyCode,
+  // creating our partial object that later will be synthesized with form data
+  let partialData = {
+    priceId: state.prices[0].id,
+    price: state.prices[0].rrp,
+    priceWithDiscount: state.prices[0].rrpWithDiscount,
+    date: state.startDate,
+    currencyCode: state.prices[0].currencyCode,
+    sale: state.availability,
+    availability: state.availability,
+  }
 
   return (
     <>
@@ -78,97 +79,155 @@ const DetailsForm = ({ state, imgSlug, title }) => {
             lastName: "",
             email: "",
             emailConfirm: "",
-            countryCode: "",
-            mobileNumber: "",
+            phoneCountryCode: "",
+            phoneNumber: "",
             gender: "male",
             comments: "",
             consent: false,
             // recaptcha: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, actions) => {
+          onSubmit={async (values, actions) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2))
               actions.setSubmitting(false)
             }, 1000)
             actions.setSubmitting(true)
-            finalAPI = values
-            console.log(finalAPI)
+            finalAPI = { ...values, ...partialData }
+            const url = "https://api2.ntstage.com/enquiry"
+            try {
+              const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(finalAPI),
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+              const json = await response.json()
+              console.log("Success", JSON.stringify(json))
+            } catch (error) {
+              console.log("Error", error)
+            }
           }}
         >
           {({ errors, touched, handleChange, isSubmitting, setFieldValue }) => (
-            <Form className="booking-details">
-              <Field
-                type="number"
-                name="guests"
-                placeholder="No. Guests"
-              ></Field>
-              <Error touched={touched.guests} message={errors.guests} />
-              <Field
-                type="text"
-                name="firstName"
-                placeholder="First Name *"
-              ></Field>
-              <Error touched={touched.firstName} message={errors.firstName} />
-              <Field
-                type="text"
-                name="lastName"
-                placeholder="Last Name *"
-              ></Field>
-              <Error touched={touched.lastName} message={errors.lastName} />
-              <Field
-                type="text"
-                name="email"
-                placeholder="Email Address *"
-              ></Field>
-              <Error touched={touched.email} message={errors.email} />
-              <Field
-                type="text"
-                name="emailConfirm"
-                placeholder="Confirm Email Address *"
-              ></Field>
-              <Error
-                touched={touched.emailConfirm}
-                message={errors.emailConfirm}
-              />
-              <Field
-                type="number"
-                name="countryCode"
-                placeholder="Country Code *"
-              ></Field>
-              <Error
-                touched={touched.countryCode}
-                message={errors.countryCode}
-              />
-              <Field
-                type="number"
-                name="mobileNumber"
-                placeholder="Mobile or Landline *"
-              ></Field>
-              <Error
-                touched={touched.mobileNumber}
-                message={errors.mobileNumber}
-              />
-              <Field type="number" name="age" placeholder="Age *"></Field>
-              <Error touched={touched.age} message={errors.age} />
-              <Field component="select" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </Field>
-              <Error touched={touched.gender} message={errors.gender} />
-              <Field
-                type="textarea"
-                name="comments"
-                placeholder="Comments"
-              ></Field>
-              <Error touched={touched.comments} message={errors.comments} />
-              <label htmlFor="consent">I accept the terms and conditions</label>
-              <Field
-                id="consent"
-                name="consent"
-                type="checkbox"
-                required
-              ></Field>
+            <Form className="booking-form__form-container">
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
+                  name="guests"
+                  placeholder="No. Guests"
+                  className="booking-form__fields booking-form__fields--half"
+                ></Field>
+                <Error touched={touched.guests} message={errors.guests} />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name *"
+                  className="booking-form__fields"
+                ></Field>
+                <Error touched={touched.firstName} message={errors.firstName} />
+              </div>
+
+              <div className="booking-details__fields-container">
+                <Field
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name *"
+                  className="booking-form__fields"
+                ></Field>
+                <Error touched={touched.lastName} message={errors.lastName} />
+              </div>
+
+              <div className="booking-details__fields-container">
+                <Field
+                  type="text"
+                  name="email"
+                  placeholder="Email Address *"
+                  className="booking-form__fields"
+                ></Field>
+                <Error touched={touched.email} message={errors.email} />
+              </div>
+
+              <div className="booking-details__fields-container">
+                <Field
+                  type="text"
+                  name="emailConfirm"
+                  placeholder="Confirm Email Address *"
+                  className="booking-form__fields"
+                ></Field>
+                <Error
+                  touched={touched.emailConfirm}
+                  message={errors.emailConfirm}
+                />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
+                  name="phoneCountryCode"
+                  placeholder="Country Code *"
+                  className="booking-form__fields booking-form__fields--half"
+                ></Field>
+                <Error
+                  touched={touched.phoneCountryCode}
+                  message={errors.phoneCountryCode}
+                />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="Mobile *"
+                  className="booking-form__fields booking-form__fields--half"
+                ></Field>
+                <Error
+                  touched={touched.phoneNumber}
+                  message={errors.phoneNumber}
+                />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
+                  name="age"
+                  placeholder="Age *"
+                  className="booking-form__fields booking-form__fields--half"
+                ></Field>
+                <Error touched={touched.age} message={errors.age} />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  component="select"
+                  name="gender"
+                  className="booking-form__fields booking-form__fields--half"
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </Field>
+                <Error touched={touched.gender} message={errors.gender} />
+              </div>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="textarea"
+                  name="comments"
+                  placeholder="Comments"
+                  className="booking-form__fields"
+                ></Field>
+                <Error touched={touched.comments} message={errors.comments} />
+              </div>
+              <div className="booking-details__fields-container booking-details__fields-container--contest">
+                <label htmlFor="consent">
+                  I accept the terms and conditions
+                </label>
+                <Field
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  className="booking-form__fields"
+                  required
+                ></Field>
+              </div>
               {/* <Recaptcha
                 sitekey="6Le_6boUAAAAAEx3rg9B5Fbck_vMM8y3O7yBXy3K"
                 render="explicit"
@@ -194,16 +253,41 @@ const DetailsForm = ({ state, imgSlug, title }) => {
           }
           className="booking-form__banner"
         ></Image>
-        <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
-          {title}
-        </h2>
-        <div className="booking-form__details">
+        <div className="booking-form__details booking-form__details--title">
+          <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
+            {title}
+          </h2>
+        </div>
+
+        <div className="booking-form__details booking-form__details--days">
           <div className="booking-form__sub-title">
             {state.durationInDays}Days
           </div>
           <div className="booking-form__sub-title">
-            {state.durationInDays}Days
+            {/* {values.guests === undefined ? 0 : values.guests}Days */}
           </div>
+        </div>
+        <div className="booking-form__details booking-form__details--start">
+          <div className="booking-form__sub-title">Start</div>
+          <div className="booking-form__info">
+            <span> {state.startDateFormated}</span>
+            <span> Departs 15:00</span>
+            <span> Christchurch, New Zealand</span>
+          </div>
+        </div>
+        <div className="booking-form__details booking-form__details--end">
+          <div className="booking-form__sub-title">End</div>
+          <div className="booking-form__info">
+            <span> {state.endDateFormated}</span>
+            <span> Arrive 15:00</span>
+            <span> Christchurch, New Zealand</span>
+          </div>
+        </div>
+        <div className="booking-form__details booking-form__details--price">
+          <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
+            {state.prices[0].currencySymbol}
+            {state.prices[0].rrp}
+          </h2>
         </div>
       </div>
     </>
