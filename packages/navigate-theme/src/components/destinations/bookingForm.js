@@ -45,7 +45,7 @@ const BookingForm = ({ data, country }) => {
 
   // console.log(gState)
 
-  // console.log(entries)
+  console.log(entries)
 
   // function that renders the entries (available tours)
   const renderEntries = () => {

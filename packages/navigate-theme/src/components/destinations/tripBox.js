@@ -26,7 +26,6 @@ const TripBox = ({
   hotText,
   slug,
   country,
-  banner,
 }) => {
   const ourData = useFetchHook(slug)
 
@@ -81,18 +80,16 @@ const TripBox = ({
         </div>
       </div>
       {/* Setting our Modal values */}
-      <Modal
-        open={open}
-        onClose={() => setModal({ open: false })}
-        className={{ overlay: "overlay", modal: "popup" }}
-        center
-      >
-        <BookingForm
-          data={ourData}
-          country={country}
-          banner={banner}
-        ></BookingForm>
-      </Modal>
+      <React.Suspense fallback={"loading"}>
+        <Modal
+          open={open}
+          onClose={() => setModal({ open: false })}
+          className={{ overlay: "overlay", modal: "popup" }}
+          center
+        >
+          <BookingForm data={ourData} country={country}></BookingForm>
+        </Modal>
+      </React.Suspense>
     </>
   )
 }
