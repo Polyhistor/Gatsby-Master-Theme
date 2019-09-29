@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 
 import Step from "./step"
+import DetailsForm from "./detailsForm"
 import useDestinationQuery from "../../queries/destinationQuery"
 
 const BookingForm = ({ data, country }) => {
@@ -27,8 +28,6 @@ const BookingForm = ({ data, country }) => {
   // setting the phases
   const [phase, setPhase] = useState(false)
 
-  console.log(phase)
-
   // function that fetches data that has been clicked
   const handleClick = (_, idx, idx2) => {
     const ourElement = refs[idx].childNodes[idx2]
@@ -43,6 +42,8 @@ const BookingForm = ({ data, country }) => {
     )
     setPhase(!phase)
   }
+
+  console.log(gState)
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
@@ -171,13 +172,33 @@ const BookingForm = ({ data, country }) => {
       <div className="booking-form__header">
         {!phase ? (
           <>
-            <Step num="1" text="select tour and date" variation={false}></Step>
-            <Step num="2" text="enter your details" variation={true}></Step>
+            <Step
+              num="1"
+              text="select tour and date"
+              variation={false}
+              last={false}
+            ></Step>
+            <Step
+              num="2"
+              text="enter your details"
+              variation={true}
+              last={false}
+            ></Step>
           </>
         ) : (
           <>
-            <Step num="1" text="enter your details" variation={true}></Step>
-            <Step num="2" text="enter your details" variation={false}></Step>
+            <Step
+              num="1"
+              text="select tour and date"
+              variation={true}
+              last={false}
+            ></Step>
+            <Step
+              num="2"
+              text="enter your details"
+              variation={false}
+              last={true}
+            ></Step>
           </>
         )}
       </div>
@@ -207,7 +228,9 @@ const BookingForm = ({ data, country }) => {
             <div className="booking-form__entries">{renderEntries()}</div>
           </div>
         ) : (
-          <div className="phase-2">yo phase2!</div>
+          <div className="booking-form__phase-2">
+            <DetailsForm />
+          </div>
         )}
       </div>
       <div className="booking-form__footer">

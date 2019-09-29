@@ -15,10 +15,19 @@
     height: 3.7rem;
     background: $color-primary;
     clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
+    margin-right: 0rem;
 
     &--arrow {
       background: white;
       border-bottom: 1px solid $color-primary;
+      clip-path: polygon(95% 0, 100% 51%, 95% 100%, 0 100%, 0 50%, 0 0);
+      z-index: 200;
+      margin-right: -3rem;
+    }
+
+    &--last {
+      width: 53.1%;
+      clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0% 0%);
     }
   }
 
@@ -50,11 +59,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1rem;
+    margin-left: 4rem;
     font-family: Nunito-Black;
 
     &--arrow {
       border: 1px solid $color-primary;
+      margin-left: 1rem;
     }
   }
 
@@ -259,9 +269,9 @@
     &--sold-out {
       color: $color-gray-light-2;
     }
+  }
 
-    &__footer {
-      height: 5rem;
-    }
+  &__footer {
+    height: 5rem;
   }
 }

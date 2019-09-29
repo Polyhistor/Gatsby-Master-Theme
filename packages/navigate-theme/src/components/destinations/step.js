@@ -1,12 +1,14 @@
 import React from "react"
 
-const Step = ({ num, text, variation }) => {
+const Step = ({ num, text, variation, last }) => {
   return (
     <>
       <div
         className={
           variation
             ? "booking-form__steps booking-form__steps--arrow"
+            : last
+            ? "booking-form__steps booking-form__steps--last"
             : "booking-form__steps"
         }
       >
