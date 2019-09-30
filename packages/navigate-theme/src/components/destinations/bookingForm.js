@@ -13,16 +13,8 @@ const BookingForm = ({ data, country }) => {
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
 
-  console.log(destinationData)
-  console.log(countryData)
-
   // setting our initial country state
   const countryList = useState(countryData)
-
-  // setting the initial state for destination dropdown show
-  const [dropdown, setDropdown] = useState(false)
-
-  console.log(countryList)
 
   // filtering destinations based on the country passed by props
   // const defaultCountry = destinationData.filter(
@@ -72,6 +64,10 @@ const BookingForm = ({ data, country }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
+    if (entries === null) {
+      return <h2 className="green-title">Please select your region and tour</h2>
+    }
+
     if (entries.months === undefined) {
       return (
         <Loader
@@ -83,6 +79,7 @@ const BookingForm = ({ data, country }) => {
         />
       )
     }
+
     if (entries) {
       return entries.months.map((e, idx) => (
         <div className="booking-form__entry">
@@ -212,7 +209,12 @@ const BookingForm = ({ data, country }) => {
   }
 
   // function that handles countries dropdown
-  const handleCountryDropdown = e => setDestinationFilter(e.target.value)
+  const handleCountryDropdown = e => {
+    const filteredDests = destinationData.filter(d => {
+      return d.node.destinationCountry === e.target.value
+    })
+    setDestinationFilter(filteredDests)
+  }
 
   return (
     <section className="booking-form">
@@ -252,31 +254,37 @@ const BookingForm = ({ data, country }) => {
       <div className="booking-form__body">
         {!phase ? (
           <div className="booking-form__phase-1">
-            <div className="booking-form__dropdown">
-              <div className="activity__selector">
-                <select
-                  onChange={e => handleCountryDropdown(e)}
-                  class="activity__dropdown"
-                  id="country"
-                >
-                  <option value="all">Region</option>
-                  {renderCountries()}
-                </select>
+            {receivedData !== null ? (
+              <div className="booking-form__tour-title u-margin-bottom-medium">
+                <h2 className="green-title">{data.data.data.description}</h2>
               </div>
-
-              {destinationFilter !== null ? (
+            ) : (
+              <div className="booking-form__dropdown">
                 <div className="activity__selector">
                   <select
-                    onChange={e => handleDestDropdown(e)}
-                    className="activity__dropdown"
-                    id="tours"
+                    onChange={e => handleCountryDropdown(e)}
+                    class="activity__dropdown"
+                    id="country"
                   >
-                    <option value="all">Tours</option>
-                    {renderDestinations()}
+                    <option value="all">Region</option>
+                    {renderCountries()}
                   </select>
                 </div>
-              ) : null}
-            </div>
+
+                {destinationFilter !== null ? (
+                  <div className="activity__selector">
+                    <select
+                      onChange={e => handleDestDropdown(e)}
+                      className="activity__dropdown"
+                      id="tours"
+                    >
+                      <option value="all">Tours</option>
+                      {renderDestinations()}
+                    </select>
+                  </div>
+                ) : null}
+              </div>
+            )}
             <div className="booking-form__entries">{renderEntries()}</div>
           </div>
         ) : (
