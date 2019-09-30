@@ -4,21 +4,38 @@ import Loader from "react-loader-spinner"
 import Step from "./step"
 import DetailsForm from "./detailsForm"
 import useDestinationQuery from "../../queries/destinationQuery"
+import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country }) => {
   // extracting out our query
   const destinationData = useDestinationQuery()
+  const countryData = useCountryQuery()
+
+  console.log(destinationData)
+  console.log(countryData)
+
+  // setting our initial country state
+  const countryList = useState(countryData)
+
+  // setting the initial state for destination dropdown show
+  const [dropdown, setDropdown] = useState(false)
+
+  console.log(countryList)
 
   // filtering destinations based on the country passed by props
-  const defaultCountry = destinationData.filter(
-    e => e.node.destinationCountry === country
-  )
+  // const defaultCountry = destinationData.filter(
+  //   e => e.node.destinationCountry === country
+  // )
 
   // setting our inital state based on the coutnry passed
-  const [destinationFilter, setDestinationFilter] = useState(defaultCountry)
+  const [destinationFilter, setDestinationFilter] = useState(null)
 
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
-  const [entries, setEntries] = useState(data.data.data)
+  let receivedData = null
+
+  data === null ? (receivedData = null) : (receivedData = data.data.data)
+
+  const [entries, setEntries] = useState(receivedData)
 
   // initiating an empty array that stores references to our nodes
   const refs = []
@@ -170,6 +187,8 @@ const BookingForm = ({ data, country }) => {
           </div>
         </div>
       ))
+    } else {
+      return <div>Please select the region and the tour</div>
     }
   }
 
@@ -179,13 +198,19 @@ const BookingForm = ({ data, country }) => {
       <option value={e.node.slug}>{e.node.title}</option>
     ))
 
+  // function that renders countries dropdown options
+  const renderCountries = () =>
+    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
+
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
-    console.log(e.target.value)
     await fetch(`https://api2.ntstage.com/tours/${e.target.value}`)
       .then(x => x.json())
       .then(y => setEntries(y.data))
   }
+
+  // function that handles countries dropdown
+  const handleCountryDropdown = e => setDestinationFilter(e.target.value)
 
   return (
     <section className="booking-form">
@@ -226,21 +251,26 @@ const BookingForm = ({ data, country }) => {
         {!phase ? (
           <div className="booking-form__phase-1">
             <div className="booking-form__dropdown">
-              {data ? null : (
-                <div className="activity__selector">
-                  <select class="activity__dropdown" id="country">
-                    <option value="all">Region</option>
-                  </select>
-                </div>
-              )}
+              {/* {data ? null : ( */}
+              <div className="activity__selector">
+                <select
+                  onChange={e => handleCountryDropdown(e)}
+                  class="activity__dropdown"
+                  id="country"
+                >
+                  <option value="all">Region</option>
+                  {renderCountries()}
+                </select>
+              </div>
+              {/* )} */}
 
               <div className="activity__selector">
                 <select
                   onChange={e => handleDestDropdown(e)}
                   className="activity__dropdown"
-                  id="country"
+                  id="tours"
                 >
-                  <option value="all">Tour</option>
+                  <option value="all">Tours</option>
                   {renderDestinations()}
                 </select>
               </div>
