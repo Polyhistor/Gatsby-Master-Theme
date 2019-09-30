@@ -4,7 +4,7 @@ import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 
 import useDestinationQuery from "../../queries/destinationQuery"
-
+import { api as ApiService } from "../../services/api"
 import Error from "./error"
 
 // TODO - DRY up this component
@@ -82,9 +82,13 @@ const DetailsForm = ({ state, imgSlug, title }) => {
             }, 1000)
             actions.setSubmitting(true)
             finalAPI = { ...values, ...partialData }
-            const url = "https://api2.ntstage.com/enquiry"
             try {
-              const response = await fetch(url, {
+              const response = await ApiService.enquiry(finalAPI)
+              console.log("Success", JSON.stringify(response.data))
+            } catch (error) {
+              console.log("Error", error)
+            }
+            /*await fetch(url, {
                 method: "POST",
                 body: JSON.stringify(finalAPI),
                 headers: {
@@ -92,10 +96,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 },
               })
               const json = await response.json()
-              console.log("Success", JSON.stringify(json))
-            } catch (error) {
-              console.log("Error", error)
-            }
+              console.log("Success", JSON.stringify(json))*/
           }}
         >
           {({ errors, touched, handleChange, isSubmitting, setFieldValue }) => (
