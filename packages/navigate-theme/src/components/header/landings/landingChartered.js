@@ -28,20 +28,32 @@ const LandingChartered = ({
           </Link>
         </div> */}
       </BackgroundImage>
-      <BackgroundImage fluid={bannerSecond} className="banner-chartered--2" />
-      <BackgroundImage fluid={bannerThird} className="banner-chartered--3">
-        <div className="laptop-button__chartered-landing">
-          {/* <Link to="/s" className="btn btn--white btn-animated">
+      {bannerSecond !== null ? (
+        <BackgroundImage fluid={bannerSecond} className="banner-chartered--2" />
+      ) : null}
+
+      {bannerThird !== null ? (
+        <BackgroundImage fluid={bannerThird} className="banner-chartered--3">
+          <div className="laptop-button__chartered-landing">
+            {/* <Link to="/s" className="btn btn--white btn-animated">
             {buttonTextSecond}
           </Link> */}
-        </div>
-      </BackgroundImage>
-      <BackgroundImage fluid={bannerFourth} className="banner-chartered--4" />
-      <BackgroundImage fluid={bannerFifth} className="banner-chartered--5">
-        {/* <Link to="/s" className="btn btn--white btn-animated">
+          </div>
+        </BackgroundImage>
+      ) : null}
+
+      {bannerFourth !== null ? (
+        <BackgroundImage fluid={bannerFourth} className="banner-chartered--4" />
+      ) : null}
+
+      {bannerFifth !== null ? (
+        <BackgroundImage fluid={bannerFifth} className="banner-chartered--5">
+          {" "}
+          {/* <Link to="/s" className="btn btn--white btn-animated">
           {buttonTextSecond}
         </Link> */}
-      </BackgroundImage>
+        </BackgroundImage>
+      ) : null}
     </div>
   )
 }

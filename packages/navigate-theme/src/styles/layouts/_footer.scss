@@ -201,7 +201,12 @@
           display: block;
           margin-top: 3rem;
           font-size: 1.8rem;
-          padding: 2.5rem 4rem;
+          justify-content: center;
+          align-items: center;
+          height: 6rem;
+          width: 31.2rem;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
 
@@ -394,7 +399,7 @@
     @include respond(phone) {
       grid-template-columns: 32rem;
       grid-row-gap: 3rem;
-      margin-left: 0.6rem;
+      margin-left: 0.4rem;
       margin-top: -3rem;
     }
   }
@@ -427,7 +432,7 @@
       @include respond(phone) {
         grid-template-columns: repeat(4, 7.17rem);
         grid-template-rows: 3rem 8rem;
-        grid-column-gap: 0.7rem;
+        grid-column-gap: 0.8rem;
         grid-row-gap: 2.5rem;
       }
 

@@ -14,6 +14,12 @@ module.exports = themeOptions => {
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
       {
+        resolve: "gatsby-plugin-brotli",
+        options: {
+          extensions: ["css", "html", "js", "svg"],
+        },
+      },
+      {
         resolve: `gatsby-source-contentful`,
         options: {
           spaceId: themeOptions.contentful.spaceId,

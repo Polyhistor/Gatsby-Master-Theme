@@ -235,6 +235,7 @@
 
   &__filter {
     margin-top: 6rem;
+    text-align: center;
 
     @include respond(laptop) {
       text-align: center;
@@ -269,7 +270,7 @@
       background: transparent;
       color: $color-primary;
       font-family: Nunito-Extrabold;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
 
       @include respond(phone) {
         padding: 1rem 10rem 1rem 2rem;

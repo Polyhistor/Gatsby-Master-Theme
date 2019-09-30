@@ -15,7 +15,7 @@ const HowItWorks = ({ data }) => {
                 alt={element.node.title}
               />
             </div>
-            <h3 className="how-it-works__header activity__title">
+            <h3 className="how-it-works__header feature-box__text">
               {element.node.title}
             </h3>
             {element.node.featureList !== null && (

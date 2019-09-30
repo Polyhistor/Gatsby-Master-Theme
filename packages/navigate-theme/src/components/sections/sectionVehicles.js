@@ -50,9 +50,9 @@ const SectionVehicles = ({
           </a> */}
 
             <a
-              href="#popup"
+              href="#"
               onClick={() => setModal({ open: true })}
-              className="btn btn--green btn-animated  u-margin-top-medium "
+              className="btn btn--green btn-animated  u-margin-top-sedium"
             >
               <svg className="svg-icon--play-button svg-icon--play-button--mobile">
                 <use

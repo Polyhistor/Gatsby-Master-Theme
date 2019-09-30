@@ -109,7 +109,7 @@
 
 @mixin white-black-upper {
   font-family: Nunito-Black;
-  color: white;
+  color: hsl(0, 0%, 100%);
   text-transform: uppercase;
 }
 

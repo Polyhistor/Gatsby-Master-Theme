@@ -22,8 +22,6 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
   const homeQuery = useHomePageQuery()
   const activityQuery = useActivityQuery()
 
-  console.log(data)
-
   return (
     <Layout2>
       <LandingChartered
@@ -32,20 +30,28 @@ const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
             .fluid
         }
         bannerSecond={
-          data.contentfulActivities.bannerImages[1].localFile.childImageSharp
-            .fluid
+          data.contentfulActivities.bannerImages[1] !== undefined
+            ? data.contentfulActivities.bannerImages[1].localFile
+                .childImageSharp.fluid
+            : null
         }
         bannerThird={
-          data.contentfulActivities.bannerImages[2].localFile.childImageSharp
-            .fluid
+          data.contentfulActivities.bannerImages[2] !== undefined
+            ? data.contentfulActivities.bannerImages[2].localFile
+                .childImageSharp.fluid
+            : null
         }
         bannerFourth={
-          data.contentfulActivities.bannerImages[3].localFile.childImageSharp
-            .fluid
+          data.contentfulActivities.bannerImages[3] !== undefined
+            ? data.contentfulActivities.bannerImages[3].localFile
+                .childImageSharp.fluid
+            : null
         }
         bannerFifth={
-          data.contentfulActivities.bannerImages[4].localFile.childImageSharp
-            .fluid
+          data.contentfulActivities.bannerImages[4] !== undefined
+            ? data.contentfulActivities.bannerImages[4].localFile
+                .childImageSharp.fluid
+            : null
         }
         country={data.contentfulActivities.country.title}
         buttonText="watch trail"

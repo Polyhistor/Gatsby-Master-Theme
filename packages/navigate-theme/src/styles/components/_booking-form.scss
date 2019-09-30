@@ -1,0 +1,423 @@
+.booking-form {
+  padding: 3rem;
+
+  &__header {
+    display: flex;
+    border-top: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+    height: 3.8rem;
+  }
+
+  &__steps {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 3.7rem;
+    background: $color-primary;
+    clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
+    margin-right: 0rem;
+
+    &--arrow {
+      background: white;
+      border-bottom: 1px solid $color-primary;
+      clip-path: polygon(95% 0, 100% 51%, 95% 100%, 0 100%, 0 50%, 0 0);
+      z-index: 200;
+      margin-right: -3rem;
+    }
+
+    &--last {
+      width: 53.1%;
+      clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0% 0%);
+    }
+  }
+
+  &__headline {
+    font-size: 1.6rem;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    color: white;
+
+    &--arrow {
+      color: $color-primary;
+    }
+  }
+
+  &__body {
+    height: 70vh;
+    width: 50vw;
+    margin-top: 5rem;
+    overflow-y: scroll;
+  }
+
+  &__phase {
+    @include greenWhite;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    padding: 1rem;
+    top: 2%;
+    letter-spacing: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4rem;
+    font-family: Nunito-Black;
+
+    &--arrow {
+      border: 1px solid $color-primary;
+      margin-left: 1rem;
+    }
+
+    &-2 {
+      display: grid;
+      grid-template-columns: 55% 40%;
+      grid-column-gap: 4rem;
+
+      & > h3 {
+        grid-column: 1/3;
+      }
+    }
+  }
+
+  &__dropdown {
+    margin-bottom: 5rem;
+  }
+
+  &__input {
+    visibility: hidden;
+  }
+
+  &__plus {
+    &-holder {
+      display: block;
+      height: 3rem;
+      width: 5.5rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      &::after,
+      &::before {
+        transition: all 0.6s;
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: $color-grey-dark-2;
+        height: 0.2rem;
+        width: 2rem;
+        right: 2rem;
+        top: 1.1rem;
+      }
+      &::after {
+        transform: rotate(90deg);
+      }
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__entry {
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+    border-bottom: 1px solid $color-gray-light-2;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &:first-of-type {
+      border-top: 1px solid $color-gray-light-2;
+    }
+  }
+
+  &__shown {
+    position: relative;
+
+    & input:checked ~ .booking-form__hidden {
+      max-height: 40rem;
+    }
+
+    & input:checked ~ .booking-form__plus-holder::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__hidden {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-height: 0rem;
+    transition: all 0.3s;
+
+    &-entries {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:nth-child(n + 6) {
+        display: none;
+      }
+
+      &:hover {
+        background: $color-gray-light-2;
+      }
+
+      &--soldout {
+        color: $color-gray-light-2;
+        pointer-events: none;
+      }
+
+      &--selected {
+        background-color: red;
+      }
+    }
+  }
+
+  &__month {
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    width: 44%;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+  }
+
+  &__date-container {
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+  }
+
+  &__date {
+    font-family: Nunito-Black;
+  }
+
+  &__destination {
+    font-size: 0.9rem;
+  }
+
+  &__line {
+    background-color: $color-grey-dark;
+    width: 13.5rem;
+    height: 0.2rem;
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__line-container {
+    display: flex;
+    width: 14.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__dot {
+    height: 0.4rem;
+    width: 0.4rem;
+    display: block;
+    background-color: $color-primary;
+    border-radius: 50%;
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__duration {
+    font-size: 0.9rem;
+    padding-bottom: 0.2rem;
+  }
+
+  &__promo {
+    color: $color-primary;
+    font-size: 0.9rem;
+    padding-top: 0.2rem;
+
+    &--soldout {
+      color: $color-gray-light-2;
+    }
+  }
+
+  &__mediator {
+    align-items: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__original {
+    font-size: 0.9rem;
+    text-decoration-line: line-through;
+  }
+
+  &__discount {
+    font-family: Nunito-Black;
+  }
+
+  &__availability {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    color: $color-primary;
+
+    &--selected {
+      color: $color-red;
+    }
+
+    &--sold-out {
+      color: $color-gray-light-2;
+    }
+  }
+
+  &__footer {
+    height: 5rem;
+  }
+
+  &__booking-details {
+    border: 1px solid #e7e7e7;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 20.5rem repeat(5, 4rem) 0rem;
+    grid-template-columns: 1rem 12.1rem 12.1rem 12rem 1rem;
+    grid-row-gap: 0.8rem;
+    align-items: center;
+
+    & > .gatsby-image-wrapper {
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+      overflow: hidden;
+    }
+  }
+
+  &__banner {
+    height: 21.2rem;
+    width: 38.2rem;
+  }
+
+  &__sub-title {
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+    font-family: Nunito-Extrabold;
+    text-transform: uppercase;
+  }
+
+  &__details {
+    &--title {
+      grid-column: 2/5;
+      grid-row: 2;
+    }
+
+    &--days {
+      grid-column: 2/5;
+      grid-row: 3;
+    }
+
+    &--start {
+      grid-column: 2/5;
+      grid-row: 4;
+    }
+
+    &--end {
+      grid-column: 2/5;
+      grid-row: 5;
+    }
+
+    &--price {
+      grid-column: 2/5;
+      grid-row: 6;
+    }
+  }
+
+  &__form-container {
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    grid-column-gap: 1rem;
+
+    & div:nth-child(1) {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    & div:nth-child(2) {
+      grid-column: 1/3;
+    }
+
+    & div:nth-child(3) {
+      grid-column: 3;
+    }
+
+    & div:nth-child(4) {
+      grid-column: 1/3;
+    }
+
+    & div:nth-child(5) {
+      grid-column: 3;
+    }
+
+    & div:nth-child(6) {
+      grid-column: 1;
+    }
+
+    & div:nth-child(7) {
+      grid-column: 2/-1;
+    }
+
+    & div:nth-child(8) {
+      grid-column: 1;
+    }
+
+    & div:nth-child(9) {
+      grid-column: 2/-1;
+    }
+
+    & div:nth-child(10) {
+      grid-column: 1/3;
+    }
+
+    & div:nth-child(11) {
+      grid-column: 1/3;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    color: #767676;
+  }
+
+  &__fields {
+    width: 26.4rem;
+    height: 3.4rem;
+    border-radius: 0.3rem;
+    border: 1px solid #aeaeae;
+
+    &--half {
+      width: 12.2rem;
+    }
+
+    &-container {
+      &--contest {
+        display: flex;
+      }
+    }
+  }
+}

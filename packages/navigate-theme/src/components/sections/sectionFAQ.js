@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 
+// TODO - clean up
+
 const SectionVehicles = ({ FAQData, categories }) => {
   // function that handles the state change
   const handleClick = idx => {
@@ -113,7 +115,6 @@ const SectionVehicles = ({ FAQData, categories }) => {
     return (
       <div className="video-box">
         <h3 className="video-boex-header">Title of video here</h3>
-        <div className="video-box" />
       </div>
     )
   }

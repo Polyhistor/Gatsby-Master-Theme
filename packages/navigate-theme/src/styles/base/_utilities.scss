@@ -50,7 +50,7 @@
 }
 
 .u-margin-left-tiny {
-  margin-left: 0.8rem;
+  margin-left: 0.4rem;
 }
 
 .u-margin-left-medium {
@@ -499,11 +499,11 @@
 .arrow {
   // display: inline-block;
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
   background: transparent;
-  border-top: 2px solid $color-primary;
-  border-left: 2px solid $color-primary;
+  border-top: 3px solid #1abc9c;
+  border-left: 3px solid #1abc9c;
   transition: all 250ms ease-in-out;
   text-decoration: none;
   color: transparent;
@@ -578,4 +578,25 @@ textarea::placeholder {
 
 textarea:focus {
   border: 2px solid $color-primary;
+}
+
+// general CSS
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+  font-size: 16px;
+  font-family: Nunito-Regular;
 }

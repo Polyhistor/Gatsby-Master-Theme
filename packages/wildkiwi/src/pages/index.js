@@ -109,7 +109,10 @@ const IndexPage = () => {
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WhyUsMobile data={homeQuery[0].node.whyWildKiwi} />
+      <WhyUsMobile
+        data={homeQuery[0].node.whyWildKiwi}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+      />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
