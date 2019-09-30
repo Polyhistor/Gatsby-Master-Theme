@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
-import Recaptcha from "react-recaptcha"
 
 import useDestinationQuery from "../../queries/destinationQuery"
 
@@ -14,7 +13,7 @@ import Error from "./error"
 const validationSchema = Yup.object().shape({
   guests: Yup.number()
     .min(1, "At least one guest has to be entered")
-    .required("Must enter a guest number"),
+    .required("Please enter the guest number"),
   firstName: Yup.string()
     .min(1, "First Name must be at least a character")
     .required("First Name must be entered"),
@@ -35,19 +34,9 @@ const validationSchema = Yup.object().shape({
     .positive("value must be positive")
     .required("age is required"),
   gender: Yup.string().required("gender is required"),
-  // recaptcha: Yup.string().required(),
 })
 
 const DetailsForm = ({ state, imgSlug, title }) => {
-  // running recaptcha necessary files on mount
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://www.google.com/recaptcha/api.js"
-    script.async = true
-    script.defer = true
-    document.body.appendChild(script)
-  })
-
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
   const filteredData = destinationsData.filter(e => e.node.slug === imgSlug)
@@ -84,7 +73,6 @@ const DetailsForm = ({ state, imgSlug, title }) => {
             gender: "male",
             comments: "",
             consent: false,
-            // recaptcha: "",
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, actions) => {
@@ -117,7 +105,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="number"
                   name="guests"
                   placeholder="No. Guests"
-                  className="booking-form__fields booking-form__fields--half"
+                  className={
+                    errors.guests
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
                 ></Field>
                 <Error touched={touched.guests} message={errors.guests} />
               </div>
@@ -127,16 +119,24 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   name="firstName"
                   placeholder="First Name *"
                   className="booking-form__fields"
+                  className={
+                    errors.firstName
+                      ? "booking-form__fields booking-form__fields--error"
+                      : "booking-form__fields"
+                  }
                 ></Field>
                 <Error touched={touched.firstName} message={errors.firstName} />
               </div>
-
               <div className="booking-details__fields-container">
                 <Field
                   type="text"
                   name="lastName"
                   placeholder="Last Name *"
-                  className="booking-form__fields"
+                  className={
+                    errors.lastName
+                      ? "booking-form__fields booking-form__fields--error"
+                      : "booking-form__fields"
+                  }
                 ></Field>
                 <Error touched={touched.lastName} message={errors.lastName} />
               </div>
@@ -146,7 +146,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="text"
                   name="email"
                   placeholder="Email Address *"
-                  className="booking-form__fields"
+                  className={
+                    errors.email
+                      ? "booking-form__fields booking-form__fields--error"
+                      : "booking-form__fields"
+                  }
                 ></Field>
                 <Error touched={touched.email} message={errors.email} />
               </div>
@@ -156,7 +160,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="text"
                   name="emailConfirm"
                   placeholder="Confirm Email Address *"
-                  className="booking-form__fields"
+                  className={
+                    errors.emailConfirm
+                      ? "booking-form__fields booking-form__fields--error"
+                      : "booking-form__fields"
+                  }
                 ></Field>
                 <Error
                   touched={touched.emailConfirm}
@@ -168,7 +176,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="number"
                   name="phoneCountryCode"
                   placeholder="Country Code *"
-                  className="booking-form__fields booking-form__fields--half"
+                  className={
+                    errors.phoneCountryCode
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
                 ></Field>
                 <Error
                   touched={touched.phoneCountryCode}
@@ -180,7 +192,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="number"
                   name="phoneNumber"
                   placeholder="Mobile *"
-                  className="booking-form__fields booking-form__fields--half"
+                  className={
+                    errors.phoneNumber
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
                 ></Field>
                 <Error
                   touched={touched.phoneNumber}
@@ -192,7 +208,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   type="number"
                   name="age"
                   placeholder="Age *"
-                  className="booking-form__fields booking-form__fields--half"
+                  className={
+                    errors.age
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
                 ></Field>
                 <Error touched={touched.age} message={errors.age} />
               </div>
@@ -200,7 +220,11 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 <Field
                   component="select"
                   name="gender"
-                  className="booking-form__fields booking-form__fields--half"
+                  className={
+                    errors.gender
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
                 >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -214,32 +238,23 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   placeholder="Comments"
                   className="booking-form__fields"
                 ></Field>
-                <Error touched={touched.comments} message={errors.comments} />
               </div>
-              <div className="booking-details__fields-container booking-details__fields-container--contest">
-                <label htmlFor="consent">
-                  I accept the terms and conditions
-                </label>
+              <div className="booking-details__fields-container">
                 <Field
                   id="consent"
                   name="consent"
                   type="checkbox"
-                  className="booking-form__fields"
                   required
                 ></Field>
+                <label htmlFor="consent">
+                  I accept the terms and conditions
+                </label>
               </div>
-              {/* <Recaptcha
-                sitekey="6Le_6boUAAAAAEx3rg9B5Fbck_vMM8y3O7yBXy3K"
-                render="explicit"
-                theme="dark"
-                verifyCallback={response => {
-                  setFieldValue("recaptcha", response)
-                }}
-                onloadCallback={() => {
-                  console.log("done loading!")
-                }}
-              /> */}
-              <button type="submit" disabled={isSubmitting}>
+              <button
+                type="submit"
+                className="btn btn--white"
+                disabled={isSubmitting}
+              >
                 Submit
               </button>
             </Form>
@@ -270,17 +285,17 @@ const DetailsForm = ({ state, imgSlug, title }) => {
         <div className="booking-form__details booking-form__details--start">
           <div className="booking-form__sub-title">Start</div>
           <div className="booking-form__info">
-            <span> {state.startDateFormated}</span>
-            <span> Departs 15:00</span>
-            <span> Christchurch, New Zealand</span>
+            <span> {state.startDateMedium}</span>
+            <span> Departs {state.departureTime}</span>
+            <span> {`${state.startLocation}, ${state.startCountry}`}</span>
           </div>
         </div>
         <div className="booking-form__details booking-form__details--end">
           <div className="booking-form__sub-title">End</div>
           <div className="booking-form__info">
-            <span> {state.endDateFormated}</span>
-            <span> Arrive 15:00</span>
-            <span> Christchurch, New Zealand</span>
+            <span> {state.startDateMedium}</span>
+            <span> Departs {state.returnTime}</span>
+            <span> {`${state.endLocation}, ${state.endCountry}`}</span>
           </div>
         </div>
         <div className="booking-form__details booking-form__details--price">
