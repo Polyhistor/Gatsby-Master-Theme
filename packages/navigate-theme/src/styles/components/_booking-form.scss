@@ -1,6 +1,18 @@
 .booking-form {
   padding: 3rem;
 
+  @include respond(laptop) {
+    width: 96rem;
+  }
+
+  @include respond(tablet) {
+    width: 70rem;
+  }
+
+  @include respond(phone) {
+    padding: 2.6rem;
+  }
+
   &__header {
     display: flex;
     border-top: 1px solid $color-primary;
@@ -17,12 +29,20 @@
     clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
     margin-right: 0rem;
 
+    @include respond(phone) {
+      width: 80%;
+    }
+
     &--arrow {
       background: white;
       border-bottom: 1px solid $color-primary;
       clip-path: polygon(95% 0, 100% 51%, 95% 100%, 0 100%, 0 50%, 0 0);
       z-index: 200;
       margin-right: -3rem;
+
+      @include respond(phone) {
+        width: 20%;
+      }
     }
 
     &--last {
@@ -37,8 +57,19 @@
     text-transform: uppercase;
     color: white;
 
+    @include respond(phone) {
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      color: white;
+    }
+
     &--arrow {
       color: $color-primary;
+
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
 
@@ -47,6 +78,18 @@
     width: 50vw;
     margin-top: 5rem;
     overflow-y: scroll;
+
+    @include respond(laptop) {
+      width: 90rem;
+    }
+
+    @include respond(tablet) {
+      width: 64rem;
+    }
+
+    @include respond(phone) {
+      width: 68vw;
+    }
   }
 
   &__phase {
@@ -63,6 +106,10 @@
     margin-left: 4rem;
     font-family: Nunito-Black;
 
+    @include respond(phone) {
+      margin-left: 0.5rem;
+    }
+
     &--arrow {
       border: 1px solid $color-primary;
       margin-left: 1rem;
@@ -73,6 +120,10 @@
       grid-template-columns: 55% 40%;
       grid-column-gap: 4rem;
 
+      @include respond(tablet) {
+        grid-template-columns: 55% 38.9%;
+      }
+
       & > h3 {
         grid-column: 1/3;
       }
@@ -81,6 +132,21 @@
 
   &__dropdown {
     margin-bottom: 5rem;
+
+    & > .activity__selector {
+      @include respond(phone) {
+        left: 0%;
+      }
+      & > select {
+        @include respond(phone) {
+          padding: 1rem 6rem 1rem 2rem;
+        }
+
+        &:after {
+          margin-left: -3rem;
+        }
+      }
+    }
   }
 
   &__input {
@@ -182,6 +248,14 @@
     display: flex;
     justify-content: space-between;
     width: 44%;
+
+    @include respond(laptop) {
+      width: 53%;
+    }
+
+    @include respond(tablet) {
+      width: 60%;
+    }
   }
 
   &__right {
@@ -189,12 +263,28 @@
     justify-content: space-around;
     align-items: center;
     width: 25%;
+
+    @include respond(laptop) {
+      width: 31%;
+    }
+
+    @include respond(phone) {
+      width: 36%;
+    }
   }
 
   &__date-container {
     display: flex;
     flex-direction: column;
     width: 11rem;
+
+    @include respond(laptop) {
+      width: 10rem;
+    }
+
+    @include respond(tablet) {
+      width: 9.5rem;
+    }
   }
 
   &__date {
@@ -258,9 +348,13 @@
 
   &__price {
     display: flex;
-    width: 45%;
+    width: 53%;
     justify-content: space-between;
     align-items: center;
+
+    @include respond(laptop) {
+      width: 57%;
+    }
   }
 
   &__original {
@@ -288,6 +382,10 @@
 
   &__footer {
     height: 5rem;
+
+    @include respond(tablet) {
+      margin-top: 5rem;
+    }
   }
 
   &__booking-details {
@@ -295,10 +393,15 @@
     border-radius: 0.4rem;
     overflow: hidden;
     display: grid;
-    grid-template-rows: 20.5rem repeat(5, 4rem) 0rem;
-    grid-template-columns: 1rem 12.1rem 12.1rem 12rem 1rem;
+    grid-template-rows: 20.5rem repeat(5, 5rem) 0rem;
+    grid-template-columns: 1rem 12.1rem 12.1rem 9rem 1rem;
     grid-row-gap: 0.8rem;
     align-items: center;
+
+    @include respond(tablet) {
+      grid-template-columns: 1rem 4.1rem 11.1rem 9rem 1rem;
+      height: 51rem;
+    }
 
     & > .gatsby-image-wrapper {
       border-top-left-radius: 0.3rem;
@@ -323,6 +426,12 @@
     &--title {
       grid-column: 2/5;
       grid-row: 2;
+
+      & > h2 {
+        @include respond(tablet) {
+          font-size: 2.5rem;
+        }
+      }
     }
 
     &--days {
@@ -343,6 +452,12 @@
     &--price {
       grid-column: 2/5;
       grid-row: 6;
+
+      & > h2 {
+        @include respond(tablet) {
+          font-size: 2.5rem;
+        }
+      }
     }
   }
 
@@ -350,57 +465,80 @@
     display: grid;
     grid-template-columns: 25% 25% 50%;
     grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+
+    @include respond(tablet) {
+      grid-template-columns: 50% 50%;
+    }
 
     & div:nth-child(1) {
       grid-row: 1;
       grid-column: 1;
     }
 
-    & div:nth-child(2) {
+    & div:nth-child(2),
+    & div:nth-child(4),
+    & div:nth-child(10),
+    & div:nth-child(11) {
       grid-column: 1/3;
     }
 
-    & div:nth-child(3) {
-      grid-column: 3;
-    }
-
-    & div:nth-child(4) {
-      grid-column: 1/3;
-    }
-
+    & div:nth-child(3),
     & div:nth-child(5) {
       grid-column: 3;
+
+      @include respond(tablet) {
+        grid-column: 1;
+      }
     }
 
-    & div:nth-child(6) {
-      grid-column: 1;
-    }
-
-    & div:nth-child(7) {
-      grid-column: 2/-1;
-    }
-
+    & div:nth-child(6),
     & div:nth-child(8) {
       grid-column: 1;
     }
 
+    & div:nth-child(7),
     & div:nth-child(9) {
       grid-column: 2/-1;
     }
 
     & div:nth-child(10) {
-      grid-column: 1/3;
+      font-size: 1.6rem;
+    }
+
+    & div:nth-child(10) {
+      & > input {
+        height: 10rem;
+        font-size: 1.6rem;
+      }
     }
 
     & div:nth-child(11) {
+      display: flex;
+      justify-content: space-between;
+      width: 26rem;
+      align-items: center;
+      font-size: 1.6rem;
+      color: #aeaeae;
+      margin-bottom: 1.2rem;
+      margin-top: 1rem;
+
+      & > input {
+        height: 3rem;
+        width: 2rem;
+      }
+    }
+
+    & > button {
       grid-column: 1/3;
+      width: 26.5rem;
     }
   }
 
   &__info {
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #767676;
   }
 
@@ -410,14 +548,34 @@
     border-radius: 0.3rem;
     border: 1px solid #aeaeae;
 
-    &--half {
-      width: 12.2rem;
+    @include respond(laptop) {
+      width: 25.4rem;
     }
 
-    &-container {
-      &--contest {
-        display: flex;
+    @include respond(tablet) {
+      width: 36.4rem;
+      height: 4.4rem;
+    }
+
+    &--half {
+      width: 12.2rem;
+      font-size: 1.6rem;
+
+      @include respond(tablet) {
+        width: 17.6rem;
       }
     }
+
+    &--error {
+      border: 1px solid $color-red;
+    }
+  }
+
+  &__enquiry-form {
+    margin-top: 2rem;
+  }
+
+  &__error-message {
+    color: $color-red;
   }
 }
