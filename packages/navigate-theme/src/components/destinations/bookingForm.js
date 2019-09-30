@@ -251,7 +251,6 @@ const BookingForm = ({ data, country }) => {
         {!phase ? (
           <div className="booking-form__phase-1">
             <div className="booking-form__dropdown">
-              {/* {data ? null : ( */}
               <div className="activity__selector">
                 <select
                   onChange={e => handleCountryDropdown(e)}
@@ -262,18 +261,19 @@ const BookingForm = ({ data, country }) => {
                   {renderCountries()}
                 </select>
               </div>
-              {/* )} */}
 
-              <div className="activity__selector">
-                <select
-                  onChange={e => handleDestDropdown(e)}
-                  className="activity__dropdown"
-                  id="tours"
-                >
-                  <option value="all">Tours</option>
-                  {renderDestinations()}
-                </select>
-              </div>
+              {destinationFilter !== null ? (
+                <div className="activity__selector">
+                  <select
+                    onChange={e => handleDestDropdown(e)}
+                    className="activity__dropdown"
+                    id="tours"
+                  >
+                    <option value="all">Tours</option>
+                    {renderDestinations()}
+                  </select>
+                </div>
+              ) : null}
             </div>
             <div className="booking-form__entries">{renderEntries()}</div>
           </div>
