@@ -1,0 +1,141 @@
+.FAQ {
+  &__container {
+    min-height: 4rem;
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, min-content);
+    grid-column-gap: 2rem;
+    width: 95%;
+
+    @include respond(laptop) {
+      width: 98%;
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: 100%;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 100%;
+    }
+
+    &-item {
+      position: relative;
+      border-bottom: 1px solid $color-gray-light-2;
+      padding-bottom: 1.5rem;
+      padding-top: 1.5rem;
+
+      & input:checked ~ .FAQ__answer-container {
+        font-size: 1.3rem;
+        max-height: 500rem;
+        width: 90%;
+
+        @include respond(laptop) {
+          max-height: 26rem;
+        }
+      }
+
+      & input:checked ~ .arrow.down {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__answer-container {
+    transition: all 0.1s ease-in;
+    transform: translate(0);
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    max-width: 80rem;
+    margin-left: -1.1rem;
+
+    & ~ .mobile-yes > .activity__selector > .activity__dropdown {
+      padding: 1rem 2.5rem 1rem 1rem;
+    }
+  }
+
+  &__button {
+    position: relative;
+    @include greenWhite;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    font-family: Nunito-Black;
+    transition: all 0.1s ease-in;
+    margin: 1rem;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &--active {
+      @include whiteGreen;
+    }
+  }
+
+  &__input {
+    visibility: hidden;
+  }
+
+  &__icon {
+    @include whiteGreen;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    padding: 1rem;
+    float: left;
+    font-family: Nunito-Black;
+    text-align: center;
+    margin-right: 1rem;
+    margin-top: 0.4rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__accordian {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    @include respond(tablet) {
+      grid-template-columns: 100%;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__question {
+    font-size: 1.6rem;
+    color: $color-primary;
+    transform: translateY(-0.8rem);
+    line-height: 3rem;
+
+    @include respond(phone) {
+      width: 85%;
+    }
+  }
+
+  &__video-box {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(phone) {
+      flex-wrap: wrap;
+    }
+  }
+}

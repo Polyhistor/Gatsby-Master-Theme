@@ -10,14 +10,9 @@ import {
   SectionVehicle,
   Reviews,
   Trips,
-} from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
+  useHomePageQuery,
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 const OurVehicles = () => {
   // extracting our custom hook
@@ -41,7 +36,6 @@ const OurVehicles = () => {
       </div>
       <GreenBar
         text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionVehicle

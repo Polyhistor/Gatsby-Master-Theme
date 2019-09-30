@@ -1,7 +1,7 @@
 import React from "react"
 
-import { Layout } from "@nt-websites/shared"
-import { SEO } from "@nt-websites/shared"
+import { Layout } from "@nt-websites/navigate-theme"
+import { SEO } from "@nt-websites/navigate-theme"
 
 const NotFoundPage = () => (
   <Layout>

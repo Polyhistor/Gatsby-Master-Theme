@@ -1,12 +1,10 @@
 {
   "name": "@nt-websites/yachtgetaways",
-    "private": true,
-    "description": "Medsailors Website",
-    "version": "0.1.0",
-    "author": "Pouya Ataei",
-  
+  "private": true,
+  "description": "Medsailors Website",
+  "version": "0.1.0",
+  "author": "Pouya Ataei",
   "dependencies": {
-    "@nt-websites/shared":"0.1.0",
     "gatsby": "^2.8.2"
   },
   "keywords": [

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 
 // default components
 import {
@@ -12,18 +12,15 @@ import {
   TourBanner,
   Banner,
   Reviews,
-  Popup,
   Trips,
   WhyUsMobile,
   FeaturedMobile,
   DestinationsTablet,
-} from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import useDestinationQuery from "../queries/destinationQuery"
+  useImageQuery,
+  useHomePageQuery,
+  useCountryQuery,
+  useDestinationQuery,
+} from "@nt-websites/navigate-theme"
 
 const IndexPage = () => {
   // extracting our custom hook
@@ -90,7 +87,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Popup />
       <Landing
         imageData={imageQuery.landing.childImageSharp.fluid}
         titleFirst="epic"
@@ -100,9 +96,10 @@ const IndexPage = () => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/destinations"
         buttonSecond="watch trailer"
-        buttonSecondURL="#popup"
+        buttonSecondURL=""
         buttonStyles={["green", "white"]}
         variation={null}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <GreenBarAlt
         textList={[
@@ -112,7 +109,10 @@ const IndexPage = () => {
           { label: "europe", link: "/destinations/europe" },
         ]}
       />
-      <WhyUsMobile data={homeQuery[0].node.whyWildKiwi} />
+      <WhyUsMobile
+        data={homeQuery[0].node.whyWildKiwi}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+      />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
