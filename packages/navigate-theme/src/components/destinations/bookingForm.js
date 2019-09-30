@@ -182,7 +182,7 @@ const BookingForm = ({ data, country }) => {
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
     console.log(e.target.value)
-    await fetch(`https://mtiapi.ntbeta.com/v1/prices/${e.target.value}`)
+    await fetch(`https://api2.ntstage.com/tours/${e.target.value}`)
       .then(x => x.json())
       .then(y => setEntries(y.data))
   }
