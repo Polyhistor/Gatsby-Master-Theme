@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { api as ApiService } from "../services/api"
 
 export const useFetchHook = slug => {
   // setting inital state
@@ -6,11 +7,9 @@ export const useFetchHook = slug => {
 
   // loading our data
   useEffect(() => {
-    fetch(`https://api2.ntstage.com/tours/${slug}`)
-      .then(x => x.json())
-      .then(y => {
-        setState({ data: y, loading: false })
-      })
+    ApiService.getTourPrices(slug).then(response => {
+      setState({ data: response.data, loading: false })
+    })
   }, [])
 
   return state

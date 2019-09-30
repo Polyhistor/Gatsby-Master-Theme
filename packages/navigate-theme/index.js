@@ -197,3 +197,5 @@ export { default as Trips } from "./src/components/trips/trips"
 export { default as Featured } from "./src/components/featured"
 export { default as GetInTouchData } from "./src/components/getInTouchData"
 export { default as Row } from "./src/components/row"
+
+export { api as ApiService } from "./src/services/api"

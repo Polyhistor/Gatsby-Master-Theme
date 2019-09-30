@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner"
 import Step from "./step"
 import DetailsForm from "./detailsForm"
 import useDestinationQuery from "../../queries/destinationQuery"
+import { api as ApiService } from "../../services/api"
 
 const BookingForm = ({ data, country }) => {
   // extracting out our query
@@ -181,10 +182,9 @@ const BookingForm = ({ data, country }) => {
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
-    console.log(e.target.value)
-    await fetch(`https://api2.ntstage.com/tours/${e.target.value}`)
-      .then(x => x.json())
-      .then(y => setEntries(y.data))
+    await ApiService.getTourPrices(e.target.value).then(response =>
+      setEntries(response.data.data)
+    )
   }
 
   return (
