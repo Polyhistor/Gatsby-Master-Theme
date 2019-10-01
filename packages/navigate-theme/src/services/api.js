@@ -5,9 +5,9 @@ axios.defaults.headers = {
   "Content-Type": "application/json",
 }
 
-if (!process.env.API_URL || !process.env.PRODUCT_ID) {
-  throw new Error(`Please make sure that all environment variable are set. `)
-}
+// if (!process.env.API_URL || !process.env.PRODUCT_ID) {
+//   throw new Error(`Please make sure that all environment variable are set. `)
+// }
 
 const API_ENDPOINTS = {
   ENQUIRY: `${process.env.API_URL}/enquiry`,
