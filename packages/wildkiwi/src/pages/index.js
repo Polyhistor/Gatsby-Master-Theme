@@ -86,7 +86,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO />
       <Landing
         imageData={imageQuery.landing.childImageSharp.fluid}
         titleFirst="epic"

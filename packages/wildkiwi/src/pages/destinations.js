@@ -82,7 +82,7 @@ const Destination = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO />
       <Landing
         imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
         titleFirst="DESTINATIONS"

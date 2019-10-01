@@ -73,6 +73,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
             subtitle
             price
             status
+            seo {
+              title
+              description
+            }
             country {
               slug
             }
@@ -99,6 +103,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           node {
             slug
             destinationCountry
+            seo {
+              title
+              description
+            }
           }
         }
       }
@@ -106,6 +114,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         edges {
           node {
             slug
+            seo {
+              title
+              description
+            }
           }
         }
       }
@@ -260,6 +272,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         component: ActivitiesTemplate,
         context: {
           slug: activity.node.slug,
+          metadata: activity.node.seo,
         },
       })
     })
@@ -271,6 +284,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         component: DestinationsTemplate,
         context: {
           slug: destination.node.slug,
+          metadata: destination.node.seo,
         },
       })
     })
@@ -282,6 +296,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         component: CountriesTemplate,
         context: {
           slug: country.node.slug,
+          metadata: country.node.seo,
         },
       })
       createPage({
