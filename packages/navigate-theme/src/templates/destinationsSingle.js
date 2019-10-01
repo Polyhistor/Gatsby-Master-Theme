@@ -24,7 +24,9 @@ import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useWildkiwiQuery from "../queries/wildkiwiQuery"
 
-const DestinationsSingle = ({ data }) => {
+const DestinationsSingle = ({ pageContext, data }) => {
+  const metadata = pageContext.metadata || {}
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -32,7 +34,7 @@ const DestinationsSingle = ({ data }) => {
 
   return (
     <Layout2>
-      <SEO title="Home" />
+      <SEO title={metadata.title} description={metadata.description} />
       <LandingChartered
         bannerFirst={
           data.contentfulDestinations.bannerImages[0].localFile.childImageSharp

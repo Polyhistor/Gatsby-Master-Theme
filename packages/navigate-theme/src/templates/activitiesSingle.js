@@ -11,19 +11,25 @@ import ActivityRelated from "../components/activity/activityRelated"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-
+import SEO from "../components/seo/seo"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 import useActivityQuery from "../queries/activityQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
-const ActivitiesSingle = ({ data, location, data: { allPageJson } }) => {
+const ActivitiesSingle = ({
+  pageContext,
+  data,
+  location,
+  data: { allPageJson },
+}) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
   const activityQuery = useActivityQuery()
-
+  const metadata = pageContext.metadata || {}
   return (
     <Layout2>
+      <SEO title={metadata.title} description={metadata.description} />
       <LandingChartered
         bannerFirst={
           data.contentfulActivities.bannerImages[0].localFile.childImageSharp

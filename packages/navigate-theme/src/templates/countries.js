@@ -15,13 +15,12 @@ import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useDestinationQuery from "../queries/destinationQuery"
 
-const Countries = ({ data }) => {
+const Countries = ({ data, pageContext }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
-
-  console.log(data)
+  const metadata = pageContext.metadata || {}
 
   // setting proper URL based on country
   let popupUrl =
@@ -33,7 +32,7 @@ const Countries = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={metadata.title} description={metadata.description} />
       <Landing
         imageData={
           data.contentfulCountry.banner.localFile.childImageSharp.fluid

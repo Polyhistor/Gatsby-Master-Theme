@@ -26,7 +26,7 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO />
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
