@@ -18,14 +18,14 @@ const Buttonbox = () => {
             <use xlinkHref={withPrefix("sprite.svg#icon-Login")} />
           </svg>
         </Link>
-        <Link className="header__nav-button-box-link" to="/">
+        <a href="#" className="header__nav-button-box-link">
           <span
             onClick={() => setModal({ open: true })}
             className="btn btn--red btn-animated"
           >
             book
           </span>
-        </Link>
+        </a>
       </div>
 
       <Modal

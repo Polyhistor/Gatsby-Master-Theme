@@ -10,9 +10,9 @@ axios.defaults.headers = {
 // }
 
 const API_ENDPOINTS = {
-  ENQUIRY: `${process.env.API_URL}/enquiry`,
-  TOUR: `${process.env.API_URL}/tours/{TOUR_SLUG}`,
-  CONTACT: `${process.env.API_URL}/contact`,
+  ENQUIRY: `https://api2.ntstage.com/enquiry`,
+  TOUR: `https://api2.ntstage.com/tours/{TOUR_SLUG}`,
+  CONTACT: `https://api2.ntstage.com/contact`,
 }
 
 export const api = {

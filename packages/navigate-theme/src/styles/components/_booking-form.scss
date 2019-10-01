@@ -15,9 +15,8 @@
 
   &__header {
     display: flex;
-    border-top: 1px solid $color-primary;
-    border-bottom: 1px solid $color-primary;
-    height: 3.8rem;
+    border: 1px solid #1abc9c;
+    height: 3.9rem;
   }
 
   &__steps {
@@ -35,7 +34,6 @@
 
     &--arrow {
       background: white;
-      border-bottom: 1px solid $color-primary;
       clip-path: polygon(95% 0, 100% 51%, 95% 100%, 0 100%, 0 50%, 0 0);
       z-index: 200;
       margin-right: -3rem;
@@ -657,5 +655,19 @@
 
   &__error-message {
     color: $color-red;
+  }
+
+  &__thank-you {
+    grid-column: 1/-1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+
+    & > h2,
+    & > p {
+      justify-self: center;
+      margin-bottom: 3rem;
+    }
   }
 }

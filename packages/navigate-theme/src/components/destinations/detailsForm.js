@@ -319,8 +319,17 @@ const DetailsForm = ({ state, imgSlug, title }) => {
           </div>
         </>
       ) : (
-        <div className="green-title">
-          Thanks for your enquiry. We will be in touch soon :)
+        <div className="booking-form__thank-you">
+          <h2 className="green-title">Thanks for your booking enquiry.</h2>
+          <p className="feature-box__description">
+            A member of our team will get back to you with your booking details
+            within 24 hours.
+          </p>
+          <p className="feature-box__description">
+            We are sending a welcome message to your email address now. If you
+            do not receive it, please contact us at
+            <a href="mailto:hello@wildkiwi.com"> hello@wildkiwi.com</a>
+          </p>
         </div>
       )}
     </>
