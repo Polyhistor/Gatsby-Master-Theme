@@ -246,6 +246,7 @@
       @include respond(phone) {
         grid-column: 1;
         width: 30rem;
+        margin: 0;
       }
 
       &--big {
@@ -316,12 +317,17 @@
       @include respond(phone) {
         grid-column: 1;
         grid-row: 4;
-        padding-top: 4rem;
+        padding-top: 2rem;
         font-size: 1.3rem;
+        margin-left: 1.3rem;
       }
 
       & + button {
         grid-column: 2;
+
+        @include respond(phone) {
+          grid-column: 1;
+        }
       }
     }
   }
@@ -526,6 +532,10 @@
     & > div:nth-child(2) input {
       width: 22rem;
       border: 1px solid #e7e7e7;
+
+      @include respond(phone) {
+        width: 30rem;
+      }
     }
   }
 

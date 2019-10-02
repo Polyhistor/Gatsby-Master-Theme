@@ -12,6 +12,7 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
+  Error,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = () => {

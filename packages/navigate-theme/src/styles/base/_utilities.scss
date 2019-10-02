@@ -383,6 +383,18 @@
   }
 }
 
+.styles_overlay__CLSq- {
+  @include respond(phone) {
+    padding: 0;
+  }
+}
+
+.styles_modal__gNwvD {
+  @include respond(phone) {
+    padding: 0;
+  }
+}
+
 //hotfixes
 .hotfix {
   &--reviews {
@@ -607,4 +619,10 @@ textarea {
 
   font-size: 16px;
   font-family: Nunito-Regular;
+}
+
+// setting the fading animation
+
+.success-message {
+  animation: FadeAnimation 2s ease-in 3s forwards;
 }

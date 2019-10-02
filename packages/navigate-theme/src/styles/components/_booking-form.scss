@@ -10,13 +10,25 @@
   }
 
   @include respond(phone) {
-    padding: 2.6rem;
+    padding: 0;
+  }
+
+  &__entries {
+    & > h2 {
+      @include respond(phone) {
+        font-size: 3rem;
+      }
+    }
   }
 
   &__header {
     display: flex;
     border: 1px solid #1abc9c;
     height: 3.9rem;
+
+    @include respond(phone) {
+      margin-top: 5.4rem;
+    }
   }
 
   &__steps {
@@ -92,7 +104,9 @@
     }
 
     @include respond(phone) {
-      width: 68vw;
+      width: 32rem;
+      height: 100vh;
+      margin-top: 2rem;
     }
   }
 
@@ -141,13 +155,17 @@
   &__dropdown {
     margin-bottom: 5rem;
 
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+
     & > .activity__selector {
       @include respond(phone) {
-        left: 0%;
+        left: 2.5%;
       }
       & > select {
         @include respond(phone) {
-          padding: 1rem 6rem 1rem 2rem;
+          padding: 1rem 19rem 1rem 0.9rem;
         }
 
         &:after {

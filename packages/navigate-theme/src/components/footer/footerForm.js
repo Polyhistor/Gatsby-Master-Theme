@@ -55,7 +55,7 @@ const FooterForm = () => {
               consent: false,
             }}
             validationSchema={validationSchema}
-            onSubmit={async (values, actions) => {
+            onSubmit={async values => {
               finalAPI = { ...values, ...partialData }
               console.log(finalAPI)
               try {
@@ -67,14 +67,15 @@ const FooterForm = () => {
                   },
                 })
                 const json = await response.json()
+                setSuccess({
+                  success: true,
+                  message: JSON.stringify(json.data.message),
+                })
+
                 console.log("Success", JSON.stringify(json))
               } catch (error) {
                 console.log("error", error)
               }
-
-              finalAPI = { ...values, ...partialData }
-              const response = await ApiService.contact(finalAPI)
-              setSuccess(true)
             }}
           >
             {({
@@ -139,8 +140,8 @@ const FooterForm = () => {
             )}
           </Formik>
           {success ? (
-            <h3 className="filtered-tour__description-price">
-              Thanks for your message, we will be in touch shortly!
+            <h3 className="u-padding-top-medium filtered-tour__description-price success-message">
+              {message}
             </h3>
           ) : null}
         </div>
