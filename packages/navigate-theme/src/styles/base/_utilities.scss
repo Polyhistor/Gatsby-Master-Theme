@@ -599,7 +599,7 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
-select:focus,
+input[type="textarea"] select:focus,
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -254,6 +254,7 @@
         border: 1px solid $color-gray-light-2;
         border-radius: 3px;
         grid-row: 2/4;
+        font-size: 1.6rem;
         &::-webkit-input-placeholder {
           color: $color-grey-dark;
           padding-left: 0.4rem;
@@ -317,6 +318,10 @@
         grid-row: 4;
         padding-top: 4rem;
         font-size: 1.3rem;
+      }
+
+      & + button {
+        grid-column: 2;
       }
     }
   }
@@ -516,6 +521,11 @@
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: 30rem;
+    }
+
+    & > div:nth-child(2) input {
+      width: 22rem;
+      border: 1px solid #e7e7e7;
     }
   }
 

@@ -25,6 +25,6 @@ export const api = {
   },
 
   contact(data) {
-    return axios.post(`${API_ENDPOINTS.ENQUIRY}`, data)
+    return axios.post(`${API_ENDPOINTS.CONTACT}`, data)
   },
 }

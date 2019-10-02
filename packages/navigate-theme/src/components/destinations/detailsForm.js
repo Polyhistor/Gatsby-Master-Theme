@@ -20,8 +20,11 @@ const validationSchema = Yup.object().shape({
   lastName: Yup.string()
     .min(1, "Last name must be at least a character")
     .required("Last Name must be enetered"),
-  email: Yup.string().required("email is required"),
+  email: Yup.string()
+    .email("please enter a valid email address")
+    .required("email is required"),
   emailConfirm: Yup.string()
+    .email("please enter a valida email address")
     .oneOf([Yup.ref("email")], "email must match")
     .required("email confirm is required"),
   phoneCountryCode: Yup.number()
@@ -81,15 +84,9 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
                 setSuccess(true)
-                // try {
-                //   const response = await ApiService.enquiry(finalAPI)
-                //   console.log(response)
-                //   console.log("aaaaaaaaa")
-                //   setSuccess(true)
-                //   // console.log("Success", JSON.stringify(response.data))
-                // } catch (error) {
-                //   console.log("Error", error)
-                // }
+                await ApiService.enquiry(finalAPI)
+                // console.log("Success", JSON.stringify(response.data))
+
                 /*await fetch(url, {
                 method: "POST",
                 body: JSON.stringify(finalAPI),
