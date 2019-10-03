@@ -140,6 +140,11 @@
       margin-left: 1rem;
     }
 
+    &-1 {
+      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+    }
+
     &-2 {
       display: grid;
       grid-template-columns: 55% 40%;
