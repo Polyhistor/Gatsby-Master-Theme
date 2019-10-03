@@ -23,10 +23,8 @@ import Trips from "../components/trips/trips"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useWildkiwiQuery from "../queries/wildkiwiQuery"
-
+import { renderSeoFromContext } from "../helpers/seo-helper"
 const DestinationsSingle = ({ pageContext, data }) => {
-  const metadata = pageContext.metadata || {}
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -34,7 +32,7 @@ const DestinationsSingle = ({ pageContext, data }) => {
 
   return (
     <Layout2>
-      <SEO title={metadata.title} description={metadata.description} />
+      {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
           data.contentfulDestinations.bannerImages[0].localFile.childImageSharp

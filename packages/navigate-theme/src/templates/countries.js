@@ -2,7 +2,7 @@ import React from "react"
 
 // default components
 import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
+
 import Landing from "../components/header/landings/landing"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
@@ -14,15 +14,16 @@ import FilteredTours from "../components/destinations/filteredTours"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useDestinationQuery from "../queries/destinationQuery"
-
+import { renderSeoFromContext } from "../helpers/seo-helper"
 const Countries = ({ data, pageContext }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
-  const metadata = pageContext.metadata || {}
 
   // setting proper URL based on country
+  //TODO: This youtube video should not be static on code. We need to define it on
+  //contentful
   let popupUrl =
     data.contentfulCountry.slug === "newzealand"
       ? "https://www.youtube.com/embed/19GIN9tj-NY"
@@ -32,7 +33,7 @@ const Countries = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={metadata.title} description={metadata.description} />
+      {renderSeoFromContext(pageContext)}
       <Landing
         imageData={
           data.contentfulCountry.banner.localFile.childImageSharp.fluid

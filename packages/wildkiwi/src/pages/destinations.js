@@ -18,9 +18,10 @@ import {
   useCountryQuery,
   useHomePageQuery,
   useDestinationQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
-const Destination = () => {
+const Destination = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
@@ -82,7 +83,7 @@ const Destination = () => {
 
   return (
     <Layout>
-      <SEO />
+      {renderSeo(data)}
       <Landing
         imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
         titleFirst="DESTINATIONS"
@@ -112,3 +113,21 @@ const Destination = () => {
 }
 
 export default Destination
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "destinations-main-page" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

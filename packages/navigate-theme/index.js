@@ -201,3 +201,17 @@ export { default as Row } from "./src/components/row"
 /*Booking Utilities*/
 export { api as ApiService } from "./src/services/api"
 export { default as Error } from "./src/components/destinations/error"
+
+/**
+ * Configuration
+ */
+export { PAGE_SEO_IDENTIFIER } from "./src/config/page-seo-identifier"
+
+/**
+ * Helpers - SEO
+ */
+export {
+  renderSeo,
+  renderSeoFromContext,
+  extractMetadataFromContentfulData,
+} from "./src/helpers/seo-helper"

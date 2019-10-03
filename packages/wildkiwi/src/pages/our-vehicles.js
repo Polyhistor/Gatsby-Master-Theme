@@ -1,6 +1,7 @@
 import React from "react"
 
 // default components
+
 import {
   Layout,
   SEO,
@@ -12,16 +13,17 @@ import {
   Trips,
   useHomePageQuery,
   useImageQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
-const OurVehicles = () => {
+const OurVehicles = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
-      <SEO />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.bannerHero.childImageSharp.fluid}
@@ -81,3 +83,22 @@ const OurVehicles = () => {
 }
 
 export default OurVehicles
+
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "our-vehicles" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
