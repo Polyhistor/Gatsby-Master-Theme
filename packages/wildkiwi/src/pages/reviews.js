@@ -27,7 +27,7 @@ const Reviews = ({ data }) => {
           titleFirst="reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Don’t just take our word for it, check out what our customers have to say!"
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

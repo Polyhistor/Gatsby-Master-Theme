@@ -121,6 +121,7 @@ export const ActivitiesFragment = graphql`
     status
     country {
       title
+      slug
     }
     svgMap {
       localFile {
@@ -133,7 +134,7 @@ export const ActivitiesFragment = graphql`
     bannerImages {
       localFile {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 770) {
+          fluid(quality: 80, maxWidth: 2770) {
             ...GatsbyImageSharpFluid
           }
         }

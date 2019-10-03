@@ -299,7 +299,7 @@ const BookingForm = ({ data, country }) => {
       </div>
       <div className="booking-form__footer">
         {phase ? (
-          <button className="btn btn--green" onClick={() => setPhase(!phase)}>
+          <button className="btn btn--white" onClick={() => setPhase(!phase)}>
             Previous
           </button>
         ) : null}

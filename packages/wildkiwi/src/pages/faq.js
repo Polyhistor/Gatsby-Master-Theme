@@ -51,7 +51,7 @@ const FAQ = ({ data }) => {
           { label: "ABOUT YOUR TRIP" },
           { label: "BUDGET & PAYMENT" },
           { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFTEY" },
+          { label: "TRAVEL & SAFETY" },
         ]}
       />
       <Banner
