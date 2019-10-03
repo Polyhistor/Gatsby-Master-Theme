@@ -262,7 +262,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                       I accept the terms and conditions
                     </label>
                   </div>
-                  <button type="submit" className="btn btn--white">
+                  <button type="submit" className="btn btn--green">
                     Submit
                   </button>
                 </Form>
