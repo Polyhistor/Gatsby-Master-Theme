@@ -14,7 +14,6 @@ import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
-import useActivityQuery from "../queries/activityQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 const ActivitiesSingle = ({
@@ -25,7 +24,6 @@ const ActivitiesSingle = ({
 }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
-  const activityQuery = useActivityQuery()
   const metadata = pageContext.metadata || {}
   return (
     <Layout2>

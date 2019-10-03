@@ -152,8 +152,10 @@
 
       @include respond(phone) {
         grid-template-columns: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
         padding: 1rem;
+        -webkit-overflow-scrolling: touch;
+        height: 100%;
       }
 
       & > h3 {
