@@ -484,7 +484,7 @@
     & > button {
       @include respond(phone) {
         width: 30rem !important;
-        height: 5rem;
+        height: 6rem;
         font-size: 1.8rem;
         margin-top: 2rem;
       }
