@@ -7,8 +7,6 @@ import useDestinationQuery from "../../queries/destinationQuery"
 import { api as ApiService } from "../../services/api"
 import Error from "./error"
 
-// TODO - DRY up this component
-
 // Our schema validation logich ere
 const validationSchema = Yup.object().shape({
   guests: Yup.number()

@@ -386,12 +386,14 @@
 .styles_overlay__CLSq- {
   @include respond(phone) {
     padding: 0;
+    position: fixed;
   }
 }
 
 .styles_modal__gNwvD {
   @include respond(phone) {
     padding: 0;
+    z-index: 10000;
   }
 }
 

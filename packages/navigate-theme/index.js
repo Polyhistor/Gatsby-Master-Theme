@@ -29,6 +29,7 @@ export { default as useHowItWorksQuery } from "./src/queries/howItWorksQuery"
 export { default as useReviewQuery } from "./src/queries/reviewQuery"
 export { default as useTeamQuery } from "./src/queries/teamQuery"
 export { default as useWildkiwiQuery } from "./src/queries/wildkiwiQuery"
+export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
 
 /*components*/
 
