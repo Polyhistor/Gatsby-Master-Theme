@@ -12,7 +12,7 @@ const Privacy = () => {
     <Layout2>
       <SEO />
       <div className="section-vehicles">
-        <article className="tour-banner__description-details u-margin-bottom-small">
+        <article className="tour-banner__description-details u-margin-top-huge">
           {documentToReactComponents(privacyData[0].node.description.json)}
         </article>
       </div>

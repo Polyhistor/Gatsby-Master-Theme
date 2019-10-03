@@ -377,16 +377,13 @@
 .styles_modalCenter__L9F2w {
   max-width: 100%;
   max-height: 100%;
-
-  @include respond(phone) {
-    overflow: scroll;
-  }
 }
 
 .styles_overlay__CLSq- {
   @include respond(phone) {
     padding: 0;
     position: fixed;
+    overflow: hidden;
   }
 }
 
