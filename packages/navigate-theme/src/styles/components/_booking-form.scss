@@ -714,6 +714,10 @@
 
   &__enquiry-form {
     margin-top: 2rem;
+
+    @include respond(phone) {
+      overflow: auto;
+    }
   }
 
   &__error-message {
