@@ -3,8 +3,11 @@ import { Link } from "gatsby"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+
 const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
   // this allows us to render specific node types
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -33,7 +36,10 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
       )}
       <img className="activity__svg-map" src={svgMap} alt={title} />
       <div className="activity__button-box">
-        <Link to="/activities" className="acitivity-box-button">
+        <Link
+          to={`${themeOptionsQueryData.activitiesRoute}`}
+          className="acitivity-box-button"
+        >
           All Activities
         </Link>
       </div>

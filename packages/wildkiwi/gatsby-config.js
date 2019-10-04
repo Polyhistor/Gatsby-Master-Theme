@@ -22,6 +22,30 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        menuLabel: [
+          {
+            label: "destinations",
+            link: "/tours",
+            sub: [
+              { label: "new zealand", link: "/tours/new-zealand" },
+              { label: "australia", link: "/tours/australia" },
+              { label: "europe", link: "/tours/europe" },
+            ],
+          },
+          { label: "activities", link: "/activities", sub: null },
+          { label: "how it works", link: "/how-it-works", sub: null },
+          { label: "our vehicles", link: "/our-vehicles", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
+          { label: "get in touch", link: "/get-in-touch", sub: null },
+        ],
+        /*TODO: remove prefix routes, we don't need that anymore*/
+
+        routesConfig: {
+          destinationRoute: `/tours`,
+          activitiesRoute: `/activities`,
+          destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
+          activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
+        },
         nprogress: {
           color: `#1abc9c`,
           // Disable the loading spinner.

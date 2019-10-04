@@ -1,4 +1,8 @@
-/*extract seo data*/
+/**
+ * Temporary workaround to use on gatsby.node, as it current not
+ * support es modules imports. In the future we can use ESM or use babel-node to
+ * run gatsby.
+ */
 
 const extractMetadataFromContentfulData = (pageIdentifier, seoPageMetaData) => {
   const metadata = seoPageMetaData.find(
@@ -298,7 +302,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for activities
     Activities.forEach(activity => {
       createPage({
-        path: `/activities/${activity.node.country.slug}/${activity.node.slug}`,
+        path: `${themeOptions.routesConfig.activitiesCountryRoutePrefix}${activity.node.country.slug}/${activity.node.slug}`,
         component: ActivitiesTemplate,
         context: {
           slug: activity.node.slug,
@@ -310,7 +314,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for destinations
     Destinations.forEach(destination => {
       createPage({
-        path: `/destinations/${destination.node.destinationCountry}/${destination.node.slug}`,
+        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${destination.node.destinationCountry}/${destination.node.slug}`,
         component: DestinationsTemplate,
         context: {
           slug: destination.node.slug,
@@ -319,10 +323,11 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       })
     })
 
-    // this is for countries
+    /*TODO: We should not use plain strings for url values. All of them should be extracted
+   from plugin config or for a custom config file.*/
     Countries.forEach(country => {
       createPage({
-        path: `/destinations/${country.node.slug}`,
+        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${country.node.slug}`,
         component: CountriesTemplate,
         context: {
           slug: country.node.slug,
@@ -336,7 +341,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       )
 
       createPage({
-        path: `/activities/${country.node.slug}`,
+        path: `${themeOptions.routesConfig.activitiesCountryRoutePrefix}${country.node.slug}`,
         component: ActCountriesTemplate,
         context: {
           slug: country.node.slug,

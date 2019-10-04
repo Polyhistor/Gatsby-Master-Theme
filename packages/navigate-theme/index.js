@@ -30,6 +30,9 @@ export { default as useReviewQuery } from "./src/queries/reviewQuery"
 export { default as useTeamQuery } from "./src/queries/teamQuery"
 export { default as useWildkiwiQuery } from "./src/queries/wildkiwiQuery"
 export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
+export {
+  default as useThemeRoutesConfigQuery,
+} from "./src/queries/themeRoutesConfigQuery"
 
 /*components*/
 
@@ -120,8 +123,6 @@ export {
 export { default as Logo } from "./src/components/header/logo"
 
 //TODO: Menu Labels go to specific project folder
-
-export { default as MenuLabels } from "./src/components/header/menuLabels"
 
 export { default as NavButton } from "./src/components/header/navButton"
 export { default as Navigation } from "./src/components/header/navigation"

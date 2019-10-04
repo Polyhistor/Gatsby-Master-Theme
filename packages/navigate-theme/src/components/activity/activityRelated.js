@@ -3,10 +3,11 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 import useActivityQuery from "../../queries/activityQuery"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivityRelated = ({ country }) => {
   const activityQuery = useActivityQuery()
-
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
   // looping over elements and rendering
   const renderElements = () => {
     return (
@@ -18,7 +19,7 @@ const ActivityRelated = ({ country }) => {
           while (idx < 4) {
             return (
               <Link
-                to={`/activities/${acitivity.node.country.slug}/${acitivity.node.slug}`}
+                to={`${themeOptionsQueryData.activitiesCountryRoutePrefix}${acitivity.node.country.slug}/${acitivity.node.slug}`}
                 key={acitivity.node.title}
               >
                 <div className="acitivity-box-single">

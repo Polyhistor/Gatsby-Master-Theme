@@ -79,9 +79,3 @@ export const extractMetadataFromContentfulData = (
     description: metadata.node.description,
   }
 }
-
-/**
- * Temporary workaround to use on gatsby.node, as it current not
- * support es6 imports. In the future we can use ESM or use babel-node to
- * run gatsby.
- */

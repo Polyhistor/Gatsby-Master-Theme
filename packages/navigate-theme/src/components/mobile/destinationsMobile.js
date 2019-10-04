@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const DestinationsMobile = ({
   title,
@@ -12,6 +13,8 @@ const DestinationsMobile = ({
   imageData,
   destination,
 }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   return (
     <section className={`section-tour-banner-newzealand-mobile`}>
       <div className="row">
@@ -47,7 +50,10 @@ const DestinationsMobile = ({
           </div>
         </div>
         <div className="u-center-text u-margin-top-tiny">
-          <Link className="btn btn--green" to={`/destinations/${destination}`}>
+          <Link
+            className="btn btn--green"
+            to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
+          >
             explore
           </Link>
         </div>
