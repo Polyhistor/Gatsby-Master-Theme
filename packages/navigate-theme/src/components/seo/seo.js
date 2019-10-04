@@ -18,14 +18,12 @@ function SEO({ title, description, author, lang }) {
     `
   )
 
-  console.log(site)
-
   /**
    * replace default props using site metadata
    */
   const metaData = {
     title: title || site.siteMetadata.title,
-    description: description || site.siteMetadata.title,
+    description: description || site.siteMetadata.description,
     author: author || site.siteMetadata.author,
     lang,
   }
@@ -34,15 +32,6 @@ function SEO({ title, description, author, lang }) {
    */
   const buildMetaTags = () => {
     const metaTags = []
-    metaTags.push({
-      name: `description`,
-      content: metaData.description,
-    })
-
-    metaTags.push({
-      property: `og:title`,
-      content: metaData.title,
-    })
 
     metaTags.push({
       property: `og:title`,

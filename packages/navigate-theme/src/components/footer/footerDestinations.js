@@ -1,6 +1,9 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
 
+/**
+ * TODO: should receive a props with destinations and links
+ */
 const FooterDestinations = () => {
   return (
     <div className="footer__trips--destination">

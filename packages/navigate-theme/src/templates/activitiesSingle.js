@@ -16,6 +16,7 @@ import SEO from "../components/seo/seo"
 import useHomePageQuery from "../queries/homePageQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
+import { renderSeoFromContext } from "../helpers/seo-helper"
 const ActivitiesSingle = ({
   pageContext,
   data,
@@ -24,10 +25,9 @@ const ActivitiesSingle = ({
 }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
-  const metadata = pageContext.metadata || {}
   return (
     <Layout2>
-      <SEO title={metadata.title} description={metadata.description} />
+      {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
           data.contentfulActivities.bannerImages[0].localFile.childImageSharp

@@ -12,19 +12,20 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const HowItWorks = () => {
+const HowItWorks = data => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
-      <SEO />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.vehiclesLady.childImageSharp.fluid}
@@ -57,3 +58,21 @@ const HowItWorks = () => {
 }
 
 export default HowItWorks
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "about-us" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

@@ -10,6 +10,7 @@ import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 
+import { renderSeoFromContext } from "../helpers/seo-helper"
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
@@ -53,6 +54,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
 
   return (
     <Layout>
+      {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
