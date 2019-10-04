@@ -15,8 +15,10 @@
 
   &__entries {
     @include respond(phone) {
+      overflow: scroll;
       margin-top: 2rem;
       padding: 1rem;
+      -webkit-overflow-scrolling: touch;
     }
 
     & > h2 {
@@ -114,6 +116,9 @@
     @include respond(phone) {
       width: 32rem;
       margin-top: 2rem;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+      margin: 0 auto;
     }
   }
 
@@ -131,6 +136,13 @@
     margin-left: 4rem;
     font-family: Nunito-Black;
 
+    &-1 {
+      @include respond(phone) {
+        -webkit-overflow-scrolling: touch;
+        margin-top: 3rem;
+      }
+    }
+
     @include respond(phone) {
       margin-left: 0.5rem;
     }
@@ -138,11 +150,6 @@
     &--arrow {
       border: 1px solid $color-primary;
       margin-left: 1rem;
-    }
-
-    &-1 {
-      -webkit-overflow-scrolling: touch;
-      overflow: hidden;
     }
 
     &-2 {
@@ -203,9 +210,9 @@
 
   &__plus {
     &-holder {
-      display: block;
       height: 3rem;
-      width: 5.5rem;
+      width: 100%;
+      display: block;
       position: absolute;
       right: 0;
       top: 0;
@@ -327,6 +334,10 @@
 
     @include respond(laptop) {
       width: 31%;
+    }
+
+    @include respond(tablet) {
+      width: 35%;
     }
 
     @include respond(phone) {
