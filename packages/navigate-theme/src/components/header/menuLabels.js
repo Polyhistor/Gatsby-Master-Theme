@@ -3,7 +3,7 @@ export default [
     label: "destinations",
     link: "/destinations",
     sub: [
-      { label: "new zealand", link: "/destinations/newzealand" },
+      { label: "new zealand", link: "/destinations/new-zealand" },
       { label: "australia", link: "/destinations/australia" },
       { label: "europe", link: "/destinations/europe" },
     ],
