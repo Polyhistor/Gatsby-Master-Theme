@@ -8,7 +8,7 @@ import useDestinationQuery from "../../queries/destinationQuery"
 import { api as ApiService } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
-const BookingForm = ({ data, country }) => {
+const BookingForm = ({ data, country, inPage }) => {
   // extracting out our query
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
@@ -203,6 +203,7 @@ const BookingForm = ({ data, country }) => {
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
+    console.log("yo?")
     await ApiService.getTourPrices(e.target.value).then(response =>
       setEntries(response.data.data)
     )
@@ -218,40 +219,48 @@ const BookingForm = ({ data, country }) => {
 
   return (
     <section className="booking-form">
-      <div className="booking-form__header">
-        {!phase ? (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={false}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={true}
-              last={false}
-            ></Step>
-          </>
-        ) : (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={true}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={false}
-              last={true}
-            ></Step>
-          </>
-        )}
-      </div>
-      <div className="booking-form__body">
+      {inPage === null ? (
+        <div className="booking-form__header">
+          {!phase ? (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={false}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={true}
+                last={false}
+              ></Step>
+            </>
+          ) : (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={true}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={false}
+                last={true}
+              ></Step>
+            </>
+          )}
+        </div>
+      ) : null}
+      <div
+        className={
+          inPage
+            ? "booking-form__body booking-form__body--in-page"
+            : "booking-form__body"
+        }
+      >
         {!phase ? (
           <div className="booking-form__phase-1">
             {receivedData !== null ? (

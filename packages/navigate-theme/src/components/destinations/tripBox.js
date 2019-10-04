@@ -24,11 +24,9 @@ const TripBox = ({
   earlyBird,
   availablity,
   hotText,
-  slug,
+  data,
   country,
 }) => {
-  const ourData = useFetchHook(slug)
-
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
 
@@ -86,7 +84,7 @@ const TripBox = ({
         className={{ overlay: "overlay", modal: "popup" }}
         center
       >
-        <BookingForm data={ourData} country={country}></BookingForm>
+        <BookingForm data={data} country={country}></BookingForm>
       </Modal>
     </>
   )

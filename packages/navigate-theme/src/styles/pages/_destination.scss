@@ -62,7 +62,7 @@
 
     &__trip-box {
       grid-column: 2;
-      grid-row: 1/8;
+      grid-row: 1/9;
 
       @include respond(tablet) {
         grid-row: 2;
@@ -123,8 +123,7 @@
     &__booking {
       grid-row: 8;
       height: 50rem;
-      grid-column: 1/-1;
-      background-color: $color-grey-dark;
+      grid-column: 1;
 
       @include respond(tablet) {
         grid-row: 9;

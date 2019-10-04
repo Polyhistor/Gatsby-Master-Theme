@@ -15,8 +15,10 @@
 
   &__entries {
     @include respond(phone) {
+      overflow: scroll;
       margin-top: 2rem;
       padding: 1rem;
+      -webkit-overflow-scrolling: touch;
     }
 
     & > h2 {
@@ -114,6 +116,9 @@
     @include respond(phone) {
       width: 32rem;
       margin-top: 2rem;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+      margin: 0 auto;
     }
   }
 
@@ -130,6 +135,13 @@
     align-items: center;
     margin-left: 4rem;
     font-family: Nunito-Black;
+
+    &-1 {
+      @include respond(phone) {
+        -webkit-overflow-scrolling: touch;
+        margin-top: 3rem;
+      }
+    }
 
     @include respond(phone) {
       margin-left: 0.5rem;
@@ -198,9 +210,9 @@
 
   &__plus {
     &-holder {
-      display: block;
       height: 3rem;
-      width: 5.5rem;
+      width: 100%;
+      display: block;
       position: absolute;
       right: 0;
       top: 0;
@@ -291,9 +303,6 @@
     }
   }
 
-  &__month {
-  }
-
   &__left {
     display: flex;
     justify-content: space-between;
@@ -322,6 +331,10 @@
 
     @include respond(laptop) {
       width: 31%;
+    }
+
+    @include respond(tablet) {
+      width: 35%;
     }
 
     @include respond(phone) {
