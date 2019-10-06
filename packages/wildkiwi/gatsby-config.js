@@ -57,7 +57,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `devygacademy.wpengine.com`,
+          baseUrl: process.env.WORDPRESS_URL,
           perPage: 5,
           concurrentRequests: 3,
           includedRoutes: [

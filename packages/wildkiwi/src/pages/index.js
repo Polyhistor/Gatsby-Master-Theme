@@ -84,7 +84,10 @@ const IndexPage = ({ data }) => {
         )
       })
   }
-
+  /**
+   * Todo: Dynamic  destinations link - buttonFirstUrl
+   * Greenbar alt
+   */
   return (
     <Layout>
       {renderSeo(data)}
@@ -95,7 +98,7 @@ const IndexPage = ({ data }) => {
         TitleThird="tours"
         subTitle="for 18 to 35 year olds"
         buttonFirst="Explore Tours"
-        buttonFirstURL="/destinations"
+        buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
         buttonStyles={["green", "white"]}
@@ -104,10 +107,10 @@ const IndexPage = ({ data }) => {
       />
       <GreenBarAlt
         textList={[
-          { label: "destinations", link: "/destinations" },
-          { label: "new zealand", link: "/destinations/newzealand" },
-          { label: "australia", link: "/destinations/australia" },
-          { label: "europe", link: "/destinations/europe" },
+          { label: "destinations", link: "/tours" },
+          { label: "new zealand", link: "/tours/new-zealand" },
+          { label: "australia", link: "/tours/australia" },
+          { label: "europe", link: "/tours/europe" },
         ]}
       />
       <WhyUsMobile

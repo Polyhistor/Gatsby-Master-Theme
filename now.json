@@ -4,7 +4,8 @@
       "CONTENTFUL_SPACE_ID": "y3c1z0oeea94",
       "CONTENTFUL_ACCESS_TOKEN": "oQcR2u7hJALjciBok4YDzaMlKUEyBn1LlX-VgH0CGEQ",
       "API_URL": "https://api2.ntstage.com",
-      "PRODUCT_ID": "8"
+      "PRODUCT_ID": "8",
+      "WORDPRESS_URL": "devygacademy.wpengine.com"
     },
     "use": "@now/static"
   }
