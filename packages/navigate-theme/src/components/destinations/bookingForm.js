@@ -27,7 +27,9 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
   let receivedData = null
 
-  data === null ? (receivedData = null) : (receivedData = data.data.data)
+  data === null || !data.data
+    ? (receivedData = null)
+    : (receivedData = data.data.data)
 
   const [entries, setEntries] = useState(receivedData)
 
