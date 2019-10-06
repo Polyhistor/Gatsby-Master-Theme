@@ -2,10 +2,13 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   // categorizing data on the load
   let groupByData = {
     week: [],
@@ -123,7 +126,7 @@ const FilteredTour = ({ country, destinationData }) => {
             <Link
               aria-current="page"
               className="btn btn--green tablet-green-button"
-              to={`destinations/${country}/${element.node.slug}`}
+              to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.slug}`}
             >
               View Itinerary
             </Link>

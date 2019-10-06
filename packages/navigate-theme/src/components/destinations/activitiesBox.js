@@ -1,8 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivitiesBox = ({ activityData }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   const renderActivities = () => {
     return activityData.map(
       (
@@ -10,7 +13,10 @@ const ActivitiesBox = ({ activityData }) => {
         idx
       ) => {
         return (
-          <Link to={`/activities/${country.slug}/${slug}`} key={idx}>
+          <Link
+            to={`${themeOptionsQueryData.activitiesCountryRoutePrefix}${country.slug}/${slug}`}
+            key={idx}
+          >
             <div key={idx} className="acitivity-box-single">
               <figure className="acitivity-box-single__image-container">
                 <Img
@@ -45,7 +51,10 @@ const ActivitiesBox = ({ activityData }) => {
     <div className="section-destination__activities">
       <h2 className="green-title u-padding-bottom-sedium">Activities</h2>
       <div className="acitivity-box">{renderActivities()}</div>
-      <Link to="/activities" className="acitivity-box-button">
+      <Link
+        to={`${themeOptionsQueryData.activitiesRoute}`}
+        className="acitivity-box-button"
+      >
         All Activities
       </Link>
     </div>

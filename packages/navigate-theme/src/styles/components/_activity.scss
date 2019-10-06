@@ -133,7 +133,7 @@
 
   &__related {
     display: grid;
-    grid-template-rows: 8rem 28rem 10rem;
+    grid-template-rows: 8rem 28rem 0rem;
     grid-template-columns: 24.2% 24.2% 24.2% 24.2%;
     margin-top: 8rem;
     grid-column-gap: 1%;
@@ -177,14 +177,6 @@
       & > h5 {
         font-size: 1.2rem;
         grid-column: 1;
-      }
-    }
-
-    & > a .gatsby-image-wrapper {
-      height: 28rem;
-
-      @include respond(phone) {
-        height: 15rem;
       }
     }
   }
@@ -271,6 +263,8 @@
       color: $color-primary;
       font-family: Nunito-Extrabold;
       font-size: 1.6rem;
+      width: 22rem;
+      height: 4.8rem;
 
       @include respond(phone) {
         padding: 1rem 10rem 1rem 2rem;

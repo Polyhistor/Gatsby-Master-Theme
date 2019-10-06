@@ -8,24 +8,26 @@ import {
   SEO,
   SectionReview,
   useImageQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
 // utilities
 
-const Reviews = () => {
+const Reviews = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
   return (
     <Layout2>
-      <SEO title="Reviews" />
+      {renderSeo(data)}
+
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.reviews.childImageSharp.fluid}
           titleFirst="reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Don’t just take our word for it, check out what our customers have to say!"
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
@@ -41,3 +43,21 @@ const Reviews = () => {
 }
 
 export default Reviews
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "reviews" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

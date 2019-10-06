@@ -13,12 +13,13 @@ import {
   useImageQuery,
   useHomePageQuery,
   useFAQQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const FAQ = () => {
+const FAQ = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -26,7 +27,7 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
@@ -50,7 +51,7 @@ const FAQ = () => {
           { label: "ABOUT YOUR TRIP" },
           { label: "BUDGET & PAYMENT" },
           { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFTEY" },
+          { label: "TRAVEL & SAFETY" },
         ]}
       />
       <Banner
@@ -65,5 +66,23 @@ const FAQ = () => {
     </Layout>
   )
 }
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "faq" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
 
 export default FAQ

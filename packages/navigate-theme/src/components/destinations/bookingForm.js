@@ -5,20 +5,31 @@ import Step from "./step"
 import DetailsForm from "./detailsForm"
 import useDestinationQuery from "../../queries/destinationQuery"
 
-const BookingForm = ({ data, country }) => {
+import { api as ApiService } from "../../services/api"
+import useCountryQuery from "../../queries/countryQuery"
+
+const BookingForm = ({ data, country, inPage }) => {
   // extracting out our query
   const destinationData = useDestinationQuery()
+  const countryData = useCountryQuery()
+
+  // setting our initial country state
+  const countryList = useState(countryData)
 
   // filtering destinations based on the country passed by props
-  const defaultCountry = destinationData.filter(
-    e => e.node.destinationCountry === country
-  )
+  // const defaultCountry = destinationData.filter(
+  //   e => e.node.destinationCountry === country
+  // )
 
   // setting our inital state based on the coutnry passed
-  const [destinationFilter, setDestinationFilter] = useState(defaultCountry)
+  const [destinationFilter, setDestinationFilter] = useState(null)
 
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
-  const [entries, setEntries] = useState(data.data.data)
+  let receivedData = null
+
+  data === null ? (receivedData = null) : (receivedData = data.data.data)
+
+  const [entries, setEntries] = useState(receivedData)
 
   // initiating an empty array that stores references to our nodes
   const refs = []
@@ -53,6 +64,10 @@ const BookingForm = ({ data, country }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
+    if (entries === null) {
+      return <h2 className="green-title">Please select your region and tour</h2>
+    }
+
     if (entries.months === undefined) {
       return (
         <Loader
@@ -64,6 +79,7 @@ const BookingForm = ({ data, country }) => {
         />
       )
     }
+
     if (entries) {
       return entries.months.map((e, idx) => (
         <div className="booking-form__entry">
@@ -170,6 +186,8 @@ const BookingForm = ({ data, country }) => {
           </div>
         </div>
       ))
+    } else {
+      return <div>Please select the region and the tour</div>
     }
   }
 
@@ -179,72 +197,103 @@ const BookingForm = ({ data, country }) => {
       <option value={e.node.slug}>{e.node.title}</option>
     ))
 
+  // function that renders countries dropdown options
+  const renderCountries = () =>
+    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
+
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
-    console.log(e.target.value)
-    await fetch(`https://api2.ntstage.com/tours/${e.target.value}`)
-      .then(x => x.json())
-      .then(y => setEntries(y.data))
+    console.log("yo?")
+    await ApiService.getTourPrices(e.target.value).then(response =>
+      setEntries(response.data.data)
+    )
+  }
+
+  // function that handles countries dropdown
+  const handleCountryDropdown = e => {
+    const filteredDests = destinationData.filter(d => {
+      return d.node.destinationCountry === e.target.value
+    })
+    setDestinationFilter(filteredDests)
   }
 
   return (
     <section className="booking-form">
-      <div className="booking-form__header">
-        {!phase ? (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={false}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={true}
-              last={false}
-            ></Step>
-          </>
-        ) : (
-          <>
-            <Step
-              num="1"
-              text="select tour and date"
-              variation={true}
-              last={false}
-            ></Step>
-            <Step
-              num="2"
-              text="enter your details"
-              variation={false}
-              last={true}
-            ></Step>
-          </>
-        )}
-      </div>
-      <div className="booking-form__body">
+      {inPage === null ? (
+        <div className="booking-form__header">
+          {!phase ? (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={false}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={true}
+                last={false}
+              ></Step>
+            </>
+          ) : (
+            <>
+              <Step
+                num="1"
+                text="select tour and date"
+                variation={true}
+                last={false}
+              ></Step>
+              <Step
+                num="2"
+                text="enter your details"
+                variation={false}
+                last={true}
+              ></Step>
+            </>
+          )}
+        </div>
+      ) : null}
+      <div
+        className={
+          inPage
+            ? "booking-form__body booking-form__body--in-page"
+            : "booking-form__body"
+        }
+      >
         {!phase ? (
           <div className="booking-form__phase-1">
-            <div className="booking-form__dropdown">
-              {data ? null : (
+            {receivedData !== null ? (
+              <div className="booking-form__tour-title u-margin-bottom-medium">
+                <h2 className="green-title">{data.data.data.description}</h2>
+              </div>
+            ) : (
+              <div className="booking-form__dropdown">
                 <div className="activity__selector">
-                  <select class="activity__dropdown" id="country">
+                  <select
+                    onChange={e => handleCountryDropdown(e)}
+                    class="activity__dropdown"
+                    id="country"
+                  >
                     <option value="all">Region</option>
+                    {renderCountries()}
                   </select>
                 </div>
-              )}
 
-              <div className="activity__selector">
-                <select
-                  onChange={e => handleDestDropdown(e)}
-                  className="activity__dropdown"
-                  id="country"
-                >
-                  <option value="all">Tour</option>
-                  {renderDestinations()}
-                </select>
+                {destinationFilter !== null ? (
+                  <div className="activity__selector">
+                    <select
+                      onChange={e => handleDestDropdown(e)}
+                      className="activity__dropdown"
+                      id="tours"
+                    >
+                      <option value="all">Tours</option>
+                      {renderDestinations()}
+                    </select>
+                  </div>
+                ) : null}
               </div>
-            </div>
+            )}
             <div className="booking-form__entries">{renderEntries()}</div>
           </div>
         ) : (
@@ -259,7 +308,7 @@ const BookingForm = ({ data, country }) => {
       </div>
       <div className="booking-form__footer">
         {phase ? (
-          <button className="btn btn--green" onClick={() => setPhase(!phase)}>
+          <button className="btn btn--white" onClick={() => setPhase(!phase)}>
             Previous
           </button>
         ) : null}

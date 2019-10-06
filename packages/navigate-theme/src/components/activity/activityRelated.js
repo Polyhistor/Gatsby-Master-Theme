@@ -3,10 +3,11 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 import useActivityQuery from "../../queries/activityQuery"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivityRelated = ({ country }) => {
   const activityQuery = useActivityQuery()
-
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
   // looping over elements and rendering
   const renderElements = () => {
     return (
@@ -18,24 +19,32 @@ const ActivityRelated = ({ country }) => {
           while (idx < 4) {
             return (
               <Link
-                to={`/activities/${acitivity.node.country.slug}/${acitivity.node.slug}`}
+                to={`${themeOptionsQueryData.activitiesCountryRoutePrefix}${acitivity.node.country.slug}/${acitivity.node.slug}`}
                 key={acitivity.node.title}
               >
-                {/* error handling, without this line, the activities with featured images will crash */}
-                {acitivity.node.bannerImages[0] !== null && (
-                  <Img
-                    fluid={
-                      acitivity.node.bannerImages[0].localFile.childImageSharp
-                        .fluid
-                    }
-                  />
-                )}
-                <h3 className="activity__title">{acitivity.node.title}</h3>
-                <h4 className="activity__subtitle">
-                  {" "}
-                  {acitivity.node.subtitle}
-                </h4>
-                <h5 className="activity__price">{acitivity.node.price}</h5>
+                <div className="acitivity-box-single">
+                  {/* error handling, without this line, the activities with featured images will crash */}
+                  {acitivity.node.bannerImages[0] !== null && (
+                    <figure className="acitivity-box-single__image-container">
+                      <Img
+                        fluid={
+                          acitivity.node.bannerImages[0].localFile
+                            .childImageSharp.fluid
+                        }
+                        className="acitivity-box-single__image"
+                      />
+                    </figure>
+                  )}
+                  <h3 className="acitivity-box-single__title">
+                    {acitivity.node.title}
+                  </h3>
+                  <h4 className="acitivity-box-single__sub-title">
+                    {acitivity.node.subtitle}
+                  </h4>
+                  <h5 className="acitivity-box-single__price">
+                    {acitivity.node.price}
+                  </h5>
+                </div>
               </Link>
             )
           }

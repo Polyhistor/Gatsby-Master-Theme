@@ -2,10 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Logo from "./logo"
-import menuLabels from "./menuLabels"
+
 import NavButton from "./navButton"
+import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 
 const NavItems = () => {
+  const menuLabels = useMenuLabelQuery()
+
   // iterating through link items
   const renderNavItems = () => {
     return menuLabels.map(({ label, link, sub }, idx) => {

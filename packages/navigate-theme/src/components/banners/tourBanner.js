@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const TourBanner = ({
   destination,
@@ -13,6 +14,8 @@ const TourBanner = ({
   imageData,
   SVGMap,
 }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   return (
     <section className={`section-tour-banner-newzealand`}>
       <div className="row">
@@ -37,7 +40,7 @@ const TourBanner = ({
             <div className="tour-banner__description-button-box mobile-no">
               <Link
                 className="btn btn--green tablet-green-button"
-                to={`destinations/${destination}`}
+                to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
               >
                 explore
               </Link>

@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const Trip = ({
   imageData,
@@ -12,9 +13,13 @@ const Trip = ({
   slug,
   country,
 }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   return (
     <div className="trips">
-      <Link to={`/destinations/${country}/${slug}`}>
+      <Link
+        to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${slug}`}
+      >
         <figure className="trips__box">
           <Img className="trips__image" fluid={imageData} />
           <figcaption className="trips__duration">

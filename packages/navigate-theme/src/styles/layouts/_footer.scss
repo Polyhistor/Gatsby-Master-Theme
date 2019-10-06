@@ -246,6 +246,7 @@
       @include respond(phone) {
         grid-column: 1;
         width: 30rem;
+        margin: 0;
       }
 
       &--big {
@@ -254,6 +255,7 @@
         border: 1px solid $color-gray-light-2;
         border-radius: 3px;
         grid-row: 2/4;
+        font-size: 1.6rem;
         &::-webkit-input-placeholder {
           color: $color-grey-dark;
           padding-left: 0.4rem;
@@ -315,8 +317,17 @@
       @include respond(phone) {
         grid-column: 1;
         grid-row: 4;
-        padding-top: 4rem;
+        padding-top: 2rem;
         font-size: 1.3rem;
+        margin-left: 1.3rem;
+      }
+
+      & + button {
+        grid-column: 2;
+
+        @include respond(phone) {
+          grid-column: 1;
+        }
       }
     }
   }
@@ -516,6 +527,15 @@
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: 30rem;
+    }
+
+    & > div:nth-child(2) input {
+      width: 22rem;
+      border: 1px solid #e7e7e7;
+
+      @include respond(phone) {
+        width: 30rem;
+      }
     }
   }
 

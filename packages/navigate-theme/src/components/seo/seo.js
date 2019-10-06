@@ -3,16 +3,8 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const site = {
-    siteMetadata: {
-      title: "blabla",
-      description: "ad",
-      author: "a",
-    },
-  }
-
-  /*const { site } = useStaticQuery(
+function SEO({ title, description, author, lang }) {
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,17 +16,64 @@ function SEO({ description, lang, meta, title }) {
         }
       }
     `
-  )*/
+  )
 
-  const metaDescription = description || site.siteMetadata.description
+  /**
+   * replace default props using site metadata
+   */
+  const metaData = {
+    title: title || site.siteMetadata.title,
+    description: description || site.siteMetadata.description,
+    author: author || site.siteMetadata.author,
+    lang,
+  }
+  /**
+   * Build Metatags based on metadata props
+   */
+  const buildMetaTags = () => {
+    const metaTags = []
+
+    metaTags.push({
+      property: `og:title`,
+      content: metaData.title,
+    })
+
+    metaTags.push({
+      property: `og:description`,
+      content: metaData.description,
+    })
+    metaTags.push({
+      property: `og:type`,
+      content: `website`,
+    })
+
+    return metaTags
+    /*
+    Later: 
+    {
+      name: `twitter:card`,
+      content: `summary`,
+    },
+    {
+      name: `twitter:creator`,
+      content: metaData.author,
+    },
+    {
+      name: `twitter:title`,
+      content: metaData.title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaData.description,
+    },*/
+  }
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: metaData.lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaData.title}
       //   <script
       //   src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
       //   type="text/javascript"
@@ -43,40 +82,7 @@ function SEO({ description, lang, meta, title }) {
 
       // <script src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6" type="text/javascript" charset="utf-8"></script>
 
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
+      meta={buildMetaTags()}
     >
       {/* <script
         src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
@@ -89,8 +95,8 @@ function SEO({ description, lang, meta, title }) {
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
   description: ``,
+  author: undefined,
 }
 
 SEO.propTypes = {

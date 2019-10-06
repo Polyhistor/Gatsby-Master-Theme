@@ -379,6 +379,24 @@
   max-height: 100%;
 }
 
+.styles_overlay__CLSq- {
+  @include respond(phone) {
+    padding: 0;
+    position: fixed;
+    overflow: hidden;
+  }
+}
+
+.styles_modal__gNwvD {
+  @include respond(phone) {
+    padding: 0;
+    z-index: 10000;
+    width: 95vw;
+    height: 97vh;
+    border-radius: 1.3rem;
+  }
+}
+
 //hotfixes
 .hotfix {
   &--reviews {
@@ -595,8 +613,18 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"],
-select:focus,
+input[type="textarea"] select:focus,
 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   font-size: 16px;
   font-family: Nunito-Regular;
+}
+
+// setting the fading animation
+
+.success-message {
+  animation: FadeAnimation 2s ease-in 3s forwards;
 }

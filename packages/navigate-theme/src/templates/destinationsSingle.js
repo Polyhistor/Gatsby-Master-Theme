@@ -2,7 +2,6 @@ import React from "react"
 
 // default components
 import Layout2 from "../components/layout/layout2"
-import SEO from "../components/seo/seo"
 import DestinationSection from "../components/destinations/destinationSection"
 import LandingChartered from "../components/header/landings/landingChartered"
 import GreenBar from "../components/bars/greenBar"
@@ -23,16 +22,21 @@ import Trips from "../components/trips/trips"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useWildkiwiQuery from "../queries/wildkiwiQuery"
+import { useFetchHook } from "../hooks/useFetchHook"
+import { renderSeoFromContext } from "../helpers/seo-helper"
 
-const DestinationsSingle = ({ data }) => {
+const DestinationsSingle = ({ pageContext, data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const WhyWildData = useWildkiwiQuery()
 
+  // data to be fetched
+  const ourData = useFetchHook(data.contentfulDestinations.slug)
+
   return (
     <Layout2>
-      <SEO title="Home" />
+      {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
           data.contentfulDestinations.bannerImages[0].localFile.childImageSharp
@@ -76,7 +80,7 @@ const DestinationsSingle = ({ data }) => {
           earlyBird="Early Bird Sale"
           availablity="check availability"
           hotText="This tour is getting a lot of attention. It’s been viewed 500+ time in the past week."
-          slug={data.contentfulDestinations.slug}
+          data={ourData}
           country={data.contentfulDestinations.destinationCountry}
         />
         <DestinationStarter
@@ -121,7 +125,7 @@ const DestinationsSingle = ({ data }) => {
           <Reviews />
         </div>
         <WhyWild WhyWildData={WhyWildData} />
-        <Booking />
+        <Booking data={ourData} />
         <GetThere
           title="Getting there"
           paragraph={

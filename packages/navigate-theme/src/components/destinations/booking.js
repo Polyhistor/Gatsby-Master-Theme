@@ -1,9 +1,11 @@
 import React from "react"
 
-const Booking = () => {
+import BookingForm from "../destinations/bookingForm"
+
+const Booking = ({ data }) => {
   return (
     <div className="section-destination__booking">
-      <h1>Booking</h1>
+      <BookingForm data={data} inPage={true} />
     </div>
   )
 }

@@ -41,3 +41,15 @@
     border-bottom: 1px solid gray;
   }
 }
+
+@keyframes FadeAnimation {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

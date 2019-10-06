@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 
+/**
+ * TODO: Should be dynamic not static new zealand on the code.
+ */
 const FooterContact = () => {
   // setting our hook with initial state
   const [state, setState] = useState("newzealand")

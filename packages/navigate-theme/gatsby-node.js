@@ -1,3 +1,17 @@
+/**
+ * Temporary workaround to use on gatsby.node, as it current not
+ * support es modules imports. In the future we can use ESM or use babel-node to
+ * run gatsby.
+ */
+
+const extractMetadataFromContentfulData = (pageIdentifier, seoPageMetaData) => {
+  const metadata = seoPageMetaData.find(
+    x => x.node.referencedPageIdentifier === pageIdentifier
+  )
+
+  return metadata ? metadata.node : {}
+}
+
 const path = require("path")
 const createPaginatedPages = require("gatsby-paginate")
 
@@ -73,6 +87,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
             subtitle
             price
             status
+            seo {
+              title
+              description
+            }
             country {
               slug
             }
@@ -99,6 +117,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           node {
             slug
             destinationCountry
+            seo {
+              title
+              description
+            }
           }
         }
       }
@@ -106,6 +128,20 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         edges {
           node {
             slug
+            seo {
+              title
+              description
+            }
+          }
+        }
+      }
+      allContentfulSeoPageMeta {
+        edges {
+          node {
+            title
+            description
+            referencedPageType
+            referencedPageIdentifier
           }
         }
       }
@@ -126,6 +162,8 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     //     }
     //   }
     // }
+
+    const PageSeoMeta = result.data.allContentfulSeoPageMeta.edges
 
     // accesing the wordpress blog data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
@@ -198,6 +236,11 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       pathPrefix: "blog/categorized",
     })
 
+    const activitiesMeta = extractMetadataFromContentfulData(
+      "activities-main-page",
+      PageSeoMeta
+    )
+
     // creating another set of paginated page for activities home page
     createPaginatedPages({
       edges: Activities,
@@ -205,6 +248,9 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       pageTemplate: require.resolve("./src/templates/activitiesMain.js"),
       pageLength: 16,
       pathPrefix: "activities",
+      context: {
+        metadata: activitiesMeta,
+      },
     })
 
     // this is for single blog pages
@@ -256,10 +302,11 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for activities
     Activities.forEach(activity => {
       createPage({
-        path: `/activities/${activity.node.country.slug}/${activity.node.slug}`,
+        path: `${themeOptions.routesConfig.activitiesCountryRoutePrefix}${activity.node.country.slug}/${activity.node.slug}`,
         component: ActivitiesTemplate,
         context: {
           slug: activity.node.slug,
+          metadata: activity.node.seo,
         },
       })
     })
@@ -267,28 +314,38 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for destinations
     Destinations.forEach(destination => {
       createPage({
-        path: `/destinations/${destination.node.destinationCountry}/${destination.node.slug}`,
+        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${destination.node.destinationCountry}/${destination.node.slug}`,
         component: DestinationsTemplate,
         context: {
           slug: destination.node.slug,
+          metadata: destination.node.seo,
         },
       })
     })
 
-    // this is for countries
+    /*TODO: We should not use plain strings for url values. All of them should be extracted
+   from plugin config or for a custom config file.*/
     Countries.forEach(country => {
       createPage({
-        path: `/destinations/${country.node.slug}`,
+        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${country.node.slug}`,
         component: CountriesTemplate,
         context: {
           slug: country.node.slug,
+          metadata: country.node.seo,
         },
       })
+
+      const activityCountryMeta = extractMetadataFromContentfulData(
+        `activities/${country.node.slug}`,
+        PageSeoMeta
+      )
+
       createPage({
-        path: `/activities/${country.node.slug}`,
+        path: `${themeOptions.routesConfig.activitiesCountryRoutePrefix}${country.node.slug}`,
         component: ActCountriesTemplate,
         context: {
           slug: country.node.slug,
+          metadata: activityCountryMeta,
         },
       })
     })

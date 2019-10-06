@@ -5,15 +5,47 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Wild Kiwi`,
-    description: `We bring your dreams into reality`,
+    title: `New Zealand, Australia & Europe Adventure Tours | Wild Kiwi`,
+    description: `Book your New Zealand, Australia or Europe small group epic adventure tour today. Choose from a range of 7 - 28 day tours, perfect for 18 - 35 year olds.`,
     author: `Pouya Ataei`,
     copyright: `Navigate Group Ltd`,
+    siteUrl: `https://www.wildkiwi.com`,
   },
+
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      },
+    },
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        menuLabel: [
+          {
+            label: "destinations",
+            link: "/tours",
+            sub: [
+              { label: "new zealand", link: "/tours/new-zealand" },
+              { label: "australia", link: "/tours/australia" },
+              { label: "europe", link: "/tours/europe" },
+            ],
+          },
+          { label: "activities", link: "/activities", sub: null },
+          { label: "how it works", link: "/how-it-works", sub: null },
+          { label: "our vehicles", link: "/our-vehicles", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
+          { label: "get in touch", link: "/get-in-touch", sub: null },
+        ],
+        /*TODO: remove prefix routes, we don't need that anymore*/
+
+        routesConfig: {
+          destinationRoute: `/tours`,
+          activitiesRoute: `/activities`,
+          destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
+          activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
+        },
         nprogress: {
           color: `#1abc9c`,
           // Disable the loading spinner.

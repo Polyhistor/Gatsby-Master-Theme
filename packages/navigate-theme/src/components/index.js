@@ -60,8 +60,6 @@ export { default as Logo } from "./header/logo"
 
 //TODO: Menu Labels go to specific project folder
 
-export { default as MenuLabels } from "./header/menuLabels"
-
 export { default as NavButton } from "./header/navButton"
 export { default as Navigation } from "./header/navigation"
 

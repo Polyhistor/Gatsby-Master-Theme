@@ -12,16 +12,18 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
+  Error,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
-const GetInTouch = () => {
+const GetInTouch = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
-      <SEO title="Home" />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.vehicleSouth.childImageSharp.fluid}
@@ -53,3 +55,21 @@ const GetInTouch = () => {
 }
 
 export default GetInTouch
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "get-in-touch" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

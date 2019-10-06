@@ -11,6 +11,7 @@ import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 
+import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
@@ -181,6 +182,7 @@ const ActivitiesMain = ({ pageContext }) => {
 
   return (
     <Layout>
+      {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}

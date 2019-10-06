@@ -1,18 +1,32 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
-const FooterDestinations = () => {
+/**
+ * TODO: should receive props with country list, not use it static
+ */
+const FooterDestinations = ({ countrieList, pluginOptions }) => {
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
   return (
     <div className="footer__trips--destination">
       <h6 className="footer__trips-header">destinations</h6>
       <ul className="footer__trips-list">
-        <Link to="/destinations/newzealand" className="footer__trips-link">
+        <Link
+          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}new-zealand`}
+          className="footer__trips-link"
+        >
           New Zealand
         </Link>
-        <Link to="/destinations/australia" className="footer__trips-link">
+        <Link
+          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}australia`}
+          className="footer__trips-link"
+        >
           Australia
         </Link>
-        <Link to="/destinations/europe" className="footer__trips-link">
+        <Link
+          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}europe`}
+          className="footer__trips-link"
+        >
           Europe
         </Link>
       </ul>
