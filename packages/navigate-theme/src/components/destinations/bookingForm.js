@@ -33,6 +33,11 @@ const BookingForm = ({ data, country, inPage }) => {
 
   const [entries, setEntries] = useState(receivedData)
 
+  // making sure that we update our state once we fetch the data
+  useEffect(() => {
+    setEntries(receivedData)
+  }, [receivedData])
+
   // initiating an empty array that stores references to our nodes
   const refs = []
 
@@ -43,17 +48,17 @@ const BookingForm = ({ data, country, inPage }) => {
   const [phase, setPhase] = useState(false)
 
   // function that fetches data that has been clicked
+
   const handleClick = (_, idx, idx2, d) => {
     // these will be used later for advanced select functionality
     // const ourElement = refs[idx].childNodes[idx2]
     // const ourDate = ourElement.childNodes[0].innerText.slice(0, 10)
 
-    const ourDate2 = d.prices[0].id
-
     // const date = entries.month.find(m =>
     //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
     // )
 
+    const ourDate2 = d.prices[0].id
     entries.months.forEach(e =>
       e.dates.forEach(d => {
         if (d.prices[0].id === ourDate2) {
@@ -205,7 +210,6 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
-    console.log("yo?")
     await ApiService.getTourPrices(e.target.value).then(response =>
       setEntries(response.data.data)
     )
@@ -220,7 +224,9 @@ const BookingForm = ({ data, country, inPage }) => {
   }
 
   return (
-    <section className="booking-form">
+    <section
+      className={inPage ? "booking-form booking-form--in-page" : "booking-form"}
+    >
       {inPage === null ? (
         <div className="booking-form__header">
           {!phase ? (
@@ -297,6 +303,7 @@ const BookingForm = ({ data, country, inPage }) => {
               </div>
             )}
             <div className="booking-form__entries">{renderEntries()}</div>
+            {/* <div className="booking-form__entries">{renderEntries()}</div> */}
           </div>
         ) : (
           <div className="booking-form__phase-2">
