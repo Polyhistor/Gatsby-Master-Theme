@@ -81,9 +81,15 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
-
-                await submitEnquiryRequest(finalAPI)
-                setSuccess(true)
+                try {
+                  await submitEnquiryRequest(finalAPI)
+                  setSuccess(true)
+                } catch (error) {
+                  console.log(
+                    error,
+                    "something seems to be wrong with this request"
+                  )
+                }
                 // console.log("Success", JSON.stringify(response.data))
 
                 /*await fetch(url, {

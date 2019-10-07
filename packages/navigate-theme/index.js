@@ -34,6 +34,7 @@ export {
   default as useThemeRoutesConfigQuery,
 } from "./src/queries/themeRoutesConfigQuery"
 export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
+export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
 
 /*components*/
 

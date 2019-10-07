@@ -1,8 +1,15 @@
 import React, { useState } from "react"
 
+import useFAQVideoQuery from "../../queries/faqVideoQuery"
+
 // TODO - clean up
 
 const SectionVehicles = ({ FAQData, categories }) => {
+  // getting data out of our FAQ Query
+  const FAQVideo = useFAQVideoQuery()
+
+  console.log(FAQVideo)
+
   // function that handles the state change
   const handleClick = idx => {
     // setting the color
@@ -112,11 +119,21 @@ const SectionVehicles = ({ FAQData, categories }) => {
 
   // rendering video boxes
   const renderVideoBoxes = () => {
-    return (
-      <div className="video-box">
-        <h3 className="video-boex-header">Title of video here</h3>
-      </div>
-    )
+    return FAQVideo.map(e => {
+      return (
+        <div className="video-box">
+          <h3 className="includes__title--second heading-alternative u-color-green u-padding-bottom-small">
+            {e.node.title}
+          </h3>
+          <iframe
+            src={e.node.videoUrl}
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )
+    })
   }
 
   return (
@@ -141,9 +158,7 @@ const SectionVehicles = ({ FAQData, categories }) => {
           <ul className="FAQ__list">{renderFAQs(0, 6)}</ul>
           <ul className="FAQ__list">{renderFAQs(6, 30)}</ul>
         </div>
-        <div className="FAQ__video-box">
-          {renderVideoBoxes()} {renderVideoBoxes()} {renderVideoBoxes()}
-        </div>
+        <div className="FAQ__video-box">{renderVideoBoxes()}</div>
       </div>
     </section>
   )
