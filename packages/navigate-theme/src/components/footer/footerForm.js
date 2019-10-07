@@ -58,16 +58,16 @@ const FooterForm = () => {
               finalAPI = { ...values, ...partialData }
               console.log(finalAPI)
               try {
-                const json = await submitContactRequest(
+                const response = await submitContactRequest(
                   JSON.stringify(finalAPI)
                 )
 
                 setSuccess({
                   success: true,
-                  message: JSON.stringify(json.data.message),
+                  message: JSON.stringify(response.data.data.message),
                 })
 
-                console.log("Success", JSON.stringify(json))
+                console.log("Success", JSON.stringify(response))
               } catch (error) {
                 console.log(
                   error,
