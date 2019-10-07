@@ -3,7 +3,6 @@ import React, { Fragment } from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   BoxContainer,
   Banner,

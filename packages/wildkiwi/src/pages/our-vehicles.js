@@ -4,7 +4,6 @@ import React from "react"
 
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
