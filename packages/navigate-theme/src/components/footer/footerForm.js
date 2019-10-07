@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
-import { api as ApiService } from "../../services/api"
-
+import { submitContactRequest } from "../../services/api"
 import Error from "../destinations/error"
 
 // Our Schema validation logics here
@@ -59,14 +58,10 @@ const FooterForm = () => {
               finalAPI = { ...values, ...partialData }
               console.log(finalAPI)
               try {
-                const response = await fetch(url, {
-                  method: "POST",
-                  body: JSON.stringify(finalAPI),
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                })
-                const json = await response.json()
+                const json = await submitContactRequest(
+                  JSON.stringify(finalAPI)
+                )
+
                 setSuccess({
                   success: true,
                   message: JSON.stringify(json.data.message),

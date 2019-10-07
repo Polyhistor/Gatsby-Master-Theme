@@ -200,8 +200,6 @@ export { default as Featured } from "./src/components/featured"
 export { default as GetInTouchData } from "./src/components/getInTouchData"
 export { default as Row } from "./src/components/row"
 
-/*Booking Utilities*/
-export { api as ApiService } from "./src/services/api"
 export { default as Error } from "./src/components/destinations/error"
 
 /**

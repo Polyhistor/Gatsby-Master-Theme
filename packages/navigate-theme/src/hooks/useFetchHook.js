@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { api as ApiService } from "../services/api"
+import { getTourPricesRequest } from "../services/api"
 
 export const useFetchHook = slug => {
   // setting inital state
@@ -7,7 +7,7 @@ export const useFetchHook = slug => {
 
   // loading our data
   useEffect(() => {
-    ApiService.getTourPrices(slug).then(response => {
+    getTourPricesRequest(slug).then(response => {
       setState({ data: response.data, loading: false })
     })
   }, [])

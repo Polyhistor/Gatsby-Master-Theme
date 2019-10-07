@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
-
+import { submitContactRequest } from "../../services/api"
 import GetInTouchData from "../getInTouchData"
 
 // Our Schema validation logics here
@@ -18,8 +18,6 @@ const validationSchema = Yup.object().shape({
 
 // final data to be sent to the API
 let finalAPI
-
-let url = "https://api2.ntstage.com/contact"
 
 const SectionGetInTouch = () => {
   // object that we use to synthesize later with form fields later
@@ -94,14 +92,10 @@ const SectionGetInTouch = () => {
               finalAPI = { ...values, ...partialData }
               console.log(finalAPI)
               try {
-                const response = await fetch(url, {
-                  method: "POST",
-                  body: JSON.stringify(finalAPI),
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                })
-                const json = await response.json()
+                const json = await submitContactRequest(
+                  JSON.stringify(finalAPI)
+                )
+
                 setSuccess({
                   success: true,
                   message: JSON.stringify(json.data.message),
@@ -109,6 +103,7 @@ const SectionGetInTouch = () => {
                 resetForm()
                 console.log("Success", JSON.stringify(json))
               } catch (error) {
+                alert("aaaa")
                 console.log("error", error)
               }
             }}

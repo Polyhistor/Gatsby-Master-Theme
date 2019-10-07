@@ -5,7 +5,7 @@ import Step from "./step"
 import DetailsForm from "./detailsForm"
 import useDestinationQuery from "../../queries/destinationQuery"
 
-import { api as ApiService } from "../../services/api"
+import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
@@ -210,7 +210,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
-    await ApiService.getTourPrices(e.target.value).then(response =>
+    await getTourPricesRequest(e.target.value).then(response =>
       setEntries(response.data.data)
     )
   }
