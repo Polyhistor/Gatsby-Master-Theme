@@ -4,6 +4,15 @@
  * run gatsby.
  */
 
+const sharp = require("sharp")
+if (
+  process.env.DISABLE_SHARP_CACHE &&
+  process.env.DISABLE_SHARP_CACHE === "1"
+) {
+  sharp.simd(false)
+  sharp.cache(false)
+}
+
 const extractMetadataFromContentfulData = (pageIdentifier, seoPageMetaData) => {
   const metadata = seoPageMetaData.find(
     x => x.node.referencedPageIdentifier === pageIdentifier
