@@ -3,9 +3,9 @@ import React from "react"
 import BookingForm from "../destinations/bookingForm"
 
 const Booking = ({ data }) => {
-  console.log(data)
   return (
     <div className="section-destination__booking">
+      <h2 class="green-title u-padding-bottom-small">Dates and pricing</h2>
       <BookingForm data={data} inPage={true} />
     </div>
   )

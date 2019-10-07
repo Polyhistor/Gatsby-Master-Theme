@@ -94,12 +94,12 @@ const BookingForm = ({ data, country, inPage }) => {
             <span className="booking-form__month"> {e.description}</span>
             <input
               className="booking-form__input"
-              id={`plus-holder-${idx}`}
+              id={`plus-holder-${inPage ? idx + 1 : idx}`}
               type="checkbox"
             ></input>
             <label
               className="booking-form__plus-holder"
-              for={`plus-holder-${idx}`}
+              for={`plus-holder-${inPage ? idx + 1 : idx}`}
             ></label>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
@@ -227,41 +227,40 @@ const BookingForm = ({ data, country, inPage }) => {
     <section
       className={inPage ? "booking-form booking-form--in-page" : "booking-form"}
     >
-      {inPage === null ? (
-        <div className="booking-form__header">
-          {!phase ? (
-            <>
-              <Step
-                num="1"
-                text="select tour and date"
-                variation={false}
-                last={false}
-              ></Step>
-              <Step
-                num="2"
-                text="enter your details"
-                variation={true}
-                last={false}
-              ></Step>
-            </>
-          ) : (
-            <>
-              <Step
-                num="1"
-                text="select tour and date"
-                variation={true}
-                last={false}
-              ></Step>
-              <Step
-                num="2"
-                text="enter your details"
-                variation={false}
-                last={true}
-              ></Step>
-            </>
-          )}
-        </div>
-      ) : null}
+      <div className="booking-form__header">
+        {!phase ? (
+          <>
+            <Step
+              num="1"
+              text="select tour and date"
+              variation={false}
+              last={false}
+            ></Step>
+            <Step
+              num="2"
+              text="enter your details"
+              variation={true}
+              last={false}
+            ></Step>
+          </>
+        ) : (
+          <>
+            <Step
+              num="1"
+              text="select tour and date"
+              variation={true}
+              last={false}
+            ></Step>
+            <Step
+              num="2"
+              text="enter your details"
+              variation={false}
+              last={true}
+            ></Step>
+          </>
+        )}
+      </div>
+
       <div
         className={
           inPage

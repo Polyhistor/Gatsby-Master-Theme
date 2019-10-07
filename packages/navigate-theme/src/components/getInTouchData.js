@@ -7,11 +7,11 @@ export default [
   {
     header: "Live chat",
     content:
-      "Chat with us live - click the yellow icon in the bottom right corner of the window and start a chat conversation \n Monday to Friday: 8am - 6pm \n Saturday: 8am - 1pm \n Sunday: closed",
+      "Chat with us live - click the yellow icon in the bottom right corner of the window and start a chat conversation \nMonday to Friday: 8am - 6pm \nSaturday: 8am - 1pm \nSunday: closed",
   },
   {
     header: "Email us",
-    content: "For any enquiries please write to us at \n info@wildkiwi.com",
+    content: "For any enquiries please write to us at \nhello@wildkiwi.com",
   },
   {
     header: "Facebook",
@@ -19,7 +19,6 @@ export default [
   },
   {
     header: "Instagram",
-    content:
-      "Send us a message on Instagram \n Tag us on Instagram #WildKiwiTours",
+    content: "Tag us on Instagram #WildKiwiTours",
   },
 ]

@@ -74,7 +74,10 @@ const FooterForm = () => {
 
                 console.log("Success", JSON.stringify(json))
               } catch (error) {
-                console.log("error", error)
+                console.log(
+                  error,
+                  "Respond could not be fetched, please contact adminstrator or try again"
+                )
               }
             }}
           >

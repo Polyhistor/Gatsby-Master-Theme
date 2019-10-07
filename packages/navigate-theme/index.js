@@ -33,6 +33,7 @@ export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
 export {
   default as useThemeRoutesConfigQuery,
 } from "./src/queries/themeRoutesConfigQuery"
+export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
 
 /*components*/
 

@@ -33,8 +33,8 @@ const SectionGetInTouch = () => {
 
   const addressData = [
     "Address",
-    "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nNew Zealand",
-    "Level 4, Hight Screet\nStree,\nSt Marys Bay,\nLondon",
+    "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+    "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
   ]
 
   // setting our inital state
@@ -69,11 +69,11 @@ const SectionGetInTouch = () => {
               id="country"
             >
               <option value="newzealand">NEW ZEALAND</option>
-              <option value="uk">THE UK</option>
+              <option value="uk">UNITED KINGDOM</option>
             </select>
           </div>
           <p className="get-in-touch__number">
-            {state === "newzealand" ? "+64 9 973 5676" : "+44 9 973 5676"}
+            {state === "newzealand" ? "+64 9 973 5676" : "+44 203 637 6466"}
           </p>
           <div className="get-in-touch__container">
             <h3 className="get-in-touch__header">{addressData[0]}</h3>

@@ -1,11 +1,11 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 const FooterCopyright = () => {
   const data = {
     site: {
       siteMetadata: {
-        copyright: "blabla",
+        copyright: "Navigate Travel",
       },
     },
   }
@@ -25,10 +25,12 @@ const FooterCopyright = () => {
         <div className="footer__copyright">
           <div className="col-md-1-of-4">
             © Copyright {data.site.siteMetadata.copyright}{" "}
-            {new Date().getFullYear()}
           </div>
           <div className="col-md-1-of-4">
-            Privacy and Cookies Policy Terms and Conditions
+            <Link to="/privacy-policy">
+              Privacy and Cookies Policy &nbsp;&nbsp;
+            </Link>
+            <Link to="/terms-conditions">Terms and Conditions</Link>
           </div>
         </div>
       </div>

@@ -129,11 +129,7 @@
       width: 100%;
       height: 100%;
 
-      & + .booking-form__footer {
-        display: none;
-      }
-
-      & > .booking-form__phase-2 .booking-form__booking-details {
+      & > div > div:nth-child(1) {
         display: none;
       }
     }
@@ -171,7 +167,7 @@
 
     &-2 {
       display: grid;
-      grid-template-columns: 55% 40%;
+      grid-template-columns: 55% 38.2rem;
       grid-column-gap: 4rem;
 
       @include respond(tablet) {
@@ -501,6 +497,7 @@
 
   &__footer {
     height: 5rem;
+    margin-top: 4rem;
 
     @include respond(tablet) {
       margin-top: 5rem;
@@ -691,7 +688,7 @@
 
     & > button {
       grid-column: 1/3;
-      width: 26.5rem;
+      width: 22rem;
 
       @include respond(phone) {
         width: 30rem !important;

@@ -83,6 +83,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 finalAPI = { ...values, ...partialData }
                 setSuccess(true)
                 await ApiService.enquiry(finalAPI)
+
                 // console.log("Success", JSON.stringify(response.data))
 
                 /*await fetch(url, {
@@ -96,13 +97,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               console.log("Success", JSON.stringify(json))*/
               }}
             >
-              {({
-                errors,
-                touched,
-                handleChange,
-
-                setFieldValue,
-              }) => (
+              {({ errors, touched, handleChange, setFieldValue }) => (
                 <Form className="booking-form__form-container">
                   <div className="booking-details__fields-container">
                     <Field

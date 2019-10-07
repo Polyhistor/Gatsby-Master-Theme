@@ -1,7 +1,6 @@
 {
   "name": "@nt-websites/main",
   "private": true,
-  "description": "Navigate Travel",
   "version": "0.1.0",
   "author": "Pouya Ataei",
   "dependencies": {

@@ -16,7 +16,7 @@ const Trips = ({ data }) => {
   const renderTrips = () =>
     data.map((trip, key) => {
       // logic for adding currency text
-      trip.destinationCountry === "newzealand"
+      trip.destinationCountry === "new-zealand"
         ? (currency = ["NZD", "$"])
         : trip.destinationCountry === "australia"
         ? (currency = ["AUD", "$"])

@@ -26,7 +26,7 @@ const GetInTouch = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.vehicleSouth.childImageSharp.fluid}
+          imageData={imageQuery.getInTouchBanner.childImageSharp.fluid}
           titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
