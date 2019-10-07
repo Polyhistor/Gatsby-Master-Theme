@@ -10,21 +10,19 @@ axios.defaults.headers = {
 // }
 
 const API_ENDPOINTS = {
-  ENQUIRY: `https://api2.ntstage.com/enquiry`,
-  TOUR: `https://api2.ntstage.com/tours/{TOUR_SLUG}`,
-  CONTACT: `https://api2.ntstage.com/contact`,
+  ENQUIRY: `${process.env.GATSBY_API_URL}/enquiry`,
+  TOUR: `${process.env.GATSBY_API_URL}/tours/{TOUR_SLUG}`,
+  CONTACT: `${process.env.GATSBY_API_URL}/contact`,
 }
 
-export const api = {
-  getTourPrices(tourSlug) {
-    return axios.get(API_ENDPOINTS.TOUR.replace("{TOUR_SLUG}", tourSlug))
-  },
+export const getTourPricesRequest = tourSlug => {
+  return axios.get(API_ENDPOINTS.TOUR.replace("{TOUR_SLUG}", tourSlug))
+}
 
-  enquiry(data) {
-    return axios.post(`${API_ENDPOINTS.ENQUIRY}`, data)
-  },
+export const submitEnquiryRequest = data => {
+  return axios.post(`${API_ENDPOINTS.ENQUIRY}`, data)
+}
 
-  contact(data) {
-    return axios.post(`${API_ENDPOINTS.CONTACT}`, data)
-  },
+export const submitContactRequest = data => {
+  return axios.post(`${API_ENDPOINTS.CONTACT}`, data)
 }

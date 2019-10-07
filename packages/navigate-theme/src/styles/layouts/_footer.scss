@@ -325,6 +325,11 @@
       & + button {
         grid-column: 2;
 
+        @include respond(laptop) {
+          margin-top: 1rem;
+          grid-column: 1;
+        }
+
         @include respond(phone) {
           grid-column: 1;
         }

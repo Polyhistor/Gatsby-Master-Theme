@@ -185,7 +185,7 @@ const ActivitiesMain = ({ pageContext }) => {
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.breathTakingScenery.childImageSharp.fluid}
+          imageData={imageQuery.activitiesBanner.childImageSharp.fluid}
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -211,7 +211,7 @@ const ActivitiesMain = ({ pageContext }) => {
               onChange={handleSubmit}
             >
               <option value="all">Country</option>
-              <option value="newzealand">New Zealand</option>
+              <option value="new-zealand">New Zealand</option>
               <option value="australia"> Australia </option>
               <option value="europe"> Europe</option>
             </select>

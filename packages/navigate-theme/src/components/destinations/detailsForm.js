@@ -4,7 +4,7 @@ import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 
 import useDestinationQuery from "../../queries/destinationQuery"
-import { api as ApiService } from "../../services/api"
+import { submitEnquiryRequest } from "../../services/api"
 import Error from "./error"
 
 // Our schema validation logich ere
@@ -81,8 +81,9 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
+
+                await submitEnquiryRequest(finalAPI)
                 setSuccess(true)
-                await ApiService.enquiry(finalAPI)
                 // console.log("Success", JSON.stringify(response.data))
 
                 /*await fetch(url, {
@@ -96,13 +97,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               console.log("Success", JSON.stringify(json))*/
               }}
             >
-              {({
-                errors,
-                touched,
-                handleChange,
-
-                setFieldValue,
-              }) => (
+              {({ errors, touched, handleChange, setFieldValue }) => (
                 <Form className="booking-form__form-container">
                   <div className="booking-details__fields-container">
                     <Field

@@ -5,7 +5,7 @@ module.exports = themeOptions => {
   return {
     plugins: [
       `gatsby-plugin-catch-links`,
-      `gatsby-plugin-force-trailing-slashes`,
+      `gatsby-plugin-remove-trailing-slashes`,
       `gatsby-plugin-playground`,
       `gatsby-plugin-offline`,
       `gatsby-plugin-sass`,
@@ -13,12 +13,12 @@ module.exports = themeOptions => {
       `gatsby-plugin-breadcrumb`,
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
-      {
+      /*{
         resolve: "gatsby-plugin-brotli",
         options: {
           extensions: ["css", "html", "js", "svg"],
         },
-      },
+      },*/
       {
         resolve: `gatsby-source-contentful`,
         options: {
@@ -34,6 +34,14 @@ module.exports = themeOptions => {
           color: themeOptions.nprogress.color,
           // Disable the loading spinner.
           showSpinner: themeOptions.nprogress.showSpinner,
+        },
+      },
+
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: `${__dirname}/src/images`,
         },
       },
 
@@ -83,13 +91,6 @@ module.exports = themeOptions => {
           normalizer: function({ entities }) {
             return entities
           },
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `images`,
-          path: `${__dirname}/src/images`,
         },
       },
     ],

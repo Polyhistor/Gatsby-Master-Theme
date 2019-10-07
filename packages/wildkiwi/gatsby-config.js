@@ -1,7 +1,10 @@
 // getting our environment variables
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+
+if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+}
 
 module.exports = {
   siteMetadata: {
@@ -57,7 +60,7 @@ module.exports = {
           downloadLocal: true,
         },
         wordpress: {
-          baseUrl: `devygacademy.wpengine.com`,
+          baseUrl: process.env.WORDPRESS_URL,
           perPage: 5,
           concurrentRequests: 3,
           includedRoutes: [

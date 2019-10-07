@@ -33,6 +33,7 @@ export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
 export {
   default as useThemeRoutesConfigQuery,
 } from "./src/queries/themeRoutesConfigQuery"
+export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
 
 /*components*/
 
@@ -200,8 +201,6 @@ export { default as Featured } from "./src/components/featured"
 export { default as GetInTouchData } from "./src/components/getInTouchData"
 export { default as Row } from "./src/components/row"
 
-/*Booking Utilities*/
-export { api as ApiService } from "./src/services/api"
 export { default as Error } from "./src/components/destinations/error"
 
 /**

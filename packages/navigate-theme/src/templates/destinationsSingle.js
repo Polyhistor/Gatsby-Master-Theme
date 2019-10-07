@@ -125,7 +125,7 @@ const DestinationsSingle = ({ pageContext, data }) => {
           <Reviews />
         </div>
         <WhyWild WhyWildData={WhyWildData} />
-        <Booking data={ourData} />
+        <Booking data={ourData} inPage={true} />
         <GetThere
           title="Getting there"
           paragraph={

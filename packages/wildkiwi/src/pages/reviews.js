@@ -5,7 +5,6 @@ import {
   Layout2,
   Landing,
   GreenBar,
-  SEO,
   SectionReview,
   useImageQuery,
   renderSeo,
@@ -23,7 +22,7 @@ const Reviews = ({ data }) => {
 
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.reviews.childImageSharp.fluid}
+          imageData={imageQuery.ReviewsBanner.childImageSharp.fluid}
           titleFirst="reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"

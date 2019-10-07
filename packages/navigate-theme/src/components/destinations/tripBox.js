@@ -4,7 +4,6 @@ import { Formik } from "formik"
 
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
-import { useFetchHook } from "../../hooks/useFetchHook"
 import BookingForm from "./bookingForm"
 
 const TripBox = ({

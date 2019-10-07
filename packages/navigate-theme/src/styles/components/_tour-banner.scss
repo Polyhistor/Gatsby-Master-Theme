@@ -190,6 +190,11 @@
       margin-left: -1.5rem;
       width: 34.4rem;
 
+      @include respond(laptop) {
+        height: 36rem;
+        width: 30rem;
+      }
+
       @include respond(tablet) {
         border-left: 1px solid #e7e7e7;
       }

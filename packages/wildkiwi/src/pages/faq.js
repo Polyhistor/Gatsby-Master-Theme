@@ -30,7 +30,7 @@ const FAQ = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
+          imageData={imageQuery.FAQsBanner.childImageSharp.fluid}
           titleFirst="FAQ"
           buttonFirst="expore"
           buttonFirstURL="/blog"

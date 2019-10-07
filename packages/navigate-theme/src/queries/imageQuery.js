@@ -181,6 +181,54 @@ const useImageQuery = () => {
       reviews: file(relativePath: { eq: "wild-kiwi-tours-reviews.jpg" }) {
         ...FluidImage
       }
+
+      aboutUsBanner: file(
+        relativePath: { eq: "mount-cook-new-zealand-wild-kiwi-tours.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      activitiesBanner: file(
+        relativePath: {
+          eq: "bungy-jumping-queenstown-wild-kiwi-activities.jpg"
+        }
+      ) {
+        ...FluidImage
+      }
+
+      destinationsBanner: file(
+        relativePath: { eq: "cathedral-cove-new-zealand-wild-kiwi.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      FAQsBanner: file(
+        relativePath: { eq: "mount-cook-new-zealand-faqs.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      getInTouchBanner: file(
+        relativePath: { eq: "surfer-raglan-new-zealand-get-in-touch.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      howItWorksBanner: file(
+        relativePath: { eq: "lake-wakatipu-small-group-tour-wild-kiwi.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      ourVehiclesBanner: file(
+        relativePath: { eq: "wild-kiwi-small-group-tours-vehicle.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      ReviewsBanner: file(relativePath: { eq: "wild-kiwi-tours-reviews.jpg" }) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData
