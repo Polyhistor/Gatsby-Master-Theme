@@ -4,7 +4,7 @@ import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 
 import useDestinationQuery from "../../queries/destinationQuery"
-import { api as ApiService } from "../../services/api"
+import { submitEnquiryRequest } from "../../services/api"
 import Error from "./error"
 
 // Our schema validation logich ere
@@ -81,9 +81,9 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
-                setSuccess(true)
-                await ApiService.enquiry(finalAPI)
 
+                await submitEnquiryRequest(finalAPI)
+                setSuccess(true)
                 // console.log("Success", JSON.stringify(response.data))
 
                 /*await fetch(url, {

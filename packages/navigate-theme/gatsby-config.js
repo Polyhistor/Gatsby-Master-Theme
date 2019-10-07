@@ -13,12 +13,12 @@ module.exports = themeOptions => {
       `gatsby-plugin-breadcrumb`,
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
-      {
+      /*{
         resolve: "gatsby-plugin-brotli",
         options: {
           extensions: ["css", "html", "js", "svg"],
         },
-      },
+      },*/
       {
         resolve: `gatsby-source-contentful`,
         options: {

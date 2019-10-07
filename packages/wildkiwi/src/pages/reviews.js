@@ -5,7 +5,6 @@ import {
   Layout2,
   Landing,
   GreenBar,
-  SEO,
   SectionReview,
   useImageQuery,
   renderSeo,
