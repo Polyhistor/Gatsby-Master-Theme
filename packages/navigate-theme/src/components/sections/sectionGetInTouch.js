@@ -67,17 +67,26 @@ const SectionGetInTouch = () => {
               id="country"
             >
               <option value="newzealand">NEW ZEALAND</option>
+              <option value="australia">AUSTRALIA</option>
               <option value="uk">UNITED KINGDOM</option>
             </select>
           </div>
           <p className="get-in-touch__number">
-            {state === "newzealand" ? "+64 9 973 5676" : "+44 203 637 6466"}
+            {state === "newzealand"
+              ? "+64 9 973 5676"
+              : "australia"
+              ? "+61 2 9133 8646"
+              : "+44 203 637 6466"}
           </p>
           <div className="get-in-touch__container">
-            <h3 className="get-in-touch__header">{addressData[0]}</h3>
-            <pre className="get-in-touch__paragraph">
-              {state === "newzealand" ? addressData[1] : addressData[2]}
-            </pre>
+            {state !== "australia" ? (
+              <>
+                <h3 className="get-in-touch__header">{addressData[0]}</h3>
+                <pre className="get-in-touch__paragraph">
+                  {state === "newzealand" ? addressData[1] : addressData[2]}
+                </pre>
+              </>
+            ) : null}
           </div>
 
           <Formik
@@ -90,12 +99,10 @@ const SectionGetInTouch = () => {
             validationSchema={validationSchema}
             onSubmit={async (values, { resetForm }) => {
               finalAPI = { ...values, ...partialData }
-              console.log(finalAPI)
               try {
                 const json = await submitContactRequest(
                   JSON.stringify(finalAPI)
                 )
-
                 setSuccess({
                   success: true,
                   message: JSON.stringify(json.data.message),

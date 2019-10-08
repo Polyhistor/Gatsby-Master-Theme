@@ -71,7 +71,7 @@ const FilteredTour = ({ country, destinationData }) => {
       })
       .map((element, idx) => {
         // logic for adding currency text
-        element.node.destinationCountry === "newzealand"
+        element.node.destinationCountry === "new-zealand"
           ? (currency = ["NZD", "$"])
           : element.node.destinationCountry === "australia"
           ? (currency = ["AUD", "$"])

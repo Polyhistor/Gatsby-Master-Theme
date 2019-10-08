@@ -8,8 +8,6 @@ const SectionVehicles = ({ FAQData, categories }) => {
   // getting data out of our FAQ Query
   const FAQVideo = useFAQVideoQuery()
 
-  console.log(FAQVideo)
-
   // function that handles the state change
   const handleClick = idx => {
     // setting the color
