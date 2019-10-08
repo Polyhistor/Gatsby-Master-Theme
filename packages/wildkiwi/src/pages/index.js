@@ -30,8 +30,6 @@ const IndexPage = ({ data }) => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
 
-  console.log(countryQuery)
-
   // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(

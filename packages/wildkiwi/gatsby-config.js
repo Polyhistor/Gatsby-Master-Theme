@@ -29,6 +29,12 @@ module.exports = {
 
   plugins: [
     {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: process.env.FACEBOOK_PIXEL_ID || "",
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GOOGLE_TAG_MANAGER || "",
@@ -41,12 +47,6 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         // Defaults to null
         defaultDataLayer: { platform: "gatsby" },
-
-        /*
-        gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        dataLayerName: "YOUR_DATA_LAYER_NAME",
-        */
       },
     },
     {

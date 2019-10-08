@@ -25,7 +25,7 @@ const Countries = ({ data, pageContext }) => {
   //TODO: This youtube video should not be static on code. We need to define it on
   //contentful
   let popupUrl =
-    data.contentfulCountry.slug === "newzealand"
+    data.contentfulCountry.slug === "new-zealand"
       ? "https://www.youtube.com/embed/19GIN9tj-NY"
       : data.contentfulCountry.slug === "australia"
       ? "https://www.youtube.com/embed/a1MwJNEJZBw"
