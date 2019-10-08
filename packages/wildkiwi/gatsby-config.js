@@ -6,14 +6,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
   })
 }
 
-const {
-  NODE_ENV,
-  URL: NETLIFY_SITE_URL = "https://www.example.com",
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV,
-} = process.env
-
-function getRobotsPolicy() {
+function getRobotsTxtPolicy() {
   if (process.env.NODE_ENV !== "production") {
     return [{ userAgent: "*", disallow: ["/"] }]
   } else {
@@ -36,16 +29,41 @@ module.exports = {
 
   plugins: [
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER || "",
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        // Defaults to null
+        defaultDataLayer: { platform: "gatsby" },
+
+        /*
+        gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+        dataLayerName: "YOUR_DATA_LAYER_NAME",
+        */
+      },
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: process.env.SITE_URL,
-        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        host:
+          process.env.NODE_ENV !== "production" ? null : process.env.SITE_URL,
+        sitemap:
+          process.env.NODE_ENV !== "production"
+            ? null
+            : `${process.env.SITE_URL}/sitemap.xml`,
         env: {
           development: {
-            policy: getRobotsPolicy(),
+            policy: getRobotsTxtPolicy(),
           },
           production: {
-            policy: getRobotsPolicy(),
+            policy: getRobotsTxtPolicy(),
           },
         },
       },
