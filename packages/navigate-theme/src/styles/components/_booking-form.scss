@@ -106,7 +106,8 @@
   &__body {
     height: 70vh;
     width: 66vw;
-    margin-top: 5rem;
+    margin-top: 4rem;
+    overflow: scroll;
 
     @include respond(laptop) {
       width: 101rem;
@@ -127,10 +128,6 @@
     &--in-page {
       width: 100%;
       height: 100%;
-
-      & > div > div:nth-child(1) {
-        display: none;
-      }
     }
   }
 
@@ -188,7 +185,7 @@
   }
 
   &__dropdown {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 
     @include respond(phone) {
       margin-bottom: 1rem;
@@ -318,7 +315,7 @@
   &__left {
     display: flex;
     justify-content: space-between;
-    width: 44%;
+    width: 32%;
 
     @include respond(laptop) {
       width: 53%;
@@ -339,7 +336,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 25%;
+    width: 23%;
 
     @include respond(laptop) {
       width: 31%;
@@ -360,7 +357,7 @@
   &__date-container {
     display: flex;
     flex-direction: column;
-    width: 11rem;
+    width: 10rem;
 
     @include respond(laptop) {
       width: 10rem;
@@ -453,7 +450,7 @@
 
   &__price {
     display: flex;
-    width: 53%;
+    width: 45%;
     justify-content: space-between;
     align-items: center;
 
@@ -484,6 +481,7 @@
     text-transform: capitalize;
     font-size: 1.4rem;
     color: $color-primary;
+    width: 8rem;
 
     &--selected {
       color: $color-red;
