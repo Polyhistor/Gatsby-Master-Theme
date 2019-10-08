@@ -2,7 +2,7 @@
   padding: 3rem;
 
   @include respond(laptop) {
-    width: 96rem;
+    width: 104rem;
   }
 
   @include respond(tablet) {
@@ -105,12 +105,11 @@
 
   &__body {
     height: 70vh;
-    width: 50vw;
+    width: 66vw;
     margin-top: 5rem;
-    overflow-y: scroll;
 
     @include respond(laptop) {
-      width: 90rem;
+      width: 101rem;
     }
 
     @include respond(tablet) {

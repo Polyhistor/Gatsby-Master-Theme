@@ -1,9 +1,9 @@
 .video-box {
-  background: #aeaeae;
-  color: white;
-  padding: 5rem;
-  width: 25%;
-  height: 5%;
+  padding: 2rem;
+
+  @include respond(tablet) {
+    padding: 2rem;
+  }
 
   @include respond(phone) {
     width: 100%;

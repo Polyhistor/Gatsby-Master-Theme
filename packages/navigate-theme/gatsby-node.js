@@ -1,7 +1,6 @@
 /**
- * Temporary workaround to use on gatsby.node, as it current not
- * support es modules imports. In the future we can use ESM or use babel-node to
- * run gatsby.
+ * Disable sharp simd & cache.
+ * https://github.com/gatsbyjs/gatsby/issues/6291
  */
 
 const sharp = require("sharp")
