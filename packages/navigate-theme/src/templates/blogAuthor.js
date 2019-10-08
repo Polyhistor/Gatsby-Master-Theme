@@ -101,6 +101,7 @@ const BlogAuthorTemplate = ({ data }) => {
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"
+          link="/how-it-works"
         />
       </div>
       <div className="mobile-no">

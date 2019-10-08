@@ -140,6 +140,7 @@ const IndexPage = ({ data }) => {
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="explore"
+        link="/how-it-works"
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} />

@@ -83,7 +83,7 @@ const TripBox = ({
         className={{ overlay: "overlay", modal: "popup" }}
         center
       >
-        <BookingForm data={data} country={country}></BookingForm>
+        <BookingForm data={data} country={country} inPage="false"></BookingForm>
       </Modal>
     </>
   )

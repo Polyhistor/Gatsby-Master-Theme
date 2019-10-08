@@ -69,6 +69,25 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // autoGenHomeLabel: optional 'Home' is default
+        autoGenHomeLabel: `Root`,
+        // exlude: optional, include to overwrite these default excluded pages
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+        ],
+        // optional: switch to className styling
+        // see `useClassNames example with `AutoGen` below
+        useClassNames: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,

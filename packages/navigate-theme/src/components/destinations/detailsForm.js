@@ -259,10 +259,14 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                       required
                     ></Field>
                     <label htmlFor="consent">
-                      I accept the
-                      <Link className="link" to="/terms-conditions">
-                        &nbsp; terms and conditions
-                      </Link>
+                      I accept the&thinsp;
+                      <a
+                        className="link"
+                        href="http://localhost:8000/terms-conditions"
+                        target="_blank"
+                      >
+                        terms and conditions
+                      </a>
                     </label>
                   </div>
                   <button type="submit" className="btn btn--green">
@@ -288,7 +292,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
 
             <div className="booking-form__details booking-form__details--days">
               <div className="booking-form__sub-title">
-                {state.durationInDays}Days
+                {state.durationInDays} Days
               </div>
               <div className="booking-form__sub-title">
                 {/* {values.guests === undefined ? 0 : values.guests}Days */}
@@ -298,16 +302,16 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               <div className="booking-form__sub-title">Start</div>
               <div className="booking-form__info">
                 <span> {state.startDateMedium}</span>
-                <span> Departs {state.departureTime}</span>
-                <span> {`${state.startLocation}, ${state.startCountry}`}</span>
+                {/* <span> Departs {state.departureTime}</span>
+                <span> {`${state.startLocation}, ${state.startCountry}`}</span> */}
               </div>
             </div>
             <div className="booking-form__details booking-form__details--end">
               <div className="booking-form__sub-title">End</div>
               <div className="booking-form__info">
-                <span> {state.startDateMedium}</span>
-                <span> Departs {state.returnTime}</span>
-                <span> {`${state.endLocation}, ${state.endCountry}`}</span>
+                <span> {state.endDateMedium}</span>
+                {/* <span> Departs {state.returnTime}</span>
+                <span> {`${state.endLocation}, ${state.endCountry}`}</span> */}
               </div>
             </div>
             <div className="booking-form__details booking-form__details--price">
