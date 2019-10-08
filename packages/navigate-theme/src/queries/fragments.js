@@ -425,7 +425,9 @@ export const ReviewsFragment = graphql`
     country
     reccomended
     name
-    reviewText
+    reviewText {
+      reviewText
+    }
     date
   }
 `

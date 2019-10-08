@@ -238,6 +238,22 @@
     }
   }
 
+  &__breadcrumb {
+    @include blackUpperCaseGreen;
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5rem;
+
+      & div {
+        display: flex;
+      }
+    }
+  }
+
   &__selector {
     position: relative;
     display: inline;

@@ -259,6 +259,7 @@ const ActivitiesMain = ({ pageContext }) => {
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"
+          link="/how-it-works"
         />
       </div>
 

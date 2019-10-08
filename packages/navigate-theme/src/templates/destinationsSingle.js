@@ -149,6 +149,7 @@ const DestinationsSingle = ({ pageContext, data }) => {
             subHeaderFirst="Read our top 10 adrenalin "
             subHeaderSecond="activites to do in New Zealand."
             buttonText="learn more"
+            link="/how-it-works"
           />
         </div>
       </DestinationSection>

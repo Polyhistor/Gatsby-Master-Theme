@@ -10,6 +10,10 @@
   white-space: pre;
   @include bigUppercaseText;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &--red {
     background-color: $color-red;
     padding: 1.27rem 2.8rem;

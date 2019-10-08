@@ -8,6 +8,7 @@ const Banner = ({
   subHeaderFirst,
   subHeaderSecond,
   buttonText,
+  link,
 }) => {
   return (
     <section className="section-banner section-banner-hero mobile-no">
@@ -24,10 +25,7 @@ const Banner = ({
                 </span>
               </h2>
               <div className="banner-hero__button-box banner-hero__text-box-2">
-                <Link
-                  to="/how-it-works"
-                  className="btn btn--transparent btn-animated"
-                >
+                <Link to={link} className="btn btn--transparent btn-animated">
                   {buttonText}
                 </Link>
               </div>

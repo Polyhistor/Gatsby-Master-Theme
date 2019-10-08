@@ -29,7 +29,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
         <div className="activity__main-container" key={idx}>
           <Link
             className="activity__main-link"
-            to={`activities/${node.country.slug}` + node.slug}
+            to={`activities/${node.country.slug}/${node.slug}`}
           >
             {node.featured_media !== null && (
               <Img
@@ -93,6 +93,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"
+          link="/how-it-works"
         />
       </div>
 
