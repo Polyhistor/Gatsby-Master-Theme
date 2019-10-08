@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react"
 import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
+import { Link } from "gatsby"
 import * as Yup from "yup"
+import PhoneInput from "react-phone-input-2"
+import "react-phone-input-2/dist/style.css"
 
 import useDestinationQuery from "../../queries/destinationQuery"
 import { submitEnquiryRequest } from "../../services/api"
@@ -77,10 +80,12 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 gender: "male",
                 comments: "",
                 consent: false,
+                phone: 0,
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
+                console.log(finalAPI)
                 try {
                   await submitEnquiryRequest(finalAPI)
                   setSuccess(true)
@@ -90,20 +95,16 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                     "something seems to be wrong with this request"
                   )
                 }
-                // console.log("Success", JSON.stringify(response.data))
-
-                /*await fetch(url, {
-                method: "POST",
-                body: JSON.stringify(finalAPI),
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              })
-              const json = await response.json()
-              console.log("Success", JSON.stringify(json))*/
               }}
             >
-              {({ errors, touched, handleChange, setFieldValue }) => (
+              {({
+                errors,
+                touched,
+                handleChange,
+                values,
+                setFieldTouched,
+                setFieldValue,
+              }) => (
                 <Form className="booking-form__form-container">
                   <div className="booking-details__fields-container">
                     <Field
@@ -258,7 +259,10 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                       required
                     ></Field>
                     <label htmlFor="consent">
-                      I accept the terms and conditions
+                      I accept the
+                      <Link className="link" to="/terms-conditions">
+                        &nbsp; terms and conditions
+                      </Link>
                     </label>
                   </div>
                   <button type="submit" className="btn btn--green">

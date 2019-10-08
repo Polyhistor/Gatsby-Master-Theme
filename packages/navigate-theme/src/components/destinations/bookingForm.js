@@ -47,7 +47,8 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting the phases
   const [phase, setPhase] = useState(false)
 
-  // function that fetches data that has been clicked
+  // setting value for the dropdown
+  const [selectValue, setSelectValue] = useState("all")
 
   const handleClick = (_, idx, idx2, d) => {
     // these will be used later for advanced select functionality
@@ -71,7 +72,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
-    if (entries === null) {
+    if (entries === null || destinationFilter === null) {
       return <h2 className="green-title">Please select your region and tour</h2>
     }
 
@@ -210,6 +211,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
+    setSelectValue(e.target.value)
     await getTourPricesRequest(e.target.value).then(response =>
       setEntries(response.data.data)
     )
@@ -217,6 +219,9 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles countries dropdown
   const handleCountryDropdown = e => {
+    setSelectValue("Tours")
+    setEntries(null)
+
     const filteredDests = destinationData.filter(d => {
       return d.node.destinationCountry === e.target.value
     })
@@ -293,6 +298,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       onChange={e => handleDestDropdown(e)}
                       className="activity__dropdown"
                       id="tours"
+                      value={selectValue}
                     >
                       <option value="all">Tours</option>
                       {renderDestinations()}

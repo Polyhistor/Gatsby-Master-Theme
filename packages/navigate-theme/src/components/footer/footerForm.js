@@ -18,8 +18,6 @@ const validationSchema = Yup.object().shape({
 // final data to be sent to the API
 let finalAPI
 
-let url = "https://api2.ntstage.com/contact"
-
 const FooterForm = () => {
   // object that we use to synthesize later with form fields later
   const partialData = { productId: 8 }
@@ -56,7 +54,6 @@ const FooterForm = () => {
             validationSchema={validationSchema}
             onSubmit={async values => {
               finalAPI = { ...values, ...partialData }
-              console.log(finalAPI)
               try {
                 const response = await submitContactRequest(
                   JSON.stringify(finalAPI)
@@ -66,8 +63,6 @@ const FooterForm = () => {
                   success: true,
                   message: JSON.stringify(response.data.data.message),
                 })
-
-                console.log("Success", JSON.stringify(response))
               } catch (error) {
                 console.log(
                   error,
