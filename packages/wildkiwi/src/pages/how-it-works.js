@@ -52,6 +52,7 @@ const HowItWorks = ({ data }) => {
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
+        link="/faq"
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} />

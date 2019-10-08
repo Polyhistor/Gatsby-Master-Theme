@@ -31,7 +31,7 @@ const SectionReview = () => {
             {r.node.title}
           </h2>
           <p className="tour-banner__description-details u-padding-bottom-small">
-            {r.node.reviewText}
+            {r.node.reviewText.reviewText}
           </p>
           <h3 className="green-title-alternative">{r.node.name}</h3>
           <span className="green-subtitle-alternative">{r.node.date}</span>

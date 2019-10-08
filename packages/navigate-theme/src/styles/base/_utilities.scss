@@ -352,6 +352,12 @@
 
 //editing external library css
 
+.breadcrumb__separator {
+  @include blackUpperCaseGreen;
+  display: flex;
+  align-items: center;
+}
+
 .social-icon {
   @include respond(phone) {
     height: 5.2rem;
@@ -401,7 +407,7 @@
 
 .link {
   text-decoration: none;
-  color: #aeaeae;
+  color: $color-primary;
 }
 
 .hotfix {

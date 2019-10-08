@@ -12,17 +12,23 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
+
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
-
 import { renderSeoFromContext } from "../helpers/seo-helper"
+
 const ActivitiesSingle = ({
   pageContext,
   data,
   location,
   data: { allPageJson },
 }) => {
+  // intricated object destruction
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext
+
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
   return (
@@ -65,10 +71,13 @@ const ActivitiesSingle = ({
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-
       <SectionActivity>
-        <div>
-          <Breadcrumb location={location} crumbLabel="activities" />
+        <div className="activity__breadcrumb-container">
+          <Breadcrumb
+            className="activity__breadcrumb"
+            crumbs={crumbs}
+            crumbSeparator="&ensp;/&ensp;"
+          />
         </div>
         <ActivityScaffold
           title={data.contentfulActivities.title}
@@ -88,6 +97,7 @@ const ActivitiesSingle = ({
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
+        link="/how-it-works"
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} />

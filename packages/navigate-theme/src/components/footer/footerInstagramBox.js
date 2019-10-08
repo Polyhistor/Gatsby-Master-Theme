@@ -6,6 +6,7 @@ const FooterInstagramBox = ({ imageOne, imageTwo, imageThree, imageFour }) => {
     <a
       className="footer__instagram"
       href="https://www.instagram.com/explore/tags/wildkiwitours/?hl=en"
+      target="_blank"
     >
       <div className="footer__instagram-box">
         <h2>#WildKiwiTours</h2>

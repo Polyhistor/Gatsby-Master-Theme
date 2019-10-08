@@ -72,7 +72,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
-    if (entries === null || destinationFilter === null) {
+    if (entries === null) {
       return <h2 className="green-title">Please select your region and tour</h2>
     }
 
@@ -95,12 +95,12 @@ const BookingForm = ({ data, country, inPage }) => {
             <span className="booking-form__month"> {e.description}</span>
             <input
               className="booking-form__input"
-              id={`plus-holder-${inPage ? idx + 1 : idx}`}
+              id={`plus-holder-${inPage ? idx + 50 : idx}`}
               type="checkbox"
             ></input>
             <label
               className="booking-form__plus-holder"
-              for={`plus-holder-${inPage ? idx + 1 : idx}`}
+              for={`plus-holder-${inPage ? idx + 50 : idx}`}
             ></label>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
