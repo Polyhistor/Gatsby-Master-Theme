@@ -120,7 +120,7 @@ export default Destination
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "destinations-main-page" } }
+      filter: { referencedPageIdentifier: { eq: "destination-main-page" } }
     ) {
       edges {
         node {
