@@ -175,11 +175,11 @@ const BookingForm = ({ data, country, inPage }) => {
                   <div className="booking-form__right">
                     <div className="booking-form__price">
                       <span className="booking-form__original">
-                        {d.prices[0].currencySymbol} {d.prices[0].rrp}
+                        {d.prices[0].rrp} {d.prices[0].currencySymbol}
                       </span>
                       <span className="booking-form__discount">
-                        {d.prices[0].currencySymbol}{" "}
-                        {d.prices[0].rrpWithDiscount}
+                        {d.prices[0].rrpWithDiscount}{" "}
+                        {d.prices[0].currencySymbol}
                       </span>
                     </div>
                     <div
