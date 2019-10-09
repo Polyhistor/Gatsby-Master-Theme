@@ -18,7 +18,7 @@ import {
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const HowItWorks = data => {
+const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -58,7 +58,7 @@ const HowItWorks = data => {
   )
 }
 
-export default HowItWorks
+export default AboutUs
 /**
  * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
  * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
