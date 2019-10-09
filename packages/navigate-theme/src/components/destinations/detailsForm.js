@@ -316,8 +316,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
             </div>
             <div className="booking-form__details booking-form__details--price">
               <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
-                {state.prices[0].currencySymbol}
-                {state.prices[0].rrp}
+                {state.prices[0].rrp} {state.prices[0].currencySymbol}
               </h2>
             </div>
           </div>
