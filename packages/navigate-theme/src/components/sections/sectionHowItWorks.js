@@ -43,12 +43,6 @@ const HowItWorks = ({ data }) => {
 
   return (
     <section className="section-how-it-works">
-      <div className="mobile-yes">
-        <h2 className="bold-green u-margin-bottom-small ">
-          Part of the adventure is getting there, so you may as well do it in
-          style.
-        </h2>
-      </div>
       <div className="how-it-works__container">
         {renderHowBoxes()}
         <h2 className="green-title u-margin-bottom-small">
