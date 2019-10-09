@@ -34,6 +34,11 @@ function SEO({ title, description, author, lang }) {
     const metaTags = []
 
     metaTags.push({
+      name: `description`,
+      content: metaData.description,
+    })
+
+    metaTags.push({
       property: `og:title`,
       content: metaData.title,
     })

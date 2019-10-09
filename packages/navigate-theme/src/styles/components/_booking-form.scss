@@ -181,6 +181,12 @@
       & > h3 {
         display: none;
       }
+
+      &-alt {
+        @include respond(phone) {
+          padding: 0;
+        }
+      }
     }
   }
 
