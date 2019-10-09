@@ -30,9 +30,9 @@ const TripBox = ({
   let currency = useCurrencySymbol(destinationCountry)
 
   // setting the initial state for the modal
-  const [{ open }, setModal] = useState({
-    open: false,
-  })
+  // const [{ open }, setModal] = useState({
+  //   open: false,
+  // })
 
   return (
     <>
@@ -67,8 +67,8 @@ const TripBox = ({
           </div>
           <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
           <a
-            href="#"
-            onClick={() => setModal({ open: true })}
+            href="#booking"
+            // onClick={() => setModal({ open: true })}
             className="trip-box__availablitity"
           >
             {availablity}
@@ -76,15 +76,6 @@ const TripBox = ({
           <p className="trip-box__hot-text">{hotText}</p>
         </div>
       </div>
-      {/* Setting our Modal values */}
-      <Modal
-        open={open}
-        onClose={() => setModal({ open: false })}
-        className={{ overlay: "overlay", modal: "popup" }}
-        center
-      >
-        <BookingForm data={data} country={country} inPage="false"></BookingForm>
-      </Modal>
     </>
   )
 }

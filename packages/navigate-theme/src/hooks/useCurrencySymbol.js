@@ -1,7 +1,8 @@
 export const useCurrencySymbol = country => {
   let currency
 
-  return country === "newzealand"
+  // TODO - changing the slug to come from contentful
+  return country === "new-zealand"
     ? (currency = ["NZD", "$"])
     : country === "australia"
     ? (currency = ["AUD", "$"])

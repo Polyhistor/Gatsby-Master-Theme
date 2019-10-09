@@ -19,7 +19,7 @@ export default [
   },
   {
     header: "Facebook",
-    content: "You can always send a message on our Facebook page ",
+    content: "You can always send a message on our Facebook page",
     link: "https://www.facebook.com/wildkiwitours",
     newTab: true,
   },

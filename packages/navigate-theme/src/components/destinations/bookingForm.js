@@ -95,7 +95,9 @@ const BookingForm = ({ data, country, inPage }) => {
             <span className="booking-form__month"> {e.description}</span>
             <input
               className="booking-form__input"
-              id={`plus-holder-${inPage ? idx + 50 : idx}`}
+              id={`plus-holder-${
+                inPage ? idx + 50 : inPage === "alt" ? idx + 200 : idx
+              }`}
               type="checkbox"
             ></input>
             <label
