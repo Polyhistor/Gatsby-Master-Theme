@@ -24,7 +24,7 @@ module.exports = {
     description: `Book your New Zealand, Australia or Europe small group epic adventure tour today. Choose from a range of 7 - 28 day tours, perfect for 18 - 35 year olds.`,
     author: `Pouya Ataei`,
     copyright: `Navigate Group Ltd`,
-    siteUrl: process.env.SITE_URL,
+    siteUrl: process.env.GATSBY_SITE_URL,
   },
 
   plugins: [

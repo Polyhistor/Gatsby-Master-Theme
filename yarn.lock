@@ -6725,21 +6725,11 @@ gatsby-plugin-catch-links@^2.1.12:
     "@babel/runtime" "^7.6.2"
     escape-string-regexp "^1.0.5"
 
-<<<<<<< HEAD
-=======
 gatsby-plugin-facebook-pixel@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-facebook-pixel/-/gatsby-plugin-facebook-pixel-1.0.3.tgz#d3cab36fa61803e9d412f36847775d383325dfdf"
   integrity sha512-IM4e+5FkpLUCV/69tU+GFXVAs0EJXBfM/BARO/6SaMqalLfj1fj4ZXUyC8kHy3RiTMuw+y8g2mdkBMZqj7RyWQ==
 
-gatsby-plugin-force-trailing-slashes@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-force-trailing-slashes/-/gatsby-plugin-force-trailing-slashes-1.0.4.tgz#acbf1730aa63807a18a02960e96d4d6f98341df0"
-  integrity sha512-agzlGb1wou8lAMCfiLdKRgGCFrtsqMTANye3uUHbViHV1hPogh3MALlh5TzUMQLXTdlhRdoOtLedqCfLZF1/IQ==
-  dependencies:
-    "@babel/runtime" "7.0.0-beta.51"
-
->>>>>>> dd8c4836f439416b01e5acda4a343d27895d93fe
 gatsby-plugin-google-tagmanager@^2.1.12:
   version "2.1.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.1.12.tgz#0c282b12b29053fdc4a9db2a832babf5c1f3617d"
