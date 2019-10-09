@@ -53,11 +53,13 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host:
-          process.env.NODE_ENV !== "production" ? null : process.env.SITE_URL,
+          process.env.NODE_ENV !== "production"
+            ? null
+            : process.env.GATSBY_SITE_URL,
         sitemap:
           process.env.NODE_ENV !== "production"
             ? null
-            : `${process.env.SITE_URL}/sitemap.xml`,
+            : `${process.env.GATSBY_SITE_URL}/sitemap.xml`,
         env: {
           development: {
             policy: getRobotsTxtPolicy(),
