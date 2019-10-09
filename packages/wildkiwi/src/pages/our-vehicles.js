@@ -26,7 +26,7 @@ const OurVehicles = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.ourVehiclesBanner.childImageSharp.fluid}
-          titleFirst="our vehicle"
+          titleFirst="Our Vehicles"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Our luxury vehicles raise the bar when it comes to road trip comfort."

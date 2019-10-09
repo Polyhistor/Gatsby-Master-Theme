@@ -239,7 +239,8 @@
   }
 
   &__breadcrumb {
-    @include blackUpperCaseGreen;
+    @include smallNormalText;
+    @include greySubtitle;
     font-size: 1.4rem;
     text-decoration: none;
 
