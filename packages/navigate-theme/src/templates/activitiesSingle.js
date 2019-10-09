@@ -30,6 +30,12 @@ const ActivitiesSingle = ({
 
   console.log(crumbs)
 
+  let customCrub = []
+
+  crumbs.forEach(e => [...customCrub, e.pathname])
+
+  console.log(customCrub)
+
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
   return (
