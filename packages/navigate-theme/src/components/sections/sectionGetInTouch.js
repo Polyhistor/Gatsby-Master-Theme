@@ -38,16 +38,54 @@ const SectionGetInTouch = () => {
   // setting our inital state
   const [state, setState] = useState("newzealand")
 
+  // TODO - should be changed and replaced with contentful richText
   // rendering out left side contents
   const renderLeftContents = () => {
-    return GetInTouchData.map((block, idx) => {
-      return (
-        <div key={idx} className="get-in-touch__container">
-          <h3 className="get-in-touch__header">{block.header} </h3>
-          <pre className="get-in-touch__paragraph">{block.content}</pre>
+    return (
+      <>
+        <div className="get-in-touch__container">
+          <h3 className="get-in-touch__header">Give us a call</h3>
+          <pre className="get-in-touch__paragraph">
+            Call us on any of the local numbers to save international calling
+            fees and you will be redirected to our local office. See our office
+            hours and phone number by selecting from the drop down.
+          </pre>
         </div>
-      )
-    })
+        <div className="get-in-touch__container">
+          <h3 className="get-in-touch__header">Email us</h3>
+          <pre className="get-in-touch__paragraph">
+            For any enquiries please write to us at <br />
+            <a href="mailto:name@email.com">hello@wildkiwi.com</a>
+          </pre>
+        </div>
+        <div className="get-in-touch__container">
+          <h3 className="get-in-touch__header">Facebook</h3>
+          <pre className="get-in-touch__paragraph">
+            Send us a message and Like us on&thinsp;
+            <a href="https://www.facebook.com/wildkiwitours" target="_blank">
+              Facebook
+            </a>
+          </pre>
+        </div>
+        <div className="get-in-touch__container">
+          <h3 className="get-in-touch__header">Instagram</h3>
+          <pre className="get-in-touch__paragraph">
+            Follow us and tag us on&thinsp;
+            <a href="//www.instagram.com/wildkiwitours" target="_blank">
+              Instagram&thinsp;
+            </a>
+            #WildKiwiTours
+          </pre>
+        </div>
+        <div className="get-in-touch__container">
+          <h3 className="get-in-touch__header">Media</h3>
+          <pre className="get-in-touch__paragraph">
+            Email press@navigatetravel.com to discuss any press or partnership
+            opportunities.
+          </pre>
+        </div>
+      </>
+    )
   }
 
   // handling dropdown change
