@@ -28,6 +28,8 @@ const ActivitiesSingle = ({
     breadcrumb: { crumbs },
   } = pageContext
 
+  console.log(crumbs)
+
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
   return (
