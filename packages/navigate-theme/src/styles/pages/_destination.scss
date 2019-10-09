@@ -129,7 +129,6 @@
       }
 
       @include respond(phone) {
-        display: none;
       }
 
       & > h1 {

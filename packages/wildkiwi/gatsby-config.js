@@ -29,6 +29,18 @@ module.exports = {
 
   plugins: [
     {
+      //TODO: read more about it: we are already using this plugin on shared theme, maybe we don't need to declare again or it might have some negative side effect.
+      resolve: "gatsby-plugin-react-helmet",
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: process.env.GATSBY_SITE_URL,
+        noTrailingSlash: true,
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: process.env.FACEBOOK_PIXEL_ID || "",
@@ -76,7 +88,7 @@ module.exports = {
         // useAutoGen: required 'true' to use autogen
         useAutoGen: true,
         // autoGenHomeLabel: optional 'Home' is default
-        autoGenHomeLabel: `Root`,
+        autoGenHomeLabel: `home`,
         // exlude: optional, include to overwrite these default excluded pages
         exclude: [
           `/dev-404-page`,

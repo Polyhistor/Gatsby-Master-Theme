@@ -31,7 +31,7 @@ const FAQ = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.FAQsBanner.childImageSharp.fluid}
-          titleFirst="FAQ"
+          titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
