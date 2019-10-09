@@ -10,7 +10,7 @@ const Terms = ({ data }) => {
   return (
     <Layout2>
       {renderSeo(data)}
-      <div className="section-vehicles">
+      <div className="section-tc">
         <article className="tour-banner__description-details u-margin-top-huge">
           {documentToReactComponents(termsData[0].node.description.json)}
         </article>
