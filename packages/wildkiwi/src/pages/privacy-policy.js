@@ -2,15 +2,17 @@ import React from "react"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-// calling our query
-import { usePrivacyQuery } from "@nt-websites/navigate-theme"
-import { Layout2, SEO } from "@nt-websites/navigate-theme"
+import {
+  Layout2,
+  usePrivacyQuery,
+  renderSeo,
+} from "@nt-websites/navigate-theme"
 
-const Privacy = () => {
+const Privacy = ({ data }) => {
   const privacyData = usePrivacyQuery()
   return (
     <Layout2>
-      <SEO />
+      {renderSeo(data)}
       <div className="section-vehicles">
         <article className="tour-banner__description-details u-margin-top-huge">
           {documentToReactComponents(privacyData[0].node.description.json)}
@@ -21,3 +23,18 @@ const Privacy = () => {
 }
 
 export default Privacy
+
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "privacy-policy" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
