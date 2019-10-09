@@ -214,7 +214,14 @@ const SectionGetInTouch = () => {
                     className="footer__form-consent u-color-gray"
                     htmlFor="consent"
                   >
-                    I accept the terms and conditions
+                    I accept the&thinsp;
+                    <a
+                      className="link"
+                      href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
+                      target="_blank"
+                    >
+                      terms and conditions
+                    </a>
                   </label>
                 </div>
                 <button className="btn btn--green-footer" type="submit">
