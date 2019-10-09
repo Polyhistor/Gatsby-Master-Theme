@@ -109,7 +109,7 @@
       top: 50% !important;
       @include respond(phone) {
         text-align: center;
-        grid-template-rows: 27rem 5rem;
+        grid-template-rows: 13rem 5rem;
         top: 20%;
       }
     }

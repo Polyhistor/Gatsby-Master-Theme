@@ -262,7 +262,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                       I accept the&thinsp;
                       <a
                         className="link"
-                        href="http://localhost:8000/terms-conditions"
+                        href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
                         terms and conditions

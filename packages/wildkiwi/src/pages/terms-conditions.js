@@ -3,14 +3,13 @@ import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // calling our query
-import { useTermsQuery } from "@nt-websites/navigate-theme"
-import { Layout2, SEO } from "@nt-websites/navigate-theme"
+import { useTermsQuery, renderSeo, Layout2 } from "@nt-websites/navigate-theme"
 
-const Terms = () => {
+const Terms = ({ data }) => {
   const termsData = useTermsQuery()
   return (
     <Layout2>
-      <SEO />
+      {renderSeo(data)}
       <div className="section-vehicles">
         <article className="tour-banner__description-details u-margin-top-huge">
           {documentToReactComponents(termsData[0].node.description.json)}
@@ -21,3 +20,18 @@ const Terms = () => {
 }
 
 export default Terms
+
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "terms-condition" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

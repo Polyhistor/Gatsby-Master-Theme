@@ -58,6 +58,11 @@
     &:hover {
       .navigation__dropdown-item {
         display: block;
+
+        @include respond(phone) {
+          width: 100%;
+          text-align: center;
+        }
       }
     }
 
@@ -86,6 +91,9 @@
           font-size: 1.8rem;
           color: #767676;
           text-transform: capitalize;
+          width: 100%;
+          display: block;
+          transition: all 0s ease-in;
         }
 
         &:hover {
@@ -139,6 +147,10 @@
       &:hover {
         border-bottom: 2px solid $color-primary;
         animation: blinkText 0.8s ease-out;
+
+        @include respond(phone) {
+          animation: blinkText 0s ease-out;
+        }
       }
     }
 
