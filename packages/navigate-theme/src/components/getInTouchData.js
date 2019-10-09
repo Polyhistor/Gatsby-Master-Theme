@@ -2,7 +2,9 @@ export default [
   {
     header: "Give us a call",
     content:
-      "You can call any of the local numbers to save international calling fees and you will be redirected to our London office. Check here for Wild Kiwi phone numbers and working hours.",
+      "Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down.",
+    link: null,
+    newTab: false,
   },
   // {
   //   header: "Live chat",
@@ -12,13 +14,19 @@ export default [
   {
     header: "Email us",
     content: "For any enquiries please write to us at \nhello@wildkiwi.com",
+    link: "mailto:name@email.com",
+    newTab: false,
   },
   {
     header: "Facebook",
     content: "You can always send a message on our Facebook page ",
+    link: "https://www.facebook.com/wildkiwitours",
+    newTab: true,
   },
   {
     header: "Instagram",
     content: "Tag us on Instagram #WildKiwiTours",
+    link: "//www.instagram.com/wildkiwitours/",
+    newTab: true,
   },
 ]

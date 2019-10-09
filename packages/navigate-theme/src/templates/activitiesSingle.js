@@ -11,7 +11,6 @@ import ActivityRelated from "../components/activity/activityRelated"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import SEO from "../components/seo/seo"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
