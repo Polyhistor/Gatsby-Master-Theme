@@ -93,6 +93,19 @@ const SectionGetInTouch = () => {
     setState(e.target.value)
   }
 
+  const renderContactNumber = () => {
+    if (state === "newzealand") {
+      return "+64 (0)9 973 5676"
+    } else if (state === "australia") {
+      return "+61 (02) 9133 8646"
+    } else if (state === "uk") {
+      return "+44 (0)20 3637 6466"
+    } else {
+      return "+64 (0)9 973 5676"
+    }
+  }
+
+  //TODO: add contaft us data into contentful
   return (
     <div className="section-get-in-touch">
       <div className="get-in-touch">
@@ -109,13 +122,7 @@ const SectionGetInTouch = () => {
               <option value="uk">UNITED KINGDOM</option>
             </select>
           </div>
-          <p className="get-in-touch__number">
-            {state === "newzealand"
-              ? "+64 9 973 5676"
-              : "australia"
-              ? "+61 2 9133 8646"
-              : "+44 203 637 6466"}
-          </p>
+          <p className="get-in-touch__number">{renderContactNumber()}</p>
           <div className="get-in-touch__container">
             {state !== "australia" ? (
               <>

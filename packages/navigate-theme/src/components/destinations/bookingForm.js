@@ -73,7 +73,9 @@ const BookingForm = ({ data, country, inPage }) => {
   // function that renders the entries (available tours)
   const renderEntries = () => {
     if (entries === null) {
-      return <h2 className="green-title">Please select your region and tour</h2>
+      return (
+        <h2 className="green-title">Please select your destination and tour</h2>
+      )
     }
 
     if (entries.months === undefined) {
@@ -197,7 +199,7 @@ const BookingForm = ({ data, country, inPage }) => {
         </div>
       ))
     } else {
-      return <div>Please select the region and the tour</div>
+      return <div>Please select the destination and the tour</div>
     }
   }
 
@@ -289,7 +291,7 @@ const BookingForm = ({ data, country, inPage }) => {
                     class="activity__dropdown"
                     id="country"
                   >
-                    <option value="all">Region</option>
+                    <option value="all">Destination</option>
                     {renderCountries()}
                   </select>
                 </div>
