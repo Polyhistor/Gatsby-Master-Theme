@@ -76,7 +76,7 @@ module.exports = {
         // useAutoGen: required 'true' to use autogen
         useAutoGen: true,
         // autoGenHomeLabel: optional 'Home' is default
-        autoGenHomeLabel: `Root`,
+        autoGenHomeLabel: `home`,
         // exlude: optional, include to overwrite these default excluded pages
         exclude: [
           `/dev-404-page`,
