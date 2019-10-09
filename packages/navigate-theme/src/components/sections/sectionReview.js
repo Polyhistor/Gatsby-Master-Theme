@@ -34,7 +34,12 @@ const SectionReview = () => {
             {r.node.reviewText.reviewText}
           </p>
           <h3 className="green-title-alternative">{r.node.name}</h3>
-          <span className="green-subtitle-alternative">{r.node.date}</span>
+          <span className="green-subtitle-alternative">
+            {r.node.date
+              .split("T")
+              .slice(0, 1)
+              .join()}
+          </span>
         </div>
       )
     })
