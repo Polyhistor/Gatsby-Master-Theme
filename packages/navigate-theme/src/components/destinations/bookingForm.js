@@ -313,7 +313,13 @@ const BookingForm = ({ data, country, inPage }) => {
             {/* <div className="booking-form__entries">{renderEntries()}</div> */}
           </div>
         ) : (
-          <div className="booking-form__phase-2">
+          <div
+            className={
+              inPage
+                ? "booking-form__phase-2 booking-form__phase-2-alt"
+                : "booking-form__phase-2"
+            }
+          >
             <DetailsForm
               state={gState}
               imgSlug={entries.slug}
