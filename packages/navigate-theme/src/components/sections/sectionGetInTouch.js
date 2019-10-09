@@ -153,10 +153,8 @@ const SectionGetInTouch = () => {
                   message: JSON.stringify(json.data.message),
                 })
                 resetForm()
-                console.log("Success", JSON.stringify(json))
               } catch (error) {
-                alert("aaaa")
-                console.log("error", error)
+                //TODO: catch error and show in ui
               }
             }}
           >

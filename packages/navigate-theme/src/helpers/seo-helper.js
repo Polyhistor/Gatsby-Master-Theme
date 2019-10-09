@@ -25,10 +25,11 @@ const extractSeoFromContext = pageContext => {
   /**
    * Is not possible to identify which page we did not found the seo for.
    * Add an extra parameter to indentify the page for tracking purposes.
-   */
+   
   if (metadata === {} && process.env.NODE_ENV !== "production") {
     console.error(`SEO not found ${pageContext}`)
   }
+  */
 
   return metadata
 }

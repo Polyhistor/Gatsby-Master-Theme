@@ -85,15 +85,15 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
-                console.log(finalAPI)
+
                 try {
                   await submitEnquiryRequest(finalAPI)
                   setSuccess(true)
                 } catch (error) {
-                  console.log(
+                  /*console.log(
                     error,
                     "something seems to be wrong with this request"
-                  )
+                  )*/
                 }
               }}
             >
