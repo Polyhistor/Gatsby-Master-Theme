@@ -180,7 +180,7 @@ module.exports = {
           },
         ],
       },
-      resolve: `gatsby-transformer-remark`,
+      /*  resolve: `gatsby-transformer-remark`,
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Wild Kiwi`,
@@ -190,7 +190,7 @@ module.exports = {
         theme_color: `#1abc9c`,
         display: `standalone`,
         icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
-      },
+      },*/
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
