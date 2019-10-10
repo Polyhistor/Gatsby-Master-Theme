@@ -56,14 +56,20 @@ const SectionGetInTouch = () => {
           <h3 className="get-in-touch__header">Email us</h3>
           <pre className="get-in-touch__paragraph">
             For any enquiries please write to us at <br />
-            <a href="mailto:name@email.com">hello@wildkiwi.com</a>
+            <a className="link" href="mailto:name@email.com">
+              hello@wildkiwi.com
+            </a>
           </pre>
         </div>
         <div className="get-in-touch__container">
           <h3 className="get-in-touch__header">Facebook</h3>
           <pre className="get-in-touch__paragraph">
             Send us a message and Like us on&thinsp;
-            <a href="https://www.facebook.com/wildkiwitours" target="_blank">
+            <a
+              className="link"
+              href="https://www.facebook.com/wildkiwitours"
+              target="_blank"
+            >
               Facebook
             </a>
           </pre>
@@ -72,7 +78,11 @@ const SectionGetInTouch = () => {
           <h3 className="get-in-touch__header">Instagram</h3>
           <pre className="get-in-touch__paragraph">
             Follow us and tag us on&thinsp;
-            <a href="//www.instagram.com/wildkiwitours" target="_blank">
+            <a
+              className="link"
+              href="//www.instagram.com/wildkiwitours"
+              target="_blank"
+            >
               Instagram&thinsp;
             </a>
             #WildKiwiTours
