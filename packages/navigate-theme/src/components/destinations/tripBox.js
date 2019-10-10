@@ -25,6 +25,7 @@ const TripBox = ({
   hotText,
   data,
   country,
+  location,
 }) => {
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
@@ -67,7 +68,7 @@ const TripBox = ({
           </div>
           <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
           <a
-            href="#booking"
+            href={`${location.href}/#booking`}
             // onClick={() => setModal({ open: true })}
             className="trip-box__availablitity"
           >
