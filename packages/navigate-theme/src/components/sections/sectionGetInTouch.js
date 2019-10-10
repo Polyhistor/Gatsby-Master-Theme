@@ -49,7 +49,7 @@ const SectionGetInTouch = () => {
           <pre className="get-in-touch__paragraph">
             Call us on any of the local numbers to save international calling
             fees and you will be redirected to our local office. See our office
-            hours and phone number by selecting from the drop down.
+            hours and phone number by selecting from the drop down
           </pre>
         </div>
         <div className="get-in-touch__container">
@@ -82,7 +82,7 @@ const SectionGetInTouch = () => {
           <h3 className="get-in-touch__header">Media</h3>
           <pre className="get-in-touch__paragraph">
             Email press@navigatetravel.com to discuss any press or partnership
-            opportunities.
+            opportunities
           </pre>
         </div>
       </>

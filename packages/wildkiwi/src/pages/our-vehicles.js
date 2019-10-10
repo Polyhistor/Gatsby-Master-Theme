@@ -46,7 +46,7 @@ const OurVehicles = ({ data }) => {
         imageFour={imageQuery.vehiclesLady.childImageSharp.fluid}
         title="Cruise around in your
         own 18-seater luxury
-        tour vehicle."
+        tour vehicle"
         paragraph="Kitted out with luxury leather seats, USB ports,
         unlimited WIFI, stereo, air con and big windows
         to admire those amazing views. This is not a bus

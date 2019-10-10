@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import Modal from "react-responsive-modal"
-import { Formik } from "formik"
+import React from "react"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
+
+import React from "react"
+import { navigate } from "@reach/router"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
-import BookingForm from "./bookingForm"
 
 const TripBox = ({
   destinationCountry,
@@ -23,16 +23,9 @@ const TripBox = ({
   earlyBird,
   availablity,
   hotText,
-  data,
-  country,
 }) => {
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
-
-  // setting the initial state for the modal
-  // const [{ open }, setModal] = useState({
-  //   open: false,
-  // })
 
   return (
     <>
@@ -69,7 +62,7 @@ const TripBox = ({
           <a
             id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
             href="#booking"
-            // onClick={() => setModal({ open: true })}
+            onClick={() => navigate("#booking")}
             className="trip-box__availablitity"
           >
             {availablity}
