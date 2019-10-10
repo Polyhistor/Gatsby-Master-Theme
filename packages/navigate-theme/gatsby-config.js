@@ -7,7 +7,7 @@ module.exports = themeOptions => {
       `gatsby-plugin-catch-links`,
       `gatsby-plugin-remove-trailing-slashes`,
       `gatsby-plugin-playground`,
-      `gatsby-plugin-offline`,
+      /*  `gatsby-plugin-offline`,*/
       `gatsby-plugin-sass`,
       `gatsby-plugin-preload-fonts`,
       `gatsby-plugin-breadcrumb`,
