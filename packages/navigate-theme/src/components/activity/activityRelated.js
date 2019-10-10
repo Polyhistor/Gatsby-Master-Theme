@@ -25,7 +25,7 @@ const ActivityRelated = ({ country }) => {
                 <div className="acitivity-box-single">
                   {/* error handling, without this line, the activities with featured images will crash */}
                   {acitivity.node.bannerImages[0] !== null && (
-                    <figure className="acitivity-box-single__image-container">
+                    <figure className="activity-box-single__image-container">
                       <Img
                         fluid={
                           acitivity.node.bannerImages[0].localFile

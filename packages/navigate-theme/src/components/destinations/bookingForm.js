@@ -328,6 +328,7 @@ const BookingForm = ({ data, country, inPage }) => {
             }
           >
             <DetailsForm
+              inPage={inPage}
               state={gState}
               imgSlug={entries.slug}
               title={entries.description}

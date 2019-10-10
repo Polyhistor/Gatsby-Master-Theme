@@ -4,6 +4,8 @@ import * as Yup from "yup"
 import { submitContactRequest } from "../../services/api"
 import Error from "../destinations/error"
 
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
+
 // Our Schema validation logics here
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -134,7 +136,11 @@ const FooterForm = () => {
                     </a>
                   </label>
                 </div>
-                <button className="btn btn--green-footer" type="submit">
+                <button
+                  id={TAG_MANAGER_TRACKER.CONTACT_FOOTER_BUTTON}
+                  className="btn btn--green-footer"
+                  type="submit"
+                >
                   submit
                 </button>
               </Form>
