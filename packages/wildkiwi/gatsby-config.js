@@ -123,7 +123,7 @@ module.exports = {
           { label: "activities", link: "/activities", sub: null },
           { label: "how it works", link: "/how-it-works", sub: null },
           { label: "our vehicles", link: "/our-vehicles", sub: null },
-          { label: "faqs", link: "/faq", sub: null },
+          { label: "faqs", link: "/faqs", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/

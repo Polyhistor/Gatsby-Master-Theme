@@ -14,7 +14,7 @@ const FooterInfo = () => {
             <Link to="/blog" className="footer__trips-link">
               Blog
             </Link>
-            <Link to="/faq" className="footer__trips-link">
+            <Link to="/faqs" className="footer__trips-link">
               FAQ
             </Link>
             <Link to="/how-it-works" className="footer__trips-link">
