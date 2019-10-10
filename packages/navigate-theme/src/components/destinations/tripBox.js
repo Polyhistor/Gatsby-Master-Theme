@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Modal from "react-responsive-modal"
 import { Formik } from "formik"
-
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
 import BookingForm from "./bookingForm"
@@ -67,6 +67,7 @@ const TripBox = ({
           </div>
           <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
           <a
+            id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
             href="#booking"
             // onClick={() => setModal({ open: true })}
             className="trip-box__availablitity"

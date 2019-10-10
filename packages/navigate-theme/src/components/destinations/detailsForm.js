@@ -6,6 +6,8 @@ import * as Yup from "yup"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/dist/style.css"
 
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
+
 import useDestinationQuery from "../../queries/destinationQuery"
 import { submitEnquiryRequest } from "../../services/api"
 import Error from "./error"
@@ -40,7 +42,7 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("gender is required"),
 })
 
-const DetailsForm = ({ state, imgSlug, title }) => {
+const DetailsForm = ({ inPage, state, imgSlug, title }) => {
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
   const filteredData = destinationsData.filter(e => e.node.slug === imgSlug)
@@ -269,7 +271,15 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                       </a>
                     </label>
                   </div>
-                  <button type="submit" className="btn btn--green">
+                  <button
+                    id={
+                      inPage
+                        ? TAG_MANAGER_TRACKER.IN_PAGE_SUBMIT_BUTTON
+                        : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
+                    }
+                    type="submit"
+                    className="btn btn--green"
+                  >
                     Submit
                   </button>
                 </Form>

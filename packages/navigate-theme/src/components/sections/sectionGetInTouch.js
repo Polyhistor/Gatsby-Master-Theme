@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
 import { submitContactRequest } from "../../services/api"
 import GetInTouchData from "../getInTouchData"
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
 // Our Schema validation logics here
 const validationSchema = Yup.object().shape({
@@ -229,7 +230,11 @@ const SectionGetInTouch = () => {
                     </a>
                   </label>
                 </div>
-                <button className="btn btn--green-footer" type="submit">
+                <button
+                  id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
+                  className="btn btn--green-footer"
+                  type="submit"
+                >
                   submit
                 </button>
               </Form>
