@@ -92,7 +92,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 } catch (error) {
                   console.log(
                     error,
-                    "something seems to be wrong with this request"
+                    "someething seems to be wrong with this request"
                   )
                 }
               }}
