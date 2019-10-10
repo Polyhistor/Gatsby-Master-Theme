@@ -180,8 +180,8 @@ module.exports = {
           },
         ],
       },
-      resolve: `gatsby-transformer-remark`,
-      /* resolve: `gatsby-plugin-manifest`,
+      /*  resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Wild Kiwi`,
         short_name: `WK`,
