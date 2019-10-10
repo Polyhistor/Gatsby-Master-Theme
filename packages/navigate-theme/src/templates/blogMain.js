@@ -8,6 +8,7 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
+import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 
@@ -44,6 +45,7 @@ const IndexPage = ({ pageContext }) => {
 
   return (
     <Layout2>
+      {renderSeoFromContext(pageContext)}
       <div className="row">
         <div className="blog__main">
           {renderBlogs()}

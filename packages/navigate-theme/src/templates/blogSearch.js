@@ -100,7 +100,10 @@ const BlogSearch = ({ pageContext }) => {
     return data.map(({ node }) => {
       return (
         <div className="blog__categorized-container" key={node.wordpress_id}>
-          <Link className="blog__main-link" to={`blog/` + node.slug}>
+          <Link
+            className="blog__main-link"
+            to={`blog/${node.categories[0].slug}/${node.slug}`}
+          >
             {node.featured_media !== null && (
               <Img
                 fluid={node.featured_media.localFile.childImageSharp.fluid}
@@ -125,7 +128,9 @@ const BlogSearch = ({ pageContext }) => {
           className="FAQ__button"
         >
           {element.node.name}
-          <span className="blog__categorized-count">{element.node.count} </span>
+          <span className="blog__categorized-count">
+            &thinsp;-&thinsp;{element.node.count}{" "}
+          </span>
         </button>
       )
     })

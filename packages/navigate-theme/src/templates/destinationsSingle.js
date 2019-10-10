@@ -25,7 +25,7 @@ import useWildkiwiQuery from "../queries/wildkiwiQuery"
 import { useFetchHook } from "../hooks/useFetchHook"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 
-const DestinationsSingle = ({ pageContext, data }) => {
+const DestinationsSingle = ({ pageContext, data, location }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -82,6 +82,7 @@ const DestinationsSingle = ({ pageContext, data }) => {
           hotText="This tour is getting a lot of attention. It’s been viewed 500+ time in the past week."
           data={ourData}
           country={data.contentfulDestinations.destinationCountry}
+          location={location}
         />
         <DestinationStarter
           title={data.contentfulDestinations.title}

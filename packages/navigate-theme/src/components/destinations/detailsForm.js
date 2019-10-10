@@ -66,7 +66,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
     <>
       {success === false ? (
         <>
-          <h3 class="WhyWild-box-single__title">Enter your details</h3>
+          <h3 className="WhyWild-box-single__title">Enter your details</h3>
           <div className="booking-form__enquiry-form">
             <Formik
               initialValues={{
@@ -85,15 +85,15 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 finalAPI = { ...values, ...partialData }
-                console.log(finalAPI)
+
                 try {
                   await submitEnquiryRequest(finalAPI)
                   setSuccess(true)
                 } catch (error) {
-                  console.log(
+                  /*console.log(
                     error,
                     "something seems to be wrong with this request"
-                  )
+                  )*/
                 }
               }}
             >
@@ -272,6 +272,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                   <button type="submit" className="btn btn--green">
                     Submit
                   </button>
+                  {/* <button >test</button> */}
                 </Form>
               )}
             </Formik>
@@ -285,7 +286,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               className="booking-form__banner"
             ></Image>
             <div className="booking-form__details booking-form__details--title">
-              <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
+              <h2 className="tour-banner__description-title tour-banner__description-title-newzealand">
                 {title}
               </h2>
             </div>
@@ -315,7 +316,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
               </div>
             </div>
             <div className="booking-form__details booking-form__details--price">
-              <h2 class="tour-banner__description-title tour-banner__description-title-newzealand">
+              <h2 className="tour-banner__description-title tour-banner__description-title-newzealand">
                 {state.prices[0].rrp} {state.prices[0].currencySymbol}
               </h2>
             </div>
