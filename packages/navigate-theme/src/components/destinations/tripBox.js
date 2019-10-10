@@ -1,7 +1,6 @@
 import React from "react"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
-import React from "react"
 import { navigate } from "@reach/router"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
