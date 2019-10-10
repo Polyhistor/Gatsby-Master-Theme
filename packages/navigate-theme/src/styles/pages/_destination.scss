@@ -117,6 +117,7 @@
 
       @include respond(phone) {
         grid-row: 8;
+        display: none;
       }
     }
 
