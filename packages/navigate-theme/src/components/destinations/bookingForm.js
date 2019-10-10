@@ -16,6 +16,8 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting our initial country state
   const countryList = useState(countryData)
 
+  console.log(data)
+
   // filtering destinations based on the country passed by props
   // const defaultCountry = destinationData.filter(
   //   e => e.node.destinationCountry === country
@@ -175,11 +177,14 @@ const BookingForm = ({ data, country, inPage }) => {
                   <div className="booking-form__right">
                     <div className="booking-form__price">
                       <span className="booking-form__original">
-                        {d.prices[0].rrp} {d.prices[0].currencySymbol}
+                        {d.prices[0].currencySymbol}
+                        {d.prices[0].rrp}
+                        {d.prices[0].currencyCode}
                       </span>
                       <span className="booking-form__discount">
-                        {d.prices[0].rrpWithDiscount}{" "}
                         {d.prices[0].currencySymbol}
+                        {d.prices[0].rrpWithDiscount}&thinsp;
+                        {d.prices[0].currencyCode}
                       </span>
                     </div>
                     <div

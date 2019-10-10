@@ -92,10 +92,10 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                   await submitEnquiryRequest(finalAPI)
                   setSuccess(true)
                 } catch (error) {
-                  /*console.log(
+                  console.log(
                     error,
-                    "something seems to be wrong with this request"
-                  )*/
+                    "someething seems to be wrong with this request"
+                  )
                 }
               }}
             >
@@ -306,6 +306,7 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                 {state.durationInDays} Days
               </div>
               <div className="booking-form__sub-title">
+                {/* TODO - TO add the real value */}
                 {/* {values.guests === undefined ? 0 : values.guests}Days */}
               </div>
             </div>
@@ -327,7 +328,9 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
             </div>
             <div className="booking-form__details booking-form__details--price">
               <h2 className="tour-banner__description-title tour-banner__description-title-newzealand">
-                {state.prices[0].rrp} {state.prices[0].currencySymbol}
+                {state.prices[0].currencySymbol}
+                {state.prices[0].rrp} &thinsp;
+                {state.prices[0].currencyCode}
               </h2>
             </div>
           </div>
