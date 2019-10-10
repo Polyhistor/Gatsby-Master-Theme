@@ -296,6 +296,7 @@ const DetailsForm = ({ state, imgSlug, title }) => {
                 {state.durationInDays} Days
               </div>
               <div className="booking-form__sub-title">
+                {/* TODO - TO add the real value */}
                 {/* {values.guests === undefined ? 0 : values.guests}Days */}
               </div>
             </div>
