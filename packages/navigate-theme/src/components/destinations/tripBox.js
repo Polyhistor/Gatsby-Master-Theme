@@ -1,7 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
-import { navigate } from "@reach/router"
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
+import React from "react"
+import { navigate } from "@reach/router"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
 
@@ -22,9 +23,6 @@ const TripBox = ({
   earlyBird,
   availablity,
   hotText,
-  data,
-  country,
-  location,
 }) => {
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
@@ -62,6 +60,7 @@ const TripBox = ({
           </div>
           <h5 className="trip-box__early-bird red-12-blacke">{earlyBird}</h5>
           <a
+            id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
             href="#booking"
             onClick={() => navigate("#booking")}
             className="trip-box__availablitity"
