@@ -64,6 +64,7 @@ const FooterForm = () => {
                   message: JSON.stringify(response.data.data.message),
                 })
               } catch (error) {
+                //TODO: catch error
                 console.log(
                   error,
                   "Respond could not be fetched, please contact adminstrator or try again"

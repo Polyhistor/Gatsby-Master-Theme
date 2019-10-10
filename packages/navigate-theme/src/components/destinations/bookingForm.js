@@ -288,7 +288,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 <div className="activity__selector">
                   <select
                     onChange={e => handleCountryDropdown(e)}
-                    class="activity__dropdown"
+                    className="activity__dropdown"
                     id="country"
                   >
                     <option value="all">Destination</option>
