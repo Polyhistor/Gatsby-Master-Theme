@@ -145,116 +145,120 @@ const SectionGetInTouch = () => {
             ) : null}
           </div>
 
-          <Formik
-            initialValues={{
-              name: "",
-              email: "",
-              message: "",
-              consent: false,
-            }}
-            validationSchema={validationSchema}
-            onSubmit={async (values, { resetForm }) => {
-              finalAPI = { ...values, ...partialData }
-              try {
-                const json = await submitContactRequest(
-                  JSON.stringify(finalAPI)
-                )
-                setSuccess({
-                  success: true,
-                  message: JSON.stringify(json.data.message),
-                })
-                resetForm()
-              } catch (error) {
-                //TODO: catch error and show in ui
-              }
-            }}
-          >
-            {({
-              initialValues,
-              errors,
-              touched,
-              handleChange,
-              setFieldValue,
-              resetForm,
-            }) => (
-              <Form className="get-in-touch__form">
-                <h3 className="get-in-touch__header">Drop us a note</h3>
-                <div>
-                  <Field
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    className={
-                      errors.email
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  />
-                  <Error touched={touched.name} message={errors.name} />
-                </div>
-                <div>
-                  <Field
-                    type="text"
-                    name="email"
-                    placeholder="Email Address *"
-                    className={
-                      errors.email
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  ></Field>
-                  <Error touched={touched.email} message={errors.email} />
-                </div>
-                <div>
-                  <Field
-                    type="textarea"
-                    name="message"
-                    placeholder="Comments"
-                    className="footer__form-input--big"
-                  ></Field>
-                  <Error touched={touched.comments} message={errors.comments} />
-                </div>
-                <div>
-                  <Field
-                    id="consent"
-                    name="consent"
-                    type="checkbox"
-                    className={
-                      errors.email
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                    required
-                  ></Field>
-                  <label
-                    className="footer__form-consent u-color-gray"
-                    htmlFor="consent"
-                  >
-                    I accept the&thinsp;
-                    <a
-                      className="link"
-                      href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
-                      target="_blank"
-                    >
-                      terms and conditions
-                    </a>
-                  </label>
-                </div>
-                <button
-                  id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
-                  className="btn btn--green-footer"
-                  type="submit"
-                >
-                  submit
-                </button>
-              </Form>
-            )}
-          </Formik>
           {success ? (
             <h3 className="u-padding-top-medium filtered-tour__description-price success-message">
               {message}
             </h3>
-          ) : null}
+          ) : (
+            <Formik
+              initialValues={{
+                name: "",
+                email: "",
+                message: "",
+                consent: false,
+              }}
+              validationSchema={validationSchema}
+              onSubmit={async (values, { resetForm }) => {
+                finalAPI = { ...values, ...partialData }
+                try {
+                  const json = await submitContactRequest(
+                    JSON.stringify(finalAPI)
+                  )
+                  setSuccess({
+                    success: true,
+                    message: JSON.stringify(json.data.message),
+                  })
+                  resetForm()
+                } catch (error) {
+                  //TODO: catch error and show in ui
+                }
+              }}
+            >
+              {({
+                initialValues,
+                errors,
+                touched,
+                handleChange,
+                setFieldValue,
+                resetForm,
+              }) => (
+                <Form className="get-in-touch__form">
+                  <h3 className="get-in-touch__header">Drop us a note</h3>
+                  <div>
+                    <Field
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      className={
+                        errors.email
+                          ? "booking-form__fields booking-form__fields--error"
+                          : "booking-form__fields"
+                      }
+                    />
+                    <Error touched={touched.name} message={errors.name} />
+                  </div>
+                  <div>
+                    <Field
+                      type="text"
+                      name="email"
+                      placeholder="Email Address *"
+                      className={
+                        errors.email
+                          ? "booking-form__fields booking-form__fields--error"
+                          : "booking-form__fields"
+                      }
+                    ></Field>
+                    <Error touched={touched.email} message={errors.email} />
+                  </div>
+                  <div>
+                    <Field
+                      component="textarea"
+                      name="message"
+                      placeholder="Comments"
+                      className="footer__form-input--big footer__form-input--big-alt"
+                    ></Field>
+                    <Error
+                      touched={touched.comments}
+                      message={errors.comments}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      className={
+                        errors.email
+                          ? "booking-form__fields booking-form__fields--error"
+                          : "booking-form__fields"
+                      }
+                      required
+                    ></Field>
+                    <label
+                      className="footer__form-consent u-color-gray"
+                      htmlFor="consent"
+                    >
+                      I accept the&thinsp;
+                      <a
+                        className="link"
+                        href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
+                        target="_blank"
+                      >
+                        terms and conditions
+                      </a>
+                    </label>
+                  </div>
+                  <button
+                    id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
+                    className="btn btn--green-footer"
+                    type="submit"
+                  >
+                    submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          )}
         </div>
       </div>
     </div>
