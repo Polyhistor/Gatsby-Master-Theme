@@ -115,7 +115,7 @@ const FooterForm = () => {
                       component="textarea"
                       name="message"
                       placeholder="Comments"
-                      className="footer__form-input--big"
+                      className="footer__form-input--big "
                     ></Field>
                     <Error
                       touched={touched.comments}
