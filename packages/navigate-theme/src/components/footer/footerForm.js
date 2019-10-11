@@ -112,7 +112,7 @@ const FooterForm = () => {
                   </div>
                   <div className="booking-details__fields-container">
                     <Field
-                      type="textarea"
+                      component="textarea"
                       name="message"
                       placeholder="Comments"
                       className="footer__form-input--big"

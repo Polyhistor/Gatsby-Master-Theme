@@ -613,7 +613,7 @@ input::placeholder {
 }
 
 input:focus {
-  border: 2px solid $color-primary;
+  outline: 2px solid $color-primary;
 }
 
 textarea::placeholder {
@@ -622,7 +622,7 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  border: 2px solid $color-primary;
+  outline: 2px solid $color-primary;
 }
 
 // general CSS
