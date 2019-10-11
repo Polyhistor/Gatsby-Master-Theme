@@ -144,7 +144,6 @@ const SectionGetInTouch = () => {
               </>
             ) : null}
           </div>
-
           {success ? (
             <h3 className="u-padding-top-medium filtered-tour__description-price success-message">
               {message}
@@ -161,12 +160,12 @@ const SectionGetInTouch = () => {
               onSubmit={async (values, { resetForm }) => {
                 finalAPI = { ...values, ...partialData }
                 try {
-                  const json = await submitContactRequest(
+                  const response = await submitContactRequest(
                     JSON.stringify(finalAPI)
                   )
                   setSuccess({
                     success: true,
-                    message: JSON.stringify(json.data.message),
+                    message: JSON.stringify(response.data.data.message),
                   })
                   resetForm()
                 } catch (error) {
