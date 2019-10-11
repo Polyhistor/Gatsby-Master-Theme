@@ -1,3 +1,5 @@
+import dateHandler from "./src/helpers/dateHandler"
+
 /*templates*/
 export {
   default as ActivitiesCountriesTemplate,

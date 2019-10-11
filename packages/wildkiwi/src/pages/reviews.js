@@ -10,8 +10,6 @@ import {
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-// utilities
-
 const Reviews = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
