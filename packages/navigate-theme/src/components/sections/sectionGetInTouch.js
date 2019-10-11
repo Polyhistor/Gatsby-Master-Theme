@@ -145,7 +145,7 @@ const SectionGetInTouch = () => {
             ) : null}
           </div>
           {success ? (
-            <h3 className="u-padding-top-medium filtered-tour__description-price success-message">
+            <h3 className="u-padding-top-medium filtered-tour__description-price">
               {message}
             </h3>
           ) : (
