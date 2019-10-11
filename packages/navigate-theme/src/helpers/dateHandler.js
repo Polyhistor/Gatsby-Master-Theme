@@ -19,7 +19,6 @@ export const dateHandler = date => {
     "November",
     "December",
   ]
-  //chunking out year and month
   const chunks = date.split("-").slice(0, 2)
   const year = chunks[0]
   const month = chunks[1].split("")

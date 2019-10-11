@@ -2,6 +2,7 @@ import React from "react"
 import { withPrefix } from "gatsby"
 
 import useReviewQuery from "../../queries/reviewQuery"
+import { dateHandler } from "../../helpers/dateHandler"
 
 const SectionReview = () => {
   const reviewData = useReviewQuery()
@@ -35,10 +36,7 @@ const SectionReview = () => {
           </p>
           <h3 className="green-title-alternative">{r.node.name}</h3>
           <span className="green-subtitle-alternative">
-            {r.node.date
-              .split("T")
-              .slice(0, 1)
-              .join()}
+            {dateHandler(r.node.date)}
           </span>
         </div>
       )
