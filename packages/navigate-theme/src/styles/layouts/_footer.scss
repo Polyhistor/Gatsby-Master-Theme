@@ -330,6 +330,10 @@
           grid-column: 1;
         }
 
+        @include respond(tablet) {
+          grid-column: 1;
+        }
+
         @include respond(phone) {
           grid-column: 1;
         }

@@ -404,6 +404,22 @@
 
 //hotfixes
 
+.page-404 {
+  margin-top: 15rem;
+  height: 30rem;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+
+  & > h1 {
+    font-size: 15rem;
+  }
+
+  & > p {
+    font-size: 1.6rem;
+  }
+}
+
 .link {
   text-decoration: none;
   color: $color-primary;
