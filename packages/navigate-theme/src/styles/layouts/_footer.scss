@@ -198,7 +198,7 @@
         }
 
         @include respond(phone) {
-          display: block;
+          display: flex;
           margin-top: 3rem;
           font-size: 1.8rem;
           justify-content: center;
@@ -281,6 +281,18 @@
           grid-row: 3;
           grid-column: 1;
         }
+
+        &-alt {
+          width: 31.5rem;
+
+          @include respond(laptop) {
+            width: 40rem;
+          }
+
+          @include respond(tablet) {
+            width: 37.8rem;
+          }
+        }
       }
 
       @include respond(phone) {
@@ -327,6 +339,10 @@
 
         @include respond(laptop) {
           margin-top: 1rem;
+          grid-column: 1;
+        }
+
+        @include respond(tablet) {
           grid-column: 1;
         }
 

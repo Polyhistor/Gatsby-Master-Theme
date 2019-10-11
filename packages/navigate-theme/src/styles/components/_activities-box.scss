@@ -23,7 +23,7 @@
 
   &-single {
     display: grid;
-    grid-template-rows: 15rem min-content 2rem 2rem;
+    grid-template-rows: 18rem min-content 2rem 2rem;
 
     @include respond(tablet) {
       grid-template-rows: 15rem 2.5rem 2rem 2rem;
