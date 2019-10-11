@@ -32,6 +32,7 @@ module.exports = {
       //TODO: read more about it: we are already using this plugin on shared theme, maybe we don't need to declare again or it might have some negative side effect.
       resolve: "gatsby-plugin-react-helmet",
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
