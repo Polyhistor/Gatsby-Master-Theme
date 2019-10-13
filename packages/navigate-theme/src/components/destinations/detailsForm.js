@@ -92,10 +92,10 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                   await submitEnquiryRequest(finalAPI)
                   setSuccess(true)
                 } catch (error) {
-                  console.log(
-                    error,
-                    "someething seems to be wrong with this request"
-                  )
+                  // console.log(
+                  //   error,
+                  //   "someething seems to be wrong with this request"
+                  // )
                 }
               }}
             >
