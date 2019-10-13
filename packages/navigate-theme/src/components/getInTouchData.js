@@ -14,7 +14,7 @@ export default [
   {
     header: "Email us",
     content: "For any enquiries please write to us at \nhello@wildkiwi.com",
-    link: "mailto:name@email.com",
+    link: "mailto:hello@wildkiwi.com",
     newTab: false,
   },
   {
