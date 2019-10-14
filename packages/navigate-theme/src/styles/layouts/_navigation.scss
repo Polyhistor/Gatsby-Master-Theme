@@ -32,11 +32,12 @@
   }
 
   &__dropdown {
-    display: inline-block;
     position: absolute;
-    left: 16rem;
-    top: 5.3rem;
-    padding-top: 1rem;
+    top: 1rem;
+    padding-top: 2.7rem;
+    height: 10rem;
+    width: 15.5rem;
+    left: -3rem;
 
     @include respond(laptop) {
       left: 18rem;
@@ -70,7 +71,7 @@
       display: none;
       padding: 1.7rem 3rem;
       background: white;
-      text-align: left;
+      text-align: center;
 
       @include respond(phone) {
         display: block;
@@ -106,6 +107,7 @@
   &__item {
     margin: 1.39rem;
     float: left;
+    position: relative;
 
     &:first-of-type {
       margin-right: 5rem;
