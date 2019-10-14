@@ -39,6 +39,12 @@
     width: 15.5rem;
     left: -3rem;
 
+    &--alt {
+      left: -6rem;
+      top: 2.4rem;
+      width: 16.8rem;
+    }
+
     @include respond(laptop) {
       left: 18rem;
     }
