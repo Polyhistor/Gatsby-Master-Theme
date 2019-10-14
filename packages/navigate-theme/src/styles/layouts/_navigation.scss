@@ -26,6 +26,15 @@
     text-align: center;
     list-style: none;
 
+    & li:last-of-type {
+      @include respond(desk) {
+        display: none;
+      }
+      @include respond(laptop) {
+        display: none;
+      }
+    }
+
     @include respond(phone) {
       transform: translateY(-61rem);
     }

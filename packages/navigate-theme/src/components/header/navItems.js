@@ -19,7 +19,6 @@ const NavItems = () => {
             <Link className="navigation__link" to={link}>
               {label}
             </Link>
-
             {/* if there are subs available, we show them, otherwise, we don't render extra unncessary codes */}
             {sub !== null ? (
               <div key={label} className="navigation__dropdown">
