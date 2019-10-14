@@ -1,6 +1,7 @@
 import React from "react"
 import {
   BLOCKS,
+  MARKS,
   INLINES,
   HEADING_1,
   HEADING_2,
@@ -23,8 +24,32 @@ const Privacy = ({ data }) => {
       [BLOCKS.PARAGRAPH]: (node, children) => (
         <p className="activity__paragraph">{children}</p>
       ),
+      [BLOCKS.HEADING_1]: (node, children) => (
+        <h1 className="green-title">{children}</h1>
+      ),
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <ul className=" blog-single__title">{children}</ul>
+      ),
+      [BLOCKS.UL_LIST]: (node, children) => (
+        <ul className="u-padding-left-medium">{children}</ul>
+      ),
+      [BLOCKS.OL_LIST]: (node, children) => (
+        <ul className="u-padding-left-medium">{children}</ul>
+      ),
+      [INLINES.HYPERLINK]: (node, children) => {
+        const URL = node.data.uri
+        return (
+          <a href={URL} className="activity__hyperlink" target="_blank">
+            {children}
+          </a>
+        )
+      },
+    },
+    renderMark: {
+      [MARKS.CODE]: value => value,
     },
   }
+
   // calling our hook
   const privacyData = usePrivacyQuery()
   return (

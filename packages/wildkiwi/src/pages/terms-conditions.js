@@ -33,6 +33,14 @@ const Terms = ({ data }) => {
       [BLOCKS.OL_LIST]: (node, children) => (
         <ul className="u-padding-left-medium">{children}</ul>
       ),
+      [INLINES.HYPERLINK]: (node, children) => {
+        const URL = node.data.uri
+        return (
+          <a href={URL} className="activity__hyperlink" target="_blank">
+            {children}
+          </a>
+        )
+      },
     },
     renderMark: {
       [MARKS.CODE]: value => value,
