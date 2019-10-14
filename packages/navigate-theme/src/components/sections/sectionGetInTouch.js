@@ -56,7 +56,10 @@ const SectionGetInTouch = () => {
           <h3 className="get-in-touch__header">Email us</h3>
           <pre className="get-in-touch__paragraph">
             For any enquiries please write to us at <br />
-            <a className="link" href="mailto:name@email.com">
+            <a
+              className="link"
+              href="mailto:hello@wildkiwi.com?subject=Wildkiwi contact form"
+            >
               hello@wildkiwi.com
             </a>
           </pre>
@@ -106,13 +109,29 @@ const SectionGetInTouch = () => {
 
   const renderContactNumber = () => {
     if (state === "newzealand") {
-      return "+64 (0)9 973 5676"
+      return (
+        <a href="tel:+64 (0)9 973 5676" className="get-in-touch__number link">
+          +64 (0)9 973 5676
+        </a>
+      )
     } else if (state === "australia") {
-      return "+61 (02) 9133 8646"
+      return (
+        <a href="tel:+61 (02) 9133 8646" className="get-in-touch__number link">
+          +61 (02) 9133 8646
+        </a>
+      )
     } else if (state === "uk") {
-      return "+44 (0)20 3637 6466"
+      return (
+        <a href="tel:+44 (0)20 3637 6466" className="get-in-touch__number link">
+          +44 (0)20 3637 6466
+        </a>
+      )
     } else {
-      return "+64 (0)9 973 5676"
+      return (
+        <a href="+64 (0)9 973 5676" className="get-in-touch__number link">
+          +64 (0)9 973 5676
+        </a>
+      )
     }
   }
 
@@ -133,7 +152,7 @@ const SectionGetInTouch = () => {
               <option value="uk">UNITED KINGDOM</option>
             </select>
           </div>
-          <p className="get-in-touch__number">{renderContactNumber()}</p>
+          {renderContactNumber()}
           <div className="get-in-touch__container">
             {state !== "australia" ? (
               <>
