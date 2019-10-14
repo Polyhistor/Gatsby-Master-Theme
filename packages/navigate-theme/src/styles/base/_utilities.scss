@@ -628,6 +628,7 @@ textarea:focus {
 }
 
 // general CSS
+// this is for safari inputs (to avoid agent focus state)
 input[type="color"],
 input[type="date"],
 input[type="datetime"],

@@ -72,6 +72,7 @@
     font-size: 5rem;
     font-family: Nunito-Extrabold;
     color: #484848;
+    display: block;
 
     @include respond(phone) {
       font-size: 3.9rem;
