@@ -293,7 +293,7 @@
       cursor: pointer;
 
       @include respond(phone) {
-        height: 5rem;
+        height: 6rem;
         display: flex;
         flex-direction: column;
         margin-bottom: 2.5rem;
@@ -465,7 +465,7 @@
     }
 
     @include respond(phone) {
-      width: 38%;
+      width: 45%;
       margin-right: 0.8rem;
     }
   }
