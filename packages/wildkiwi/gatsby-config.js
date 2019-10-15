@@ -138,6 +138,7 @@ module.exports = {
             label: "manage my booking",
             link: "https://mytourinfo.com/auth/login",
             sub: null,
+            external: true,
           },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
