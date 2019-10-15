@@ -22,5 +22,9 @@
     max-width: 60rem;
     display: block;
     margin: auto;
+
+    @include respond(phone) {
+      max-width: 30rem;
+    }
   }
 }
