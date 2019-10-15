@@ -189,7 +189,7 @@ const ActivitiesMain = ({ pageContext }) => {
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="Personalise your epic adventure with a range of add on activities to ensure your days are jam packed."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
