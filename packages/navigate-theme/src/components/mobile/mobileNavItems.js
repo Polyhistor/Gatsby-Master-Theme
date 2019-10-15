@@ -7,7 +7,6 @@ import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 const MobileNavItems = () => {
   const menuLabels = useMenuLabelQuery()
 
-  console.log(menuLabels)
   // iterating through link items
   const renderNavItems = () => {
     return menuLabels.map(({ label, link, sub, external }, idx) => {
