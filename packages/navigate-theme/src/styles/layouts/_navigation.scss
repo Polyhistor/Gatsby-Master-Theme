@@ -26,33 +26,60 @@
     text-align: center;
     list-style: none;
 
+    & li:last-of-type {
+      @include respond(desk) {
+        display: none;
+      }
+      @include respond(laptop) {
+        display: none;
+      }
+    }
+
     @include respond(phone) {
       transform: translateY(-61rem);
     }
   }
 
   &__dropdown {
-    display: inline-block;
     position: absolute;
-    left: 16rem;
-    top: 5.3rem;
-    padding-top: 1rem;
+    top: 1rem;
+    padding-top: 2.7rem;
+    height: 10rem;
+    width: 15.5rem;
+    left: -3rem;
 
-    @include respond(laptop) {
-      left: 18rem;
+    @include respond(tablet) {
+      position: absolute;
+      top: -2.7rem;
+      padding-top: 2.7rem;
+      height: 10rem;
+      width: 15.5rem;
+      left: 14rem;
     }
 
     @include respond(phone) {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       position: relative;
       left: 0;
       top: 0;
       padding-top: 0;
-      border-bottom: 1px solid $color-grey-dark;
-      margin-top: -1.3rem;
+      border-bottom: 1px solid #aeaeae;
+      margin-top: -0.7rem;
       padding-bottom: 0.5rem;
+      height: 17rem;
+      width: 100%;
+    }
+
+    &--alt {
+      left: -6rem;
+      top: 2.4rem;
+      width: 16.8rem;
+
+      @include respond(phone) {
+        display: none;
+      }
     }
 
     &:hover {
@@ -70,11 +97,11 @@
       display: none;
       padding: 1.7rem 3rem;
       background: white;
-      text-align: left;
+      text-align: center;
 
       @include respond(phone) {
         display: block;
-        padding: 1.59rem;
+        padding: 1.4rem;
       }
 
       & > a {
@@ -104,8 +131,9 @@
   }
 
   &__item {
-    margin: 1.39rem;
+    margin: 1.1rem;
     float: left;
+    position: relative;
 
     &:first-of-type {
       margin-right: 5rem;
@@ -126,15 +154,15 @@
       @include respond(phone) {
         margin-right: 0;
         margin-left: 0;
-        margin-top: -0.5rem;
+        margin-top: 1.2rem;
       }
 
       & > a {
         @include respond(phone) {
-          color: $color-primary !important;
-          font-family: Nunito-Extrabold;
-          text-transform: uppercase;
-          padding-top: 2.3rem;
+          // color: $color-primary !important;
+          // font-family: Nunito-Extrabold;
+          // text-transform: uppercase;
+          // padding-top: 2.3rem;
         }
       }
     }
@@ -178,7 +206,7 @@
       display: inline-block;
       font-size: 1.1rem;
       font-family: Nunito-Extrabold;
-      padding: 1rem 0.5rem;
+      padding: 1.7rem 0.5rem;
       color: $color-white;
       text-decoration: none;
       text-transform: uppercase;
@@ -190,7 +218,7 @@
 
       @include respond(phone) {
         display: block;
-        padding: 0.8rem 0.5rem;
+        padding: 0.7rem 0.5rem;
         font-size: 1.8rem;
         color: $color-grey-dark-2 !important;
         font-family: Nunito-Regular;
@@ -252,12 +280,13 @@
         @include respond(phone) {
           width: 100vh;
           height: 100vh;
-          position: absolute;
+          position: fixed;
           left: 0;
           top: 0;
           max-width: 100%;
           padding-top: 10vh;
           margin-top: 0rem;
+          overflow: hidden;
         }
       }
 

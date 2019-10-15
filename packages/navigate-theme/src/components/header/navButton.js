@@ -13,11 +13,18 @@ const Buttonbox = () => {
   return (
     <>
       <div className="header__nav-button">
-        <Link className="header__nav-button-box-icon" to="/">
+        <span className="header__nav-button-box-icon">
           <svg className="svg-icon--login">
             <use xlinkHref={withPrefix("sprite.svg#icon-Login")} />
           </svg>
-        </Link>
+          <div className="navigation__dropdown navigation__dropdown--alt">
+            <li className="navigation__dropdown-item">
+              <a href="https://mytourinfo.com/" target="_blank">
+                manage booking
+              </a>
+            </li>
+          </div>
+        </span>
         <a href="#" className="header__nav-button-box-link">
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}

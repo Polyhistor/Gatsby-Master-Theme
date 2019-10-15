@@ -53,6 +53,17 @@
       text-decoration: none;
     }
 
+    &-box-icon {
+      display: inline-block;
+      height: 5rem;
+      width: 6rem;
+      margin-right: 1rem;
+
+      &:hover {
+        border-bottom: 2px solid #1abc9c;
+      }
+    }
+
     & a:nth-child(1) {
       @include respond(phone) {
         display: none;
@@ -60,7 +71,7 @@
     }
 
     & + .navigation__item {
-      border-top: 1px solid $color-grey-dark;
+      // border-top: 1px solid $color-grey-dark;
       margin-top: -0.4rem;
     }
 
@@ -76,6 +87,7 @@
     @include respond(phone) {
       right: 7rem;
       top: 0px;
+      margin-top: -1.5rem;
     }
   }
 

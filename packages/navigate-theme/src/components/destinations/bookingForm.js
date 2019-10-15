@@ -14,9 +14,7 @@ const BookingForm = ({ data, country, inPage }) => {
   const countryData = useCountryQuery()
 
   // setting our initial country state
-  const countryList = useState(countryData)
-
-  console.log(data)
+  const countryList = useState(countryData) 
 
   // filtering destinations based on the country passed by props
   // const defaultCountry = destinationData.filter(
