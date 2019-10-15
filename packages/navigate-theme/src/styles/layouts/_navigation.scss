@@ -58,7 +58,7 @@
     }
 
     @include respond(phone) {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       position: relative;
@@ -159,10 +159,10 @@
 
       & > a {
         @include respond(phone) {
-          color: $color-primary !important;
-          font-family: Nunito-Extrabold;
-          text-transform: uppercase;
-          padding-top: 2.3rem;
+          // color: $color-primary !important;
+          // font-family: Nunito-Extrabold;
+          // text-transform: uppercase;
+          // padding-top: 2.3rem;
         }
       }
     }
