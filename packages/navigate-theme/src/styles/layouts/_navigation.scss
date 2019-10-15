@@ -65,10 +65,10 @@
       left: 0;
       top: 0;
       padding-top: 0;
-      border-bottom: 1px solid $color-grey-dark;
+      border-bottom: 1px solid #aeaeae;
       margin-top: -1.3rem;
       padding-bottom: 0.5rem;
-      height: 17.6rem;
+      height: 16rem;
       width: 100%;
     }
 
@@ -218,7 +218,7 @@
 
       @include respond(phone) {
         display: block;
-        padding: 0.8rem 0.5rem;
+        padding: 0.7rem 0.5rem;
         font-size: 1.8rem;
         color: $color-grey-dark-2 !important;
         font-family: Nunito-Regular;
