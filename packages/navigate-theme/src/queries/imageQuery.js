@@ -38,11 +38,7 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      landing: file(
-        relativePath: {
-          eq: "wild-kiwi-adventure-tours-youth-new-zealand-australia-d-v3.jpg"
-        }
-      ) {
+      landing: file(relativePath: { eq: "wild-kiwi-homepage-test.jpg" }) {
         ...FluidImageBig
       }
 
