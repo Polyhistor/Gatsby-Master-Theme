@@ -66,9 +66,9 @@
       top: 0;
       padding-top: 0;
       border-bottom: 1px solid #aeaeae;
-      margin-top: -1.3rem;
+      margin-top: -0.7rem;
       padding-bottom: 0.5rem;
-      height: 16rem;
+      height: 17rem;
       width: 100%;
     }
 
@@ -280,12 +280,13 @@
         @include respond(phone) {
           width: 100vh;
           height: 100vh;
-          position: absolute;
+          position: fixed;
           left: 0;
           top: 0;
           max-width: 100%;
           padding-top: 10vh;
           margin-top: 0rem;
+          overflow: hidden;
         }
       }
 

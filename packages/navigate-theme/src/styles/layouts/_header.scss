@@ -53,6 +53,17 @@
       text-decoration: none;
     }
 
+    &-box-icon {
+      display: inline-block;
+      height: 5rem;
+      width: 6rem;
+      margin-right: 1rem;
+
+      &:hover {
+        border-bottom: 2px solid #1abc9c;
+      }
+    }
+
     & a:nth-child(1) {
       @include respond(phone) {
         display: none;
@@ -76,6 +87,7 @@
     @include respond(phone) {
       right: 7rem;
       top: 0px;
+      margin-top: -1.5rem;
     }
   }
 
