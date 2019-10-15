@@ -12,6 +12,7 @@ const useMenuLabelQuery = () => {
               label
               link
             }
+            external
           }
         }
       }
