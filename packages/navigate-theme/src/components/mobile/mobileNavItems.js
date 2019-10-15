@@ -10,8 +10,6 @@ const MobileNavItems = () => {
   // iterating through link items
   const renderNavItems = () => {
     return menuLabels.map(({ label, link, sub, external }, idx) => {
-      console.log(external)
-      console.log(label)
       return (
         // bear in mind that only the fragments with explictly written React.fragment can be keyed!, in here we added idx+5, to keye our fragments
         <React.Fragment key={idx + 5}>
