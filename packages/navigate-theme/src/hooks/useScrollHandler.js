@@ -18,7 +18,7 @@ export const useScrollHandler = () => {
 
     // cleaning up from the web API
     return () => {
-      document.addEventListener("scroll", onScroll)
+      document.removeEventListener("scroll", onScroll)
     }
   }, [scroll, setScroll])
 
