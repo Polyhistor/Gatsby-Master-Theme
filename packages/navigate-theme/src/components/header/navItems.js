@@ -25,10 +25,9 @@ const NavItems = () => {
                 {label}
               </Link>
             )}
-
             {/* if there are subs available, we show them, otherwise, we don't render extra unncessary codes */}
             {sub !== null ? (
-              <div key={label} className="navigation__dropdown">
+              <ul key={label} className="navigation__dropdown">
                 {sub.map(({ label, link }) => {
                   return (
                     <li key={label} className="navigation__dropdown-item">
@@ -36,7 +35,7 @@ const NavItems = () => {
                     </li>
                   )
                 })}
-              </div>
+              </ul>
             ) : null}
           </li>
         </React.Fragment>
