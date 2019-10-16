@@ -23,19 +23,20 @@ const MobileNavItems = () => {
                 {label}
               </Link>
             )}
+
+            {/* if there are subs available, we show them, otherwise, we don't render extra unncessary codes */}
+            {sub !== null ? (
+              <ul key={label} className="navigation__dropdown">
+                {sub.map(({ label, link }) => {
+                  return (
+                    <li key={label} className="navigation__dropdown-item">
+                      <Link to={link}>{label}</Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : null}
           </li>
-          {/* if there are subs available, we show them, otherwise, we don't render extra unncessary codes */}
-          {sub !== null ? (
-            <div key={label} className="navigation__dropdown">
-              {sub.map(({ label, link }) => {
-                return (
-                  <li key={label} className="navigation__dropdown-item">
-                    <Link to={link}>{label}</Link>
-                  </li>
-                )
-              })}
-            </div>
-          ) : null}
         </React.Fragment>
       )
     })
