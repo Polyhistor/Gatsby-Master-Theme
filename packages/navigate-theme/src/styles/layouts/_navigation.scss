@@ -42,11 +42,12 @@
 
   &__dropdown {
     position: absolute;
-    top: 1rem;
-    padding-top: 2.7rem;
+    padding-top: 3.7rem;
     height: 10rem;
     width: 15.5rem;
     left: -3rem;
+    top: 3.4rem;
+    margin-top: -2rem;
 
     @include respond(tablet) {
       position: absolute;
@@ -73,8 +74,8 @@
     }
 
     &--alt {
-      left: -6rem;
-      top: 2.4rem;
+      left: -5rem;
+      top: 3.4rem;
       width: 16.8rem;
 
       @include respond(phone) {
