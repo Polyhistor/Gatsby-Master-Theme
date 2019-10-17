@@ -1,5 +1,4 @@
 .header {
-  /* 95% of the user's view port */
   height: 60rem;
   background-size: cover;
   background-position: top;
@@ -93,6 +92,10 @@
 
   &-low-height {
     height: 50vh;
+  }
+
+  &__title {
+    backface-visibility: hidden;
   }
 
   &__text-box {

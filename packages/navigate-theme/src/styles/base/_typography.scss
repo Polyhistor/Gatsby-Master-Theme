@@ -1,3 +1,158 @@
+.Nexa-Rust {
+  font-family: Nexa-Rust-2;
+}
+
+.Nunito-Black {
+  font-family: Nunito-Black;
+}
+
+.Nunito-ExtraBold {
+  font-family: Nunito-Extrabold;
+}
+
+.Nunito-Regular {
+  font-family: Nunito-Regular;
+}
+
+.Capitalize {
+  text-transform: capitalize;
+}
+
+.Uppercase {
+  text-transform: uppercase;
+}
+
+.Color-White {
+  color: white;
+}
+
+.Color-Green {
+  color: $color-primary;
+}
+
+.Color-DarkGrey {
+  color: $color-grey-dark-3;
+}
+
+.Color-Grey {
+  color: $color-grey-dark;
+}
+
+.title {
+  @extend .Nexa-Rust;
+  font-size: 6rem;
+  @extend .Color-White;
+  @extend .Uppercase;
+}
+
+.heading-1 {
+  @extend .Nexa-Rust;
+  font-size: 3.5rem;
+  @extend .Color-Green;
+  @extend .Capitalize;
+}
+
+.heading-2 {
+  @extend .Nexa-Rust;
+  font-size: 2.7rem;
+  @extend .Color-White;
+  @extend .Capitalize;
+
+  &--green {
+    @extend .Color-Green;
+  }
+}
+
+.heading-3 {
+  @extend .Nexa-Rust;
+  font-size: 2rem;
+  @extend .Color-White;
+  @extend .Uppercase;
+
+  &--extraBold {
+    @extend .Nunito-ExtraBold;
+    @extend .Capitalize;
+
+    &-darkGrey {
+      @extend .Color-DarkGrey;
+    }
+  }
+}
+
+.heading-4 {
+  @extend .Nunito-ExtraBold;
+  font-size: 1.4rem;
+  @extend .Color-White;
+  @extend .Uppercase;
+
+  &--green {
+    @extend .Color-Green;
+  }
+
+  &--darkGrey {
+    @extend .Color-DarkGrey;
+    &-capitalized {
+      @extend .Capitalize;
+    }
+  }
+
+  &-regular {
+    @extend .Nunito-Regular;
+    &--lightGray {
+      @extend .Color-Grey;
+    }
+  }
+}
+
+.heading-5 {
+  @extend .Nunito-ExtraBold;
+  font-size: 1.1rem;
+  @extend .Color-Grey;
+  @extend .Uppercase;
+
+  &--black {
+    @extend .Nunito-Black;
+    &-grey {
+      @extend .Color-Grey;
+    }
+  }
+
+  &--regular {
+    @extend .Nunito-Regular;
+    &-darkGrey {
+      @extend .Color-DarkGrey;
+    }
+  }
+
+  &--green {
+    @extend .Color-Green;
+    &-capitalized {
+      @extend .Capitalize;
+    }
+  }
+}
+
+.paragraph {
+  @extend .Nunito-Regular;
+  font-size: 1.6rem;
+  @extend .Color-DarkGrey;
+
+  &--extraBold {
+    @extend .Nunito-ExtraBold;
+
+    &-green {
+      @extend .Color-Green;
+      &-capitalized {
+        @extend .Capitalize;
+      }
+    }
+
+    &-white {
+      @extend .Color-White;
+    }
+  }
+}
+
 .heading-primary {
   color: $color-white;
   backface-visibility: hidden;
@@ -14,7 +169,7 @@
 
   &--main {
     display: block;
-    font-size: 6.21rem;
+    font-size: 6rem;
     animation: moveInleft 0.8s ease-out;
     font-family: Nexa-Rust-2;
     line-height: 5rem;
