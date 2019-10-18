@@ -75,10 +75,6 @@
   }
 
   &__button-box {
-    @include respond(tablet) {
-      padding-top: 2.8rem;
-    }
-
     & > a {
       padding: 1.45rem 5.47rem;
       font-size: 1.38rem;
