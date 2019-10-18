@@ -94,15 +94,30 @@
     height: 50vh;
   }
 
-  &__title {
-    backface-visibility: hidden;
+  &-title {
+    &__main {
+      display: grid;
+      grid-template-rows: 14.5rem 3rem;
+      animation: moveInleft 0.8s ease-out;
+      line-height: 5rem;
+      white-space: nowrap;
+      @extend .title;
+
+      @include respond(phone) {
+        font-size: 4rem;
+        line-height: 3.5rem;
+      }
+    }
+    &__sub {
+      animation: moveInleft 2s ease-out;
+    }
   }
 
   &__text-box {
     position: absolute;
     top: 35%;
     display: grid;
-    grid-template-rows: 25rem 12rem;
+    grid-template-rows: 20.4rem 12rem;
 
     @include respond(laptop) {
       left: 6%;
@@ -132,7 +147,8 @@
 
   &__button-box {
     display: grid;
-    grid-template-rows: 6rem 5rem;
+    grid-template-rows: 4.8rem 4.8rem;
+    grid-row-gap: 1.6rem;
 
     @include respond(laptop) {
       margin-right: 13.7rem;

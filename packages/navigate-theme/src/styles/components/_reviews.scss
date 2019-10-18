@@ -34,9 +34,9 @@
   }
 
   &__title {
-    font-family: Nunito-Semibold;
-    font-size: 1.5rem;
-    padding-top: 1rem;
+    @extend .paragraph;
+    @extend .paragraph--extraBold;
+    padding-top: 1.8rem;
     // we create these inter-elements for further maintenance
     @include respond(phone) {
       padding-top: 2rem;
@@ -46,9 +46,7 @@
   }
 
   &__subtitle {
-    font-family: Nunito-Regular;
-    // we create these inter-elements for further maintenance
-    font-size: 1.1rem;
+    @extend .paragraph;
 
     & + a {
       padding: 1.45rem 5.6rem;

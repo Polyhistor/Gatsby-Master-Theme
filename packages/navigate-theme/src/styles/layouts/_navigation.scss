@@ -205,12 +205,11 @@
     &:link,
     &:visited {
       display: inline-block;
-      font-size: 1.1rem;
-      font-family: Nunito-Extrabold;
+      @extend .heading-5;
+      @extend .heading-5--white;
       padding: 1.7rem 0.5rem;
-      color: $color-white;
       text-decoration: none;
-      text-transform: uppercase;
+
       letter-spacing: 1px;
 
       @include respond(tablet) {

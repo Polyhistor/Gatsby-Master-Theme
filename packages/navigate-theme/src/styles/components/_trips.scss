@@ -13,6 +13,7 @@
   }
 
   &-container {
+    transform: translateY(3rem);
     & div:nth-child(1n + 4) {
       @include respond(tablet) {
         display: none;
@@ -130,18 +131,16 @@
       margin-left: 0.8rem;
     }
     &-main {
-      @include bigCapitalText;
-      color: $color-grey-dark-3;
-      font-size: 2rem;
+      @extend .heading-3;
+      @extend .heading-3--extraBold-capitalized-darkGrey;
 
       @include respond(phone) {
         font-size: 2.4rem;
       }
     }
     &-sub {
-      @include greySubtitle;
-      font-family: Nunito-Black;
-      font-size: 1rem;
+      @extend .heading-5;
+      @extend .heading-5--capitalized;
       max-width: 20rem;
 
       @include respond(tablet) {
@@ -155,9 +154,8 @@
       }
     }
     &-price {
-      color: $color-primary;
-      @include bigCapitalText;
-      font-size: 1.1rem;
+      @extend .heading-5;
+      @extend .heading-5--green-capitalized;
 
       @include respond(tablet) {
         font-size: 1.2rem;

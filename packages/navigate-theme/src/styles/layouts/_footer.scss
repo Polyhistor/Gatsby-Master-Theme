@@ -48,12 +48,10 @@
 
   &__trips {
     &-header {
-      color: $color-grey-dark-2;
-      font-size: 1rem;
-      text-transform: capitalize;
-      font-family: Nunito-Extrabold;
+      @extend .paragraph;
+      @extend .paragraph--extraBold-capitalized-grey;
+
       padding-bottom: 0.8rem;
-      font-size: 1.5rem;
 
       @include respond(phone) {
         display: none;
@@ -125,9 +123,11 @@
     &-link {
       display: block;
       text-decoration: none;
-      color: $color-grey-dark;
-      font-family: Nunito-Regular;
-      font-size: 1.4rem;
+      // color: $color-grey-dark;
+      // font-family: Nunito-Regular;
+      // font-size: 1.4rem;
+      @extend .heading-4;
+      @extend .heading-4-regular-capitalized-grey;
 
       @include respond(tablet) {
         font-size: 1.1rem;
@@ -469,9 +469,8 @@
       }
 
       & h2 {
-        @include bigCapitalText;
-        color: $color-primary;
-        font-size: 1.5rem;
+        @extend .paragraph;
+        @extend .paragraph--extraBold-green-capitalized;
         grid-column: 1/-1;
 
         @include respond(phone) {

@@ -73,9 +73,8 @@
   }
 
   &__title {
-    @include bigUppercaseText;
-    color: white;
-    font-size: 1.6rem;
+    @extend .paragraph;
+    @extend .paragraph--extraBold-white-uppercase;
     flex-basis: 16rem;
     text-align: center;
     white-space: pre;

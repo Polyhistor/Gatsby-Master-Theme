@@ -123,14 +123,14 @@ const IndexPage = ({ data }) => {
       </div>
       <BannerHero
         imageData={imageQuery.bannerHero.childImageSharp.fluid}
-        headerFirst="Flash-pack your way around New Zealand,"
-        headersecond="Australia and Europe."
+        headerFirst="Flash-pack your way around New Zealand, Australia and"
+        headersecond="Europe."
         subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+        <h2 className="heading-1 u-margin-bottom-small">Destinations</h2>
       </div>
       {/* rendering all destinations */}
       {renderCountries()}
