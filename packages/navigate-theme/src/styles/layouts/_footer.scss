@@ -109,6 +109,9 @@
 
       @include respond(phone) {
         border-top: 1px solid $color-gray-light-2;
+        left: calc(-50vw + 50%);
+        width: 100vw;
+        position: relative;
       }
 
       &:nth-child(2),
@@ -582,6 +585,8 @@
       & > a {
         text-decoration: none;
         color: $color-grey-dark;
+        display: block;
+        height: 4rem;
       }
     }
   }

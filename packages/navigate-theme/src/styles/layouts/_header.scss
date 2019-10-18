@@ -104,7 +104,8 @@
       @extend .title;
 
       @include respond(phone) {
-        font-size: 4rem;
+        grid-template-rows: 10.5rem 3rem;
+        font-size: 3.6rem;
         line-height: 3.5rem;
       }
     }
