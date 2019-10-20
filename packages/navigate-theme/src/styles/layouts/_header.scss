@@ -136,7 +136,7 @@
     }
 
     &--dest {
-      grid-template-rows: 21rem 12rem;
+      grid-template-rows: 16.5rem 5rem;
       top: 50% !important;
       @include respond(phone) {
         text-align: center;

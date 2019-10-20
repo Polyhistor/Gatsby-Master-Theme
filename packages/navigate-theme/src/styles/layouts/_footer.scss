@@ -585,8 +585,11 @@
       & > a {
         text-decoration: none;
         color: $color-grey-dark;
-        display: block;
-        height: 4rem;
+
+        @include respond(phone) {
+          display: block;
+          height: 4rem;
+        }
       }
     }
   }
