@@ -22,6 +22,10 @@
   text-transform: uppercase;
 }
 
+@mixin Regular {
+  text-transform: None;
+}
+
 @mixin Color-White {
   color: white;
 }
@@ -74,6 +78,18 @@
   @include Color-White;
   @include Uppercase;
 
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--regular {
+    @include Regular;
+  }
+
+  &--green {
+    @include Color-Green();
+  }
+
   &--extraBold-capitalized-darkGrey {
     @include Nunito-ExtraBold;
     @include Capitalize;
@@ -92,12 +108,24 @@
   @include Color-White;
   @include Uppercase;
 
+  &--capitalized {
+    @include Capitalize;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
   &--green {
     @include Color-Green;
   }
 
   &--darkGrey {
     @include Color-DarkGrey;
+  }
+
+  &--regular {
+    @include Regular();
   }
 
   &--green-capitalized {
@@ -116,10 +144,16 @@
     @include Capitalize;
   }
 
-  &-regular-capitalized-grey {
+  &--regular-capitalized-grey {
     @include Nunito-Regular;
     @include Capitalize;
     @include Color-Grey;
+  }
+
+  &--regular-capitalized-darkGrey {
+    @include Nunito-Regular;
+    @include Capitalize;
+    @include Color-DarkGrey;
   }
 }
 
@@ -139,9 +173,6 @@
 
   &--black {
     @include Nunito-Black;
-    &-grey {
-      @include Color-Grey;
-    }
   }
 
   &--regular-darkGrey-capitalized {
@@ -165,10 +196,24 @@
   font-size: 1.6rem;
   @include Color-DarkGrey;
 
-  &--nexaRust-white-capitalized {
-    @include Nexa-Rust;
+  &--white {
     @include Color-White;
-    @include Capitalize;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--uppercase {
+    @include Uppercase();
   }
 
   &--extraBold-white-uppercase {
@@ -177,8 +222,10 @@
     @include Uppercase;
   }
 
-  &--extraBold {
-    @include Nunito-ExtraBold;
+  &--nexaRust-white-capitalized {
+    @include Nexa-Rust;
+    @include Color-White;
+    @include Capitalize;
   }
 
   &--extraBold-capitalized-grey {
@@ -190,10 +237,6 @@
   &--extraBold-green-capitalized {
     @include Nunito-ExtraBold;
     @include Color-Green;
-  }
-
-  &-white {
-    @include Color-White;
   }
 }
 
@@ -279,7 +322,8 @@
 }
 
 .heading-alternative {
-  @include header-alternative;
+  @extend .paragraph;
+  @extend .paragraph--white;
 
   &--white {
     color: white;
@@ -292,9 +336,7 @@
 }
 
 .green-title {
-  font-family: Nunito-Black;
-  font-size: 3.4rem;
-  color: $color-primary;
+  @extend .heading-1;
 
   @include respond(phone) {
     font-size: 3.7rem;

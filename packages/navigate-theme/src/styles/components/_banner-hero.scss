@@ -65,7 +65,7 @@
       font-weight: 300;
       // font-size: 1.6rem;
       @extend .paragraph;
-      @extend .paragraph-white;
+      @extend .paragraph--white;
 
       &-2 {
         @extend .heading-3;

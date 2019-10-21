@@ -3,8 +3,9 @@
   grid-template-columns: repeat(4, 18rem);
   grid-template-rows: 5rem 8rem 4rem 8rem 2rem;
   grid-column-gap: 6.8rem;
-  font-size: 1.4rem;
-  color: $color-grey-dark-3;
+  @extend .heading-4;
+  @extend .heading-4--regular;
+  @extend .heading-4--regular-capitalized-darkGrey;
 
   @include respond(laptop) {
     grid-template-columns: repeat(2, 22rem);
@@ -26,7 +27,10 @@
   &__title {
     grid-column: 1/3;
     grid-row: 1;
-    font-size: 2.2rem;
+    @extend .heading-3;
+    @extend .heading-3--black;
+    @extend .heading-3--regular;
+    @extend .heading-3--green;
 
     @include respond(tablet) {
       font-size: 1.9rem;

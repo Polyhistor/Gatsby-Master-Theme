@@ -130,7 +130,7 @@
       // font-family: Nunito-Regular;
       // font-size: 1.4rem;
       @extend .heading-4;
-      @extend .heading-4-regular-capitalized-grey;
+      @extend .heading-4--regular-capitalized-grey;
 
       @include respond(tablet) {
         font-size: 1.1rem;
