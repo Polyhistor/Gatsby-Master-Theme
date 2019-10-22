@@ -88,20 +88,23 @@ const IndexPage = ({ data }) => {
    * Todo: Dynamic  destinations link - buttonFirstUrl
    * Greenbar alt
    */
+
+  console.log(imageQuery)
+
   return (
     <Layout>
       {renderSeo(data)}
       <Landing
-        imageData={imageQuery.landing.childImageSharp.fluid}
-        titleFirst="epic"
-        TitleSecond="adventure"
+        imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
+        titleFirst="adventure"
+        TitleSecond="sailing"
         TitleThird="tours"
         subTitle="for 18 to 35 year olds"
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
-        buttonStyles={["green", "white"]}
+        buttonStyles={["med-blue", "white-med"]}
         variation={null}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />

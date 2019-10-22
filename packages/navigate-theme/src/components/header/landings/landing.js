@@ -22,6 +22,10 @@ const Header = ({
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
+  let theme = process.env.GATSBY_THEME
+
+  console.log(theme)
+
   // rendering the contents
   return (
     <>
@@ -30,7 +34,9 @@ const Header = ({
           <div className={`header__text-box header__text-box--${variation}`}>
             <h1
               className={
-                variation === null
+                theme === "ms"
+                  ? `header-title header-title__main header-title__main--ms`
+                  : variation === null
                   ? `header-title header-title__main`
                   : `heading-primary heading-primary--${variation}`
               }
@@ -47,7 +53,13 @@ const Header = ({
                 <p className="heading-primary--description">{description}</p>
               ) : null}
               {subTitle !== null ? (
-                <span className="paragraph paragraph--nexaRust-white-capitalized">
+                <span
+                  className={
+                    theme === "ms"
+                      ? "paragraph paragraph--white paragraph--black paragraph--uppercase"
+                      : "paragraph paragraph--nexaRust-white-capitalized"
+                  }
+                >
                   {subTitle}
                 </span>
               ) : null}

@@ -225,6 +225,12 @@ const useImageQuery = () => {
       ReviewsBanner: file(relativePath: { eq: "wild-kiwi-tours-reviews.jpg" }) {
         ...FluidImage
       }
+
+      MedsailorsBanner: file(
+        relativePath: { eq: "medsailors-greece-croatia-sailing-holidays.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData
