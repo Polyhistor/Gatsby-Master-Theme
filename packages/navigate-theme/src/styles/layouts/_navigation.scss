@@ -42,11 +42,12 @@
 
   &__dropdown {
     position: absolute;
-    top: 1rem;
-    padding-top: 2.7rem;
+    padding-top: 3.7rem;
     height: 10rem;
     width: 15.5rem;
     left: -3rem;
+    top: 3.4rem;
+    margin-top: -2rem;
 
     @include respond(tablet) {
       position: absolute;
@@ -73,8 +74,8 @@
     }
 
     &--alt {
-      left: -6rem;
-      top: 2.4rem;
+      left: -5rem;
+      top: 3.4rem;
       width: 16.8rem;
 
       @include respond(phone) {
@@ -204,12 +205,11 @@
     &:link,
     &:visited {
       display: inline-block;
-      font-size: 1.1rem;
-      font-family: Nunito-Extrabold;
+      @extend .heading-5;
+      @extend .heading-5--white;
       padding: 1.7rem 0.5rem;
-      color: $color-white;
       text-decoration: none;
-      text-transform: uppercase;
+
       letter-spacing: 1px;
 
       @include respond(tablet) {

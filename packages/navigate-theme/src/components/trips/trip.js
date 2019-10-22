@@ -30,10 +30,7 @@ const Trip = ({
         <div className="trips__description">
           <h3 className="trips__description-main">{title}</h3>
           <h5 className="trips__description-sub">{subtitle}</h5>
-          <p className="trips__description-price">
-            {price}
-            <span className="trips__description-price--day">{priceDay}</span>
-          </p>
+          <p className="trips__description-price">{price}</p>
         </div>
       </Link>
     </div>

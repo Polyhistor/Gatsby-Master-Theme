@@ -24,7 +24,7 @@ const Banner = ({
                   {subHeaderFirst} <br /> {subHeaderSecond}
                 </span>
               </h2>
-              <div className="banner-hero__button-box banner-hero__text-box-2">
+              <div>
                 <Link to={link} className="btn btn--transparent btn-animated">
                   {buttonText}
                 </Link>

@@ -1,6 +1,5 @@
 .banner-hero {
   height: 50rem;
-  color: $color-white;
 
   &__image {
     border-radius: 0.3rem 0.3rem 0 0;
@@ -20,7 +19,8 @@
     left: 3%;
     max-width: 40rem;
     display: grid;
-    grid-template-rows: 12rem 20rem 5rem;
+    grid-template-rows: 10rem 18rem 5rem;
+    grid-row-gap: 2.4rem;
 
     @include respond(laptop) {
       width: 55%;
@@ -35,7 +35,8 @@
       padding-top: 2.2rem !important;
       top: 10%;
       left: 2%;
-      grid-template-rows: 9rem 7rem;
+      grid-template-rows: 8rem 7rem;
+      grid-row-gap: 2rem;
 
       & > a {
         width: 22rem;
@@ -53,31 +54,27 @@
   &-heading {
     &--main {
       display: block;
-      font-size: 3rem;
+      @extend .heading-2;
       line-height: 3.5rem;
-      padding-bottom: 1.5rem;
-      font-family: Nunito-Black;
       &-2 {
-        font-size: 2.5rem;
         padding-bottom: 0rem;
       }
     }
     &--sub {
-      font-family: Nunito-Regular;
+      // font-family: Nunito-Regular;
       font-weight: 300;
-      font-size: 1.6rem;
+      // font-size: 1.6rem;
+      @extend .paragraph;
+      @extend .paragraph--white;
 
       &-2 {
-        font-size: 2rem;
+        @extend .heading-3;
+        @extend .heading-3--regular-capitaliezd;
       }
     }
   }
 
   &__button-box {
-    @include respond(tablet) {
-      padding-top: 2.8rem;
-    }
-
     & > a {
       padding: 1.45rem 5.47rem;
       font-size: 1.38rem;

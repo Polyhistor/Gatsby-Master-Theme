@@ -1,10 +1,249 @@
-.heading-primary {
-  color: $color-white;
-  backface-visibility: hidden;
-  margin-bottom: 1rem;
-  @include bigUppercaseText;
+@mixin Nexa-Rust {
+  font-family: Nexa-Rust-2;
+}
 
+@mixin Nunito-Black {
+  font-family: Nunito-Black;
+}
+
+@mixin Nunito-ExtraBold {
+  font-family: Nunito-Extrabold;
+}
+
+@mixin Nunito-Regular {
+  font-family: Nunito-Regular;
+}
+
+@mixin Capitalize {
+  text-transform: capitalize;
+}
+
+@mixin Uppercase {
+  text-transform: uppercase;
+}
+
+@mixin Regular {
+  text-transform: None;
+}
+
+@mixin Color-White {
+  color: white;
+}
+
+@mixin Color-Green {
+  color: $color-primary;
+}
+
+@mixin Color-DarkGrey {
+  color: $color-grey-dark-3;
+}
+
+@mixin Color-Grey {
+  color: $color-grey-dark;
+}
+
+.title {
+  @include Nexa-Rust;
+  font-size: 6rem;
+  @include Color-White;
+  @include Uppercase;
+}
+
+.heading-1 {
+  @include Nunito-Black;
+  font-size: 3.5rem;
+  @include Color-Green;
+  @include Capitalize;
+}
+
+.heading-2 {
+  @include Nunito-Black;
+  font-size: 2.7rem;
+  @include Color-White;
+  @include Capitalize;
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--extraBold-green {
+    @include Nunito-ExtraBold;
+    @include Color-Green;
+  }
+}
+
+.heading-3 {
+  @include Nexa-Rust;
+  font-size: 2rem;
+  @include Color-White;
+  @include Uppercase;
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--regular {
+    @include Regular;
+  }
+
+  &--green {
+    @include Color-Green();
+  }
+
+  &--extraBold-capitalized-darkGrey {
+    @include Nunito-ExtraBold;
+    @include Capitalize;
+    @include Color-DarkGrey;
+  }
+
+  &--regular-capitaliezd {
+    @include Nunito-Regular;
+    @include Capitalize;
+  }
+}
+
+.heading-4 {
+  @include Nunito-ExtraBold;
+  font-size: 1.4rem;
+  @include Color-White;
+  @include Uppercase;
+
+  &--capitalized {
+    @include Capitalize;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
+
+  &--regular {
+    @include Regular();
+  }
+
+  &--green-capitalized {
+    @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--black-green-capitalized {
+    @include Nunito-Black;
+    @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--darkGrey-capitalized {
+    @include Color-DarkGrey;
+    @include Capitalize;
+  }
+
+  &--regular-capitalized-grey {
+    @include Nunito-Regular;
+    @include Capitalize;
+    @include Color-Grey;
+  }
+
+  &--regular-capitalized-darkGrey {
+    @include Nunito-Regular;
+    @include Capitalize;
+    @include Color-DarkGrey;
+  }
+}
+
+.heading-5 {
+  @include Nunito-ExtraBold;
+  font-size: 1.1rem;
+  @include Color-Grey;
+  @include Uppercase;
+
+  &--capitalized {
+    @include Capitalize;
+  }
+
+  &--white {
+    @include Color-White;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--regular-darkGrey-capitalized {
+    @include Nunito-Regular;
+    @include Color-DarkGrey;
+    @include Capitalize;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--green-capitalized {
+    @include Color-Green;
+    @include Capitalize;
+  }
+}
+
+.paragraph {
+  @include Nunito-Regular;
+  font-size: 1.6rem;
+  @include Color-DarkGrey;
+
+  &--white {
+    @include Color-White;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--uppercase {
+    @include Uppercase();
+  }
+
+  &--extraBold-white-uppercase {
+    @include Nunito-ExtraBold;
+    @include Color-White;
+    @include Uppercase;
+  }
+
+  &--nexaRust-white-capitalized {
+    @include Nexa-Rust;
+    @include Color-White;
+    @include Capitalize;
+  }
+
+  &--extraBold-capitalized-grey {
+    @include Nunito-ExtraBold;
+    @include Capitalize;
+    @include Color-Grey;
+  }
+
+  &--extraBold-green-capitalized {
+    @include Nunito-ExtraBold;
+    @include Color-Green;
+  }
+}
+
+.heading-primary {
   &--dest {
+    @extend .title;
+
     & > span {
       @include respond(phone) {
         font-size: 3.4rem;
@@ -14,7 +253,7 @@
 
   &--main {
     display: block;
-    font-size: 6.21rem;
+    font-size: 6rem;
     animation: moveInleft 0.8s ease-out;
     font-family: Nexa-Rust-2;
     line-height: 5rem;
@@ -40,7 +279,6 @@
     color: white;
     font-size: 1.6rem;
     font-family: Nunito-Semibold;
-    padding-top: 2rem;
     max-width: 52rem;
     text-transform: none;
 
@@ -84,7 +322,8 @@
 }
 
 .heading-alternative {
-  @include header-alternative;
+  @extend .paragraph;
+  @extend .paragraph--white;
 
   &--white {
     color: white;
@@ -97,9 +336,7 @@
 }
 
 .green-title {
-  font-family: Nunito-Black;
-  font-size: 3.4rem;
-  color: $color-primary;
+  @extend .heading-1;
 
   @include respond(phone) {
     font-size: 3.7rem;

@@ -1,8 +1,9 @@
 .get-there {
   display: grid;
   grid-template-rows: 7rem min-content 22rem;
-  font-size: 1.6rem;
-  color: $color-grey-dark-2;
+  // font-size: 1.6rem;
+  // color: $color-grey-dark-2;
+  @extend .paragraph;
 
   @include respond(laptop) {
     grid-template-rows: 7rem min-content 22rem;
@@ -32,11 +33,14 @@
     grid-template-columns: 50% 50%;
 
     &-title {
-      font-family: Nunito-Black;
-      color: $color-grey-dark-3;
-      display: block;
+      // font-family: Nunito-Black;
+      // color: $color-grey-dark-3;
+      @extend .paragraph;
+      @extend .paragraph--black;
+
       padding-bottom: 1.5rem;
       margin-left: -1.6rem;
+      display: block;
     }
 
     &--left {
@@ -54,7 +58,7 @@
 
     & > a {
       text-decoration: none;
-      color: $color-grey-dark-2;
+      @extend .paragraph;
     }
   }
 }

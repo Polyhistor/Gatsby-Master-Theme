@@ -30,20 +30,18 @@
     padding-top: 1.5rem;
 
     &-title {
-      @include black-25-capital-drak-gray;
-      font-size: 2.1rem;
+      @extend .heading-2;
+      @extend .heading-2--green;
     }
 
     &-subtitle {
-      @include bigUppercaseText;
-      font-size: 1.4rem;
-      color: $color-grey-dark;
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
     }
 
     &-price {
-      @include bigUppercaseText;
-      font-size: 1.4rem;
-      color: $color-primary;
+      @extend .heading-4;
+      @extend .heading-4--green-capitalized;
     }
   }
 

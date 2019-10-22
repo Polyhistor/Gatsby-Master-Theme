@@ -42,7 +42,7 @@ const Trips = ({ data }) => {
   return (
     <section className="section-trips">
       <div className="row">
-        <div className="trips-header-box u-padding-bottom-small ">
+        <div className="trips-header-box">
           <h2 className="green-title">Popular tours</h2>
         </div>
         <div className="trips-container">{renderTrips()}</div>

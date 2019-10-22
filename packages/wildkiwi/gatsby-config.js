@@ -161,7 +161,7 @@ module.exports = {
         },
         wordpress: {
           baseUrl: process.env.WORDPRESS_URL,
-          perPage: 5,
+          perPage: 6,
           concurrentRequests: 3,
           includedRoutes: [
             `**/categories`,

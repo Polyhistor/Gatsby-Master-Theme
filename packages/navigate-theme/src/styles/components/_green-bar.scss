@@ -53,7 +53,7 @@
     & > a:nth-child(3),
     & > a:nth-child(4) {
       @include respond(phone) {
-        font-family: Nunito-SemiBold;
+        font-family: Nunito-Extrabold;
         padding: 0rem;
         font-size: 1.8rem;
       }
@@ -73,9 +73,8 @@
   }
 
   &__title {
-    @include bigUppercaseText;
-    color: white;
-    font-size: 1.6rem;
+    @extend .paragraph;
+    @extend .paragraph--extraBold-white-uppercase;
     flex-basis: 16rem;
     text-align: center;
     white-space: pre;

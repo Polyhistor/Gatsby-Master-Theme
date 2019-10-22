@@ -17,7 +17,7 @@ const BoxContainer = ({ dataArray }) => {
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
-        <h2 className="green-title u-margin-bottom-sedium">Why Wild Kiwi?</h2>
+        <h2 className="heading-1 u-margin-bottom-sedium">Why Wild Kiwi?</h2>
         {renderBoxes()}
       </div>
     </section>

@@ -1,10 +1,10 @@
 .feature-box {
   border-radius: 0.3rem 0.3rem 0 0;
-  height: 25rem;
+  height: 20rem;
   overflow: hidden;
 
   @include respond(laptop) {
-    height: 28rem;
+    height: 16rem;
   }
 
   @include respond(tablet) {
@@ -16,7 +16,7 @@
   }
 
   &__text-box {
-    padding: 2.5rem 1rem 1.7rem 1.5rem;
+    padding: 1.3rem 1rem 1.7rem 1.5rem;
     border: 1px solid $color-gray-light-2;
     border-radius: 0 0 0.4rem 0.4rem;
 
@@ -34,9 +34,11 @@
   }
 
   &__text {
-    font-size: 2.1rem;
-    font-family: Nunito-ExtraBold;
-    color: $color-grey-dark-3;
+    // font-size: 2.1rem;
+    // font-family: Nunito-ExtraBold;
+    // color: $color-grey-dark-3;
+    @extend .heading-3;
+    @extend .heading-3--extraBold-capitalized-darkGrey;
     display: block;
     padding-bottom: 0.5rem;
 

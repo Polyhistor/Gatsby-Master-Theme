@@ -24,9 +24,7 @@ const includes = ({
   return (
     <div className="section-destination__includes">
       <div className="includes">
-        <h4 className="includes__title heading-alternative u-color-green">
-          {title}
-        </h4>
+        <h4 className="includes__title">{title}</h4>
         {/* first quarter */}
         <svg className="includes__icon--first">
           <use xlinkHref={withPrefix(`sprite.svg#icon-${iconFirst}`)} />
@@ -49,7 +47,7 @@ const includes = ({
         </svg>
         <span className="includes__text--fourth">{textFourth}</span>
 
-        <h4 className="includes__title--second heading-alternative u-color-green">
+        <h4 className="includes__title includes__title--second ">
           {titleSecond}
         </h4>
         <div className="includes__specifics">

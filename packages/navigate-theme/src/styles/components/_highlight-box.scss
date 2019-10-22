@@ -26,7 +26,8 @@
     width: 21rem;
     height: 14rem;
     grid-row: 1;
-    border-radius: 4px;
+    border-top-right-radius: 0.4rem;
+    border-top-left-radius: 0.4rem;
 
     @include respond(laptop) {
       height: 22rem;
@@ -58,9 +59,9 @@
 
   &__title {
     grid-row: 2;
-    font-family: Nunito-Black;
-    font-size: 1.4rem;
-    color: $color-grey-dark-3;
+    @extend .heading-4;
+    @extend .heading-4--darkGrey-capitalized;
+    @extend .heading-4--black;
     padding-bottom: 0.5rem;
 
     @include respond(tablet) {
@@ -72,8 +73,8 @@
 
   &__description {
     grid-row: 3;
-    font-size: 1.4rem;
-    color: $color-grey-dark-2;
+    @extend .heading-4;
+    @extend .heading-4--regular-capitalized-darkGrey;
 
     @include respond(tablet) {
       font-size: 1.5rem;

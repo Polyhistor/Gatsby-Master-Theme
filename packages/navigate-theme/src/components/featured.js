@@ -5,9 +5,7 @@ const Featured = () => {
   return (
     <div className="featured">
       <div className="featured__container">
-        <h2 className="heading-tertiary--inline heading-tertiary--white">
-          featured in
-        </h2>
+        <h2 className="heading-tertiary--inline">featured in</h2>
         <div className="featured__container-image featured__container-image--metro">
           <a
             href="https://metro.co.uk/2019/05/04/terrifying-cliff-jumps-sunrise-mountain-hikes-and-sea-kayaking-an-action-packed-tour-of-new-zealands-magical-south-island-9200094/"
@@ -28,9 +26,7 @@ const Featured = () => {
             </svg>
           </a>
         </div>
-        <h2 className="heading-tertiary--inline heading-tertiary--white">
-          recognised by
-        </h2>
+        <h2 className="heading-tertiary--inline">recognised by</h2>
         <div className="featured__container-image featured__container-image--west">
           <a
             href="http://www.westpacchampionawards.co.nz/2018+Finalists.html"

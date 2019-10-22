@@ -21,7 +21,7 @@ import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo/seo"
 
 const BlogPostTemplate = ({ data }, idx) => {
-  const shareUrl = `http://localhost:8000/blog/${data.wordpressPost.slug}`
+  const shareUrl = `${process.env.GATSBY_SITE_URL}/blog/${data.wordpressPost.slug}`
 
   // taking out our custom hook
   const blogQuery = useBlogQuery()

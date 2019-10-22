@@ -1,5 +1,5 @@
 .featured {
-  height: 9.8rem;
+  height: 12.2rem;
   background: black;
   text-transform: uppercase;
   position: relative;
@@ -14,8 +14,8 @@
     align-items: center;
 
     &:first-child h2 {
-      font-size: 1.2rem;
-      font-family: Nunito-Extrabold;
+      @extend .heading-5;
+      @extend .heading-5--white;
 
       @include respond(tablet) {
         font-size: 1rem;

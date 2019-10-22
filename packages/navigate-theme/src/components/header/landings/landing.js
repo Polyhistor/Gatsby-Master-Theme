@@ -31,11 +31,11 @@ const Header = ({
             <h1
               className={
                 variation === null
-                  ? `heading-primary`
+                  ? `header-title header-title__main`
                   : `heading-primary heading-primary--${variation}`
               }
             >
-              <span className="heading-primary--main">
+              <span>
                 {titleFirst} <br />
                 {TitleSecond && TitleThird !== null ? (
                   <>
@@ -47,7 +47,9 @@ const Header = ({
                 <p className="heading-primary--description">{description}</p>
               ) : null}
               {subTitle !== null ? (
-                <span className="heading-primary--sub">{subTitle}</span>
+                <span className="paragraph paragraph--nexaRust-white-capitalized">
+                  {subTitle}
+                </span>
               ) : null}
             </h1>
             <div
