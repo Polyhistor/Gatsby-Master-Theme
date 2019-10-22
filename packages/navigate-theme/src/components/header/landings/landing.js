@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useState } from "react"
 import Modal from "react-responsive-modal"
 import { Link, withPrefix } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
+=======
+import React, { useState } from "react";
+import Modal from "react-responsive-modal";
+import { Link, withPrefix } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
+>>>>>>> feature/medsailors
 
 const Header = ({
   imageData,
@@ -17,6 +24,7 @@ const Header = ({
   buttonStyles,
   optMargin,
   variation,
+<<<<<<< HEAD
   popupVideo,
 }) => {
   // setting the initial state for the modal
@@ -25,6 +33,16 @@ const Header = ({
   let theme = process.env.GATSBY_THEME
 
   console.log(theme)
+=======
+  popupVideo
+}) => {
+  // setting the initial state for the modal
+  const [{ open }, setModal] = useState({ open: false });
+
+  let theme = process.env.GATSBY_THEME;
+
+  console.log(theme);
+>>>>>>> feature/medsailors
 
   // rendering the contents
   return (
@@ -122,7 +140,14 @@ const Header = ({
         </div>
       </Modal>
     </>
+<<<<<<< HEAD
   )
 }
 
 export default Header
+=======
+  );
+};
+
+export default Header;
+>>>>>>> feature/medsailors
