@@ -24,13 +24,13 @@
   }
 
   &__header {
-    @include heading-18-black-gray;
-    font-family: Nunito-Extrabold;
+    @extend .heading-3;
+    @extend .heading-3--extraBold-capitalized-darkGrey;
     margin-bottom: 1rem;
   }
 
   &__paragraph {
-    font-size: 1.6rem;
+    @extend .paragraph;
     font-family: inherit;
     white-space: pre-wrap;
   }

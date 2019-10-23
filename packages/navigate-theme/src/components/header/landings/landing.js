@@ -24,8 +24,6 @@ const Header = ({
 
   let theme = process.env.GATSBY_THEME
 
-  console.log(theme)
-
   // rendering the contents
   return (
     <>

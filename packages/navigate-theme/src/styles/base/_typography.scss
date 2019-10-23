@@ -82,6 +82,10 @@
     @include Nunito-ExtraBold;
     @include Color-Green;
   }
+
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
 }
 
 .heading-3 {
