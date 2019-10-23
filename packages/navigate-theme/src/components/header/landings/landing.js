@@ -27,7 +27,6 @@ const Header = ({
   // rendering the contents
   return (
     <>
-      <h2 className="mobile-yes">tests</h2>
       <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
         <div className="header">
           <div className={`header__text-box header__text-box--${variation}`}>
