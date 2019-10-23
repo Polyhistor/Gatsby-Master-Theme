@@ -24,11 +24,7 @@ const BlogAuthorTemplate = ({ data }) => {
           // since our wordpress source plugin did not support limit method on the query, we use the index trick
           while (idx < 12) {
             return (
-              <Link
-                to={`/blog/${categories[0].slug}/${slug}`}
-                key={id}
-                className="article-single"
-              >
+              <Link to={`/blog/${slug}`} key={id} className="article-single">
                 {featured_media !== null && (
                   <Img
                     className="article-single__thumb"
