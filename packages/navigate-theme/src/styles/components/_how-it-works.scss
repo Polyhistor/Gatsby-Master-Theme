@@ -22,8 +22,8 @@
       border: 1px solid $color-gray-light-2;
       border-radius: 0.4rem;
       display: grid;
-      grid-template-rows: 30.1rem repeat(3, min-content);
-      padding-bottom: 1.3rem;
+      grid-template-rows: 29rem repeat(3, min-content);
+      padding-bottom: 1.4rem;
 
       @include respond(laptop) {
       }
