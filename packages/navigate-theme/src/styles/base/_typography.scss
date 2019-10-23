@@ -14,6 +14,10 @@
   font-family: Nunito-Regular;
 }
 
+@mixin Archer-Pro {
+  font-family: Archer-Bold;
+}
+
 @mixin Capitalize {
   text-transform: capitalize;
 }
@@ -42,11 +46,19 @@
   color: $color-grey-dark;
 }
 
+@mixin Color-MS-Blue {
+  color: $color-med-blue;
+}
+
 .title {
   @include Nexa-Rust;
   font-size: 6rem;
   @include Color-White;
   @include Uppercase;
+
+  &--ms {
+    @include Archer-Pro();
+  }
 }
 
 .heading-1 {
@@ -69,6 +81,10 @@
   &--extraBold-green {
     @include Nunito-ExtraBold;
     @include Color-Green;
+  }
+
+  &--darkGrey {
+    @include Color-DarkGrey;
   }
 }
 
@@ -214,6 +230,10 @@
 
   &--uppercase {
     @include Uppercase();
+  }
+
+  &--capitalized {
+    @include Capitalize();
   }
 
   &--extraBold-white-uppercase {

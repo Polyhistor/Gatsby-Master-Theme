@@ -108,6 +108,10 @@
         font-size: 3.6rem;
         line-height: 3.5rem;
       }
+
+      &--ms {
+        @extend .title--ms;
+      }
     }
     &__sub {
       animation: moveInleft 2s ease-out;
