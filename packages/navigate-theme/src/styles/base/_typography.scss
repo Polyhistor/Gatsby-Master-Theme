@@ -78,13 +78,13 @@
     @include Color-Green;
   }
 
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
+
   &--extraBold-green {
     @include Nunito-ExtraBold;
     @include Color-Green;
-  }
-
-  &--darkGrey {
-    @include Color-DarkGrey;
   }
 }
 
@@ -140,8 +140,20 @@
     @include Color-DarkGrey;
   }
 
+  &--grey {
+    @include Color-Grey();
+  }
+
+  &--uppercase {
+    @include Uppercase();
+  }
+
   &--regular {
     @include Regular();
+  }
+
+  &--nRegular {
+    @include Nunito-Regular();
   }
 
   &--green-capitalized {
@@ -191,18 +203,18 @@
     @include Nunito-Black;
   }
 
-  &--regular-darkGrey-capitalized {
-    @include Nunito-Regular;
-    @include Color-DarkGrey;
-    @include Capitalize;
-  }
-
   &--green {
     @include Color-Green;
   }
 
   &--green-capitalized {
     @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--regular-darkGrey-capitalized {
+    @include Nunito-Regular;
+    @include Color-DarkGrey;
     @include Capitalize;
   }
 }
