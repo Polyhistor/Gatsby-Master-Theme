@@ -89,8 +89,6 @@ const IndexPage = ({ data }) => {
    * Greenbar alt
    */
 
-  console.log(imageQuery)
-
   return (
     <Layout>
       {renderSeo(data)}
