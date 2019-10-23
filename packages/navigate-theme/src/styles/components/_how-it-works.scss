@@ -122,7 +122,7 @@
     & .how-it-works__box:nth-child(9),
     & .how-it-works__box:nth-child(10) {
       max-width: 61.7rem;
-      grid-template-rows: 44.5rem repeat(3, min-content);
+      grid-template-rows: 43.5rem repeat(3, min-content);
 
       @include respond(laptop) {
         max-width: 49.3rem;
