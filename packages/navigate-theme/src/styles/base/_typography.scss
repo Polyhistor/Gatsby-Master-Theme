@@ -371,7 +371,7 @@
   @extend .heading-1;
 
   @include respond(phone) {
-    font-size: 3.7rem;
+    font-size: 3rem;
     text-align: center;
   }
 }
