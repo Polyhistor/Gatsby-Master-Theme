@@ -43,6 +43,9 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
               slug
               name
             }
+            tags {
+              slug
+            }
             author {
               name
             }
@@ -61,6 +64,15 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
                 }
               }
             }
+          }
+        }
+      }
+      allWordpressTag {
+        edges {
+          node {
+            slug
+            name
+            taxonomy
           }
         }
       }
@@ -158,6 +170,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // error handling after the query
     if (result.errors) {
       throw result.errors
+      process.exit(1)
     }
 
     //cut off
@@ -194,10 +207,12 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     )
 
     // accessing the data responsible for blog tags
-    // const BlogTags = result.data.allWordpressTag.edges
+    const BlogTags = result.data.allWordpressTag.edges.filter(
+      t => t.node.taxonomy === "post_tag"
+    )
 
     // the tags page template
-    // const BlogTagsTemplate = require.resolve("./src/templates/tags.js")
+    const BlogTagsTemplate = require.resolve("./src/templates/blogTag.js")
 
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges
@@ -236,13 +251,13 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     })
 
     // creating another set of paginated page for the blog
-    createPaginatedPages({
+    /* createPaginatedPages({
       edges: BlogPosts,
       createPage: createPage,
       pageTemplate: require.resolve("./src/templates/blogSearch.js"),
       pageLength: 18,
       pathPrefix: "blog/categorized",
-    })
+    })*/
 
     const activitiesMeta = extractMetadataFromContentfulData(
       "activities-main-page",
@@ -268,6 +283,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         component: BlogPostTemplate,
         context: {
           id: post.node.wordpress_id,
+          site: themeOptions.site,
         },
       })
     })
@@ -279,6 +295,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         component: BlogAuthorTemplate,
         context: {
           id: author.node.wordpress_id,
+          site: themeOptions.site,
         },
       })
     })
@@ -286,26 +303,27 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for categories (blog)
     BlogCategories.forEach(category => {
       createPage({
-        path: `/blog/${category.node.slug}`,
+        path: `/blog/category/${category.node.slug}`,
         component: BlogCategoriesTemplate,
         context: {
           slug: category.node.slug,
           name: category.node.name,
+          site: themeOptions.site,
         },
       })
     })
 
-    // this is for tags
-    // BlogTags.forEach(tag => {
-    //   createPage({
-    //     path: `/tag/${tag.node.slug}`,
-    //     component: BlogTagsTemplate,
-    //     contenxt: {
-    //       slug: tag.node.slug,
-    //       name: tag.node.name,
-    //     },
-    //   })
-    // })
+    BlogTags.forEach(tag => {
+      createPage({
+        path: `blog/tag/${tag.node.slug}`,
+        component: BlogTagsTemplate,
+        context: {
+          slug: tag.node.slug,
+          name: tag.node.name,
+          site: themeOptions.site,
+        },
+      })
+    })
 
     // this is for activities
     Activities.forEach(activity => {

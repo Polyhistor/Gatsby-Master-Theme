@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import NavLink from "../components/blog/blogNavLink"
@@ -7,18 +7,33 @@ import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-
+import SEO from "../components/seo/seo"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 
 const IndexPage = ({ pageContext }) => {
+  console.log(pageContext)
   // our pagination
   const { group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+      }
+    `
+  )
 
   const renderBlogs = () => {
     return group.map(({ node }) => {
@@ -40,9 +55,21 @@ const IndexPage = ({ pageContext }) => {
     })
   }
 
+  const getBlogSeo = () => {
+    return {
+      title: first
+        ? `Blog | ${site.siteMetadata.title}`
+        : `Blog | ${site.siteMetadata.title} | Page ${index}`,
+      description: first
+        ? `Check out our blog for the latest New Zealand and Australia adventure tour news. Wild Kiwi's blog, perfect for 18 - 35 year olds`
+        : `Check out our blog for the latest New Zealand and Australia adventure tour news. Wild Kiwi's blog, perfect for 18 - 35 year olds | Page ${index}`,
+    }
+  }
+
   return (
+    //TODO: blog seo should be handled in contentful
     <Layout2>
-      {renderSeoFromContext(pageContext)}
+      <SEO title={getBlogSeo().title} description={getBlogSeo().description} />
       <div className="row">
         <div className="blog__main">
           {renderBlogs()}

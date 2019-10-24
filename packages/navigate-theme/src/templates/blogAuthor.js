@@ -11,7 +11,7 @@ import Trips from "../components/trips/trips"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 
-const BlogAuthorTemplate = ({ data }) => {
+const BlogAuthorTemplate = ({ data, pageContext }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
@@ -49,7 +49,7 @@ const BlogAuthorTemplate = ({ data }) => {
   return (
     <Layout2>
       <SEO
-        title={data.wordpressWpUsers.name}
+        title={`${data.wordpressWpUsers.name} | Author at ${pageContext.site.name} `}
         description={data.wordpressWpUsers.description}
       />
       <div className="row">

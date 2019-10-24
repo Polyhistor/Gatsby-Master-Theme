@@ -50,7 +50,7 @@ const BlogPostTemplate = ({ data }, idx) => {
         <div className="row-blog">
           <Link
             className="blog-single__categories"
-            to={`blog/${data.wordpressPost.categories[0].slug}`}
+            to={`blog/category/${data.wordpressPost.categories[0].slug}`}
           >
             {/* // getting only the first element of the categories array, because in this we do only need one category */}
             {data.wordpressPost.categories.name !== null &&
@@ -61,7 +61,6 @@ const BlogPostTemplate = ({ data }, idx) => {
               {data.wordpressPost.title}
             </h1>
           )}
-
           <div className="blog-single__author-container">
             {/* some error checking */}
             {data.wordpressPost.author.acf !== null && (
@@ -76,9 +75,11 @@ const BlogPostTemplate = ({ data }, idx) => {
                 />
               </Link>
             )}
-            <span className="blog-single__author" key={idx + 2}>
-              By {data.wordpressPost.author.name}
-            </span>
+            <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
+              <span className="blog-single__author" key={idx + 2}>
+                By {data.wordpressPost.author.name}
+              </span>
+            </Link>
             <br />
             <span className="blog-single__date">
               on &nbsp;
@@ -108,10 +109,19 @@ const BlogPostTemplate = ({ data }, idx) => {
               </FacebookProvider>
             </div>
           </div>
+          <h1>tags on footer</h1>
+          {data.wordpressPost.tags.map(t => {
+            return (
+              <p>
+                <Link to={`blog/tag/${t.slug}`}>{t.name}</Link>
+              </p>
+            )
+          })}
           <div className="blog-single__share">
             <span className="blog-single__share-heading">
-              Share this article on{" "}
+              Share this article on
             </span>
+
             <>
               <FacebookShareButton size={10} round={true} url={shareUrl}>
                 <FacebookIcon

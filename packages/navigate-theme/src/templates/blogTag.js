@@ -8,17 +8,17 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
-
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
-const BlogCategory = ({ data, pageContext }) => {
+const BlogTag = ({ data, pageContext }) => {
+  console.log(pageContext)
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
-  const filteredData = data.allWordpressPost.edges.filter(
-    e => e.node.categories[0].slug === pageContext.slug
+  const filteredData = data.allWordpressPost.edges.filter(e =>
+    e.node.tags.find(t => t.slug === pageContext.slug)
   )
 
   // rendering blogs
@@ -43,10 +43,10 @@ const BlogCategory = ({ data, pageContext }) => {
 
   return (
     <Layout2>
-      <SEO title={`${pageContext.name} | ${pageContext.site.name}`} />
+      <SEO title={`${pageContext.name} | ${pageContext.site.name}`}></SEO>
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
-          Category : {pageContext.name}
+          Tag : {pageContext.name}
         </h2>
         <div className="blog__categorized">{renderBlogs()}</div>
         <Banner
@@ -64,7 +64,7 @@ const BlogCategory = ({ data, pageContext }) => {
     </Layout2>
   )
 }
-export default BlogCategory
+export default BlogTag
 
 export const query = graphql`
   query {

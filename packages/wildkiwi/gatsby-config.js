@@ -111,6 +111,9 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        site: {
+          name: `Wild Kiwi`,
+        },
         menuLabel: [
           {
             label: "destinations",
@@ -168,7 +171,7 @@ module.exports = {
             `**/posts`,
             `**/users`,
             `**/media`,
-            // `**/tags`,
+            `**/tags`,
           ],
         },
       },
