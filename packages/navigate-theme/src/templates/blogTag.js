@@ -13,7 +13,6 @@ import useHomePageQuery from "../queries/homePageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
 const BlogTag = ({ data, pageContext }) => {
-  console.log(pageContext)
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
