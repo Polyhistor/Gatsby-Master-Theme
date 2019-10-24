@@ -69,7 +69,7 @@
 
   &__text {
     display: grid;
-    grid-template-rows: 12.5rem 12rem 17rem 14rem 7rem;
+    grid-template-rows: 13rem 12rem 16.5rem 14rem 7rem;
 
     @include respond(laptop) {
       grid-template-rows: 12rem 15rem 20rem 15.6rem 7rem;
@@ -88,11 +88,12 @@
     }
 
     & h2 {
-      @include black-25-capital-drak-gray;
+      @extend .heading-2;
+      @extend .heading-2--darkGrey;
     }
 
     & p {
-      @include regular-16;
+      @extend .paragraph;
 
       &:nth-of-type(2) {
         @include respond(tablet) {

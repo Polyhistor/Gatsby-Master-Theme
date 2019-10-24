@@ -78,6 +78,10 @@
     @include Color-Green;
   }
 
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
+
   &--extraBold-green {
     @include Nunito-ExtraBold;
     @include Color-Green;
@@ -136,8 +140,20 @@
     @include Color-DarkGrey;
   }
 
+  &--grey {
+    @include Color-Grey();
+  }
+
+  &--uppercase {
+    @include Uppercase();
+  }
+
   &--regular {
     @include Regular();
+  }
+
+  &--nRegular {
+    @include Nunito-Regular();
   }
 
   &--green-capitalized {
@@ -187,18 +203,18 @@
     @include Nunito-Black;
   }
 
-  &--regular-darkGrey-capitalized {
-    @include Nunito-Regular;
-    @include Color-DarkGrey;
-    @include Capitalize;
-  }
-
   &--green {
     @include Color-Green;
   }
 
   &--green-capitalized {
     @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--regular-darkGrey-capitalized {
+    @include Nunito-Regular;
+    @include Color-DarkGrey;
     @include Capitalize;
   }
 }
@@ -355,7 +371,7 @@
   @extend .heading-1;
 
   @include respond(phone) {
-    font-size: 3.7rem;
+    font-size: 3rem;
     text-align: center;
   }
 }
