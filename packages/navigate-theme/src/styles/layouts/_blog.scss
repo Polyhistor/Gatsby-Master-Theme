@@ -215,7 +215,7 @@
         @include respond(phone) {
           display: grid;
           grid-template-columns: repeat(2, 15rem);
-          grid-template-rows: repeat(2, 4.5rem);
+          grid-template-rows: repeat(2, min-content);
           border-top: 1px solid $color-grey-dark;
           border-radius: 4px;
         }
