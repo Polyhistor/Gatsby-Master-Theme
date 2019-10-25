@@ -109,14 +109,14 @@ const BlogPostTemplate = ({ data }, idx) => {
               </FacebookProvider>
             </div>
           </div>
-          <h1>tags on footer</h1>
+          {/* <h1>tags on footer</h1>
           {data.wordpressPost.tags.map(t => {
             return (
               <p>
                 <Link to={`blog/tag/${t.slug}`}>{t.name}</Link>
               </p>
             )
-          })}
+          })} */}
           <div className="blog-single__share">
             <span className="blog-single__share-heading">
               Share this article on

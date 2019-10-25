@@ -82,6 +82,10 @@
     @include Color-DarkGrey;
   }
 
+  &--grey {
+    @include Color-Grey();
+  }
+
   &--extraBold-green {
     @include Nunito-ExtraBold;
     @include Color-Green;
@@ -190,6 +194,10 @@
   font-size: 1.1rem;
   @include Color-Grey;
   @include Uppercase;
+
+  &--darkGrey {
+    @include Color-DarkGrey();
+  }
 
   &--capitalized {
     @include Capitalize;
