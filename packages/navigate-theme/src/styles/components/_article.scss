@@ -40,7 +40,6 @@
         grid-column: 2;
         grid-row: 1;
         align-self: end;
-        // @extend .heading-4;
       }
     }
 
@@ -51,7 +50,6 @@
       @include respond(phone) {
         grid-column: 2;
         grid-row: 2;
-        font-size: 1.4rem;
       }
     }
   }
