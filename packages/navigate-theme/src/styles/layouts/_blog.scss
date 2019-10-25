@@ -414,10 +414,9 @@
     }
 
     &__follow {
-      font-family: Nunito-Black;
-      font-size: 1.8rem;
-      color: $color-grey-dark-3;
-      text-transform: capitalize;
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
+      @extend .paragraph--capitalized;
     }
 
     &__article {
