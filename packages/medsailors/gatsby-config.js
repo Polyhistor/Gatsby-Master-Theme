@@ -168,7 +168,7 @@ module.exports = {
             `**/posts`,
             `**/users`,
             `**/media`,
-            // `**/tags`,
+            `**/tags`,
           ],
         },
       },
