@@ -304,17 +304,17 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       })
     })
 
-    BlogTags.forEach(tag => {
-      createPage({
-        path: `blog/tag/${tag.node.slug}`,
-        component: BlogTagsTemplate,
-        context: {
-          slug: tag.node.slug,
-          name: tag.node.name,
-          site: themeOptions.site,
-        },
-      })
-    })
+    // BlogTags.forEach(tag => {
+    //   createPage({
+    //     path: `blog/tag/${tag.node.slug}`,
+    //     component: BlogTagsTemplate,
+    //     context: {
+    //       slug: tag.node.slug,
+    //       name: tag.node.name,
+    //       site: themeOptions.site,
+    //     },
+    //   })
+    // })
 
     // this is for activities
     Activities.forEach(activity => {
