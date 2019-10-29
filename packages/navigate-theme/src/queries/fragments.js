@@ -479,3 +479,25 @@ export const WorkingForUsFragment = graphql`
     }
   }
 `
+
+// our yachts secetion
+export const YachtFragment = graphql`
+  fragment Yacht on ContentfulOurYachts {
+    title
+    subtitle
+    description {
+      description
+    }
+    keyFeatures
+    excluded
+    images {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`

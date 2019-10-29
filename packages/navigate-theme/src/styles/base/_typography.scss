@@ -124,6 +124,10 @@
     @include Nunito-Regular;
     @include Capitalize;
   }
+
+  &--ms {
+    @include Color-MS-Blue;
+  }
 }
 
 .heading-4 {

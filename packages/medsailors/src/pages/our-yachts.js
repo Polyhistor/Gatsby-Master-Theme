@@ -12,6 +12,8 @@ import {
   Trips,
   useHomePageQuery,
   useImageQuery,
+  useYachtQuery,
+  OurYachts,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -19,6 +21,9 @@ const OurVehicles = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const YachtQuery = useYachtQuery()
+
+  console.log(YachtQuery)
 
   return (
     <Layout>
@@ -39,35 +44,7 @@ const OurVehicles = ({ data }) => {
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionVehicle
-        imageOne={imageQuery.vehicleInterior.childImageSharp.fluid}
-        imageTwo={imageQuery.vehicleSouth.childImageSharp.fluid}
-        imageThree={imageQuery.vehicleAdventure.childImageSharp.fluid}
-        imageFour={imageQuery.vehiclesLady.childImageSharp.fluid}
-        title="Cruise around in your
-        own 18-seater luxury
-        tour vehicle"
-        paragraph="Kitted out with luxury leather seats, USB ports,
-        unlimited WIFI, stereo, air con and big windows
-        to admire those amazing views. This is not a bus
-        but a premium cruiser – road tripping for the 21st
-        century!"
-        listHeader="Key Features"
-        listItems={[
-          { label: "Luxury seats" },
-          { label: "USB ports at every seat" },
-          { label: "Unlimited WiFi" },
-          { label: "Stereo to play your own tunes" },
-          { label: "Air conditioning" },
-          { label: "Big windows to admire those amazing views" },
-        ]}
-        paragraphSecond="Book the vehicle for you and your mates and have
-        your own private trip, or come as a small group, or
-        solo and hook up with other like-minded travellers
-        from around the world. Either way, you’ll feel right
-        at home in one of our luxury tour vehicles"
-      />
-
+      <OurYachts data={YachtQuery[0].node} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"

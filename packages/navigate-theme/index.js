@@ -38,9 +38,11 @@ export {
 export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
 export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
 export { default as useWorkingForUs } from "./src/queries/workingForUsQuery"
+export { default as useYachtQuery } from "./src/queries/ourYachtQuery"
 
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
+export { default as OurYachts } from "./src/components/yachts/yachtSingle"
 
 /* Activity */
 export {
