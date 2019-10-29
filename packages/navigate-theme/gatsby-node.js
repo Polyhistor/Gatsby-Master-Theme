@@ -67,15 +67,6 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           }
         }
       }
-      allWordpressTag {
-        edges {
-          node {
-            slug
-            name
-            taxonomy
-          }
-        }
-      }
       allWordpressWpUsers {
         edges {
           node {
@@ -207,12 +198,12 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     )
 
     // accessing the data responsible for blog tags
-    const BlogTags = result.data.allWordpressTag.edges.filter(
-      t => t.node.taxonomy === "post_tag"
-    )
+    // const BlogTags = result.data.allWordpressTag.edges.filter(
+    //   t => t.node.taxonomy === "post_tag"
+    // )
 
     // the tags page template
-    const BlogTagsTemplate = require.resolve("./src/templates/blogTag.js")
+    // const BlogTagsTemplate = require.resolve("./src/templates/blogTag.js")
 
     // accessing the data for our contentful activities section
     const Activities = result.data.allContentfulActivities.edges

@@ -46,10 +46,10 @@ export const BlogPostFragment = graphql`
         }
       }
     }
-    tags {
-      slug
-      name
-    }
+    # tags {
+    #   slug
+    #   name
+    # }
     categories {
       slug
       name
