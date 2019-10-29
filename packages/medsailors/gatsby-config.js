@@ -128,7 +128,7 @@ module.exports = {
             sub: null,
           },
           {
-            label: "our yacts",
+            label: "our yachts",
             link: "/our-yachts",
             sub: null,
           },

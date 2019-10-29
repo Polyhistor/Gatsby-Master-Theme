@@ -12,32 +12,32 @@ const WorkForUs = ({ data }) => {
     ))
 
   return (
-    <div className="row u-margin-top-big ">
+    <div className="row u-margin-top-big">
       <section className="work-for-us">
         <div>
-          <h2 className="work-for-us__title u-margin-bottom-small">
+          <h2 className="heading-2 heading-2--ms u-margin-bottom-small">
             {data.title1}
           </h2>
-          <p className="work-for-us__description u-margin-bottom-small">
+          <p className="paragraph u-margin-bottom-small">
             {data.description1.description1}
           </p>
           {renderLinks(data.links, data.urLs)}
         </div>
         <div>
-          <h2 className="work-for-us__title u-margin-bottom-small">
+          <h2 className="heading-2 heading-2--ms u-margin-bottom-small">
             {data.title2}
           </h2>
-          <p className="work-for-us__description u-margin-bottom-small">
+          <p className="paragraph u-margin-bottom-small">
             {data.description2.description2}
           </p>
-          <h2 className="work-for-us__title u-margin-bottom-small">
+          <h2 className="heading-2 heading-2--ms u-margin-bottom-small">
             {data.title3}
           </h2>
-          <p className="work-for-us__description u-margin-bottom-small">
+          <p className="paragraph u-margin-bottom-small">
             {data.description3.description3}
           </p>
-          <h2 className="work-for-us__title">{data.title4}</h2>
-          <p className="work-for-us__description u-margin-bottom-small">
+          <h2 className="heading-2 heading-2--ms">{data.title4}</h2>
+          <p className="paragraph u-margin-bottom-small">
             {data.description4.description4}
           </p>
           {renderLinks(data.links2, data.urLs2)}
