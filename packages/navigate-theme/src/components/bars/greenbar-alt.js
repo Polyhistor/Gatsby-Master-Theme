@@ -2,6 +2,9 @@ import React, { Fragment } from "react"
 import { Link } from "gatsby"
 
 const GreenBarAlt = ({ textList }) => {
+  // consuming the process environment variable
+  let theme = process.env.GATSBY_THEME
+
   // rendering our banner elements
   const renderElements = () => {
     return textList.map(({ label, link }, idx) => {
@@ -16,7 +19,9 @@ const GreenBarAlt = ({ textList }) => {
   }
 
   return (
-    <section className="green-bar">
+    <section
+      className={theme === "ms" ? "green-bar green-bar--ms" : "green-bar"}
+    >
       <div className="green-bar__alt">{renderElements()}</div>
     </section>
   )

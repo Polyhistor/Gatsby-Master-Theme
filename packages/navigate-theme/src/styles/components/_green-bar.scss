@@ -5,6 +5,10 @@
     height: 17rem;
   }
 
+  &--ms {
+    background-color: $color-med-teal;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: repeat(2, max-content);

@@ -47,7 +47,7 @@
 }
 
 @mixin Color-MS-Blue {
-  color: $color-med-blue;
+  color: $color-med-teal;
 }
 
 .title {
@@ -89,6 +89,10 @@
   &--extraBold-green {
     @include Nunito-ExtraBold;
     @include Color-Green;
+  }
+
+  &--ms {
+    @include Color-MS-Blue;
   }
 }
 

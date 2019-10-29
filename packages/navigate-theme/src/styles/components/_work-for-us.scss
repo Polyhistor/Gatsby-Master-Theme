@@ -1,0 +1,20 @@
+.work-for-us {
+  display: grid;
+  grid-template-columns: repeat(3, 39rem);
+  grid-column-gap: 4.5rem;
+
+  &__title {
+    @extend .heading-2;
+    @extend .heading-2--ms;
+  }
+
+  &__description {
+    @extend .paragraph;
+  }
+
+  &__links {
+    @extend .paragraph;
+    color: $color-med-teal;
+    display: block;
+  }
+}

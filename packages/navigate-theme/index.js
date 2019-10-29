@@ -37,8 +37,10 @@ export {
 } from "./src/queries/themeRoutesConfigQuery"
 export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
 export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
+export { default as useWorkingForUs } from "./src/queries/workingForUsQuery"
 
 /*components*/
+export { default as WorkForUs } from "./src/components/workForUs"
 
 /* Activity */
 export {

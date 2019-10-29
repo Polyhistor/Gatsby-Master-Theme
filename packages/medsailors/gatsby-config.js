@@ -128,8 +128,8 @@ module.exports = {
             sub: null,
           },
           {
-            label: "our vehicles",
-            link: "/our-vehicles",
+            label: "our yacts",
+            link: "/our-yachts",
             sub: null,
           },
           { label: "faqs", link: "/faqs", sub: null },

@@ -1,56 +1,54 @@
 import React from "react"
 import Img from "gatsby-image"
 
-const WorkForUs = ({}) => (
-  <section className="work-for-us">
-    <div>
-      <h2 className="">Seasonal Jobs</h2>
-      <p className="">
-        MedSailors offers premier sailing holidays for 20-35 year old’s in
-        Croatia, Greece, Turkey, Italy and the Caribbean. Through a passion for
-        sailing and a commitment to providing unforgettable trips to all our
-        guests, we aim to deliver the highest standard sailing holidays
-        possible. To meet this goal we are recruiting professional staff with
-        the same enthusiasm and drive. We are currently recruiting our seasonal
-        teams for our 2018 season. For more information on these roles, please
-        view the job descriptions below:
-      </p>
-      <a href="#" target="_blank">
-        Skipper Job Description
+const WorkForUs = ({ data }) => {
+  console.log(data)
+
+  const renderLinks = (links, urls) =>
+    links.map((link, idx) => (
+      <a className="work-for-us__links" href={urls[idx]}>
+        {link}
       </a>
-      <a href="#" target="_blank">
-        Skipper Job Description
-      </a>
-      <a href="#" target="_blank">
-        Skipper Job Description
-      </a>
-      <a></a>
+    ))
+
+  return (
+    <div className="row u-margin-top-big ">
+      <section className="work-for-us">
+        <div>
+          <h2 className="work-for-us__title u-margin-bottom-small">
+            {data.title1}
+          </h2>
+          <p className="work-for-us__description u-margin-bottom-small">
+            {data.description1.description1}
+          </p>
+          {renderLinks(data.links, data.urLs)}
+        </div>
+        <div>
+          <h2 className="work-for-us__title u-margin-bottom-small">
+            {data.title2}
+          </h2>
+          <p className="work-for-us__description u-margin-bottom-small">
+            {data.description2.description2}
+          </p>
+          <h2 className="work-for-us__title u-margin-bottom-small">
+            {data.title3}
+          </h2>
+          <p className="work-for-us__description u-margin-bottom-small">
+            {data.description3.description3}
+          </p>
+          <h2 className="work-for-us__title">{data.title4}</h2>
+          <p className="work-for-us__description u-margin-bottom-small">
+            {data.description4.description4}
+          </p>
+          {renderLinks(data.links2, data.urLs2)}
+        </div>
+        <div>
+          <Img fluid={data.image1.localFile.childImageSharp.fluid}></Img>
+          <Img fluid={data.image2.localFile.childImageSharp.fluid}></Img>
+        </div>
+      </section>
     </div>
-    <div>
-      <h2 className="">Pre Season Training</h2>
-      <p className="">
-        All new MedSailors Crew will take part in the Pre-Season Training,
-        equipping you with the knowledge and expertise you need for your season.
-      </p>
-      <h2>The Yacht Academy</h2>
-      <p>
-        The Yacht Academy is a Train to Work Programme for qualifed and
-        unqualifed future MedSailors Skippers. The Yacht Academy provides
-        several pathways to train and start work with MedSailors, catering for
-        all experience levels. For more information on their full range of
-        course options, please visit
-      </p>
-      <h2>Applications</h2>
-      <p>
-        To apply please follow the links below or you can email your CV and a
-        short introduction to careers@ navigatetravel.com.
-      </p>
-    </div>
-    <div>
-      <Img></Img>
-      <Img></Img>
-    </div>
-  </section>
-)
+  )
+}
 
 export default WorkForUs

@@ -12,6 +12,8 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
+  useWorkingForUs,
+  WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -22,6 +24,7 @@ const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const workForUsQuery = useWorkingForUs()
 
   return (
     <Layout>
@@ -44,6 +47,7 @@ const AboutUs = ({ data }) => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <AboutUsSection />
+      <WorkForUs data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
