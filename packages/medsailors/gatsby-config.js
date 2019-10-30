@@ -147,9 +147,9 @@ module.exports = {
         /*TODO: remove prefix routes, we don't need that anymore*/
 
         routesConfig: {
-          destinationRoute: `/tours`,
+          destinationRoute: `/sail`,
           activitiesRoute: `/activities`,
-          destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
+          destinationCountryRoutePrefix: `/sail/` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
         nprogress: {
