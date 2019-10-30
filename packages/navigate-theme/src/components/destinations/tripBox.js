@@ -32,7 +32,7 @@ const TripBox = ({
         <div className="trip-box">
           <figure className="trip-box__figure">
             <img className="trip-box__image" src={imageData} alt={imageAlt} />
-            <figcaption className="tour-banner__figure-caption tour-banner__figure-caption-newzealand">
+            <figcaption className="tour-banner__figure-caption ">
               <span className="trips__duration-days">{days}</span>
               <span className="trips__duration-text">{text}</span>
             </figcaption>
