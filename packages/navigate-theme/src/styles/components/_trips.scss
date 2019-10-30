@@ -125,6 +125,7 @@
 
   &__description {
     margin-top: 1rem;
+    max-width: 20.1rem;
     @include respond(phone) {
       margin-top: 1rem;
       display: grid;

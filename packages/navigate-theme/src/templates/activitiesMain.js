@@ -17,6 +17,9 @@ import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
+  // TODO - CLEAN UP
+  const theme = process.env.GATSBY_THEME
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -185,7 +188,11 @@ const ActivitiesMain = ({ pageContext }) => {
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.activitiesBanner.childImageSharp.fluid}
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSActivities.childImageSharp.fluid
+              : imageQuery.activitiesBanner.childImageSharp.fluid
+          }
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"

@@ -243,6 +243,40 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      MSCountries: file(
+        relativePath: { eq: "medsailors-yachts-stari-grad-croatia.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      MSActivities: file(relativePath: { eq: "Archer-Bold_Web.jpg" }) {
+        ...FluidImage
+      }
+
+      MSReviews: file(
+        relativePath: { eq: "group-sailing-on-medsailors-yacht.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      ourYachts: file(
+        relativePath: { eq: "yachts-anchored-at-blue-caves-corfu.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      MSContact: file(
+        relativePath: { eq: "swimming-in-clear-blue-water-croatia.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      MSFAQ: file(
+        relativePath: { eq: "guests-jump-off-medsailors-yacht.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData
