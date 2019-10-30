@@ -189,7 +189,7 @@ const ActivitiesMain = ({ pageContext }) => {
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Personalise your epic adventure with a range of add on activities to ensure your days are jam packed."
+          description="Personalise your trip with a range of add on activities to experience the best of your sailing destination."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

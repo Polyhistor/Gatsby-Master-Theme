@@ -18,7 +18,7 @@ const FooterInstagramBox = ({ imageOne, imageTwo, imageThree, imageFour }) => {
             : "footer__instagram-box"
         }
       >
-        <h2>#WildKiwiTours</h2>
+        <h2>#MedSailors</h2>
         <Img fluid={imageOne} />
         <Img fluid={imageTwo} />
         <Img fluid={imageThree} />

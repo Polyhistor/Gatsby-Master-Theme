@@ -95,11 +95,6 @@
 
   &-title {
     &__main {
-      display: grid;
-      grid-template-rows: 14.5rem 3rem;
-      animation: moveInleft 0.8s ease-out;
-      line-height: 5rem;
-      white-space: nowrap;
       @extend .title;
 
       @include respond(phone) {

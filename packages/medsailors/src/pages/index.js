@@ -99,7 +99,7 @@ const IndexPage = ({ data }) => {
         titleFirst="adventure"
         TitleSecond="sailing"
         TitleThird="holidays"
-        subTitle="for 18 to 35 year olds"
+        subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"

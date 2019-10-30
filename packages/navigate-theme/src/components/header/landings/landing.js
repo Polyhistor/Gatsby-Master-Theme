@@ -85,7 +85,11 @@ const Header = ({
                 <a
                   href="#"
                   onClick={() => setModal({ open: true })}
-                  className={`btn btn--${buttonStyles[1]} btn-animated`}
+                  className={
+                    (theme = "ms"
+                      ? `btn btn--${buttonStyles[1]}-med btn-animated`
+                      : `btn btn--${buttonStyles[1]} btn-animated`)
+                  }
                 >
                   <svg className="svg-icon--play-button">
                     <use
