@@ -15,7 +15,15 @@ import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useDestinationQuery from "../queries/destinationQuery"
 import { renderSeoFromContext } from "../helpers/seo-helper"
+
+// extracting our hook
+import useFeatureBox from "../queries/featuredBoxQuery"
+
 const Countries = ({ data, pageContext }) => {
+  const featuredBoxData = useFeatureBox()
+
+  const theme = process.env.GATSBY_THEME
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -49,7 +57,7 @@ const Countries = ({ data, pageContext }) => {
         variation="dest"
         popupVideo={popupUrl}
       />
-      <Featured />
+      <Featured data={featuredBoxData[0].node} />
       <FilteredTours
         country={data.contentfulCountry.slug}
         destinationData={destinationData}
