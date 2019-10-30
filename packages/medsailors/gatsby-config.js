@@ -117,11 +117,13 @@ module.exports = {
         menuLabel: [
           {
             label: "destinations",
-            link: "/tours",
+            link: "/sail",
             sub: [
-              { label: "new zealand", link: "/tours/new-zealand" },
-              { label: "australia", link: "/tours/australia" },
-              { label: "europe", link: "/tours/europe" },
+              { label: "croatia", link: "/sail/croatia" },
+              { label: "greece", link: "/sail/greece" },
+              { label: "montenegro", link: "/sail/montenegro" },
+              // { label: "italy", link: "/sail/italy" },
+              { label: "turkey", link: "/sail/turkey" },
             ],
           },
           { label: "activities", link: "/activities", sub: null },

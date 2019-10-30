@@ -110,11 +110,11 @@ const IndexPage = ({ data }) => {
       />
       <GreenBarAlt
         textList={[
-          { label: "destinations", link: "/tours" },
-          { label: "croatia", link: "/tours/croatia" },
-          { label: "turkey", link: "/tours/turkey" },
-          { label: "greece", link: "/tours/greece" },
-          { label: "montenegro", link: "/tours/montenegro" },
+          { label: "destinations", link: "/sail" },
+          { label: "croatia", link: "/sail/croatia" },
+          { label: "greece", link: "/sail/greece" },
+          { label: "montenegro", link: "/sail/montenegro" },
+          { label: "turkey", link: "/sail/turkey" },
         ]}
       />
       <WhyUsMobile
