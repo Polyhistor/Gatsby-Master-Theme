@@ -104,7 +104,7 @@ const IndexPage = ({ data }) => {
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
-        buttonStyles={["med-blue", "white-med"]}
+        buttonStyles={["med-blue", "white"]}
         variation={null}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
