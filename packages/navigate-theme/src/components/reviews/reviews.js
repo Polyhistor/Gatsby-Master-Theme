@@ -4,12 +4,20 @@ import { withPrefix, Link } from "gatsby"
 import Review from "./review"
 
 const Reviews = () => {
+  const theme = process.env.GATSBY_THEME
+
   return (
     <section className="section-facebook-reviews">
       <div className="row">
         <div className="col-1-of-4">
           <div className="facebook-reviews">
-            <span className="facebook-reviews__rating">
+            <span
+              className={
+                theme === "ms"
+                  ? "facebook-reviews__rating facebook-reviews__rating--ms"
+                  : "facebook-reviews__rating"
+              }
+            >
               4.9<span className="facebook-reviews__rating-decimal">/5</span>
             </span>
             <center className="facebook-reviews__stars-box">
@@ -35,7 +43,11 @@ const Reviews = () => {
             </center>
             <Link
               aria-current="page"
-              className="btn btn--green tablet-green-button"
+              className={
+                theme === "ms"
+                  ? "btn btn--ms-teal tablet-green-button"
+                  : "btn btn--green tablet-green-button"
+              }
               to="/reviews"
             >
               more reviews

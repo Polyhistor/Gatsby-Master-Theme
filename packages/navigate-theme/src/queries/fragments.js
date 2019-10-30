@@ -501,3 +501,17 @@ export const YachtFragment = graphql`
     }
   }
 `
+
+// featured banner
+export const FeaturedBoxFragment = graphql`
+  fragment FeaturedBox on ContentfulFeaturedBannerContents {
+    firstLogo
+    fIrstLogoUrl
+    secondLogo
+    secondLogoUrl
+    thirdLogo
+    thirdLogoUrl
+    fourthLogo
+    fourthLogoUrl
+  }
+`

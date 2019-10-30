@@ -14,6 +14,8 @@ const TourBanner = ({
   imageData,
   SVGMap,
 }) => {
+  const theme = process.env.GATSBY_THEME
+
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -21,7 +23,15 @@ const TourBanner = ({
       <div className="row">
         <div className="col-1-of-4">
           <div className="tour-banner__description">
-            <h3 className={`tour-banner__description-title`}>{title}</h3>
+            <h3
+              className={
+                theme === "ms"
+                  ? "tour-banner__description-title tour-banner__description-title--ms"
+                  : `tour-banner__description-title`
+              }
+            >
+              {title}
+            </h3>
             <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
               {departs}
@@ -35,7 +45,11 @@ const TourBanner = ({
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className="btn btn--green tablet-green-button"
+                className={
+                  theme === "ms"
+                    ? "btn btn--ms-teal tablet-green-button"
+                    : "btn btn--green tablet-green-button"
+                }
                 to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
               >
                 explore
@@ -48,7 +62,11 @@ const TourBanner = ({
             {/* choosing image based on the given props */}
             <Img fluid={imageData} />
             <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
+              className={
+                theme === "ms"
+                  ? "tour-banner__figure-caption tour-banner__figure-caption--ms"
+                  : `tour-banner__figure-caption`
+              }
             >
               <span className="tour-banner__days">{tours}</span> tours
             </figcaption>

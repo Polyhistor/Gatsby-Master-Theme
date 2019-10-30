@@ -24,6 +24,8 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
+  const theme = process.env.GATSBY_THEME
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -96,7 +98,7 @@ const IndexPage = ({ data }) => {
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
         titleFirst="adventure"
         TitleSecond="sailing"
-        TitleThird="tours"
+        TitleThird="holidays"
         subTitle="for 18 to 35 year olds"
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
@@ -109,9 +111,10 @@ const IndexPage = ({ data }) => {
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/tours" },
-          { label: "new zealand", link: "/tours/new-zealand" },
-          { label: "australia", link: "/tours/australia" },
-          { label: "europe", link: "/tours/europe" },
+          { label: "croatia", link: "/tours/croatia" },
+          { label: "turkey", link: "/tours/turkey" },
+          { label: "greece", link: "/tours/greece" },
+          { label: "montenegro", link: "/tours/montenegro" },
         ]}
       />
       <WhyUsMobile
@@ -123,20 +126,31 @@ const IndexPage = ({ data }) => {
         <h2 className="green-title u-margin-bottom-small">Destinations</h2>
       </div>
       <BannerHero
-        imageData={imageQuery.bannerHero.childImageSharp.fluid}
-        headerFirst="Flash-pack your way around New Zealand, Australia and"
-        headersecond="Europe."
-        subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
+        imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
+        headerFirst="The perfect mix of"
+        headersecond="exploring, partying, and relaxation."
+        subHeaderFirst="Experience an unforgettable 7 days as you set
+        sail around the most breath-taking islands in
+        the Mediterranean, enjoying epic adventures
+        and authentic local culture."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
-        <h2 className="heading-1 u-margin-bottom-small">Destinations</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms u-margin-bottom-small"
+              : "heading-1 u-margin-bottom-small"
+          }
+        >
+          Destinations
+        </h2>
       </div>
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

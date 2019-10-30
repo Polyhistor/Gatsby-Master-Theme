@@ -7,6 +7,10 @@
   display: flex;
   justify-content: center;
 
+  &--ms {
+    background: $color-med-blue;
+  }
+
   &__container {
     text-align: center;
     display: grid;

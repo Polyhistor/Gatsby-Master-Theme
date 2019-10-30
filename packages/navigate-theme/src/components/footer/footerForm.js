@@ -21,6 +21,8 @@ const validationSchema = Yup.object().shape({
 let finalAPI
 
 const FooterForm = () => {
+  const theme = process.env.GATSBY_THEME
+
   // object that we use to synthesize later with form fields later
   const partialData = { productId: 8 }
 
@@ -136,7 +138,7 @@ const FooterForm = () => {
                     >
                       I accept the&thinsp;
                       <a
-                        className="link"
+                        className={theme === "ms" ? "link link--ms" : "link"}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -146,7 +148,11 @@ const FooterForm = () => {
                   </div>
                   <button
                     id={TAG_MANAGER_TRACKER.CONTACT_FOOTER_BUTTON}
-                    className="btn btn--green-footer"
+                    className={
+                      theme === "ms"
+                        ? "btn btn--green-footer btn--green-footer-ms"
+                        : "btn btn--green-footer"
+                    }
                     type="submit"
                   >
                     submit

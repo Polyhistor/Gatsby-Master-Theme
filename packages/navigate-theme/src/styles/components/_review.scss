@@ -15,7 +15,6 @@
   }
 
   &__paragraph {
-    // font-size: 1.4rem;
     @extend .paragraph;
 
     @include respond(tablet) {
@@ -28,11 +27,17 @@
   }
 
   &__author {
-    // @include bigCapitalText;
-    // color: $color-primary;
-    // font-size: 1.3rem;
     @extend .heading-4;
-    @extend .heading-4--black-green-capitalized;
+    @extend .heading-4--black;
+    @extend .heading-4--capitalized;
+
+    &--wk {
+      @extend .heading-4--green;
+    }
+
+    &--ms {
+      @extend .heading-4--ms;
+    }
 
     @include respond(phone) {
       @include bigCapitalText;

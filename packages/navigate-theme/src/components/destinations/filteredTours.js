@@ -9,6 +9,9 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 const FilteredTour = ({ country, destinationData }) => {
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
+  console.log(country)
+  console.log(destinationData)
+
   // categorizing data on the load
   let groupByData = {
     week: [],

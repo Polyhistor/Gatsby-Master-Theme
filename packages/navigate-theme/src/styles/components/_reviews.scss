@@ -20,6 +20,11 @@
     color: $color-primary;
     font-size: 8rem;
     padding-left: 1rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
+
     &-decimal {
       font-size: 3rem;
     }

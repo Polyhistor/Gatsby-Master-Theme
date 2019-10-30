@@ -5,6 +5,9 @@ import BackgroundImage from "gatsby-background-image"
 // default components
 import Featured from "../featured"
 
+// extracting our hook
+import useFeatureBox from "../../queries/featuredBoxQuery"
+
 const BannerHero = ({
   headerFirst,
   headersecond,
@@ -14,6 +17,10 @@ const BannerHero = ({
   buttonText,
   imageData,
 }) => {
+  const featuredBoxData = useFeatureBox()
+
+  const theme = process.env.GATSBY_THEME
+
   return (
     <section className="section-banner section-banner-hero mobile-no">
       <div className="row">
@@ -29,7 +36,11 @@ const BannerHero = ({
               <div className="banner-hero__button-box">
                 <Link
                   to="/how-it-works"
-                  className="btn btn--white btn-animated"
+                  className={
+                    theme === "ms"
+                      ? "btn btn--white btn--white-med btn-animated"
+                      : `btn btn--white btn-animated`
+                  }
                 >
                   {buttonText}
                 </Link>
@@ -37,7 +48,7 @@ const BannerHero = ({
             </div>
           </div>
         </BackgroundImage>
-        <Featured />
+        <Featured data={featuredBoxData[0].node} />
       </div>
     </section>
   )

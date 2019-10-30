@@ -24,6 +24,8 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
+  const theme = process.env.GATSBY_THEME
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -130,7 +132,15 @@ const IndexPage = ({ data }) => {
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
-        <h2 className="heading-1 u-margin-bottom-small">Destinations</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms u-margin-bottom-small"
+              : "heading-1 u-margin-bottom-small"
+          }
+        >
+          Destinations
+        </h2>
       </div>
       {/* rendering all destinations */}
       {renderCountries()}

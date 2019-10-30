@@ -14,8 +14,8 @@
     cursor: pointer;
   }
 
-  &--red {
-    background-color: $color-red;
+  &--wk,
+  &--ms {
     padding: 1.27rem 2.8rem;
     border-radius: 0.4rem;
     transform: translateY(-0.5rem);
@@ -26,6 +26,19 @@
       margin-top: 1.3rem;
     }
   }
+
+  &--wk {
+    background-color: $color-red;
+  }
+
+  &--ms {
+    background-color: $color-med-blue;
+  }
+
+  &--ms-teal {
+    background-color: $color-med-teal;
+  }
+
   &--red2 {
     background: $color-red;
   }
@@ -75,6 +88,10 @@
         justify-self: center;
         background: $color-red;
         border: 1px solid $color-red;
+      }
+
+      &-ms {
+        background: $color-med-teal;
       }
     }
   }

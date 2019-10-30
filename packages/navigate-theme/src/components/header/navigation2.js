@@ -13,7 +13,7 @@ const Navigation = () => {
           </ul>
         </nav>
       </div>
-      <div className={"wrapper--dark"} />
+      <div className={`wrapper--${process.env.GATSBY_THEME}`} />
     </>
   )
 }

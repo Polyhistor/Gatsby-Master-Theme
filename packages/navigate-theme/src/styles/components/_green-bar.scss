@@ -2,7 +2,7 @@
   background-color: $color-primary;
 
   @include respond(tablet) {
-    height: 17rem;
+    height: 24rem;
   }
 
   &--ms {
@@ -87,28 +87,13 @@
     transition: all 0.2s ease-in;
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: center;
+    height: 4.8rem;
+    width: 18rem;
 
     @include respond(phone) {
       margin-right: 0rem;
       font-size: 1.8rem;
-    }
-
-    &:nth-child(2) {
-      padding: 1.2rem 4.9rem;
-    }
-
-    &:nth-child(3) {
-      padding: 1.2rem 6.3rem;
-    }
-
-    &:nth-child(3) {
-      padding: 1.2rem 6.3rem;
-    }
-
-    &:nth-child(4) {
-      padding: 1.2rem 7.64rem;
     }
 
     &:not(:first-child) {
@@ -128,9 +113,6 @@
       flex-basis: 16rem;
       margin-right: 0rem;
       margin-bottom: 1rem;
-    }
-
-    @include respond(phone) {
     }
 
     &:first-child {

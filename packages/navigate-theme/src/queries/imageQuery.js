@@ -231,6 +231,18 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      MsHomePageBanner1: file(
+        relativePath: { eq: "sailing-croatia-yacht-tours-medsailors.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      MsHowItWorksBanner: file(
+        relativePath: { eq: "group-jump-off-catamaran-greece.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData

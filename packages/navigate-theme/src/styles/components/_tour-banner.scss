@@ -14,6 +14,12 @@
         font-size: 3.4rem;
         font-family: Nunito-Black;
       }
+
+      &--ms {
+        @extend .heading-2;
+        @extend .heading-2--extraBold;
+        @extend .heading-2--ms;
+      }
     }
 
     &-subtitle {
@@ -137,12 +143,10 @@
       width: 6rem;
       text-align: center;
       font-size: 1.2rem;
+      background-color: $color-primary;
 
-      &-newzealand {
-        background-color: $color-primary;
-      }
-      &-australia {
-        background-color: $color-red;
+      &--ms {
+        background-color: $color-med-teal;
       }
 
       @include respond(tablet) {

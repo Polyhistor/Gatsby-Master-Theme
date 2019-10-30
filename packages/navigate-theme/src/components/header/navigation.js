@@ -17,7 +17,9 @@ const Navigation = () => {
           </ul>
         </nav>
       </div>
-      <div className={scroll ? "wrapper" : "wrapper--dark"} />
+      <div
+        className={scroll ? "wrapper" : `wrapper--${process.env.GATSBY_THEME}`}
+      />
     </>
   )
 }

@@ -46,7 +46,7 @@
   color: $color-grey-dark;
 }
 
-@mixin Color-MS-Blue {
+@mixin Color-MS-Teal {
   color: $color-med-teal;
 }
 
@@ -58,6 +58,7 @@
 
   &--ms {
     @include Archer-Pro();
+    @include Capitalize();
   }
 }
 
@@ -66,6 +67,11 @@
   font-size: 3.5rem;
   @include Color-Green;
   @include Capitalize;
+
+  &--ms {
+    @include Archer-Pro();
+    @include Color-MS-Teal();
+  }
 }
 
 .heading-2 {
@@ -91,8 +97,12 @@
     @include Color-Green;
   }
 
+  &--extraBold {
+    @include Nunito-ExtraBold();
+  }
+
   &--ms {
-    @include Color-MS-Blue;
+    @include Color-MS-Teal;
   }
 }
 
@@ -126,7 +136,7 @@
   }
 
   &--ms {
-    @include Color-MS-Blue;
+    @include Color-MS-Teal;
   }
 }
 
@@ -142,6 +152,10 @@
 
   &--black {
     @include Nunito-Black;
+  }
+
+  &--ms {
+    @include Color-MS-Teal();
   }
 
   &--green {
@@ -223,6 +237,10 @@
     @include Color-Green;
   }
 
+  &--ms {
+    @include Color-MS-Teal();
+  }
+
   &--green-capitalized {
     @include Color-Green;
     @include Capitalize;
@@ -262,6 +280,10 @@
 
   &--capitalized {
     @include Capitalize();
+  }
+
+  &--ms {
+    @include Color-MS-Teal();
   }
 
   &--extraBold-white-uppercase {

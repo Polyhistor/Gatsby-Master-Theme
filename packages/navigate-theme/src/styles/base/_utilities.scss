@@ -423,6 +423,10 @@
 .link {
   text-decoration: none;
   color: $color-primary;
+
+  &--ms {
+    color: $color-med-teal;
+  }
 }
 
 .hotfix {

@@ -90,6 +90,10 @@
     @include whiteGreen;
     text-align: center;
 
+    &--ms {
+      background: $color-med-teal;
+    }
+
     @include respond(tablet) {
       left: 10%;
     }
@@ -155,7 +159,15 @@
     }
     &-price {
       @extend .heading-5;
-      @extend .heading-5--green-capitalized;
+      @extend .heading-5--capitalized;
+
+      &--wk {
+        @extend .heading-5--green;
+      }
+
+      &--ms {
+        @extend .heading-5--ms;
+      }
 
       @include respond(tablet) {
         font-size: 1.2rem;

@@ -2,10 +2,18 @@ import React from "react"
 import { withPrefix } from "gatsby"
 
 const SocialNetowrk = () => {
+  const theme = process.env.GATSBY_THEME
+
   return (
     <div className="u-margin-bottom-medium u-padding-top-huge ">
       <div className="footer__social-networks">
-        <div className="footer__social-networks-box">
+        <div
+          className={
+            theme === "ms"
+              ? "footer__social-networks-box footer__social-networks-box--ms"
+              : "footer__social-networks-box"
+          }
+        >
           <a
             href="https://www.facebook.com/wildkiwitours"
             target="_blank"

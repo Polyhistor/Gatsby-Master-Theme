@@ -17,9 +17,15 @@
     }
   }
 
-  &--wildkiwi-logo {
+  &--wk-logo {
     width: 12rem;
     height: 5.5rem;
+  }
+
+  &--ms-logo {
+    width: 12rem;
+    height: 7.5rem;
+    margin-top: -0.9rem;
   }
 
   &--login {
@@ -48,7 +54,6 @@
   &--logo-daily {
     width: 22.3rem;
     height: 2.8rem;
-    margin-top: 1rem;
 
     @include respond(tablet) {
       width: 13rem;
@@ -63,7 +68,6 @@
   &--logo-westpac {
     width: 21.3rem;
     height: 2.2rem;
-    margin-top: 0.5rem;
 
     @include respond(tablet) {
       width: 13rem;

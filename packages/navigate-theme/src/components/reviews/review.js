@@ -2,6 +2,8 @@ import React from "react"
 import { withPrefix } from "gatsby"
 
 const Review = ({ text, author, country }) => {
+  const theme = process.env.GATSBY_THEME
+
   return (
     <div className="review">
       <div className="review__stars-box u-padding-bottom-small">
@@ -10,7 +12,13 @@ const Review = ({ text, author, country }) => {
         </svg>
       </div>
       <p className="review__paragraph u-padding-bottom-small">{text}</p>
-      <span className="review__author u-padding-bottom-small">
+      <span
+        className={
+          theme === "ms"
+            ? "review__author review__author--ms u-padding-bottom-small"
+            : "review__author review__author--ms u-padding-bottom-small"
+        }
+      >
         {author}
         <br />
         {country}

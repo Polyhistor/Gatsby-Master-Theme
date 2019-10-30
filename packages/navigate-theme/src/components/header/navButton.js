@@ -29,7 +29,7 @@ const Buttonbox = () => {
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
             onClick={() => setModal({ open: true })}
-            className="btn btn--red btn-animated"
+            className={`btn btn--${process.env.GATSBY_THEME} btn-animated`}
           >
             book
           </span>

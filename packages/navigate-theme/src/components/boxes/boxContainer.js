@@ -3,6 +3,8 @@ import React from "react"
 import Box from "./box"
 
 const BoxContainer = ({ dataArray }) => {
+  const theme = process.env.GATSBY_THEME
+
   // function that takes an array of data and render jsx for it
   const renderBoxes = () =>
     dataArray.map((box, idx) => (
@@ -17,7 +19,15 @@ const BoxContainer = ({ dataArray }) => {
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
-        <h2 className="heading-1 u-margin-bottom-sedium">Why Wild Kiwi?</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms u-margin-bottom-sedium"
+              : "heading-1 u-margin-bottom-sedium"
+          }
+        >
+          Why Wild Kiwi?
+        </h2>
         {renderBoxes()}
       </div>
     </section>
