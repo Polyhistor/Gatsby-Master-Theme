@@ -65,7 +65,7 @@ const GetInTouch = ({ data }) => {
     },
     {
       header: "Instagram",
-      content: `Follow us and tag us on&thinsp;<a class="${link}" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
+      content: `Follow us and tag us on&thinsp;<a class="${link}" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a><a class="${link}" href="//www.instagram.com/explore/tags/medsailors/" target="_blank">#MedSailors<a>`,
     },
     {
       header: "Media",
@@ -126,7 +126,7 @@ export default GetInTouch
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "get-in-touch" } }
+      filter: { referencedPageIdentifier: { eq: "contact-us" } }
     ) {
       edges {
         node {

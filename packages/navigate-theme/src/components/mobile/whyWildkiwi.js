@@ -7,6 +7,7 @@ import Box from "../boxes/box"
 const WhyWildKiwi = ({ data, popupVideo }) => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
+  const brandName = process.env.GATSBY_BRAND_NAME
 
   // rendering data
   const renderData = () =>
@@ -23,7 +24,7 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
     <>
       <div className="section-mobile__why-wild">
         <h2 className="green-title bold-green u-margin-bottom-small">
-          Why Wild Kiwi ?
+          Why {brandName}?
         </h2>
         <div className="whywild">
           <div className="whywild__container">{renderData()}</div>

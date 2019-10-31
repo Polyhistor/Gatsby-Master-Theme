@@ -4,6 +4,7 @@ import Box from "./box"
 
 const BoxContainer = ({ dataArray }) => {
   const theme = process.env.GATSBY_THEME
+  const brandName = process.env.GATSBY_BRAND_NAME
 
   // function that takes an array of data and render jsx for it
   const renderBoxes = () =>
@@ -26,7 +27,7 @@ const BoxContainer = ({ dataArray }) => {
               : "heading-1 u-margin-bottom-sedium"
           }
         >
-          Why Wild Kiwi?
+          Why {brandName}?
         </h2>
         {renderBoxes()}
       </div>
