@@ -99,12 +99,12 @@ const IndexPage = ({ data }) => {
         titleFirst="adventure"
         TitleSecond="sailing"
         TitleThird="holidays"
-        subTitle="for 18 to 35 year olds"
+        subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
-        buttonStyles={["med-blue", "white-med"]}
+        buttonStyles={["med-blue", "white"]}
         variation={null}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />

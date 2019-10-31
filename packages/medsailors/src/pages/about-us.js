@@ -18,7 +18,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
+const SVGIcon = "wheel"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
@@ -35,15 +35,15 @@ const AboutUs = ({ data }) => {
           titleFirst="about us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Part of the adventure is getting there, so you may as well do it in style."
+          description="We’re lucky enough to be incredibly passionate about what we do."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
+        text="Epic adventure for 20 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <AboutUsSection />

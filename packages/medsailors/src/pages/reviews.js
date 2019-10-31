@@ -31,7 +31,7 @@ const Reviews = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure for 20 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionReview />

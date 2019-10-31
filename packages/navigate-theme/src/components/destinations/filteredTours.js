@@ -7,10 +7,18 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {
-  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+  const theme = process.env.GATSBY_THEME
 
-  console.log(country)
-  console.log(destinationData)
+  // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
+  const buttonClass =
+    theme === "ms" ? "filtered-tour__button--ms" : "filtered-tour__button"
+
+  const buttonClassActive =
+    theme === "ms"
+      ? "filtered-tour__button--active-ms"
+      : "filtered-tour__button--active"
+
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   // categorizing data on the load
   let groupByData = {
@@ -93,7 +101,13 @@ const FilteredTour = ({ country, destinationData }) => {
                 }
                 alt={element.node.title}
               />
-              <figcaption className="trips__duration">
+              <figcaption
+                className={
+                  theme === "ms"
+                    ? "trips__duration trips__duration--ms"
+                    : "trips__duration"
+                }
+              >
                 <span className="trips__duration-days">
                   {element.node.duration}
                 </span>
@@ -101,7 +115,13 @@ const FilteredTour = ({ country, destinationData }) => {
               </figcaption>
             </figure>
             <div className="filtered-tour__description">
-              <h3 className="filtered-tour__description-title">
+              <h3
+                className={
+                  theme === "ms"
+                    ? "heading-2 heading-2--ms"
+                    : "heading-2 heading-2--green"
+                }
+              >
                 {element.node.title}
               </h3>
               <h5 className="filtered-tour__description-subtitle">
@@ -114,7 +134,13 @@ const FilteredTour = ({ country, destinationData }) => {
                 </h5>
               ) : null}
 
-              <span className="filtered-tour__description-price">
+              <span
+                className={
+                  theme === "ms"
+                    ? "heading-4 heading-4--ms"
+                    : "heading-4 heading-4--green"
+                }
+              >
                 {`from ${currency[1]}${commaHandler(element.node.priceFrom)} ${
                   currency[0]
                 }`}
@@ -128,7 +154,11 @@ const FilteredTour = ({ country, destinationData }) => {
             </div>
             <Link
               aria-current="page"
-              className="btn btn--green tablet-green-button"
+              className={
+                theme === "ms"
+                  ? "btn btn--ms-teal tablet-green-button"
+                  : "btn btn--green tablet-green-button"
+              }
               to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.slug}`}
             >
               View Itinerary
@@ -142,12 +172,14 @@ const FilteredTour = ({ country, destinationData }) => {
     <div className="section-filtered-tour">
       <div className="filtered-tour__container">
         <div className="filtered-tour__head">
-          <h3>How long are you travelling for?</h3>
+          <h3 className={theme === "ms" ? "paragraph--ms" : "paragraph"}>
+            How long are you travelling for?
+          </h3>
           <button
             className={
               filter.week === true
-                ? "filtered-tour__button filtered-tour__button--active"
-                : "filtered-tour__button"
+                ? `filtered-tour__button ${buttonClassActive}`
+                : `filtered-tour__button ${buttonClass}`
             }
             onClick={(e, n = { week: !filter.week }) => handleSubmit(e, n)}
           >
@@ -156,8 +188,8 @@ const FilteredTour = ({ country, destinationData }) => {
           <button
             className={
               filter.twoWeeks === true
-                ? "filtered-tour__button filtered-tour__button--active"
-                : "filtered-tour__button"
+                ? `filtered-tour__button ${buttonClassActive}`
+                : `filtered-tour__button ${buttonClass}`
             }
             onClick={(e, n = { twoWeeks: !filter.twoWeeks }) =>
               handleSubmit(e, n)
@@ -169,8 +201,8 @@ const FilteredTour = ({ country, destinationData }) => {
             <button
               className={
                 filter.threeWeeks === true
-                  ? "filtered-tour__button filtered-tour__button--active"
-                  : "filtered-tour__button"
+                  ? `filtered-tour__button ${buttonClassActive}`
+                  : `filtered-tour__button ${buttonClass}`
               }
               onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
                 handleSubmit(e, n)

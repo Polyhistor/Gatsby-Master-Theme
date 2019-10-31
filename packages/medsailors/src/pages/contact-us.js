@@ -26,18 +26,18 @@ const GetInTouch = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.getInTouchBanner.childImageSharp.fluid}
+          imageData={imageQuery.MSContact.childImageSharp.fluid}
           titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="We're always here to help, just send us a message and a member of the Wild Kiwi team will be in touch."
+          description="We're always here to help, just send us a message and a member of the MedSailors team will be in touch."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure for 20 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionGetInTouch />

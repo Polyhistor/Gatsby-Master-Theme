@@ -30,7 +30,7 @@ const HowItWorks = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.howItWorksBanner.childImageSharp.fluid}
+          imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -41,13 +41,13 @@ const HowItWorks = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure for 20 to 35 year olds"
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

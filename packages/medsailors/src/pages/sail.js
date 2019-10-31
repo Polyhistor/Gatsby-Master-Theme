@@ -91,7 +91,7 @@ const Destination = ({ data }) => {
         titleFirst="DESTINATIONS"
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
-        description="Choose your Wild Kiwi adventure from our destinations below and embark on your next flashpacking adventure full of incredible sites and amazing people."
+        description="Enjoy 7 unforgettable days sailing around the most breath-taking places in the Mediterranean."
         buttonStyles={["white", "white"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"

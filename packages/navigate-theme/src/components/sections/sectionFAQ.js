@@ -5,7 +5,6 @@ import useFAQVideoQuery from "../../queries/faqVideoQuery"
 // TODO - clean up
 
 const SectionFAQ = ({ FAQData }) => {
-  console.log(FAQData)
   // getting data out of our FAQ Query
   const FAQVideo = useFAQVideoQuery()
 
@@ -53,8 +52,6 @@ const SectionFAQ = ({ FAQData }) => {
   )
  */
   // setting our initial states
-
-  console.log([FAQData[0]])
 
   const [initialCategory, setCategory] = useState([FAQData[0]])
   const [activeIndex, setActiveIndex] = useState(0)

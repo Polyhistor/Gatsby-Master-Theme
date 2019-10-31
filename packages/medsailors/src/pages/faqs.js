@@ -30,7 +30,7 @@ const FAQ = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.FAQsBanner.childImageSharp.fluid}
+          imageData={imageQuery.MSFAQ.childImageSharp.fluid}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -41,7 +41,7 @@ const FAQ = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure for 20 to 35 year olds"
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />

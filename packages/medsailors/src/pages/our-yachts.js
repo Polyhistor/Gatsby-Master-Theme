@@ -23,25 +23,23 @@ const OurVehicles = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
-  console.log(YachtQuery)
-
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.ourVehiclesBanner.childImageSharp.fluid}
+          imageData={imageQuery.ourYachts.childImageSharp.fluid}
           titleFirst="Our Vehicles"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Our luxury vehicles raise the bar when it comes to road trip comfort."
+          description="We have a variety of yacht and cabin types so you can travel in style."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
+        text="Epic adventure for 20 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <OurYachts data={YachtQuery[0].node} />
