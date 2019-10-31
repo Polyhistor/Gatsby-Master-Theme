@@ -23,6 +23,10 @@ const OurVehicles = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
+  console.log(`aaaaaa`)
+
+  console.log(YachtQuery)
+
   return (
     <Layout>
       {renderSeo(data)}

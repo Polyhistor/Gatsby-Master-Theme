@@ -17,6 +17,28 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
+  const leftContactData = [
+    {
+      header: "Give us a call",
+      content: `Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down`,
+    },
+    {
+      header: "Email us",
+      content: `For any enquiries please write to us at <br /><a class="link" href="mailto:hello@wildkiwi.com?subject=Wildkiwi contact form">hello@wildkiwi.com</a>`,
+    },
+    {
+      header: "Facebook",
+      content: `Send us a message and Like us on <a class="link" href="https://www.facebook.com/wildkiwitours" target="_blank">Facebook</a>`,
+    },
+    {
+      header: "Instagram",
+      content: `Follow us and tag us on&thinsp;<a class="link" href="//www.instagram.com/wildkiwitours" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
+    },
+    {
+      header: "Media",
+      content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
+    },
+  ]
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -40,7 +62,7 @@ const GetInTouch = ({ data }) => {
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionGetInTouch />
+      <SectionGetInTouch leftContactSection={leftContactData} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
