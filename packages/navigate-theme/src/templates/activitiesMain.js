@@ -15,6 +15,7 @@ import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
+import useCountryQuery from "../queries/countryQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
@@ -28,6 +29,9 @@ const ActivitiesMain = ({ pageContext }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
+  const countryData = useCountryQuery()
+
+  const countryList = useState(countryData)
   //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
   const { group, index, first, last } = pageContext
 
@@ -123,6 +127,9 @@ const ActivitiesMain = ({ pageContext }) => {
       return setFilter(filteredData2)
     })
   }
+
+  const renderCountries = () =>
+    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
 
   const handleFilter = ({ target }) => {
     const filteredData3 = []
@@ -233,9 +240,8 @@ const ActivitiesMain = ({ pageContext }) => {
               onChange={handleSubmit}
             >
               <option value="all">Country</option>
-              <option value="new-zealand">New Zealand</option>
-              <option value="australia"> Australia </option>
-              <option value="europe"> Europe</option>
+
+              {renderCountries()}
             </select>
           </div>
           <div
