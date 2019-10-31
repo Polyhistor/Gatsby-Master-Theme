@@ -10,6 +10,8 @@ const getThere = ({
   rightList,
   rightListLinks,
 }) => {
+  const theme = process.env.GATSBY_THEME
+
   const renderListLeft = () => {
     return leftList.map((element, idx) => {
       return (
@@ -37,7 +39,15 @@ const getThere = ({
   return (
     <div className="section-destination__get-there">
       <div className="get-there">
-        <h2 className="green-title u-padding-bottom-sedium">{title}</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms u-padding-bottom-sedium"
+              : "heading-1 u-padding-bottom-sedium"
+          }
+        >
+          {title}
+        </h2>
         <p className="get-there__paragraph">{paragraph}</p>
         <div className="get-there__list">
           <ul className="get-there__list--left">

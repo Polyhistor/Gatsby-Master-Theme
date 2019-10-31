@@ -11,6 +11,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
+  const SVGIcon = "wheel"
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
@@ -32,6 +33,7 @@ const Reviews = ({ data }) => {
       </div>
       <GreenBar
         text="Epic adventure for 20 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionReview />

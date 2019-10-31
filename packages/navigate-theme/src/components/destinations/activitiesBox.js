@@ -4,6 +4,8 @@ import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivitiesBox = ({ activityData }) => {
+  const theme = process.env.GATSBY_THEME
+
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   const renderActivities = () => {
@@ -40,7 +42,13 @@ const ActivitiesBox = ({ activityData }) => {
               </figure>
               <h3 className="acitivity-box-single__title">{title}</h3>
               <h4 className="acitivity-box-single__sub-title">{subtitle}</h4>
-              <span className="acitivity-box-single__price">{price}</span>
+              <span
+                className={
+                  theme === "ms" ? "heading-5 heading-5--ms" : "heading-5"
+                }
+              >
+                {price}
+              </span>
             </div>
           </Link>
         )
@@ -49,11 +57,23 @@ const ActivitiesBox = ({ activityData }) => {
   }
   return (
     <div className="section-destination__activities">
-      <h2 className="green-title u-padding-bottom-sedium">Activities</h2>
+      <h2
+        className={
+          theme === "ms"
+            ? "heading-1 heading-1--ms u-padding-bottom-sedium"
+            : "heading-1 u-padding-bottom-sedium"
+        }
+      >
+        Activities
+      </h2>
       <div className="acitivity-box">{renderActivities()}</div>
       <Link
         to={`${themeOptionsQueryData.activitiesRoute}`}
-        className="acitivity-box-button"
+        className={
+          theme === "ms"
+            ? "acitivity-box-button acitivity-box-button--ms"
+            : "acitivity-box-button"
+        }
       >
         All Activities
       </Link>

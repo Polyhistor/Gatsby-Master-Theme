@@ -37,11 +37,13 @@
 
       &__title {
         padding: 1rem 0rem;
-        // @include blackUpperCaseGreen;
-        // font-size: 1.7rem;
         @extend .paragraph;
         @extend .paragraph--black;
         @extend .paragraph--green;
+
+        &--ms {
+          color: $color-med-teal;
+        }
       }
 
       &__description {

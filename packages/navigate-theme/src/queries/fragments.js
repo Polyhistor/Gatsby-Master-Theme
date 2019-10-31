@@ -493,7 +493,7 @@ export const YachtFragment = graphql`
     images {
       localFile {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 90) {
+          fluid(maxWidth: 2000, quality: 90) {
             ...GatsbyImageSharpFluid
           }
         }

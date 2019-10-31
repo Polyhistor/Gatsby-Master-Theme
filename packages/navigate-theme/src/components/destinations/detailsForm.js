@@ -43,6 +43,8 @@ const validationSchema = Yup.object().shape({
 })
 
 const DetailsForm = ({ inPage, state, imgSlug, title }) => {
+  const theme = process.env.GATSBY_THEME
+
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
   const filteredData = destinationsData.filter(e => e.node.slug === imgSlug)
@@ -68,7 +70,15 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
     <>
       {success === false ? (
         <>
-          <h3 className="WhyWild-box-single__title">Enter your details</h3>
+          <h3
+            className={
+              theme === "ms"
+                ? "WhyWild-box-single__title WhyWild-box-single__title--ms"
+                : "WhyWild-box-single__title"
+            }
+          >
+            Enter your details
+          </h3>
           <div className="booking-form__enquiry-form">
             <Formik
               initialValues={{

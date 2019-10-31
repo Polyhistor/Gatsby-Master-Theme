@@ -20,6 +20,8 @@ const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -204,6 +206,7 @@ const ActivitiesMain = ({ pageContext }) => {
       </div>
       <GreenBar
         text="Epic adventure tours for 18 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <div className="row">

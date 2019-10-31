@@ -18,10 +18,14 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const OurVehicles = ({ data }) => {
+  const SVGIcon = "wheel"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
+
+  console.log(YachtQuery)
 
   return (
     <Layout>
@@ -40,6 +44,7 @@ const OurVehicles = ({ data }) => {
       </div>
       <GreenBar
         text="Epic adventure for 20 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <OurYachts data={YachtQuery[0].node} />

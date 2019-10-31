@@ -135,6 +135,10 @@
     align-items: center;
     border-radius: 4px;
 
+    &--ms {
+      background: $color-med-teal;
+    }
+
     @include respond(tablet) {
       margin-left: auto;
       margin-right: auto;

@@ -9,12 +9,14 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  const theme = process.env.GATSBY_THEME
+
   // extracting out our query
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
 
   // setting our initial country state
-  const countryList = useState(countryData) 
+  const countryList = useState(countryData)
 
   // filtering destinations based on the country passed by props
   // const defaultCountry = destinationData.filter(
@@ -284,7 +286,13 @@ const BookingForm = ({ data, country, inPage }) => {
           <div className="booking-form__phase-1">
             {receivedData !== null ? (
               <div className="booking-form__tour-title u-margin-bottom-medium">
-                <h2 className="green-title">{data.data.data.description}</h2>
+                <h2
+                  className={
+                    theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"
+                  }
+                >
+                  {data.data.data.description}
+                </h2>
               </div>
             ) : (
               <div className="booking-form__dropdown">
