@@ -45,15 +45,7 @@ const FAQ = ({ data }) => {
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionFAQ
-        FAQData={FAQData}
-        categories={[
-          { label: "ABOUT YOUR TRIP" },
-          { label: "BUDGET & PAYMENT" },
-          { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFETY" },
-        ]}
-      />
+      <SectionFAQ FAQData={FAQData} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"

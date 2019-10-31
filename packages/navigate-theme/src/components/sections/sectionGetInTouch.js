@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { RawHTML } from "react-dom"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
@@ -20,9 +21,9 @@ const validationSchema = Yup.object().shape({
 // final data to be sent to the API
 let finalAPI
 
-const SectionGetInTouch = () => {
+const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
   // object that we use to synthesize later with form fields later
-  const partialData = { productId: 8 }
+  //const partialData = { productId: 8 }
 
   // setting the state for the success message
   const [{ success, message }, setSuccess] = useState({
@@ -36,70 +37,31 @@ const SectionGetInTouch = () => {
     "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
   ]
 
+  const defaultPhoneNumberCountry = phoneNumberData.find(p => p.selected)
+    .country
+
   // setting our inital state
-  const [state, setState] = useState("newzealand")
+  const [state, setState] = useState(defaultPhoneNumberCountry)
 
   // TODO - should be changed and replaced with contentful richText
   // rendering out left side contents
   const renderLeftContents = () => {
-    return (
-      <>
+    return leftContactSection.map(data => {
+      return (
         <div className="get-in-touch__container">
-          <h3 className="get-in-touch__header">Give us a call</h3>
-          <pre className="get-in-touch__paragraph">
-            Call us on any of the local numbers to save international calling
-            fees and you will be redirected to our local office. See our office
-            hours and phone number by selecting from the drop down
-          </pre>
+          <h3 className="get-in-touch__header">{data.header}</h3>
+          <pre
+            dangerouslySetInnerHTML={{ __html: data.content }}
+            className="get-in-touch__paragraph"
+          ></pre>
         </div>
-        <div className="get-in-touch__container">
-          <h3 className="get-in-touch__header">Email us</h3>
-          <pre className="get-in-touch__paragraph">
-            For any enquiries please write to us at <br />
-            <a
-              className="link"
-              href="mailto:hello@wildkiwi.com?subject=Wildkiwi contact form"
-            >
-              hello@wildkiwi.com
-            </a>
-          </pre>
-        </div>
-        <div className="get-in-touch__container">
-          <h3 className="get-in-touch__header">Facebook</h3>
-          <pre className="get-in-touch__paragraph">
-            Send us a message and Like us on&thinsp;
-            <a
-              className="link"
-              href="https://www.facebook.com/wildkiwitours"
-              target="_blank"
-            >
-              Facebook
-            </a>
-          </pre>
-        </div>
-        <div className="get-in-touch__container">
-          <h3 className="get-in-touch__header">Instagram</h3>
-          <pre className="get-in-touch__paragraph">
-            Follow us and tag us on&thinsp;
-            <a
-              className="link"
-              href="//www.instagram.com/wildkiwitours"
-              target="_blank"
-            >
-              Instagram&thinsp;
-            </a>
-            #WildKiwiTours
-          </pre>
-        </div>
-        <div className="get-in-touch__container">
-          <h3 className="get-in-touch__header">Media</h3>
-          <pre className="get-in-touch__paragraph">
-            Email press@navigatetravel.com to discuss any press or partnership
-            opportunities
-          </pre>
-        </div>
-      </>
-    )
+      )
+    })
+  }
+
+  const getAddress = country => {
+    const ad = phoneNumberData.find(p => p.country === country)
+    return ad.address
   }
 
   // handling dropdown change
@@ -108,31 +70,16 @@ const SectionGetInTouch = () => {
   }
 
   const renderContactNumber = () => {
-    if (state === "newzealand") {
-      return (
-        <a href="tel:+64 (0)9 973 5676" className="get-in-touch__number link">
-          +64 (0)9 973 5676
-        </a>
-      )
-    } else if (state === "australia") {
-      return (
-        <a href="tel:+61 (02) 9133 8646" className="get-in-touch__number link">
-          +61 (02) 9133 8646
-        </a>
-      )
-    } else if (state === "uk") {
-      return (
-        <a href="tel:+44 (0)20 3637 6466" className="get-in-touch__number link">
-          +44 (0)20 3637 6466
-        </a>
-      )
-    } else {
-      return (
-        <a href="+64 (0)9 973 5676" className="get-in-touch__number link">
-          +64 (0)9 973 5676
-        </a>
-      )
-    }
+    const getContactNumber = phoneNumberData.find(p => p.country === state)
+
+    return (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `<a href="tel:${getContactNumber.phone}" class="get-in-touch__number link">
+      ${getContactNumber.phone}</a>`,
+        }}
+      />
+    )
   }
 
   //TODO: add contaft us data into contentful
@@ -147,21 +94,19 @@ const SectionGetInTouch = () => {
               className="activity__dropdown"
               id="country"
             >
-              <option value="newzealand">NEW ZEALAND</option>
-              <option value="australia">AUSTRALIA</option>
-              <option value="uk">UNITED KINGDOM</option>
+              {phoneNumberData.map(p => {
+                return (
+                  <option selected={p.country === state} value={p.country}>
+                    {p.text}
+                  </option>
+                )
+              })}
             </select>
           </div>
           {renderContactNumber()}
           <div className="get-in-touch__container">
-            {state !== "australia" ? (
-              <>
-                <h3 className="get-in-touch__header">{addressData[0]}</h3>
-                <pre className="get-in-touch__paragraph">
-                  {state === "newzealand" ? addressData[1] : addressData[2]}
-                </pre>
-              </>
-            ) : null}
+            <h3 className="get-in-touch__header">Address</h3>
+            <pre className="get-in-touch__paragraph">{getAddress(state)}</pre>
           </div>
           {success ? (
             <h3 className="u-padding-top-medium filtered-tour__description-price">
@@ -177,7 +122,12 @@ const SectionGetInTouch = () => {
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, { resetForm }) => {
-                finalAPI = { ...values, ...partialData }
+                finalAPI = {
+                  ...values,
+                  ...{
+                    productId: process.env.GATSBY_PRODUCT_ID,
+                  },
+                }
                 try {
                   const response = await submitContactRequest(
                     JSON.stringify(finalAPI)

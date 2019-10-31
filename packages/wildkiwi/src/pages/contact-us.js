@@ -17,6 +17,54 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
+  const countryPhoneNumber = [
+    {
+      text: "NEW ZEALAND",
+      country: "newzealand",
+      phone: "+64 (0)9 973 5676",
+      selected: true,
+      address:
+        "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+    },
+    {
+      text: "AUSTRALIA",
+      country: "australia",
+      phone: "+61 (02) 9133 8646",
+      selected: false,
+      address:
+        "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+    },
+    {
+      text: "UNITED KINGDOM",
+      country: "uk",
+      phone: "+44 (0)20 3637 6466",
+      selected: false,
+      address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
+    },
+  ]
+
+  const leftContactData = [
+    {
+      header: "Give us a call",
+      content: `Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down`,
+    },
+    {
+      header: "Email us",
+      content: `For any enquiries please write to us at <br /><a class="link" href="mailto:hello@wildkiwi.com?subject=Wildkiwi contact form">hello@wildkiwi.com</a>`,
+    },
+    {
+      header: "Facebook",
+      content: `Send us a message and Like us on <a class="link" href="https://www.facebook.com/wildkiwitours" target="_blank">Facebook</a>`,
+    },
+    {
+      header: "Instagram",
+      content: `Follow us and tag us on&thinsp;<a class="link" href="//www.instagram.com/wildkiwitours" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
+    },
+    {
+      header: "Media",
+      content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
+    },
+  ]
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -40,7 +88,10 @@ const GetInTouch = ({ data }) => {
         text="Epic adventure for 18 to 35 year olds"
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionGetInTouch />
+      <SectionGetInTouch
+        phoneNumberData={countryPhoneNumber}
+        leftContactSection={leftContactData}
+      />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
