@@ -5,6 +5,17 @@ import useFAQVideoQuery from "../../queries/faqVideoQuery"
 // TODO - clean up
 
 const SectionFAQ = ({ FAQData }) => {
+  const theme = process.env.GATSBY_THEME
+
+  const color = theme === "ms" ? "u-color-ms-teal" : "u-color-green"
+
+  const FAQButton =
+    theme === "ms" ? "FAQ__button FAQ__button--ms" : "FAQ__button"
+  const FAQButtonActive =
+    theme === "ms"
+      ? "FAQ__button--active FAQ__button--active-ms"
+      : "FAQ__button--active"
+
   // getting data out of our FAQ Query
   const FAQVideo = useFAQVideoQuery()
 
@@ -65,8 +76,8 @@ const SectionFAQ = ({ FAQData }) => {
           onClick={() => handleClick(idx)}
           className={
             idx === activeIndex
-              ? "FAQ__button FAQ__button--active"
-              : "FAQ__button"
+              ? `${FAQButton} ${FAQButtonActive}`
+              : `${FAQButton}`
           }
         >
           {faq.node.category}
@@ -89,10 +100,28 @@ const SectionFAQ = ({ FAQData }) => {
                 name="tabs"
               />
               <label htmlFor={`FAQ__tab-${idx}`}>
-                <span className="FAQ__icon">{idx + 1}</span>
-                <h3 className="FAQ__question">{questtion}</h3>
+                <span
+                  className={
+                    theme === "ms" ? "FAQ__icon FAQ__icon--ms" : "FAQ__icon"
+                  }
+                >
+                  {idx + 1}
+                </span>
+                <h3
+                  className={
+                    theme === "ms"
+                      ? "FAQ__question FAQ__question--ms"
+                      : "FAQ__question"
+                  }
+                >
+                  {questtion}
+                </h3>
               </label>
-              <a className="arrow down" />
+              <a
+                className={
+                  theme === "ms" ? "arrow arrow--ms down" : "arrow down"
+                }
+              />
               <div className="FAQ__answer-container">
                 <p className="FAQ__paragraph">{element.node.answers[idx]}</p>
               </div>
@@ -130,7 +159,9 @@ const SectionFAQ = ({ FAQData }) => {
     return FAQVideo.map(e => {
       return (
         <div className="video-box">
-          <h3 className="includes__title--second heading-alternative u-color-green u-padding-bottom-small">
+          <h3
+            className={`includes__title--second heading-alternative ${color} u-padding-bottom-small`}
+          >
             {e.node.title}
           </h3>
           <iframe

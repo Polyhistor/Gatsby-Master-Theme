@@ -17,6 +17,10 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
+  const theme = process.env.GATSBY_THEME
+
+  const link = theme === "ms" ? "link link--ms" : "link"
+
   const countryPhoneNumber = [
     {
       text: "NEW ZEALAND",
@@ -53,15 +57,15 @@ const GetInTouch = ({ data }) => {
     },
     {
       header: "Email us",
-      content: `For any enquiries please write to us at <br /><a class="link" href="mailto:sales@medsailors.com?subject=MedSailors contact form">sales@medsailors.com</a>`,
+      content: `For any enquiries please write to us at <br /><a class="${link}" href="mailto:sales@medsailors.com?subject=MedSailors contact form">sales@medsailors.com</a>`,
     },
     {
       header: "Facebook",
-      content: `Send us a message and Like us on <a class="link" href="https://www.facebook.com/medsailors" target="_blank">Facebook</a>`,
+      content: `Send us a message and Like us on <a class="${link}" href="https://www.facebook.com/medsailors" target="_blank">Facebook</a>`,
     },
     {
       header: "Instagram",
-      content: `Follow us and tag us on&thinsp;<a class="link" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
+      content: `Follow us and tag us on&thinsp;<a class="${link}" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
     },
     {
       header: "Media",

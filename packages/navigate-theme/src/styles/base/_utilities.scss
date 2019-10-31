@@ -272,6 +272,10 @@
   color: $color-primary;
 }
 
+.u-color-ms-teal {
+  color: $color-med-teal;
+}
+
 //styling
 .u-border-top-bottom {
   border: 1px 0 1px 0 solid $color-grey-dark;
@@ -557,6 +561,11 @@
   text-decoration: none;
   color: transparent;
   z-index: -1;
+
+  &--ms {
+    border-top: 3px solid $color-med-teal;
+    border-left: 3px solid $color-med-teal;
+  }
 }
 
 .arrow:hover {

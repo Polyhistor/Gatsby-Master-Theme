@@ -6,6 +6,8 @@ import useActivityQuery from "../../queries/activityQuery"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivityRelated = ({ country }) => {
+  const theme = process.env.GATSBY_THEME
+
   const activityQuery = useActivityQuery()
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
   // looping over elements and rendering
@@ -41,7 +43,13 @@ const ActivityRelated = ({ country }) => {
                   <h4 className="acitivity-box-single__sub-title">
                     {acitivity.node.subtitle}
                   </h4>
-                  <h5 className="acitivity-box-single__price">
+                  <h5
+                    className={
+                      theme === "ms"
+                        ? "heading-5 heading-5--black heading-5--ms"
+                        : "heading-5 heading-5--black"
+                    }
+                  >
                     {acitivity.node.price}
                   </h5>
                 </div>
@@ -53,7 +61,9 @@ const ActivityRelated = ({ country }) => {
   }
   return (
     <div className="activity__related">
-      <h2 className="green-title">Other Activities</h2>
+      <h2 className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}>
+        Other Activities
+      </h2>
       {renderElements()}
     </div>
   )

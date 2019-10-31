@@ -6,6 +6,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
+  const theme = process.env.GATSBY_THEME
+
   // this allows us to render specific node types
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
   const options = {
@@ -28,7 +30,15 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
     <div className="activity activity--single">
       <h1 className="activity__title">{title}</h1>
       <h3 className="activity__subtitle">{subtitle}</h3>
-      <h4 className="activity__price">{price}</h4>
+      <h4
+        className={
+          theme === "ms"
+            ? "activity__price activity__price--ms"
+            : "activity__price"
+        }
+      >
+        {price}
+      </h4>
       {description !== null && (
         <article className="activity__body">
           {documentToReactComponents(description, options)}
@@ -38,7 +48,11 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
       <div className="activity__button-box">
         <Link
           to={`${themeOptionsQueryData.activitiesRoute}`}
-          className="acitivity-box-button"
+          className={
+            theme === "ms"
+              ? "acitivity-box-button acitivity-box-button--ms"
+              : "acitivity-box-button"
+          }
         >
           All Activities
         </Link>
