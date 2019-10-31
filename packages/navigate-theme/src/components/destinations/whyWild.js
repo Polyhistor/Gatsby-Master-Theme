@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 const WhyWild = ({ WhyWildData }) => {
   // TODO - cleanup
   const theme = process.env.GATSBY_THEME
+  const brandName = process.env.GATSBY_BRAND_NAME
 
   const renderWhyWildData = () => {
     return WhyWildData.map((why, idx) => {
@@ -39,7 +40,7 @@ const WhyWild = ({ WhyWildData }) => {
             : "heading-1 u-margin-bottom-small "
         }
       >
-        Why Wild Kiwi?
+        Why {brandName}?
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
     </div>
