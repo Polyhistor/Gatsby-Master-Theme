@@ -22,6 +22,8 @@ const ActivitiesMain = ({ pageContext }) => {
 
   const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
+  // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -222,7 +224,11 @@ const ActivitiesMain = ({ pageContext }) => {
           </h1>
           <div className="activity__selector">
             <select
-              className="activity__dropdown"
+              className={
+                theme === "ms"
+                  ? "activity__dropdown activity__dropdown--ms"
+                  : "activity__dropdown"
+              }
               id="country"
               onChange={handleSubmit}
             >
