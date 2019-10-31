@@ -211,7 +211,9 @@ const ActivitiesMain = ({ pageContext }) => {
       />
       <div className="row">
         <div className="activity__filter">
-          <h1 className="green-title u-padding-bottom-medium">
+          <h1
+            className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
+          >
             Add-on Activities
           </h1>
           <div className="activity__selector">
