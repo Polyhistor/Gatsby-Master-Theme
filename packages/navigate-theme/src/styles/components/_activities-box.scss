@@ -73,6 +73,10 @@
 
       &--free {
         background-color: $color-primary;
+
+        &-ms {
+          background-color: $color-med-teal;
+        }
       }
 
       &--top {
@@ -134,6 +138,10 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+
+    &--ms {
+      background: $color-med-teal;
+    }
 
     @include respond(tablet) {
       margin-left: auto;

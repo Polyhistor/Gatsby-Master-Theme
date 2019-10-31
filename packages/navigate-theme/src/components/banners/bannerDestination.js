@@ -42,9 +42,7 @@ const BannerDestination = ({
 
         <div className="destination-banner">
           <div className="destination-banner__description">
-            <h3 className="tour-banner__description-title tour-banner__description-title-newzealand">
-              {title}
-            </h3>
+            <h3 className="tour-banner__description-title">{title}</h3>
             <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
               {departs}

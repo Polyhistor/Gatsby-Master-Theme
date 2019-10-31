@@ -26,6 +26,11 @@ import { useFetchHook } from "../hooks/useFetchHook"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 
 const DestinationsSingle = ({ pageContext, data, location }) => {
+  // TODO - CLEAN UP
+  const theme = process.env.GATSBY_THEME
+
+  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -61,7 +66,10 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         buttonText="watch trail"
         buttonTextSecond="view photos"
       />
-      <GreenBar text="Epic adventure tours for 18 to 35 year olds" />
+      <GreenBar
+        text="Epic adventure tours for 20 to 35 year olds"
+        imageData={SVGIcon}
+      />
       <DestinationSection>
         <TripBox
           destinationCountry={data.contentfulDestinations.destinationCountry}

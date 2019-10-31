@@ -70,9 +70,6 @@
   &__button {
     position: relative;
 
-    // @include greenWhite;
-    // font-family: Nunito-Black;
-
     @extend .heading-5;
     @extend .heading-5--green;
 

@@ -51,6 +51,10 @@
     clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
     margin-right: 0rem;
 
+    &--ms {
+      background: $color-med-teal;
+    }
+
     @include respond(phone) {
       width: 80%;
       clip-path: polygon(90% 1%, 100% 53%, 90% 100%, 0 100%, 0 0);
@@ -100,6 +104,10 @@
       @include respond(phone) {
         display: none;
       }
+
+      &-ms {
+        color: $color-med-teal;
+      }
     }
   }
 
@@ -145,6 +153,10 @@
     margin-left: 4rem;
     font-family: Nunito-Black;
 
+    &--ms {
+      background: $color-med-teal;
+    }
+
     &-1 {
       @include respond(phone) {
         -webkit-overflow-scrolling: touch;
@@ -159,6 +171,10 @@
     &--arrow {
       border: 1px solid $color-primary;
       margin-left: 1rem;
+
+      &--ms {
+        border: 1px solid $color-med-teal;
+      }
     }
 
     &-2 {
@@ -422,6 +438,10 @@
     background-color: $color-primary;
     border-radius: 50%;
 
+    &--ms {
+      background-color: $color-med-teal;
+    }
+
     &--soldout {
       background-color: $color-gray-light-2;
     }
@@ -436,6 +456,10 @@
     color: $color-primary;
     font-size: 0.9rem;
     padding-top: 0.2rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
 
     &--soldout {
       color: $color-gray-light-2;
@@ -487,6 +511,10 @@
     font-size: 1.4rem;
     color: $color-primary;
     width: 8rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
 
     &--selected {
       color: $color-red;

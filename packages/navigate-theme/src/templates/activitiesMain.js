@@ -20,6 +20,10 @@ const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
+
+  // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -204,16 +208,27 @@ const ActivitiesMain = ({ pageContext }) => {
       </div>
       <GreenBar
         text="Epic adventure tours for 18 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <div className="row">
         <div className="activity__filter">
-          <h1 className="green-title u-padding-bottom-medium">
+          <h1
+            className={
+              theme === "ms"
+                ? "heading-1 heading-1--ms u-margin-bottom-small "
+                : "heading-1 u-margin-bottom-small "
+            }
+          >
             Add-on Activities
           </h1>
           <div className="activity__selector">
             <select
-              className="activity__dropdown"
+              className={
+                theme === "ms"
+                  ? "activity__dropdown activity__dropdown--ms"
+                  : "activity__dropdown"
+              }
               id="country"
               onChange={handleSubmit}
             >

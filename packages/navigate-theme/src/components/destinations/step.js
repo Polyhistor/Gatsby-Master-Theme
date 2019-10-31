@@ -1,15 +1,32 @@
 import React from "react"
 
 const Step = ({ num, text, variation, last }) => {
+  const theme = process.env.GATSBY_THEME
+
+  const bookingFormSteps =
+    theme === "ms"
+      ? "booking-form__steps booking-form__steps--ms"
+      : "booking-form__steps"
+
+  const bookingFormStepsArrow =
+    theme === "ms"
+      ? "booking-form__steps--arrow booking-form__steps--arrow-ms"
+      : "booking-form__steps--arrow"
+
+  const bookingFormHeadlineArrow =
+    theme === "ms"
+      ? "booking-form__headline--arrow-ms"
+      : "booking-form__headline--arrow"
+
   return (
     <>
       <div
         className={
           variation
-            ? "booking-form__steps booking-form__steps--arrow"
+            ? `${bookingFormSteps} ${bookingFormStepsArrow}`
             : last
-            ? "booking-form__steps booking-form__steps--last"
-            : "booking-form__steps"
+            ? `${bookingFormSteps} booking-form__steps--last`
+            : bookingFormSteps
         }
       >
         <span
@@ -24,7 +41,7 @@ const Step = ({ num, text, variation, last }) => {
         <h2
           className={
             variation
-              ? "booking-form__headline booking-form__headline--arrow"
+              ? `booking-form__headline ${bookingFormHeadlineArrow}`
               : "booking-form__headline"
           }
         >

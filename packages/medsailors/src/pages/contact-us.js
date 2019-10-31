@@ -69,6 +69,8 @@ const GetInTouch = ({ data }) => {
     },
   ]
 
+  const SVGIcon = "wheel"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -90,6 +92,7 @@ const GetInTouch = ({ data }) => {
       </div>
       <GreenBar
         text="Epic adventure for 20 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionGetInTouch

@@ -20,6 +20,8 @@ import {
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 const HowItWorks = ({ data }) => {
+  const SVGIcon = "wheel"
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -42,7 +44,7 @@ const HowItWorks = ({ data }) => {
       </div>
       <GreenBar
         text="Epic adventure for 20 to 35 year olds"
-        imageData={wildKiwiMountains}
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionHowItWorks data={howItWorksData} />

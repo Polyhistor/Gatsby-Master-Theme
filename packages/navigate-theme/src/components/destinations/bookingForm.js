@@ -9,12 +9,30 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  // TODO - CLEAN UP
+  const theme = process.env.GATSBY_THEME
+
+  const bookingFormPromo =
+    theme === "ms"
+      ? "booking-form__promo booking-form__promo--ms"
+      : "booking-form__promo"
+
+  const bookingFormAvailablity =
+    theme === "ms"
+      ? "booking-form__availability booking-form__availability--ms"
+      : "booking-form__availability"
+
+  const bookingFormDot =
+    theme === "ms"
+      ? "booking-form__dot booking-form__dot--ms"
+      : "booking-form__dot"
+
   // extracting out our query
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
 
   // setting our initial country state
-  const countryList = useState(countryData) 
+  const countryList = useState(countryData)
 
   // filtering destinations based on the country passed by props
   // const defaultCountry = destinationData.filter(
@@ -134,8 +152,8 @@ const BookingForm = ({ data, country, inPage }) => {
                         <div
                           className={
                             d.availability === "Sold Out"
-                              ? "booking-form__dot booking-form__dot--soldout"
-                              : "booking-form__dot"
+                              ? `${bookingFormDot} booking-form__dot--soldout`
+                              : `${bookingFormDot}`
                           }
                         ></div>
                         <div
@@ -156,8 +174,8 @@ const BookingForm = ({ data, country, inPage }) => {
                       <span
                         className={
                           d.availability === "Sold Out"
-                            ? "booking-form__promo booking-form__promo--soldout"
-                            : "booking-form__promo"
+                            ? `${bookingFormPromo} booking-form__promo--soldout`
+                            : `${bookingFormPromo}`
                         }
                       >
                         {d.sale}
@@ -188,8 +206,8 @@ const BookingForm = ({ data, country, inPage }) => {
                     <div
                       className={
                         d.availability === "Sold Out"
-                          ? "booking-form__availability booking-form__availability--sold-out"
-                          : "booking-form__availability"
+                          ? `${bookingFormAvailablity} booking-form__availability--sold-out`
+                          : `${bookingFormAvailablity}`
                       }
                     >
                       {d.availability}
@@ -284,7 +302,13 @@ const BookingForm = ({ data, country, inPage }) => {
           <div className="booking-form__phase-1">
             {receivedData !== null ? (
               <div className="booking-form__tour-title u-margin-bottom-medium">
-                <h2 className="green-title">{data.data.data.description}</h2>
+                <h2
+                  className={
+                    theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"
+                  }
+                >
+                  {data.data.data.description}
+                </h2>
               </div>
             ) : (
               <div className="booking-form__dropdown">
@@ -336,7 +360,10 @@ const BookingForm = ({ data, country, inPage }) => {
       </div>
       <div className="booking-form__footer">
         {phase ? (
-          <button className="btn btn--white" onClick={() => setPhase(!phase)}>
+          <button
+            className={theme === "ms" ? "btn btn--white-med" : "btn btn--white"}
+            onClick={() => setPhase(!phase)}
+          >
             Previous
           </button>
         ) : null}
