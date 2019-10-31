@@ -21,6 +21,11 @@ const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  const activityLabelFree =
+    theme === "ms"
+      ? "acitivity-box-single__caption--free acitivity-box-single__caption--free-ms"
+      : "acitivity-box-single__caption--free"
+
   const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
   // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
@@ -170,7 +175,7 @@ const ActivitiesMain = ({ pageContext }) => {
                       node.status === "null"
                         ? "acitivity-box-single__caption--null"
                         : "Free"
-                        ? "acitivity-box-single__caption--free"
+                        ? `${activityLabelFree}`
                         : "acitivity-box-single__caption--top"
                     }`}
                   >
@@ -181,7 +186,13 @@ const ActivitiesMain = ({ pageContext }) => {
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
-            <h5 className="activity__price">
+            <h5
+              className={
+                theme === "ms"
+                  ? "activity__price activity__price--ms"
+                  : "activity__price"
+              }
+            >
               {node.price === "free"
                 ? "free"
                 : node.price === "included"

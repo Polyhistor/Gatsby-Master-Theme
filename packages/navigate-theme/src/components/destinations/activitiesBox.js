@@ -4,7 +4,13 @@ import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const ActivitiesBox = ({ activityData }) => {
+  // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
+
+  const activityLabelFree =
+    theme === "ms"
+      ? "acitivity-box-single__caption--free acitivity-box-single__caption--free-ms"
+      : "acitivity-box-single__caption--free"
 
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -32,7 +38,7 @@ const ActivitiesBox = ({ activityData }) => {
                       status === "null"
                         ? "acitivity-box-single__caption--null"
                         : "Free"
-                        ? "acitivity-box-single__caption--free"
+                        ? `${activityLabelFree}`
                         : "acitivity-box-single__caption--top"
                     }`}
                   >
