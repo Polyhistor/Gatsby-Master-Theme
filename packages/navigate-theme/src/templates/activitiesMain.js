@@ -233,7 +233,13 @@ const ActivitiesMain = ({ pageContext }) => {
           >
             Add-on Activities
           </h1>
-          <div className="activity__selector">
+          <div
+            className={
+              theme === "ms"
+                ? "activity__selector activity__selector--ms"
+                : "activity__selector"
+            }
+          >
             <select
               className={
                 theme === "ms"

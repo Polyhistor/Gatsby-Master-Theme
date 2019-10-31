@@ -319,5 +319,12 @@
         position: absolute;
       }
     }
+
+    &--ms {
+      & select {
+        color: $color-med-teal;
+        border: 1px solid $color-med-teal;
+      }
+    }
   }
 }

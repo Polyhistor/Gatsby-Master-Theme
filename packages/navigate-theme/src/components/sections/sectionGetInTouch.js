@@ -22,6 +22,10 @@ const validationSchema = Yup.object().shape({
 let finalAPI
 
 const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
+  const theme = process.env.GATSBY_THEME
+
+  const link = theme === "ms" ? "link link--ms" : "link"
+
   // object that we use to synthesize later with form fields later
   //const partialData = { productId: 8 }
 
@@ -75,7 +79,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
     return (
       <div
         dangerouslySetInnerHTML={{
-          __html: `<a href="tel:${getContactNumber.phone}" class="get-in-touch__number link">
+          __html: `<a href="tel:${getContactNumber.phone}" class=get-in-touch__number ${link}>
       ${getContactNumber.phone}</a>`,
         }}
       />
@@ -208,7 +212,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                     >
                       I accept the&thinsp;
                       <a
-                        className="link"
+                        className={theme === "ms" ? "link link--ms" : "link"}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -218,7 +222,11 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                   </div>
                   <button
                     id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
-                    className="btn btn--green-footer"
+                    className={
+                      theme === "ms"
+                        ? "btn btn--green-footer btn--ms-teal"
+                        : "btn btn--green-footer"
+                    }
                     type="submit"
                   >
                     submit

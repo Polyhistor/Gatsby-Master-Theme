@@ -87,6 +87,15 @@
 
     &--active {
       @include whiteGreen;
+      &-ms {
+        background: $color-med-teal;
+        color: white !important;
+      }
+    }
+
+    &--ms {
+      color: $color-med-teal;
+      border: 1px solid $color-med-teal;
     }
   }
 
@@ -109,6 +118,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--ms {
+      background: $color-med-teal;
+    }
   }
 
   &__accordian {
@@ -126,8 +139,6 @@
   }
 
   &__question {
-    // font-size: 1.6rem;
-    // color: $color-primary;
     @extend .paragraph;
     @extend .paragraph--green;
     transform: translateY(-0.8rem);
@@ -135,6 +146,10 @@
 
     @include respond(phone) {
       width: 85%;
+    }
+
+    &--ms {
+      color: $color-med-teal;
     }
   }
 
