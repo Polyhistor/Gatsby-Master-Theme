@@ -7,6 +7,8 @@ import NavButton from "./navButton"
 import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 
 const NavItems = () => {
+  const theme = process.env.GATSBY_THEME
+
   const menuLabels = useMenuLabelQuery()
 
   // iterating through link items
@@ -15,7 +17,14 @@ const NavItems = () => {
       return (
         // bear in mind that only the fragments with explictly written React.fragment can be keyed!, in here we added idx+5, to keye our fragments
         <React.Fragment key={idx + 5}>
-          <li key={idx} className="navigation__item">
+          <li
+            key={idx}
+            className={
+              theme === "ms"
+                ? "navigation__item navigation__item--ms"
+                : "navigation__item"
+            }
+          >
             {external ? (
               <a className="navigation__link" href={link} target="_blank">
                 {label}

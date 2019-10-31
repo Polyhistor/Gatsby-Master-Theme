@@ -26,6 +26,9 @@
       @extend .paragraph;
       @extend .paragraph--extraBold;
 
+      &--ms {
+      }
+
       @include respond(phone) {
         color: $color-grey-dark-3;
         font-family: Nunito-Black;

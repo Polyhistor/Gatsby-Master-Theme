@@ -160,10 +160,6 @@
 
       & > a {
         @include respond(phone) {
-          // color: $color-primary !important;
-          // font-family: Nunito-Extrabold;
-          // text-transform: uppercase;
-          // padding-top: 2.3rem;
         }
       }
     }
@@ -198,6 +194,15 @@
     @include respond(phone) {
       float: none;
       visibility: hidden;
+    }
+
+    &--ms {
+      &:not(:first-child) {
+        &:hover {
+          border-bottom: 2px solid $color-med-teal;
+          animation: blinkText 0.8s ease-out;
+        }
+      }
     }
   }
 
