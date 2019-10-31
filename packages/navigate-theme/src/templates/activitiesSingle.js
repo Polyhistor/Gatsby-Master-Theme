@@ -28,6 +28,10 @@ const ActivitiesSingle = ({
     breadcrumb: { crumbs },
   } = pageContext
 
+  const theme = process.env.GATSBY_THEME
+
+  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
+
   let customCrub = []
 
   crumbs.forEach(e => [...customCrub, e.pathname])
@@ -72,6 +76,7 @@ const ActivitiesSingle = ({
       />
       <GreenBar
         text="Epic adventure for 18 to 35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionActivity>

@@ -212,7 +212,11 @@ const ActivitiesMain = ({ pageContext }) => {
       <div className="row">
         <div className="activity__filter">
           <h1
-            className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
+            className={
+              theme === "ms"
+                ? "heading-1 heading-1--ms u-margin-bottom-small "
+                : "heading-1 u-margin-bottom-small "
+            }
           >
             Add-on Activities
           </h1>
