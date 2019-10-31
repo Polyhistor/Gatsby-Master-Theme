@@ -98,5 +98,9 @@
     transform: translateY(-10%);
     margin-top: 2rem;
     font-size: 1.38rem;
+
+    &--ms {
+      background-color: $color-med-teal;
+    }
   }
 }

@@ -18,7 +18,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
+const SVGIcon = "wheel"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
@@ -43,7 +43,7 @@ const AboutUs = ({ data }) => {
       </div>
       <GreenBar
         text="Epic adventure for 20 to 35 year olds"
-        imageData={wildKiwiMountains}
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <AboutUsSection />
