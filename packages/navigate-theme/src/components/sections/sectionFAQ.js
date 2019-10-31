@@ -4,7 +4,7 @@ import useFAQVideoQuery from "../../queries/faqVideoQuery"
 
 // TODO - clean up
 
-const SectionVehicles = ({ FAQData, categories }) => {
+const SectionFAQ = ({ FAQData }) => {
   // getting data out of our FAQ Query
   const FAQVideo = useFAQVideoQuery()
 
@@ -13,9 +13,15 @@ const SectionVehicles = ({ FAQData, categories }) => {
     // setting the color
     setActiveIndex(idx)
 
-    // conditionally rendering FAQ categories
+    const categoryData = [FAQData[idx]]
+    setCategory(categoryData)
+  }
+
+  /* we don't need to duplicate
+    
+    conditionally rendering FAQ categories
     if (idx === 0) {
-      setCategory(categoryAData)
+      setCategory(categoryData)
     }
 
     if (idx === 1) {
@@ -29,8 +35,8 @@ const SectionVehicles = ({ FAQData, categories }) => {
     if (idx === 3) {
       setCategory(categoryDData)
     }
-  }
-
+  }*/
+  /* We don't need to duplicate ??? 
   // filter out what we need for CategoryA
   const categoryAData = FAQData.filter(
     faq => faq.node.category === categories[0].label
@@ -44,14 +50,15 @@ const SectionVehicles = ({ FAQData, categories }) => {
   const categoryDData = FAQData.filter(
     faq => faq.node.category === categories[3].label
   )
-
+ */
   // setting our initial states
-  const [initialCategory, setCategory] = useState(categoryAData)
+
+  const [initialCategory, setCategory] = useState([FAQData[0]])
   const [activeIndex, setActiveIndex] = useState(0)
 
   // rendering buttons
   const renderButtons = () => {
-    return categories.map((button, idx) => {
+    return FAQData.map((faq, idx) => {
       return (
         <button
           key={idx}
@@ -62,7 +69,7 @@ const SectionVehicles = ({ FAQData, categories }) => {
               : "FAQ__button"
           }
         >
-          {button.label}
+          {faq.node.category}
         </button>
       )
     })
@@ -98,7 +105,10 @@ const SectionVehicles = ({ FAQData, categories }) => {
 
   // function to handle mobile's dropdown
   const handleDropdown = e => {
-    if (e.target.value === categories[0].label) {
+    const category = FAQData.filter(faq => faq.node.category === e.target.value)
+
+    setCategory(category)
+    /* if (e.target.value === categories[0].label) {
       setCategory(categoryAData)
     }
 
@@ -112,7 +122,7 @@ const SectionVehicles = ({ FAQData, categories }) => {
 
     if (e.target.value === categories[3].label) {
       setCategory(categoryDData)
-    }
+    }*/
   }
 
   // rendering video boxes
@@ -145,10 +155,13 @@ const SectionVehicles = ({ FAQData, categories }) => {
               className="activity__dropdown"
               id="country"
             >
-              <option value="ABOUT YOUR TRIP">ABOUT YOUR TRIP</option>
-              <option value="BUDGET & PAYMENT">BUDGET & PAYMENT</option>
-              <option value="TRANSPORT">TRANSPORT</option>
-              <option value="TRAVEL & SAFTEY">TRAVEL & SAFTEY</option>
+              {FAQData.map(data => {
+                return (
+                  <option value={data.node.category}>
+                    {data.node.category}
+                  </option>
+                )
+              })}
             </select>
           </div>
         </div>
@@ -162,4 +175,4 @@ const SectionVehicles = ({ FAQData, categories }) => {
   )
 }
 
-export default SectionVehicles
+export default SectionFAQ
