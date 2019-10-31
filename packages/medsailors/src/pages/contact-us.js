@@ -122,7 +122,7 @@ export default GetInTouch
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "get-in-touch" } }
+      filter: { referencedPageIdentifier: { eq: "contact-us" } }
     ) {
       edges {
         node {

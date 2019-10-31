@@ -69,7 +69,7 @@ export default OurVehicles
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "our-vehicles" } }
+      filter: { referencedPageIdentifier: { eq: "yachts" } }
     ) {
       edges {
         node {

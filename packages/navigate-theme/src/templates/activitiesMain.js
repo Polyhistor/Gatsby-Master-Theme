@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-
+import SEO from "../components/seo/seo"
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
@@ -18,6 +18,7 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
+  console.log(pageContext)
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -39,6 +40,17 @@ const ActivitiesMain = ({ pageContext }) => {
   const countryList = useState(countryData)
   //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
   const { group, index, first, last } = pageContext
+
+  const getActivitySeo = () => {
+    return {
+      title: first
+        ? `${pageContext.metadata.title}`
+        : `${pageContext.metadata.title} | Page ${index}`,
+      description: first
+        ? `${pageContext.metadata.description}`
+        : `${pageContext.metadata.description} | Page ${index}`,
+    }
+  }
 
   // previous and next page logic
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
@@ -207,7 +219,10 @@ const ActivitiesMain = ({ pageContext }) => {
 
   return (
     <Layout>
-      {renderSeoFromContext(pageContext)}
+      <SEO
+        title={getActivitySeo().title}
+        description={getActivitySeo().description}
+      />
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={
