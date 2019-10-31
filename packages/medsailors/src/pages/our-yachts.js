@@ -45,7 +45,7 @@ const OurVehicles = ({ data }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <OurYachts data={YachtQuery[0].node} />
+      <OurYachts data={YachtQuery} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
