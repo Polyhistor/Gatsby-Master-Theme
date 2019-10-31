@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { RawHTML } from "react-dom"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
@@ -72,9 +73,9 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
     const getContactNumber = phoneNumberData.find(p => p.country === state)
 
     return (
-      <React.Fragment
+      <div
         dangerouslySetInnerHTML={{
-          _html: `<a href="tel:${getContactNumber.phone}" class="get-in-touch__number link">
+          __html: `<a href="tel:${getContactNumber.phone}" class="get-in-touch__number link">
       ${getContactNumber.phone}</a>`,
         }}
       />
@@ -94,7 +95,11 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
               id="country"
             >
               {phoneNumberData.map(p => {
-                return <option value={p.country}>{p.text}</option>
+                return (
+                  <option selected={p.country === state} value={p.country}>
+                    {p.text}
+                  </option>
+                )
               })}
             </select>
           </div>

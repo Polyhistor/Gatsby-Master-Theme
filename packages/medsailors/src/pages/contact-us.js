@@ -39,7 +39,7 @@ const GetInTouch = ({ data }) => {
     {
       text: "UNITED KINGDOM",
       country: "uk",
-      phone: "+64 (0)9 973 5676",
+      phone: "+44 (0)20 3637 6466",
       default: true,
       selected: true,
       address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -53,15 +53,15 @@ const GetInTouch = ({ data }) => {
     },
     {
       header: "Email us",
-      content: `For any enquiries please write to us at <br /><a class="link" href="mailto:hello@wildkiwi.com?subject=Wildkiwi contact form">hello@wildkiwi.com</a>`,
+      content: `For any enquiries please write to us at <br /><a class="link" href="mailto:sales@medsailors.com?subject=MedSailors contact form">sales@medsailors.com</a>`,
     },
     {
       header: "Facebook",
-      content: `Send us a message and Like us on <a class="link" href="https://www.facebook.com/wildkiwitours" target="_blank">Facebook</a>`,
+      content: `Send us a message and Like us on <a class="link" href="https://www.facebook.com/medsailors" target="_blank">Facebook</a>`,
     },
     {
       header: "Instagram",
-      content: `Follow us and tag us on&thinsp;<a class="link" href="//www.instagram.com/wildkiwitours" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
+      content: `Follow us and tag us on&thinsp;<a class="link" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a>#WildKiwiTours`,
     },
     {
       header: "Media",
