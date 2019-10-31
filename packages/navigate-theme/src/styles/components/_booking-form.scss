@@ -438,6 +438,10 @@
     background-color: $color-primary;
     border-radius: 50%;
 
+    &--ms {
+      background-color: $color-med-teal;
+    }
+
     &--soldout {
       background-color: $color-gray-light-2;
     }
@@ -452,6 +456,10 @@
     color: $color-primary;
     font-size: 0.9rem;
     padding-top: 0.2rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
 
     &--soldout {
       color: $color-gray-light-2;
@@ -503,6 +511,10 @@
     font-size: 1.4rem;
     color: $color-primary;
     width: 8rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
 
     &--selected {
       color: $color-red;

@@ -273,7 +273,7 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                     <label htmlFor="consent">
                       I accept the&thinsp;
                       <a
-                        className="link"
+                        className={theme === "ms" ? "link link--ms" : "link"}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -288,7 +288,9 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                         : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
                     }
                     type="submit"
-                    className="btn btn--green"
+                    className={
+                      theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"
+                    }
                   >
                     Submit
                   </button>
@@ -306,11 +308,16 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
               className="booking-form__banner"
             ></Image>
             <div className="booking-form__details booking-form__details--title">
-              <h2 className="tour-banner__description-title tour-banner__description-title-newzealand">
+              <h2
+                className={
+                  theme === "ms"
+                    ? "tour-banner__description-title tour-banner__description-title--ms"
+                    : "tour-banner__description-title"
+                }
+              >
                 {title}
               </h2>
             </div>
-
             <div className="booking-form__details booking-form__details--days">
               <div className="booking-form__sub-title">
                 {state.durationInDays} Days
@@ -337,7 +344,13 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
               </div>
             </div>
             <div className="booking-form__details booking-form__details--price">
-              <h2 className="tour-banner__description-title tour-banner__description-title-newzealand">
+              <h2
+                className={
+                  theme === "ms"
+                    ? "tour-banner__description-title tour-banner__description-title--ms"
+                    : "tour-banner__description-title"
+                }
+              >
                 {state.prices[0].currencySymbol}
                 {state.prices[0].rrp} &thinsp;
                 {state.prices[0].currencyCode}

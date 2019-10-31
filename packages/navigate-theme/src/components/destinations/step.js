@@ -25,7 +25,7 @@ const Step = ({ num, text, variation, last }) => {
           variation
             ? `${bookingFormSteps} ${bookingFormStepsArrow}`
             : last
-            ? "booking-form__steps booking-form__steps--last"
+            ? `${bookingFormSteps} booking-form__steps--last`
             : bookingFormSteps
         }
       >
