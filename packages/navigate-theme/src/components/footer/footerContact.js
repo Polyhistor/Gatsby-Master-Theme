@@ -1,16 +1,34 @@
 import React, { useState } from "react"
+import useContactQuery from "../../queries/contactQuery"
+
+const renderContactNumber = (phoneNumberData, country) => {
+  const getContactNumber = phoneNumberData.find(p => p.country === country)
+
+  return getContactNumber.phone
+}
+
+const getAddress = (country, phoneNumberData) => {
+  const ad = phoneNumberData.find(p => p.country === country)
+  return ad.address
+}
 
 /**
  * TODO: Should be dynamic not static new zealand on the code.
  */
 const FooterContact = () => {
   // setting our hook with initial state
-  const [state, setState] = useState("newzealand")
+
+  const contactData = useContactQuery()
+  const phoneNumberData = contactData.phoneAddress
 
   const handleDropdown = e => {
     setState(e.target.value)
   }
 
+  const defaultPhoneNumberCountry = phoneNumberData.find(p => p.selected)
+    .country
+
+  const [state, setState] = useState(defaultPhoneNumberCountry)
   return (
     <div className="footer__contact">
       <h6 className="footer__trips-header">contact us</h6>
@@ -20,9 +38,13 @@ const FooterContact = () => {
           className="footer__dropdown"
           id="country"
         >
-          <option value="newzealand">NEW ZEALAND</option>
-          <option value="uk">UNITED KINGDOM</option>
-          <option value="australia">AUSTRALIA</option>
+          {phoneNumberData.map(p => {
+            return (
+              <option selected={p.country === state} value={p.country}>
+                {p.text}
+              </option>
+            )
+          })}
         </select>
       </div>
       <h6 className="footer__trips-header footer__trips-link" />
@@ -30,21 +52,13 @@ const FooterContact = () => {
         <li className="footer__trips-item">Opening Hours</li>
         <li className="footer__trips-item">8:30am - 5:30pm</li>
         <li className="footer__trips-item u-padding-top-sedium">
-          {state === "newzealand"
-            ? "+64 9 973 5676"
-            : state === "australia"
-            ? "+61 2 9133 8646"
-            : "+44 20 3637 6466"}
+          {getAddress(state, phoneNumberData)}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
-          {state === "newzealand"
-            ? "Level 2, 29 Hargreaves Street, St Marys Bay, Auckland 1011, NZ"
-            : state === "australia"
-            ? ""
-            : "22 Bardsley Lane, Greenwich, London SE10 9RF, UK"}
+          {renderContactNumber(phoneNumberData, state)}
         </li>
         <li className="footer__trips-item u-padding-top-sedium">
-          hello@wildkiwi.com
+          {contactData.email}
         </li>
       </ul>
     </div>

@@ -14,6 +14,7 @@ import {
   useHomePageQuery,
   Error,
   renderSeo,
+  useContactQuery,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
@@ -21,63 +22,22 @@ const GetInTouch = ({ data }) => {
 
   const link = theme === "ms" ? "link link--ms" : "link"
 
-  const countryPhoneNumber = [
-    {
-      text: "NEW ZEALAND",
-      country: "newzealand",
-      phone: "+64 (0)9 973 5676",
-      default: true,
-      selected: false,
-      address:
-        "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
-    },
-    {
-      text: "AUSTRALIA",
-      country: "australia",
-      phone: "+61 (02) 9133 8646",
-      default: false,
-      selected: false,
-      address:
-        "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
-    },
-    {
-      text: "UNITED KINGDOM",
-      country: "uk",
-      phone: "+44 (0)20 3637 6466",
-      default: true,
-      selected: true,
-      address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
-    },
-  ]
-
-  const leftContactData = [
-    {
-      header: "Give us a call",
-      content: `Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down`,
-    },
-    {
-      header: "Email us",
-      content: `For any enquiries please write to us at <br /><a class="${link}" href="mailto:sales@medsailors.com?subject=MedSailors contact form">sales@medsailors.com</a>`,
-    },
-    {
-      header: "Facebook",
-      content: `Send us a message and Like us on <a class="${link}" href="https://www.facebook.com/medsailors" target="_blank">Facebook</a>`,
-    },
-    {
-      header: "Instagram",
-      content: `Follow us and tag us on&thinsp;<a class="${link}" href="//www.instagram.com/medsailors" target="_blank">Instagram&thinsp;</a><a class="${link}" href="//www.instagram.com/explore/tags/medsailors/" target="_blank">#MedSailors<a>`,
-    },
-    {
-      header: "Media",
-      content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
-    },
-  ]
-
   const SVGIcon = "wheel"
 
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const contactData = useContactQuery()
+
+  /*replace link*/
+  const leftContactSection = contactData.leftSection.map(c => {
+    c.content = c.content
+      .replace(`#LINK#`, link)
+      .replace(`#LINK#`, link)
+      .replace(`#LINK#`, link)
+      .replace(`#LINK#`, link)
+    return c
+  })
 
   return (
     <Layout>
@@ -100,8 +60,8 @@ const GetInTouch = ({ data }) => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionGetInTouch
-        phoneNumberData={countryPhoneNumber}
-        leftContactSection={leftContactData}
+        phoneNumberData={contactData.phoneAddress}
+        leftContactSection={leftContactSection}
       />{" "}
       />
       <Banner

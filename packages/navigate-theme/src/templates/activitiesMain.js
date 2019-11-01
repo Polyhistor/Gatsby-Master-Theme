@@ -18,7 +18,6 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
 
 const ActivitiesMain = ({ pageContext }) => {
-  console.log(pageContext)
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 

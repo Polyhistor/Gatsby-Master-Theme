@@ -114,6 +114,59 @@ module.exports = {
         site: {
           name: `Wild Kiwi`,
         },
+        contact: {
+          email: "hello@wildkiwi.com",
+          phoneAddress: [
+            {
+              text: "NEW ZEALAND",
+              country: "newzealand",
+              phone: "+64 (0)9 973 5676",
+              default: true,
+              selected: false,
+              address:
+                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+            },
+            {
+              text: "AUSTRALIA",
+              country: "australia",
+              phone: "+61 (02) 9133 8646",
+              default: false,
+              selected: false,
+              address:
+                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+            },
+            {
+              text: "UNITED KINGDOM",
+              country: "uk",
+              phone: "+44 (0)20 3637 6466",
+              default: true,
+              selected: true,
+              address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
+            },
+          ],
+          leftSection: [
+            {
+              header: "Give us a call",
+              content: `Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down`,
+            },
+            {
+              header: "Email us",
+              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:hello@wildkiwi.com?subject=WildKiwi contact form">hello@wildkiwi.com</a>`,
+            },
+            {
+              header: "Facebook",
+              content: `Send us a message and Like us on <a class="#LINK#" href="https://www.facebook.com/wildkiwitours" target="_blank">Facebook</a>`,
+            },
+            {
+              header: "Instagram",
+              content: `Follow us and tag us on&thinsp;<a class="#LINK#" href="//www.instagram.com/wildkiwitours" target="_blank">Instagram&thinsp;</a><a class="#LINK#" href="//www.instagram.com/explore/tags/wildkiwitours/" target="_blank">WildKiwiTours<a>`,
+            },
+            {
+              header: "Media",
+              content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
+            },
+          ],
+        },
         footer: {
           social: [
             {
