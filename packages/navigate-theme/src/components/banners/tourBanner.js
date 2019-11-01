@@ -13,6 +13,9 @@ const TourBanner = ({
   tours,
   imageData,
   SVGMap,
+  variation,
+  duration,
+  country,
 }) => {
   const theme = process.env.GATSBY_THEME
 
@@ -39,18 +42,26 @@ const TourBanner = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={`tour-banner__description-price tour-banner__description-price-newzealand`}
+              className={
+                theme === "ms"
+                  ? `tour-banner__description-price tour-banner__description-price-ms`
+                  : "tour-banner__description-price"
+              }
             >
-              {price}
+              {variation === "ms" ? `From £${price} per day` : price}
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
                 className={
                   theme === "ms"
-                    ? "btn btn--ms-teal tablet-green-button"
+                    ? "btn btn--ms tablet-green-button"
                     : "btn btn--green tablet-green-button"
                 }
-                to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
+                to={
+                  country !== undefined
+                    ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${destination}`
+                    : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
+                }
               >
                 explore
               </Link>
@@ -68,7 +79,10 @@ const TourBanner = ({
                   : `tour-banner__figure-caption`
               }
             >
-              <span className="tour-banner__days">{tours}</span> tours
+              <span className="tour-banner__days">
+                {duration !== undefined ? duration : tours}
+              </span>
+              {duration !== undefined ? "days" : "tours"}
             </figcaption>
           </figure>
         </div>

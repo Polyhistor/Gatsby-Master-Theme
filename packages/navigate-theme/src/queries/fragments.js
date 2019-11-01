@@ -180,6 +180,13 @@ export const CountriesFragment = graphql`
       slug
       destinationCountry
       duration
+      description
+      duration
+      svgMap {
+        localFile {
+          publicURL
+        }
+      }
       bannerImages {
         localFile {
           childImageSharp {

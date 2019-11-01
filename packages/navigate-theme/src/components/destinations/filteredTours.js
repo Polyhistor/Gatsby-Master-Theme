@@ -91,7 +91,11 @@ const FilteredTour = ({ country, destinationData }) => {
         return (
           <div
             key={idx}
-            className="filtered-tour"
+            className={
+              theme === "ms"
+                ? "filtered-tour u-margin-top-big "
+                : "filtered-tour"
+            }
             to={`destinations/${country}/${element.node.slug}`}
           >
             <figure className="filtered-tour__image-container">
@@ -171,47 +175,49 @@ const FilteredTour = ({ country, destinationData }) => {
   return (
     <div className="section-filtered-tour">
       <div className="filtered-tour__container">
-        <div className="filtered-tour__head">
-          <h3 className={theme === "ms" ? "paragraph--ms" : "paragraph"}>
-            How long are you travelling for?
-          </h3>
-          <button
-            className={
-              filter.week === true
-                ? `filtered-tour__button ${buttonClassActive}`
-                : `filtered-tour__button ${buttonClass}`
-            }
-            onClick={(e, n = { week: !filter.week }) => handleSubmit(e, n)}
-          >
-            <span>1 week</span>
-          </button>
-          <button
-            className={
-              filter.twoWeeks === true
-                ? `filtered-tour__button ${buttonClassActive}`
-                : `filtered-tour__button ${buttonClass}`
-            }
-            onClick={(e, n = { twoWeeks: !filter.twoWeeks }) =>
-              handleSubmit(e, n)
-            }
-          >
-            <span>2 weeks</span>
-          </button>
-          {country === "australia" ? null : (
+        {theme !== "ms" ? (
+          <div className="filtered-tour__head">
+            <h3 className={theme === "ms" ? "paragraph--ms" : "paragraph"}>
+              How long are you travelling for?
+            </h3>
             <button
               className={
-                filter.threeWeeks === true
+                filter.week === true
                   ? `filtered-tour__button ${buttonClassActive}`
                   : `filtered-tour__button ${buttonClass}`
               }
-              onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
+              onClick={(e, n = { week: !filter.week }) => handleSubmit(e, n)}
+            >
+              <span>1 week</span>
+            </button>
+            <button
+              className={
+                filter.twoWeeks === true
+                  ? `filtered-tour__button ${buttonClassActive}`
+                  : `filtered-tour__button ${buttonClass}`
+              }
+              onClick={(e, n = { twoWeeks: !filter.twoWeeks }) =>
                 handleSubmit(e, n)
               }
             >
-              <span>3 weeks</span>
+              <span>2 weeks</span>
             </button>
-          )}
-        </div>
+            {country === "australia" ? null : (
+              <button
+                className={
+                  filter.threeWeeks === true
+                    ? `filtered-tour__button ${buttonClassActive}`
+                    : `filtered-tour__button ${buttonClass}`
+                }
+                onClick={(e, n = { threeWeeks: !filter.threeWeeks }) =>
+                  handleSubmit(e, n)
+                }
+              >
+                <span>3 weeks</span>
+              </button>
+            )}
+          </div>
+        ) : null}
         {renderTours(data)}
       </div>
     </div>
