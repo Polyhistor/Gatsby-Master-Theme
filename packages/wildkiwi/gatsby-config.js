@@ -114,6 +114,44 @@ module.exports = {
         site: {
           name: `Wild Kiwi`,
         },
+        footer: {
+          social: [
+            {
+              title: "Facebook",
+              link: "https://www.facebook.com/wildkiwitours",
+            },
+            {
+              title: "Instagram",
+              link: "https://www.instagram.com/wildkiwitours",
+            },
+            {
+              title: "Youtube",
+              link: "https://www.youtube.com/c/WildkiwiTours",
+            },
+          ],
+          info: [
+            {
+              title: "Our Vehicles",
+              link: "/our-vehicles",
+            },
+            {
+              title: "Blog",
+              link: "/blog",
+            },
+            {
+              title: "FAQ",
+              link: "/faq",
+            },
+            {
+              title: "How It Works",
+              link: "/how-it-works",
+            },
+            {
+              title: "About Us",
+              link: "/about-us",
+            },
+          ],
+        },
         menuLabel: [
           {
             label: "destinations",

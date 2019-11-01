@@ -114,6 +114,44 @@ module.exports = {
         site: {
           name: `Wild Kiwi`,
         },
+        footer: {
+          social: [
+            {
+              title: "Facebook",
+              link: "https://www.facebook.com/medsailors",
+            },
+            {
+              title: "Instagram",
+              link: "https://www.instagram.com/medsailors/",
+            },
+            {
+              title: "Youtube",
+              link: "https://www.youtube.com/c/medsailorsholidays",
+            },
+          ],
+          info: [
+            {
+              title: "Our Yachts",
+              link: "/yachts",
+            },
+            {
+              title: "Blog",
+              link: "/blog",
+            },
+            {
+              title: "FAQ",
+              link: "/faq",
+            },
+            {
+              title: "How It Works",
+              link: "/how-it-works",
+            },
+            {
+              title: "About Us",
+              link: "/about-us",
+            },
+          ],
+        },
         menuLabel: [
           {
             label: "destinations",
@@ -122,7 +160,6 @@ module.exports = {
               { label: "croatia", link: "/sail/croatia" },
               { label: "greece", link: "/sail/greece" },
               { label: "montenegro", link: "/sail/montenegro" },
-              // { label: "italy", link: "/sail/italy" },
               { label: "turkey", link: "/sail/turkey" },
             ],
           },
@@ -134,7 +171,7 @@ module.exports = {
           },
           {
             label: "our yachts",
-            link: "/our-yachts",
+            link: "/yachts",
             sub: null,
           },
           { label: "faqs", link: "/faqs", sub: null },

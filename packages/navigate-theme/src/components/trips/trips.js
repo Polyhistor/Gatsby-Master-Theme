@@ -6,6 +6,7 @@ const Trips = ({ data }) => {
 
   // function that programatically adds comma to the price
   let commaAdder = price => {
+    return price
     const priceArray = price.toString().split("")
     const beforeComma = priceArray.slice(0, 1).join("")
     const afterComma = priceArray.slice(1, 4).join("")

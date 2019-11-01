@@ -1,34 +1,29 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+import useCountryQuery from "../../queries/countryQuery"
 
-/**
- * TODO: should receive props with country list, not use it static
- */
+const renderDestinations = (countryList, themeOptionsQueryData) => {
+  return countryList.map(c => {
+    return (
+      <Link
+        to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${c.node.slug}`}
+        className="footer__trips-link"
+      >
+        {c.node.title}
+      </Link>
+    )
+  })
+}
+
 const FooterDestinations = ({ countrieList, pluginOptions }) => {
+  const countryQuery = useCountryQuery()
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
   return (
     <div className="footer__trips--destination">
       <h6 className="footer__trips-header">destinations</h6>
       <ul className="footer__trips-list">
-        <Link
-          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}new-zealand`}
-          className="footer__trips-link"
-        >
-          New Zealand
-        </Link>
-        <Link
-          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}australia`}
-          className="footer__trips-link"
-        >
-          Australia
-        </Link>
-        <Link
-          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}europe`}
-          className="footer__trips-link"
-        >
-          Europe
-        </Link>
+        {renderDestinations(countryQuery, themeOptionsQueryData)}
       </ul>
       <div className="footer__trips-qualmark">
         <a href="https://www.qualmark.co.nz/" target="_blank">
