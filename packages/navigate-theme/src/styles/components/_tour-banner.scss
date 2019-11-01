@@ -26,9 +26,6 @@
       @extend .paragraph;
       @extend .paragraph--extraBold;
 
-      &--ms {
-      }
-
       @include respond(phone) {
         color: $color-grey-dark-3;
         font-family: Nunito-Black;
@@ -74,6 +71,10 @@
       @include respond(phone) {
         font-size: 2rem;
         font-family: Nunito-Black;
+      }
+
+      &-ms {
+        color: $color-med-teal;
       }
     }
     &-button-box {

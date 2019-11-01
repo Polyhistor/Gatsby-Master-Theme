@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // default components
 import Layout from "../components/layout/layout"
@@ -9,6 +9,9 @@ import Trips from "../components/trips/trips"
 import Featured from "../components/featured"
 import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
+import DestinationsMobile from "../components/mobile/destinationsMobile"
+import DestinationsTablet from "../components/tablet/destinationsTablet"
+import TourBanner from "../components/banners/tourBanner"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -29,6 +32,16 @@ const Countries = ({ data, pageContext }) => {
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
 
+  // getting the number of yours for each country
+  const filterDestinations = destination => {
+    const result = destinationData.filter(
+      dest => dest.node.destinationCountry === destination
+    )
+    return result.length
+  }
+
+  console.log(data)
+
   // setting proper URL based on country
   //TODO: This youtube video should not be static on code. We need to define it on
   //contentful
@@ -38,6 +51,60 @@ const Countries = ({ data, pageContext }) => {
       : data.contentfulCountry.slug === "australia"
       ? "https://www.youtube.com/embed/a1MwJNEJZBw"
       : null
+
+  // rendering all the destination boxes
+  const renderCountries = () => {
+    return data.contentfulCountry.destinations.map((e, idx) => {
+      return (
+        <Fragment key={idx}>
+          <DestinationsMobile
+            key={idx + 4}
+            destination={e.slug}
+            title={e.title}
+            subtitle={e.days}
+            departs={e.route}
+            details={e.description}
+            price={e.pricePerDay}
+            tours={filterDestinations(e.slug)}
+            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
+            variation="ms"
+            duration={e.duration}
+            country={e.destinationCountry}
+          />
+          <DestinationsTablet
+            key={idx + 8}
+            destination={e.slug}
+            title={e.title}
+            subtitle={e.days}
+            departs={e.route}
+            details={e.description}
+            price={e.pricePerDay}
+            tours={filterDestinations(e.slug)}
+            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
+            SVGMap={e.svgMap.localFile.publicURL}
+            variation="ms"
+            duration={e.duration}
+            country={e.destinationCountry}
+          />
+          <TourBanner
+            key={idx + 12}
+            destination={e.slug}
+            title={e.title}
+            subtitle={e.days}
+            departs={e.route}
+            details={e.description}
+            price={e.pricePerDay}
+            tours={filterDestinations(e.slug)}
+            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
+            SVGMap={e.svgMap.localFile.publicURL}
+            variation="ms"
+            duration={e.duration}
+            country={e.destinationCountry}
+          />
+        </Fragment>
+      )
+    })
+  }
 
   return (
     <Layout>
@@ -58,10 +125,15 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
       />
       <Featured data={featuredBoxData[0].node} />
-      <FilteredTours
-        country={data.contentfulCountry.slug}
-        destinationData={destinationData}
-      />
+      {theme === "ms" ? (
+        renderCountries()
+      ) : (
+        <FilteredTours
+          country={data.contentfulCountry.slug}
+          destinationData={destinationData}
+        />
+      )}
+
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
