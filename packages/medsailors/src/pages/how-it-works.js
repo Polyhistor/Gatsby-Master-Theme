@@ -36,7 +36,7 @@ const HowItWorks = ({ data }) => {
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Everything you need to know about travelling with us."
+          description="Everything you need to know about sailing with us."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"

@@ -87,7 +87,7 @@ const Destination = ({ data }) => {
     <Layout>
       {renderSeo(data)}
       <Landing
-        imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
+        imageData={imageQuery.MSCountries.childImageSharp.fluid}
         titleFirst="DESTINATIONS"
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
