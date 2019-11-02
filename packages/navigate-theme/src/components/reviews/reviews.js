@@ -78,7 +78,11 @@ const Reviews = () => {
         <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
           <Link
             aria-current="page"
-            className="btn btn--green tablet-green-button"
+            className={
+              theme === "ms"
+                ? "btn btn--ms-mobile tablet-green-button"
+                : "btn btn--green tablet-green-button"
+            }
             to="/reviews"
           >
             more reviews

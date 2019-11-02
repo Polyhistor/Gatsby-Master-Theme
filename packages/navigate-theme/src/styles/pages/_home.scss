@@ -209,6 +209,10 @@
       margin-top: 3.2rem;
       margin-bottom: 3rem;
 
+      & h2 {
+        text-align: center;
+      }
+
       @include respond(desk) {
         display: none;
       }

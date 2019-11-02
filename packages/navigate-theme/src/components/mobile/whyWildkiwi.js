@@ -5,6 +5,8 @@ import Modal from "react-responsive-modal"
 import Box from "../boxes/box"
 
 const WhyWildKiwi = ({ data, popupVideo }) => {
+  const theme = process.env.GATSBY_THEME
+
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
   const brandName = process.env.GATSBY_BRAND_NAME
@@ -23,7 +25,13 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
   return (
     <>
       <div className="section-mobile__why-wild">
-        <h2 className="green-title bold-green u-margin-bottom-small">
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms  u-margin-bottom-small"
+              : "heading-1 u-margin-bottom-small"
+          }
+        >
           Why {brandName}?
         </h2>
         <div className="whywild">
@@ -31,7 +39,11 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
           <a
             onClick={() => setModal({ open: true })}
             href="#"
-            className="btn btn--green btn-animated  u-margin-top-medium "
+            className={
+              theme === "ms"
+                ? "btn btn--med-blue btn-animated  u-margin-top-medium"
+                : "btn btn--green btn-animated  u-margin-top-medium"
+            }
           >
             <svg className="svg-icon--play-button svg-icon--play-button--mobile">
               <use
@@ -42,7 +54,11 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
           </a>
           <Link
             to="/how-it-works"
-            className="btn btn--white  u-margin-top-medium"
+            className={
+              theme === "ms"
+                ? "btn btn--white-med  u-margin-top-medium"
+                : "btn btn--white  u-margin-top-medium"
+            }
           >
             <span>How it works</span>
           </Link>

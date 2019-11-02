@@ -146,6 +146,10 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      MSlogo: file(relativePath: { eq: "MedSailors-Logo-01.jpg" }) {
+        ...FluidImage
+      }
+
       vehiclesLady: file(relativePath: { eq: "WildKiwi-1866.jpg" }) {
         ...FluidImage
       }

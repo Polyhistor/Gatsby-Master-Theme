@@ -10,7 +10,14 @@ const GreenBarAlt = ({ textList }) => {
     return textList.map(({ label, link }, idx) => {
       return (
         <Fragment key={idx}>
-          <Link to={link} className="green-bar__title">
+          <Link
+            to={link}
+            className={
+              theme === "ms"
+                ? "green-bar__title green-bar__title--ms"
+                : "green-bar__title"
+            }
+          >
             {label}
           </Link>
         </Fragment>

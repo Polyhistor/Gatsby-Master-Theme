@@ -39,7 +39,14 @@ const FooterForm = () => {
         className="footer__input mobile-yes"
         type="checkbox"
       />
-      <label htmlFor="footer__input" className="btn btn--green mobile-yes">
+      <label
+        htmlFor="footer__input"
+        className={
+          theme === "ms"
+            ? "btn btn--ms-mobile mobile-yes"
+            : "btn btn--green mobile-yes"
+        }
+      >
         send message
       </label>
       <div className="footer__form ">

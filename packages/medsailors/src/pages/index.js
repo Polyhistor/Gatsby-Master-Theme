@@ -123,7 +123,15 @@ const IndexPage = ({ data }) => {
       />
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms u-margin-bottom-small u-center-text"
+              : "heading-1 u-margin-bottom-small u-center-text u-center-text"
+          }
+        >
+          Destinations
+        </h2>
       </div>
       <BannerHero
         imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
@@ -140,8 +148,8 @@ const IndexPage = ({ data }) => {
         <h2
           className={
             theme === "ms"
-              ? "heading-1 heading-1--ms u-margin-bottom-small"
-              : "heading-1 u-margin-bottom-small"
+              ? "heading-1 heading-1--ms u-margin-bottom-small u-center-text"
+              : "heading-1 u-margin-bottom-small u-center-text u-center-text"
           }
         >
           Destinations

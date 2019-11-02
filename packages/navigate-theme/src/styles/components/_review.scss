@@ -37,6 +37,10 @@
 
     &--ms {
       @extend .heading-4--ms;
+
+      @include respond(phone) {
+        color: $color-med-teal !important;
+      }
     }
 
     @include respond(phone) {

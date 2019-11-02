@@ -17,6 +17,7 @@ import Booking from "../components/destinations/booking"
 import GetThere from "../components/destinations/getThere"
 import Banner from "../components/banners/banner"
 import Trips from "../components/trips/trips"
+import IncludesMS from "../components/destinations/includesMS"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -116,19 +117,23 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             data.contentfulDestinations.itinerary.itineraryDescription
           }
         />
-        <Includes
-          title="What’s included on every Wild Kiwi tour"
-          iconFirst="Guide"
-          textFirst="Expert local guide/driver"
-          iconSecond="Bus"
-          textSecond="New 18 seat vehicle"
-          iconThird="Bed"
-          textThird="Flash-pack accomodation"
-          iconFourth="Toaster"
-          textFourth="Breakfast everyday"
-          titleSecond="What's also included on this tour"
-          specifics={data.contentfulDestinations.included}
-        />
+        {theme === "ms" ? (
+          <IncludesMS />
+        ) : (
+          <Includes
+            title="What’s included on every Wild Kiwi tour"
+            iconFirst="Guide"
+            textFirst="Expert local guide/driver"
+            iconSecond="Bus"
+            textSecond="New 18 seat vehicle"
+            iconThird="Bed"
+            textThird="Flash-pack accomodation"
+            iconFourth="Toaster"
+            textFourth="Breakfast everyday"
+            titleSecond="What's also included on this tour"
+            specifics={data.contentfulDestinations.included}
+          />
+        )}
         <ActivitiesBox activityData={data.contentfulDestinations.activity} />
         <div className="hotfix--reviews">
           <Reviews />

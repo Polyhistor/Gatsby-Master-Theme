@@ -13,6 +13,8 @@ const DestinationsMobile = ({
   imageData,
   destination,
 }) => {
+  const theme = process.env.GATSBY_THEME
+
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -23,7 +25,11 @@ const DestinationsMobile = ({
             {/* choosing image based on the given props */}
             <Img fluid={imageData} />
             <figcaption
-              className={`tour-banner__figure-caption tour-banner__figure-caption-newzealand`}
+              className={
+                theme === "ms"
+                  ? "tour-banner__figure-caption tour-banner__figure-caption--ms"
+                  : `tour-banner__figure-caption`
+              }
             >
               <span className="tour-banner__days">{tours}</span> tours
             </figcaption>
@@ -32,7 +38,11 @@ const DestinationsMobile = ({
         <div className="">
           <div className="tour-banner__description">
             <h3
-              className={`tour-banner__description-title tour-banner__description-title-newzealand`}
+              className={
+                theme === "ms"
+                  ? "tour-banner__description-title tour-banner__description-title--ms"
+                  : `tour-banner__description-title`
+              }
             >
               {title}
             </h3>
@@ -51,7 +61,7 @@ const DestinationsMobile = ({
         </div>
         <div className="u-center-text u-margin-top-tiny">
           <Link
-            className="btn btn--green"
+            className={theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"}
             to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
           >
             explore

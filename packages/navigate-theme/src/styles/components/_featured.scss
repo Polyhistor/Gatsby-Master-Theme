@@ -17,6 +17,13 @@
     grid-template-columns: 12rem 15rem 21rem 5rem 12rem 20rem 10rem;
     align-items: center;
 
+    &--ms {
+      @include respond(phone) {
+        grid-template-columns: 58% 50% !important;
+        margin-left: -2rem;
+      }
+    }
+
     &:first-child h2 {
       @extend .heading-5;
       @extend .heading-5--white;
@@ -172,6 +179,10 @@
 
     @include respond(tablet) {
       display: none;
+    }
+
+    &-ms {
+      background: $color-med-blue;
     }
 
     &__heading {
