@@ -1,10 +1,8 @@
 import React, { useState } from "react"
-import { RawHTML } from "react-dom"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
 import { submitContactRequest } from "../../services/api"
-import GetInTouchData from "../getInTouchData"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
 // Our Schema validation logics here
@@ -79,7 +77,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
     return (
       <div
         dangerouslySetInnerHTML={{
-          __html: `<a href="tel:${getContactNumber.phone}" class=get-in-touch__number ${link}>
+          __html: `<a href="tel:${getContactNumber.phone}" class="get-in-touch__number ${link}">
       ${getContactNumber.phone}</a>`,
         }}
       />
