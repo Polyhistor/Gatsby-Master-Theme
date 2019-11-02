@@ -99,6 +99,14 @@
       @include respond(phone) {
         border-bottom: 1px solid white;
       }
+
+      &:not(:first-child) {
+        border-bottom: 1px solid white !important;
+
+        &:hover {
+          background: #5ed0b9;
+        }
+      }
     }
 
     @include respond(phone) {
