@@ -1,0 +1,799 @@
+.booking-form {
+  padding: 3rem;
+
+  @include respond(laptop) {
+    width: 104rem;
+  }
+
+  @include respond(tablet) {
+    width: 70rem;
+  }
+
+  @include respond(phone) {
+    padding: 0;
+  }
+
+  &--in-page {
+    padding: 0rem;
+  }
+
+  &__entries {
+    @include respond(phone) {
+      overflow: scroll;
+      margin-top: 2rem;
+      padding: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    & > h2 {
+      @include respond(phone) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    border: 1px solid #1abc9c;
+    height: 3.9rem;
+
+    @include respond(phone) {
+      margin-top: 5.4rem;
+    }
+  }
+
+  &__steps {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 3.7rem;
+    background: $color-primary;
+    clip-path: polygon(95% 0%, 100% 51%, 95% 100%, 0% 100%, 0 50%, 0% 0%);
+    margin-right: 0rem;
+
+    &--ms {
+      background: $color-med-teal;
+    }
+
+    @include respond(phone) {
+      width: 80%;
+      clip-path: polygon(90% 1%, 100% 53%, 90% 100%, 0 100%, 0 0);
+    }
+
+    &--arrow {
+      background: white;
+      clip-path: polygon(95% 0, 100% 51%, 95% 100%, 0 100%, 0 50%, 0 0);
+      z-index: 200;
+      margin-right: -3rem;
+
+      @include respond(phone) {
+        width: 20%;
+        clip-path: polygon(79% 0%, 100% 53%, 78% 100%, 0 100%, 0 0);
+      }
+    }
+
+    &--last {
+      width: 54.1%;
+      clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 0% 100%, 0 100%, 0% 0%);
+
+      @include respond(phone) {
+        margin-left: 1rem;
+        padding-left: 2.5rem;
+        width: 87.1%;
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__headline {
+    margin-left: 1rem;
+    @extend .paragraph;
+    @extend .paragraph--white;
+    @extend .paragraph--uppercase;
+
+    @include respond(phone) {
+      font-size: 1.1rem;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    &--arrow {
+      color: $color-primary;
+
+      @include respond(phone) {
+        display: none;
+      }
+
+      &-ms {
+        color: $color-med-teal;
+      }
+    }
+  }
+
+  &__body {
+    height: 70vh;
+    width: 66vw;
+    margin-top: 4rem;
+    overflow: scroll;
+
+    @include respond(laptop) {
+      width: 101rem;
+    }
+
+    @include respond(tablet) {
+      width: 64rem;
+    }
+
+    @include respond(phone) {
+      width: 32rem;
+      margin-top: 2rem;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+      margin: 0 auto;
+    }
+
+    &--in-page {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__phase {
+    @include greenWhite;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    padding: 1rem;
+    top: 2%;
+    letter-spacing: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4rem;
+    font-family: Nunito-Black;
+
+    &--ms {
+      background: $color-med-teal;
+    }
+
+    &-1 {
+      @include respond(phone) {
+        -webkit-overflow-scrolling: touch;
+        margin-top: 3rem;
+      }
+    }
+
+    @include respond(phone) {
+      margin-left: 0.5rem;
+    }
+
+    &--arrow {
+      border: 1px solid $color-primary;
+      margin-left: 1rem;
+
+      &--ms {
+        border: 1px solid $color-med-teal;
+      }
+    }
+
+    &-2 {
+      display: grid;
+      grid-template-columns: 55% 38.2rem;
+      grid-column-gap: 4rem;
+
+      @include respond(tablet) {
+        grid-template-columns: 55% 38.9%;
+      }
+
+      @include respond(phone) {
+        grid-template-columns: 100%;
+        overflow: hidden;
+        padding: 1rem;
+        -webkit-overflow-scrolling: touch;
+        height: 100%;
+      }
+
+      & > h3 {
+        display: none;
+      }
+
+      &-alt {
+        @include respond(phone) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    margin-bottom: 4rem;
+
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+
+    & > .activity__selector {
+      @include respond(phone) {
+        left: 2.5%;
+        margin-bottom: 1rem;
+      }
+      & > select {
+        @include respond(phone) {
+          padding: 1rem 4rem 1rem 1rem;
+          width: 30rem;
+        }
+
+        &:after {
+          margin-left: -3rem;
+        }
+      }
+
+      &:after {
+        left: 29.2rem;
+      }
+    }
+  }
+
+  &__input {
+    visibility: hidden;
+  }
+
+  &__plus {
+    &-holder {
+      height: 3rem;
+      width: 100%;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      &::after,
+      &::before {
+        transition: all 0.6s;
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: $color-grey-dark-2;
+        height: 0.2rem;
+        width: 2rem;
+        right: 2rem;
+        top: 1.1rem;
+      }
+      &::after {
+        transform: rotate(90deg);
+      }
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__entry {
+    @extend .paragraph;
+    border-bottom: 1px solid $color-gray-light-2;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &:first-of-type {
+      border-top: 1px solid $color-gray-light-2;
+    }
+  }
+
+  &__shown {
+    position: relative;
+
+    & input:checked ~ .booking-form__hidden {
+      max-height: 80rem;
+    }
+
+    & input:checked ~ .booking-form__plus-holder::after {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__hidden {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-height: 0rem;
+    transition: all 0.3s;
+
+    &-entries {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      overflow: hidden;
+      cursor: pointer;
+
+      @include respond(phone) {
+        height: 6rem;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+      }
+
+      &:nth-child(n + 6) {
+        display: none;
+      }
+
+      &:hover {
+        background: $color-gray-light-2;
+      }
+
+      &--soldout {
+        color: $color-gray-light-2;
+        pointer-events: none;
+      }
+
+      &--selected {
+        background-color: red;
+      }
+    }
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    width: 32%;
+
+    @include respond(laptop) {
+      width: 53%;
+    }
+
+    @include respond(tablet) {
+      width: 60%;
+    }
+
+    @include respond(phone) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 23%;
+
+    @include respond(laptop) {
+      width: 31%;
+    }
+
+    @include respond(tablet) {
+      width: 35%;
+    }
+
+    @include respond(phone) {
+      width: 97%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__date-container {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+
+    @include respond(laptop) {
+      width: 10rem;
+    }
+
+    @include respond(tablet) {
+      width: 9.5rem;
+    }
+
+    @include respond(phone) {
+      width: 8rem;
+      grid-template-columns: 50% 50%;
+    }
+  }
+
+  &__date {
+    font-family: Nunito-Black;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__destination {
+    font-size: 0.9rem;
+  }
+
+  &__line {
+    background-color: $color-grey-dark;
+    width: 13.5rem;
+    height: 0.2rem;
+
+    @include respond(phone) {
+      width: 10.3rem;
+    }
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__line-container {
+    display: flex;
+    width: 14.5rem;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(phone) {
+      width: 11.5rem;
+    }
+  }
+
+  &__dot {
+    height: 0.4rem;
+    width: 0.4rem;
+    display: block;
+    background-color: $color-primary;
+    border-radius: 50%;
+
+    &--ms {
+      background-color: $color-med-teal;
+    }
+
+    &--soldout {
+      background-color: $color-gray-light-2;
+    }
+  }
+
+  &__duration {
+    font-size: 0.9rem;
+    padding-bottom: 0.2rem;
+  }
+
+  &__promo {
+    color: $color-primary;
+    font-size: 0.9rem;
+    padding-top: 0.2rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
+
+    &--soldout {
+      color: $color-gray-light-2;
+    }
+  }
+
+  &__mediator {
+    align-items: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(phone) {
+      margin-left: -1rem;
+    }
+  }
+
+  &__price {
+    display: flex;
+    width: 49%;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(laptop) {
+      width: 57%;
+    }
+
+    @include respond(phone) {
+      width: 45%;
+      margin-right: 0.8rem;
+    }
+  }
+
+  &__original {
+    font-size: 0.9rem;
+    text-decoration-line: line-through;
+  }
+
+  &__discount {
+    font-family: Nunito-Black;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__availability {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    color: $color-primary;
+    width: 8rem;
+
+    &--ms {
+      color: $color-med-teal;
+    }
+
+    &--selected {
+      color: $color-red;
+    }
+
+    &--sold-out {
+      color: $color-gray-light-2;
+    }
+  }
+
+  &__footer {
+    height: 5rem;
+    margin-top: 4rem;
+
+    @include respond(tablet) {
+      margin-top: 5rem;
+    }
+
+    @include respond(phone) {
+      height: 9rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    & > button {
+      @include respond(phone) {
+        width: 30rem !important;
+        height: 6rem;
+        font-size: 1.8rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &__booking-details {
+    border: 1px solid #e7e7e7;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 20.5rem repeat(5, 5rem) 0rem;
+    grid-template-columns: 1rem 12.1rem 12.1rem 9rem 1rem;
+    grid-row-gap: 0.8rem;
+    align-items: center;
+
+    @include respond(tablet) {
+      grid-template-columns: 1rem 4.1rem 11.1rem 9rem 1rem;
+      height: 51rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    & > .gatsby-image-wrapper {
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+      overflow: hidden;
+    }
+  }
+
+  &__banner {
+    height: 21.2rem;
+    width: 38.2rem;
+  }
+
+  &__sub-title {
+    font-size: 1.6rem;
+    color: $color-grey-dark-2;
+    font-family: Nunito-Extrabold;
+    text-transform: uppercase;
+  }
+
+  &__details {
+    &--title {
+      grid-column: 2/5;
+      grid-row: 2;
+
+      & > h2 {
+        @include respond(tablet) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    &--days {
+      grid-column: 2/5;
+      grid-row: 3;
+    }
+
+    &--start {
+      grid-column: 2/5;
+      grid-row: 4;
+    }
+
+    &--end {
+      grid-column: 2/5;
+      grid-row: 5;
+    }
+
+    &--price {
+      grid-column: 2/5;
+      grid-row: 6;
+
+      & > h2 {
+        @include respond(tablet) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  &__form-container {
+    display: grid;
+    grid-template-columns: 13rem 13rem 26rem;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+
+    @include respond(tablet) {
+      grid-template-columns: 50% 50%;
+    }
+
+    & div:nth-child(1) {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    & div:nth-child(2),
+    & div:nth-child(4),
+    & div:nth-child(10),
+    & div:nth-child(11) {
+      grid-column: 1/3;
+
+      @include respond(phone) {
+        grid-column: 1/-1;
+      }
+    }
+
+    & div:nth-child(3),
+    & div:nth-child(5) {
+      grid-column: 3;
+
+      @include respond(tablet) {
+        grid-column: 1;
+      }
+
+      @include respond(phone) {
+        grid-column: 1/-1;
+      }
+    }
+
+    & div:nth-child(6),
+    & div:nth-child(8) {
+      grid-column: 1;
+    }
+
+    & div:nth-child(7),
+    & div:nth-child(9) {
+      grid-column: 2/-1;
+
+      @include respond(phone) {
+        grid-column: 1/-1;
+      }
+    }
+
+    & div:nth-child(10) {
+      font-size: 1.6rem;
+    }
+
+    & div:nth-child(10) {
+      & > input {
+        height: 10rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    & div:nth-child(11) {
+      display: flex;
+      justify-content: space-between;
+      width: 26rem;
+      align-items: center;
+      font-size: 1.6rem;
+      color: #aeaeae;
+      margin-bottom: 1.2rem;
+      margin-top: 1rem;
+
+      @include respond(phone) {
+        display: flex;
+        justify-content: start;
+        width: 30rem;
+      }
+
+      & > input {
+        height: 3rem;
+        width: 2rem;
+
+        @include respond(phone) {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    & > button {
+      grid-column: 1/3;
+      width: 22rem;
+
+      @include respond(phone) {
+        width: 30rem !important;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: #767676;
+  }
+
+  &__fields {
+    width: 26.4rem;
+    height: 3.4rem;
+    border-radius: 0.3rem;
+    border: 1px solid #aeaeae;
+
+    @include respond(laptop) {
+      width: 25.4rem;
+    }
+
+    @include respond(tablet) {
+      width: 36.4rem;
+      height: 4.4rem;
+    }
+
+    @include respond(phone) {
+      width: 30rem;
+    }
+
+    &--half {
+      width: 12.2rem;
+      font-size: 1.6rem;
+
+      @include respond(tablet) {
+        width: 17.6rem;
+      }
+
+      @include respond(phone) {
+        width: 30rem;
+      }
+    }
+
+    &--error {
+      border: 1px solid $color-red;
+    }
+  }
+
+  &__enquiry-form {
+    margin-top: 2rem;
+
+    @include respond(phone) {
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+
+  &__error-message {
+    color: $color-red;
+  }
+
+  &__thank-you {
+    grid-column: 1/-1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+
+    & > h2,
+    & > p {
+      justify-self: center;
+      margin-bottom: 3rem;
+    }
+  }
+}

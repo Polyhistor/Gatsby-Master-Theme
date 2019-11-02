@@ -1,0 +1,255 @@
+.filtered-tour {
+  display: grid;
+  grid-template-columns: 1rem 19rem 19rem 1rem;
+  grid-template-rows: 21.6rem min-content 2rem 6.5rem;
+  grid-row-gap: 1rem;
+  border: 1px solid $color-gray-light-2;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+
+  @include respond(laptop) {
+    grid-template-columns: 1rem 16rem 16rem 1rem;
+    grid-template-rows: 21.6rem 13rem 6.5rem;
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: 1rem 16rem 16rem 1rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1rem 15rem 15rem 1rem;
+  }
+
+  &--ms {
+    background: $color-med-teal;
+  }
+
+  &__description {
+    display: grid;
+    grid-template-rows: repeat(4, min-content);
+    grid-column: 2;
+    grid-row-gap: 0.3rem;
+    padding-top: 1.5rem;
+
+    &-title {
+      @extend .heading-2;
+      @extend .heading-2--green;
+    }
+
+    &-subtitle {
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
+    }
+
+    &-price {
+      @extend .heading-4;
+      @extend .heading-4--green-capitalized;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, max-content));
+    grid-column-gap: 1.6rem;
+    grid-row-gap: 2rem;
+
+    @include respond(laptop) {
+      max-width: 100rem;
+      grid-template-columns: repeat(auto-fit, minmax(32.6rem, min-content));
+      grid-column-gap: 1rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 100rem;
+      grid-template-columns: repeat(auto-fit, minmax(34rem, min-content));
+      grid-column-gap: 1rem;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 32rem;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    grid-column: 1/-1;
+    & .gatsby-image-wrapper {
+      height: 22.5rem;
+
+      @include respond(laptop) {
+        height: 22rem;
+      }
+
+      @include respond(tablet) {
+        height: 22rem;
+      }
+    }
+  }
+
+  & .destination-banner__description {
+    grid-column: 2;
+  }
+
+  & .destination-banner__description h3 {
+    color: $color-grey-dark-3;
+    font-size: 2.5rem;
+
+    @include respond(laptop) {
+      font-size: 1.7rem;
+    }
+
+    @include respond(tablet) {
+      font-size: 1.7rem;
+    }
+
+    @include respond(phone) {
+      font-size: 3.2rem;
+    }
+  }
+
+  & .destination-banner__description h5 {
+    color: $color-grey-dark;
+    font-size: 1.2rem;
+  }
+
+  & .destination-banner__description p {
+    width: 85%;
+    font-size: 1.7rem;
+    z-index: 10;
+    position: relative;
+
+    @include respond(laptop) {
+      font-size: 1.4rem;
+    }
+
+    @include respond(tablet) {
+      font-size: 1.4rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  & a {
+    align-self: end;
+    width: 18rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.38rem;
+    align-items: center;
+    position: absolute;
+    bottom: 2%;
+    grid-column: 2;
+
+    @include respond(laptop) {
+      width: 15rem;
+      grid-row: 3;
+      grid-column: 2;
+      bottom: 0;
+      position: inherit;
+    }
+
+    @include respond(tablet) {
+      width: 15rem;
+    }
+
+    @include respond(phone) {
+      bottom: 1.5%;
+      left: -1%;
+    }
+  }
+
+  &__svg-map {
+    grid-column: 3/4;
+    grid-row: 2/5;
+    border-left: 1px $color-gray-light-2 solid;
+
+    & > img {
+      width: 20rem;
+
+      @include respond(laptop) {
+        width: 15.5rem;
+      }
+
+      @include respond(tablet) {
+        width: 17rem;
+      }
+
+      @include respond(phone) {
+        width: 16rem;
+      }
+    }
+  }
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(3, 18rem);
+    grid-template-rows: 4rem 10rem;
+    grid-column: 1/-1;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    padding-top: 5rem;
+    align-items: start;
+
+    @include respond(phone) {
+      grid-template-columns: repeat(2, 13rem);
+      grid-template-rows: 7rem 5rem 8rem;
+      justify-self: center;
+    }
+
+    & h3 {
+      grid-column: 1/-1;
+      font-size: 2rem;
+
+      @include respond(phone) {
+        font-size: 1.8rem;
+        text-align: center;
+        justify-self: center;
+        width: 70%;
+      }
+    }
+  }
+
+  &__button {
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    @include greenWhite;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+
+    &--ms {
+      border: 1px solid $color-med-teal;
+      color: $color-med-teal;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:nth-of-type(3) {
+      @include respond(phone) {
+        grid-row: 3;
+        grid-column: 1/-1;
+      }
+    }
+
+    & span {
+      padding: 1rem;
+      display: block;
+    }
+
+    &--active {
+      @include whiteGreen;
+      &-ms {
+        background: $color-med-teal;
+        color: white;
+      }
+    }
+  }
+}

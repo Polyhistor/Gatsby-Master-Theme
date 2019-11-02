@@ -1,0 +1,5 @@
+.destination-starter {
+  &__body {
+    @extend .paragraph;
+  }
+}
