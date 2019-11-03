@@ -101,7 +101,7 @@ const IndexPage = ({ data }) => {
         TitleThird="holidays"
         subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Tours"
-        buttonFirstURL="/tours"
+        buttonFirstURL="/sail"
         buttonSecond="watch trailer"
         buttonSecondURL=""
         buttonStyles={["med-blue", "white"]}
@@ -127,7 +127,7 @@ const IndexPage = ({ data }) => {
           className={
             theme === "ms"
               ? "heading-1 heading-1--ms u-margin-bottom-small u-center-text"
-              : "heading-1 u-margin-bottom-small u-center-text u-center-text"
+              : "heading-1 u-margin-bottom-small u-center-text"
           }
         >
           Destinations
@@ -148,8 +148,8 @@ const IndexPage = ({ data }) => {
         <h2
           className={
             theme === "ms"
-              ? "heading-1 heading-1--ms u-margin-bottom-small u-center-text"
-              : "heading-1 u-margin-bottom-small u-center-text u-center-text"
+              ? "heading-1 heading-1--ms u-margin-bottom-small"
+              : "heading-1 u-margin-bottom-small"
           }
         >
           Destinations

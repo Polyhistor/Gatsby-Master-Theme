@@ -419,6 +419,10 @@
   font-size: 1.6rem;
   color: $color-primary;
   text-transform: capitalize;
+
+  &--ms {
+    color: $color-med-teal;
+  }
 }
 
 .green-subtitle-alternative {
@@ -426,4 +430,8 @@
   font-size: 1.6rem;
   color: $color-primary;
   text-transform: uppercase;
+
+  &--ms {
+    color: $color-med-teal;
+  }
 }

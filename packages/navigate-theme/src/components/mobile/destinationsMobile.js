@@ -12,6 +12,10 @@ const DestinationsMobile = ({
   tours,
   imageData,
   destination,
+  SVGMap,
+  variation,
+  duration,
+  country,
 }) => {
   const theme = process.env.GATSBY_THEME
 
@@ -31,7 +35,10 @@ const DestinationsMobile = ({
                   : `tour-banner__figure-caption`
               }
             >
-              <span className="tour-banner__days">{tours}</span> tours
+              <span className="tour-banner__days">
+                {duration !== undefined ? duration : tours}
+              </span>{" "}
+              {duration !== undefined ? "days" : "tours"}
             </figcaption>
           </figure>
         </div>
@@ -53,16 +60,24 @@ const DestinationsMobile = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={`tour-banner__description-price tour-banner__description-price-newzealand`}
+              className={
+                theme === "ms"
+                  ? `tour-banner__description-price tour-banner__description-price-ms`
+                  : "tour-banner__description-price"
+              }
             >
-              {price}
+              {variation === "ms" ? `From £${price} per day` : price}
             </span>
           </div>
         </div>
         <div className="u-center-text u-margin-top-tiny">
           <Link
             className={theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"}
-            to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`}
+            to={
+              country !== undefined
+                ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${destination}`
+                : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
+            }
           >
             explore
           </Link>
