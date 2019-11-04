@@ -42,7 +42,14 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("gender is required"),
 })
 
-const DetailsForm = ({ inPage, state, imgSlug, title }) => {
+const DetailsForm = ({
+  inPage,
+  state,
+  imgSlug,
+  title,
+  priceInex,
+  classPrice,
+}) => {
   const theme = process.env.GATSBY_THEME
 
   // taking all the data and filtering out what we need
@@ -54,11 +61,11 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
 
   // creating our partial object that later will be synthesized with form data
   let partialData = {
-    priceId: state.prices[0].id,
-    price: state.prices[0].rrp,
-    priceWithDiscount: state.prices[0].rrpWithDiscount,
+    priceId: state.prices[priceInex].id,
+    price: state.prices[priceInex].rrp,
+    priceWithDiscount: state.prices[priceInex].rrpWithDiscount,
     date: state.startDate,
-    currencyCode: state.prices[0].currencyCode,
+    currencyCode: state.prices[priceInex].currencyCode,
     sale: state.availability,
     availability: state.availability,
   }
@@ -317,6 +324,11 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
               >
                 {title}
               </h2>
+              {classPrice ? (
+                <h4 className="booking-form__sub-title">
+                  {state.prices[priceInex].productClass}
+                </h4>
+              ) : null}
             </div>
             <div className="booking-form__details booking-form__details--days">
               <div className="booking-form__sub-title">
@@ -351,9 +363,9 @@ const DetailsForm = ({ inPage, state, imgSlug, title }) => {
                     : "tour-banner__description-title"
                 }
               >
-                {state.prices[0].currencySymbol}
-                {state.prices[0].rrp} &thinsp;
-                {state.prices[0].currencyCode}
+                {state.prices[priceInex].currencySymbol}
+                {state.prices[priceInex].rrpWithDiscount} &thinsp;
+                {state.prices[priceInex].currencyCode}
               </h2>
             </div>
           </div>

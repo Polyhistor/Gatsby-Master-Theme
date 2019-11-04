@@ -40,6 +40,18 @@
     @include respond(phone) {
       margin-top: 5.4rem;
     }
+
+    &-classes {
+      width: 100%;
+      height: 5rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      & > h4 {
+        padding-right: 8rem;
+      }
+    }
   }
 
   &__steps {
@@ -306,6 +318,8 @@
       margin-top: 1.5rem;
       overflow: hidden;
       cursor: pointer;
+      text-align: center;
+      align-items: center;
 
       @include respond(phone) {
         height: 6rem;
@@ -319,7 +333,7 @@
       }
 
       &:hover {
-        background: $color-gray-light-2;
+        background: $color-gre-alternative;
       }
 
       &--soldout {
@@ -354,10 +368,10 @@
   }
 
   &__right {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 23%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 28rem);
+    justify-content: right;
 
     @include respond(laptop) {
       width: 31%;
@@ -372,6 +386,10 @@
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
+    }
+
+    &--ms {
+      width: 68%;
     }
   }
 
@@ -491,6 +509,23 @@
       width: 45%;
       margin-right: 0.8rem;
     }
+
+    &-entry {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color-gray-light-2;
+      height: 5rem;
+      margin-left: 0.1rem;
+
+      &:hover {
+        background: $color-gray-light-2;
+      }
+    }
+
+    &-ms {
+      width: 52%;
+    }
   }
 
   &__original {
@@ -514,6 +549,7 @@
 
     &--ms {
       color: $color-med-teal;
+      margin-left: 1.5rem;
     }
 
     &--selected {

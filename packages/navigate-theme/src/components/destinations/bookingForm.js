@@ -12,6 +12,8 @@ const BookingForm = ({ data, country, inPage }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  console.log(data)
+
   const bookingFormPromo =
     theme === "ms"
       ? "booking-form__promo booking-form__promo--ms"
@@ -62,11 +64,53 @@ const BookingForm = ({ data, country, inPage }) => {
   // storing data that we need for the second phase
   const [gState, setGState] = useState(null)
 
+  // storing data for the index of the prices selected
+  const [PriceIdx, setPriceIdx] = useState(0)
+
   // setting the phases
   const [phase, setPhase] = useState(false)
 
   // setting value for the dropdown
   const [selectValue, setSelectValue] = useState("all")
+
+  // rendering prices
+  const renderPrices = price =>
+    price.map((p, idx) => {
+      return (
+        <div
+          onClick={() => handleClick(p)}
+          className="booking-form__price-entry"
+        >
+          <div
+            className={
+              theme === "ms"
+                ? "booking-form__price booking-form__price-ms"
+                : "booking-form__price"
+            }
+          >
+            <span className="booking-form__original">
+              {p.currencySymbol}
+              {p.rrp}
+              {p.currencyCode}
+            </span>
+            <span className="booking-form__discount">
+              {p.currencySymbol}
+              {p.rrpWithDiscount}&thinsp;
+              {p.currencyCode}
+            </span>
+          </div>
+          <div
+            className={
+              p.availability === "Sold Out"
+                ? `${bookingFormAvailablity} booking-form__availability--sold-out`
+                : `${bookingFormAvailablity}`
+            }
+          >
+            {p.availability}
+          </div>
+        </div>
+      )
+    })
 
   const handleClick = (_, idx, idx2, d) => {
     // these will be used later for advanced select functionality
@@ -77,13 +121,17 @@ const BookingForm = ({ data, country, inPage }) => {
     //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
     // )
 
-    const ourDate2 = d.prices[0].id
+    const ourDate2 = _.id
+
     entries.months.forEach(e =>
       e.dates.forEach(d => {
-        if (d.prices[0].id === ourDate2) {
-          setGState(d)
-          setPhase(!phase)
-        }
+        d.prices.forEach((p, idx) => {
+          if (p.id === ourDate2) {
+            setPriceIdx(idx)
+            setGState(d)
+            setPhase(!phase)
+          }
+        })
       })
     )
   }
@@ -92,7 +140,11 @@ const BookingForm = ({ data, country, inPage }) => {
   const renderEntries = () => {
     if (entries === null) {
       return (
-        <h2 className="green-title">Please select your destination and tour</h2>
+        <h2
+          className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
+        >
+          Please select your destination and tour
+        </h2>
       )
     }
 
@@ -128,7 +180,9 @@ const BookingForm = ({ data, country, inPage }) => {
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
-                  onClick={_ => handleClick(_, idx, idx2, d)}
+                  onClick={
+                    theme === "ms" ? null : _ => handleClick(_, idx, idx2, d)
+                  }
                   className={
                     d.availability === "Sold Out"
                       ? "booking-form__hidden-entries booking-form__hidden-entries--soldout"
@@ -190,28 +244,14 @@ const BookingForm = ({ data, country, inPage }) => {
                       </span>
                     </div>
                   </div>
-                  <div className="booking-form__right">
-                    <div className="booking-form__price">
-                      <span className="booking-form__original">
-                        {d.prices[0].currencySymbol}
-                        {d.prices[0].rrp}
-                        {d.prices[0].currencyCode}
-                      </span>
-                      <span className="booking-form__discount">
-                        {d.prices[0].currencySymbol}
-                        {d.prices[0].rrpWithDiscount}&thinsp;
-                        {d.prices[0].currencyCode}
-                      </span>
-                    </div>
-                    <div
-                      className={
-                        d.availability === "Sold Out"
-                          ? `${bookingFormAvailablity} booking-form__availability--sold-out`
-                          : `${bookingFormAvailablity}`
-                      }
-                    >
-                      {d.availability}
-                    </div>
+                  <div
+                    className={
+                      theme === "ms"
+                        ? "booking-form__right booking-form__right--ms"
+                        : "booking-form__right"
+                    }
+                  >
+                    {theme === "ms" ? renderPrices(d.prices) : null}
                   </div>
                 </div>
               ))}
@@ -312,10 +352,20 @@ const BookingForm = ({ data, country, inPage }) => {
               </div>
             ) : (
               <div className="booking-form__dropdown">
-                <div className="activity__selector">
+                <div
+                  className={
+                    theme === "ms"
+                      ? "activity__selector activity__selector--ms"
+                      : "activity__selector"
+                  }
+                >
                   <select
                     onChange={e => handleCountryDropdown(e)}
-                    className="activity__dropdown"
+                    className={
+                      theme === "ms"
+                        ? "activity__dropdown activity__dropdown--ms"
+                        : "activity__dropdown"
+                    }
                     id="country"
                   >
                     <option value="all">Destination</option>
@@ -324,10 +374,20 @@ const BookingForm = ({ data, country, inPage }) => {
                 </div>
 
                 {destinationFilter !== null ? (
-                  <div className="activity__selector">
+                  <div
+                    className={
+                      theme === "ms"
+                        ? "activity__selector activity__selector--ms"
+                        : "activity__selector"
+                    }
+                  >
                     <select
                       onChange={e => handleDestDropdown(e)}
-                      className="activity__dropdown"
+                      className={
+                        theme === "ms"
+                          ? "activity__dropdown activity__dropdown--ms"
+                          : "activity__dropdown"
+                      }
                       id="tours"
                       value={selectValue}
                     >
@@ -338,8 +398,17 @@ const BookingForm = ({ data, country, inPage }) => {
                 ) : null}
               </div>
             )}
-            <div className="booking-form__entries">{renderEntries()}</div>
-            {/* <div className="booking-form__entries">{renderEntries()}</div> */}
+            <div className="booking-form__entries">
+              {theme === "ms" ? (
+                <div className="booking-form__header-classes">
+                  <h4 className="heading-3 heading-3--ms">premier Yacht</h4>
+                  <h4 className="heading-3 heading-3--ms">superior monocat</h4>
+                  <h4 className="heading-3 heading-3--ms">catamaran</h4>
+                </div>
+              ) : null}
+
+              {renderEntries()}
+            </div>
           </div>
         ) : (
           <div
@@ -352,8 +421,10 @@ const BookingForm = ({ data, country, inPage }) => {
             <DetailsForm
               inPage={inPage}
               state={gState}
+              priceInex={PriceIdx}
               imgSlug={entries.slug}
               title={entries.description}
+              classPrice={data.data.classPrice}
             />
           </div>
         )}

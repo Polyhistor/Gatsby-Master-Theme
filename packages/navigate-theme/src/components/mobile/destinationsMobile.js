@@ -12,7 +12,6 @@ const DestinationsMobile = ({
   tours,
   imageData,
   destination,
-  SVGMap,
   variation,
   duration,
   country,

@@ -68,7 +68,11 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         buttonTextSecond="view photos"
       />
       <GreenBar
-        text="Epic adventure tours for 20 to 35 year olds"
+        text={
+          theme === "ms"
+            ? "Skippered sailing holidays for 20-35 year olds."
+            : "Epic adventure tours for 20 to 35 year olds"
+        }
         imageData={SVGIcon}
       />
       <DestinationSection>
@@ -158,7 +162,11 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         />
         <div className="hotfix--banner">
           <Banner
-            imageData={imageQuery.banner.childImageSharp.fluid}
+            imageData={
+              theme === "ms"
+                ? imageQuery.MsHowItWorksBanner.childImageSharp.fluid
+                : imageQuery.banner.childImageSharp.fluid
+            }
             header="Looking for adventure?"
             subHeaderFirst="Read our top 10 adrenalin "
             subHeaderSecond="activites to do in New Zealand."
