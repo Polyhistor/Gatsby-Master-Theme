@@ -12,8 +12,6 @@ const BookingForm = ({ data, country, inPage }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
-  console.log(data)
-
   const bookingFormPromo =
     theme === "ms"
       ? "booking-form__promo booking-form__promo--ms"
@@ -79,7 +77,11 @@ const BookingForm = ({ data, country, inPage }) => {
       return (
         <div
           onClick={() => handleClick(p)}
-          className="booking-form__price-entry"
+          className={
+            p.availability === "Sold Out"
+              ? "booking-form__price-entry booking-form__price-entry--soldout"
+              : "booking-form__price-entry"
+          }
         >
           <div
             className={
@@ -99,15 +101,7 @@ const BookingForm = ({ data, country, inPage }) => {
               {p.currencyCode}
             </span>
           </div>
-          <div
-            className={
-              p.availability === "Sold Out"
-                ? `${bookingFormAvailablity} booking-form__availability--sold-out`
-                : `${bookingFormAvailablity}`
-            }
-          >
-            {p.availability}
-          </div>
+          <div className={bookingFormAvailablity}>{p.availability}</div>
         </div>
       )
     })
@@ -162,7 +156,13 @@ const BookingForm = ({ data, country, inPage }) => {
 
     if (entries) {
       return entries.months.map((e, idx) => (
-        <div className="booking-form__entry">
+        <div
+          className={
+            e.availability === "Sold Out"
+              ? "booking-form__entry booking-form__entry--soldout"
+              : "booking-form__entry"
+          }
+        >
           <div className="booking-form__shown">
             <span className="booking-form__month"> {e.description}</span>
             <input
@@ -424,7 +424,7 @@ const BookingForm = ({ data, country, inPage }) => {
               priceInex={PriceIdx}
               imgSlug={entries.slug}
               title={entries.description}
-              classPrice={data.data.classPrice}
+              classPrice={data.data.data.classPrice}
             />
           </div>
         )}

@@ -52,6 +52,9 @@ const DetailsForm = ({
 }) => {
   const theme = process.env.GATSBY_THEME
 
+  console.log(classPrice)
+  console.log(state)
+
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
   const filteredData = destinationsData.filter(e => e.node.slug === imgSlug)
@@ -306,7 +309,13 @@ const DetailsForm = ({
               )}
             </Formik>
           </div>
-          <div className="booking-form__booking-details">
+          <div
+            className={
+              theme === "ms"
+                ? "booking-form__booking-details booking-form__booking-details--ms"
+                : "booking-form__booking-details"
+            }
+          >
             <Image
               fluid={
                 filteredData[0].node.bannerImages[0].localFile.childImageSharp
