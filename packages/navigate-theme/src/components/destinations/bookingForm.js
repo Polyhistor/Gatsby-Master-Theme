@@ -9,6 +9,8 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  console.log(data)
+
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -68,6 +70,9 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting the phases
   const [phase, setPhase] = useState(false)
 
+  // setting the product class
+  const [productClass, setProductClass] = useState("")
+
   // setting value for the dropdown
   const [selectValue, setSelectValue] = useState("all")
 
@@ -115,6 +120,8 @@ const BookingForm = ({ data, country, inPage }) => {
     //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
     // )
 
+    console.log(_)
+
     const ourDate2 = _.id
 
     entries.months.forEach(e =>
@@ -123,6 +130,7 @@ const BookingForm = ({ data, country, inPage }) => {
           if (p.id === ourDate2) {
             setPriceIdx(idx)
             setGState(d)
+            setProductClass(p.productClass)
             setPhase(!phase)
           }
         })
@@ -425,6 +433,8 @@ const BookingForm = ({ data, country, inPage }) => {
               imgSlug={entries.slug}
               title={entries.description}
               classPrice={data.data.data.classPrice}
+              cabins={data.data.data.cabins}
+              productClass={productClass}
             />
           </div>
         )}
