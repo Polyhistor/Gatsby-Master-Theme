@@ -9,8 +9,6 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
-
-
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -40,9 +38,6 @@ const BookingForm = ({ data, country, inPage }) => {
   // const defaultCountry = destinationData.filter(
   //   e => e.node.destinationCountry === country
   // )
-
-
-  console.log(data)
 
   // setting our inital state based on the coutnry passed
   const [destinationFilter, setDestinationFilter] = useState(null)
@@ -123,14 +118,13 @@ const BookingForm = ({ data, country, inPage }) => {
     //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
     // )
 
-    console.log(_)
-
     const ourDate2 = _.id
 
     entries.months.forEach(e =>
       e.dates.forEach(d => {
         d.prices.forEach((p, idx) => {
           if (p.id === ourDate2) {
+            debugger
             setPriceIdx(idx)
             setGState(d)
             setProductClass(p.productClass)
@@ -288,9 +282,9 @@ const BookingForm = ({ data, country, inPage }) => {
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
     setSelectValue(e.target.value)
-    await getTourPricesRequest(e.target.value).then(response =>
-      setEntries(response.data.data)
-    )
+    await getTourPricesRequest(e.target.value).then(response => {
+      return setEntries(response.data.data)
+    })
   }
 
   // function that handles countries dropdown
@@ -417,7 +411,6 @@ const BookingForm = ({ data, country, inPage }) => {
                   <h4 className="heading-3 heading-3--ms">catamaran</h4>
                 </div>
               ) : null}
-
               {renderEntries()}
             </div>
           </div>

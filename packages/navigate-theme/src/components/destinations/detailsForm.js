@@ -52,6 +52,11 @@ const DetailsForm = ({
   productClass,
   cabins,
 }) => {
+  console.log("do we mount?")
+  console.log(classPrice)
+  console.log(productClass)
+  console.log(cabins)
+
   const theme = process.env.GATSBY_THEME
 
   const renderingCabins = () =>
