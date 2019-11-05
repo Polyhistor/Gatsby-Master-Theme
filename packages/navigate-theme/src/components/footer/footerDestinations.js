@@ -7,6 +7,7 @@ const renderDestinations = (countryList, themeOptionsQueryData) => {
   return countryList.map(c => {
     return (
       <Link
+        key={c.node.title}
         to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${c.node.slug}`}
         className="footer__trips-link"
       >

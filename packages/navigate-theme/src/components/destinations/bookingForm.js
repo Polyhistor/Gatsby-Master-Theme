@@ -71,14 +71,52 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting the product class
   const [productClass, setProductClass] = useState("")
 
+  // setting the classPrice state
+  const [classPrice, setClassPrice] = useState("")
+
+  // setting the cabins state
+  const [cabin, setCabin] = useState("")
+
   // setting value for the dropdown
   const [selectValue, setSelectValue] = useState("all")
+
+  const handleClick = (_, idx, idx2, d) => {
+    // these will be used later for advanced select functionality
+    // const ourElement = refs[idx].childNodes[idx2]
+    // const ourDate = ourElement.childNodes[0].innerText.slice(0, 10)
+
+    // const date = entries.month.find(m =>
+    //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
+    // )
+
+    console.log("yo")
+    console.log(entries)
+
+    setClassPrice(entries.classPrice)
+    setCabin(entries.cabins)
+
+    const ourDate2 = _.id
+
+    entries.months.forEach(e =>
+      e.dates.forEach(d => {
+        d.prices.forEach((p, idx) => {
+          if (p.id === ourDate2) {
+            setPriceIdx(idx)
+            setGState(d)
+            setProductClass(p.productClass)
+            setPhase(true)
+          }
+        })
+      })
+    )
+  }
 
   // rendering prices
   const renderPrices = price =>
     price.map((p, idx) => {
       return (
         <div
+          key={idx}
           onClick={() => handleClick(p)}
           className={
             p.availability === "Sold Out"
@@ -109,32 +147,6 @@ const BookingForm = ({ data, country, inPage }) => {
       )
     })
 
-  const handleClick = (_, idx, idx2, d) => {
-    // these will be used later for advanced select functionality
-    // const ourElement = refs[idx].childNodes[idx2]
-    // const ourDate = ourElement.childNodes[0].innerText.slice(0, 10)
-
-    // const date = entries.month.find(m =>
-    //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
-    // )
-
-    const ourDate2 = _.id
-
-    entries.months.forEach(e =>
-      e.dates.forEach(d => {
-        d.prices.forEach((p, idx) => {
-          if (p.id === ourDate2) {
-            debugger
-            setPriceIdx(idx)
-            setGState(d)
-            setProductClass(p.productClass)
-            setPhase(!phase)
-          }
-        })
-      })
-    )
-  }
-
   // function that renders the entries (available tours)
   const renderEntries = () => {
     if (entries === null) {
@@ -162,6 +174,7 @@ const BookingForm = ({ data, country, inPage }) => {
     if (entries) {
       return entries.months.map((e, idx) => (
         <div
+          key={idx}
           className={
             e.availability === "Sold Out"
               ? "booking-form__entry booking-form__entry--soldout"
@@ -179,7 +192,7 @@ const BookingForm = ({ data, country, inPage }) => {
             ></input>
             <label
               className="booking-form__plus-holder"
-              for={`plus-holder-${inPage ? idx + 50 : idx}`}
+              htmlFor={`plus-holder-${inPage ? idx + 50 : idx}`}
             ></label>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
@@ -272,18 +285,28 @@ const BookingForm = ({ data, country, inPage }) => {
   // function that renders destinaion dropdown options
   const renderDestinations = () =>
     destinationFilter.map(e => (
-      <option value={e.node.slug}>{e.node.title}</option>
+      <option key={e.node.slug} value={e.node.slug}>
+        {e.node.title}
+      </option>
     ))
 
   // function that renders countries dropdown options
   const renderCountries = () =>
-    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
+    countryList[0].map(e => (
+      <option key={e.node.slug} value={e.node.slug}>
+        {e.node.title}
+      </option>
+    ))
 
   // function that handles destinations dropdown
   const handleDestDropdown = async e => {
     setSelectValue(e.target.value)
     await getTourPricesRequest(e.target.value).then(response => {
-      return setEntries(response.data.data)
+      try {
+        setEntries(response.data.data)
+      } catch (error) {
+        console.warn(error)
+      }
     })
   }
 
@@ -428,8 +451,8 @@ const BookingForm = ({ data, country, inPage }) => {
               priceInex={PriceIdx}
               imgSlug={entries.slug}
               title={entries.description}
-              classPrice={data.data.data.classPrice}
-              cabins={data.data.data.cabins}
+              classPrice={classPrice}
+              cabins={cabin}
               productClass={productClass}
             />
           </div>

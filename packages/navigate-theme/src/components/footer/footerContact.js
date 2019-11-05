@@ -40,7 +40,7 @@ const FooterContact = () => {
         >
           {phoneNumberData.map(p => {
             return (
-              <option selected={p.country === state} value={p.country}>
+              <option key={p.text} value={p.country}>
                 {p.text}
               </option>
             )

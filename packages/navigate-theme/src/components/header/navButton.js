@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, withPrefix } from "gatsby"
+import { withPrefix } from "gatsby"
 import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import BookingForm from "../destinations/bookingForm"

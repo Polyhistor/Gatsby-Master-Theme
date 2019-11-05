@@ -13,7 +13,7 @@ const FooterInfo = () => {
           <li className="footer__trips-item">
             {footerData.info.map(f => {
               return (
-                <Link to={f.link} className="footer__trips-link">
+                <Link key={f.title} to={f.link} className="footer__trips-link">
                   {f.title}
                 </Link>
               )
@@ -24,7 +24,7 @@ const FooterInfo = () => {
         <ul className="footer__trips-list">
           {footerData.social.map(f => {
             return (
-              <li className="footer__trips-item">
+              <li key={f.title} className="footer__trips-item">
                 <a href={f.link} target="_blank" className="footer__trips-link">
                   {f.title}
                 </a>
