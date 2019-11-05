@@ -54,15 +54,10 @@ const DetailsForm = ({
 }) => {
   const theme = process.env.GATSBY_THEME
 
-  console.log(cabins)
-  console.log(productClass)
-
   const renderingCabins = () =>
     cabins.filter(c => c.product_class === productClass)
 
   const cabinsNames = renderingCabins()
-
-  console.log(cabinsNames)
 
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
@@ -71,35 +66,19 @@ const DetailsForm = ({
   // our final data to be sent to the API
   let finalAPI
 
-  // declaring a variable
-  let partialData
-
   // creating our partial object that later will be synthesized with form data
-  if (theme === "ms") {
-    partialData = {
-      priceId: state.prices[priceInex].id,
-      price: state.prices[priceInex].rrp,
-      priceWithDiscount: state.prices[priceInex].rrpWithDiscount,
-      date: state.startDate,
-      currencyCode: state.prices[priceInex].currencyCode,
-      sale: state.availability,
-      availability: state.availability,
-    }
-  } else {
-    partialData = {
-      priceId: state.prices[priceInex].id,
-      price: state.prices[priceInex].rrp,
-      priceWithDiscount: state.prices[priceInex].rrpWithDiscount,
-      date: state.startDate,
-      currencyCode: state.prices[priceInex].currencyCode,
-      sale: state.availability,
-      availability: state.availability,
-    }
+  let partialData = {
+    priceId: state.prices[priceInex].id,
+    price: state.prices[priceInex].rrp,
+    priceWithDiscount: state.prices[priceInex].rrpWithDiscount,
+    date: state.startDate,
+    currencyCode: state.prices[priceInex].currencyCode,
+    sale: state.availability,
+    availability: state.availability,
   }
 
   const getCabinDetails = name => {
     return cabins.filter(e => {
-      console.log(e)
       return e.name === name && e.product_class === productClass
     })
   }
@@ -134,15 +113,20 @@ const DetailsForm = ({
                 comments: "",
                 consent: false,
                 phone: 0,
-                yachtCabinName: cabins[0].name,
+                yachtCabinName: cabinsNames[0].name,
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
                 const cabinDetails = getCabinDetails(values.yachtCabinName)
-                console.log("we here ? ")
-                console.log(cabinDetails)
-                finalAPI = { ...values, ...partialData }
-                console.log(finalAPI)
+                const { id, price } = cabinDetails[0]
+
+                finalAPI = {
+                  ...values,
+                  ...partialData,
+                  ...{ yachtCabinId: id },
+                  ...{ yachtCabinPrice: price },
+                  ...{ productClass: productClass },
+                }
 
                 try {
                   await submitEnquiryRequest(finalAPI)

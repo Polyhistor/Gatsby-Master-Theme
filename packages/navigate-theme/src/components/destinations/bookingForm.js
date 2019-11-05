@@ -9,7 +9,7 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
-  console.log(data)
+
 
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
@@ -40,6 +40,9 @@ const BookingForm = ({ data, country, inPage }) => {
   // const defaultCountry = destinationData.filter(
   //   e => e.node.destinationCountry === country
   // )
+
+
+  console.log(data)
 
   // setting our inital state based on the coutnry passed
   const [destinationFilter, setDestinationFilter] = useState(null)
