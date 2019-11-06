@@ -22,9 +22,7 @@ import SEO from "../components/seo/seo"
 
 const renderBlogCategoryLink = categories => {
   const category =
-    categories && categories.length > 0
-      ? data.wordpressPost.categories[0]
-      : undefined
+    categories && categories.length > 0 ? categories[0] : undefined
   if (category) {
     return (
       <Link
