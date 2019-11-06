@@ -147,11 +147,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 : "booking-form__price"
             }
           >
-            <span className="booking-form__original">
-              {p.currencySymbol}
-              {p.rrp}
-              {p.currencyCode}
-            </span>
+            <span className="booking-form__original">{p.rrp}</span>
             <span className="booking-form__discount">
               {p.currencySymbol}
               {p.rrpWithDiscount}&thinsp;
@@ -170,7 +166,10 @@ const BookingForm = ({ data, country, inPage }) => {
         <h2
           className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
         >
-          Please select your destination and tour
+          {/* Add preload text to configue */}
+          {theme === "ms"
+            ? "Please select your destination and trip"
+            : "Please select your destination and tour"}
         </h2>
       )
     }

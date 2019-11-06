@@ -71,7 +71,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         text={
           theme === "ms"
             ? "Skippered sailing holidays for 20-35 year olds."
-            : "Epic adventure tours for 20 to 35 year olds"
+            : "Epic adventure tours for 18 to 35 year olds"
         }
         imageData={SVGIcon}
       />

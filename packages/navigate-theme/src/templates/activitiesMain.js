@@ -239,7 +239,11 @@ const ActivitiesMain = ({ pageContext }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure tours for 18 to 35 year olds"
+        text={
+          theme === "ms"
+            ? "Skippered sailing holidays for 20-35 year olds."
+            : "Epic adventure for 18 to 35 year olds"
+        }
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
