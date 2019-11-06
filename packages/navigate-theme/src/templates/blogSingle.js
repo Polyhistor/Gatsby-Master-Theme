@@ -77,7 +77,7 @@ const BlogPostTemplate = ({ data }, idx) => {
             {/* some error checking */}
             {data.wordpressPost.author.acf !== null && (
               <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
-                {/*<Img
+                {/*<Img TODO BLOG IMAGE
                   fluid={
                     data.wordpressPost.author.acf.image.localFile
                       .childImageSharp.fluid

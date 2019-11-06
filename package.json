@@ -20,6 +20,7 @@
     "gatsby-plugin-layout": "^1.1.10",
     "gatsby-plugin-manifest": "^2.2.20",
     "gatsby-plugin-netlify": "^2.1.19",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-nprogress": "^2.1.9",
     "gatsby-plugin-offline": "^3.0.11",
     "gatsby-plugin-preload-fonts": "^1.0.11",
