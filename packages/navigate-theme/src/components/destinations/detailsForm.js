@@ -49,11 +49,20 @@ const DetailsForm = ({
   title,
   priceInex,
   classPrice,
+  productClass,
+  cabins,
 }) => {
+  console.log("do we mount?")
+  console.log(classPrice)
+  console.log(productClass)
+  console.log(cabins)
+
   const theme = process.env.GATSBY_THEME
 
-  console.log(classPrice)
-  console.log(state)
+  const renderingCabins = () =>
+    cabins.filter(c => c.product_class === productClass)
+
+  const cabinsNames = renderingCabins()
 
   // taking all the data and filtering out what we need
   const destinationsData = useDestinationQuery()
@@ -71,6 +80,12 @@ const DetailsForm = ({
     currencyCode: state.prices[priceInex].currencyCode,
     sale: state.availability,
     availability: state.availability,
+  }
+
+  const getCabinDetails = name => {
+    return cabins.filter(e => {
+      return e.name === name && e.product_class === productClass
+    })
   }
 
   // setting the state for succes message
@@ -103,10 +118,20 @@ const DetailsForm = ({
                 comments: "",
                 consent: false,
                 phone: 0,
+                yachtCabinName: cabinsNames[0].name,
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
-                finalAPI = { ...values, ...partialData }
+                const cabinDetails = getCabinDetails(values.yachtCabinName)
+                const { id, price } = cabinDetails[0]
+
+                finalAPI = {
+                  ...values,
+                  ...partialData,
+                  ...{ yachtCabinId: id },
+                  ...{ yachtCabinPrice: price },
+                  ...{ productClass: productClass },
+                }
 
                 try {
                   await submitEnquiryRequest(finalAPI)
@@ -127,7 +152,13 @@ const DetailsForm = ({
                 setFieldTouched,
                 setFieldValue,
               }) => (
-                <Form className="booking-form__form-container">
+                <Form
+                  className={
+                    theme === "ms"
+                      ? "booking-form__form-container booking-form__form-container--ms"
+                      : "booking-form__form-container"
+                  }
+                >
                   <div className="booking-details__fields-container">
                     <Field
                       type="number"
@@ -265,6 +296,27 @@ const DetailsForm = ({
                     </Field>
                     <Error touched={touched.gender} message={errors.gender} />
                   </div>
+                  {theme === "ms" ? (
+                    <div className="booking-details__fields-container">
+                      <Field
+                        component="select"
+                        name="yachtCabinName"
+                        className={
+                          errors.yachtCabinName
+                            ? "booking-form__fields booking-form__fields booking-form__fields--error"
+                            : "booking-form__fields booking-form__fields"
+                        }
+                      >
+                        {cabinsNames.map(e => (
+                          <option value={e.name}>{e.name}</option>
+                        ))}
+                      </Field>
+                      <Error
+                        touched={touched.yachtCabinName}
+                        message={errors.yachtCabinName}
+                      />
+                    </div>
+                  ) : null}
                   <div className="booking-details__fields-container">
                     <Field
                       type="textarea"

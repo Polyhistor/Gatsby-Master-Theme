@@ -14,7 +14,7 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
-import { Breadcrumb } from "gatsby-plugin-breadcrumb"
+// import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 
 const ActivitiesSingle = ({
@@ -24,9 +24,9 @@ const ActivitiesSingle = ({
   data: { allPageJson },
 }) => {
   // intricated object destruction
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
+  // const {
+  //   breadcrumb: { crumbs },
+  // } = pageContext
 
   const theme = process.env.GATSBY_THEME
 
@@ -34,7 +34,7 @@ const ActivitiesSingle = ({
 
   let customCrub = []
 
-  crumbs.forEach(e => [...customCrub, e.pathname])
+  // crumbs.forEach(e => [...customCrub, e.pathname])
 
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
@@ -80,13 +80,13 @@ const ActivitiesSingle = ({
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionActivity>
-        <div className="activity__breadcrumb-container">
+        {/* <div className="activity__breadcrumb-container">
           <Breadcrumb
             className="activity__breadcrumb"
             crumbs={crumbs}
             crumbSeparator="&ensp;/&ensp;"
           />
-        </div>
+        </div> */}
         <ActivityScaffold
           title={data.contentfulActivities.title}
           subtitle={data.contentfulActivities.subtitle}
