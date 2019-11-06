@@ -75,18 +75,18 @@ const BlogPostTemplate = ({ data }, idx) => {
           )}
           <div className="blog-single__author-container">
             {/* some error checking */}
-            {data.wordpressPost.author.acf !== null && (
-              <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
-                {/*<Img TODO BLOG IMAGE
-                  fluid={
-                    data.wordpressPost.author.acf.image.localFile
-                      .childImageSharp.fluid
-                  }
-                  alt={data.wordpressPost.author.name}
-                  className="blog-single__avatar"
-                />*/}
-              </Link>
-            )}
+
+            <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
+              <Img
+                fluid={
+                  data.wordpressPost.author.fields.image.localFile
+                    .childImageSharp.fluid
+                }
+                alt={data.wordpressPost.author.name}
+                className="blog-single__avatar"
+              />
+            </Link>
+
             <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
               <span className="blog-single__author" key={idx + 2}>
                 By {data.wordpressPost.author.name}
