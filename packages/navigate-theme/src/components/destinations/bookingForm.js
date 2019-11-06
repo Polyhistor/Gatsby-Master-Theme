@@ -84,9 +84,9 @@ const BookingForm = ({ data, country, inPage }) => {
     if (theme === "ms" && entries !== null) {
       return (
         <div className="booking-form__header-classes">
-          <h4 className="heading-3 heading-3--ms">premier Yacht</h4>
-          <h4 className="heading-3 heading-3--ms">superior monocat</h4>
-          <h4 className="heading-3 heading-3--ms">catamaran</h4>
+          <h4 className="heading-4 heading-4--ms">premier Yacht</h4>
+          <h4 className="heading-4 heading-4--ms">superior monocat</h4>
+          <h4 className="heading-4 heading-4--ms">catamaran</h4>
         </div>
       )
     }
