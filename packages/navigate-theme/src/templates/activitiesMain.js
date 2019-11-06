@@ -174,7 +174,7 @@ const ActivitiesMain = ({ pageContext }) => {
             className="activity__main-link"
             to={`activities/${node.country.slug}/` + node.slug}
           >
-            {node.featured_media !== null && (
+            {node.fields.featured_media !== null && (
               <figure className="activity__image-container">
                 <Img
                   fluid={node.bannerImages[0].localFile.childImageSharp.fluid}

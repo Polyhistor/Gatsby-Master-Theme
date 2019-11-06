@@ -2,8 +2,6 @@ import React from "react"
 import Img from "gatsby-image"
 
 const YachtSingle = ({ data }) => {
-  console.log(data)
-
   const renderList = list => list.map(e => <li>{e}</li>)
   const renderImage = img =>
     img.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)

@@ -27,9 +27,11 @@ const BlogCategory = ({ data, pageContext }) => {
       return (
         <div className="blog__categorized-container" key={node.wordpress_id}>
           <Link className="blog__main-link" to={`blog/` + node.slug}>
-            {node.featured_media !== null && (
+            {node.fields.featured_media !== null && (
               <Img
-                fluid={node.featured_media.localFile.childImageSharp.fluid}
+                fluid={
+                  node.fields.featured_media.localFile.childImageSharp.fluid
+                }
                 alt={node.title}
               />
             )}

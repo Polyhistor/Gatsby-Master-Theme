@@ -43,11 +43,13 @@ const BlogSearch = ({ pageContext }) => {
             categories {
               name
             }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+            fields {
+              featured_media {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
@@ -98,20 +100,25 @@ const BlogSearch = ({ pageContext }) => {
   // rendering blogs
   const renderBlogs = () => {
     return data.map(({ node }) => {
+      const blogMainCategory =
+        node.categories.length > 0 ? node.categories[0].name : "Uncategorised"
+
       return (
         <div className="blog__categorized-container" key={node.wordpress_id}>
           <Link
             className="blog__main-link"
             to={`blog/${node.categories[0].slug}/${node.slug}`}
           >
-            {node.featured_media !== null && (
+            {node.fields.featured_media !== null && (
               <Img
-                fluid={node.featured_media.localFile.childImageSharp.fluid}
+                fluid={
+                  node.fields.featured_media.localFile.childImageSharp.fluid
+                }
                 alt={node.title}
               />
             )}
             <h3 className="blog__main-title">{node.title}</h3>
-            <h4 className="blog__main-category">{node.categories[0].name}</h4>
+            <h4 className="blog__main-category">{blogMainCategory}</h4>
           </Link>
         </div>
       )

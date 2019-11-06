@@ -9,11 +9,12 @@ const BlogRelated = ({ blogQuery }) => {
       return (
         <Link to={`/blog/${element.node.slug}`} key={element.node.id}>
           {/* error handling, without this line, the posts with featured images will crash */}
-          {element.node.featured_media !== null && (
+          {element.node.fields.featured_media !== null && (
             <Img
               className=""
               fluid={
-                element.node.featured_media.localFile.childImageSharp.fluid
+                element.node.fields.featured_media.localFile.childImageSharp
+                  .fluid
               }
             />
           )}

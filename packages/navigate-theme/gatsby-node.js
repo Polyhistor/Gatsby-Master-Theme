@@ -3,6 +3,38 @@
  * https://github.com/gatsbyjs/gatsby/issues/6291
  */
 
+exports.onCreateNode = async ({ actions, getNodes, node }, pluginOptions) => {
+  const { createNodeField, touchNode } = actions
+
+  if (node.internal.type === "wordpress__POST") {
+    const cfWpMedias = getNodes().filter(
+      n => n.internal.type === "ContentfulWpMedia"
+    )
+
+    let blogImageNode = {}
+
+    blogImageNode = cfWpMedias.find(n => n.blogId === node.wordpress_id)
+
+    if (!blogImageNode) {
+      console.warn(
+        `Featured media for Blog Post ${node.slug} was not found. Using the default one`
+      )
+      blogImageNode = cfWpMedias.find(n => n.blogId === 999999)
+    }
+
+    if (!blogImageNode) {
+      throw new Error(`Featured media for blog post ${node.slug} was not found. Default featured media was not found.
+      `)
+    }
+
+    createNodeField({
+      node,
+      name: "featured_media___NODE",
+      value: blogImageNode.image___NODE,
+    })
+  }
+}
+
 const sharp = require("sharp")
 if (
   process.env.DISABLE_SHARP_CACHE &&
@@ -43,23 +75,22 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
               slug
               name
             }
-            tags {
-              slug
-            }
             author {
               name
             }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid(quality: 70, maxWidth: 800) {
-                    base64
-                    aspectRatio
-                    src
-                    srcSet
-                    sizes
-                    originalImg
-                    originalName
+            fields {
+              featured_media {
+                localFile {
+                  childImageSharp {
+                    fluid(quality: 70, maxWidth: 800) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      sizes
+                      originalImg
+                      originalName
+                    }
                   }
                 }
               }

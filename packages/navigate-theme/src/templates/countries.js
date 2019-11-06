@@ -40,8 +40,6 @@ const Countries = ({ data, pageContext }) => {
     return result.length
   }
 
-  console.log(data)
-
   // setting proper URL based on country
   //TODO: This youtube video should not be static on code. We need to define it on
   //contentful
