@@ -3,35 +3,18 @@
  * https://github.com/gatsbyjs/gatsby/issues/6291
  */
 
+const normalize = require(`./scripts/normalize`)
+
 exports.onCreateNode = async ({ actions, getNodes, node }, pluginOptions) => {
-  const { createNodeField, touchNode } = actions
+  const { createNodeField } = actions
+  const parameters = { createNodeField, getNodes, node }
 
   if (node.internal.type === "wordpress__POST") {
-    const cfWpMedias = getNodes().filter(
-      n => n.internal.type === "ContentfulWpMedia"
-    )
+    await normalize.normalizeBlogNode(parameters)
+  }
 
-    let blogImageNode = {}
-
-    blogImageNode = cfWpMedias.find(n => n.blogId === node.wordpress_id)
-
-    if (!blogImageNode) {
-      console.warn(
-        `Featured media for Blog Post ${node.slug} was not found. Using the default one`
-      )
-      blogImageNode = cfWpMedias.find(n => n.blogId === 999999)
-    }
-
-    if (!blogImageNode) {
-      throw new Error(`Featured media for blog post ${node.slug} was not found. Default featured media was not found.
-      `)
-    }
-
-    createNodeField({
-      node,
-      name: "featured_media___NODE",
-      value: blogImageNode.image___NODE,
-    })
+  if (node.internal.type === "wordpress__wp_users") {
+    await normalize.normalizeAuthorNode(parameters)
   }
 }
 

@@ -20,8 +20,8 @@ function getRobotsTxtPolicy() {
 
 module.exports = {
   siteMetadata: {
-    title: `New Zealand, Australia & Europe Adventure Tours | Wild Kiwi`,
-    description: `Book your New Zealand, Australia or Europe small group epic adventure tour today. Choose from a range of 7 - 28 day tours, perfect for 18 - 35 year olds.`,
+    title: `Skippered Sailing Holidays For 18-35s | MedSailors`,
+    description: `The perfect mix of exploring, partying & relaxation as you set sail for 7 days around the most breath-taking islands in the Mediterranean.`,
     author: `Pouya Ataei`,
     copyright: `Navigate Group Ltd`,
     siteUrl: process.env.GATSBY_SITE_URL,
@@ -115,7 +115,7 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         site: {
-          name: `Wild Kiwi`,
+          name: `MedSailors`,
         },
         contact: {
           email: "sales@medsailors.com",
@@ -290,8 +290,8 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Wild Kiwi`,
-        short_name: `WK`,
+        name: `MedSailors`,
+        short_name: `MS`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#1abc9c`,

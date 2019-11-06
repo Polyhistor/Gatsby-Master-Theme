@@ -59,14 +59,16 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
       <div className="row">
         <div className="blog-author">
           <div className="blog-author__info">
-            {/*TODO - AUTHOR IMAGE 
-            <Img
-              fluid={
-                data.wordpressWpUsers.acf.image.localFile.childImageSharp.fluid
-              }
-              alt={data.wordpressWpUsers.name}
-              className="blog-author__avatar"
-            />*/}
+            {
+              <Img
+                fluid={
+                  data.wordpressWpUsers.fields.image.localFile.childImageSharp
+                    .fluid
+                }
+                alt={data.wordpressWpUsers.name}
+                className="blog-author__avatar"
+              />
+            }
             <h2 className="blog-author__name">{data.wordpressWpUsers.name}</h2>
             <h3 className="blog-author__title">
               {data.wordpressWpUsers.acf.title}

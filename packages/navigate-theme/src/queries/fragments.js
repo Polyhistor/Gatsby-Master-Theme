@@ -34,17 +34,17 @@ export const BlogPostFragment = graphql`
     author {
       slug
       name
-      #acf {
-      # image {
-      #  localFile {
-      #   childImageSharp {
-      #    fluid(quality: 70, maxWidth: 770) {
-      #     ...GatsbyImageSharpFluid
-      #  }
-      #}
-      #}
-      # }
-      #}
+      fields {
+        image {
+          localFile {
+            childImageSharp {
+              fluid(quality: 70, maxWidth: 770) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
     # tags {
     #   slug
@@ -81,6 +81,17 @@ export const BlogAuthorFragment = graphql`
     name
     description
     slug
+    fields {
+      image {
+        localFile {
+          childImageSharp {
+            fluid(quality: 80, maxWidth: 770) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
     acf {
       title
       facebook
