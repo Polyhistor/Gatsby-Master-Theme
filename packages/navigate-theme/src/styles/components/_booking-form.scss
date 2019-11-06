@@ -48,6 +48,10 @@
       justify-content: flex-end;
       align-items: center;
 
+      @include respond(phone) {
+        display: none;
+      }
+
       & > h4 {
         padding-right: 8rem;
 
@@ -344,10 +348,16 @@
       }
 
       @include respond(phone) {
-        height: 6rem;
+        height: 9rem;
         display: flex;
         flex-direction: column;
         margin-bottom: 2.5rem;
+      }
+
+      &--ms {
+        @include respond(phone) {
+          height: 19rem;
+        }
       }
 
       &:nth-child(n + 6) {
@@ -411,6 +421,11 @@
 
     &--ms {
       width: 68%;
+
+      @include respond(phone) {
+        flex-direction: column;
+        width: 100%;
+      }
     }
   }
 
@@ -566,7 +581,11 @@
       }
 
       @include respond(laptop) {
-        width: 55%;
+        width: 84%;
+      }
+
+      @include respond(phone) {
+        width: 99%;
       }
     }
   }
@@ -601,6 +620,9 @@
     &--ms {
       color: $color-med-teal;
       margin-left: 1.5rem;
+      @include respond(laptop) {
+        margin-left: 0;
+      }
 
       @include respond(tablet) {
         margin-left: 0rem;
@@ -608,8 +630,10 @@
         font-size: 0.8rem;
       }
 
-      @include respond(laptop) {
-        margin-left: 0;
+      @include respond(phone) {
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+        font-size: 1.2rem;
       }
     }
 
