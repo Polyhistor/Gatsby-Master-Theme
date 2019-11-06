@@ -135,7 +135,9 @@ const BookingForm = ({ data, country, inPage }) => {
           }
         >
           {theme === "ms" ? (
-            <div className="mobile-yes"> {p.productClass}</div>
+            <div className="mobile-yes heading-5 heading-5--ms">
+              {p.productClass}
+            </div>
           ) : null}
 
           <div
@@ -215,7 +217,11 @@ const BookingForm = ({ data, country, inPage }) => {
                   onClick={
                     theme === "ms" ? null : _ => handleClick(_, idx, idx2, d)
                   }
-                  className="booking-form__hidden-entries"
+                  className={
+                    theme === "ms"
+                      ? "booking-form__hidden-entries booking-form__hidden-entries--ms"
+                      : "booking-form__hidden-entries"
+                  }
                 >
                   <div className="booking-form__left">
                     <div className="booking-form__date-container">
