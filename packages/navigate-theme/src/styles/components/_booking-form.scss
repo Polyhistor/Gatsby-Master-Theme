@@ -129,6 +129,10 @@
 
       &-ms {
         color: $color-med-teal;
+
+        @include respond(phone) {
+          display: none;
+        }
       }
     }
   }

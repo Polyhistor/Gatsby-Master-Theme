@@ -9,8 +9,6 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
-  console.log(data)
-
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -136,6 +134,10 @@ const BookingForm = ({ data, country, inPage }) => {
               : "booking-form__price-entry"
           }
         >
+          {theme === "ms" ? (
+            <div className="mobile-yes"> {p.productClass}</div>
+          ) : null}
+
           <div
             className={
               theme === "ms"
