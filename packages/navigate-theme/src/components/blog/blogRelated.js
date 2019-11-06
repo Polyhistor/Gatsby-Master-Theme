@@ -21,7 +21,11 @@ const BlogRelated = ({ blogQuery }) => {
           <h3 className="blog-single__title blog-single__title--side">
             {element.node.title}
           </h3>
-          <h4>{element.node.categories[0].name}</h4>
+          <h4>
+            {element.node.categories && element.node.categories.length > 0
+              ? element.node.categories[0].name
+              : "Uncategorised"}
+          </h4>
           <h5>{element.node.author.name}</h5>
         </Link>
       )

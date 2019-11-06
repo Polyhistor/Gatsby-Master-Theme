@@ -70,7 +70,11 @@ const BlogSearch = ({ pageContext }) => {
 
     return ourData.filter(element => {
       // filter logic
-      if (element.node.categories[0].name === e) {
+      if (
+        element.node.categories &&
+        element.node.categories.length > 0 &&
+        element.node.categories[0].name === e
+      ) {
         filteredData.push(element)
       }
 

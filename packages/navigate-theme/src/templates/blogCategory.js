@@ -18,7 +18,10 @@ const BlogCategory = ({ data, pageContext }) => {
   const homeQuery = useHomePageQuery()
 
   const filteredData = data.allWordpressPost.edges.filter(
-    e => e.node.categories[0].slug === pageContext.slug
+    e =>
+      e.node.categories &&
+      e.node.categories.length > 0 &&
+      e.node.categories[0].slug === pageContext.slug
   )
 
   // rendering blogs
