@@ -251,7 +251,7 @@
       & > select {
         @include respond(phone) {
           padding: 1rem 4rem 1rem 1rem;
-          width: 30rem;
+          width: 29rem;
         }
 
         &:after {
@@ -260,7 +260,7 @@
       }
 
       &:after {
-        left: 29.2rem;
+        left: 28.2rem;
       }
     }
   }
@@ -356,7 +356,7 @@
 
       &--ms {
         @include respond(phone) {
-          height: 19rem;
+          height: 22rem;
         }
       }
 
@@ -398,6 +398,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      margin-left: -1.1rem;
     }
   }
 
@@ -587,7 +588,7 @@
         max-width: 32rem;
         display: flex;
         justify-content: center;
-        height: 4.5rem;
+        height: 6rem;
         border-right: 0;
         border-left: 0;
         border-top: 0;
