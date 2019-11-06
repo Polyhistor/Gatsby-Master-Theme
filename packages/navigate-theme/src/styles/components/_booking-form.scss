@@ -344,7 +344,7 @@
       align-items: center;
 
       @include respond(laptop) {
-        align-items: flex-start;
+        align-items: center;
       }
 
       @include respond(phone) {
@@ -384,6 +384,10 @@
     justify-content: space-between;
     width: 32%;
 
+    @include respond(laptop) {
+      width: 28%;
+    }
+
     @include respond(tablet) {
       width: 36%;
       margin-left: -1rem;
@@ -399,7 +403,7 @@
   &__right {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 28rem);
+    grid-template-columns: repeat(3, 21.5rem);
     justify-content: right;
 
     @include respond(laptop) {
@@ -435,7 +439,8 @@
     width: 10rem;
 
     @include respond(laptop) {
-      width: 7rem;
+      width: 8rem;
+      font-size: 1.2rem;
     }
 
     @include respond(tablet) {
@@ -483,6 +488,10 @@
     width: 14.5rem;
     justify-content: space-between;
     align-items: center;
+
+    @include respond(laptop) {
+      width: 10.5rem;
+    }
 
     @include respond(tablet) {
       width: 6.5rem;
@@ -579,6 +588,10 @@
         display: flex;
         justify-content: center;
         height: 4.5rem;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+        border-bottom: 1px solid #e7e7e7;
       }
 
       & > div:first-of-type {
@@ -597,7 +610,7 @@
       }
 
       @include respond(laptop) {
-        width: 84%;
+        width: 41%;
       }
 
       @include respond(phone) {
