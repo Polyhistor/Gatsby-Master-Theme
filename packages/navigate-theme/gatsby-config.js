@@ -4,6 +4,10 @@
 module.exports = themeOptions => {
   return {
     plugins: [
+      {
+        resolve: "gatsby-plugin-netlify-cache",
+        cachePublic: true,
+      },
       `gatsby-plugin-catch-links`,
       `gatsby-plugin-remove-trailing-slashes`,
       `gatsby-plugin-playground`,
