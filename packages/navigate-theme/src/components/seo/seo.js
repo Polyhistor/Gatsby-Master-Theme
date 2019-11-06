@@ -27,6 +27,38 @@ function SEO({ title, description, author, lang }) {
     author: author || site.siteMetadata.author,
     lang,
   }
+
+  const buildOpenGraphMetas = ({
+    title,
+    description,
+    image,
+    type = "website",
+  }) => {
+    const ogMetas = []
+
+    ogMetas.push({
+      name: `og:type`,
+      content: type,
+    })
+
+    ogMetas.push({
+      name: `og:title`,
+      content: title,
+    })
+
+    ogMetas.push({
+      name: `og:description`,
+      content: description,
+    })
+
+    ogMetas.push({
+      name: `og:image`,
+      content: metaData.description,
+    })
+
+    return ogMetas
+  }
+
   /**
    * Build Metatags based on metadata props
    */
