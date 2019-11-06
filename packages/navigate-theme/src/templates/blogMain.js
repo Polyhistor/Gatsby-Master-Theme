@@ -37,7 +37,9 @@ const IndexPage = ({ pageContext }) => {
   const renderBlogs = () => {
     return group.map(({ node }) => {
       const blogMainCategory =
-        node.categories.length > 0 ? node.categories[0].name : "Uncategorised"
+        node.categories && node.categories.length > 0
+          ? node.categories[0].name
+          : "Uncategorised"
 
       return (
         <div className="blog__main-container" key={node.wordpress_id}>

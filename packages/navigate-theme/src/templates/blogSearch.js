@@ -101,7 +101,9 @@ const BlogSearch = ({ pageContext }) => {
   const renderBlogs = () => {
     return data.map(({ node }) => {
       const blogMainCategory =
-        node.categories.length > 0 ? node.categories[0].name : "Uncategorised"
+        node.categories && node.categories.length > 0
+          ? node.categories[0].name
+          : "Uncategorised"
 
       return (
         <div className="blog__categorized-container" key={node.wordpress_id}>
