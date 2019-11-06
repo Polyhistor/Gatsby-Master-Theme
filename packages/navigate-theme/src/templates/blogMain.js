@@ -36,7 +36,6 @@ const IndexPage = ({ pageContext }) => {
 
   const renderBlogs = () => {
     return group.map(({ node }) => {
-      console.log(node)
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
           <Link className="blog__main-link" to={`blog/${node.slug}`}>
