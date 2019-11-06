@@ -36,7 +36,9 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
                 )}
                 <h2 className="article-single__title">{title}</h2>
                 <h3 className="article-single__sub-title">
-                  {categories[0].name}
+                  {categories && categories.length > 0
+                    ? categories[0].name
+                    : "Uncategorised"}
                 </h3>
               </Link>
             )
