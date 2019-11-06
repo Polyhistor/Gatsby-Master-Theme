@@ -40,8 +40,8 @@ const BlogPostTemplate = ({ data }, idx) => {
               className="blog-single__banner"
               alt={data.wordpressPost.title}
               fluid={
-                data.wordpressPost.featured_media.localFile.childImageSharp
-                  .fluid
+                data.wordpressPost.fields.featured_media.localFile
+                  .childImageSharp.fluid
               }
             />
           </div>
@@ -65,14 +65,14 @@ const BlogPostTemplate = ({ data }, idx) => {
             {/* some error checking */}
             {data.wordpressPost.author.acf !== null && (
               <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
-                <Img
+                {/*<Img
                   fluid={
                     data.wordpressPost.author.acf.image.localFile
                       .childImageSharp.fluid
                   }
                   alt={data.wordpressPost.author.name}
                   className="blog-single__avatar"
-                />
+                />*/}
               </Link>
             )}
             <Link to={`blog/author/${data.wordpressPost.author.slug}`}>

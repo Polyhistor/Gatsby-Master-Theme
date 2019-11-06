@@ -20,15 +20,17 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
     // error handling
     if (data.wordpressWpUsers.authored_wordpress__POST !== null) {
       return data.wordpressWpUsers.authored_wordpress__POST.map(
-        ({ id, title, slug, categories, featured_media }, idx) => {
+        ({ id, title, slug, categories, fields }, idx) => {
           // since our wordpress source plugin did not support limit method on the query, we use the index trick
           while (idx < 12) {
             return (
               <Link to={`/blog/${slug}`} key={id} className="article-single">
-                {featured_media !== null && (
+                {fields.featured_media !== null && (
                   <Img
                     className="article-single__thumb"
-                    fluid={featured_media.localFile.childImageSharp.fluid}
+                    fluid={
+                      fields.featured_media.localFile.childImageSharp.fluid
+                    }
                     alt={title}
                   />
                 )}

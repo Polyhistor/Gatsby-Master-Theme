@@ -43,11 +43,13 @@ const BlogSearch = ({ pageContext }) => {
             categories {
               name
             }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
+            fields {
+              featured_media {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
@@ -104,9 +106,11 @@ const BlogSearch = ({ pageContext }) => {
             className="blog__main-link"
             to={`blog/${node.categories[0].slug}/${node.slug}`}
           >
-            {node.featured_media !== null && (
+            {node.fields.featured_media !== null && (
               <Img
-                fluid={node.featured_media.localFile.childImageSharp.fluid}
+                fluid={
+                  node.fields.featured_media.localFile.childImageSharp.fluid
+                }
                 alt={node.title}
               />
             )}

@@ -34,17 +34,17 @@ export const BlogPostFragment = graphql`
     author {
       slug
       name
-      acf {
-        image {
-          localFile {
-            childImageSharp {
-              fluid(quality: 70, maxWidth: 770) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
+      #acf {
+      # image {
+      #  localFile {
+      #   childImageSharp {
+      #    fluid(quality: 70, maxWidth: 770) {
+      #     ...GatsbyImageSharpFluid
+      #  }
+      #}
+      #}
+      # }
+      #}
     }
     # tags {
     #   slug
@@ -54,17 +54,19 @@ export const BlogPostFragment = graphql`
       slug
       name
     }
-    featured_media {
-      localFile {
-        childImageSharp {
-          resolutions(width: 1500, height: 770) {
-            src
-            srcSet
-            width
-            height
-          }
-          fluid(quality: 70, maxWidth: 770) {
-            ...GatsbyImageSharpFluid
+    fields {
+      featured_media {
+        localFile {
+          childImageSharp {
+            # resolutions(width: 1500, height: 770) {
+            #  src
+            # srcSet
+            # width
+            # height
+            #}
+            fluid(quality: 70, maxWidth: 770) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
@@ -84,15 +86,15 @@ export const BlogAuthorFragment = graphql`
       facebook
       instagram
       description
-      image {
-        localFile {
-          childImageSharp {
-            fluid(quality: 80, maxWidth: 770) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
+      #image {
+      # localFile {
+      # childImageSharp {
+      #  fluid(quality: 80, maxWidth: 770) {
+      #...GatsbyImageSharpFluid
+      # }
+      #}
+      #}
+      #}
     }
     authored_wordpress__POST {
       id
@@ -102,11 +104,13 @@ export const BlogAuthorFragment = graphql`
         slug
         name
       }
-      featured_media {
-        localFile {
-          childImageSharp {
-            fluid(quality: 80, maxWidth: 770) {
-              ...GatsbyImageSharpFluid
+      fields {
+        featured_media {
+          localFile {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 770) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

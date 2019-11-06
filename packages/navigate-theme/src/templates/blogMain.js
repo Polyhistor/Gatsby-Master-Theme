@@ -36,12 +36,15 @@ const IndexPage = ({ pageContext }) => {
 
   const renderBlogs = () => {
     return group.map(({ node }) => {
+      console.log(node)
       return (
         <div className="blog__main-container" key={node.wordpress_id}>
           <Link className="blog__main-link" to={`blog/${node.slug}`}>
-            {node.featured_media !== null && (
+            {node.fields.featured_media !== null && (
               <Img
-                fluid={node.featured_media.localFile.childImageSharp.fluid}
+                fluid={
+                  node.fields.featured_media.localFile.childImageSharp.fluid
+                }
                 alt={node.title}
               />
             )}
