@@ -570,6 +570,22 @@
       &:hover {
         background: $color-gray-light-2;
       }
+
+      @include respond(phone) {
+        width: 100vw;
+        position: relative;
+        left: calc(-50vw + 50%);
+        max-width: 32rem;
+        display: flex;
+        justify-content: center;
+        height: 4.5rem;
+      }
+
+      & > div:first-of-type {
+        @include respond(phone) {
+          width: 90%;
+        }
+      }
     }
 
     &-ms {
@@ -585,7 +601,7 @@
       }
 
       @include respond(phone) {
-        width: 99%;
+        width: 44%;
       }
     }
   }
