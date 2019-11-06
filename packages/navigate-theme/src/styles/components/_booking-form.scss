@@ -50,6 +50,16 @@
 
       & > h4 {
         padding-right: 8rem;
+
+        @include respond(laptop) {
+          padding-right: 9.7rem;
+          font-size: 1.3rem;
+        }
+
+        @include respond(tablet) {
+          font-size: 1.1rem;
+          padding-right: 3.4rem;
+        }
       }
     }
   }
@@ -303,6 +313,10 @@
     & input:checked ~ .booking-form__plus-holder::after {
       transform: rotate(0deg);
     }
+
+    @include respond(laptop) {
+      max-width: 95%;
+    }
   }
 
   &__hidden {
@@ -320,6 +334,10 @@
       cursor: pointer;
       text-align: center;
       align-items: center;
+
+      @include respond(laptop) {
+        align-items: flex-start;
+      }
 
       @include respond(phone) {
         height: 6rem;
@@ -352,12 +370,9 @@
     justify-content: space-between;
     width: 32%;
 
-    @include respond(laptop) {
-      width: 53%;
-    }
-
     @include respond(tablet) {
-      width: 60%;
+      width: 36%;
+      margin-left: -1rem;
     }
 
     @include respond(phone) {
@@ -374,11 +389,13 @@
     justify-content: right;
 
     @include respond(laptop) {
-      width: 31%;
+      width: 95%;
+      grid-template-columns: repeat(3, 21.5rem);
     }
 
     @include respond(tablet) {
-      width: 35%;
+      width: 68%;
+      grid-template-columns: repeat(3, 14rem);
     }
 
     @include respond(phone) {
@@ -399,11 +416,11 @@
     width: 10rem;
 
     @include respond(laptop) {
-      width: 10rem;
+      width: 7rem;
     }
 
     @include respond(tablet) {
-      width: 9.5rem;
+      width: 8.5rem;
     }
 
     @include respond(phone) {
@@ -414,6 +431,10 @@
 
   &__date {
     font-family: Nunito-Black;
+
+    @include respond(tablet) {
+      font-size: 1.1rem;
+    }
 
     @include respond(phone) {
       font-size: 1.2rem;
@@ -443,6 +464,10 @@
     width: 14.5rem;
     justify-content: space-between;
     align-items: center;
+
+    @include respond(tablet) {
+      width: 6.5rem;
+    }
 
     @include respond(phone) {
       width: 11.5rem;
@@ -530,6 +555,15 @@
 
     &-ms {
       width: 52%;
+
+      @include respond(tablet) {
+        margin-left: 0.5rem;
+        width: 70%;
+      }
+
+      @include respond(laptop) {
+        width: 55%;
+      }
     }
   }
 
@@ -540,6 +574,14 @@
 
   &__discount {
     font-family: Nunito-Black;
+
+    @include respond(laptop) {
+      font-size: 1.4rem;
+    }
+
+    @include respond(tablet) {
+      font-size: 1.1rem;
+    }
 
     @include respond(phone) {
       font-size: 1.2rem;
@@ -555,6 +597,16 @@
     &--ms {
       color: $color-med-teal;
       margin-left: 1.5rem;
+
+      @include respond(tablet) {
+        margin-left: 0rem;
+        width: 4rem;
+        font-size: 0.8rem;
+      }
+
+      @include respond(laptop) {
+        margin-left: 0;
+      }
     }
 
     &--selected {

@@ -9,6 +9,8 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  console.log(data)
+
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -80,6 +82,19 @@ const BookingForm = ({ data, country, inPage }) => {
   // setting value for the dropdown
   const [selectValue, setSelectValue] = useState("all")
 
+  const renderHeader = () => {
+    if (theme === "ms" && entries !== null) {
+      return (
+        <div className="booking-form__header-classes">
+          <h4 className="heading-3 heading-3--ms">premier Yacht</h4>
+          <h4 className="heading-3 heading-3--ms">superior monocat</h4>
+          <h4 className="heading-3 heading-3--ms">catamaran</h4>
+        </div>
+      )
+    }
+    return null
+  }
+
   const handleClick = (_, idx, idx2, d) => {
     // these will be used later for advanced select functionality
     // const ourElement = refs[idx].childNodes[idx2]
@@ -88,9 +103,6 @@ const BookingForm = ({ data, country, inPage }) => {
     // const date = entries.month.find(m =>
     //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
     // )
-
-    console.log("yo")
-    console.log(entries)
 
     setClassPrice(entries.classPrice)
     setCabin(entries.cabins)
@@ -201,11 +213,7 @@ const BookingForm = ({ data, country, inPage }) => {
                   onClick={
                     theme === "ms" ? null : _ => handleClick(_, idx, idx2, d)
                   }
-                  className={
-                    d.availability === "Sold Out"
-                      ? "booking-form__hidden-entries booking-form__hidden-entries--soldout"
-                      : "booking-form__hidden-entries"
-                  }
+                  className="booking-form__hidden-entries"
                 >
                   <div className="booking-form__left">
                     <div className="booking-form__date-container">
@@ -427,13 +435,7 @@ const BookingForm = ({ data, country, inPage }) => {
               </div>
             )}
             <div className="booking-form__entries">
-              {theme === "ms" ? (
-                <div className="booking-form__header-classes">
-                  <h4 className="heading-3 heading-3--ms">premier Yacht</h4>
-                  <h4 className="heading-3 heading-3--ms">superior monocat</h4>
-                  <h4 className="heading-3 heading-3--ms">catamaran</h4>
-                </div>
-              ) : null}
+              {renderHeader()}
               {renderEntries()}
             </div>
           </div>
