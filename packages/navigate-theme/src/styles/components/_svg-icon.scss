@@ -1,0 +1,190 @@
+.svg-icon {
+  &--play-button {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    fill: currentColor;
+
+    & ~ span {
+      display: inline-block;
+      transform: translateY(0rem);
+    }
+
+    &--mobile {
+      height: 2.5rem;
+      width: 2.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &--wk-logo {
+    width: 12rem;
+    height: 5.5rem;
+  }
+
+  &--ms-logo {
+    width: 12rem;
+    height: 7.7rem;
+    margin-top: -1.19rem;
+  }
+
+  &--login {
+    width: 3.4rem;
+    height: 3.4rem;
+    transform: translateY(0.7rem);
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &--logo-metro {
+    width: 16.3rem;
+    height: 2.5rem;
+
+    @include respond(tablet) {
+      width: 10rem;
+    }
+
+    @include respond(phone) {
+      width: 12rem;
+    }
+  }
+
+  &--logo-daily {
+    width: 22.3rem;
+    height: 2.8rem;
+
+    @include respond(tablet) {
+      width: 13rem;
+    }
+
+    @include respond(phone) {
+      width: 15rem;
+      margin-top: 0;
+    }
+  }
+
+  &--logo-westpac {
+    width: 21.3rem;
+    height: 2.2rem;
+
+    @include respond(tablet) {
+      width: 13rem;
+    }
+
+    @include respond(phone) {
+      margin-left: 4.4rem;
+    }
+  }
+
+  &--logo-qualmark {
+    width: 6.9rem;
+    height: 5.1rem;
+
+    @include respond(tablet) {
+      height: 4.5rem;
+    }
+
+    @include respond(phone) {
+      width: 10rem;
+      margin-left: 3rem;
+    }
+  }
+
+  &--countries {
+    width: 28.57rem;
+    height: 38rem;
+
+    @include respond(laptop) {
+      width: 27.57rem;
+    }
+  }
+
+  &--Instagram {
+    fill: red !important;
+    height: 4.5rem;
+    width: 4.5rem;
+
+    &-grey {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &--Youtube {
+    height: 4.5rem;
+    width: 5.2rem;
+  }
+
+  &--Facebook {
+    height: 4.5rem;
+    width: 3rem;
+
+    &-grey {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &--QualMark_Footer {
+    width: 80%;
+    margin-top: 1.6rem;
+
+    @include respond(phone) {
+      width: 45%;
+    }
+  }
+
+  &--star {
+    height: 2rem;
+  }
+
+  &--star-big {
+    height: 4rem;
+  }
+
+  &--mountains {
+    height: 3.7rem;
+    width: 17rem;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &--wheel {
+    height: 3.7rem;
+    width: 5rem;
+  }
+
+  &--icon-Bus {
+    width: 5.4rem;
+    height: 6rem;
+  }
+
+  &--icon-Guide {
+    width: 7.7rem;
+    height: 6rem;
+  }
+
+  &--icon-Group-Tours {
+    width: 7rem;
+    height: 5.1rem;
+  }
+
+  &--icon-Scenery {
+    width: 6rem;
+    height: 6.4rem;
+  }
+
+  &--facebook {
+    height: 3rem;
+  }
+
+  &--MSIncludes {
+    width: 6.7rem;
+    height: 7rem;
+    margin-right: 2rem;
+  }
+}

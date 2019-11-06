@@ -1,0 +1,54 @@
+.WhyWild {
+  &-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 28.4rem);
+    grid-column-gap: 1.5rem;
+
+    @include respond(laptop) {
+      grid-row-gap: 3rem;
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(auto-fit, 22.3rem);
+    }
+
+    &-single {
+      display: grid;
+      grid-template-rows: 16rem 4rem min-content min-content;
+
+      @include respond(laptop) {
+        grid-template-rows: 5.2rem 15.5rem;
+        grid-template-columns: 27rem 27rem;
+        grid-column-gap: 2rem;
+      }
+
+      @include respond(phone) {
+        padding-bottom: 2rem;
+      }
+
+      &__image {
+        height: 25;
+        border-radius: 3px;
+
+        @include respond(laptop) {
+          grid-row: 1/-1;
+        }
+      }
+
+      &__title {
+        padding: 1rem 0rem;
+        @extend .paragraph;
+        @extend .paragraph--black;
+        @extend .paragraph--green;
+
+        &--ms {
+          color: $color-med-teal;
+        }
+      }
+
+      &__description {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

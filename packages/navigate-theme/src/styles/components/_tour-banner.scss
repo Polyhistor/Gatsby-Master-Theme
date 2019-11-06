@@ -1,0 +1,264 @@
+.tour-banner {
+  &__description {
+    padding: 2rem 2rem 0 2rem;
+    &-title {
+      @extend .heading-2;
+      @extend .heading-2--extraBold-green;
+      margin-bottom: 0.6rem;
+
+      @include respond(tablet) {
+        font-size: 4.5rem;
+      }
+
+      @include respond(phone) {
+        font-size: 3.4rem;
+        font-family: Nunito-Black;
+      }
+
+      &--ms {
+        @extend .heading-2;
+        @extend .heading-2--extraBold;
+        @extend .heading-2--ms;
+      }
+    }
+
+    &-subtitle {
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
+
+      @include respond(phone) {
+        color: $color-grey-dark-3;
+        font-family: Nunito-Black;
+        font-size: 3rem;
+      }
+
+      @include respond(tablet) {
+        font-size: 3rem;
+      }
+
+      &-departs {
+        @include respond(phone) {
+          font-size: 1.6rem;
+          padding-top: 0.5rem;
+          font-family: Nunito-Black;
+        }
+
+        @include respond(tablet) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-details {
+      @extend .paragraph;
+      padding-bottom: 0.5rem;
+
+      @include respond(tablet) {
+        font-size: 2rem;
+      }
+
+      @include respond(phone) {
+        font-size: 1.6rem;
+      }
+    }
+    &-price {
+      @extend .heading-4;
+      @extend .heading-4--darkGrey-capitalized;
+
+      @include respond(tablet) {
+        font-size: 2rem;
+      }
+
+      @include respond(phone) {
+        font-size: 2rem;
+        font-family: Nunito-Black;
+      }
+
+      &-ms {
+        color: $color-med-teal;
+      }
+    }
+    &-button-box {
+      padding-top: 2.2rem;
+
+      @include respond(laptop) {
+        padding-top: 4.5rem;
+      }
+
+      @include respond(tablet) {
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        &:first-child {
+          display: none;
+        }
+      }
+
+      & > a {
+        font-size: 1.38rem;
+        width: 22rem;
+        height: 4.8rem;
+
+        @include respond(tablet) {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      &:first-child a .btn .btn-green {
+        padding: 1.2rem 5.5rem;
+        display: none;
+      }
+    }
+  }
+
+  &__figure {
+    position: relative;
+    width: 60rem;
+
+    @include respond(laptop) {
+      width: 45rem;
+      &:first-child div {
+        height: 42rem;
+      }
+    }
+
+    @include respond(tablet) {
+      width: 70rem;
+      margin-left: 4.9rem;
+
+      &:first-child(1) div {
+        border-radius: 6px;
+      }
+    }
+
+    @include respond(phone) {
+      width: 32rem;
+    }
+
+    &-caption {
+      position: absolute;
+      top: 3%;
+      left: 3%;
+      text-transform: uppercase;
+      font-family: Nunito-Black;
+      color: $color-white;
+      border-radius: 50%;
+      height: 6rem;
+      width: 6rem;
+      text-align: center;
+      font-size: 1.2rem;
+      background-color: $color-primary;
+
+      &--ms {
+        background-color: $color-med-teal;
+      }
+
+      @include respond(tablet) {
+        padding: 0.8rem;
+        font-size: 1.3rem;
+      }
+    }
+
+    & > .gatsby-image-wrapper {
+      height: 40rem;
+
+      @include respond(phone) {
+        height: 20rem;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  &__svg-map-container {
+    height: 40rem;
+    &:nth-child(1) img {
+      height: 40rem;
+      margin-left: -1.5rem;
+      width: 34.4rem;
+
+      @include respond(laptop) {
+        height: 36rem;
+        width: 30rem;
+      }
+
+      @include respond(tablet) {
+        border-left: 1px solid #e7e7e7;
+      }
+    }
+
+    &--newzealand {
+      & > img {
+        @include respond(laptop) {
+          width: 33rem;
+        }
+
+        @include respond(tablet) {
+        }
+      }
+    }
+
+    &--australia {
+      & > img {
+        @include respond(laptop) {
+          width: 29.9rem;
+          margin-top: 2rem;
+        }
+
+        @include respond(tablet) {
+          width: 37rem;
+          height: 38rem;
+          margin-left: -4rem;
+          margin-top: 1rem;
+        }
+
+        @include respond(phone) {
+          width: 33rem;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &--europe {
+      height: 40rem;
+      & > img {
+        @include respond(laptop) {
+          width: 29.7rem;
+          height: 41rem;
+          margin-top: 0.1px;
+        }
+
+        @include respond(tablet) {
+          width: 37.1rem;
+          height: 42.9rem;
+          margin-left: -7.4rem;
+          margin-top: -1.6rem;
+        }
+
+        @include respond(phone) {
+          width: 46.5rem;
+        }
+      }
+    }
+
+    @include respond(tablet) {
+      &:nth-child(1) img {
+        height: 48rem;
+        padding-top: 2rem;
+      }
+    }
+  }
+
+  &__days {
+    font-size: 2.5rem;
+    display: block;
+    height: 2.6rem;
+    margin-top: 0.6rem;
+
+    @include respond(tablet) {
+      font-size: 3.5rem;
+      display: block;
+      height: 3.6rem;
+      margin-top: -1.1rem;
+    }
+  }
+}

@@ -1,0 +1,437 @@
+@mixin Nexa-Rust {
+  font-family: Nexa-Rust-2;
+}
+
+@mixin Nunito-Black {
+  font-family: Nunito-Black;
+}
+
+@mixin Nunito-ExtraBold {
+  font-family: Nunito-Extrabold;
+}
+
+@mixin Nunito-Regular {
+  font-family: Nunito-Regular;
+}
+
+@mixin Archer-Pro {
+  font-family: Archer-Bold;
+}
+
+@mixin Capitalize {
+  text-transform: capitalize;
+}
+
+@mixin Uppercase {
+  text-transform: uppercase;
+}
+
+@mixin Regular {
+  text-transform: None;
+}
+
+@mixin Color-White {
+  color: white;
+}
+
+@mixin Color-Green {
+  color: $color-primary;
+}
+
+@mixin Color-DarkGrey {
+  color: $color-grey-dark-3;
+}
+
+@mixin Color-Grey {
+  color: $color-grey-dark;
+}
+
+@mixin Color-MS-Teal {
+  color: $color-med-teal;
+}
+
+.title {
+  @include Nexa-Rust;
+  font-size: 6rem;
+  @include Color-White;
+  @include Uppercase;
+
+  &--ms {
+    @include Archer-Pro();
+    @include Capitalize();
+  }
+}
+
+.heading-1 {
+  @include Nunito-Black;
+  font-size: 3.5rem;
+  @include Color-Green;
+  @include Capitalize;
+
+  &--ms {
+    @include Archer-Pro();
+    @include Color-MS-Teal();
+  }
+}
+
+.heading-2 {
+  @include Nunito-Black;
+  font-size: 2.7rem;
+  @include Color-White;
+  @include Capitalize;
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
+
+  &--grey {
+    @include Color-Grey();
+  }
+
+  &--extraBold-green {
+    @include Nunito-ExtraBold;
+    @include Color-Green;
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold();
+  }
+
+  &--ms {
+    @include Color-MS-Teal;
+  }
+}
+
+.heading-3 {
+  @include Nexa-Rust;
+  font-size: 2rem;
+  @include Color-White;
+  @include Uppercase;
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--regular {
+    @include Regular;
+  }
+
+  &--green {
+    @include Color-Green();
+  }
+
+  &--extraBold-capitalized-darkGrey {
+    @include Nunito-ExtraBold;
+    @include Capitalize;
+    @include Color-DarkGrey;
+  }
+
+  &--regular-capitaliezd {
+    @include Nunito-Regular;
+    @include Capitalize;
+  }
+
+  &--ms {
+    @include Color-MS-Teal;
+  }
+}
+
+.heading-4 {
+  @include Nunito-ExtraBold;
+  font-size: 1.4rem;
+  @include Color-White;
+  @include Uppercase;
+
+  &--capitalized {
+    @include Capitalize;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--ms {
+    @include Color-MS-Teal();
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--darkGrey {
+    @include Color-DarkGrey;
+  }
+
+  &--grey {
+    @include Color-Grey();
+  }
+
+  &--uppercase {
+    @include Uppercase();
+  }
+
+  &--regular {
+    @include Regular();
+  }
+
+  &--nRegular {
+    @include Nunito-Regular();
+  }
+
+  &--green-capitalized {
+    @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--black-green-capitalized {
+    @include Nunito-Black;
+    @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--darkGrey-capitalized {
+    @include Color-DarkGrey;
+    @include Capitalize;
+  }
+
+  &--regular-capitalized-grey {
+    @include Nunito-Regular;
+    @include Capitalize;
+    @include Color-Grey;
+  }
+
+  &--regular-capitalized-darkGrey {
+    @include Nunito-Regular;
+    @include Capitalize;
+    @include Color-DarkGrey;
+  }
+}
+
+.heading-5 {
+  @include Nunito-ExtraBold;
+  font-size: 1.1rem;
+  @include Color-Grey;
+  @include Uppercase;
+
+  &--darkGrey {
+    @include Color-DarkGrey();
+  }
+
+  &--capitalized {
+    @include Capitalize;
+  }
+
+  &--white {
+    @include Color-White;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--ms {
+    @include Color-MS-Teal();
+  }
+
+  &--green-capitalized {
+    @include Color-Green;
+    @include Capitalize;
+  }
+
+  &--regular-darkGrey-capitalized {
+    @include Nunito-Regular;
+    @include Color-DarkGrey;
+    @include Capitalize;
+  }
+}
+
+.paragraph {
+  @include Nunito-Regular;
+  font-size: 1.6rem;
+  @include Color-DarkGrey;
+
+  &--white {
+    @include Color-White;
+  }
+
+  &--green {
+    @include Color-Green;
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold;
+  }
+
+  &--black {
+    @include Nunito-Black;
+  }
+
+  &--uppercase {
+    @include Uppercase();
+  }
+
+  &--capitalized {
+    @include Capitalize();
+  }
+
+  &--ms {
+    @include Color-MS-Teal();
+  }
+
+  &--extraBold-white-uppercase {
+    @include Nunito-ExtraBold;
+    @include Color-White;
+    @include Uppercase;
+  }
+
+  &--nexaRust-white-capitalized {
+    @include Nexa-Rust;
+    @include Color-White;
+    @include Capitalize;
+  }
+
+  &--extraBold-capitalized-grey {
+    @include Nunito-ExtraBold;
+    @include Capitalize;
+    @include Color-Grey;
+  }
+
+  &--extraBold-green-capitalized {
+    @include Nunito-ExtraBold;
+    @include Color-Green;
+  }
+}
+
+.heading-primary {
+  &--dest {
+    @extend .title;
+
+    & > span {
+      @include respond(phone) {
+        font-size: 3.4rem;
+      }
+    }
+  }
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    animation: moveInleft 0.8s ease-out;
+    font-family: Nexa-Rust-2;
+    line-height: 5rem;
+    white-space: nowrap;
+
+    @include respond(phone) {
+      font-size: 4rem;
+      line-height: 3.5rem;
+    }
+  }
+
+  &--sub {
+    font-size: 1.6rem;
+    font-family: Nexa-Rust-2;
+    animation: moveInleft 2s ease-out;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &--description {
+    color: white;
+    font-size: 1.6rem;
+    font-family: Nunito-Semibold;
+    max-width: 52rem;
+    text-transform: none;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.heading-tertiary {
+  @include tertiaryHeading;
+
+  &--white {
+    color: $color-white;
+    font-family: Nunito-Black;
+
+    @include respond(phone) {
+      color: #fff;
+      padding: 6rem;
+      font-family: nexa-rust;
+      font-size: 6rem;
+    }
+  }
+
+  &--inline {
+    display: inline;
+
+    @include respond(phone) {
+      font-family: Nexa-Rust;
+      display: block;
+      padding-top: 4rem;
+      height: 5rem;
+      padding-bottom: 10rem;
+    }
+  }
+}
+
+.heading-alternative {
+  @extend .paragraph;
+  @extend .paragraph--white;
+
+  &--white {
+    color: white;
+  }
+}
+
+.bold-green {
+  font-size: 3rem;
+  color: $color-primary;
+}
+
+.green-title {
+  @extend .heading-1;
+
+  @include respond(phone) {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.green-title-alternative {
+  font-family: Nunito-Black;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: capitalize;
+
+  &--ms {
+    color: $color-med-teal;
+  }
+}
+
+.green-subtitle-alternative {
+  font-family: Nunito-Regular;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: uppercase;
+
+  &--ms {
+    color: $color-med-teal;
+  }
+}

@@ -1,0 +1,52 @@
+.review {
+  padding: 10rem 4rem;
+
+  @include respond(tablet) {
+    padding: 2rem 2rem;
+  }
+
+  @include respond(phone) {
+    padding: 0rem 1rem 1rem;
+  }
+
+  &__stars-box {
+    display: flex;
+    width: 3rem;
+  }
+
+  &__paragraph {
+    @extend .paragraph;
+
+    @include respond(tablet) {
+      font-size: 1.6rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__author {
+    @extend .heading-4;
+    @extend .heading-4--black;
+    @extend .heading-4--capitalized;
+
+    &--wk {
+      @extend .heading-4--green;
+    }
+
+    &--ms {
+      @extend .heading-4--ms;
+
+      @include respond(phone) {
+        color: $color-med-teal !important;
+      }
+    }
+
+    @include respond(phone) {
+      @include bigCapitalText;
+      color: $color-primary;
+      font-size: 2rem;
+    }
+  }
+}
