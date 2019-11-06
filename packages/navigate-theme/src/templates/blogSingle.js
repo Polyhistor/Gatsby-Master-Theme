@@ -20,6 +20,26 @@ import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"
 import SEO from "../components/seo/seo"
 
+const renderBlogCategoryLink = categories => {
+  const category =
+    categories && categories.length > 0
+      ? data.wordpressPost.categories[0]
+      : undefined
+  if (category) {
+    return (
+      <Link
+        className="blog-single__categories"
+        to={`blog/category/${category.slug}`}
+      >
+        {/* // getting only the first element of the categories array, because in this we do only need one category */}
+        {category.name !== null && category.name}
+      </Link>
+    )
+  } else {
+    return "Uncategorised"
+  }
+}
+
 const BlogPostTemplate = ({ data }, idx) => {
   const shareUrl = `${process.env.GATSBY_SITE_URL}/blog/${data.wordpressPost.slug}`
 
@@ -48,14 +68,8 @@ const BlogPostTemplate = ({ data }, idx) => {
         )}
 
         <div className="row-blog">
-          <Link
-            className="blog-single__categories"
-            to={`blog/category/${data.wordpressPost.categories[0].slug}`}
-          >
-            {/* // getting only the first element of the categories array, because in this we do only need one category */}
-            {data.wordpressPost.categories.name !== null &&
-              data.wordpressPost.categories[0].name}
-          </Link>
+          {renderBlogCategoryLink(data.wordpressPost.categories)}
+
           {data.wordpressPost.data !== null && (
             <h1 className="blog-single__title" key={idx}>
               {data.wordpressPost.title}
