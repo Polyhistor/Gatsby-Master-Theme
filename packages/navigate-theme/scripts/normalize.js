@@ -4,7 +4,7 @@ DEFAULT_BLOG_MEDIA_ID = 999999
 DEFAULT_AUTHOR_ID_MEDIA = 999999
 
 exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
-  const contentfulBlogMedia = getNodes().filter(
+  let contentfulBlogMedia = getNodes().filter(
     n =>
       n.internal.type === "ContentfulWpMedia" &&
       (n.blogId === node.wordpress_id || n.blogId === DEFAULT_BLOG_MEDIA_ID)
@@ -23,7 +23,7 @@ exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
     )
   }
 
-  let blogImage = contentfulBlogMedia[0]
+  const blogImage = contentfulBlogMedia[0]
   createNodeField({
     node,
     name: "featured_media___NODE",
@@ -32,7 +32,7 @@ exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
 }
 
 exports.normalizeAuthorNode = async ({ createNodeField, getNodes, node }) => {
-  const contentfulBlogMedia = getNodes().filter(
+  let contentfulBlogMedia = getNodes().filter(
     n =>
       n.internal.type === "ContentfulWpMedia" &&
       (n.author_id === node.wordpress_id ||
@@ -52,7 +52,7 @@ exports.normalizeAuthorNode = async ({ createNodeField, getNodes, node }) => {
     )
   }
 
-  let blogImage = contentfulBlogMedia[0]
+  const blogImage = contentfulBlogMedia[0]
   createNodeField({
     node,
     name: "image___NODE",
