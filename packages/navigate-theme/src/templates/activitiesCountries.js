@@ -31,7 +31,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
             className="activity__main-link"
             to={`activities/${node.country.slug}/${node.slug}`}
           >
-            {node.fields.featured_media !== null && (
+            {node.bannerImages !== null && (
               <Img
                 fluid={node.bannerImages[0].localFile.childImageSharp.fluid}
                 alt={node.title}
