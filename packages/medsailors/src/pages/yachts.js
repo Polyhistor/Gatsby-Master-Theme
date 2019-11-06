@@ -41,7 +41,7 @@ const OurVehicles = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure for 20 to 35 year olds"
+        text="Skippered sailing holidays for 20-35 year olds."
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />

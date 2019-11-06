@@ -19,6 +19,8 @@ import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 
 const ActivitiesCountries = ({ pageContext, data }) => {
+  const theme = process.env.GATSBY_THEME
+
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -68,7 +70,11 @@ const ActivitiesCountries = ({ pageContext, data }) => {
         />
       </div>
       <GreenBar
-        text="Epic adventure tours for 18 to 35 year olds"
+        text={
+          theme === "ms"
+            ? "Skippered sailing holidays for 20-35 year olds."
+            : "Epic adventure for 18 to 35 year olds"
+        }
         imageData={wildKiwiMountains}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
