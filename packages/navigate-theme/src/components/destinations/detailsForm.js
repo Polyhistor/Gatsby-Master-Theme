@@ -102,6 +102,9 @@ const DetailsForm = ({
             Enter your details
           </h3>
           <div className="booking-form__enquiry-form">
+            <h3 className="booking-form__conditional-text mobile-yes">
+              Enter you details
+            </h3>
             <Formik
               initialValues={{
                 guests: "",
@@ -340,6 +343,15 @@ const DetailsForm = ({
                       </a>
                     </label>
                   </div>
+                  {theme === "ms" ? (
+                    <p className="booking-form__additional-info mobile-yes">
+                      Please note, an additional per person payment of €90
+                      (yacht) or €100 (catamaran) applies to all bookings when
+                      boarding the yacht. The itinerary and sailing route is
+                      subject to change depending on weather and other
+                      prevailing conditions.
+                    </p>
+                  ) : null}
                   <button
                     id={
                       inPage
