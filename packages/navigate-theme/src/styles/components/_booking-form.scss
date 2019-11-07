@@ -559,6 +559,10 @@
     justify-content: flex-end;
     align-items: center;
 
+    @include respond(phone) {
+      width: 100%;
+    }
+
     &-entry {
       display: flex;
       justify-content: center;
@@ -590,6 +594,8 @@
         @include respond(phone) {
           text-align: left;
           margin-left: 1rem;
+          font-size: 1.2rem;
+          width: 60%;
         }
       }
     }
@@ -599,6 +605,10 @@
     font-size: 0.9rem;
     text-decoration-line: line-through;
     margin-right: 0.4rem;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
   }
 
   &__discount {
@@ -609,7 +619,7 @@
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
   }
 

@@ -135,11 +135,10 @@ const BookingForm = ({ data, country, inPage }) => {
           }
         >
           {theme === "ms" ? (
-            <div className="mobile-yes heading-5 heading-5--ms">
+            <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
               {p.productClass}
             </div>
           ) : null}
-
           <div
             className={
               theme === "ms"
