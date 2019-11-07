@@ -119,7 +119,7 @@ const IndexPage = ({ data }) => {
       />
       <GreenBarAlt
         textList={[
-          { label: "destinations", link: "/sail" },
+          { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
           { label: "montenegro", link: "/sail-montenegro" },

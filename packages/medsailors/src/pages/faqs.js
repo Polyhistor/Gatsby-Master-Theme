@@ -16,9 +16,6 @@ import {
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-
 const FAQ = ({ data }) => {
   const SVGIcon = "wheel"
 

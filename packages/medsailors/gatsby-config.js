@@ -208,7 +208,7 @@ module.exports = {
         menuLabel: [
           {
             label: "destinations",
-            link: "/sail",
+            link: "/tours",
             sub: [
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },

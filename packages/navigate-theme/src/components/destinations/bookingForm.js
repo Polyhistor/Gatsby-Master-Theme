@@ -9,6 +9,22 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  //TODO:This should come from api somehow
+  const pricesClassOrdered = [
+    {
+      description: "Premier Yacht",
+      code: "Premier",
+    },
+    {
+      description: "SUPERIOR MONOCAT",
+      code: "Superior Monocats",
+    },
+    {
+      description: "CATAMARAN",
+      code: "Catamaran",
+    },
+  ]
+
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -84,9 +100,13 @@ const BookingForm = ({ data, country, inPage }) => {
     if (theme === "ms" && entries !== null) {
       return (
         <div className="booking-form__header-classes">
-          <h4 className="heading-4 heading-4--ms">premier Yacht</h4>
+          {pricesClassOrdered.map(p => {
+            return <h4 className="heading-4 heading-4--ms">{p.description}</h4>
+          })}
+
+          {/*
           <h4 className="heading-4 heading-4--ms">superior monocat</h4>
-          <h4 className="heading-4 heading-4--ms">catamaran</h4>
+          <h4 className="heading-4 heading-4--ms">catamaran</h4>*/}
         </div>
       )
     }
@@ -122,41 +142,49 @@ const BookingForm = ({ data, country, inPage }) => {
   }
 
   // rendering prices
-  const renderPrices = price =>
-    price.map((p, idx) => {
-      return (
-        <div
-          key={idx}
-          onClick={() => handleClick(p)}
-          className={
-            p.availability === "Sold Out"
-              ? "booking-form__price-entry booking-form__price-entry--soldout"
-              : "booking-form__price-entry"
-          }
-        >
-          {theme === "ms" ? (
-            <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
-              {p.productClass}
-            </div>
-          ) : null}
+  const renderPrices = prices => {
+    return pricesClassOrdered.map((priceClass, idx) => {
+      const p = prices.find(p => p.productClass === priceClass.code)
+      console.log(p)
+      if (p) {
+        return (
           <div
+            key={idx}
+            onClick={() => handleClick(p)}
             className={
-              theme === "ms"
-                ? "booking-form__price booking-form__price-ms"
-                : "booking-form__price"
+              p.availability === "Sold Out"
+                ? "booking-form__price-entry booking-form__price-entry--soldout"
+                : "booking-form__price-entry"
             }
           >
-            <span className={bookingFormAvailablity}>{p.availability}</span>
-            <span className="booking-form__original">{p.rrp}</span>
-            <span className="booking-form__discount">
-              {p.currencySymbol}
-              {p.rrpWithDiscount}&thinsp;
-              {p.currencyCode}
-            </span>
+            {theme === "ms" ? (
+              <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+                {p.productClass}
+              </div>
+            ) : null}
+            <div
+              className={
+                theme === "ms"
+                  ? "booking-form__price booking-form__price-ms"
+                  : "booking-form__price"
+              }
+            >
+              <span className={bookingFormAvailablity}>{p.availability}</span>
+              <span className="booking-form__original">{p.rrp}</span>
+              <span className="booking-form__discount">
+                {p.currencySymbol}
+                {p.rrpWithDiscount}&thinsp;
+                {p.currencyCode}
+              </span>
+            </div>
           </div>
-        </div>
-      )
+        )
+      } else {
+        console.log("NO PRICEEEE")
+        return <div key={idx}>NOT AVAILABLE</div>
+      }
     })
+  }
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
