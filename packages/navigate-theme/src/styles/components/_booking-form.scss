@@ -68,6 +68,20 @@
     }
   }
 
+  &__mobile-back {
+    @extend .heading-5;
+    width: 12rem !important;
+    height: 3.8rem;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: #06babf;
+    color: white;
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+  }
+
   &__steps {
     width: 50%;
     display: flex;
@@ -315,7 +329,7 @@
     position: relative;
 
     & input:checked ~ .booking-form__hidden {
-      max-height: 80rem;
+      max-height: 110rem;
     }
 
     & input:checked ~ .booking-form__plus-holder::after {
@@ -454,8 +468,14 @@
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       text-align: left;
+    }
+
+    &--end {
+      @include respond(phone) {
+        text-align: right;
+      }
     }
   }
 
@@ -466,6 +486,8 @@
 
     @include respond(phone) {
       margin-left: 0rem;
+      font-size: 1.3rem;
+      text-transform: capitalize;
     }
 
     &--end {
@@ -473,7 +495,7 @@
       margin-right: 0.99rem;
 
       @include respond(phone) {
-        margin-right: 0.8rem;
+        margin-right: 0rem !important;
       }
     }
   }
@@ -526,6 +548,10 @@
   &__duration {
     font-size: 0.9rem;
     padding-bottom: 0.2rem;
+
+    @include respond(phone) {
+      font-size: 1.3rem;
+    }
   }
 
   &__promo {
@@ -549,7 +575,7 @@
     flex-direction: column;
 
     @include respond(phone) {
-      margin-left: -1rem;
+      margin-left: 0.3rem;
     }
   }
 
@@ -584,8 +610,8 @@
         max-width: 32rem;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
-        height: 6rem;
+        align-items: center;
+        height: 5rem;
         border-right: 0;
         border-left: 0;
         border-top: 0;
@@ -596,8 +622,8 @@
         @include respond(phone) {
           text-align: left;
           margin-left: 1rem;
-          font-size: 1.4rem;
-          width: 56%;
+          font-size: 1.3rem;
+          width: 36%;
         }
       }
     }
@@ -609,7 +635,7 @@
     margin-right: 0.4rem;
 
     @include respond(phone) {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -621,8 +647,7 @@
     }
 
     @include respond(phone) {
-      font-size: 1.8rem;
-      height: 2.2rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -649,7 +674,7 @@
       @include respond(phone) {
         margin-left: 0.5rem;
         margin-right: 1rem;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
     }
 
@@ -909,6 +934,7 @@
 
     @include respond(phone) {
       width: 30rem;
+      height: 4.4rem;
     }
 
     &--half {
@@ -925,6 +951,10 @@
 
     &--error {
       border: 1px solid $color-red;
+    }
+
+    &--textarea {
+      height: 8rem;
     }
   }
 

@@ -145,7 +145,6 @@ const BookingForm = ({ data, country, inPage }) => {
   const renderPrices = prices => {
     return pricesClassOrdered.map((priceClass, idx) => {
       const p = prices.find(p => p.productClass === priceClass.code)
-      console.log(p)
       if (p) {
         return (
           <div
@@ -153,7 +152,7 @@ const BookingForm = ({ data, country, inPage }) => {
             onClick={() => handleClick(p)}
             className={
               p.availability === "Sold Out"
-                ? "booking-form__price-entry booking-form__price-entry--soldout"
+                ? "booking-form_price-entry booking-form_price-entry--soldout"
                 : "booking-form__price-entry"
             }
           >
@@ -165,12 +164,15 @@ const BookingForm = ({ data, country, inPage }) => {
             <div
               className={
                 theme === "ms"
-                  ? "booking-form__price booking-form__price-ms"
+                  ? "booking-form_price booking-form_price-ms"
                   : "booking-form__price"
               }
             >
               <span className={bookingFormAvailablity}>{p.availability}</span>
-              <span className="booking-form__original">{p.rrp}</span>
+              <span className="booking-form__original">
+                {p.currencySymbol}
+                {p.rrp}
+              </span>
               <span className="booking-form__discount">
                 {p.currencySymbol}
                 {p.rrpWithDiscount}&thinsp;
@@ -296,7 +298,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       </span>
                     </div>
                     <div className="booking-form__date-container">
-                      <span className="booking-form__date">
+                      <span className="booking-form__date booking-form__date--end">
                         {d.endDateShort}
                       </span>
                       <span className="booking-form__destination booking-form__destination--end">
@@ -354,7 +356,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles countries dropdown
   const handleCountryDropdown = e => {
-    setSelectValue("Tours")
+    setSelectValue("Tour")
     setEntries(null)
 
     const filteredDests = destinationData.filter(d => {
@@ -367,6 +369,14 @@ const BookingForm = ({ data, country, inPage }) => {
     <section
       className={inPage ? "booking-form booking-form--in-page" : "booking-form"}
     >
+      {phase ? (
+        <a
+          className="booking-form__mobile-back mobile-yes"
+          onClick={() => setPhase(!phase)}
+        >
+          &larr; previous{" "}
+        </a>
+      ) : null}
       <div className="booking-form__header">
         {!phase ? (
           <>
