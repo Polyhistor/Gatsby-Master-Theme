@@ -3,8 +3,21 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
+/**
+ * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
+ * different names? Was hard to get that looking at the code.
+ * 2 - Those components are used both to render Countries box on Sail/Tour pages but also to render
+ * the destinations in country pages, we should have a better name for component and the property .
+ * The property "destination" sometimes refeers to countries, sometimes destinations.
+ *
+ * We should abstract the business logic and use it in both components. We currently have three components
+ * using the same business logic but different styling, html.
+ *
+ * The business logic should be abstracted from the three components as they basically use the same logic but different interface.
+ */
 const TourBanner = ({
   destination,
+  destinationUrl,
   title,
   subtitle,
   departs,
@@ -59,7 +72,9 @@ const TourBanner = ({
                 }
                 to={
                   country !== undefined
-                    ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${destination}`
+                    ? `${
+                        themeOptionsQueryData.destinationCountryRoutePrefix
+                      }${country}/${destinationUrl || destination}`
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >

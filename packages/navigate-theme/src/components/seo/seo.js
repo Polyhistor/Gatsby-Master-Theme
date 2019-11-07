@@ -4,6 +4,8 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ title, description, author, lang }) {
+  /*The default SEO comes from homePage*/
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,51 +20,84 @@ function SEO({ title, description, author, lang }) {
     `
   )
 
-  /**
-   * replace default props using site metadata
-   */
-  const metaData = {
+  const globalMetadata = {
     title: title || site.siteMetadata.title,
     description: description || site.siteMetadata.description,
-    author: author || site.siteMetadata.author,
     lang,
   }
 
-  const buildOpenGraphMetas = ({
-    title,
-    description,
-    image,
-    type = "website",
-  }) => {
-    const ogMetas = []
+  /**
+   *
+   * replace default props using site metadata
+   */
 
-    ogMetas.push({
+  const buildTwitterMeta = (
+    metadata,
+    type = "website",
+    imageUrl = undefined
+  ) => {
+    const metas = []
+
+    metas.push({
       name: `og:type`,
       content: type,
     })
 
-    ogMetas.push({
+    metas.push({
       name: `og:title`,
-      content: title,
+      content: metadata.title,
     })
 
-    ogMetas.push({
+    metas.push({
       name: `og:description`,
-      content: description,
+      content: metadata.description,
+    })
+    if (imageUrl) {
+      metas.push({
+        name: `og:image`,
+        content: imageUrl,
+      })
+    }
+
+    return metas
+  }
+
+  const buildOpenGraphMeta = (
+    metadata,
+    cardType = "summary_large_image",
+    imageUrl = undefined
+  ) => {
+    const metas = []
+
+    metas.push({
+      name: `twitter:card`,
+      content: cardType,
     })
 
-    ogMetas.push({
-      name: `og:image`,
-      content: metaData.description,
+    metas.push({
+      name: `twitter:description`,
+      content: metadata.description,
     })
 
-    return ogMetas
+    metas.push({
+      name: `twiiter:title`,
+      content: metadata.title,
+    })
+
+    if (imageUrl) {
+      metas.push({
+        name: `twitter:image`,
+        content: imageUrl,
+      })
+    }
+
+    return metas
   }
 
   /**
    * Build Metatags based on metadata props
    */
-  const buildMetaTags = () => {
+  const buildMetaTags = metaData => {
     const metaTags = []
 
     metaTags.push({
@@ -70,47 +105,19 @@ function SEO({ title, description, author, lang }) {
       content: metaData.description,
     })
 
-    metaTags.push({
-      property: `og:title`,
-      content: metaData.title,
-    })
+    metaTags.push(...buildOpenGraphMeta(metaData))
 
-    metaTags.push({
-      property: `og:description`,
-      content: metaData.description,
-    })
-    metaTags.push({
-      property: `og:type`,
-      content: `website`,
-    })
+    metaTags.push(...buildTwitterMeta(metaData))
 
     return metaTags
-    /*
-    Later: 
-    {
-      name: `twitter:card`,
-      content: `summary`,
-    },
-    {
-      name: `twitter:creator`,
-      content: metaData.author,
-    },
-    {
-      name: `twitter:title`,
-      content: metaData.title,
-    },
-    {
-      name: `twitter:description`,
-      content: metaData.description,
-    },*/
   }
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: metaData.lang,
+        lang: globalMetadata.lang,
       }}
-      title={metaData.title}
+      title={globalMetadata.title}
       //   <script
       //   src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
       //   type="text/javascript"
@@ -119,7 +126,7 @@ function SEO({ title, description, author, lang }) {
 
       // <script src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6" type="text/javascript" charset="utf-8"></script>
 
-      meta={buildMetaTags()}
+      meta={buildMetaTags(globalMetadata)}
     >
       {/* <script
         src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
@@ -140,7 +147,8 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  //remove the warning
+  //title: PropTypes.string.isRequired,
 }
 
 export default SEO

@@ -51,6 +51,7 @@ const Countries = ({ data, pageContext }) => {
       : null
 
   // rendering all the destination boxes
+
   const renderCountries = () => {
     return data.contentfulCountry.destinations.map((e, idx) => {
       return (
@@ -58,6 +59,7 @@ const Countries = ({ data, pageContext }) => {
           <DestinationsMobile
             key={idx + 4}
             destination={e.slug}
+            destinationUrl={e.url}
             title={e.title}
             subtitle={e.days}
             departs={e.route}
@@ -72,6 +74,7 @@ const Countries = ({ data, pageContext }) => {
           <DestinationsTablet
             key={idx + 8}
             destination={e.slug}
+            destinationUrl={e.url}
             title={e.title}
             subtitle={e.days}
             departs={e.route}
@@ -87,6 +90,7 @@ const Countries = ({ data, pageContext }) => {
           <TourBanner
             key={idx + 12}
             destination={e.slug}
+            destinationUrl={e.url}
             title={e.title}
             subtitle={e.days}
             departs={e.route}

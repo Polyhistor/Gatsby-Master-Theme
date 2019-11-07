@@ -40,6 +40,15 @@ const IndexPage = ({ data }) => {
     return result.length
   }
 
+  /**
+   * TODO: on DestinationsMobile or trip we always using the country node, but sometimes
+   * its is not country but destination. It was confusing to me to understand that the same
+   * property named by country is being used by countries & destinations.
+   *
+   *
+   * TODO: GreenAlt should not be static on the code, we creating a duplicate on the code. We should read that
+   * from the plugin configurations and render the countries,
+   */
   // rendering all the destination boxes
   const renderCountries = () => {
     return countryQuery
@@ -111,10 +120,10 @@ const IndexPage = ({ data }) => {
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/sail" },
-          { label: "croatia", link: "/sail/croatia" },
-          { label: "greece", link: "/sail/greece" },
-          { label: "montenegro", link: "/sail/montenegro" },
-          { label: "turkey", link: "/sail/turkey" },
+          { label: "croatia", link: "/sail-croatia" },
+          { label: "greece", link: "/sail-greece" },
+          { label: "montenegro", link: "/sail-montenegro" },
+          { label: "turkey", link: "/sail-turkey" },
         ]}
       />
       <WhyUsMobile
