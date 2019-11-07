@@ -405,7 +405,6 @@
     z-index: 10000;
     width: 95vw;
     height: 88vh;
-    border-radius: 1.3rem;
   }
 }
 
@@ -671,6 +670,13 @@ textarea {
 
 // setting the fading animation
 
-.success-message {
-  animation: FadeAnimation 2s ease-in 3s forwards;
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder,
+textarea::placeholder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: $color-grey-dark;
 }

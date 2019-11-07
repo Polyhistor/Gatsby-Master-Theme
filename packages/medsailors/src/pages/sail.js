@@ -38,6 +38,13 @@ const Destination = ({ data }) => {
     return result.length
   }
 
+  /**
+   * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
+   * different names? Was hard to get that looking at the code.
+   * 2 - Those components are used both to render Countries box on Sail/Tour pages but also to render
+   * the destinations in country pages, we should have a better name for component and the property .
+   * The property "destination" sometimes refeers to countries, sometimes destinations.
+   */
   // rendering all the destination boxes
   const renderCountries = () => {
     return countryQuery.map((country, idx) => {

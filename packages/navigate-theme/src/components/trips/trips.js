@@ -28,6 +28,7 @@ const Trips = ({ data }) => {
           key={key}
           imageData={trip.bannerImages[0].localFile.childImageSharp.fluid}
           duration={trip.duration}
+          url={trip.url}
           subtitle={trip.route}
           title={trip.title}
           slug={trip.slug}

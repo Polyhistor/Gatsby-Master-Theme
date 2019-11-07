@@ -140,6 +140,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       allContentfulDestinations {
         edges {
           node {
+            url
             slug
             destinationCountry
             seo {
@@ -345,7 +346,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // this is for destinations
     Destinations.forEach(destination => {
       createPage({
-        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${destination.node.destinationCountry}/${destination.node.slug}`,
+        path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${destination.node.destinationCountry}/${destination.node.url}`,
         component: DestinationsTemplate,
         context: {
           slug: destination.node.slug,

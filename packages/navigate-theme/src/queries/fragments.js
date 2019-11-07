@@ -188,6 +188,7 @@ export const CountriesFragment = graphql`
       }
     }
     destinations {
+      url
       title
       route
       priceFrom
@@ -218,6 +219,7 @@ export const CountriesFragment = graphql`
 // for destinations that has been fetched from Contetnful
 export const DestinationsFragment = graphql`
   fragment Destination on ContentfulDestinations {
+    url
     slug
     filterTag
     title
@@ -404,6 +406,7 @@ export const HomePageFragment = graphql`
       }
     }
     popularTours {
+      url
       slug
       destinationCountry
       title

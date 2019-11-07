@@ -52,6 +52,8 @@ const DetailsForm = ({
   productClass,
   cabins,
 }) => {
+  console.log(cabins)
+
   const theme = process.env.GATSBY_THEME
 
   const renderingCabins = () =>
@@ -314,10 +316,10 @@ const DetailsForm = ({
                   ) : null}
                   <div className="booking-details__fields-container">
                     <Field
-                      type="textarea"
+                      component="textarea"
                       name="comments"
                       placeholder="Comments"
-                      className="booking-form__fields"
+                      className="booking-form__fields booking-form__fields--textarea"
                     ></Field>
                   </div>
                   <div className="booking-details__fields-container">
