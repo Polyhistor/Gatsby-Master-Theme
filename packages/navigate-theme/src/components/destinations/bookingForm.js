@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import Loader from "react-loader-spinner"
+import { withPrefix } from "gatsby"
 
 import Step from "./step"
 import DetailsForm from "./detailsForm"
@@ -182,8 +183,11 @@ const BookingForm = ({ data, country, inPage }) => {
           </div>
         )
       } else {
-        console.log("NO PRICEEEE")
-        return <div key={idx}>NOT AVAILABLE</div>
+        return (
+          <div className="booking-form__price-entry heading-5" key={idx}>
+            NOT AVAILABLE
+          </div>
+        )
       }
     })
   }
@@ -193,7 +197,11 @@ const BookingForm = ({ data, country, inPage }) => {
     if (entries === null) {
       return (
         <h2
-          className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms booking-form__feedback-text"
+              : "heading-1 booking-form__feedback-text"
+          }
         >
           {/* Add preload text to configue */}
           {theme === "ms"
@@ -371,10 +379,10 @@ const BookingForm = ({ data, country, inPage }) => {
     >
       {phase ? (
         <a
-          className="booking-form__mobile-back mobile-yes"
+          className="mobile-yes booking-form__mobile-back"
           onClick={() => setPhase(!phase)}
         >
-          &larr; previous{" "}
+          &#60; back
         </a>
       ) : null}
       <div className="booking-form__header">
@@ -432,6 +440,9 @@ const BookingForm = ({ data, country, inPage }) => {
               </div>
             ) : (
               <div className="booking-form__dropdown">
+                <h3 className="booking-form__conditional-text mobile-yes">
+                  Select your trip and date
+                </h3>
                 <div
                   className={
                     theme === "ms"
