@@ -147,7 +147,10 @@ const BookingForm = ({ data, country, inPage }) => {
             }
           >
             <span className={bookingFormAvailablity}>{p.availability}</span>
-            <span className="booking-form__original">{p.rrp}</span>
+            <span className="booking-form__original">
+              {p.currencySymbol}
+              {p.rrp}
+            </span>
             <span className="booking-form__discount">
               {p.currencySymbol}
               {p.rrpWithDiscount}&thinsp;
@@ -268,7 +271,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       </span>
                     </div>
                     <div className="booking-form__date-container">
-                      <span className="booking-form__date">
+                      <span className="booking-form__date booking-form__date--end">
                         {d.endDateShort}
                       </span>
                       <span className="booking-form__destination booking-form__destination--end">

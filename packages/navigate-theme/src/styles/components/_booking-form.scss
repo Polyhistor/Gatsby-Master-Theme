@@ -457,6 +457,12 @@
       font-size: 1.2rem;
       text-align: left;
     }
+
+    &--end {
+      @include respond(phone) {
+        text-align: right;
+      }
+    }
   }
 
   &__destination {
@@ -466,6 +472,8 @@
 
     @include respond(phone) {
       margin-left: 0rem;
+      font-size: 1.2rem;
+      text-transform: capitalize;
     }
 
     &--end {
@@ -473,7 +481,7 @@
       margin-right: 0.99rem;
 
       @include respond(phone) {
-        margin-right: 0.8rem;
+        margin-right: 0rem !important;
       }
     }
   }
@@ -526,6 +534,10 @@
   &__duration {
     font-size: 0.9rem;
     padding-bottom: 0.2rem;
+
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
   }
 
   &__promo {
@@ -584,7 +596,7 @@
         max-width: 32rem;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
         height: 6rem;
         border-right: 0;
         border-left: 0;
@@ -596,7 +608,7 @@
         @include respond(phone) {
           text-align: left;
           margin-left: 1rem;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           width: 56%;
         }
       }
@@ -609,7 +621,7 @@
     margin-right: 0.4rem;
 
     @include respond(phone) {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -621,8 +633,7 @@
     }
 
     @include respond(phone) {
-      font-size: 1.8rem;
-      height: 2.2rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -649,7 +660,7 @@
       @include respond(phone) {
         margin-left: 0.5rem;
         margin-right: 1rem;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
       }
     }
 
@@ -925,6 +936,10 @@
 
     &--error {
       border: 1px solid $color-red;
+    }
+
+    &--textarea {
+      height: 8rem;
     }
   }
 
