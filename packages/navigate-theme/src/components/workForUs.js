@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 const WorkForUs = ({ data }) => {
   const renderLinks = (links, urls) =>
     links.map((link, idx) => (
-      <a className="work-for-us__links" href={urls[idx]}>
+      <a target="__blank" className="work-for-us__links" href={urls[idx]}>
         {link}
       </a>
     ))
