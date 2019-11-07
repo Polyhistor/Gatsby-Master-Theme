@@ -454,7 +454,7 @@
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       text-align: left;
     }
 
@@ -472,7 +472,7 @@
 
     @include respond(phone) {
       margin-left: 0rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       text-transform: capitalize;
     }
 
@@ -536,7 +536,7 @@
     padding-bottom: 0.2rem;
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -561,7 +561,7 @@
     flex-direction: column;
 
     @include respond(phone) {
-      margin-left: -1rem;
+      margin-left: 0.3rem;
     }
   }
 
@@ -608,8 +608,8 @@
         @include respond(phone) {
           text-align: left;
           margin-left: 1rem;
-          font-size: 1.2rem;
-          width: 56%;
+          font-size: 1.3rem;
+          width: 36%;
         }
       }
     }
@@ -621,7 +621,7 @@
     margin-right: 0.4rem;
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -633,7 +633,7 @@
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -660,7 +660,7 @@
       @include respond(phone) {
         margin-left: 0.5rem;
         margin-right: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
     }
 
