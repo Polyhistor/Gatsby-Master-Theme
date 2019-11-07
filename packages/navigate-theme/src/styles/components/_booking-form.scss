@@ -561,6 +561,7 @@
 
     @include respond(phone) {
       width: 100%;
+      align-items: flex-end;
     }
 
     &-entry {
@@ -583,6 +584,7 @@
         max-width: 32rem;
         display: flex;
         justify-content: center;
+        align-items: flex-end;
         height: 6rem;
         border-right: 0;
         border-left: 0;
@@ -594,8 +596,8 @@
         @include respond(phone) {
           text-align: left;
           margin-left: 1rem;
-          font-size: 1.2rem;
-          width: 60%;
+          font-size: 1.4rem;
+          width: 56%;
         }
       }
     }
@@ -607,7 +609,7 @@
     margin-right: 0.4rem;
 
     @include respond(phone) {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -619,7 +621,8 @@
     }
 
     @include respond(phone) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      height: 2.2rem;
     }
   }
 
@@ -646,7 +649,7 @@
       @include respond(phone) {
         margin-left: 0.5rem;
         margin-right: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
 
