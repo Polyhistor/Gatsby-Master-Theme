@@ -84,9 +84,9 @@ const BookingForm = ({ data, country, inPage }) => {
     if (theme === "ms" && entries !== null) {
       return (
         <div className="booking-form__header-classes">
-          <h4 className="heading-3 heading-3--ms">premier Yacht</h4>
-          <h4 className="heading-3 heading-3--ms">superior monocat</h4>
-          <h4 className="heading-3 heading-3--ms">catamaran</h4>
+          <h4 className="heading-4 heading-4--ms">premier Yacht</h4>
+          <h4 className="heading-4 heading-4--ms">superior monocat</h4>
+          <h4 className="heading-4 heading-4--ms">catamaran</h4>
         </div>
       )
     }
@@ -135,11 +135,10 @@ const BookingForm = ({ data, country, inPage }) => {
           }
         >
           {theme === "ms" ? (
-            <div className="mobile-yes heading-5 heading-5--ms">
+            <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
               {p.productClass}
             </div>
           ) : null}
-
           <div
             className={
               theme === "ms"
@@ -147,6 +146,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 : "booking-form__price"
             }
           >
+            <span className={bookingFormAvailablity}>{p.availability}</span>
             <span className="booking-form__original">{p.rrp}</span>
             <span className="booking-form__discount">
               {p.currencySymbol}
@@ -154,7 +154,6 @@ const BookingForm = ({ data, country, inPage }) => {
               {p.currencyCode}
             </span>
           </div>
-          <div className={bookingFormAvailablity}>{p.availability}</div>
         </div>
       )
     })
@@ -232,8 +231,14 @@ const BookingForm = ({ data, country, inPage }) => {
                       </span>
                     </div>
                     <div className="booking-form__mediator">
-                      <span className="booking-form__duration">
-                        {d.durationInDays} Days
+                      <span
+                        className={
+                          d.availability === "Sold Out"
+                            ? `${bookingFormPromo} booking-form__promo--soldout`
+                            : `${bookingFormPromo}`
+                        }
+                      >
+                        {d.sale}
                       </span>
                       <div className="booking-form__line-container">
                         <div
@@ -258,21 +263,15 @@ const BookingForm = ({ data, country, inPage }) => {
                           }
                         ></div>
                       </div>
-                      <span
-                        className={
-                          d.availability === "Sold Out"
-                            ? `${bookingFormPromo} booking-form__promo--soldout`
-                            : `${bookingFormPromo}`
-                        }
-                      >
-                        {d.sale}
+                      <span className="booking-form__duration">
+                        {d.durationInDays} Days
                       </span>
                     </div>
                     <div className="booking-form__date-container">
                       <span className="booking-form__date">
                         {d.endDateShort}
                       </span>
-                      <span className="booking-form__destination">
+                      <span className="booking-form__destination booking-form__destination--end">
                         {d.endLocation}
                       </span>
                     </div>
@@ -434,7 +433,9 @@ const BookingForm = ({ data, country, inPage }) => {
                       id="tours"
                       value={selectValue}
                     >
-                      <option value="all">Tours</option>
+                      <option value="all">
+                        {theme === "ms" ? "Trips" : "Tours"}
+                      </option>
                       {renderDestinations()}
                     </select>
                   </div>
