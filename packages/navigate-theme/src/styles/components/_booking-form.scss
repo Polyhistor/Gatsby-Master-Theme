@@ -603,7 +603,7 @@
     }
 
     &-ms {
-      width: 52% !important;
+      width: 36% !important;
 
       @include respond(tablet) {
         margin-left: 0.5rem;
@@ -627,10 +627,7 @@
 
   &__discount {
     font-family: Nunito-Black;
-
-    @include respond(laptop) {
-      font-size: 1.4rem;
-    }
+    font-size: 1.2rem;
 
     @include respond(tablet) {
       font-size: 1.1rem;
