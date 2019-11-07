@@ -52,6 +52,8 @@ const DetailsForm = ({
   productClass,
   cabins,
 }) => {
+  console.log(cabins)
+
   const theme = process.env.GATSBY_THEME
 
   const renderingCabins = () =>

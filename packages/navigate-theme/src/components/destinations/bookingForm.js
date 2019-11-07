@@ -329,7 +329,7 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that handles countries dropdown
   const handleCountryDropdown = e => {
-    setSelectValue("Tours")
+    setSelectValue("Tour")
     setEntries(null)
 
     const filteredDests = destinationData.filter(d => {
@@ -342,6 +342,14 @@ const BookingForm = ({ data, country, inPage }) => {
     <section
       className={inPage ? "booking-form booking-form--in-page" : "booking-form"}
     >
+      {phase ? (
+        <a
+          className="booking-form__mobile-back mobile-yes"
+          onClick={() => setPhase(!phase)}
+        >
+          &larr; previous{" "}
+        </a>
+      ) : null}
       <div className="booking-form__header">
         {!phase ? (
           <>
