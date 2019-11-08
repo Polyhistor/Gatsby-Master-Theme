@@ -67,8 +67,8 @@ const IndexPage = ({ pageContext }) => {
         ? `Blog | ${site.siteMetadata.title}`
         : `Blog | ${site.siteMetadata.title} | Page ${index}`,
       description: first
-        ? `Check out our blog for the latest New Zealand and Australia adventure tour news. Wild Kiwi's blog, perfect for 18 - 35 year olds`
-        : `Check out our blog for the latest New Zealand and Australia adventure tour news. Wild Kiwi's blog, perfect for 18 - 35 year olds | Page ${index}`,
+        ? site.siteMetadata.description
+        : `${site.siteMetadata.description} | Page ${index}`,
     }
   }
 

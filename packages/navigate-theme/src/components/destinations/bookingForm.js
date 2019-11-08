@@ -14,11 +14,11 @@ const BookingForm = ({ data, country, inPage }) => {
   const pricesClassOrdered = [
     {
       description: "Premier Yacht",
-      code: "Premier",
+      code: "Premier Yacht",
     },
     {
       description: "SUPERIOR MONOCAT",
-      code: "Superior Monocats",
+      code: "Superior Monocat",
     },
     {
       description: "CATAMARAN",
