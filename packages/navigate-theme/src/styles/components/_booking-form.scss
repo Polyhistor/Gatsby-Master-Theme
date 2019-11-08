@@ -247,6 +247,7 @@
       }
 
       @include respond(phone) {
+        margin-top: 2rem;
         grid-template-columns: 100%;
         overflow: hidden;
         padding: 1rem;
