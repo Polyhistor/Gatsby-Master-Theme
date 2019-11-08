@@ -483,7 +483,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       value={selectValue}
                     >
                       <option value="all">
-                        {theme === "ms" ? "Trips" : "Tours"}
+                        {theme === "ms" ? "Trip" : "Tours"}
                       </option>
                       {renderDestinations()}
                     </select>
