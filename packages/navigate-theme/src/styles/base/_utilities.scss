@@ -362,7 +362,6 @@
 }
 
 //editing external library css
-
 .breadcrumb__separator {
   @include blackUpperCaseGreen;
   display: flex;
@@ -406,10 +405,12 @@
 .styles_modal__gNwvD {
   @include respond(phone) {
     padding: 0;
-    z-index: 10000;
-    width: 95vw;
     height: 88vh;
   }
+}
+
+.styles_closeIcon__1QwbI {
+  z-index: 10000;
 }
 
 //hotfixes

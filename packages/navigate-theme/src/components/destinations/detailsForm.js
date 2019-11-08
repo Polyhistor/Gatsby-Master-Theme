@@ -528,7 +528,12 @@ const DetailsForm = ({
               </h2>
             </div>
             <div className="booking-form__details booking-form__details--extra">
-              <p></p>
+              <p>
+                Local payments apply to all bookings: 700 kuna pp for yachts
+                (approx €90) and 750 kuna pp for catamarans (approx €100). The
+                above itinerary and sailing route is subject to change dependent
+                on weather and prevailing conditions.
+              </p>
             </div>
           </div>
         </>
