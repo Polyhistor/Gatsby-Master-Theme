@@ -157,7 +157,7 @@ const BookingForm = ({ data, country, inPage }) => {
             onClick={() => handleClick(p)}
             className={
               p.availability === "Sold Out"
-                ? "booking-form_price-entry booking-form_price-entry--soldout"
+                ? "booking-form__price-entry booking-form__price-entry--soldout"
                 : "booking-form__price-entry"
             }
           >
@@ -169,7 +169,7 @@ const BookingForm = ({ data, country, inPage }) => {
             <div
               className={
                 theme === "ms"
-                  ? "booking-form_price booking-form_price-ms"
+                  ? "booking-form__price booking-form__price-ms"
                   : "booking-form__price"
               }
             >
@@ -386,7 +386,7 @@ const BookingForm = ({ data, country, inPage }) => {
           className="mobile-yes booking-form__mobile-back"
           onClick={() => setPhase(!phase)}
         >
-          &#60; back
+          &#60; Back
         </a>
       ) : null}
       <div className="booking-form__header">
@@ -487,7 +487,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       value={selectValue}
                     >
                       <option value="all">
-                        {theme === "ms" ? "Trips" : "Tours"}
+                        {theme === "ms" ? "Trip" : "Tours"}
                       </option>
                       {renderDestinations()}
                     </select>
