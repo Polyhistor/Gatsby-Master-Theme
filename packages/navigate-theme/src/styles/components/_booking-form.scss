@@ -96,6 +96,7 @@
     & > span {
       margin-left: 2rem;
       margin-top: 1.5rem;
+      display: block;
     }
   }
 
@@ -427,9 +428,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-    }
-
-    &--alt {
+      background: $color-gray-light-1;
     }
   }
 
@@ -582,9 +581,9 @@
   }
 
   &__mobile-info-box {
-    background-color: $color-gray-light-2;
-    padding-right: 1.6rem;
-    padding-left: 1.6rem;
+    background-color: $color-gray-light-1;
+    padding-right: 1.3rem;
+    padding-left: 1.3rem;
   }
 
   &__promo {
@@ -629,6 +628,9 @@
       align-items: center;
       height: 5rem;
       margin-left: 0.1rem;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.3rem;
+      transition: all 0.2s ease-in;
 
       &--soldout {
         color: $color-gray-light-2;
@@ -637,6 +639,7 @@
 
       &:hover {
         background: $color-gray-light-2;
+        border: 1px solid $color-grey-dark;
       }
 
       @include respond(phone) {
@@ -828,6 +831,9 @@
     &--extra {
       grid-row: 7;
       grid-column: 2/5;
+      border-top: 1px solid $color-gray-light-2;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
   }
 

@@ -10,6 +10,8 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
+  console.log(data)
+
   //TODO:This should come from api somehow
   const pricesClassOrdered = [
     {
@@ -517,6 +519,8 @@ const BookingForm = ({ data, country, inPage }) => {
               classPrice={classPrice}
               cabins={cabin}
               productClass={productClass}
+              // bookingNotes={data.data.data.booking_notes}
+              // generalNotes={data.data.data.general_notes}
             />
           </div>
         )}

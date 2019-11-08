@@ -52,7 +52,8 @@ const DetailsForm = ({
   productClass,
   cabins,
 }) => {
-  console.log(state)
+  // console.log(bookingNotes)
+  // console.log(generalNotes)
 
   const bookingFormDot =
     theme === "ms"
