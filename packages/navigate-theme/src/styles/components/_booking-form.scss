@@ -86,15 +86,17 @@
   &__mobile-back {
     font-size: 2.2rem;
     color: #06babf;
-    width: 30.5rem !important;
     height: 3.4rem;
     margin-top: 1.5rem;
-    margin-left: 1.5rem;
     color: #06babf;
     position: absolute;
     z-index: 10000;
     top: 0;
     background: white;
+
+    & > span {
+      margin-left: 2rem;
+    }
   }
 
   &__steps {
@@ -944,7 +946,7 @@
   &__info {
     display: flex;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #767676;
   }
 

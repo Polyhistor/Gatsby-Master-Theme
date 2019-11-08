@@ -386,7 +386,7 @@ const BookingForm = ({ data, country, inPage }) => {
           className="mobile-yes booking-form__mobile-back"
           onClick={() => setPhase(!phase)}
         >
-          &#60; Back
+          <span>&#60; Back</span>
         </a>
       ) : null}
       <div className="booking-form__header">
