@@ -101,8 +101,12 @@ const BookingForm = ({ data, country, inPage }) => {
     if (theme === "ms" && entries !== null) {
       return (
         <div className="booking-form__header-classes">
-          {pricesClassOrdered.map(p => {
-            return <h4 className="heading-4 heading-4--ms">{p.description}</h4>
+          {pricesClassOrdered.map((p, idx) => {
+            return (
+              <h4 key={idx} className="heading-4 heading-4--ms">
+                {p.description}
+              </h4>
+            )
           })}
 
           {/*

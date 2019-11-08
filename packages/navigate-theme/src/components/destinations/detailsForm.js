@@ -219,8 +219,9 @@ const DetailsForm = ({
                 }
 
                 try {
-                  await submitEnquiryRequest(finalAPI)
-                  setSuccess(true)
+                  const response = await submitEnquiryRequest(finalAPI)
+
+                  setSuccess(response.data.data)
                 } catch (error) {
                   // console.log(
                   //   error,
@@ -392,8 +393,10 @@ const DetailsForm = ({
                             : "booking-form__fields booking-form__fields"
                         }
                       >
-                        {cabinsNames.map(e => (
-                          <option value={e.name}>{e.name}</option>
+                        {cabinsNames.map((e, idx) => (
+                          <option key={idx} value={e.name}>
+                            {e.name}
+                          </option>
                         ))}
                       </Field>
                       <Error
@@ -534,8 +537,8 @@ const DetailsForm = ({
           </p>
           <p className="feature-box__description">
             We are sending a welcome message to your email address now. If you
-            do not receive it, please contact us at
-            <a href="mailto:hello@wildkiwi.com"> hello@wildkiwi.com</a>
+            do not receive it, please contact us at{" "}
+            <a href={success.email}>{success.email}</a>
           </p>
         </div>
       )}
