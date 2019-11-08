@@ -42,6 +42,10 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("gender is required"),
 })
 
+const getCabinDescription = cabin => {
+  return cabin.price ? `${cabin.name} (${cabin.price})` : cabin.name
+}
+
 const DetailsForm = ({
   inPage,
   state,
@@ -396,7 +400,7 @@ const DetailsForm = ({
                       >
                         {cabinsNames.map((e, idx) => (
                           <option key={idx} value={e.name}>
-                            {e.name}
+                            {getCabinDescription(e)}
                           </option>
                         ))}
                       </Field>
