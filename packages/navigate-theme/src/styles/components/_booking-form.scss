@@ -52,7 +52,7 @@
     height: 3.9rem;
 
     @include respond(phone) {
-      // display: none;
+      display: none;
       margin-top: 5.4rem;
     }
 
@@ -190,7 +190,7 @@
       -webkit-overflow-scrolling: touch;
       display: block;
       margin: 0 auto;
-      height: 80vh;
+      height: 70vh;
     }
 
     &--in-page {
@@ -247,6 +247,7 @@
       }
 
       @include respond(phone) {
+        margin-top: 2rem;
         grid-template-columns: 100%;
         overflow: hidden;
         padding: 1rem;
