@@ -52,7 +52,7 @@
     height: 3.9rem;
 
     @include respond(phone) {
-      // display: none;
+      display: none;
       margin-top: 5.4rem;
     }
 
