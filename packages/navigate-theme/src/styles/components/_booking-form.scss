@@ -187,7 +187,7 @@
     }
 
     @include respond(phone) {
-      width: 30rem;
+      width: 100%;
       margin-top: 2rem;
       -webkit-overflow-scrolling: touch;
       display: block;
@@ -967,7 +967,7 @@
     }
 
     @include respond(phone) {
-      width: 28rem;
+      width: 32rem;
       height: 4.4rem;
     }
 
@@ -979,7 +979,7 @@
       }
 
       @include respond(phone) {
-        width: 28rem;
+        width: 32rem;
       }
     }
 
