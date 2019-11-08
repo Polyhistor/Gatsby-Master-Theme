@@ -176,7 +176,7 @@ const DetailsForm = ({
                     </div>
                     <div class="booking-form__price booking-form__price-ms">
                       <span class="booking-form__discount">
-                        {state.currencySymbol}
+                        {state.prices[priceInex].currencySymbol}
                         {partialData.priceWithDiscount}&thinsp;
                         {partialData.currencyCode}
                       </span>
@@ -523,7 +523,7 @@ const DetailsForm = ({
               >
                 {state.prices[priceInex].currencySymbol}
                 {state.prices[priceInex].rrpWithDiscount} &thinsp;
-                {state.prices[priceInex].currencyCode}
+                {state.prices[priceInex].currencyCode} &thinsp; per person
               </h2>
             </div>
           </div>
