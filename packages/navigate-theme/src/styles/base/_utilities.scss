@@ -406,6 +406,7 @@
   @include respond(phone) {
     padding: 0;
     height: 88vh;
+    width: 100%;
   }
 }
 
