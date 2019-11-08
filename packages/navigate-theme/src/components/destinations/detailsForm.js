@@ -52,7 +52,17 @@ const DetailsForm = ({
   productClass,
   cabins,
 }) => {
-  console.log(cabins)
+  console.log(state)
+
+  const bookingFormDot =
+    theme === "ms"
+      ? "booking-form__dot booking-form__dot--ms"
+      : "booking-form__dot"
+
+  const bookingFormPromo =
+    theme === "ms"
+      ? "booking-form__promo booking-form__promo--ms"
+      : "booking-form__promo"
 
   const theme = process.env.GATSBY_THEME
 
@@ -102,9 +112,84 @@ const DetailsForm = ({
             Enter your details
           </h3>
           <div className="booking-form__enquiry-form">
-            <h3 className="booking-form__conditional-text mobile-yes">
-              Enter you details
-            </h3>
+            <div className="mobile-yes">
+              <div className="booking-form__mobile-info-box">
+                <div className="booking-form__left booking-form__left--alt u-margin-top-small">
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date">
+                      {state.startDateShort}
+                    </span>
+                    <span className="booking-form__destination">
+                      {state.startLocation}
+                    </span>
+                  </div>
+                  <div className="booking-form__mediator">
+                    <span
+                      className={
+                        state.availability === "Sold Out"
+                          ? `${bookingFormPromo} booking-form__promo--soldout`
+                          : `${bookingFormPromo}`
+                      }
+                    >
+                      {state.sale}
+                    </span>
+                    <div className="booking-form__line-container">
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? `${bookingFormDot} booking-form__dot--soldout`
+                            : `${bookingFormDot}`
+                        }
+                      ></div>
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? "booking-form__line booking-form__line--soldout"
+                            : "booking-form__line"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? "booking-form__dot booking-form__dot--soldout"
+                            : "booking-form__dot"
+                        }
+                      ></div>
+                    </div>
+                    <span className="booking-form__duration">
+                      {state.durationInDays} Days
+                    </span>
+                  </div>
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date booking-form__date--end">
+                      {state.endDateShort}
+                    </span>
+                    <span className="booking-form__destination booking-form__destination--end">
+                      {state.endLocation}
+                    </span>
+                  </div>
+                </div>
+                <div class="booking-form__right booking-form__right--ms">
+                  <div class="booking-form__price-entry">
+                    <div class="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+                      {productClass}
+                    </div>
+                    <div class="booking-form__price booking-form__price-ms">
+                      <span class="booking-form__discount">
+                        {state.currencySymbol}
+                        {partialData.priceWithDiscount}&thinsp;
+                        {partialData.currencyCode}
+                      </span>
+                      <span className="booking-form__person">per person</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3 className="booking-form__conditional-text mobile-yes">
+                Enter you details
+              </h3>
+            </div>
+
             <Formik
               initialValues={{
                 guests: "",
