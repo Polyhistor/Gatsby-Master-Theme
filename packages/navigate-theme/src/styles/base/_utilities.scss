@@ -667,16 +667,3 @@ textarea {
   font-size: 16px;
   font-family: Nunito-Regular;
 }
-
-// setting the fading animation
-
-textarea::-webkit-input-placeholder,
-textarea:-moz-placeholder,
-textarea::-moz-placeholder,
-textarea:-ms-input-placeholder,
-textarea::placeholder {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: $color-grey-dark;
-}

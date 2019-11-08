@@ -190,6 +190,7 @@
       -webkit-overflow-scrolling: touch;
       display: block;
       margin: 0 auto;
+      height: 80vh;
     }
 
     &--in-page {
@@ -601,7 +602,7 @@
     align-items: center;
 
     @include respond(phone) {
-      width: 75%;
+      width: 100%;
       align-items: flex-end;
     }
 
@@ -625,7 +626,7 @@
         width: 100%;
         max-width: 32rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 5rem;
         border-right: 0;
@@ -638,7 +639,7 @@
         @include respond(phone) {
           text-align: left;
           font-size: 1.3rem;
-          width: 45%;
+          width: 23%;
         }
       }
     }
@@ -711,9 +712,10 @@
     }
 
     @include respond(phone) {
-      height: 9rem;
-      display: flex;
-      justify-content: center;
+      // height: 9rem;
+      // display: flex;
+      // justify-content: center;
+      display: none;
     }
 
     & > button {
