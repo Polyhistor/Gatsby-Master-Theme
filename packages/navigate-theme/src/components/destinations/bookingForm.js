@@ -27,19 +27,22 @@ const BookingForm = ({ data, country, inPage }) => {
   ]
 
   // render buyerInfo
-  const renderIfno = () => {
-    if (data || data.data === null) {
-      return null
-    }
+  // const renderIfno = () => {
+  //   if (data || data.data === null) {
+  //     return null
+  //   }
 
-    console.log(data.data.data.general_notes)
+  //   console.log("yo")
+  //   console.log(data.data.data.general_notes)
 
-    return (
-      <p className="booking-form__additional-info mobile-yes">
-        {data.data.data.general_notes} {data.data.data.booking_notes}
-      </p>
-    )
-  }
+  //   if (data || data.data) {
+  //     return (
+  //       <p className="booking-form__additional-info mobile-yes">
+  //         {data.data.data.general_notes} {data.data.data.booking_notes}
+  //       </p>
+  //     )
+  //   }
+  // }
 
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
@@ -535,7 +538,7 @@ const BookingForm = ({ data, country, inPage }) => {
               {renderHeader()}
               {renderEntries()}
             </div>
-            <>{renderIfno()}</>
+            {/* <>{renderIfno()}</> */}
           </div>
         ) : (
           <div
