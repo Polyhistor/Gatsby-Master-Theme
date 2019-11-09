@@ -55,10 +55,9 @@ const DetailsForm = ({
   classPrice,
   productClass,
   cabins,
+  bookingNotes,
+  generalNotes,
 }) => {
-  // console.log(bookingNotes)
-  // console.log(generalNotes)
-
   const bookingFormDot =
     theme === "ms"
       ? "booking-form__dot booking-form__dot--ms"
@@ -175,7 +174,7 @@ const DetailsForm = ({
                   </div>
                 </div>
                 <div class="booking-form__right booking-form__right--ms">
-                  <div class="booking-form__price-entry">
+                  <div class="booking-form__price-entry booking-form__price-entry--alt">
                     <div class="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
                       {productClass}
                     </div>
@@ -437,13 +436,11 @@ const DetailsForm = ({
                     </label>
                   </div>
                   {theme === "ms" ? (
-                    <p className="booking-form__additional-info mobile-yes">
-                      Please note, an additional per person payment of €90
-                      (yacht) or €100 (catamaran) applies to all bookings when
-                      boarding the yacht. The itinerary and sailing route is
-                      subject to change depending on weather and other
-                      prevailing conditions.
-                    </p>
+                    <>
+                      <p className="booking-form__additional-info mobile-yes">
+                        {bookingNotes} {generalNotes}
+                      </p>
+                    </>
                   ) : null}
                   <button
                     id={
@@ -533,12 +530,8 @@ const DetailsForm = ({
               </h2>
             </div>
             <div className="booking-form__details booking-form__details--extra">
-              <p>
-                Local payments apply to all bookings: 700 kuna pp for yachts
-                (approx €90) and 750 kuna pp for catamarans (approx €100). The
-                above itinerary and sailing route is subject to change dependent
-                on weather and prevailing conditions.
-              </p>
+              <p>{bookingNotes}</p>
+              <p>{generalNotes}</p>
             </div>
           </div>
         </>

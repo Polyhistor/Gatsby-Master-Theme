@@ -429,6 +429,7 @@
       justify-content: space-between;
       width: 100%;
       background: $color-gray-light-1;
+      padding: 0.5rem;
     }
   }
 
@@ -649,10 +650,10 @@
         justify-content: space-between;
         align-items: center;
         height: 5rem;
-        border-right: 0;
-        border-left: 0;
-        border-top: 0;
-        border-bottom: 1px solid #e7e7e7;
+        border: 1px solid #e7e7e7;
+        padding-right: 0.6rem;
+        padding-left: 0.6rem;
+        margin-bottom: 0.6rem;
       }
 
       & > div:first-of-type {
@@ -661,6 +662,10 @@
           font-size: 1.3rem;
           width: 23%;
         }
+      }
+
+      &--alt {
+        border: 0;
       }
     }
   }

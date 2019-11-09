@@ -10,8 +10,6 @@ import { getTourPricesRequest } from "../../services/api"
 import useCountryQuery from "../../queries/countryQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
-  console.log(data)
-
   //TODO:This should come from api somehow
   const pricesClassOrdered = [
     {
@@ -78,6 +76,8 @@ const BookingForm = ({ data, country, inPage }) => {
   // initiating an empty array that stores references to our nodes
   const refs = []
 
+  //TODO come back later and turn all of these into a useReducer
+
   // storing data that we need for the second phase
   const [gState, setGState] = useState(null)
 
@@ -98,6 +98,12 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // setting value for the dropdown
   const [selectValue, setSelectValue] = useState("all")
+
+  // setting the value of the texts
+  const [{ bookingNote, generalNote }, setMessage] = useState({
+    bookingNote: "",
+    generalNote: "",
+  })
 
   const renderHeader = () => {
     if (theme === "ms" && entries !== null) {
@@ -131,6 +137,11 @@ const BookingForm = ({ data, country, inPage }) => {
 
     setClassPrice(entries.classPrice)
     setCabin(entries.cabins)
+    setMessage(currentState => ({
+      ...currentState,
+      bookingNote: entries.booking_notes,
+      generalNote: entries.general_notes,
+    }))
 
     const ourDate2 = _.id
 
@@ -519,8 +530,8 @@ const BookingForm = ({ data, country, inPage }) => {
               classPrice={classPrice}
               cabins={cabin}
               productClass={productClass}
-              // bookingNotes={data.data.data.booking_notes}
-              // generalNotes={data.data.data.general_notes}
+              bookingNotes={bookingNote}
+              generalNotes={generalNote}
             />
           </div>
         )}
