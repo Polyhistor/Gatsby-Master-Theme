@@ -208,7 +208,7 @@ module.exports = {
         menuLabel: [
           {
             label: "destinations",
-            link: "/sail",
+            link: "/tours",
             sub: [
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },
@@ -227,7 +227,7 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
-          { label: "faqs", link: "/faqs", sub: null },
+          { label: "faq", link: "/faq", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",
@@ -239,7 +239,7 @@ module.exports = {
         /*TODO: remove prefix routes, we don't need that anymore*/
 
         routesConfig: {
-          destinationRoute: `/sail`,
+          destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
           destinationCountryRoutePrefix: `/sail-` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,

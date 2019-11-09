@@ -42,6 +42,10 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("gender is required"),
 })
 
+const getCabinDescription = cabin => {
+  return cabin.price ? `${cabin.name} (${cabin.price})` : cabin.name
+}
+
 const DetailsForm = ({
   inPage,
   state,
@@ -51,8 +55,18 @@ const DetailsForm = ({
   classPrice,
   productClass,
   cabins,
+  bookingNotes,
+  generalNotes,
 }) => {
-  console.log(cabins)
+  const bookingFormDot =
+    theme === "ms"
+      ? "booking-form__dot booking-form__dot--ms"
+      : "booking-form__dot"
+
+  const bookingFormPromo =
+    theme === "ms"
+      ? "booking-form__promo booking-form__promo--ms"
+      : "booking-form__promo"
 
   const theme = process.env.GATSBY_THEME
 
@@ -102,6 +116,84 @@ const DetailsForm = ({
             Enter your details
           </h3>
           <div className="booking-form__enquiry-form">
+            <div className="mobile-yes">
+              <div className="booking-form__mobile-info-box">
+                <div className="booking-form__left booking-form__left--alt u-margin-top-small">
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date">
+                      {state.startDateShort}
+                    </span>
+                    <span className="booking-form__destination">
+                      {state.startLocation}
+                    </span>
+                  </div>
+                  <div className="booking-form__mediator">
+                    <span
+                      className={
+                        state.availability === "Sold Out"
+                          ? `${bookingFormPromo} booking-form__promo--soldout`
+                          : `${bookingFormPromo}`
+                      }
+                    >
+                      {state.sale}
+                    </span>
+                    <div className="booking-form__line-container">
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? `${bookingFormDot} booking-form__dot--soldout`
+                            : `${bookingFormDot}`
+                        }
+                      ></div>
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? "booking-form__line booking-form__line--soldout"
+                            : "booking-form__line"
+                        }
+                      ></div>
+                      <div
+                        className={
+                          state.availability === "Sold Out"
+                            ? "booking-form__dot booking-form__dot--soldout"
+                            : "booking-form__dot"
+                        }
+                      ></div>
+                    </div>
+                    <span className="booking-form__duration">
+                      {state.durationInDays} Days
+                    </span>
+                  </div>
+                  <div className="booking-form__date-container">
+                    <span className="booking-form__date booking-form__date--end">
+                      {state.endDateShort}
+                    </span>
+                    <span className="booking-form__destination booking-form__destination--end">
+                      {state.endLocation}
+                    </span>
+                  </div>
+                </div>
+                <div class="booking-form__right booking-form__right--ms">
+                  <div class="booking-form__price-entry booking-form__price-entry--alt">
+                    <div class="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+                      {productClass}
+                    </div>
+                    <div class="booking-form__price booking-form__price-ms">
+                      <span class="booking-form__discount">
+                        {state.prices[priceInex].currencySymbol}
+                        {partialData.priceWithDiscount}&thinsp;
+                        {partialData.currencyCode}
+                      </span>
+                      <span className="booking-form__person">per person</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3 className="booking-form__conditional-text mobile-yes">
+                Enter you details
+              </h3>
+            </div>
+
             <Formik
               initialValues={{
                 guests: "",
@@ -131,8 +223,9 @@ const DetailsForm = ({
                 }
 
                 try {
-                  await submitEnquiryRequest(finalAPI)
-                  setSuccess(true)
+                  const response = await submitEnquiryRequest(finalAPI)
+
+                  setSuccess(response.data.data)
                 } catch (error) {
                   // console.log(
                   //   error,
@@ -304,8 +397,10 @@ const DetailsForm = ({
                             : "booking-form__fields booking-form__fields"
                         }
                       >
-                        {cabinsNames.map(e => (
-                          <option value={e.name}>{e.name}</option>
+                        {cabinsNames.map((e, idx) => (
+                          <option key={idx} value={e.name}>
+                            {getCabinDescription(e)}
+                          </option>
                         ))}
                       </Field>
                       <Error
@@ -340,6 +435,13 @@ const DetailsForm = ({
                       </a>
                     </label>
                   </div>
+                  {theme === "ms" ? (
+                    <>
+                      <p className="booking-form__additional-info mobile-yes">
+                        {bookingNotes} {generalNotes}
+                      </p>
+                    </>
+                  ) : null}
                   <button
                     id={
                       inPage
@@ -401,16 +503,16 @@ const DetailsForm = ({
               <div className="booking-form__sub-title">Start</div>
               <div className="booking-form__info">
                 <span> {state.startDateMedium}</span>
-                {/* <span> Departs {state.departureTime}</span>
-                <span> {`${state.startLocation}, ${state.startCountry}`}</span> */}
+                <span> Departs {state.departureTime}</span>
+                <span> {`${state.startLocation}, ${state.startCountry}`}</span>
               </div>
             </div>
             <div className="booking-form__details booking-form__details--end">
               <div className="booking-form__sub-title">End</div>
               <div className="booking-form__info">
                 <span> {state.endDateMedium}</span>
-                {/* <span> Departs {state.returnTime}</span>
-                <span> {`${state.endLocation}, ${state.endCountry}`}</span> */}
+                <span> Departs {state.returnTime}</span>
+                <span> {`${state.endLocation}, ${state.endCountry}`}</span>
               </div>
             </div>
             <div className="booking-form__details booking-form__details--price">
@@ -423,8 +525,13 @@ const DetailsForm = ({
               >
                 {state.prices[priceInex].currencySymbol}
                 {state.prices[priceInex].rrpWithDiscount} &thinsp;
-                {state.prices[priceInex].currencyCode}
+                {state.prices[priceInex].currencyCode} &thinsp;
+                <span className="u-font-none-style">per person</span>
               </h2>
+            </div>
+            <div className="booking-form__details booking-form__details--extra">
+              <p>{bookingNotes}</p>
+              <p>{generalNotes}</p>
             </div>
           </div>
         </>
@@ -437,8 +544,8 @@ const DetailsForm = ({
           </p>
           <p className="feature-box__description">
             We are sending a welcome message to your email address now. If you
-            do not receive it, please contact us at
-            <a href="mailto:hello@wildkiwi.com"> hello@wildkiwi.com</a>
+            do not receive it, please contact us at{" "}
+            <a href={success.email}>{success.email}</a>
           </p>
         </div>
       )}

@@ -1,0 +1,32 @@
+{
+  "name": "@nt-websites/yachtgetaways",
+  "private": true,
+  "description": "Yacht Getaways Website",
+  "version": "0.1.0",
+  "author": "Pouya Ataei",
+  "dependencies": {
+    "@nt-websites/navigate-theme": "0.1.0",
+    "gatsby": "^2.15.29"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "debug": "node --nolazy --inspect-brk ./node_modules/.bin/gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "preload-fonts": "gatsby-preload-fonts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

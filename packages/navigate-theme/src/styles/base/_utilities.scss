@@ -217,6 +217,10 @@
 
 // size
 
+.u-font-none-style {
+  text-transform: none;
+}
+
 .u-font-size-tiny {
   font-size: 1.4rem;
 }
@@ -358,7 +362,6 @@
 }
 
 //editing external library css
-
 .breadcrumb__separator {
   @include blackUpperCaseGreen;
   display: flex;
@@ -402,10 +405,13 @@
 .styles_modal__gNwvD {
   @include respond(phone) {
     padding: 0;
-    z-index: 10000;
-    width: 95vw;
-    height: 88vh;
+    height: 100vh;
+    width: 100%;
   }
+}
+
+.styles_closeIcon__1QwbI {
+  z-index: 10000;
 }
 
 //hotfixes
@@ -668,15 +674,11 @@ textarea {
   font-family: Nunito-Regular;
 }
 
-// setting the fading animation
-
-textarea::-webkit-input-placeholder,
-textarea:-moz-placeholder,
-textarea::-moz-placeholder,
-textarea:-ms-input-placeholder,
-textarea::placeholder {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: $color-grey-dark;
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }

@@ -7,36 +7,35 @@ import {
   Landing,
   GreenBar,
   Banner,
-  SectionFAQ,
+  AboutUsSection,
   Reviews,
   Trips,
   useImageQuery,
   useHomePageQuery,
-  useFAQQuery,
+  useWorkingForUs,
+  WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
+const SVGIcon = "wheel"
 
-const FAQ = ({ data }) => {
-  const SVGIcon = "wheel"
-
+const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
-  const FAQData = useFAQQuery()
+  const workForUsQuery = useWorkingForUs()
 
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MSFAQ.childImageSharp.fluid}
-          titleFirst="FAQs"
+          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
+          titleFirst="about us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
-          description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
+          description="We’re lucky enough to be incredibly passionate about what we do."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
@@ -47,15 +46,8 @@ const FAQ = ({ data }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionFAQ
-        FAQData={FAQData}
-        categories={[
-          { label: "ABOUT YOUR TRIP" },
-          { label: "BUDGET & PAYMENT" },
-          { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFETY" },
-        ]}
-      />
+      <AboutUsSection />
+      <WorkForUs data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
@@ -69,6 +61,8 @@ const FAQ = ({ data }) => {
     </Layout>
   )
 }
+
+export default AboutUs
 /**
  * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
  * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
@@ -76,7 +70,7 @@ const FAQ = ({ data }) => {
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "faq" } }
+      filter: { referencedPageIdentifier: { eq: "about-us" } }
     ) {
       edges {
         node {
@@ -87,5 +81,3 @@ export const query = graphql`
     }
   }
 `
-
-export default FAQ

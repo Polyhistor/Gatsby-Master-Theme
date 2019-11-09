@@ -110,7 +110,7 @@ const IndexPage = ({ data }) => {
         TitleThird="holidays"
         subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Tours"
-        buttonFirstURL="/sail"
+        buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
         buttonStyles={["med-blue", "white"]}
@@ -119,7 +119,7 @@ const IndexPage = ({ data }) => {
       />
       <GreenBarAlt
         textList={[
-          { label: "destinations", link: "/sail" },
+          { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
           { label: "montenegro", link: "/sail-montenegro" },
