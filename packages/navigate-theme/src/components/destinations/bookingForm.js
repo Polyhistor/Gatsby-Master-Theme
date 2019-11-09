@@ -35,7 +35,7 @@ const BookingForm = ({ data, country, inPage }) => {
     if (entries) {
       return (
         <p className="booking-form__additional-info u-margin-top-small ">
-          {data.data.data.general_notes} {data.data.data.booking_notes}
+          {entries.general_notes} {entries.booking_notes}
         </p>
       )
     }
