@@ -1,7 +1,7 @@
 {
-  "name": "@nt-websites/medsailors",
+  "name": "@nt-websites/yachtgetaways",
   "private": true,
-  "description": "Medsailors Website",
+  "description": "Yacht Getaways Website",
   "version": "0.1.0",
   "author": "Pouya Ataei",
   "dependencies": {
