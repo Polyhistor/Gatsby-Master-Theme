@@ -164,7 +164,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           <Banner
             imageData={
               theme === "ms"
-                ? imageQuery.MsHowItWorksBanner.childImageSharp.fluid
+                ? imageQuery.MSBottomBanner.childImageSharp.fluid
                 : imageQuery.banner.childImageSharp.fluid
             }
             header="Looking for adventure?"

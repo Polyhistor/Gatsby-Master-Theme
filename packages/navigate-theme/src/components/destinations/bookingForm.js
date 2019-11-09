@@ -26,6 +26,21 @@ const BookingForm = ({ data, country, inPage }) => {
     },
   ]
 
+  // render buyerInfo
+  const renderIfno = () => {
+    if (data || data.data === null) {
+      return null
+    }
+
+    console.log(data.data.data.general_notes)
+
+    return (
+      <p className="booking-form__additional-info mobile-yes">
+        {data.data.data.general_notes} {data.data.data.booking_notes}
+      </p>
+    )
+  }
+
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
@@ -443,6 +458,14 @@ const BookingForm = ({ data, country, inPage }) => {
             : "booking-form__body"
         }
       >
+        {phase ? (
+          <button
+            className={theme === "ms" ? "btn btn--white-med" : "btn btn--white"}
+            onClick={() => setPhase(!phase)}
+          >
+            Back
+          </button>
+        ) : null}
         {!phase ? (
           <div className="booking-form__phase-1">
             {receivedData !== null ? (
@@ -512,6 +535,7 @@ const BookingForm = ({ data, country, inPage }) => {
               {renderHeader()}
               {renderEntries()}
             </div>
+            <>{renderIfno()}</>
           </div>
         ) : (
           <div
@@ -536,7 +560,7 @@ const BookingForm = ({ data, country, inPage }) => {
           </div>
         )}
       </div>
-      <div className="booking-form__footer">
+      {/* <div className="booking-form__footer">
         {phase ? (
           <button
             className={theme === "ms" ? "btn btn--white-med" : "btn btn--white"}
@@ -545,7 +569,7 @@ const BookingForm = ({ data, country, inPage }) => {
             Previous
           </button>
         ) : null}
-      </div>
+      </div> */}
     </section>
   )
 }

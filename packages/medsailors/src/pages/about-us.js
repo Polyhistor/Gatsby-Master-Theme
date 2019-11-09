@@ -49,7 +49,7 @@ const AboutUs = ({ data }) => {
       <AboutUsSection />
       <WorkForUs data={workForUsQuery[0].node} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

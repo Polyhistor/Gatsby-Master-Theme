@@ -167,7 +167,7 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

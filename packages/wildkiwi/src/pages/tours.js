@@ -99,7 +99,7 @@ const Destination = ({ data }) => {
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

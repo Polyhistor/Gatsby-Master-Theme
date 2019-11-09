@@ -95,7 +95,11 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           </div> */}
         </div>
         <Banner
-          header="How it works"
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSBottomBanner.childImageSharp.fluid
+              : imageQuery.banner.childImageSharp.fluid
+          }
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"

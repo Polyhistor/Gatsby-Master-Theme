@@ -49,7 +49,7 @@ const HowItWorks = ({ data }) => {
       />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

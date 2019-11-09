@@ -486,14 +486,15 @@ const DetailsForm = ({
               </h2>
               {classPrice ? (
                 <h4 className="booking-form__sub-title">
-                  {state.prices[priceInex].productClass}
+                  {state.prices[priceInex].productClass}, {state.durationInDays}{" "}
+                  Days
                 </h4>
               ) : null}
             </div>
             <div className="booking-form__details booking-form__details--days">
-              <div className="booking-form__sub-title">
+              {/* <div className="booking-form__sub-title">
                 {state.durationInDays} Days
-              </div>
+              </div> */}
               <div className="booking-form__sub-title">
                 {/* TODO - TO add the real value */}
                 {/* {values.guests === undefined ? 0 : values.guests}Days */}
@@ -530,8 +531,9 @@ const DetailsForm = ({
               </h2>
             </div>
             <div className="booking-form__details booking-form__details--extra">
-              <p>{bookingNotes}</p>
-              <p>{generalNotes}</p>
+              <p className="booking-form__additional-info">
+                {bookingNotes} {generalNotes}
+              </p>
             </div>
           </div>
         </>

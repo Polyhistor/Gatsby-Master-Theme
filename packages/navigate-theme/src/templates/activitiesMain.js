@@ -318,6 +318,11 @@ const ActivitiesMain = ({ pageContext }) => {
           </div>
         </div>
         <Banner
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSBottomBanner.childImageSharp.fluid
+              : imageQuery.banner.childImageSharp.fluid
+          }
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"

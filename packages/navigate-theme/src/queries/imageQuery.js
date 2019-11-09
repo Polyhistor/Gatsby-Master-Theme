@@ -248,6 +248,12 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      MSBottomBanner: file(
+        relativePath: { eq: "yachts-anchored-blue-caves-corfu.jpg" }
+      ) {
+        ...FluidImage
+      }
+
       MSCountries: file(
         relativePath: { eq: "medsailors-yachts-stari-grad-croatia.jpg" }
       ) {

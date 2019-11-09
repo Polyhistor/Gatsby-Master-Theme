@@ -22,6 +22,10 @@
     grid-column-gap: 1.5rem;
     padding: 1rem;
 
+    @include respond(laptop) {
+      grid-template-rows: 2rem 3rem min-content;
+    }
+
     @include respond(phone) {
       grid-template-columns: 1fr;
       grid-template-rows: 25rem 3rem min-content min-content;
