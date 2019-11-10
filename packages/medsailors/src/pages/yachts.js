@@ -48,10 +48,10 @@ const OurVehicles = ({ data }) => {
       <OurYachts data={YachtQuery} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />

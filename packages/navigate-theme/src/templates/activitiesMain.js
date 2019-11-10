@@ -326,7 +326,7 @@ const ActivitiesMain = ({ pageContext }) => {
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
-          buttonText="continue"
+          buttonText={theme === "ms" ? "explore" : "continue"}
           link="/how-it-works"
         />
       </div>

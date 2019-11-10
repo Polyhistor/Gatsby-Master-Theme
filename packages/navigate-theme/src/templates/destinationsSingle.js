@@ -172,10 +172,10 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
                 ? imageQuery.MSBottomBanner.childImageSharp.fluid
                 : imageQuery.banner.childImageSharp.fluid
             }
-            header="Looking for adventure?"
-            subHeaderFirst="Read our top 10 adrenalin "
-            subHeaderSecond="activites to do in New Zealand."
-            buttonText="learn more"
+            header="How It Works"
+            subHeaderFirst="Everything You Need To"
+            subHeaderSecond="Know About Our Tours"
+            buttonText={theme === "ms" ? "explore" : "learn more"}
             link="/how-it-works"
           />
         </div>
