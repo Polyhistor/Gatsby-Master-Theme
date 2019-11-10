@@ -108,7 +108,9 @@ const DestinationsTablet = ({
             className={theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"}
             to={
               country !== undefined
-                ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${destination}`
+                ? `${
+                    themeOptionsQueryData.destinationCountryRoutePrefix
+                  }${country}/${destinationUrl || destination}`
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >

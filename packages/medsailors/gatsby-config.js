@@ -216,7 +216,6 @@ module.exports = {
               { label: "turkey", link: "/sail-turkey" },
             ],
           },
-          { label: "activities", link: "/activities", sub: null },
           {
             label: "how it works",
             link: "/how-it-works",
@@ -228,6 +227,7 @@ module.exports = {
             sub: null,
           },
           { label: "faq", link: "/faq", sub: null },
+          { label: "travel inspo", link: "/activities", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",
