@@ -74,7 +74,9 @@
   &__description {
     grid-row: 3;
     @extend .heading-4;
-    @extend .heading-4--regular-capitalized-darkGrey;
+    @extend .heading-4--nRegular;
+    @extend .heading-4--regular;
+    @extend .heading-4--darkGrey;
 
     @include respond(tablet) {
       font-size: 1.5rem;
