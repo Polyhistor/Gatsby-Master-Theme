@@ -48,7 +48,7 @@ const Countries = ({ data, pageContext }) => {
       ? "https://www.youtube.com/embed/19GIN9tj-NY"
       : data.contentfulCountry.slug === "australia"
       ? "https://www.youtube.com/embed/a1MwJNEJZBw"
-      : null
+      : data.contentfulCountry.trailer
 
   // rendering all the destination boxes
 

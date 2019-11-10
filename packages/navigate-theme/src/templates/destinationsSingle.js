@@ -30,6 +30,11 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  //TODO: Why wildkiwi text header should not be static on the code.
+
+  //TODO: workaround to change the header text quickly
+  const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
+
   const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
   // extracting our custom hook
@@ -142,7 +147,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         <div className="hotfix--reviews">
           <Reviews />
         </div>
-        <WhyWild WhyWildData={WhyWildData} />
+        <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
         <Booking data={ourData} inPage={true} />
         <GetThere
           title="Getting there"

@@ -115,15 +115,15 @@ const IndexPage = ({ data }) => {
         buttonSecondURL=""
         buttonStyles={["med-blue", "white"]}
         variation={null}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
       />
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
-          { label: "montenegro", link: "/sail-montenegro" },
-          { label: "turkey", link: "/sail-turkey" },
+          { label: "montenegro", link: "/sail-montenegro/discovery" },
+          { label: "turkey", link: "/sail-turkey/voyager" },
         ]}
       />
       <WhyUsMobile

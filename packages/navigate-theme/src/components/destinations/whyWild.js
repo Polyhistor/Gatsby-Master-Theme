@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-const WhyWild = ({ WhyWildData }) => {
+const WhyWild = ({ WhyWildData, headerText }) => {
   // TODO - cleanup
   const theme = process.env.GATSBY_THEME
   const brandName = process.env.GATSBY_BRAND_NAME
@@ -40,7 +40,7 @@ const WhyWild = ({ WhyWildData }) => {
             : "heading-1 u-margin-bottom-small "
         }
       >
-        Why {brandName}?
+        {headerText ? headerText : `Why ${brandName}`}
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
     </div>

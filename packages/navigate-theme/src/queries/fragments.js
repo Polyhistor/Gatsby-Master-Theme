@@ -177,6 +177,7 @@ export const CountriesFragment = graphql`
         }
       }
     }
+    trailer
     days
     departure
     description
