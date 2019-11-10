@@ -238,6 +238,10 @@ module.exports = {
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
 
+        modalText: {
+          selection: "Please select your destination and trip",
+        },
+
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,

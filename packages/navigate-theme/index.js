@@ -42,6 +42,7 @@ export { default as useWorkingForUs } from "./src/queries/workingForUsQuery"
 export { default as useYachtQuery } from "./src/queries/ourYachtQuery"
 export { default as useFeatureBox } from "./src/queries/featuredBoxQuery"
 export { default as useContactQuery } from "./src/queries/contactQuery"
+export { default as useThemeModalQuery } from "./src/queries/themeModalQuery"
 
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"

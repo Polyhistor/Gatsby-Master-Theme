@@ -1,13 +1,14 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Loader from "react-loader-spinner"
-import { withPrefix } from "gatsby"
 
 import Step from "./step"
 import DetailsForm from "./detailsForm"
-import useDestinationQuery from "../../queries/destinationQuery"
 
 import { getTourPricesRequest } from "../../services/api"
+
 import useCountryQuery from "../../queries/countryQuery"
+import useDestinationQuery from "../../queries/destinationQuery"
+import useThemeModalQuery from "../../queries/themeModalQuery"
 
 const BookingForm = ({ data, country, inPage }) => {
   //TODO:This should come from api somehow
@@ -62,6 +63,7 @@ const BookingForm = ({ data, country, inPage }) => {
   // extracting out our query
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
+  const selectionLabel = useThemeModalQuery()
 
   // setting our initial country state
   const countryList = useState(countryData)
@@ -226,34 +228,31 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
-    if (entries === null) {
-      return (
-        <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms booking-form__feedback-text"
-              : "heading-1 booking-form__feedback-text"
-          }
-        >
-          {/* Add preload text to configue */}
-          {theme === "ms"
-            ? "Please select your destination and trip"
-            : "Please select your destination and tour"}
-        </h2>
-      )
-    }
+    // if (entries === null) {
+    //   return (
+    //     <h2
+    //       className={
+    //         theme === "ms"
+    //           ? "heading-1 heading-1--ms booking-form__feedback-text"
+    //           : "heading-1 booking-form__feedback-text"
+    //       }
+    //     >
+    //       {selectionLabel.selection}
+    //     </h2>
+    //   )
+    // }
 
-    if (entries.months === undefined) {
-      return (
-        <Loader
-          type="Oval"
-          color="#1abc9c"
-          height={100}
-          width={100}
-          timeout={3000} //3 secs
-        />
-      )
-    }
+    // if (entries.months === undefined) {
+    //   return (
+    //     <Loader
+    //       type="Oval"
+    //       color="#1abc9c"
+    //       height={100}
+    //       width={100}
+    //       timeout={3000} //3 secs
+    //     />
+    //   )
+    // }
 
     if (entries) {
       return entries.months.map((e, idx) => (
@@ -361,9 +360,11 @@ const BookingForm = ({ data, country, inPage }) => {
           </div>
         </div>
       ))
-    } else {
-      return <div>Please select the destination and the tour</div>
     }
+
+    // else {
+    //   return <div>Please select the destination and the tour</div>
+    // }
   }
 
   // function that renders destinaion dropdown options
@@ -480,6 +481,15 @@ const BookingForm = ({ data, country, inPage }) => {
               </div>
             ) : (
               <div className="booking-form__dropdown">
+                <h2
+                  className={
+                    theme === "ms"
+                      ? "heading-1 heading-1--ms booking-form__feedback-text u-margin-bottom-sedium"
+                      : "heading-1 booking-form__feedback-text u-margin-bottom-sedium"
+                  }
+                >
+                  {selectionLabel.selection}
+                </h2>
                 <h3 className="booking-form__conditional-text mobile-yes">
                   Select your trip and date
                 </h3>

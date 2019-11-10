@@ -156,6 +156,9 @@
   &--wheel {
     height: 3.7rem;
     width: 5rem;
+    @include respond(phone) {
+      justify-self: center;
+    }
   }
 
   &--icon-Bus {
