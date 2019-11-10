@@ -5,6 +5,8 @@ import useAboutUsQuery from "../../queries/aboutUsQuery"
 import useTeamQuery from "../../queries/teamQuery"
 
 export const AboutUs = () => {
+  const theme = process.env.GATSBY_THEME
+
   // extracting query out of our custom hook
   const aboutUsData = useAboutUsQuery()
 
@@ -58,9 +60,23 @@ export const AboutUs = () => {
   return (
     <section className="section-about-us">
       <div className="about-us__container">
-        <h2 className="green-title u-margin-bottom-small">Our Values</h2>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms  u-margin-bottom-small"
+              : "heading-1"
+          }
+        >
+          Our Values
+        </h2>
         {renderHowBoxes()}
-        <h2 className="green-title u-margin-bottom-small">
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms  u-margin-bottom-small"
+              : "heading-1"
+          }
+        >
           Meet our loving team
         </h2>
         {renderTeam()}
