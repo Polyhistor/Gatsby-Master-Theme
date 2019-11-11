@@ -48,9 +48,6 @@ const BookingForm = ({ data, country, inPage }) => {
   // TODO - CLEAN UP
 
   const bookingFormPromo = resolveVariationClass("booking-form__promo")
-  /*  theme === "ms"
-      ? "booking-form__promo booking-form__promo--ms"
-      : "booking-form__promo"*/
 
   const bookingFormAvailablity = resolveVariationClass(
     "booking-form__availability"

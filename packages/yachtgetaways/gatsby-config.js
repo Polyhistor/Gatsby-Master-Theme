@@ -167,6 +167,9 @@ module.exports = {
             },
           ],
         },
+        modalText: {
+          selection: "Please select your destination and trip",
+        },
         footer: {
           social: [
             {

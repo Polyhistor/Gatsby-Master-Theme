@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 import useActivityQuery from "../../queries/activityQuery"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const ActivityRelated = ({ country }) => {
   const theme = process.env.GATSBY_THEME
@@ -44,11 +45,9 @@ const ActivityRelated = ({ country }) => {
                     {acitivity.node.subtitle}
                   </h4>
                   <h5
-                    className={
-                      theme === "ms"
-                        ? "heading-5 heading-5--black heading-5--ms"
-                        : "heading-5 heading-5--black"
-                    }
+                    className={`${resolveVariationClass(
+                      "heading-5"
+                    )} heading-5--black`}
                   >
                     {acitivity.node.price}
                   </h5>
@@ -61,9 +60,7 @@ const ActivityRelated = ({ country }) => {
   }
   return (
     <div className="activity__related">
-      <h2 className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}>
-        Other Activities
-      </h2>
+      <h2 className={resolveVariationClass("heading-1")}>Other Activities</h2>
       {renderElements()}
     </div>
   )

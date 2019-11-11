@@ -1,22 +1,16 @@
 import React from "react"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
+//VVVVVVV variation property???
 const Step = ({ num, text, variation, last }) => {
-  const theme = process.env.GATSBY_THEME
+  const bookingFormSteps = resolveVariationClass("booking-form__steps")
 
-  const bookingFormSteps =
-    theme === "ms"
-      ? "booking-form__steps booking-form__steps--ms"
-      : "booking-form__steps"
+  const bookingFormStepsArrow = resolveVariationClass(
+    "booking-form__steps--arrow"
+  )
 
-  const bookingFormStepsArrow =
-    theme === "ms"
-      ? "booking-form__steps--arrow booking-form__steps--arrow-ms"
-      : "booking-form__steps--arrow"
-
-  const bookingFormHeadlineArrow =
-    theme === "ms"
-      ? "booking-form__headline--arrow-ms"
-      : "booking-form__headline--arrow"
+  const bookingFormHeadlineArrow = resolveVariationClass(
+    "booking-form__headline--arrow"
+  )
 
   return (
     <>

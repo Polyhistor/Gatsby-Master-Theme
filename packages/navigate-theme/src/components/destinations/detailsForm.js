@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import * as Yup from "yup"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/dist/style.css"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
@@ -58,15 +59,9 @@ const DetailsForm = ({
   bookingNotes,
   generalNotes,
 }) => {
-  const bookingFormDot =
-    theme === "ms"
-      ? "booking-form__dot booking-form__dot--ms"
-      : "booking-form__dot"
+  const bookingFormDot = resolveVariationClass("booking-form__dot")
 
-  const bookingFormPromo =
-    theme === "ms"
-      ? "booking-form__promo booking-form__promo--ms"
-      : "booking-form__promo"
+  const bookingFormPromo = resolveVariationClass("booking-form__promo")
 
   const theme = process.env.GATSBY_THEME
 
@@ -106,13 +101,7 @@ const DetailsForm = ({
     <>
       {success === false ? (
         <>
-          <h3
-            className={
-              theme === "ms"
-                ? "WhyWild-box-single__title WhyWild-box-single__title--ms"
-                : "WhyWild-box-single__title"
-            }
-          >
+          <h3 className={resolveVariationClass("WhyWild-box-single__title")}>
             Enter your details
           </h3>
           <div className="booking-form__enquiry-form">
@@ -243,11 +232,9 @@ const DetailsForm = ({
                 setFieldValue,
               }) => (
                 <Form
-                  className={
-                    theme === "ms"
-                      ? "booking-form__form-container booking-form__form-container--ms"
-                      : "booking-form__form-container"
-                  }
+                  className={resolveVariationClass(
+                    "booking-form__form-container"
+                  )}
                 >
                   <div className="booking-details__fields-container">
                     <Field
@@ -427,7 +414,7 @@ const DetailsForm = ({
                     <label htmlFor="consent">
                       I accept the&thinsp;
                       <a
-                        className={theme === "ms" ? "link link--ms" : "link"}
+                        className={resolveVariationClass("link")}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -461,11 +448,7 @@ const DetailsForm = ({
             </Formik>
           </div>
           <div
-            className={
-              theme === "ms"
-                ? "booking-form__booking-details booking-form__booking-details--ms"
-                : "booking-form__booking-details"
-            }
+            className={resolveVariationClass("booking-form__booking-details")}
           >
             <Image
               fluid={
@@ -476,11 +459,9 @@ const DetailsForm = ({
             ></Image>
             <div className="booking-form__details booking-form__details--title">
               <h2
-                className={
-                  theme === "ms"
-                    ? "tour-banner__description-title tour-banner__description-title--ms"
-                    : "tour-banner__description-title"
-                }
+                className={resolveVariationClass(
+                  "tour-banner__description-title"
+                )}
               >
                 {title}
               </h2>
@@ -518,11 +499,9 @@ const DetailsForm = ({
             </div>
             <div className="booking-form__details booking-form__details--price">
               <h2
-                className={
-                  theme === "ms"
-                    ? "tour-banner__description-title tour-banner__description-title--ms"
-                    : "tour-banner__description-title"
-                }
+                className={resolveVariationClass(
+                  "tour-banner__description-title"
+                )}
               >
                 {state.prices[priceInex].currencySymbol}
                 {state.prices[priceInex].rrpWithDiscount} &thinsp;

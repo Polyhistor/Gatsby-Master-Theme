@@ -106,6 +106,9 @@
         background: $color-red;
         border: 1px solid $color-red;
       }
+      &--ms {
+        background: $color-med-teal !important;
+      }
 
       &-ms {
         background: $color-med-teal !important;

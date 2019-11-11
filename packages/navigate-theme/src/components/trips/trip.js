@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const Trip = ({
   url,
   imageData,
@@ -25,13 +25,7 @@ const Trip = ({
       >
         <figure className="trips__box">
           <Img className="trips__image" fluid={imageData} />
-          <figcaption
-            className={
-              theme === "ms"
-                ? "trips__duration trips__duration--ms"
-                : "trips__duration"
-            }
-          >
+          <figcaption className={resolveVariationClass("trips__duration")}>
             <span className="trips__duration-days">{duration}</span>
             <span className="trips__duration-text">days</span>
           </figcaption>
@@ -41,6 +35,7 @@ const Trip = ({
           <h5 className="trips__description-sub">{subtitle}</h5>
           <p
             className={
+              //VVVVV
               theme === "ms"
                 ? "trips__description-price trips__description-price--ms"
                 : "trips__description-price trips__description-price--wk"

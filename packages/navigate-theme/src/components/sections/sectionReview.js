@@ -3,7 +3,7 @@ import { withPrefix } from "gatsby"
 
 import useReviewQuery from "../../queries/reviewQuery"
 import { dateHandler } from "../../helpers/dateHandler"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const SectionReview = () => {
   // TODO - CLEAN UP- MODULARIZE
   const theme = process.env.GATSBY_THEME
@@ -37,22 +37,10 @@ const SectionReview = () => {
           <p className="tour-banner__description-details u-padding-bottom-small">
             {r.node.reviewText.reviewText}
           </p>
-          <h3
-            className={
-              theme === "ms"
-                ? "green-title-alternative green-title-alternative--ms"
-                : "green-title-alternative"
-            }
-          >
+          <h3 className={resolveVariationClass("green-title-alternative")}>
             {r.node.name}
           </h3>
-          <span
-            className={
-              theme === "ms"
-                ? "green-subtitle-alternative green-subtitle-alternative--ms"
-                : "green-subtitle-alternative"
-            }
-          >
+          <span className={resolveVariationClass("green-subtitle-alternative")}>
             {dateHandler(r.node.date)}
           </span>
         </div>
