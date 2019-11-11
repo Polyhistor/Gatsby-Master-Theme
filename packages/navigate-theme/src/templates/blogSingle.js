@@ -15,6 +15,7 @@ import {
 } from "react-share"
 
 import useBlogQuery from "../queries/blogQuery"
+import imageQuery from "../queries/imageQuery"
 
 import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"
@@ -45,7 +46,14 @@ const BlogPostTemplate = ({ data }, idx) => {
   const blogQuery = useBlogQuery()
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO
         title={data.wordpressPost.title}
         description={data.wordpressPost.excerpt}

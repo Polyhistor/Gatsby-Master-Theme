@@ -9,6 +9,7 @@ import {
   UL_LIST,
   CODE,
   BOLD,
+  imageQuery,
 } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
@@ -49,7 +50,14 @@ const Terms = ({ data }) => {
 
   const termsData = useTermsQuery()
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeo(data)}
       <div className="section-tc">
         <article className="tour-banner__description-details u-margin-top-huge">

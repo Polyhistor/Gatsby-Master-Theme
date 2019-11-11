@@ -16,8 +16,6 @@ const FooterContents = () => {
 
   const instaPhotos = useContext(footerContext)
 
-  console.log(instaPhotos)
-
   return (
     <div className="row u-padding-top-huge ">
       <div className="footer__grid">

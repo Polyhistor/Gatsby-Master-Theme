@@ -11,6 +11,7 @@ import SEO from "../components/seo/seo"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import imageQuery from "../queries/imageQuery"
 
 const IndexPage = ({ pageContext }) => {
   // our pagination
@@ -74,7 +75,14 @@ const IndexPage = ({ pageContext }) => {
 
   return (
     //TODO: blog seo should be handled in contentful
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO title={getBlogSeo().title} description={getBlogSeo().description} />
       <div className="row">
         <div className="blog__main">

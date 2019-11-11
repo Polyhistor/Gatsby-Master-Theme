@@ -46,7 +46,14 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const ourData = useFetchHook(data.contentfulDestinations.slug)
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={

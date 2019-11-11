@@ -10,6 +10,7 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import imageQuery from "../queries/imageQuery"
 
 const BlogAuthorTemplate = ({ data, pageContext }) => {
   // extracting our custom hook
@@ -51,7 +52,14 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO
         title={`${data.wordpressWpUsers.name} | Author at ${pageContext.site.name} `}
         description={data.wordpressWpUsers.description}

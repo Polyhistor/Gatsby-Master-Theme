@@ -12,6 +12,8 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
+import imageQuery from "../queries/imageQuery"
+
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 // import { Breadcrumb } from "gatsby-plugin-breadcrumb"
@@ -24,9 +26,9 @@ const ActivitiesSingle = ({
   data: { allPageJson },
 }) => {
   // intricated object destruction
-  // const {
-  //   breadcrumb: { crumbs },
-  // } = pageContext
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext
 
   const theme = process.env.GATSBY_THEME
 
@@ -34,13 +36,20 @@ const ActivitiesSingle = ({
 
   let customCrub = []
 
-  // crumbs.forEach(e => [...customCrub, e.pathname])
+  crumbs.forEach(e => [...customCrub, e.pathname])
 
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
