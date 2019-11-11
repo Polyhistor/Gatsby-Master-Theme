@@ -45,6 +45,8 @@ const BlogPostTemplate = ({ data }, idx) => {
   // taking out our custom hook
   const blogQuery = useBlogQuery()
 
+  const imageQuery = useImageQuery()
+
   return (
     <Layout2
       InstaPhotos={[
