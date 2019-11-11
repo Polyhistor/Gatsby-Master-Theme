@@ -15,7 +15,7 @@ import {
 } from "react-share"
 
 import useBlogQuery from "../queries/blogQuery"
-import imageQuery from "../queries/imageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"

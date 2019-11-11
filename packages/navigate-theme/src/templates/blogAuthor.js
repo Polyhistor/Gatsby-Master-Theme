@@ -10,11 +10,12 @@ import Trips from "../components/trips/trips"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
-import imageQuery from "../queries/imageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 const BlogAuthorTemplate = ({ data, pageContext }) => {
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+  const imageQuery = useImageQuery()
 
   // rendering articles
   const renderArticles = () => {
