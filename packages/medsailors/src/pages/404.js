@@ -4,7 +4,14 @@ import { Layout2 } from "@nt-websites/navigate-theme"
 import { SEO } from "@nt-websites/navigate-theme"
 
 const NotFoundPage = () => (
-  <Layout2>
+  <Layout2
+    InstaPhotos={[
+      { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+      { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+      { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+      { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+    ]}
+  >
     <SEO title="404: Not found" />
     <section className="page-404">
       <h3 className="feature-box__text">Whoops!</h3>
