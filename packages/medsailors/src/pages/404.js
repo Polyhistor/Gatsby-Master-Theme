@@ -2,7 +2,7 @@ import React from "react"
 
 import { Layout2 } from "@nt-websites/navigate-theme"
 import { SEO } from "@nt-websites/navigate-theme"
-import useImageQuery from "../queries/imageQuery"
+import { useImageQuery } from "@nt-websites/navigate-theme"
 
 const NotFoundPage = () => {
   const imageQuery = useImageQuery()
