@@ -41,12 +41,15 @@ const GetInTouch = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
@@ -70,7 +73,6 @@ const GetInTouch = ({ data }) => {
         phoneNumberData={contactData.phoneAddress}
         leftContactSection={leftContactSection}
       />{" "}
-      />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"

@@ -15,12 +15,10 @@ import footerContext from "../../contexts/footerContext"
 import "../../styles/fonts/_fonts.css"
 import "../../styles/main.scss"
 
-const Layout = ({ children, InstaPhotos }) => {
+const Layout = ({ children, Insta }) => {
   Layout.propTypes = {
     children: PropTypes.node.isRequired,
   }
-
-  // TODO updated CONTEXT LOGIC
 
   return (
     <>
@@ -29,7 +27,7 @@ const Layout = ({ children, InstaPhotos }) => {
         <NavigationMobile />
       </logoContext.LogoProvider>
       <main>{children}</main>
-      <footerContext.Provider value={InstaPhotos}>
+      <footerContext.Provider value={Insta}>
         <Footer />
       </footerContext.Provider>
     </>

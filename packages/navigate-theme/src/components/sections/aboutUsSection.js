@@ -1,6 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
 
+import { WorkForUs } from "@nt-websites/navigate-theme"
+
 import useAboutUsQuery from "../../queries/aboutUsQuery"
 import useTeamQuery from "../../queries/teamQuery"
 

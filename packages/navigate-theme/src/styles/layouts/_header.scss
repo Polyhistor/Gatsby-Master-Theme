@@ -108,7 +108,6 @@
       &--ms {
         @extend .title--ms;
         font-size: 7rem;
-        line-height: 6rem;
 
         @include respond(phone) {
           grid-template-rows: 10.5rem 3rem;
@@ -155,7 +154,7 @@
     }
 
     &--ms {
-      grid-template-rows: 20.6rem 12rem;
+      grid-template-rows: 25.6rem 12rem;
     }
   }
 

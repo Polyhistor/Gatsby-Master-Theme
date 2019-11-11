@@ -77,12 +77,15 @@ const IndexPage = ({ pageContext }) => {
   return (
     //TODO: blog seo should be handled in contentful
     <Layout2
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       <SEO title={getBlogSeo().title} description={getBlogSeo().description} />
       <div className="row">

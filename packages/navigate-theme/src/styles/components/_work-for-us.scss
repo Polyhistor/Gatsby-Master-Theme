@@ -3,6 +3,21 @@
   grid-template-columns: repeat(3, 39rem);
   grid-column-gap: 4.5rem;
 
+  @include respond(laptop) {
+    grid-template-columns: repeat(3, 29.6rem);
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(1, 69rem);
+    grid-row-gap: 5rem;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: repeat(1, 30rem);
+    grid-row-gap: 4rem;
+    margin-left: 1rem;
+  }
+
   &__title {
     @extend .heading-2;
     @extend .heading-2--ms;

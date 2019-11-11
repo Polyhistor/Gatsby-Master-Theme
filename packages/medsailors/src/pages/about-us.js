@@ -28,12 +28,15 @@ const AboutUs = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
@@ -53,7 +56,7 @@ const AboutUs = ({ data }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <AboutUsSection />
+      <AboutUsSection data={workForUsQuery[0].node} />
       <WorkForUs data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
