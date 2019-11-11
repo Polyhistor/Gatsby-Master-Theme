@@ -423,7 +423,7 @@ const BookingForm = ({ data, country, inPage }) => {
       >
         {phase ? (
           <button
-            className={theme === "ms" ? "btn btn--white-med" : "btn btn--white"}
+            className={`btn ${resolveVariationClass("btn--white")}`}
             onClick={() => setPhase(!phase)}
           >
             Back
@@ -442,7 +442,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 <h2
                   className={`${resolveVariationClass(
                     "heading-1"
-                  )} booking-form__feedback-text u-margin-bottom-sedium}`}
+                  )} booking-form__feedback-text u-margin-bottom-sedium`}
                 >
                   {selectionLabel.selection}
                 </h2>
