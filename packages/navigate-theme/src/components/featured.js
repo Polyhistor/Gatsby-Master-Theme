@@ -1,13 +1,11 @@
 import React from "react"
 import { withPrefix } from "gatsby"
-
+import resolveVariationClass from "../helpers/theme-variation-style"
 // import
 
 const Featured = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   return (
-    <div className={theme === "ms" ? "featured featured--ms" : "featured"}>
+    <div className={resolveVariationClass("featured")}>
       <div className="featured__container">
         <h2 className="heading-tertiary--inline">featured in</h2>
         <div className="featured__container-image featured__container-image--metro">

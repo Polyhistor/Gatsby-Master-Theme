@@ -1,14 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const HowItWorks = ({ data }) => {
   const theme = process.env.GATSBY_THEME
 
-  const footerFormLinksItem =
-    theme === "ms"
-      ? "footer__form-links-item footer__form-links-item--ms"
-      : "footer__form-links-item"
+  const footerFormLinksItem = resolveVariationClass("footer__form-links-item")
 
   const renderHowBoxes = () => {
     return data

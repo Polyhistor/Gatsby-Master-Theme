@@ -4,6 +4,7 @@ import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { navigate } from "@reach/router"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const TripBox = ({
   destinationCountry,
@@ -35,11 +36,7 @@ const TripBox = ({
           <figure className="trip-box__figure">
             <img className="trip-box__image" src={imageData} alt={imageAlt} />
             <figcaption
-              className={
-                theme === "ms"
-                  ? "tour-banner__figure-caption tour-banner__figure-caption--ms"
-                  : `tour-banner__figure-caption`
-              }
+              className={resolveVariationClass("tour-banner__figure-caption")}
             >
               <span className="trips__duration-days">{days}</span>
               <span className="trips__duration-text">{text}</span>

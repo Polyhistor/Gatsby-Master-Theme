@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 // todo - clean up this file and separate the concerns
 
@@ -10,13 +11,8 @@ const FilteredTour = ({ country, destinationData }) => {
   const theme = process.env.GATSBY_THEME
 
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
-  const buttonClass =
-    theme === "ms" ? "filtered-tour__button--ms" : "filtered-tour__button"
-
-  const buttonClassActive =
-    theme === "ms"
-      ? "filtered-tour__button--active-ms"
-      : "filtered-tour__button--active"
+  const buttonClass = resolveVariationClass("filtered-tour__button")
+  const buttonClassActive = resolveVariationClass("filtered-tour__button")
 
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -105,13 +101,7 @@ const FilteredTour = ({ country, destinationData }) => {
                 }
                 alt={element.node.title}
               />
-              <figcaption
-                className={
-                  theme === "ms"
-                    ? "trips__duration trips__duration--ms"
-                    : "trips__duration"
-                }
-              >
+              <figcaption className={resolveVariationClass("trips__duration")}>
                 <span className="trips__duration-days">
                   {element.node.duration}
                 </span>
@@ -177,7 +167,7 @@ const FilteredTour = ({ country, destinationData }) => {
       <div className="filtered-tour__container">
         {theme !== "ms" ? (
           <div className="filtered-tour__head">
-            <h3 className={theme === "ms" ? "paragraph--ms" : "paragraph"}>
+            <h3 className={resolveVariationClass("paragraph")}>
               How long are you travelling for?
             </h3>
             <button

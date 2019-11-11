@@ -246,6 +246,10 @@
 
     &--active {
       @include whiteGreen;
+      &--ms {
+        background: $color-med-teal;
+        color: white;
+      }
       &-ms {
         background: $color-med-teal;
         color: white;

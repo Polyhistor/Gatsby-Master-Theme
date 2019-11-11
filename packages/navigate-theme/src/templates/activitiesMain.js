@@ -11,20 +11,19 @@ import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 
-import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useCountryQuery from "../queries/countryQuery"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
-  const activityLabelFree =
-    theme === "ms"
-      ? "acitivity-box-single__caption--free acitivity-box-single__caption--free-ms"
-      : "acitivity-box-single__caption--free"
+  const activityLabelFree = resolveVariationClass(
+    "acitivity-box-single__caption--free"
+  )
 
   const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
@@ -197,13 +196,7 @@ const ActivitiesMain = ({ pageContext }) => {
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
-            <h5
-              className={
-                theme === "ms"
-                  ? "activity__price activity__price--ms"
-                  : "activity__price"
-              }
-            >
+            <h5 className={resolveVariationClass("activity__price")}>
               {node.price === "free"
                 ? "free"
                 : node.price === "included"
@@ -260,27 +253,15 @@ const ActivitiesMain = ({ pageContext }) => {
       <div className="row">
         <div className="activity__filter">
           <h1
-            className={
-              theme === "ms"
-                ? "heading-1 heading-1--ms u-margin-bottom-small "
-                : "heading-1 u-margin-bottom-small "
-            }
+            className={`${resolveVariationClass(
+              "heading-1"
+            )} u-margin-bottom-small`}
           >
             Add-on Activities
           </h1>
-          <div
-            className={
-              theme === "ms"
-                ? "activity__selector activity__selector--ms"
-                : "activity__selector"
-            }
-          >
+          <div className={resolveVariationClass("activity__selector")}>
             <select
-              className={
-                theme === "ms"
-                  ? "activity__dropdown activity__dropdown--ms"
-                  : "activity__dropdown"
-              }
+              className={resolveVariationClass("activity__dropdown")}
               id="country"
               onChange={handleSubmit}
             >
@@ -292,8 +273,10 @@ const ActivitiesMain = ({ pageContext }) => {
           <div
             className={
               filter === null
-                ? "activity__selector activity__selector--hidden"
-                : "activity__selector"
+                ? `${resolveVariationClass(
+                    "activity__selector"
+                  )} activity__selector--hidden`
+                : resolveVariationClass("activity__selector")
             }
           >
             <select

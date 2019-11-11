@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Img from "gatsby-image"
 
+import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const Itinerary = ({
   title,
   itineraryDescriptions,
@@ -23,9 +25,7 @@ const Itinerary = ({
             fluid={itineraryImages[index].localFile.childImageSharp.fluid}
             alt={itineraryTitles[index]}
           />
-          <span
-            className={theme === "ms" ? "heading-4 heading-4--ms" : "heading-4"}
-          >
+          <span className={resolveVariationClass("heading-4")}>
             {itineraryDescription.title}
           </span>
           <h2 className="itinerary__single-title">{itineraryTitles[index]}</h2>
@@ -67,11 +67,7 @@ const Itinerary = ({
         </div>
         <button
           onClick={() => setShow(!show)}
-          className={
-            theme === "ms"
-              ? "itinerary__button itinerary__button--ms"
-              : "itinerary__button"
-          }
+          className={resolveVariationClass("itinerary__button")}
         >
           {show === false ? "show full itinerary" : "show less"}
         </button>

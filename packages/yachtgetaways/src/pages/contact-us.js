@@ -15,12 +15,13 @@ import {
   Error,
   renderSeo,
   useContactQuery,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
   const theme = process.env.GATSBY_THEME
 
-  const link = theme === "ms" ? "link link--ms" : "link"
+  const link = resolveVariationClass("link")
 
   const SVGIcon = "wheel"
 
