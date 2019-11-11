@@ -34,7 +34,9 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
           {documentToReactComponents(description, options)}
         </article>
       )}
-      <img className="activity__svg-map" src={svgMap} alt={title} />
+      {svgMap !== null ? (
+        <img className="activity__svg-map" src={svgMap} alt={title} />
+      ) : null}
       <div className="activity__button-box">
         <Link
           to={`${themeOptionsQueryData.activitiesRoute}`}

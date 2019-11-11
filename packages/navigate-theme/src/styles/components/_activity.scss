@@ -2,7 +2,7 @@
   &--single {
     display: grid;
     grid-template-columns: 25rem 68rem;
-    grid-template-rows: 5rem 3rem 4rem minmax(28rem, min-content) 12rem;
+    grid-template-rows: 5rem 3rem 4rem minmax(10rem, min-content) 12rem;
     grid-column-gap: 7rem;
     border-bottom: 1px solid $color-gray-light-2;
 

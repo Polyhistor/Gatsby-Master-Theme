@@ -42,6 +42,8 @@ const ActivitiesSingle = ({
   const homeQuery = useHomePageQuery()
   const imageQuery = useImageQuery()
 
+  console.log(data)
+
   return (
     <Layout2
       Insta={{
@@ -110,7 +112,11 @@ const ActivitiesSingle = ({
           title={data.contentfulActivities.title}
           subtitle={data.contentfulActivities.subtitle}
           price={data.contentfulActivities.price}
-          svgMap={data.contentfulActivities.svgMap.localFile.publicURL}
+          svgMap={
+            data.contentfulActivities.svgMap === null
+              ? null
+              : data.contentfulActivities.svgMap.localFile.publicURL
+          }
           description={
             data.contentfulActivities.description !== null
               ? data.contentfulActivities.description.json
