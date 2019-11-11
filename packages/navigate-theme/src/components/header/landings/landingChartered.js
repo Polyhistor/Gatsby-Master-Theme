@@ -9,13 +9,15 @@ const LandingChartered = ({
   bannerFifth,
   buttonText,
   buttonTextSecond,
-  country,
+  imagesLength,
 }) => {
+  console.log(imagesLength)
+
   return (
     // for increase reuseability we fetch all the image data and text from the parent component
     <div
       className={
-        country === "Europe" ? "banner-chartered--europe" : "banner-chartered"
+        imagesLength === 1 ? "banner-chartered--europe" : "banner-chartered"
       }
     >
       <BackgroundImage fluid={bannerFirst} className="banner-chartered--1">

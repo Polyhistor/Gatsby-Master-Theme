@@ -50,7 +50,7 @@ const FAQ = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds."
+        text="Skippered sailing holidays for 20-35 year olds"
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
@@ -72,7 +72,7 @@ const FAQ = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

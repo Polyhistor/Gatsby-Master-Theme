@@ -76,7 +76,10 @@ const BlogCategory = ({ data, pageContext }) => {
       </div>
       <Reviews />
       <div className="row">
-        <Trips data={homeQuery[0].node.popularTours} />
+        <Trips
+          data={homeQuery[0].node.popularTours}
+          headerText="Popular Trips"
+        />
       </div>
     </Layout2>
   )

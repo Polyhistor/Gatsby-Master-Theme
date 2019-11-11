@@ -55,7 +55,8 @@ const HowItWorks = ({ data }) => {
         link="/faqs"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
+      
     </Layout>
   )
 }

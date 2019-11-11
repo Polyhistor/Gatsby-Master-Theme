@@ -87,7 +87,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
       <GreenBar
         text={
           theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds."
+            ? "Skippered sailing holidays for 20-35 year olds"
             : "Epic adventure tours for 18 to 35 year olds"
         }
         imageData={SVGIcon}
@@ -192,7 +192,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           />
         </div>
       </DestinationSection>
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout2>
   )
 }

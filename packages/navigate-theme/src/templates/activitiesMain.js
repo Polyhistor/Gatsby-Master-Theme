@@ -244,7 +244,7 @@ const ActivitiesMain = ({ pageContext }) => {
       <GreenBar
         text={
           theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds."
+            ? "Skippered sailing holidays for 20-35 year olds"
             : "Epic adventure for 18 to 35 year olds"
         }
         imageData={SVGIcon}
@@ -326,7 +326,10 @@ const ActivitiesMain = ({ pageContext }) => {
 
       <Reviews />
       <div className="row">
-        <Trips data={homeQuery[0].node.popularTours} />
+        <Trips
+          data={homeQuery[0].node.popularTours}
+          headerText="Popular Trips"
+        />
       </div>
     </Layout>
   )

@@ -173,7 +173,7 @@ const IndexPage = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
     </Layout>
   )
 }

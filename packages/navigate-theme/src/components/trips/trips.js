@@ -1,7 +1,7 @@
 import React from "react"
 import Trip from "./trip"
 
-const Trips = ({ data }) => {
+const Trips = ({ data, headerText }) => {
   let currency
 
   // function that programatically adds comma to the price
@@ -12,6 +12,8 @@ const Trips = ({ data }) => {
     const afterComma = priceArray.slice(1, 4).join("")
     return `${beforeComma},${afterComma}`
   }
+
+  console.log(headerText)
 
   // function to render trips based on fectched contentful data
   const renderTrips = () =>
@@ -45,7 +47,7 @@ const Trips = ({ data }) => {
     <section className="section-trips">
       <div className="row">
         <div className="trips-header-box">
-          <h2 className="heading-1 heading-1--ms">Popular tours</h2>
+          <h2 className="heading-1 heading-1--ms">{headerText}</h2>
         </div>
         <div className="trips-container">{renderTrips()}</div>
       </div>

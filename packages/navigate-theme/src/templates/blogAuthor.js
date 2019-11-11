@@ -123,7 +123,10 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
         <Reviews />
       </div>
       <div className="row">
-        <Trips data={homeQuery[0].node.popularTours} />
+        <Trips
+          data={homeQuery[0].node.popularTours}
+          headerText="Popular Trips"
+        />
       </div>
     </Layout2>
   )
