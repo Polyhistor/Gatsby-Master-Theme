@@ -61,7 +61,7 @@ const TourBanner = ({
                 "tour-banner__description-price"
               )}
             >
-              {variation === "ms" ? `From £${price} per day` : price}
+              {variation === "ms" ? `From €${price} per day` : price}
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
