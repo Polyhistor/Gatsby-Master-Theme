@@ -38,6 +38,7 @@ const ActivitiesSingle = ({
 
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+
   return (
     <Layout2>
       {renderSeoFromContext(pageContext)}

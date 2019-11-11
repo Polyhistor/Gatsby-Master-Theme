@@ -10,12 +10,13 @@ import NavigationMobile from "./../mobile/navigationMobile"
 
 //provding with context
 import logoContext from "../../contexts/logoContext"
+import footerContext from "../../contexts/footerContext"
 
 //loading fonts
 import "../../styles/fonts/_fonts.css"
 import "../../styles/main.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, InstaPhotos }) => {
   Layout.propTypes = {
     children: PropTypes.node.isRequired,
   }
@@ -27,7 +28,9 @@ const Layout = ({ children }) => {
         <NavigationMobile />
       </logoContext.LogoProvider>
       <main>{children}</main>
-      <Footer />
+      <footerContext.Provider value={InstaPhotos}>
+        <Footer />
+      </footerContext.Provider>
     </>
   )
 }
