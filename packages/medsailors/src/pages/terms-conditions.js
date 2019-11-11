@@ -14,7 +14,12 @@ import {
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // calling our query
-import { useTermsQuery, renderSeo, Layout2 } from "@nt-websites/navigate-theme"
+import {
+  useTermsQuery,
+  renderSeo,
+  Layout2,
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 const Terms = ({ data }) => {
   const options = {
@@ -49,6 +54,8 @@ const Terms = ({ data }) => {
   }
 
   const termsData = useTermsQuery()
+  const imageQuery = useImageQuery()
+
   return (
     <Layout2
       InstaPhotos={[

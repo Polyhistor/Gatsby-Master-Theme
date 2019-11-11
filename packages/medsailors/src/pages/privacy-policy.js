@@ -17,6 +17,7 @@ import {
   Layout2,
   usePrivacyQuery,
   renderSeo,
+  useImageQuery,
 } from "@nt-websites/navigate-theme"
 
 const Privacy = ({ data }) => {
@@ -53,6 +54,8 @@ const Privacy = ({ data }) => {
 
   // calling our hook
   const privacyData = usePrivacyQuery()
+  const imageQuery = useImageQuery()
+
   return (
     <Layout2
       InstaPhotos={[
