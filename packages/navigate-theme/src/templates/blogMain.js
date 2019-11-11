@@ -11,7 +11,7 @@ import SEO from "../components/seo/seo"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
-import imageQuery from "../queries/imageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 const IndexPage = ({ pageContext }) => {
   // our pagination
@@ -20,6 +20,7 @@ const IndexPage = ({ pageContext }) => {
   const nextUrl = (index + 1).toString()
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+  const imageQuery = useImageQuery()
 
   const { site } = useStaticQuery(
     graphql`

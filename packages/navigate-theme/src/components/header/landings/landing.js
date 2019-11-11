@@ -3,6 +3,8 @@ import Modal from "react-responsive-modal"
 import { Link, withPrefix } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
+import resolveVariationClass from "../../../helpers/theme-variation-style"
+
 const Header = ({
   imageData,
   titleFirst,
@@ -29,7 +31,7 @@ const Header = ({
     <>
       <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
         <div className="header">
-          <div className={`header__text-box header__text-box--${variation}`}>
+          <div className={`${resolveVariationClass("header__text-box")}`}>
             <h1
               className={
                 theme === "ms"
