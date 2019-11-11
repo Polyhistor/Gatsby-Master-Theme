@@ -7,6 +7,7 @@ import Featured from "../featured"
 
 // extracting our hook
 import useFeatureBox from "../../queries/featuredBoxQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BannerHero = ({
   headerFirst,
@@ -18,8 +19,6 @@ const BannerHero = ({
   imageData,
 }) => {
   const featuredBoxData = useFeatureBox()
-
-  const theme = process.env.GATSBY_THEME
 
   return (
     <section className="section-banner section-banner-hero mobile-no">
@@ -36,11 +35,9 @@ const BannerHero = ({
               <div className="banner-hero__button-box">
                 <Link
                   to="/how-it-works"
-                  className={
-                    theme === "ms"
-                      ? "btn btn--white btn--white-med btn-animated"
-                      : `btn btn--white btn-animated`
-                  }
+                  className={`btn ${resolveVariationClass(
+                    "btn--white"
+                  )} btn-animated`}
                 >
                   {buttonText}
                 </Link>

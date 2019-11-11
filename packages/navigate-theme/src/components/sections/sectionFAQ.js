@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import useFAQVideoQuery from "../../queries/faqVideoQuery"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 // TODO - clean up
 
 const SectionFAQ = ({ FAQData }) => {
@@ -9,12 +9,9 @@ const SectionFAQ = ({ FAQData }) => {
 
   const color = theme === "ms" ? "u-color-ms-teal" : "u-color-green"
 
-  const FAQButton =
-    theme === "ms" ? "FAQ__button FAQ__button--ms" : "FAQ__button"
-  const FAQButtonActive =
-    theme === "ms"
-      ? "FAQ__button--active FAQ__button--active-ms"
-      : "FAQ__button--active"
+  const FAQButton = resolveVariationClass("FAQ__button")
+
+  const FAQButtonActive = resolveVariationClass("FAQ__button--active")
 
   // getting data out of our FAQ Query
   const FAQVideo = useFAQVideoQuery()
@@ -100,28 +97,14 @@ const SectionFAQ = ({ FAQData }) => {
                 name="tabs"
               />
               <label htmlFor={`FAQ__tab-${idx}`}>
-                <span
-                  className={
-                    theme === "ms" ? "FAQ__icon FAQ__icon--ms" : "FAQ__icon"
-                  }
-                >
+                <span className={resolveVariationClass("FAQ__icon")}>
                   {idx + 1}
                 </span>
-                <h3
-                  className={
-                    theme === "ms"
-                      ? "FAQ__question FAQ__question--ms"
-                      : "FAQ__question"
-                  }
-                >
+                <h3 className={resolveVariationClass("FAQ__question")}>
                   {questtion}
                 </h3>
               </label>
-              <a
-                className={
-                  theme === "ms" ? "arrow arrow--ms down" : "arrow down"
-                }
-              />
+              <a className={`${resolveVariationClass("arrow")} down`} />
               <div className="FAQ__answer-container">
                 <p className="FAQ__paragraph">{element.node.answers[idx]}</p>
               </div>

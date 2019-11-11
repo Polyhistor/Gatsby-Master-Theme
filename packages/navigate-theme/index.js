@@ -228,4 +228,6 @@ export {
   extractMetadataFromContentfulData,
 } from "./src/helpers/seo-helper"
 
-export { resolveVariationClass } from "./src/helpers/theme-variation-style"
+export {
+  default as resolveVariationClass,
+} from "./src/helpers/theme-variation-style"

@@ -1,4 +1,5 @@
 import React from "react"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const getThere = ({
   title,
@@ -10,8 +11,6 @@ const getThere = ({
   rightList,
   rightListLinks,
 }) => {
-  const theme = process.env.GATSBY_THEME
-
   const renderListLeft = () => {
     return leftList.map((element, idx) => {
       return (
@@ -40,11 +39,9 @@ const getThere = ({
     <div className="section-destination__get-there">
       <div className="get-there">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms u-padding-bottom-sedium"
-              : "heading-1 u-padding-bottom-sedium"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-padding-bottom-sedium`}
         >
           {title}
         </h2>

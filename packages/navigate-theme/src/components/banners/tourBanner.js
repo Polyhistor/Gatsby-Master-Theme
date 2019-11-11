@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 /**
  * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
  * different names? Was hard to get that looking at the code.
@@ -14,6 +14,10 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
  * using the same business logic but different styling, html.
  *
  * The business logic should be abstracted from the three components as they basically use the same logic but different interface.
+ */
+
+/*
+ TODO:       {variation === "ms" ? `From £${price} per day` : price}
  */
 const TourBanner = ({
   destination,
@@ -40,11 +44,9 @@ const TourBanner = ({
         <div className="col-1-of-4">
           <div className="tour-banner__description">
             <h3
-              className={
-                theme === "ms"
-                  ? "tour-banner__description-title tour-banner__description-title--ms"
-                  : `tour-banner__description-title`
-              }
+              className={resolveVariationClass(
+                "tour-banner__description-title"
+              )}
             >
               {title}
             </h3>
@@ -55,11 +57,9 @@ const TourBanner = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={
-                theme === "ms"
-                  ? `tour-banner__description-price tour-banner__description-price-ms`
-                  : "tour-banner__description-price"
-              }
+              className={resolveVariationClass(
+                "tour-banner__description-price"
+              )}
             >
               {variation === "ms" ? `From £${price} per day` : price}
             </span>
@@ -88,11 +88,7 @@ const TourBanner = ({
             {/* choosing image based on the given props */}
             <Img fluid={imageData} />
             <figcaption
-              className={
-                theme === "ms"
-                  ? "tour-banner__figure-caption tour-banner__figure-caption--ms"
-                  : `tour-banner__figure-caption`
-              }
+              className={resolveVariationClass("tour-banner__figure-caption")}
             >
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
