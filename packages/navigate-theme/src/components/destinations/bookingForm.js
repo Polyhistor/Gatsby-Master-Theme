@@ -224,6 +224,28 @@ const BookingForm = ({ data, country, inPage }) => {
 
   // function that renders the entries (available tours)
   const renderEntries = () => {
+    if (entries === null) {
+      return (
+        <h2
+          className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
+        >
+          Nothing has been selected
+        </h2>
+      )
+    }
+
+    if (entries.months === undefined) {
+      return (
+        <Loader
+          type="Oval"
+          color="#1abc9c"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      )
+    }
+
     if (entries) {
       return entries.months.map((e, idx) => (
         <div
