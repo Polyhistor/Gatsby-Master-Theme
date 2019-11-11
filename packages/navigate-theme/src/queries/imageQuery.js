@@ -104,6 +104,30 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      instaOneMS: file(
+        relativePath: { eq: "MedSailors-Instagraam-Yacht.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      instaTwoMS: file(
+        relativePath: { eq: "MedSailors-Instagraam-Dolphins.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      instaThreeMS: file(
+        relativePath: { eq: "MedSailors-Instagraam-Underwater.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      instaFourMS: file(
+        relativePath: { eq: "MedSailors-Instagraam-Jump.jpg" }
+      ) {
+        ...FluidImage
+      }
+
       instaFive: file(
         relativePath: { eq: "wild-kiwi-tours- hot-water-beach.jpg" }
       ) {
@@ -244,6 +268,12 @@ const useImageQuery = () => {
 
       MsHowItWorksBanner: file(
         relativePath: { eq: "group-jump-off-catamaran-greece.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      MSBottomBanner: file(
+        relativePath: { eq: "yachts-anchored-blue-caves-corfu.jpg" }
       ) {
         ...FluidImage
       }

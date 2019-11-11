@@ -43,7 +43,14 @@ const BlogTag = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO title={`${pageContext.name} | ${pageContext.site.name}`}></SEO>
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
@@ -51,6 +58,11 @@ const BlogTag = ({ data, pageContext }) => {
         </h2>
         <div className="blog__categorized">{renderBlogs()}</div>
         <Banner
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSBottomBanner.childImageSharp.fluid
+              : imageQuery.banner.childImageSharp.fluid
+          }
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"

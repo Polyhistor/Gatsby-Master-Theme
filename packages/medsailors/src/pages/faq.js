@@ -25,7 +25,14 @@ const FAQ = ({ data }) => {
   const FAQData = useFAQQuery()
 
   return (
-    <Layout>
+    <Layout
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -54,11 +61,11 @@ const FAQ = ({ data }) => {
         ]}
       />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />

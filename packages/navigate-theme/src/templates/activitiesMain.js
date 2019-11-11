@@ -217,7 +217,14 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO
         title={getActivitySeo().title}
         description={getActivitySeo().description}
@@ -318,10 +325,15 @@ const ActivitiesMain = ({ pageContext }) => {
           </div>
         </div>
         <Banner
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSBottomBanner.childImageSharp.fluid
+              : imageQuery.banner.childImageSharp.fluid
+          }
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
-          buttonText="continue"
+          buttonText={theme === "ms" ? "explore" : "continue"}
           link="/how-it-works"
         />
       </div>

@@ -30,6 +30,11 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
+  //TODO: Why wildkiwi text header should not be static on the code.
+
+  //TODO: workaround to change the header text quickly
+  const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
+
   const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
   // extracting our custom hook
@@ -41,7 +46,14 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const ourData = useFetchHook(data.contentfulDestinations.slug)
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
@@ -142,7 +154,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         <div className="hotfix--reviews">
           <Reviews />
         </div>
-        <WhyWild WhyWildData={WhyWildData} />
+        <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
         <Booking data={ourData} inPage={true} />
         <GetThere
           title="Getting there"
@@ -164,13 +176,13 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           <Banner
             imageData={
               theme === "ms"
-                ? imageQuery.MsHowItWorksBanner.childImageSharp.fluid
+                ? imageQuery.MSBottomBanner.childImageSharp.fluid
                 : imageQuery.banner.childImageSharp.fluid
             }
-            header="Looking for adventure?"
-            subHeaderFirst="Read our top 10 adrenalin "
-            subHeaderSecond="activites to do in New Zealand."
-            buttonText="learn more"
+            header="How It Works"
+            subHeaderFirst="Everything You Need To"
+            subHeaderSecond="Know About Our Tours"
+            buttonText={theme === "ms" ? "explore" : "learn more"}
             link="/how-it-works"
           />
         </div>

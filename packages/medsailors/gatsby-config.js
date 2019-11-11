@@ -32,6 +32,7 @@ module.exports = {
       //TODO: read moore about it: we are already using this plugin on shared theme, maybe we don't need to declare again or it might have some negative side effect.
       resolve: "gatsby-plugin-react-helmet",
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
@@ -216,7 +217,6 @@ module.exports = {
               { label: "turkey", link: "/sail-turkey" },
             ],
           },
-          { label: "activities", link: "/activities", sub: null },
           {
             label: "how it works",
             link: "/how-it-works",
@@ -228,6 +228,7 @@ module.exports = {
             sub: null,
           },
           { label: "faq", link: "/faq", sub: null },
+          { label: "travel inspo", link: "/activities", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",
@@ -237,6 +238,10 @@ module.exports = {
           },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
+
+        modalText: {
+          selection: "Please select your destination and trip",
+        },
 
         routesConfig: {
           destinationRoute: `/tours`,

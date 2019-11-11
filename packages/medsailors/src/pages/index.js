@@ -101,7 +101,14 @@ const IndexPage = ({ data }) => {
    */
 
   return (
-    <Layout>
+    <Layout
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
@@ -115,15 +122,15 @@ const IndexPage = ({ data }) => {
         buttonSecondURL=""
         buttonStyles={["med-blue", "white"]}
         variation={null}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
       />
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
-          { label: "montenegro", link: "/sail-montenegro" },
-          { label: "turkey", link: "/sail-turkey" },
+          { label: "montenegro", link: "/sail-montenegro/discovery" },
+          { label: "turkey", link: "/sail-turkey/voyager" },
         ]}
       />
       <WhyUsMobile
@@ -167,7 +174,7 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

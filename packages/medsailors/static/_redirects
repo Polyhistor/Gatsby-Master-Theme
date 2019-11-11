@@ -1,4 +1,4 @@
-sail-croatia/voyager-split-dubrovnik/ /sail-croatia/split-voyager
+
 sail-croatia/voyager-split-dubrovnik /sail-croatia/split-voyager
 
 /sail-croatia/discovery-split/ /sail-croatia/discovery
@@ -32,7 +32,7 @@ sail-croatia/voyager-split-dubrovnik /sail-croatia/split-voyager
 
 /careers/* /about-us
 /testimonials/* /reviews
-/galleries/*  /tour
+/galleries/*  /tours
 /sail-italy /tours
 
 

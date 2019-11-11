@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import SocialNetowrk from "./socialNetworks"
 import FooterContents from "./footerContents"

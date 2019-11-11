@@ -55,7 +55,14 @@ const ActivitiesCountries = ({ pageContext, data }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -95,7 +102,11 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           </div> */}
         </div>
         <Banner
-          header="How it works"
+          imageData={
+            theme === "ms"
+              ? imageQuery.MSBottomBanner.childImageSharp.fluid
+              : imageQuery.banner.childImageSharp.fluid
+          }
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"

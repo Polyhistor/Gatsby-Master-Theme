@@ -16,7 +16,14 @@ const Reviews = ({ data }) => {
   const imageQuery = useImageQuery()
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeo(data)}
 
       <div className="hotfix--narrow-banner">

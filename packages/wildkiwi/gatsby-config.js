@@ -65,6 +65,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
+        modalText: {
+          selection: "Please select your destination and tour",
+        },
         host:
           process.env.NODE_ENV !== "production"
             ? null

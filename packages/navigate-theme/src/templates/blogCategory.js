@@ -11,9 +11,11 @@ import SEO from "../components/seo/seo"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
 const BlogCategory = ({ data, pageContext }) => {
+  const imageQuery = useImageQuery()
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
 
@@ -47,7 +49,14 @@ const BlogCategory = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout2>
+    <Layout2
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       <SEO title={`${pageContext.name} | ${pageContext.site.name}`} />
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">

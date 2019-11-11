@@ -22,6 +22,10 @@
     grid-column-gap: 1.5rem;
     padding: 1rem;
 
+    @include respond(laptop) {
+      grid-template-rows: 2rem 3rem min-content;
+    }
+
     @include respond(phone) {
       grid-template-columns: 1fr;
       grid-template-rows: 25rem 3rem min-content min-content;
@@ -70,7 +74,9 @@
       grid-row: 3;
       width: 98%;
       @extend .heading-4;
-      @extend .heading-4--regular-capitalized-darkGrey;
+      @extend .heading-4--nRegular;
+      @extend .heading-4--regular;
+      @extend .heading-4--darkGrey;
 
       @include respond(phone) {
         grid-row: 4;

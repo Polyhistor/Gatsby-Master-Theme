@@ -1,13 +1,15 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Loader from "react-loader-spinner"
-import { withPrefix } from "gatsby"
 
 import Step from "./step"
 import DetailsForm from "./detailsForm"
-import useDestinationQuery from "../../queries/destinationQuery"
 
 import { getTourPricesRequest } from "../../services/api"
+
 import useCountryQuery from "../../queries/countryQuery"
+import useDestinationQuery from "../../queries/destinationQuery"
+import useThemeModalQuery from "../../queries/themeModalQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BookingForm = ({ data, country, inPage }) => {
   //TODO:This should come from api somehow
@@ -26,27 +28,40 @@ const BookingForm = ({ data, country, inPage }) => {
     },
   ]
 
-  // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
 
-  const bookingFormPromo =
-    theme === "ms"
+  // render buyerInfo
+  const renderIfno = () => {
+    if (entries === null) {
+      return null
+    }
+
+    if (entries) {
+      return (
+        <p className="booking-form__additional-info u-margin-top-small ">
+          {entries.general_notes} {entries.booking_notes}
+        </p>
+      )
+    }
+  }
+
+  // TODO - CLEAN UP
+
+  const bookingFormPromo = resolveVariationClass("booking-form__promo")
+  /*  theme === "ms"
       ? "booking-form__promo booking-form__promo--ms"
-      : "booking-form__promo"
+      : "booking-form__promo"*/
 
-  const bookingFormAvailablity =
-    theme === "ms"
-      ? "booking-form__availability booking-form__availability--ms"
-      : "booking-form__availability"
+  const bookingFormAvailablity = resolveVariationClass(
+    "booking-form__availability"
+  )
 
-  const bookingFormDot =
-    theme === "ms"
-      ? "booking-form__dot booking-form__dot--ms"
-      : "booking-form__dot"
+  const bookingFormDot = resolveVariationClass("booking-form__do")
 
   // extracting out our query
   const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
+  const selectionLabel = useThemeModalQuery()
 
   // setting our initial country state
   const countryList = useState(countryData)
@@ -175,17 +190,15 @@ const BookingForm = ({ data, country, inPage }) => {
             }
           >
             {theme === "ms" ? (
-              <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+              <div
+                className={`mobile-yes heading-5--capitalized ${resolveVariationClass(
+                  "heading-5"
+                )}`}
+              >
                 {p.productClass}
               </div>
             ) : null}
-            <div
-              className={
-                theme === "ms"
-                  ? "booking-form__price booking-form__price-ms"
-                  : "booking-form__price"
-              }
-            >
+            <div className={resolveVariationClass("booking-form__price")}>
               <span className={bookingFormAvailablity}>{p.availability}</span>
               <span className="booking-form__original">
                 {p.currencySymbol}
@@ -214,16 +227,9 @@ const BookingForm = ({ data, country, inPage }) => {
     if (entries === null) {
       return (
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms booking-form__feedback-text"
-              : "heading-1 booking-form__feedback-text"
-          }
+          className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
         >
-          {/* Add preload text to configue */}
-          {theme === "ms"
-            ? "Please select your destination and trip"
-            : "Please select your destination and tour"}
+          Nothing has been selected
         </h2>
       )
     }
@@ -270,11 +276,9 @@ const BookingForm = ({ data, country, inPage }) => {
                   onClick={
                     theme === "ms" ? null : _ => handleClick(_, idx, idx2, d)
                   }
-                  className={
-                    theme === "ms"
-                      ? "booking-form__hidden-entries booking-form__hidden-entries--ms"
-                      : "booking-form__hidden-entries"
-                  }
+                  className={resolveVariationClass(
+                    "booking-form__hidden-entries"
+                  )}
                 >
                   <div className="booking-form__left">
                     <div className="booking-form__date-container">
@@ -331,13 +335,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       </span>
                     </div>
                   </div>
-                  <div
-                    className={
-                      theme === "ms"
-                        ? "booking-form__right booking-form__right--ms"
-                        : "booking-form__right"
-                    }
-                  >
+                  <div className={resolveVariationClass("booking-form__right")}>
                     {theme === "ms" ? renderPrices(d.prices) : null}
                   </div>
                 </div>
@@ -346,9 +344,11 @@ const BookingForm = ({ data, country, inPage }) => {
           </div>
         </div>
       ))
-    } else {
-      return <div>Please select the destination and the tour</div>
     }
+
+    // else {
+    //   return <div>Please select the destination and the tour</div>
+    // }
   }
 
   // function that renders destinaion dropdown options
@@ -443,37 +443,38 @@ const BookingForm = ({ data, country, inPage }) => {
             : "booking-form__body"
         }
       >
+        {phase ? (
+          <button
+            className={`btn ${resolveVariationClass("btn--white")}`}
+            onClick={() => setPhase(!phase)}
+          >
+            Back
+          </button>
+        ) : null}
         {!phase ? (
           <div className="booking-form__phase-1">
             {receivedData !== null ? (
               <div className="booking-form__tour-title u-margin-bottom-medium">
-                <h2
-                  className={
-                    theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"
-                  }
-                >
+                <h2 className={resolveVariationClass("heading-1")}>
                   {data.data.data.description}
                 </h2>
               </div>
             ) : (
               <div className="booking-form__dropdown">
+                <h2
+                  className={`${resolveVariationClass(
+                    "heading-1"
+                  )} booking-form__feedback-text u-margin-bottom-sedium`}
+                >
+                  {selectionLabel.selection}
+                </h2>
                 <h3 className="booking-form__conditional-text mobile-yes">
                   Select your trip and date
                 </h3>
-                <div
-                  className={
-                    theme === "ms"
-                      ? "activity__selector activity__selector--ms"
-                      : "activity__selector"
-                  }
-                >
+                <div className={resolveVariationClass("activity__selector")}>
                   <select
                     onChange={e => handleCountryDropdown(e)}
-                    className={
-                      theme === "ms"
-                        ? "activity__dropdown activity__dropdown--ms"
-                        : "activity__dropdown"
-                    }
+                    className={"activity__dropdown"}
                     id="country"
                   >
                     <option value="all">Destination</option>
@@ -482,20 +483,10 @@ const BookingForm = ({ data, country, inPage }) => {
                 </div>
 
                 {destinationFilter !== null ? (
-                  <div
-                    className={
-                      theme === "ms"
-                        ? "activity__selector activity__selector--ms"
-                        : "activity__selector"
-                    }
-                  >
+                  <div className={resolveVariationClass("activity__selector")}>
                     <select
                       onChange={e => handleDestDropdown(e)}
-                      className={
-                        theme === "ms"
-                          ? "activity__dropdown activity__dropdown--ms"
-                          : "activity__dropdown"
-                      }
+                      className={resolveVariationClass("activity__dropdown")}
                       id="tours"
                       value={selectValue}
                     >
@@ -511,6 +502,7 @@ const BookingForm = ({ data, country, inPage }) => {
             <div className="booking-form__entries">
               {renderHeader()}
               {renderEntries()}
+              {renderIfno()}
             </div>
           </div>
         ) : (
@@ -535,16 +527,6 @@ const BookingForm = ({ data, country, inPage }) => {
             />
           </div>
         )}
-      </div>
-      <div className="booking-form__footer">
-        {phase ? (
-          <button
-            className={theme === "ms" ? "btn btn--white-med" : "btn btn--white"}
-            onClick={() => setPhase(!phase)}
-          >
-            Previous
-          </button>
-        ) : null}
       </div>
     </section>
   )
