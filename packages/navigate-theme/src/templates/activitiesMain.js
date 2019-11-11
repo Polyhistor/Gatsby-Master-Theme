@@ -263,8 +263,10 @@ const ActivitiesMain = ({ pageContext }) => {
           <div
             className={
               filter === null
-                ? "activity__selector activity__selector--hidden"
-                : "activity__selector"
+                ? `${resolveVariationClass(
+                    "activity__selector"
+                  )} activity__selector--hidden`
+                : resolveVariationClass("activity__selector")
             }
           >
             <select
