@@ -12,7 +12,7 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 
-import imageQuery from "../queries/imageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
@@ -40,6 +40,7 @@ const ActivitiesSingle = ({
 
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
+  const imageQuery = useImageQuery()
 
   return (
     <Layout2
