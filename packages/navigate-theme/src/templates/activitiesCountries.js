@@ -55,7 +55,14 @@ const ActivitiesCountries = ({ pageContext, data }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      InstaPhotos={[
+        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+      ]}
+    >
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
