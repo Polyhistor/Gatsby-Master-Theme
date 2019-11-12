@@ -5,10 +5,9 @@ import useReviewQuery from "../../queries/reviewQuery"
 import { dateHandler } from "../../helpers/dateHandler"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 const SectionReview = () => {
-  // TODO - CLEAN UP- MODULARIZE
-  const theme = process.env.GATSBY_THEME
-
   const reviewData = useReviewQuery()
+
+  console.log(reviewData)
 
   const renderReviews = () =>
     reviewData.map((r, idx) => {
@@ -31,7 +30,7 @@ const SectionReview = () => {
               <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
             </svg>
           </div>
-          <h2 className="trips__description-main u-padding-bottom-tiny">
+          <h2 className="heading-3 heading-3--darkGrey heading-3--extraBold u-padding-bottom-tiny">
             {r.node.title}
           </h2>
           <p className="tour-banner__description-details u-padding-bottom-small">

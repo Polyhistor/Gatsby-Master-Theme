@@ -204,6 +204,10 @@ module.exports = {
               title: "About Us",
               link: "/about-us",
             },
+            {
+              title: "Activities",
+              link: "/activities",
+            },
           ],
         },
         menuLabel: [
@@ -228,7 +232,7 @@ module.exports = {
             sub: null,
           },
           { label: "faq", link: "/faq", sub: null },
-          { label: "travel inspo", link: "/activities", sub: null },
+          { label: "travel inspo", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",

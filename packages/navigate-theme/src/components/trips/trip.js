@@ -35,7 +35,6 @@ const Trip = ({
           <h5 className="trips__description-sub">{subtitle}</h5>
           <p
             className={
-              //VVVVV
               theme === "ms"
                 ? "trips__description-price trips__description-price--ms"
                 : "trips__description-price trips__description-price--wk"
