@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const FooterInstagramBox = ({
   imageOne,
   imageTwo,
@@ -13,13 +13,7 @@ const FooterInstagramBox = ({
 
   return (
     <a className="footer__instagram" href={url} target="_blank">
-      <div
-        className={
-          theme === "ms"
-            ? "footer__instagram-box footer__instagram-box--ms"
-            : "footer__instagram-box"
-        }
-      >
+      <div className={resolveVariationClass("footer__instagram-box")}>
         <h2>#MedSailors</h2>
         <Img fluid={imageOne} />
         <Img fluid={imageTwo} />

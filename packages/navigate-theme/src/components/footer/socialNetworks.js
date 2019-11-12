@@ -1,10 +1,9 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 import useThemeFooterQuery from "../../queries/themeFooterQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const SocialNetowrk = () => {
   const footerData = useThemeFooterQuery()
-
-  const theme = process.env.GATSBY_THEME
 
   const youtubeLink = footerData.social.find(l => l.title === "Facebook").link
   const facebookLink = footerData.social.find(l => l.title === "Youtube").link
@@ -14,13 +13,7 @@ const SocialNetowrk = () => {
   return (
     <div className="u-margin-bottom-medium u-padding-top-huge ">
       <div className="footer__social-networks">
-        <div
-          className={
-            theme === "ms"
-              ? "footer__social-networks-box footer__social-networks-box--ms"
-              : "footer__social-networks-box"
-          }
-        >
+        <div className={resolveVariationClass("footer__social-networks-box")}>
           <a href={facebookLink} target="_blank" rel="noopener noreferrer">
             <svg className="svg-icon--Facebook">
               <use xlinkHref={withPrefix("sprite.svg#icon-Facebook")} />

@@ -8,6 +8,7 @@
   z-index: 1;
 
   &--wk,
+  &--yg,
   &--ms {
     position: fixed;
     top: 0;
@@ -27,6 +28,11 @@
 
   &--wk {
     background: black;
+  }
+
+  &--yg {
+    background: $color-yg-light-teal;
+    border-bottom: 2px solid white;
   }
 
   &--ms {
