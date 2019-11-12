@@ -59,7 +59,6 @@
   &__buttons {
     display: flex;
     justify-content: space-around;
-    max-width: 80rem;
     margin-left: -1.1rem;
 
     & ~ .mobile-yes > .activity__selector > .activity__dropdown {

@@ -1,7 +1,8 @@
 .work-for-us {
   display: grid;
-  grid-template-columns: repeat(3, 39rem);
+  grid-template-columns: repeat(4, 28rem);
   grid-column-gap: 4.5rem;
+  border: 1px solid #e7e7e7;
 
   @include respond(laptop) {
     grid-template-columns: repeat(3, 29.6rem);
@@ -15,7 +16,6 @@
   @include respond(phone) {
     grid-template-columns: repeat(1, 30rem);
     grid-row-gap: 4rem;
-    margin-left: 1rem;
   }
 
   &__title {
@@ -31,5 +31,32 @@
     @extend .paragraph;
     color: $color-med-teal;
     display: block;
+  }
+
+  & div:first-child {
+    padding-left: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
+  & div:nth-child(2) {
+    @include respond(tablet) {
+      padding-left: 1.6rem;
+    }
+  }
+
+  &__image-container {
+    grid-column: 3/5;
+
+    @include respond(tablet) {
+      grid-column: 1;
+    }
+
+    @include respond(phone) {
+      grid-column: 1;
+    }
+
+    & > .gatsby-image-wrapper {
+      height: 27rem;
+    }
   }
 }

@@ -469,6 +469,9 @@ export const WorkingForUsFragment = graphql`
     description1 {
       description1
     }
+    description1SecondParagraph {
+      description1SecondParagraph
+    }
     links
     urLs
     title2
