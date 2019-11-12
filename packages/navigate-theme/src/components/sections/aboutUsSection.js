@@ -72,6 +72,15 @@ export const AboutUs = ({ data }) => {
           Our Values
         </h2>
         {renderHowBoxes()}
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms  u-margin-bottom-small"
+              : "heading-1"
+          }
+        >
+          Working for us
+        </h2>
         <WorkForUs data={data}></WorkForUs>
         <h2
           className={
