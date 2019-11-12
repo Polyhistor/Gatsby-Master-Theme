@@ -42,11 +42,10 @@
 
   &__dropdown {
     position: absolute;
-    padding-top: 3.7rem;
     height: 10rem;
     width: 15.5rem;
     left: -3rem;
-    top: 3.4rem;
+    top: 7.2rem;
     margin-top: -2rem;
 
     @include respond(tablet) {
@@ -85,8 +84,6 @@
 
     &:hover {
       .navigation__dropdown-item {
-        display: block;
-
         @include respond(phone) {
           width: 100%;
           text-align: center;
@@ -101,7 +98,7 @@
       text-align: center;
 
       @include respond(phone) {
-        display: block;
+        // display: block;
         padding: 1.4rem;
       }
 
@@ -203,6 +200,10 @@
           animation: blinkText 0.8s ease-out;
         }
       }
+    }
+
+    &:hover > .navigation__dropdown > .navigation__dropdown-item {
+      display: block;
     }
   }
 
