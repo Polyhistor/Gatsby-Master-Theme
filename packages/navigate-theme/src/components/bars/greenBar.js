@@ -5,7 +5,7 @@ const GreenBar = ({ text, imageData }) => {
   // TODO CLEAN UP ALL THE CALLS TO GATBSY_THEME ENV VARIABLE
 
   return (
-    <section className={resolveVariationClass("green-bar--ms")}>
+    <section className={resolveVariationClass("green-bar")}>
       <div className="green-bar__container">
         <svg className={`svg-icon--${imageData}`}>
           <use xlinkHref={withPrefix(`sprite.svg#icon-${imageData}`)} />

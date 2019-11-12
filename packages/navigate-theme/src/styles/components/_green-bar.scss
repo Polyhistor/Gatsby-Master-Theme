@@ -7,10 +7,6 @@
 
   &--ms {
     background-color: $color-med-teal;
-
-    @include respond(phone) {
-      background-color: $color-med-blue;
-    }
   }
   //YYYYY
   &--yg {
@@ -48,7 +44,6 @@
 
       @include respond(phone) {
         font-size: 1.4rem;
-        margin-top: 1.5rem;
       }
     }
   }
