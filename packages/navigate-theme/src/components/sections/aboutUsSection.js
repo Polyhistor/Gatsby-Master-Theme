@@ -6,7 +6,7 @@ import { WorkForUs } from "@nt-websites/navigate-theme"
 import useAboutUsQuery from "../../queries/aboutUsQuery"
 import useTeamQuery from "../../queries/teamQuery"
 
-export const AboutUs = () => {
+export const AboutUs = ({ data }) => {
   const theme = process.env.GATSBY_THEME
 
   // extracting query out of our custom hook
@@ -72,6 +72,7 @@ export const AboutUs = () => {
           Our Values
         </h2>
         {renderHowBoxes()}
+        <WorkForUs data={data}></WorkForUs>
         <h2
           className={
             theme === "ms"
@@ -81,6 +82,7 @@ export const AboutUs = () => {
         >
           Meet our loving team
         </h2>
+
         {renderTeam()}
       </div>
     </section>

@@ -57,7 +57,6 @@ const AboutUs = ({ data }) => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <AboutUsSection data={workForUsQuery[0].node} />
-      <WorkForUs data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"
