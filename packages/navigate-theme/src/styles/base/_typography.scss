@@ -130,6 +130,14 @@
     @include Color-Green();
   }
 
+  &--darkGrey {
+    @include Color-DarkGrey();
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold;
+  }
+
   &--extraBold-capitalized-darkGrey {
     @include Nunito-ExtraBold;
     @include Capitalize;

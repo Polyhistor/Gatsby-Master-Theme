@@ -5,6 +5,8 @@
  */
 
 export const dateHandler = date => {
+  console.log(date)
+
   var months = [
     "January",
     "February",
@@ -21,7 +23,7 @@ export const dateHandler = date => {
   ]
   const chunks = date.split("-").slice(0, 2)
   const year = chunks[0]
-  const month = chunks[1].split("")
-  const monthFormatted = months[month[1] - 1]
+  const month = chunks[1]
+  const monthFormatted = months[month - 1]
   return `${monthFormatted}, ${year}`
 }
