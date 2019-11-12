@@ -111,6 +111,22 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          bookingForm: {
+            destinationDropdownLabel: "Trip",
+            useYachtClass: true,
+            yachtClasses: [
+              {
+                description: "Superior Catamaran",
+                code: "Superior Catamaran",
+              },
+              {
+                description: "Prestige Catamaran",
+                code: "Prestige Catamaran",
+              },
+            ],
+          },
+        },
         site: {
           name: `Yacht Getaways`,
         },

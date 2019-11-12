@@ -72,6 +72,9 @@
     @include Archer-Pro();
     @include Color-MS-Teal();
   }
+  &--yg {
+    color: $color-yg-blue;
+  }
 }
 
 .heading-2 {
@@ -103,6 +106,9 @@
 
   &--ms {
     @include Color-MS-Teal;
+  }
+  &--yg {
+    color: $color-yg-blue;
   }
 }
 
@@ -138,6 +144,10 @@
   &--ms {
     @include Color-MS-Teal;
   }
+
+  &--yg {
+    color: $color-yg-blue;
+  }
 }
 
 .heading-4 {
@@ -156,6 +166,10 @@
 
   &--ms {
     @include Color-MS-Teal();
+  }
+  //yyyyy
+  &--yg {
+    color: $color-yg-blue;
   }
 
   &--green {
@@ -241,6 +255,9 @@
     @include Color-MS-Teal();
   }
 
+  &--yg {
+    color: $color-yg-blue;
+  }
   &--green-capitalized {
     @include Color-Green;
     @include Capitalize;

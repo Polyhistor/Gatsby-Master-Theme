@@ -326,5 +326,12 @@
         border: 1px solid $color-med-teal;
       }
     }
+
+    &--yg {
+      & select {
+        color: $color-yg-blue;
+        border: 1px solid $color-yg-blue;
+      }
+    }
   }
 }

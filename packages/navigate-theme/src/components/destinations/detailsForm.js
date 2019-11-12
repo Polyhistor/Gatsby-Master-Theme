@@ -162,13 +162,13 @@ const DetailsForm = ({
                     </span>
                   </div>
                 </div>
-                <div class="booking-form__right booking-form__right--ms">
-                  <div class="booking-form__price-entry booking-form__price-entry--alt">
-                    <div class="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+                <div className="booking-form__right booking-form__right--ms">
+                  <div className="booking-form__price-entry booking-form__price-entry--alt">
+                    <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
                       {productClass}
                     </div>
-                    <div class="booking-form__price booking-form__price-ms">
-                      <span class="booking-form__discount">
+                    <div className="booking-form__price booking-form__price-ms">
+                      <span className="booking-form__discount">
                         {state.prices[priceInex].currencySymbol}
                         {partialData.priceWithDiscount}&thinsp;
                         {partialData.currencyCode}
@@ -196,7 +196,10 @@ const DetailsForm = ({
                 comments: "",
                 consent: false,
                 phone: 0,
-                yachtCabinName: cabinsNames[0].name,
+                yachtCabinName:
+                  cabinsNames && cabinsNames.length > 0
+                    ? cabinsNames[0].name
+                    : undefined,
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
@@ -373,7 +376,7 @@ const DetailsForm = ({
                     </Field>
                     <Error touched={touched.gender} message={errors.gender} />
                   </div>
-                  {theme === "ms" ? (
+                  {cabinsNames && cabinsNames.length > 0 ? (
                     <div className="booking-details__fields-container">
                       <Field
                         component="select"

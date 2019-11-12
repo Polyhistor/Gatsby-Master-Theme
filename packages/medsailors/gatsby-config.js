@@ -112,6 +112,27 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          bookingForm: {
+            destinationDropdownLabel: "Trip",
+            useYachtClass: true,
+            yachtClasses: [
+              {
+                description: "Premier Yacht",
+                code: "Premier Yacht",
+              },
+              {
+                description: "SUPERIOR MONOCAT",
+                code: "Superior Monocat",
+              },
+              {
+                description: "CATAMARAN",
+                code: "Catamaran",
+              },
+            ],
+          },
+        },
+
         site: {
           name: `MedSailors`,
         },
