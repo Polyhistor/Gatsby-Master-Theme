@@ -5,7 +5,7 @@
   border: 1px solid #e7e7e7;
 
   @include respond(laptop) {
-    grid-template-columns: repeat(3, 29.6rem);
+    grid-template-columns: repeat(3, 28.1rem);
   }
 
   @include respond(tablet) {
@@ -36,6 +36,10 @@
   & div:first-child {
     padding-left: 1.6rem;
     padding-bottom: 1.6rem;
+
+    @include respond(tablet) {
+      padding-left: 0.7rem;
+    }
   }
 
   & div:nth-child(2) {

@@ -15,14 +15,10 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const BookingForm = ({ data, country, inPage }) => {
   const bookingFormConfig = useBookingFormConfigQuery()
 
-  console.log(bookingFormConfig)
-
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
   const useYachtClass = bookingFormConfig.useYachtClass
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
-
-  console.log(useYachtClass)
 
   // render buyerInfo
   const renderIfno = () => {
@@ -241,6 +237,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 inPage ? idx + 50 : inPage === "alt" ? idx + 200 : idx
               }`}
               type="checkbox"
+              checked={idx === 0 ? "true" : null}
             ></input>
             <label
               className="booking-form__plus-holder"

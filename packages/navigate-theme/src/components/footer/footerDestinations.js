@@ -4,22 +4,27 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import useCountryQuery from "../../queries/countryQuery"
 
 const renderDestinations = (countryList, themeOptionsQueryData) => {
-  return countryList.map(c => {
-    return (
-      <Link
-        key={c.node.title}
-        to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${c.node.slug}`}
-        className="footer__trips-link"
-      >
-        {c.node.title}
-      </Link>
-    )
-  })
+  return countryList
+    .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
+    .map(c => {
+      return (
+        <Link
+          key={c.node.title}
+          to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${c.node.slug}`}
+          className="footer__trips-link"
+        >
+          {c.node.title}
+        </Link>
+      )
+    })
 }
 
 const FooterDestinations = ({ countrieList, pluginOptions }) => {
   const countryQuery = useCountryQuery()
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
+  console.log(countryQuery)
+
   return (
     <div className="footer__trips--destination">
       <h6 className="footer__trips-header">destinations</h6>

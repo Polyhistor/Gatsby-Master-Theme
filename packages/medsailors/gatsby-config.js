@@ -214,7 +214,7 @@ module.exports = {
               link: "/blog",
             },
             {
-              title: "FAQ",
+              title: "FAQs",
               link: "/faq",
             },
             {
@@ -238,8 +238,8 @@ module.exports = {
             sub: [
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },
-              { label: "montenegro", link: "/sail-montenegro" },
-              { label: "turkey", link: "/sail-turkey" },
+              { label: "turkey", link: "/sail-turkey/voyager" },
+              { label: "montenegro", link: "/sail-montenegro/discovery" },
             ],
           },
           {
@@ -252,7 +252,7 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
-          { label: "faq", link: "/faq", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
           { label: "travel inspo", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
@@ -320,10 +320,10 @@ module.exports = {
         name: `MedSailors`,
         short_name: `MS`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#1abc9c`,
+        background_color: `#e7e7e7`,
+        theme_color: `#06babf`,
         display: `standalone`,
-        icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
+        icon: `src/images/MedSailors-Favicon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

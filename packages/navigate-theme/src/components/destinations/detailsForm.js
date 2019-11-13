@@ -488,7 +488,7 @@ const DetailsForm = ({
               <div className="booking-form__sub-title">Start</div>
               <div className="booking-form__info">
                 <span> {state.startDateMedium}</span>
-                <span> Departs {state.departureTime}</span>
+                <span> Time: {state.departureTime}</span>
                 <span> {`${state.startLocation}, ${state.startCountry}`}</span>
               </div>
             </div>
@@ -496,7 +496,7 @@ const DetailsForm = ({
               <div className="booking-form__sub-title">End</div>
               <div className="booking-form__info">
                 <span> {state.endDateMedium}</span>
-                <span> Departs {state.returnTime}</span>
+                <span> Time: {state.returnTime}</span>
                 <span> {`${state.endLocation}, ${state.endCountry}`}</span>
               </div>
             </div>

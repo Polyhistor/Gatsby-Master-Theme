@@ -165,6 +165,7 @@
     width: 5rem;
     @include respond(phone) {
       justify-self: center;
+      display: none;
     }
   }
 
@@ -193,8 +194,7 @@
   }
 
   &--MSIncludes {
-    width: 6.7rem;
+    width: 4rem;
     height: 7rem;
-    margin-right: 2rem;
   }
 }
