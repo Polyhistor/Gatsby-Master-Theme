@@ -34,6 +34,8 @@ const TourBanner = ({
   duration,
   country,
 }) => {
+
+
   const theme = process.env.GATSBY_THEME
 
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
