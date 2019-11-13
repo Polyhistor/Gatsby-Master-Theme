@@ -143,7 +143,7 @@ module.exports = {
               text: "NEW ZEALAND",
               country: "newzealand",
               phone: "+64 (0)9 973 5676",
-              default: true,
+              default: false,
               selected: false,
               address:
                 "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",

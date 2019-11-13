@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, withPrefix } from "gatsby"
 import Modal from "react-responsive-modal"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
 
 const WhyWildKiwi = ({ data, popupVideo }) => {
@@ -54,11 +54,9 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
           </a>
           <Link
             to="/how-it-works"
-            className={
-              theme === "ms"
-                ? "btn btn--white-med  u-margin-top-medium"
-                : "btn btn--white  u-margin-top-medium"
-            }
+            className={`btn ${resolveVariationClass(
+              "btn--white"
+            )} u-margin-top-medium`}
           >
             <span>How it works</span>
           </Link>

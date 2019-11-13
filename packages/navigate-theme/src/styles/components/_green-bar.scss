@@ -1,16 +1,20 @@
 .green-bar {
-  background-color: $color-primary;
+  //background-color: $color-primary;
+
+  &--wk {
+    background-color: $color-wk-green;
+  }
 
   &--ms {
     background-color: $color-med-teal;
   }
-  //YYYYY
+  //TODO: check
   &--yg {
-    background-color: $color-yg-teal;
+    background-color: $color-yg-blue;
 
-    @include respond(phone) {
+    /*  @include respond(phone) {
       background-color: $color-med-blue;
-    }
+    }*/
   }
 
   &__container {
@@ -95,6 +99,20 @@
     height: 4.8rem;
     width: 18rem;
 
+    &--wk {
+      @include respond(phone) {
+        border-bottom: 1px solid white;
+      }
+
+      &:not(:first-child) {
+        border: 1px solid white !important;
+
+        &:hover {
+          background: #5ed0b9;
+        }
+      }
+    }
+    //TODO: check hover
     &--ms {
       @include respond(phone) {
         border-bottom: 1px solid white;
@@ -108,7 +126,7 @@
         }
       }
     }
-    //yyyyy
+    //TODO: check hover
     &--yg {
       @include respond(phone) {
         border-bottom: 1px solid white;

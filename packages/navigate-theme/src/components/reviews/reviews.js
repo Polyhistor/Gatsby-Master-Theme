@@ -1,6 +1,6 @@
 import React from "react"
 import { withPrefix, Link } from "gatsby"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import Review from "./review"
 
 const Reviews = () => {
@@ -11,13 +11,7 @@ const Reviews = () => {
       <div className="row">
         <div className="col-1-of-4">
           <div className="facebook-reviews">
-            <span
-              className={
-                theme === "ms"
-                  ? "facebook-reviews__rating facebook-reviews__rating--ms"
-                  : "facebook-reviews__rating"
-              }
-            >
+            <span className={resolveVariationClass("facebook-reviews__rating")}>
               4.9<span className="facebook-reviews__rating-decimal">/5</span>
             </span>
             <center className="facebook-reviews__stars-box">
@@ -43,11 +37,7 @@ const Reviews = () => {
             </center>
             <Link
               aria-current="page"
-              className={
-                theme === "ms"
-                  ? "btn btn--ms-teal tablet-green-button"
-                  : "btn btn--green tablet-green-button"
-              }
+              className={`btn ${resolveVariationClass("btn--primary")}`}
               to="/reviews"
             >
               more reviews

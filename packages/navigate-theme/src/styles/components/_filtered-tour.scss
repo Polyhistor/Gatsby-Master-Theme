@@ -26,6 +26,14 @@
     background: $color-med-teal;
   }
 
+  &--yg {
+    background: $color-yg-blue;
+  }
+
+  &--wk {
+    background: $color-wk-green;
+  }
+
   &__description {
     display: grid;
     grid-template-rows: repeat(4, min-content);
@@ -35,7 +43,6 @@
 
     &-title {
       @extend .heading-2;
-      @extend .heading-2--green;
     }
 
     &-subtitle {
@@ -215,7 +222,7 @@
   }
 
   &__button {
-    border: 1px solid $color-primary;
+    //TODO: dont need the default   border: 1px solid $color-primary;
     border-radius: 4px;
     @include greenWhite;
     text-transform: uppercase;
@@ -223,9 +230,19 @@
     transition: all 0.1s ease-in;
     cursor: pointer;
 
+    &--wk {
+      border: 1px solid $color-wk-green;
+      color: $color-wk-green;
+    }
+
     &--ms {
       border: 1px solid $color-med-teal;
       color: $color-med-teal;
+    }
+
+    &--yg {
+      border: 1px solid $color-yg-blue;
+      color: $color-yg-blue;
     }
 
     &:focus {
@@ -245,11 +262,23 @@
     }
 
     &--active {
+      /*TODO: white green should not be default - white green sho*/
       @include whiteGreen;
+      &--wk {
+        background: $color-wk-green;
+        color: white;
+      }
+
       &--ms {
         background: $color-med-teal;
         color: white;
       }
+
+      &--yg {
+        background: $color-yg-blue;
+        color: white;
+      }
+      //TODO: remove
       &-ms {
         background: $color-med-teal;
         color: white;

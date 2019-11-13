@@ -5,8 +5,6 @@
  */
 
 export const dateHandler = date => {
-  console.log(date)
-
   var months = [
     "January",
     "February",

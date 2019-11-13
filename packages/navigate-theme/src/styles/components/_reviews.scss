@@ -19,6 +19,7 @@
   }
 
   &__rating {
+    //TODO: font should not be here for wk,ms & yg
     font-family: Nunito-Black;
     color: $color-primary;
     font-size: 8rem;
@@ -26,6 +27,14 @@
 
     &--ms {
       color: $color-med-teal;
+    }
+
+    &--wk {
+      color: $color-med-teal;
+    }
+
+    &--yg {
+      color: $color-yg-blue;
     }
 
     &-decimal {

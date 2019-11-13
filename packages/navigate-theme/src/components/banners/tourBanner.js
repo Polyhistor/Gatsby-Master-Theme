@@ -34,10 +34,6 @@ const TourBanner = ({
   duration,
   country,
 }) => {
-
-
-  const theme = process.env.GATSBY_THEME
-
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -67,11 +63,9 @@ const TourBanner = ({
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className={
-                  theme === "ms"
-                    ? "btn btn--ms tablet-green-button"
-                    : "btn btn--green tablet-green-button"
-                }
+                className={`btn ${resolveVariationClass(
+                  "btn--primary"
+                )} tablet-green-button`}
                 to={
                   country !== undefined
                     ? `${

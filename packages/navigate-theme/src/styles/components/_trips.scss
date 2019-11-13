@@ -90,8 +90,16 @@
     @include whiteGreen;
     text-align: center;
 
+    &--wk {
+      background: $color-wk-green;
+    }
+
     &--ms {
       background: $color-med-teal;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
     }
 
     @include respond(tablet) {
@@ -162,12 +170,16 @@
       @extend .heading-5;
       @extend .heading-5--capitalized;
 
-      &--wk {
-        @extend .heading-5--green;
-      }
-
       &--ms {
         @extend .heading-5--ms;
+      }
+
+      &--wk {
+        @extend .heading-4--wk;
+      }
+
+      &--yg {
+        @extend .heading-5--yg;
       }
 
       @include respond(tablet) {
