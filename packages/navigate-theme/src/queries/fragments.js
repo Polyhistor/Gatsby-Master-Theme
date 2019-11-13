@@ -518,7 +518,6 @@ export const YachtFragment = graphql`
       description
     }
     keyFeatures
-    excluded
     images {
       localFile {
         childImageSharp {
