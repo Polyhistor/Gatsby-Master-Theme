@@ -7,8 +7,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const SectionReview = () => {
   const reviewData = useReviewQuery()
 
-  console.log(reviewData)
-
   const renderReviews = () =>
     reviewData.map((r, idx) => {
       return (

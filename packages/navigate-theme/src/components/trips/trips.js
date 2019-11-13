@@ -14,8 +14,6 @@ const Trips = ({ data, headerText }) => {
     return `${beforeComma},${afterComma}`
   }
 
-  console.log(headerText)
-
   // function to render trips based on fectched contentful data
   const renderTrips = () =>
     data.map((trip, key) => {

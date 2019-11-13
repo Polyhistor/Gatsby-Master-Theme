@@ -42,8 +42,6 @@ const ActivitiesSingle = ({
   const homeQuery = useHomePageQuery()
   const imageQuery = useImageQuery()
 
-  console.log(data)
-
   return (
     <Layout2
       Insta={{

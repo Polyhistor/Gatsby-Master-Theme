@@ -11,8 +11,6 @@ const LandingChartered = ({
   buttonTextSecond,
   imagesLength,
 }) => {
-  console.log(imagesLength)
-
   return (
     // for increase reuseability we fetch all the image data and text from the parent component
     <div
