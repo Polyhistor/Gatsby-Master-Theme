@@ -20,7 +20,7 @@ const YachtSingle = ({ data }) => {
           <ul className="paragraph u-margin-bottom-small">
             {renderList(node.keyFeatures)}
           </ul>
-          <h4 className="heading-3 heading-3--ms">excluded</h4>
+          {/* <h4 className="heading-3 heading-3--ms">excluded</h4> */}
           {/* <ul className="paragraph u-margin-bottom-small">
           {renderList(node.excluded)}
         </ul> */}
