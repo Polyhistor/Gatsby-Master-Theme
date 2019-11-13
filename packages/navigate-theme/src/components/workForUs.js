@@ -2,8 +2,6 @@ import React from "react"
 import Img from "gatsby-image"
 
 const WorkForUs = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   const renderLinks = (links, urls) =>
     links.map((link, idx) => (
       <a target="__blank" className="work-for-us__links" href={urls[idx]}>
