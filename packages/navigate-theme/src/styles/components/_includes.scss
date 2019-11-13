@@ -57,8 +57,17 @@
     }
 
     & div {
-      display: flex;
+      display: grid;
+      grid-template-columns: 6rem 22rem;
       align-items: center;
+
+      @include respond(laptop) {
+        grid-template-columns: 6rem 12rem;
+      }
+
+      @include respond(tablet) {
+        grid-template-columns: 6rem 12rem;
+      }
 
       @include respond(phone) {
         display: grid;

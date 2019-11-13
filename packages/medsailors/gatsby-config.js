@@ -238,8 +238,8 @@ module.exports = {
             sub: [
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },
-              { label: "montenegro", link: "/sail-montenegro/discovery" },
               { label: "turkey", link: "/sail-turkey/voyager" },
+              { label: "montenegro", link: "/sail-montenegro/discovery" },
             ],
           },
           {
@@ -252,7 +252,7 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
-          { label: "faq", link: "/faq", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
           { label: "travel inspo", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {

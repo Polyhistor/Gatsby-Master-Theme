@@ -10,7 +10,7 @@ const IncludesMS = () => {
           <svg className={`svg-icon--MSIncludes`}>
             <use xlinkHref={withPrefix(`sprite.svg#icon-Days-01`)} />
           </svg>
-          <p>Seven days’ accommodation onboard your own yacht or catamaran</p>
+          <p>Seven days’ accommodation onboard your own yacht</p>
         </div>
         <div>
           <svg className={`svg-icon--MSIncludes`}>
@@ -47,7 +47,7 @@ const IncludesMS = () => {
             <use xlinkHref={withPrefix(`sprite.svg#icon-Guest-Leader-01`)} />
           </svg>
           <p>
-            Live like a local with the help of your ‘guest experience leader’’
+            Live like a local with the help of your ‘Guest Experience Leader’
           </p>
         </div>
         <div>
