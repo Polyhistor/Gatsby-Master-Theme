@@ -63,8 +63,8 @@ const TourBanner = ({
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className={`btn ${resolveVariationClass(
-                  "btn--primary"
+                className={`btn  ${resolveVariationClass(
+                  "btn__card"
                 )} tablet-green-button`}
                 to={
                   country !== undefined

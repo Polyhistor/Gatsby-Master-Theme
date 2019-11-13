@@ -34,6 +34,7 @@ const FooterContact = () => {
       <h6 className="footer__trips-header">contact us</h6>
       <div className="footer__contact-us">
         <select
+          value={state}
           onChange={handleDropdown}
           className="footer__dropdown"
           id="country"

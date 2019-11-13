@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -27,7 +26,17 @@ const AboutUs = ({ data }) => {
   const workForUsQuery = useWorkingForUs()
 
   return (
-    <Layout>
+    <Layout
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
+    >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -46,18 +55,17 @@ const AboutUs = ({ data }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <AboutUsSection />
-      <WorkForUs data={workForUsQuery[0].node} />
+      <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }
