@@ -27,26 +27,42 @@
   }
 
   &__author {
+    //TODO: extends overrudubg
+    //remove default @extend .heading-4--green;
     @extend .heading-4;
     @extend .heading-4--black;
     @extend .heading-4--capitalized;
 
+    //TODO: remove color primary
+    @include respond(phone) {
+      @include bigCapitalText;
+      //   color: $color-primary;
+      font-size: 2rem;
+    }
+
+    &--yg {
+      @extend .heading-4--yg;
+      //wordaround
+      color: $color-yg-blue !important;
+      @include respond(phone) {
+        color: $color-yg-blue !important;
+      }
+    }
+
     &--wk {
-      @extend .heading-4--green;
+      @extend .heading-4--wk;
+      color: $color-wk-green !important;
+      @include respond(phone) {
+        color: $color-wk-green !important;
+      }
     }
 
     &--ms {
       @extend .heading-4--ms;
-
+      color: $color-med-teal !important;
       @include respond(phone) {
         color: $color-med-teal !important;
       }
-    }
-
-    @include respond(phone) {
-      @include bigCapitalText;
-      color: $color-primary;
-      font-size: 2rem;
     }
   }
 }

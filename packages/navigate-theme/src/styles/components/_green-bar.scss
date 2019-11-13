@@ -1,8 +1,16 @@
 .green-bar {
-  background-color: $color-primary;
+  //TODO: we don't need the default anymore background-color: $color-primary;
 
   @include respond(tablet) {
     height: 24rem;
+  }
+  //TODO: review background colors for mobile
+  &--wk {
+    background-color: $color-wk-green;
+
+    @include respond(phone) {
+      background-color: $color-wk-green;
+    }
   }
 
   &--ms {
@@ -14,10 +22,10 @@
   }
   //YYYYY
   &--yg {
-    background-color: $color-yg-teal;
+    background-color: $color-yg-blue;
 
     @include respond(phone) {
-      background-color: $color-med-blue;
+      background-color: $color-yg-light-blue;
     }
   }
 

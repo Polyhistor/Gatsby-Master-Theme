@@ -434,10 +434,17 @@
 
 .link {
   text-decoration: none;
-  color: $color-primary;
+  //removed default color: $color-primary;
+
+  &--wk {
+    color: $color-wk-green;
+  }
 
   &--ms {
     color: $color-med-teal;
+  }
+  &--yg {
+    color: $color-yg-blue;
   }
 }
 
@@ -563,16 +570,26 @@
   width: 1.3rem;
   height: 1.3rem;
   background: transparent;
-  border-top: 3px solid #1abc9c;
-  border-left: 3px solid #1abc9c;
+  // removed default border-top: 3px solid #1abc9c;
+  // border-left: 3px solid #1abc9c;
   transition: all 250ms ease-in-out;
   text-decoration: none;
   color: transparent;
   z-index: -1;
 
+  &--yg {
+    border-top: 3px solid $color-yg-orange;
+    border-left: 3px solid $color-yg-orange;
+  }
+
   &--ms {
     border-top: 3px solid $color-med-teal;
     border-left: 3px solid $color-med-teal;
+  }
+
+  &--wk {
+    border-top: 3px solid $color-wk-green;
+    border-left: 3px solid $color-wk-green;
   }
 }
 

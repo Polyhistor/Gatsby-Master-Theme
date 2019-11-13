@@ -26,6 +26,15 @@ const Header = ({
 
   let theme = process.env.GATSBY_THEME
 
+  const button1Class = `btn--${buttonStyles[0]}`
+  const button1ClassResolved = `btn ${resolveVariationClass(
+    button1Class
+  )} btn-animated mobile-green-buton`
+  const button2Class = `btn--${buttonStyles[1]}`
+  const button2ClassResolved = `btn ${resolveVariationClass(
+    button2Class
+  )} btn-animated`
+
   // rendering the contents
   return (
     <>
@@ -64,20 +73,9 @@ const Header = ({
                 </span>
               ) : null}
             </h1>
-            <div
-              className={
-                variation === null
-                  ? `header__button-box`
-                  : `header__button-box header__button-box--${variation}`
-              }
-            >
+            <div className={resolveVariationClass("header__button-box")}>
               {buttonFirst && buttonFirst !== null ? (
-                <Link
-                  to={buttonFirstURL}
-                  className={`btn btn--${
-                    buttonStyles[0]
-                  } btn-animated mobile-green-buton`}
-                >
+                <Link to={buttonFirstURL} className={button1ClassResolved}>
                   {buttonFirst}
                 </Link>
               ) : null}
@@ -87,11 +85,7 @@ const Header = ({
                 <a
                   href="#"
                   onClick={() => setModal({ open: true })}
-                  className={
-                    (theme = "ms"
-                      ? `btn btn--${buttonStyles[1]}-med btn-animated`
-                      : `btn btn--${buttonStyles[1]} btn-animated`)
-                  }
+                  className={button2ClassResolved}
                 >
                   <svg className="svg-icon--play-button">
                     <use

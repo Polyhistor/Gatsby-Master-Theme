@@ -234,7 +234,6 @@
 
       & h4 {
         @extend .heading-4;
-        @extend .heading-4--green;
 
         @include respond(phone) {
           grid-column: 2;

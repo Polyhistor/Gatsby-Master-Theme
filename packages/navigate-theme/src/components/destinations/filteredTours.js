@@ -109,13 +109,7 @@ const FilteredTour = ({ country, destinationData }) => {
               </figcaption>
             </figure>
             <div className="filtered-tour__description">
-              <h3
-                className={
-                  theme === "ms"
-                    ? "heading-2 heading-2--ms"
-                    : "heading-2 heading-2--green"
-                }
-              >
+              <h3 className={resolveVariationClass("heading-2")}>
                 {element.node.title}
               </h3>
               <h5 className="filtered-tour__description-subtitle">
@@ -128,13 +122,7 @@ const FilteredTour = ({ country, destinationData }) => {
                 </h5>
               ) : null}
 
-              <span
-                className={
-                  theme === "ms"
-                    ? "heading-4 heading-4--ms"
-                    : "heading-4 heading-4--green"
-                }
-              >
+              <span className={resolveVariationClass("heading-4")}>
                 {`from ${currency[1]}${commaHandler(element.node.priceFrom)} ${
                   currency[0]
                 }`}

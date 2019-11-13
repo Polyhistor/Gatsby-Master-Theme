@@ -1,9 +1,8 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const Review = ({ text, author, country }) => {
-  const theme = process.env.GATSBY_THEME
-
   return (
     <div className="review">
       <div className="review__stars-box u-padding-bottom-small">
@@ -13,11 +12,9 @@ const Review = ({ text, author, country }) => {
       </div>
       <p className="review__paragraph u-padding-bottom-small">{text}</p>
       <span
-        className={
-          theme === "ms"
-            ? "review__author review__author--ms u-padding-bottom-small"
-            : "review__author review__author--ms u-padding-bottom-small"
-        }
+        className={`${resolveVariationClass(
+          "review__author"
+        )} u-padding-bottom-small`}
       >
         {author}
         <br />

@@ -4,7 +4,6 @@ import React from "react"
 import {
   Layout,
   DestinationsMobile,
-  SEO,
   Landing,
   GreenBarAlt,
   BannerHero,
@@ -122,7 +121,7 @@ const IndexPage = ({ data }) => {
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
-        buttonStyles={["med-blue", "white"]}
+        buttonStyles={["primary", "white"]}
         variation={null}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />

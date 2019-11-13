@@ -38,8 +38,16 @@
         width: 100vw;
       }
 
+      &--yg {
+        background-color: $color-yg-blue;
+      }
+
       &--ms {
         background-color: $color-med-teal;
+      }
+
+      &--wk {
+        background-color: $color-wk-green;
       }
     }
   }
@@ -175,7 +183,6 @@
         font-size: 1.38rem;
         padding: 1.35rem 2.5rem;
         @extend .heading-4;
-        @extend .heading-4--green;
         border: 1px solid $color-primary;
         border-radius: 0.5rem;
         height: 4.8rem;
@@ -216,8 +223,18 @@
           margin-right: auto;
         }
 
+        &--wk {
+          border: 1px solid $color-wk-green;
+          color: $color-wk-green;
+        }
+
         &--ms {
           border: 1px solid $color-med-teal;
+          color: $color-med-teal;
+        }
+
+        &--yg {
+          border: 1px solid $color-yg-blue;
           color: $color-med-teal;
         }
       }
@@ -494,6 +511,18 @@
       &--ms {
         & h2 {
           color: $color-med-teal;
+        }
+      }
+
+      &--wk {
+        & h2 {
+          color: $color-wk-green;
+        }
+      }
+
+      &--yg {
+        & h2 {
+          color: $color-yg-blue;
         }
       }
     }
