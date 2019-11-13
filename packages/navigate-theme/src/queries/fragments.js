@@ -544,3 +544,14 @@ export const FeaturedBoxFragment = graphql`
     fourthLogoUrl
   }
 `
+
+// our footer logos
+export const FooterLogos = graphql`
+  fragment FooterBox on ContentfulFooter {
+    logos {
+      localFile {
+        publicURL
+      }
+    }
+  }
+`
