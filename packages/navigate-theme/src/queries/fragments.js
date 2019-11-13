@@ -514,6 +514,7 @@ export const YachtFragment = graphql`
   fragment Yacht on ContentfulOurYachts {
     title
     subtitle
+    order
     description {
       description
     }

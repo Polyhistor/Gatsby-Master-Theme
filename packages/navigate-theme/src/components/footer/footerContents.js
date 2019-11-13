@@ -10,7 +10,6 @@ import footerContext from "../../contexts/footerContext"
 
 const FooterContents = () => {
   const contextData = useContext(footerContext)
-  console.log(contextData)
 
   return (
     <div className="row u-padding-top-huge ">

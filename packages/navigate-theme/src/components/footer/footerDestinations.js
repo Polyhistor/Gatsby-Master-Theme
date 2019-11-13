@@ -23,8 +23,6 @@ const FooterDestinations = ({ countrieList, pluginOptions }) => {
   const countryQuery = useCountryQuery()
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
-  console.log(countryQuery)
-
   return (
     <div className="footer__trips--destination">
       <h6 className="footer__trips-header">destinations</h6>
