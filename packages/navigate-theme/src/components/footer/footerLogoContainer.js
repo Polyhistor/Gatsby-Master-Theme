@@ -4,8 +4,6 @@ import { useFooterQuery } from "@nt-websites/navigate-theme"
 const FooterLogoContainer = () => {
   const footerQuery = useFooterQuery()
 
-  console.log(footerQuery[0].node)
-
   const renderLogos = () =>
     footerQuery[0].node.logos.map((e, idx) => (
       <div key={idx}>

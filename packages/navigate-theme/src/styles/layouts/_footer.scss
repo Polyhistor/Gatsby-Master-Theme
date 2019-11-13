@@ -467,7 +467,7 @@
 
   &__logo-container {
     display: grid;
-    grid-template-columns: 21rem 10rem 10rem 16rem 47rem;
+    grid-template-columns: 21rem 14rem 11rem 12rem 47rem;
     grid-column-gap: 5.5rem;
     align-items: center;
     height: 10rem;
@@ -481,6 +481,29 @@
     }
     & div:nth-child(3) {
       grid-column: 4;
+    }
+
+    & > div {
+      height: 100%;
+      display: flex;
+
+      @include respond(phone) {
+        justify-self: center;
+        grid-column: 1 !important;
+      }
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: 1rem 20rem 15rem 15rem;
+    }
+
+    @include respond(phone) {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: 20rem;
+      border-top: 0;
+      margin-bottom: 5rem;
+      grid-row-gap: 2rem;
     }
   }
 
