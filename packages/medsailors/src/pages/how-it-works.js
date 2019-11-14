@@ -29,12 +29,15 @@ const HowItWorks = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
@@ -47,10 +50,11 @@ const HowItWorks = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          shape="circle"
         />
       </div>
       <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds."
+        text="Skippered sailing holidays for 20-35 year olds"
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
@@ -64,7 +68,7 @@ const HowItWorks = ({ data }) => {
         link="/faq"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

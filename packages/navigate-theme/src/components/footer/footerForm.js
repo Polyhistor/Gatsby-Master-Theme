@@ -3,7 +3,7 @@ import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { submitContactRequest } from "../../services/api"
 import Error from "../destinations/error"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
 // Our Schema validation logics here
@@ -145,7 +145,7 @@ const FooterForm = () => {
                     >
                       I accept the&thinsp;
                       <a
-                        className={theme === "ms" ? "link link--ms" : "link"}
+                        className={resolveVariationClass("link")}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -155,11 +155,7 @@ const FooterForm = () => {
                   </div>
                   <button
                     id={TAG_MANAGER_TRACKER.CONTACT_FOOTER_BUTTON}
-                    className={
-                      theme === "ms"
-                        ? "btn btn--green-footer btn--green-footer-ms"
-                        : "btn btn--green-footer"
-                    }
+                    className={resolveVariationClass("btn btn--green-footer")}
                     type="submit"
                   >
                     submit

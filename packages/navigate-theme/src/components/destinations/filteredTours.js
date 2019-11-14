@@ -3,20 +3,17 @@ import { Link } from "gatsby"
 import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {
   const theme = process.env.GATSBY_THEME
-
+  const pageConfiguration = useWebSiteConfigQuery()
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
-  const buttonClass =
-    theme === "ms" ? "filtered-tour__button--ms" : "filtered-tour__button"
-
-  const buttonClassActive =
-    theme === "ms"
-      ? "filtered-tour__button--active-ms"
-      : "filtered-tour__button--active"
+  const buttonClass = resolveVariationClass("filtered-tour__button")
+  const buttonClassActive = resolveVariationClass("filtered-tour__button")
 
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -105,13 +102,7 @@ const FilteredTour = ({ country, destinationData }) => {
                 }
                 alt={element.node.title}
               />
-              <figcaption
-                className={
-                  theme === "ms"
-                    ? "trips__duration trips__duration--ms"
-                    : "trips__duration"
-                }
-              >
+              <figcaption className={resolveVariationClass("trips__duration")}>
                 <span className="trips__duration-days">
                   {element.node.duration}
                 </span>
@@ -119,13 +110,7 @@ const FilteredTour = ({ country, destinationData }) => {
               </figcaption>
             </figure>
             <div className="filtered-tour__description">
-              <h3
-                className={
-                  theme === "ms"
-                    ? "heading-2 heading-2--ms"
-                    : "heading-2 heading-2--green"
-                }
-              >
+              <h3 className={resolveVariationClass("heading-2")}>
                 {element.node.title}
               </h3>
               <h5 className="filtered-tour__description-subtitle">
@@ -138,13 +123,7 @@ const FilteredTour = ({ country, destinationData }) => {
                 </h5>
               ) : null}
 
-              <span
-                className={
-                  theme === "ms"
-                    ? "heading-4 heading-4--ms"
-                    : "heading-4 heading-4--green"
-                }
-              >
+              <span className={resolveVariationClass("heading-4")}>
                 {`from ${currency[1]}${commaHandler(element.node.priceFrom)} ${
                   currency[0]
                 }`}
@@ -165,7 +144,7 @@ const FilteredTour = ({ country, destinationData }) => {
               }
               to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.slug}`}
             >
-              View Itinerary
+              {pageConfiguration.destinationPage.buttonCardText}
             </Link>
           </div>
         )
@@ -177,7 +156,7 @@ const FilteredTour = ({ country, destinationData }) => {
       <div className="filtered-tour__container">
         {theme !== "ms" ? (
           <div className="filtered-tour__head">
-            <h3 className={theme === "ms" ? "paragraph--ms" : "paragraph"}>
+            <h3 className={resolveVariationClass("paragraph")}>
               How long are you travelling for?
             </h3>
             <button

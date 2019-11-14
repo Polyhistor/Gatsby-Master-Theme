@@ -1,7 +1,8 @@
 import React from "react"
 import Trip from "./trip"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
-const Trips = ({ data }) => {
+const Trips = ({ data, headerText }) => {
   let currency
 
   // function that programatically adds comma to the price
@@ -45,7 +46,7 @@ const Trips = ({ data }) => {
     <section className="section-trips">
       <div className="row">
         <div className="trips-header-box">
-          <h2 className="heading-1 heading-1--ms">Popular tours</h2>
+          <h2 className={resolveVariationClass("heading-1")}>{headerText}</h2>
         </div>
         <div className="trips-container">{renderTrips()}</div>
       </div>

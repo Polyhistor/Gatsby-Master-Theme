@@ -13,7 +13,7 @@
   &:hover {
     cursor: pointer;
   }
-
+  //YYYYY
   &--ms-mobile {
     background-color: $color-med-blue;
     width: 31.2rem;
@@ -25,6 +25,7 @@
   }
 
   &--wk,
+  &--yg,
   &--ms {
     padding: 1.27rem 2.8rem;
     border-radius: 0.4rem;
@@ -35,6 +36,10 @@
       border-radius: 0.3rem;
       margin-top: 1.3rem;
     }
+  }
+  //YYYYY
+  &--yg {
+    background-color: $color-yg-orange;
   }
 
   &--wk {
@@ -65,7 +70,109 @@
       align-items: center;
     }
   }
+  /*button that is used on the cards */
+  &__card {
+    padding: 1.27rem 2.8rem;
+    border-radius: 0.4rem;
+    transform: translateY(-0.5rem);
 
+    @include respond(phone) {
+      padding: 1rem 2rem;
+      border-radius: 0.3rem;
+      margin-top: 1.3rem;
+    }
+
+    &--yg {
+      background-color: $color-yg-blue;
+    }
+
+    &--wk {
+      background-color: $color-wk-green;
+    }
+
+    &--ms {
+      background-color: $color-med-blue;
+    }
+  }
+
+  &--secondary {
+    color: white !important;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--yg {
+      background: $color-yg-blue !important;
+    }
+    &--ms {
+      background: $color-med-teal !important;
+    }
+  }
+
+  &--primary {
+    background: $color-primary;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      width: 31.2rem !important;
+      height: 6rem;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &--yg {
+      background: $color-yg-blue !important;
+    }
+    &--ms {
+      background: $color-med-teal !important;
+    }
+
+    &-footer {
+      padding: 1rem 4.3rem;
+      font-size: 1.38rem;
+      color: $color-white;
+      background: $color-primary;
+      border: 1px solid $color-primary;
+      width: 22rem;
+      height: 4.8rem;
+
+      @include respond(tablet) {
+        padding: 1rem 4.6rem;
+        margin-top: 1.5rem;
+        margin-right: 18.1rem;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        border: 0;
+        width: 28rem;
+        height: 6rem;
+        justify-self: center;
+        background: $color-red;
+        border: 1px solid $color-red;
+      }
+      &--yg {
+        background: $color-yg-blue !important;
+      }
+      &--ms {
+        background: $color-med-teal !important;
+      }
+
+      &-ms {
+        background: $color-med-teal !important;
+      }
+    }
+  }
+  //TODO: remove green
   &--green {
     background: $color-primary;
     width: 22rem;
@@ -106,6 +213,12 @@
         background: $color-red;
         border: 1px solid $color-red;
       }
+      &--yg {
+        background: $color-yg-blue !important;
+      }
+      &--ms {
+        background: $color-med-teal !important;
+      }
 
       &-ms {
         background: $color-med-teal !important;
@@ -123,6 +236,21 @@
     }
     &--ms {
       color: $color-med-teal;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+    &--yg {
+      color: $color-yg-blue;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+
+    &--wk {
+      color: $color-wk-green;
       background: white;
       padding: 0.7rem 4.2rem;
       width: 22rem;

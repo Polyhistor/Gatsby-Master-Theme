@@ -45,14 +45,19 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   // data to be fetched
   const ourData = useFetchHook(data.contentfulDestinations.slug)
 
+  // TODO - implement second phase of the context system
+
   return (
     <Layout2
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeoFromContext(pageContext)}
       <LandingChartered
@@ -82,7 +87,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
       <GreenBar
         text={
           theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds."
+            ? "Skippered sailing holidays for 20-35 year olds"
             : "Epic adventure tours for 18 to 35 year olds"
         }
         imageData={SVGIcon}
@@ -187,7 +192,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           />
         </div>
       </DestinationSection>
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout2>
   )
 }

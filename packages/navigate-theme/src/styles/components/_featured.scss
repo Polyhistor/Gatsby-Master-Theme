@@ -11,6 +11,14 @@
     background: $color-med-blue;
   }
 
+  &--wk {
+    background: $color-wk-green;
+  }
+
+  &--yg {
+    background: $color-yg-blue;
+  }
+
   &__container {
     text-align: center;
     display: grid;
@@ -18,6 +26,20 @@
     align-items: center;
 
     &--ms {
+      @include respond(phone) {
+        grid-template-columns: 58% 50% !important;
+        margin-left: -2rem;
+      }
+    }
+
+    &--wk {
+      @include respond(phone) {
+        grid-template-columns: 58% 50% !important;
+        margin-left: -2rem;
+      }
+    }
+
+    &--yg {
       @include respond(phone) {
         grid-template-columns: 58% 50% !important;
         margin-left: -2rem;
@@ -181,6 +203,18 @@
       display: none;
     }
 
+    &--ms {
+      background: $color-med-blue;
+    }
+
+    &--wk {
+      background: $color-wk-green;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
+    }
+    //TODO: remove
     &-ms {
       background: $color-med-blue;
     }

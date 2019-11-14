@@ -1,9 +1,16 @@
 import React, { useState } from "react"
 import Modal from "react-responsive-modal"
-import { Link, withPrefix } from "gatsby"
+
 import BackgroundImage from "gatsby-background-image"
 
 import resolveVariationClass from "../../../helpers/theme-variation-style"
+
+import TextBox from "../textBox"
+import TextBoxAlt from "../textBox-alt"
+import Triangle from "../../header/objects/triangle"
+import Circle from "../../header/objects/circle"
+import Diamond from "../../header/objects/diamond"
+import Xmark from "../../header/objects/xMark"
 
 const Header = ({
   imageData,
@@ -11,101 +18,101 @@ const Header = ({
   TitleSecond,
   TitleThird,
   subTitle,
-  description,
   buttonFirst,
   buttonFirstURL,
   buttonSecond,
-  buttonSecondURL,
   buttonStyles,
-  optMargin,
   variation,
   popupVideo,
+  shape,
 }) => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
   let theme = process.env.GATSBY_THEME
 
+  const button1Class = `btn--${buttonStyles[0]}`
+
+  const button2Class = `btn--${buttonStyles[1]}`
+
+  const button1ClassResolved = `btn ${resolveVariationClass(
+    button1Class
+  )} btn-animated mobile-green-buton`
+
+  const button2ClassResolved = `btn ${resolveVariationClass(
+    button2Class
+  )} btn-animated`
+
+  const subTitleClass =
+    theme === "ms"
+      ? "paragraph paragraph--white paragraph--black paragraph--uppercase"
+      : "paragraph paragraph--nexaRust-white-capitalized"
+
   // rendering the contents
   return (
     <>
       <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
         <div className="header">
-          <div className={`${resolveVariationClass("header__text-box")}`}>
-            <h1
-              className={
-                theme === "ms"
-                  ? `header-title header-title__main header-title__main--ms`
-                  : variation === null
-                  ? `header-title header-title__main`
-                  : `heading-primary heading-primary--${variation}`
-              }
-            >
-              <span>
-                {titleFirst} <br />
-                {TitleSecond && TitleThird !== null ? (
-                  <>
-                    {TitleSecond} <br /> {TitleThird}
-                  </>
-                ) : null}
-              </span>
-              {description !== undefined ? (
-                <p className="heading-primary--description">{description}</p>
-              ) : null}
-              {subTitle !== null ? (
-                <span
-                  className={
-                    theme === "ms"
-                      ? "paragraph paragraph--white paragraph--black paragraph--uppercase"
-                      : "paragraph paragraph--nexaRust-white-capitalized"
-                  }
-                >
-                  {subTitle}
-                </span>
-              ) : null}
-            </h1>
-            <div
-              className={
-                variation === null
-                  ? `header__button-box`
-                  : `header__button-box header__button-box--${variation}`
-              }
-            >
-              {buttonFirst && buttonFirst !== null ? (
-                <Link
-                  to={buttonFirstURL}
-                  className={`btn btn--${
-                    buttonStyles[0]
-                  } btn-animated mobile-green-buton`}
-                >
-                  {buttonFirst}
-                </Link>
-              ) : null}
-              {/* adding one more level of modularity, if the secondbutton text and
-            URL is not given, don't show it */}
-              {buttonSecond && buttonSecondURL !== null ? (
-                <a
-                  href="#"
-                  onClick={() => setModal({ open: true })}
-                  className={
-                    (theme = "ms"
-                      ? `btn btn--${buttonStyles[1]}-med btn-animated`
-                      : `btn btn--${buttonStyles[1]} btn-animated`)
-                  }
-                >
-                  <svg className="svg-icon--play-button">
-                    <use
-                      xlinkHref={withPrefix("sprite.svg#icon-Play-Button")}
-                    />
-                  </svg>
-                  <span className="">{buttonSecond}</span>
-                </a>
-              ) : null}
+          <div
+            className={
+              variation === false
+                ? `${resolveVariationClass("header__text-box")}`
+                : "header__text-box header__text-box--alt"
+            }
+          >
+            <div className="header__object-container">
+              {shape === "circle" ? (
+                <>
+                  <Circle></Circle>
+                  <Xmark></Xmark>
+                  <Circle></Circle>
+                  <Xmark></Xmark>
+                </>
+              ) : shape === "diamond" ? (
+                <>
+                  <Diamond></Diamond>
+                  <Xmark></Xmark>
+                  <Diamond></Diamond>
+                  <Xmark></Xmark>
+                </>
+              ) : (
+                <>
+                  <Triangle></Triangle>
+                  <Xmark></Xmark>
+                  <Triangle></Triangle>
+                  <Xmark></Xmark>
+                </>
+              )}
             </div>
+            {variation === false ? (
+              <TextBox
+                setModal={setModal}
+                buttonSecond={buttonSecond}
+                button1Class={button1ClassResolved}
+                button2Class={button2ClassResolved}
+                subtitleClass={subTitleClass}
+                titleFirst={titleFirst}
+                titleSecond={TitleSecond}
+                titleThird={TitleThird}
+                subTitle={subTitle}
+                buttonFirst={buttonFirst}
+                buttonFirstURL={buttonFirstURL}
+                shape={shape}
+              />
+            ) : (
+              <TextBoxAlt
+                setModal={setModal}
+                buttonSecond={buttonSecond}
+                button2Class={button2ClassResolved}
+                titleFirst={titleFirst}
+                titleSecond={TitleSecond}
+                titleThird={TitleThird}
+                shape={shape}
+              />
+            )}
           </div>
         </div>
       </BackgroundImage>
-
       {/* setting modal values */}
       <Modal
         open={open}

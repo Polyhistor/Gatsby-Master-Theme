@@ -56,12 +56,15 @@ const ActivitiesCountries = ({ pageContext, data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
@@ -79,7 +82,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
       <GreenBar
         text={
           theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds."
+            ? "Skippered sailing holidays for 20-35 year olds"
             : "Epic adventure for 18 to 35 year olds"
         }
         imageData={wildKiwiMountains}
@@ -116,7 +119,10 @@ const ActivitiesCountries = ({ pageContext, data }) => {
 
       <Reviews />
       <div className="row">
-        <Trips data={homeQuery[0].node.popularTours} />
+        <Trips
+          data={homeQuery[0].node.popularTours}
+          headerText="Popular Trips"
+        />
       </div>
     </Layout>
   )

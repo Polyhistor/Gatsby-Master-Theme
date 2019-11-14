@@ -1,10 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
 
+import { WorkForUs } from "@nt-websites/navigate-theme"
+
 import useAboutUsQuery from "../../queries/aboutUsQuery"
 import useTeamQuery from "../../queries/teamQuery"
 
-export const AboutUs = () => {
+export const AboutUs = ({ data }) => {
   const theme = process.env.GATSBY_THEME
 
   // extracting query out of our custom hook
@@ -77,8 +79,19 @@ export const AboutUs = () => {
               : "heading-1"
           }
         >
+          Working for us
+        </h2>
+        <WorkForUs data={data}></WorkForUs>
+        <h2
+          className={
+            theme === "ms"
+              ? "heading-1 heading-1--ms  u-margin-bottom-small"
+              : "heading-1"
+          }
+        >
           Meet our loving team
         </h2>
+
         {renderTeam()}
       </div>
     </section>

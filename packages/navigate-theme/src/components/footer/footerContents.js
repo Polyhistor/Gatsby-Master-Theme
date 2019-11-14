@@ -8,22 +8,18 @@ import FooterInstagramBox from "./footerInstagramBox"
 
 import footerContext from "../../contexts/footerContext"
 
-import useImageQuery from "../../queries/imageQuery"
-
 const FooterContents = () => {
-  //extracting query from our custom hook
-  const imageQuery = useImageQuery()
-
-  const instaPhotos = useContext(footerContext)
+  const contextData = useContext(footerContext)
 
   return (
     <div className="row u-padding-top-huge ">
       <div className="footer__grid">
         <FooterInstagramBox
-          imageOne={instaPhotos[0].imageOne}
-          imageTwo={instaPhotos[1].imageTwo}
-          imageThree={instaPhotos[2].imageThree}
-          imageFour={instaPhotos[3].imageFour}
+          imageOne={contextData.photos[0].imageOne}
+          imageTwo={contextData.photos[1].imageTwo}
+          imageThree={contextData.photos[2].imageThree}
+          imageFour={contextData.photos[3].imageFour}
+          url={contextData.URL}
         />
         <FooterDestinations />
         <FooterInfo />

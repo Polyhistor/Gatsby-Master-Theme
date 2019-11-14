@@ -111,6 +111,28 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          countryPage: {
+            buttonCardText: "View Trip",
+          },
+          destinationPage: {
+            buttonCardText: "Explore",
+          },
+          bookingForm: {
+            destinationDropdownLabel: "Trip",
+            useYachtClass: true,
+            yachtClasses: [
+              {
+                description: "Superior Catamaran",
+                code: "Superior Catamaran",
+              },
+              {
+                description: "Prestige Catamaran",
+                code: "Prestige Catamaran",
+              },
+            ],
+          },
+        },
         site: {
           name: `Yacht Getaways`,
         },
@@ -166,6 +188,9 @@ module.exports = {
               content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
             },
           ],
+        },
+        modalText: {
+          selection: "Please select your destination and trip",
         },
         footer: {
           social: [

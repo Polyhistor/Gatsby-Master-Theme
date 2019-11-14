@@ -51,6 +51,7 @@ const Destination = ({ data }) => {
       return (
         <Fragment key={idx}>
           <DestinationsMobile
+            type="country"
             key={idx + 4}
             destination={country.node.slug}
             title={country.node.title}
@@ -62,6 +63,7 @@ const Destination = ({ data }) => {
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
           <DestinationsTablet
+            type="country"
             key={idx + 8}
             destination={country.node.slug}
             title={country.node.title}
@@ -74,6 +76,7 @@ const Destination = ({ data }) => {
             SVGMap={country.node.svgMap.localFile.publicURL}
           />
           <TourBanner
+            type="country"
             key={idx + 12}
             destination={country.node.slug}
             title={country.node.title}
@@ -117,7 +120,7 @@ const Destination = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
     </Layout>
   )
 }

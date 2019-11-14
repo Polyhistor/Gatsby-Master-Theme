@@ -112,6 +112,32 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          countryPage: {
+            buttonCardText: "Explore",
+          },
+          destinationPage: {
+            buttonCardText: "View Trip",
+          },
+          bookingForm: {
+            destinationDropdownLabel: "Trip",
+            useYachtClass: true,
+            yachtClasses: [
+              {
+                description: "Premier Yacht",
+                code: "Premier Yacht",
+              },
+              {
+                description: "SUPERIOR MONOCAT",
+                code: "Superior Monocat",
+              },
+              {
+                description: "CATAMARAN",
+                code: "Catamaran",
+              },
+            ],
+          },
+        },
         site: {
           name: `MedSailors`,
         },
@@ -122,7 +148,7 @@ module.exports = {
               text: "NEW ZEALAND",
               country: "newzealand",
               phone: "+64 (0)9 973 5676",
-              default: true,
+              default: false,
               selected: false,
               address:
                 "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
@@ -193,7 +219,7 @@ module.exports = {
               link: "/blog",
             },
             {
-              title: "FAQ",
+              title: "FAQs",
               link: "/faq",
             },
             {
@@ -204,6 +230,10 @@ module.exports = {
               title: "About Us",
               link: "/about-us",
             },
+            {
+              title: "Activities",
+              link: "/activities",
+            },
           ],
         },
         menuLabel: [
@@ -213,8 +243,8 @@ module.exports = {
             sub: [
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },
-              { label: "montenegro", link: "/sail-montenegro" },
-              { label: "turkey", link: "/sail-turkey" },
+              { label: "turkey", link: "/sail-turkey/voyager" },
+              { label: "montenegro", link: "/sail-montenegro/discovery" },
             ],
           },
           {
@@ -227,8 +257,8 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
-          { label: "faq", link: "/faq", sub: null },
-          { label: "travel inspo", link: "/activities", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
+          { label: "travel inspo", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",
@@ -237,6 +267,7 @@ module.exports = {
             external: true,
           },
         ],
+
         /*TODO: remove prefix routes, we don't need that anymore*/
 
         modalText: {
@@ -295,10 +326,10 @@ module.exports = {
         name: `MedSailors`,
         short_name: `MS`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#1abc9c`,
+        background_color: `#e7e7e7`,
+        theme_color: `#06babf`,
         display: `standalone`,
-        icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
+        icon: `src/images/MedSailors-Favicon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

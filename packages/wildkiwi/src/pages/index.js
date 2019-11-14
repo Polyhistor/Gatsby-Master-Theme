@@ -21,11 +21,10 @@ import {
   useCountryQuery,
   useDestinationQuery,
   renderSeo,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -48,6 +47,7 @@ const IndexPage = ({ data }) => {
         return (
           <React.Fragment key={idx}>
             <DestinationsMobile
+              type="country"
               key={idx + 4}
               destination={country.node.slug}
               title={country.node.title}
@@ -59,6 +59,7 @@ const IndexPage = ({ data }) => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
             />
             <DestinationsTablet
+              type="country"
               key={idx + 8}
               destination={country.node.slug}
               title={country.node.title}
@@ -71,6 +72,7 @@ const IndexPage = ({ data }) => {
               SVGMap={country.node.svgMap.localFile.publicURL}
             />
             <TourBanner
+              type="country"
               key={idx + 12}
               destination={country.node.slug}
               title={country.node.title}
@@ -133,11 +135,9 @@ const IndexPage = ({ data }) => {
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms u-margin-bottom-small"
-              : "heading-1 u-margin-bottom-small"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small`}
         >
           Destinations
         </h2>
@@ -153,7 +153,7 @@ const IndexPage = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
     </Layout>
   )
 }

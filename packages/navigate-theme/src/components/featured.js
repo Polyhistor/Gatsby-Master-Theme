@@ -1,50 +1,49 @@
 import React from "react"
 import { withPrefix } from "gatsby"
-
+import resolveVariationClass from "../helpers/theme-variation-style"
 // import
 
 const Featured = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
+  console.log(data)
 
   return (
-    <div className={theme === "ms" ? "featured featured--ms" : "featured"}>
+    <div className={resolveVariationClass("featured")}>
       <div className="featured__container">
         <h2 className="heading-tertiary--inline">featured in</h2>
         <div className="featured__container-image featured__container-image--metro">
           <a href={data.fIrstLogoUrl} target="__blank">
-            <svg className="svg-icon--logo-metro">
-              <use
-                xlinkHref={withPrefix(`sprite.svg#icon-${data.firstLogo}`)}
-              />
-            </svg>
+            <img src={data.firstLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <div className="featured__container-image featured__container-image--daily">
           <a href={data.secondLogoUrl} target="__blank">
-            <svg className="svg-icon--logo-daily">
+            {/* <svg className="svg-icon--logo-daily">
               <use
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.secondLogo}`)}
               />
-            </svg>
+            </svg> */}
+            <img src={data.secondLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <h2 className="heading-tertiary--inline">recognised by</h2>
         <div className="featured__container-image featured__container-image--west">
           <a href={data.thirdLogoUrl} target="__blank">
-            <svg className="svg-icon--logo-westpac">
+            {/* <svg className="svg-icon--logo-westpac">
               <use
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.thirdLogo}`)}
               />
-            </svg>
+            </svg> */}
+            <img src={data.thirdLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <div className="featured__container-image featured__container-image--qual">
           <a href={data.fourthLogoUrl} target="__blank">
-            <svg className="svg-icon--logo-qualmark">
+            {/* <svg className="svg-icon--logo-qualmark">
               <use
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.fourthLogo}`)}
               />
-            </svg>
+            </svg> */}
+            <img src={data.fourthLogoImage.localFile.publicURL}></img>
           </a>
         </div>
       </div>

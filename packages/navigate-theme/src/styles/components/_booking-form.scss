@@ -164,6 +164,14 @@
         display: none;
       }
 
+      &--ms {
+        color: $color-med-teal;
+
+        @include respond(phone) {
+          display: none;
+        }
+      }
+      /*clean up=*/
       &-ms {
         color: $color-med-teal;
 

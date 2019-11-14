@@ -33,12 +33,6 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
     message: null,
   })
 
-  const addressData = [
-    "Address",
-    "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
-    "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
-  ]
-
   const defaultPhoneNumberCountry = phoneNumberData.find(p => p.selected)
     .country
 
@@ -95,13 +89,10 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
               onChange={handleDropdown}
               className="activity__dropdown"
               id="country"
+              value={state}
             >
               {phoneNumberData.map(p => {
-                return (
-                  <option selected={p.country === state} value={p.country}>
-                    {p.text}
-                  </option>
-                )
+                return <option value={p.country}>{p.text}</option>
               })}
             </select>
           </div>

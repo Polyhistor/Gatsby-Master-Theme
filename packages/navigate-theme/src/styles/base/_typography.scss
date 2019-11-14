@@ -60,10 +60,20 @@
     @include Archer-Pro();
     @include Capitalize();
   }
+  //TODO: RIGHTS FPONTS
+  &--wk {
+    @include Nexa-Rust;
+    @include Capitalize();
+  }
+
+  &--yg {
+    @include Archer-Pro();
+    @include Capitalize();
+  }
 }
 
 .heading-1 {
-  @include Nunito-Black;
+  //removed @include Nunito-Black;
   font-size: 3.5rem;
   @include Color-Green;
   @include Capitalize;
@@ -72,17 +82,23 @@
     @include Archer-Pro();
     @include Color-MS-Teal();
   }
+  //TODO: Include font and color mixing
+  &--yg {
+    color: $color-yg-blue;
+  }
+
+  &--wk {
+    @include Nunito-Black;
+    @include Color-Green;
+  }
 }
 
 .heading-2 {
+  //TODO: nunito is the default?
   @include Nunito-Black;
   font-size: 2.7rem;
   @include Color-White;
   @include Capitalize;
-
-  &--green {
-    @include Color-Green;
-  }
 
   &--darkGrey {
     @include Color-DarkGrey;
@@ -104,9 +120,18 @@
   &--ms {
     @include Color-MS-Teal;
   }
+  //TODO: use color mixing, appy fonts?
+  &--yg {
+    color: $color-yg-blue;
+  }
+
+  &--wk {
+    @include Color-Green;
+  }
 }
 
 .heading-3 {
+  //TODO: nexa is the default font for MS,YG or WK? YG AND MS don't need font?
   @include Nexa-Rust;
   font-size: 2rem;
   @include Color-White;
@@ -124,6 +149,14 @@
     @include Color-Green();
   }
 
+  &--darkGrey {
+    @include Color-DarkGrey();
+  }
+
+  &--extraBold {
+    @include Nunito-ExtraBold;
+  }
+
   &--extraBold-capitalized-darkGrey {
     @include Nunito-ExtraBold;
     @include Capitalize;
@@ -138,6 +171,14 @@
   &--ms {
     @include Color-MS-Teal;
   }
+
+  &--wk {
+    @include Color-Green;
+  }
+
+  &--yg {
+    color: $color-yg-blue;
+  }
 }
 
 .heading-4 {
@@ -145,7 +186,6 @@
   font-size: 1.4rem;
   @include Color-White;
   @include Uppercase;
-
   &--capitalized {
     @include Capitalize;
   }
@@ -157,8 +197,12 @@
   &--ms {
     @include Color-MS-Teal();
   }
+  //TODO: use mixing
+  &--yg {
+    color: $color-yg-blue;
+  }
 
-  &--green {
+  &--wk {
     @include Color-Green;
   }
 
@@ -237,8 +281,16 @@
     @include Color-Green;
   }
 
+  &--wk {
+    @include Color-Green;
+  }
+
   &--ms {
     @include Color-MS-Teal();
+  }
+
+  &--yg {
+    color: $color-yg-blue;
   }
 
   &--green-capitalized {
@@ -284,6 +336,14 @@
 
   &--ms {
     @include Color-MS-Teal();
+  }
+
+  &--yg {
+    color: $color-yg-blue;
+  }
+
+  &--wk {
+    @include Color-Green;
   }
 
   &--extraBold-white-uppercase {
@@ -417,21 +477,37 @@
 .green-title-alternative {
   font-family: Nunito-Black;
   font-size: 1.6rem;
-  color: $color-primary;
+  // color: $color-primary removed the default
   text-transform: capitalize;
 
   &--ms {
     color: $color-med-teal;
+  }
+
+  &--yg {
+    color: $color-yg-blue;
+  }
+
+  &--wk {
+    color: $color-wk-green;
   }
 }
 
 .green-subtitle-alternative {
   font-family: Nunito-Regular;
   font-size: 1.6rem;
-  color: $color-primary;
+  // color: $color-primary removed the default
   text-transform: uppercase;
 
   &--ms {
     color: $color-med-teal;
+  }
+
+  &--yg {
+    color: $color-yg-blue;
+  }
+
+  &--wk {
+    color: $color-wk-green;
   }
 }

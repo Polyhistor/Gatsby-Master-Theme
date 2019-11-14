@@ -2,7 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+/*conditional import*/
 
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 /**
  * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
  * different names? Was hard to get that looking at the code.
@@ -15,7 +18,12 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
  *
  * The business logic should be abstracted from the three components as they basically use the same logic but different interface.
  */
+
+/*
+ TODO:       {variation === "ms" ? `From £${price} per day` : price}
+ */
 const TourBanner = ({
+  type,
   destination,
   destinationUrl,
   title,
@@ -30,8 +38,12 @@ const TourBanner = ({
   duration,
   country,
 }) => {
-  const theme = process.env.GATSBY_THEME
-
+  const webSiteConfiguration = useWebSiteConfigQuery()
+  console.log(webSiteConfiguration)
+  const buttonCardText =
+    type === "country"
+      ? webSiteConfiguration.countryPage.buttonCardText
+      : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -40,11 +52,9 @@ const TourBanner = ({
         <div className="col-1-of-4">
           <div className="tour-banner__description">
             <h3
-              className={
-                theme === "ms"
-                  ? "tour-banner__description-title tour-banner__description-title--ms"
-                  : `tour-banner__description-title`
-              }
+              className={resolveVariationClass(
+                "tour-banner__description-title"
+              )}
             >
               {title}
             </h3>
@@ -55,21 +65,17 @@ const TourBanner = ({
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
-              className={
-                theme === "ms"
-                  ? `tour-banner__description-price tour-banner__description-price-ms`
-                  : "tour-banner__description-price"
-              }
+              className={resolveVariationClass(
+                "tour-banner__description-price"
+              )}
             >
-              {variation === "ms" ? `From £${price} per day` : price}
+              {variation === "ms" ? `From €${price} per day` : price}
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className={
-                  theme === "ms"
-                    ? "btn btn--ms tablet-green-button"
-                    : "btn btn--green tablet-green-button"
-                }
+                className={`btn  ${resolveVariationClass(
+                  "btn__card"
+                )} tablet-green-button`}
                 to={
                   country !== undefined
                     ? `${
@@ -78,7 +84,7 @@ const TourBanner = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                explore
+                {buttonCardText}
               </Link>
             </div>
           </div>
@@ -88,11 +94,7 @@ const TourBanner = ({
             {/* choosing image based on the given props */}
             <Img fluid={imageData} />
             <figcaption
-              className={
-                theme === "ms"
-                  ? "tour-banner__figure-caption tour-banner__figure-caption--ms"
-                  : `tour-banner__figure-caption`
-              }
+              className={resolveVariationClass("tour-banner__figure-caption")}
             >
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
@@ -113,7 +115,7 @@ const TourBanner = ({
 
         <div className="mobile-yes u-padding-big ">
           <Link className={destination === "btn btn--green"} to="/">
-            explore
+            {buttonCardText}
           </Link>
         </div>
       </div>

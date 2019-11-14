@@ -469,6 +469,9 @@ export const WorkingForUsFragment = graphql`
     description1 {
       description1
     }
+    description1SecondParagraph {
+      description1SecondParagraph
+    }
     links
     urLs
     title2
@@ -511,11 +514,11 @@ export const YachtFragment = graphql`
   fragment Yacht on ContentfulOurYachts {
     title
     subtitle
+    order
     description {
       description
     }
     keyFeatures
-    excluded
     images {
       localFile {
         childImageSharp {
@@ -533,11 +536,42 @@ export const FeaturedBoxFragment = graphql`
   fragment FeaturedBox on ContentfulFeaturedBannerContents {
     firstLogo
     fIrstLogoUrl
+    firstLogoImage {
+      localFile {
+        publicURL
+      }
+    }
     secondLogo
     secondLogoUrl
+    secondLogoImage {
+      localFile {
+        publicURL
+      }
+    }
     thirdLogo
     thirdLogoUrl
+    thirdLogoImage {
+      localFile {
+        publicURL
+      }
+    }
     fourthLogo
     fourthLogoUrl
+    fourthLogoImage {
+      localFile {
+        publicURL
+      }
+    }
+  }
+`
+
+// our footer logos
+export const FooterLogos = graphql`
+  fragment FooterBox on ContentfulFooter {
+    logos {
+      localFile {
+        publicURL
+      }
+    }
   }
 `

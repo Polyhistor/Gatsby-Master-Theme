@@ -8,8 +8,10 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
+
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import useImageQuery from "../queries/imageQuery"
 
 // we retrieve node data through the context system, the obj is called pageContext
 const BlogTag = ({ data, pageContext }) => {
@@ -22,6 +24,8 @@ const BlogTag = ({ data, pageContext }) => {
 
   // rendering blogs
   const renderBlogs = () => {
+    const imageQuery = useImageQuery()
+
     return filteredData.map(({ node }) => {
       return (
         <div className="blog__categorized-container" key={node.wordpress_id}>
@@ -44,12 +48,15 @@ const BlogTag = ({ data, pageContext }) => {
 
   return (
     <Layout2
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       <SEO title={`${pageContext.name} | ${pageContext.site.name}`}></SEO>
       <div className="row">
@@ -72,7 +79,10 @@ const BlogTag = ({ data, pageContext }) => {
       </div>
       <Reviews />
       <div className="row">
-        <Trips data={homeQuery[0].node.popularTours} />
+        <Trips
+          data={homeQuery[0].node.popularTours}
+          headerText="Popular Trips"
+        />
       </div>
     </Layout2>
   )

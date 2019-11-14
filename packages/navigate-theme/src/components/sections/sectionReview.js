@@ -3,11 +3,8 @@ import { withPrefix } from "gatsby"
 
 import useReviewQuery from "../../queries/reviewQuery"
 import { dateHandler } from "../../helpers/dateHandler"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 const SectionReview = () => {
-  // TODO - CLEAN UP- MODULARIZE
-  const theme = process.env.GATSBY_THEME
-
   const reviewData = useReviewQuery()
 
   const renderReviews = () =>
@@ -31,28 +28,16 @@ const SectionReview = () => {
               <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
             </svg>
           </div>
-          <h2 className="trips__description-main u-padding-bottom-tiny">
+          <h2 className="heading-3 heading-3--darkGrey heading-3--extraBold u-padding-bottom-tiny">
             {r.node.title}
           </h2>
           <p className="tour-banner__description-details u-padding-bottom-small">
             {r.node.reviewText.reviewText}
           </p>
-          <h3
-            className={
-              theme === "ms"
-                ? "green-title-alternative green-title-alternative--ms"
-                : "green-title-alternative"
-            }
-          >
+          <h3 className={resolveVariationClass("green-title-alternative")}>
             {r.node.name}
           </h3>
-          <span
-            className={
-              theme === "ms"
-                ? "green-subtitle-alternative green-subtitle-alternative--ms"
-                : "green-subtitle-alternative"
-            }
-          >
+          <span className={resolveVariationClass("green-subtitle-alternative")}>
             {dateHandler(r.node.date)}
           </span>
         </div>

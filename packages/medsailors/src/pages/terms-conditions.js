@@ -14,7 +14,12 @@ import {
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // calling our query
-import { useTermsQuery, renderSeo, Layout2 } from "@nt-websites/navigate-theme"
+import {
+  useTermsQuery,
+  renderSeo,
+  Layout2,
+  useImageQuery,
+} from "@nt-websites/navigate-theme"
 
 const Terms = ({ data }) => {
   const options = {
@@ -49,14 +54,19 @@ const Terms = ({ data }) => {
   }
 
   const termsData = useTermsQuery()
+  const imageQuery = useImageQuery()
+
   return (
     <Layout2
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <div className="section-tc">

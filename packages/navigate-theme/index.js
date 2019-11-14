@@ -21,6 +21,8 @@ export {
 } from "./src/templates/destinationsSingle"
 
 /*queries*/
+
+export { useWebSiteConfigQuery } from "./src/queries/webSiteConfigQueries"
 export { default as useImageQuery } from "./src/queries/imageQuery"
 export { default as useHomePageQuery } from "./src/queries/homePageQuery"
 export { default as useCountryQuery } from "./src/queries/countryQuery"
@@ -43,6 +45,7 @@ export { default as useYachtQuery } from "./src/queries/ourYachtQuery"
 export { default as useFeatureBox } from "./src/queries/featuredBoxQuery"
 export { default as useContactQuery } from "./src/queries/contactQuery"
 export { default as useThemeModalQuery } from "./src/queries/themeModalQuery"
+export { default as useFooterQuery } from "./src/queries/footerQuery"
 
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
@@ -228,4 +231,6 @@ export {
   extractMetadataFromContentfulData,
 } from "./src/helpers/seo-helper"
 
-export { resolveVariationClass } from "./src/helpers/theme-variation-style"
+export {
+  default as resolveVariationClass,
+} from "./src/helpers/theme-variation-style"

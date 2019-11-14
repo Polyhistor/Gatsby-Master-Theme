@@ -44,14 +44,18 @@ const ActivitiesSingle = ({
 
   return (
     <Layout2
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeoFromContext(pageContext)}
+
       <LandingChartered
         bannerFirst={
           data.contentfulActivities.bannerImages[0].localFile.childImageSharp
@@ -81,14 +85,14 @@ const ActivitiesSingle = ({
                 .childImageSharp.fluid
             : null
         }
-        country={data.contentfulActivities.country.title}
         buttonText="watch trail"
         buttonTextSecond="view photos"
+        imagesLength={data.contentfulActivities.bannerImages.length}
       />
       <GreenBar
         text={
           theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds."
+            ? "Skippered sailing holidays for 20-35 year olds"
             : "Epic adventure for 18 to 35 year olds"
         }
         imageData={SVGIcon}
@@ -106,7 +110,11 @@ const ActivitiesSingle = ({
           title={data.contentfulActivities.title}
           subtitle={data.contentfulActivities.subtitle}
           price={data.contentfulActivities.price}
-          svgMap={data.contentfulActivities.svgMap.localFile.publicURL}
+          svgMap={
+            data.contentfulActivities.svgMap === null
+              ? null
+              : data.contentfulActivities.svgMap.localFile.publicURL
+          }
           description={
             data.contentfulActivities.description !== null
               ? data.contentfulActivities.description.json
@@ -123,7 +131,7 @@ const ActivitiesSingle = ({
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout2>
   )
 }

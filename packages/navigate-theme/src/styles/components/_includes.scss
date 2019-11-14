@@ -45,6 +45,7 @@
     @include respond(phone) {
       grid-row: 5;
       grid-template-columns: 1fr;
+      margin-bottom: 7rem;
     }
 
     & h2 {
@@ -56,8 +57,22 @@
     }
 
     & div {
-      display: flex;
+      display: grid;
+      grid-template-columns: 6rem 22rem;
       align-items: center;
+
+      @include respond(laptop) {
+        grid-template-columns: 6rem 12rem;
+      }
+
+      @include respond(tablet) {
+        grid-template-columns: 6rem 12rem;
+      }
+
+      @include respond(phone) {
+        display: grid;
+        grid-template-columns: 28% 72%;
+      }
     }
 
     & p {

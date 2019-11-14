@@ -15,12 +15,13 @@ import {
   Error,
   renderSeo,
   useContactQuery,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
   const theme = process.env.GATSBY_THEME
 
-  const link = theme === "ms" ? "link link--ms" : "link"
+  const link = resolveVariationClass("link")
 
   const SVGIcon = "wheel"
 
@@ -55,7 +56,7 @@ const GetInTouch = ({ data }) => {
         />
       </div>
       <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds."
+        text="Skippered sailing holidays for 20-35 year olds"
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
@@ -73,7 +74,7 @@ const GetInTouch = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { withPrefix, Link } from "gatsby"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import Review from "./review"
 
 const Reviews = () => {
@@ -11,13 +11,7 @@ const Reviews = () => {
       <div className="row">
         <div className="col-1-of-4">
           <div className="facebook-reviews">
-            <span
-              className={
-                theme === "ms"
-                  ? "facebook-reviews__rating facebook-reviews__rating--ms"
-                  : "facebook-reviews__rating"
-              }
-            >
+            <span className={resolveVariationClass("facebook-reviews__rating")}>
               4.9<span className="facebook-reviews__rating-decimal">/5</span>
             </span>
             <center className="facebook-reviews__stars-box">
@@ -43,11 +37,7 @@ const Reviews = () => {
             </center>
             <Link
               aria-current="page"
-              className={
-                theme === "ms"
-                  ? "btn btn--ms-teal tablet-green-button"
-                  : "btn btn--green tablet-green-button"
-              }
+              className={`btn ${resolveVariationClass("btn--primary")}`}
               to="/reviews"
             >
               more reviews
@@ -56,22 +46,23 @@ const Reviews = () => {
         </div>
         <div className="col-1-of-4">
           <Review
-            text="Where do I start! Absolutely fantastic tour! The places are all breathtaking, postcard quality views around every corner. I am in love with New Zealand now and can’t wait to be back."
-            author="Melissa James"
-            country="Australia"
+            text="Medsailors was above and beyond my expectations. A great mix of relaxing by the sea, touring the islands then eating, drinking and partying the night away."
+            author="Matthew Handy"
+            country="UK"
           />
         </div>
         <div className="col-1-of-4">
           <Review
-            text="Had the most amazing tour in the south island. I was nervous about travelling solo the first time but such a small group of awesome people made it a great experience and I never felt like I was alone!"
-            author="Isabella Durham"
-            country="Australia"
+            text="I had one of the best weeks of my life with Med Sailors! I had the best crewmates, skipper, cheeky adventures, and food. We have already talked about our next Med Sailor crew reunion! Just do it...you won't regret it!"
+            author="Alyson Erickson"
+            country="USA"
           />
         </div>
         <div className="col-1-of-4">
           <Review
-            text="The itinerary was great, we got to see so much and even the driving days were fun because we got to stop off at so many beautiful and out of the way places."
-            author="Hayley Fraser"
+            text="We loved every minute of it. Incredibly relaxing and so
+            much fun. Every single member of staff was incredibly friendly, professional and helpful. I couldn’t recommend MedSailors more."
+            author="Cassie Smart"
             country="Australia"
           />
         </div>

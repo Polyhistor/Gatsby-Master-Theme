@@ -21,11 +21,10 @@ import {
   useCountryQuery,
   useDestinationQuery,
   renderSeo,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -57,6 +56,7 @@ const IndexPage = ({ data }) => {
         return (
           <React.Fragment key={idx}>
             <DestinationsMobile
+              type="country"
               key={idx + 4}
               destination={country.node.slug}
               title={country.node.title}
@@ -68,6 +68,7 @@ const IndexPage = ({ data }) => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
             />
             <DestinationsTablet
+              type="country"
               key={idx + 8}
               destination={country.node.slug}
               title={country.node.title}
@@ -80,6 +81,7 @@ const IndexPage = ({ data }) => {
               SVGMap={country.node.svgMap.localFile.publicURL}
             />
             <TourBanner
+              type="country"
               key={idx + 12}
               destination={country.node.slug}
               title={country.node.title}
@@ -102,12 +104,15 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <Landing
@@ -119,10 +124,10 @@ const IndexPage = ({ data }) => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonSecondURL=""
         buttonStyles={["med-blue", "white"]}
-        variation={null}
+        variation={false}
         popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
+        shape="Circle"
       />
       <GreenBarAlt
         textList={[
@@ -140,11 +145,9 @@ const IndexPage = ({ data }) => {
       <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms u-margin-bottom-small u-center-text"
-              : "heading-1 u-margin-bottom-small u-center-text"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small u-center-text`}
         >
           Destinations
         </h2>
@@ -162,11 +165,9 @@ const IndexPage = ({ data }) => {
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms u-margin-bottom-small"
-              : "heading-1 u-margin-bottom-small"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small`}
         >
           Destinations
         </h2>
@@ -182,7 +183,7 @@ const IndexPage = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

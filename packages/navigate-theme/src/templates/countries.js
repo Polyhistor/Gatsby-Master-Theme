@@ -52,11 +52,12 @@ const Countries = ({ data, pageContext }) => {
 
   // rendering all the destination boxes
 
-  const renderCountries = () => {
+  const renderDestinations = () => {
     return data.contentfulCountry.destinations.map((e, idx) => {
       return (
         <Fragment key={idx}>
           <DestinationsMobile
+            type="destination"
             key={idx + 4}
             destination={e.slug}
             destinationUrl={e.url}
@@ -72,6 +73,7 @@ const Countries = ({ data, pageContext }) => {
             country={e.destinationCountry}
           />
           <DestinationsTablet
+            type="destination"
             key={idx + 8}
             destination={e.slug}
             destinationUrl={e.url}
@@ -88,6 +90,7 @@ const Countries = ({ data, pageContext }) => {
             country={e.destinationCountry}
           />
           <TourBanner
+            type="destination"
             key={idx + 12}
             destination={e.slug}
             destinationUrl={e.url}
@@ -110,12 +113,15 @@ const Countries = ({ data, pageContext }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeoFromContext(pageContext)}
       <Landing
@@ -132,10 +138,11 @@ const Countries = ({ data, pageContext }) => {
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo={popupUrl}
+        shape="diamond"
       />
       <Featured data={featuredBoxData[0].node} />
       {theme === "ms" ? (
-        renderCountries()
+        renderDestinations()
       ) : (
         <FilteredTours
           country={data.contentfulCountry.slug}
@@ -156,7 +163,7 @@ const Countries = ({ data, pageContext }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

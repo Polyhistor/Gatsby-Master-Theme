@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
-import { Link } from "gatsby"
 import * as Yup from "yup"
-import PhoneInput from "react-phone-input-2"
+
 import "react-phone-input-2/dist/style.css"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
-
+import { getPaxAges } from "../../config/pax-age"
+import { PHONE_NUMBER_LIST_ORDERED } from "../../config/phone-country-code"
 import useDestinationQuery from "../../queries/destinationQuery"
 import { submitEnquiryRequest } from "../../services/api"
 import Error from "./error"
@@ -58,15 +59,9 @@ const DetailsForm = ({
   bookingNotes,
   generalNotes,
 }) => {
-  const bookingFormDot =
-    theme === "ms"
-      ? "booking-form__dot booking-form__dot--ms"
-      : "booking-form__dot"
+  const bookingFormDot = resolveVariationClass("booking-form__dot")
 
-  const bookingFormPromo =
-    theme === "ms"
-      ? "booking-form__promo booking-form__promo--ms"
-      : "booking-form__promo"
+  const bookingFormPromo = resolveVariationClass("booking-form__promo")
 
   const theme = process.env.GATSBY_THEME
 
@@ -106,13 +101,7 @@ const DetailsForm = ({
     <>
       {success === false ? (
         <>
-          <h3
-            className={
-              theme === "ms"
-                ? "WhyWild-box-single__title WhyWild-box-single__title--ms"
-                : "WhyWild-box-single__title"
-            }
-          >
+          <h3 className={resolveVariationClass("WhyWild-box-single__title")}>
             Enter your details
           </h3>
           <div className="booking-form__enquiry-form">
@@ -173,13 +162,13 @@ const DetailsForm = ({
                     </span>
                   </div>
                 </div>
-                <div class="booking-form__right booking-form__right--ms">
-                  <div class="booking-form__price-entry booking-form__price-entry--alt">
-                    <div class="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
+                <div className="booking-form__right booking-form__right--ms">
+                  <div className="booking-form__price-entry booking-form__price-entry--alt">
+                    <div className="mobile-yes heading-5 heading-5--capitalized heading-5--ms">
                       {productClass}
                     </div>
-                    <div class="booking-form__price booking-form__price-ms">
-                      <span class="booking-form__discount">
+                    <div className="booking-form__price booking-form__price-ms">
+                      <span className="booking-form__discount">
                         {state.prices[priceInex].currencySymbol}
                         {partialData.priceWithDiscount}&thinsp;
                         {partialData.currencyCode}
@@ -197,6 +186,7 @@ const DetailsForm = ({
             <Formik
               initialValues={{
                 guests: "",
+                age: "",
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -207,7 +197,10 @@ const DetailsForm = ({
                 comments: "",
                 consent: false,
                 phone: 0,
-                yachtCabinName: cabinsNames[0].name,
+                yachtCabinName:
+                  cabinsNames && cabinsNames.length > 0
+                    ? cabinsNames[0].name
+                    : undefined,
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, actions) => {
@@ -243,14 +236,36 @@ const DetailsForm = ({
                 setFieldValue,
               }) => (
                 <Form
-                  className={
-                    theme === "ms"
-                      ? "booking-form__form-container booking-form__form-container--ms"
-                      : "booking-form__form-container"
-                  }
+                  className={resolveVariationClass(
+                    "booking-form__form-container"
+                  )}
                 >
                   <div className="booking-details__fields-container">
                     <Field
+                      component="select"
+                      name="guests"
+                      className={
+                        errors.guests
+                          ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                          : "booking-form__fields booking-form__fields--half"
+                      }
+                    >
+                      <option disabled value="">
+                        Passengers
+                      </option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>'<option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">10+</option>
+                    </Field>
+
+                    {/*<Field
                       type="number"
                       name="guests"
                       placeholder="No. Guests"
@@ -259,7 +274,7 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    ></Field>*/}
                     <Error touched={touched.guests} message={errors.guests} />
                   </div>
                   <div className="booking-details__fields-container">
@@ -328,7 +343,7 @@ const DetailsForm = ({
                   </div>
                   <div className="booking-details__fields-container">
                     <Field
-                      type="number"
+                      component="select"
                       name="phoneCountryCode"
                       placeholder="Country Code *"
                       className={
@@ -336,7 +351,22 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    >
+                      <option disabled value="">
+                        Country Code
+                      </option>
+                      {PHONE_NUMBER_LIST_ORDERED.map(p => {
+                        if (!p.dial_code) {
+                          return <option disabled value=""></option>
+                        } else {
+                          return (
+                            <option value={p.dial_code}>
+                              {p.name} {p.dial_code}
+                            </option>
+                          )
+                        }
+                      })}
+                    </Field>
                     <Error
                       touched={touched.phoneCountryCode}
                       message={errors.phoneCountryCode}
@@ -360,7 +390,7 @@ const DetailsForm = ({
                   </div>
                   <div className="booking-details__fields-container">
                     <Field
-                      type="number"
+                      component="select"
                       name="age"
                       placeholder="Age *"
                       className={
@@ -368,7 +398,14 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    >
+                      <option disabled value="">
+                        Select your age
+                      </option>
+                      {getPaxAges().map(p => {
+                        return <option value={p}>{p}</option>
+                      })}
+                    </Field>
                     <Error touched={touched.age} message={errors.age} />
                   </div>
                   <div className="booking-details__fields-container">
@@ -386,7 +423,7 @@ const DetailsForm = ({
                     </Field>
                     <Error touched={touched.gender} message={errors.gender} />
                   </div>
-                  {theme === "ms" ? (
+                  {cabinsNames && cabinsNames.length > 0 ? (
                     <div className="booking-details__fields-container">
                       <Field
                         component="select"
@@ -427,7 +464,7 @@ const DetailsForm = ({
                     <label htmlFor="consent">
                       I accept the&thinsp;
                       <a
-                        className={theme === "ms" ? "link link--ms" : "link"}
+                        className={resolveVariationClass("link")}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >
@@ -461,11 +498,7 @@ const DetailsForm = ({
             </Formik>
           </div>
           <div
-            className={
-              theme === "ms"
-                ? "booking-form__booking-details booking-form__booking-details--ms"
-                : "booking-form__booking-details"
-            }
+            className={resolveVariationClass("booking-form__booking-details")}
           >
             <Image
               fluid={
@@ -476,11 +509,9 @@ const DetailsForm = ({
             ></Image>
             <div className="booking-form__details booking-form__details--title">
               <h2
-                className={
-                  theme === "ms"
-                    ? "tour-banner__description-title tour-banner__description-title--ms"
-                    : "tour-banner__description-title"
-                }
+                className={resolveVariationClass(
+                  "tour-banner__description-title"
+                )}
               >
                 {title}
               </h2>
@@ -504,7 +535,7 @@ const DetailsForm = ({
               <div className="booking-form__sub-title">Start</div>
               <div className="booking-form__info">
                 <span> {state.startDateMedium}</span>
-                <span> Departs {state.departureTime}</span>
+                <span> Time: {state.departureTime}</span>
                 <span> {`${state.startLocation}, ${state.startCountry}`}</span>
               </div>
             </div>
@@ -512,17 +543,15 @@ const DetailsForm = ({
               <div className="booking-form__sub-title">End</div>
               <div className="booking-form__info">
                 <span> {state.endDateMedium}</span>
-                <span> Departs {state.returnTime}</span>
+                <span> Time: {state.returnTime}</span>
                 <span> {`${state.endLocation}, ${state.endCountry}`}</span>
               </div>
             </div>
             <div className="booking-form__details booking-form__details--price">
               <h2
-                className={
-                  theme === "ms"
-                    ? "tour-banner__description-title tour-banner__description-title--ms"
-                    : "tour-banner__description-title"
-                }
+                className={resolveVariationClass(
+                  "tour-banner__description-title"
+                )}
               >
                 {state.prices[priceInex].currencySymbol}
                 {state.prices[priceInex].rrpWithDiscount} &thinsp;

@@ -15,12 +15,11 @@ import {
   Error,
   renderSeo,
   useContactQuery,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
-  const link = theme === "ms" ? "link link--ms" : "link"
+  const link = resolveVariationClass("link")
 
   const SVGIcon = "wheel"
 
@@ -41,28 +40,32 @@ const GetInTouch = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.MSContact.childImageSharp.fluid}
-          titleFirst="get in touch"
+          titleFirst="Get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="We're always here to help, just send us a message and a member of the MedSailors team will be in touch."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          shape="circle"
         />
       </div>
       <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds."
+        text="Skippered sailing holidays for 20-35 year olds"
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
@@ -70,7 +73,6 @@ const GetInTouch = ({ data }) => {
         phoneNumberData={contactData.phoneAddress}
         leftContactSection={leftContactSection}
       />{" "}
-      />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"
@@ -80,7 +82,7 @@ const GetInTouch = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

@@ -59,7 +59,6 @@
   &__buttons {
     display: flex;
     justify-content: space-around;
-    max-width: 80rem;
     margin-left: -1.1rem;
 
     & ~ .mobile-yes > .activity__selector > .activity__dropdown {
@@ -73,6 +72,7 @@
     @extend .heading-5;
     @extend .heading-5--green;
 
+    background: white;
     border: 1px solid $color-primary;
     border-radius: 4px;
 
@@ -88,6 +88,10 @@
     &--active {
       @include whiteGreen;
       &-ms {
+        background: $color-med-teal;
+        color: white !important;
+      }
+      &--ms {
         background: $color-med-teal;
         color: white !important;
       }

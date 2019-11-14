@@ -51,6 +51,7 @@ const Destination = ({ data }) => {
       return (
         <Fragment key={idx}>
           <DestinationsMobile
+            type="country"
             key={idx + 4}
             destination={country.node.slug}
             title={country.node.title}
@@ -62,6 +63,7 @@ const Destination = ({ data }) => {
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
           <DestinationsTablet
+            type="country"
             key={idx + 8}
             destination={country.node.slug}
             title={country.node.title}
@@ -74,6 +76,7 @@ const Destination = ({ data }) => {
             SVGMap={country.node.svgMap.localFile.publicURL}
           />
           <TourBanner
+            type="country"
             key={idx + 12}
             destination={country.node.slug}
             title={country.node.title}
@@ -92,17 +95,20 @@ const Destination = ({ data }) => {
 
   return (
     <Layout
-      InstaPhotos={[
-        { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-        { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-        { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-        { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-      ]}
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
     >
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MSCountries.childImageSharp.fluid}
-        titleFirst="DESTINATIONS"
+        titleFirst="Destinations"
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
         description="Enjoy 7 unforgettable days sailing around the most breath-taking places in the Mediterranean."
@@ -110,6 +116,7 @@ const Destination = ({ data }) => {
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        shape="circle"
       />
       <Featured data={featuredBoxData[0].node} />
       <FeaturedMobile />
@@ -124,7 +131,7 @@ const Destination = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }

@@ -7,28 +7,18 @@ import DetailsForm from "./detailsForm"
 import { getTourPricesRequest } from "../../services/api"
 
 import useCountryQuery from "../../queries/countryQuery"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useDestinationQuery from "../../queries/destinationQuery"
 import useThemeModalQuery from "../../queries/themeModalQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BookingForm = ({ data, country, inPage }) => {
-  //TODO:This should come from api somehow
-  const pricesClassOrdered = [
-    {
-      description: "Premier Yacht",
-      code: "Premier Yacht",
-    },
-    {
-      description: "SUPERIOR MONOCAT",
-      code: "Superior Monocat",
-    },
-    {
-      description: "CATAMARAN",
-      code: "Catamaran",
-    },
-  ]
+  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
 
-  const theme = process.env.GATSBY_THEME
+  //TODO:This should come from api somehow
+  const pricesClassOrdered = bookingFormConfig.yachtClasses
+  const useYachtClass = bookingFormConfig.useYachtClass
+  const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
 
   // render buyerInfo
   const renderIfno = () => {
@@ -48,9 +38,6 @@ const BookingForm = ({ data, country, inPage }) => {
   // TODO - CLEAN UP
 
   const bookingFormPromo = resolveVariationClass("booking-form__promo")
-  /*  theme === "ms"
-      ? "booking-form__promo booking-form__promo--ms"
-      : "booking-form__promo"*/
 
   const bookingFormAvailablity = resolveVariationClass(
     "booking-form__availability"
@@ -121,20 +108,16 @@ const BookingForm = ({ data, country, inPage }) => {
   })
 
   const renderHeader = () => {
-    if (theme === "ms" && entries !== null) {
+    if (useYachtClass) {
       return (
         <div className="booking-form__header-classes">
           {pricesClassOrdered.map((p, idx) => {
             return (
-              <h4 key={idx} className="heading-4 heading-4--ms">
+              <h4 key={idx} className={resolveVariationClass("heading-4")}>
                 {p.description}
               </h4>
             )
           })}
-
-          {/*
-          <h4 className="heading-4 heading-4--ms">superior monocat</h4>
-          <h4 className="heading-4 heading-4--ms">catamaran</h4>*/}
         </div>
       )
     }
@@ -142,14 +125,6 @@ const BookingForm = ({ data, country, inPage }) => {
   }
 
   const handleClick = (_, idx, idx2, d) => {
-    // these will be used later for advanced select functionality
-    // const ourElement = refs[idx].childNodes[idx2]
-    // const ourDate = ourElement.childNodes[0].innerText.slice(0, 10)
-
-    // const date = entries.month.find(m =>
-    //   m.dates.find(date => date.prices[0].id === d.prices[0].id)
-    // )
-
     setClassPrice(entries.classPrice)
     setCabin(entries.cabins)
     setMessage(currentState => ({
@@ -189,7 +164,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 : "booking-form__price-entry"
             }
           >
-            {theme === "ms" ? (
+            {useYachtClass ? (
               <div
                 className={`mobile-yes heading-5--capitalized ${resolveVariationClass(
                   "heading-5"
@@ -226,9 +201,7 @@ const BookingForm = ({ data, country, inPage }) => {
   const renderEntries = () => {
     if (entries === null) {
       return (
-        <h2
-          className={theme === "ms" ? "heading-1 heading-1--ms" : "heading-1"}
-        >
+        <h2 className={resolveVariationClass("heading-1")}>
           Nothing has been selected
         </h2>
       )
@@ -264,6 +237,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 inPage ? idx + 50 : inPage === "alt" ? idx + 200 : idx
               }`}
               type="checkbox"
+              checked={idx === 0 ? "true" : null}
             ></input>
             <label
               className="booking-form__plus-holder"
@@ -274,7 +248,7 @@ const BookingForm = ({ data, country, inPage }) => {
                 <div
                   key={idx2}
                   onClick={
-                    theme === "ms" ? null : _ => handleClick(_, idx, idx2, d)
+                    useYachtClass ? null : _ => handleClick(_, idx, idx2, d)
                   }
                   className={resolveVariationClass(
                     "booking-form__hidden-entries"
@@ -336,7 +310,7 @@ const BookingForm = ({ data, country, inPage }) => {
                     </div>
                   </div>
                   <div className={resolveVariationClass("booking-form__right")}>
-                    {theme === "ms" ? renderPrices(d.prices) : null}
+                    {useYachtClass ? renderPrices(d.prices) : null}
                   </div>
                 </div>
               ))}
@@ -490,9 +464,7 @@ const BookingForm = ({ data, country, inPage }) => {
                       id="tours"
                       value={selectValue}
                     >
-                      <option value="all">
-                        {theme === "ms" ? "Trip" : "Tours"}
-                      </option>
+                      <option value="all">{destinationDropdownLabel}</option>
                       {renderDestinations()}
                     </select>
                   </div>
