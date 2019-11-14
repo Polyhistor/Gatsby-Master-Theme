@@ -186,6 +186,7 @@ const DetailsForm = ({
             <Formik
               initialValues={{
                 guests: "",
+                age: "",
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -399,7 +400,7 @@ const DetailsForm = ({
                       }
                     >
                       <option disabled value="">
-                        Age
+                        Select your age
                       </option>
                       {getPaxAges().map(p => {
                         return <option value={p}>{p}</option>
