@@ -118,7 +118,7 @@ const Destination = ({ data }) => {
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
         shape="circle"
       />
-      <Featured data={featuredBoxData[0].node} />
+      <Featured data={featuredBoxData} />
       <FeaturedMobile />
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />

@@ -140,7 +140,7 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
         shape="diamond"
       />
-      <Featured data={featuredBoxData[0].node} />
+      <Featured data={featuredBoxData} />
       {theme === "ms" ? (
         renderDestinations()
       ) : (

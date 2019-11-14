@@ -15,10 +15,8 @@ const TextBox = ({
   subTitle,
   buttonFirst,
   buttonFirstURL,
-  shape,
 }) => {
   return (
-    // <div className={`${resolveVariationClass("header__text-box")}`}>
     <>
       <h1
         className={`header-title ${resolveVariationClass(
@@ -30,7 +28,9 @@ const TextBox = ({
         {titleSecond}
         <br></br>
         {titleThird}
-        <span className={subtitleClass}>{subTitle}</span>
+        <span className={subtitleClass}>
+          <span className="header__subtitle">{subTitle}</span>
+        </span>
       </h1>
       <div className={resolveVariationClass("header__button-box")}>
         <Link to={buttonFirstURL} className={button1Class}>

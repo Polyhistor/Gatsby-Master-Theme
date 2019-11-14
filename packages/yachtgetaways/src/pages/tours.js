@@ -22,13 +22,12 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
-  const featuredBoxData = useFeatureBox()
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
   const homeQuery = useHomePageQuery()
   const destinationQuery = useDestinationQuery()
+  const featuredBoxData = useFeatureBox()
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -45,6 +44,7 @@ const Destination = ({ data }) => {
    * the destinations in country pages, we should have a better name for component and the property .
    * The property "destination" sometimes refeers to countries, sometimes destinations.
    */
+
   // rendering all the destination boxes
   const renderCountries = () => {
     return countryQuery.map((country, idx) => {

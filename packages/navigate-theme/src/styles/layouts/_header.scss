@@ -43,6 +43,11 @@
     }
   }
 
+  &__subtitle {
+    background: $color-med-teal;
+    padding: 0 0.5rem;
+  }
+
   &__nav-button {
     position: fixed;
     top: 1.5rem;
