@@ -5,23 +5,23 @@ import resolveVariationClass from "../helpers/theme-variation-style"
 const Featured = ({ data }) => {
   console.log(data)
 
-  const renderFeatures = () => {
-    data.logoLabels.map((e, idx) => {
-      return (
-        <div className="featured__container-image featured__container-image--metro">
-          <a href={e.logoUrLs[idx]} target="__blank">
-            <img src={e.logos[idx].localFile.publicURL}></img>
-          </a>
-        </div>
-      )
-    })
-  }
+  // const renderFeatures = () => {
+  //   data.logoLabels.map((e, idx) => {
+  //     return (
+  //       <div className="featured__container-image featured__container-image--metro">
+  //         <a href={e.logoUrLs[idx]} target="__blank">
+  //           <img src={e.logos[idx].localFile.publicURL}></img>
+  //         </a>
+  //       </div>
+  //     )
+  //   })
+  // }
 
   return (
     <div className={resolveVariationClass("featured")}>
       <div className="featured__container">
         <h2 className="heading-tertiary--inline">featured in</h2>
-        {renderFeatures()}
+        {/* {renderFeatures()} */}
         {/* <div className="featured__container-image featured__container-image--metro">
           <a href={data.fIrstLogoUrl} target="__blank">
             <img src={data.firstLogoImage.localFile.publicURL}></img>
