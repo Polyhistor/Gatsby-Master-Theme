@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import Modal from "react-responsive-modal"
-import { Link, withPrefix } from "gatsby"
+
 import BackgroundImage from "gatsby-background-image"
 
 import resolveVariationClass from "../../../helpers/theme-variation-style"
+
+import TextBox from "../textBox"
+import TextBoxAlt from "../textBox-alt"
 
 const Header = ({
   imageData,
@@ -11,15 +14,13 @@ const Header = ({
   TitleSecond,
   TitleThird,
   subTitle,
-  description,
   buttonFirst,
   buttonFirstURL,
   buttonSecond,
-  buttonSecondURL,
   buttonStyles,
-  optMargin,
   variation,
   popupVideo,
+  shape,
 }) => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
@@ -27,79 +28,55 @@ const Header = ({
   let theme = process.env.GATSBY_THEME
 
   const button1Class = `btn--${buttonStyles[0]}`
+
+  const button2Class = `btn--${buttonStyles[1]}`
+
   const button1ClassResolved = `btn ${resolveVariationClass(
     button1Class
   )} btn-animated mobile-green-buton`
-  const button2Class = `btn--${buttonStyles[1]}`
+
   const button2ClassResolved = `btn ${resolveVariationClass(
     button2Class
   )} btn-animated`
+
+  const subTitleClass =
+    theme === "ms"
+      ? "paragraph paragraph--white paragraph--black paragraph--uppercase"
+      : "paragraph paragraph--nexaRust-white-capitalized"
 
   // rendering the contents
   return (
     <>
       <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
         <div className="header">
-          <div className={`${resolveVariationClass("header__text-box")}`}>
-            <h1
-              className={
-                theme === "ms"
-                  ? `header-title header-title__main header-title__main--ms`
-                  : variation === null
-                  ? `header-title header-title__main`
-                  : `heading-primary heading-primary--${variation}`
-              }
-            >
-              <span>
-                {titleFirst} <br />
-                {TitleSecond && TitleThird !== null ? (
-                  <>
-                    {TitleSecond} <br /> {TitleThird}
-                  </>
-                ) : null}
-              </span>
-              {description !== undefined ? (
-                <p className="heading-primary--description">{description}</p>
-              ) : null}
-              {subTitle !== null ? (
-                <span
-                  className={
-                    theme === "ms"
-                      ? "paragraph paragraph--white paragraph--black paragraph--uppercase"
-                      : "paragraph paragraph--nexaRust-white-capitalized"
-                  }
-                >
-                  {subTitle}
-                </span>
-              ) : null}
-            </h1>
-            <div className={resolveVariationClass("header__button-box")}>
-              {buttonFirst && buttonFirst !== null ? (
-                <Link to={buttonFirstURL} className={button1ClassResolved}>
-                  {buttonFirst}
-                </Link>
-              ) : null}
-              {/* adding one more level of modularity, if the secondbutton text and
-            URL is not given, don't show it */}
-              {buttonSecond && buttonSecondURL !== null ? (
-                <a
-                  href="#"
-                  onClick={() => setModal({ open: true })}
-                  className={button2ClassResolved}
-                >
-                  <svg className="svg-icon--play-button">
-                    <use
-                      xlinkHref={withPrefix("sprite.svg#icon-Play-Button")}
-                    />
-                  </svg>
-                  <span className="">{buttonSecond}</span>
-                </a>
-              ) : null}
-            </div>
-          </div>
+          {variation === false ? (
+            <TextBox
+              setModal={setModal}
+              buttonSecond={buttonSecond}
+              button1Class={button1ClassResolved}
+              button2Class={button2ClassResolved}
+              subtitleClass={subTitleClass}
+              titleFirst={titleFirst}
+              titleSecond={TitleSecond}
+              titleThird={TitleThird}
+              subTitle={subTitle}
+              buttonFirst={buttonFirst}
+              buttonFirstURL={buttonFirstURL}
+              shape={shape}
+            />
+          ) : (
+            <TextBoxAlt
+              setModal={setModal}
+              buttonSecond={buttonSecond}
+              button2Class={button2ClassResolved}
+              titleFirst={titleFirst}
+              titleSecond={TitleSecond}
+              titleThird={TitleThird}
+              shape={shape}
+            />
+          )}
         </div>
       </BackgroundImage>
-
       {/* setting modal values */}
       <Modal
         open={open}

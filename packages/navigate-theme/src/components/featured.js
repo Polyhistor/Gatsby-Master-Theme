@@ -12,10 +12,7 @@ const Featured = ({ data }) => {
         <h2 className="heading-tertiary--inline">featured in</h2>
         <div className="featured__container-image featured__container-image--metro">
           <a href={data.fIrstLogoUrl} target="__blank">
-            <img
-              className="svg-icon--logo-metro"
-              src={data.firstLogoImage.localFile.publicURL}
-            ></img>
+            <img src={data.firstLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <div className="featured__container-image featured__container-image--daily">
@@ -25,10 +22,7 @@ const Featured = ({ data }) => {
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.secondLogo}`)}
               />
             </svg> */}
-            <img
-              className="svg-icon--logo-daily"
-              src={data.secondLogoImage.localFile.publicURL}
-            ></img>
+            <img src={data.secondLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <h2 className="heading-tertiary--inline">recognised by</h2>
@@ -39,10 +33,7 @@ const Featured = ({ data }) => {
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.thirdLogo}`)}
               />
             </svg> */}
-            <img
-              className="svg-icon--logo-westpac"
-              src={data.thirdLogoImage.localFile.publicURL}
-            ></img>
+            <img src={data.thirdLogoImage.localFile.publicURL}></img>
           </a>
         </div>
         <div className="featured__container-image featured__container-image--qual">
@@ -52,10 +43,7 @@ const Featured = ({ data }) => {
                 xlinkHref={withPrefix(`sprite.svg#icon-${data.fourthLogo}`)}
               />
             </svg> */}
-            <img
-              className="svg-icon--logo-qualmark"
-              src={data.fourthLogoImage.localFile.publicURL}
-            ></img>
+            <img src={data.fourthLogoImage.localFile.publicURL}></img>
           </a>
         </div>
       </div>

@@ -135,6 +135,7 @@ const Countries = ({ data, pageContext }) => {
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo={popupUrl}
+        shape="diamond"
       />
       <Featured data={featuredBoxData[0].node} />
       {theme === "ms" ? (

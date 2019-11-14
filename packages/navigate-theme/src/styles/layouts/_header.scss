@@ -96,7 +96,6 @@
   &-title {
     &__main {
       display: grid;
-      margin-top: -3rem;
       @extend .title;
 
       @include respond(phone) {
@@ -107,7 +106,8 @@
 
       &--ms {
         @extend .title--ms;
-        font-size: 7rem;
+        font-size: 8rem;
+        line-height: 7rem;
 
         @include respond(phone) {
           grid-template-rows: 10.5rem 3rem;
@@ -124,9 +124,9 @@
 
   &__text-box {
     position: absolute;
-    top: 35%;
+    top: 25%;
     display: grid;
-    grid-template-rows: 25.4rem 12rem;
+    grid-template-rows: 27.6rem 12rem;
 
     @include respond(laptop) {
       left: 6%;
@@ -154,7 +154,16 @@
     }
 
     &--ms {
-      grid-template-rows: 25.6rem 12rem;
+      grid-template-rows: 3rem 27.6rem 12rem;
+    }
+
+    &--alt {
+      grid-template-rows: 4rem 10rem 1rem;
+      top: 60%;
+
+      & h1 {
+        font-size: 12rem;
+      }
     }
   }
 
@@ -215,6 +224,14 @@
       @include respond(phone) {
         display: none;
       }
+    }
+  }
+
+  &__object {
+    flex-basis: 2.5rem;
+
+    &-container {
+      display: flex;
     }
   }
 }
