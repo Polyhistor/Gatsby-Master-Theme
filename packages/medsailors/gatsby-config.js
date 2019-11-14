@@ -267,6 +267,7 @@ module.exports = {
             external: true,
           },
         ],
+
         /*TODO: remove prefix routes, we don't need that anymore*/
 
         modalText: {
