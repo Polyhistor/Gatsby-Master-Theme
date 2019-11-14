@@ -20,31 +20,7 @@ const TextBoxAlt = ({
   )} btn-animated`
 
   return (
-    <div className="header__text-box header__text-box--alt">
-      <div className="header__object-container">
-        {shape === "circle" ? (
-          <>
-            <Circle></Circle>
-            <Xmark></Xmark>
-            <Circle></Circle>
-            <Xmark></Xmark>
-          </>
-        ) : shape === "diamond" ? (
-          <>
-            <Diamond></Diamond>
-            <Xmark></Xmark>
-            <Diamond></Diamond>
-            <Xmark></Xmark>
-          </>
-        ) : (
-          <>
-            <Triangle></Triangle>
-            <Xmark></Xmark>
-            <Triangle></Triangle>
-            <Xmark></Xmark>
-          </>
-        )}
-      </div>
+    <>
       <h1
         className={`header-title ${resolveVariationClass(
           "header-title__main"
@@ -64,7 +40,7 @@ const TextBoxAlt = ({
           <span className="">{buttonSecond}</span>
         </a>
       </div>
-    </div>
+    </>
   )
 }
 

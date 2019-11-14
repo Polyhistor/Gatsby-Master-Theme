@@ -159,10 +159,11 @@
 
     &--alt {
       grid-template-rows: 4rem 10rem 1rem;
-      top: 60%;
+      top: 40%;
 
       & h1 {
         font-size: 12rem;
+        text-transform: none;
       }
     }
   }

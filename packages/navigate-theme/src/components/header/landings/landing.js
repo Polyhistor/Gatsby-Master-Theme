@@ -7,6 +7,10 @@ import resolveVariationClass from "../../../helpers/theme-variation-style"
 
 import TextBox from "../textBox"
 import TextBoxAlt from "../textBox-alt"
+import Triangle from "../../header/objects/triangle"
+import Circle from "../../header/objects/circle"
+import Diamond from "../../header/objects/diamond"
+import Xmark from "../../header/objects/xMark"
 
 const Header = ({
   imageData,
@@ -49,32 +53,64 @@ const Header = ({
     <>
       <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
         <div className="header">
-          {variation === false ? (
-            <TextBox
-              setModal={setModal}
-              buttonSecond={buttonSecond}
-              button1Class={button1ClassResolved}
-              button2Class={button2ClassResolved}
-              subtitleClass={subTitleClass}
-              titleFirst={titleFirst}
-              titleSecond={TitleSecond}
-              titleThird={TitleThird}
-              subTitle={subTitle}
-              buttonFirst={buttonFirst}
-              buttonFirstURL={buttonFirstURL}
-              shape={shape}
-            />
-          ) : (
-            <TextBoxAlt
-              setModal={setModal}
-              buttonSecond={buttonSecond}
-              button2Class={button2ClassResolved}
-              titleFirst={titleFirst}
-              titleSecond={TitleSecond}
-              titleThird={TitleThird}
-              shape={shape}
-            />
-          )}
+          <div
+            className={
+              variation === false
+                ? `${resolveVariationClass("header__text-box")}`
+                : "header__text-box header__text-box--alt"
+            }
+          >
+            <div className="header__object-container">
+              {shape === "circle" ? (
+                <>
+                  <Circle></Circle>
+                  <Xmark></Xmark>
+                  <Circle></Circle>
+                  <Xmark></Xmark>
+                </>
+              ) : shape === "diamond" ? (
+                <>
+                  <Diamond></Diamond>
+                  <Xmark></Xmark>
+                  <Diamond></Diamond>
+                  <Xmark></Xmark>
+                </>
+              ) : (
+                <>
+                  <Triangle></Triangle>
+                  <Xmark></Xmark>
+                  <Triangle></Triangle>
+                  <Xmark></Xmark>
+                </>
+              )}
+            </div>
+            {variation === false ? (
+              <TextBox
+                setModal={setModal}
+                buttonSecond={buttonSecond}
+                button1Class={button1ClassResolved}
+                button2Class={button2ClassResolved}
+                subtitleClass={subTitleClass}
+                titleFirst={titleFirst}
+                titleSecond={TitleSecond}
+                titleThird={TitleThird}
+                subTitle={subTitle}
+                buttonFirst={buttonFirst}
+                buttonFirstURL={buttonFirstURL}
+                shape={shape}
+              />
+            ) : (
+              <TextBoxAlt
+                setModal={setModal}
+                buttonSecond={buttonSecond}
+                button2Class={button2ClassResolved}
+                titleFirst={titleFirst}
+                titleSecond={TitleSecond}
+                titleThird={TitleThird}
+                shape={shape}
+              />
+            )}
+          </div>
         </div>
       </BackgroundImage>
       {/* setting modal values */}

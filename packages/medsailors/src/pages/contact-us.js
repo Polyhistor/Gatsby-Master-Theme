@@ -54,7 +54,7 @@ const GetInTouch = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.MSContact.childImageSharp.fluid}
-          titleFirst="get in touch"
+          titleFirst="Get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="We're always here to help, just send us a message and a member of the MedSailors team will be in touch."

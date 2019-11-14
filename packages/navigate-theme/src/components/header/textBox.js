@@ -1,11 +1,6 @@
 import React from "react"
 import { Link, withPrefix } from "gatsby"
 
-import Triangle from "../header/objects/triangle"
-import Circle from "../header/objects/circle"
-import Diamond from "../header/objects/diamond"
-import Xmark from "../header/objects/xMark"
-
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const TextBox = ({
@@ -23,31 +18,8 @@ const TextBox = ({
   shape,
 }) => {
   return (
-    <div className={`${resolveVariationClass("header__text-box")}`}>
-      <div className="header__object-container">
-        {shape === "circle" ? (
-          <>
-            <Circle></Circle>
-            <Xmark></Xmark>
-            <Circle></Circle>
-            <Xmark></Xmark>
-          </>
-        ) : shape === "diamond" ? (
-          <>
-            <Diamond></Diamond>
-            <Xmark></Xmark>
-            <Diamond></Diamond>
-            <Xmark></Xmark>
-          </>
-        ) : (
-          <>
-            <Triangle></Triangle>
-            <Xmark></Xmark>
-            <Triangle></Triangle>
-            <Xmark></Xmark>
-          </>
-        )}
-      </div>
+    // <div className={`${resolveVariationClass("header__text-box")}`}>
+    <>
       <h1
         className={`header-title ${resolveVariationClass(
           "header-title__main"
@@ -75,7 +47,7 @@ const TextBox = ({
           <span className="">{buttonSecond}</span>
         </a>
       </div>
-    </div>
+    </>
   )
 }
 
