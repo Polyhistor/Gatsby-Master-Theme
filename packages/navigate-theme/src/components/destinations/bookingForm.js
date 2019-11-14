@@ -7,13 +7,13 @@ import DetailsForm from "./detailsForm"
 import { getTourPricesRequest } from "../../services/api"
 
 import useCountryQuery from "../../queries/countryQuery"
-import { useBookingFormConfigQuery } from "../../queries/webSiteConfigQueries"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useDestinationQuery from "../../queries/destinationQuery"
 import useThemeModalQuery from "../../queries/themeModalQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BookingForm = ({ data, country, inPage }) => {
-  const bookingFormConfig = useBookingFormConfigQuery()
+  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses

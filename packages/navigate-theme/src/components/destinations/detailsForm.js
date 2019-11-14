@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Image from "gatsby-image"
 import { Formik, Field, Form } from "formik"
-import { Link } from "gatsby"
 import * as Yup from "yup"
-import PhoneInput from "react-phone-input-2"
+
 import "react-phone-input-2/dist/style.css"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
-
+import { getPaxAges } from "../../config/pax-age"
+import { PHONE_NUMBER_LIST_ORDERED } from "../../config/phone-country-code"
 import useDestinationQuery from "../../queries/destinationQuery"
 import { submitEnquiryRequest } from "../../services/api"
 import Error from "./error"
@@ -186,6 +186,7 @@ const DetailsForm = ({
             <Formik
               initialValues={{
                 guests: "",
+                age: "",
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -241,6 +242,30 @@ const DetailsForm = ({
                 >
                   <div className="booking-details__fields-container">
                     <Field
+                      component="select"
+                      name="guests"
+                      className={
+                        errors.guests
+                          ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                          : "booking-form__fields booking-form__fields--half"
+                      }
+                    >
+                      <option disabled value="">
+                        Passengers
+                      </option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>'<option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">10+</option>
+                    </Field>
+
+                    {/*<Field
                       type="number"
                       name="guests"
                       placeholder="No. Guests"
@@ -249,7 +274,7 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    ></Field>*/}
                     <Error touched={touched.guests} message={errors.guests} />
                   </div>
                   <div className="booking-details__fields-container">
@@ -318,7 +343,7 @@ const DetailsForm = ({
                   </div>
                   <div className="booking-details__fields-container">
                     <Field
-                      type="number"
+                      component="select"
                       name="phoneCountryCode"
                       placeholder="Country Code *"
                       className={
@@ -326,7 +351,22 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    >
+                      <option disabled value="">
+                        Country Code
+                      </option>
+                      {PHONE_NUMBER_LIST_ORDERED.map(p => {
+                        if (!p.dial_code) {
+                          return <option disabled value=""></option>
+                        } else {
+                          return (
+                            <option value={p.dial_code}>
+                              {p.name} {p.dial_code}
+                            </option>
+                          )
+                        }
+                      })}
+                    </Field>
                     <Error
                       touched={touched.phoneCountryCode}
                       message={errors.phoneCountryCode}
@@ -350,7 +390,7 @@ const DetailsForm = ({
                   </div>
                   <div className="booking-details__fields-container">
                     <Field
-                      type="number"
+                      component="select"
                       name="age"
                       placeholder="Age *"
                       className={
@@ -358,7 +398,14 @@ const DetailsForm = ({
                           ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                           : "booking-form__fields booking-form__fields--half"
                       }
-                    ></Field>
+                    >
+                      <option disabled value="">
+                        Select your age
+                      </option>
+                      {getPaxAges().map(p => {
+                        return <option value={p}>{p}</option>
+                      })}
+                    </Field>
                     <Error touched={touched.age} message={errors.age} />
                   </div>
                   <div className="booking-details__fields-container">

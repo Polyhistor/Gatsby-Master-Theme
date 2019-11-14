@@ -52,11 +52,12 @@ const Countries = ({ data, pageContext }) => {
 
   // rendering all the destination boxes
 
-  const renderCountries = () => {
+  const renderDestinations = () => {
     return data.contentfulCountry.destinations.map((e, idx) => {
       return (
         <Fragment key={idx}>
           <DestinationsMobile
+            type="destination"
             key={idx + 4}
             destination={e.slug}
             destinationUrl={e.url}
@@ -72,6 +73,7 @@ const Countries = ({ data, pageContext }) => {
             country={e.destinationCountry}
           />
           <DestinationsTablet
+            type="destination"
             key={idx + 8}
             destination={e.slug}
             destinationUrl={e.url}
@@ -88,6 +90,7 @@ const Countries = ({ data, pageContext }) => {
             country={e.destinationCountry}
           />
           <TourBanner
+            type="destination"
             key={idx + 12}
             destination={e.slug}
             destinationUrl={e.url}
@@ -139,7 +142,7 @@ const Countries = ({ data, pageContext }) => {
       />
       <Featured data={featuredBoxData[0].node} />
       {theme === "ms" ? (
-        renderCountries()
+        renderDestinations()
       ) : (
         <FilteredTours
           country={data.contentfulCountry.slug}

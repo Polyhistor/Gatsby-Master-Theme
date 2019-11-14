@@ -113,6 +113,12 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          countryPage: {
+            buttonCardText: "Explore",
+          },
+          destinationPage: {
+            buttonCardText: "View Trip",
+          },
           bookingForm: {
             destinationDropdownLabel: "Trip",
             useYachtClass: true,
@@ -132,7 +138,6 @@ module.exports = {
             ],
           },
         },
-
         site: {
           name: `MedSailors`,
         },
@@ -262,6 +267,7 @@ module.exports = {
             external: true,
           },
         ],
+
         /*TODO: remove prefix routes, we don't need that anymore*/
 
         modalText: {

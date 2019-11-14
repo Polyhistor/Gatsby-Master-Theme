@@ -5,11 +5,12 @@ import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {
   const theme = process.env.GATSBY_THEME
-
+  const pageConfiguration = useWebSiteConfigQuery()
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
   const buttonClass = resolveVariationClass("filtered-tour__button")
   const buttonClassActive = resolveVariationClass("filtered-tour__button")
@@ -143,7 +144,7 @@ const FilteredTour = ({ country, destinationData }) => {
               }
               to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.slug}`}
             >
-              View Itinerary
+              {pageConfiguration.destinationPage.buttonCardText}
             </Link>
           </div>
         )

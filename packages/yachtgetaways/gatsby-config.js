@@ -112,6 +112,12 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          countryPage: {
+            buttonCardText: "View Trip",
+          },
+          destinationPage: {
+            buttonCardText: "Explore",
+          },
           bookingForm: {
             destinationDropdownLabel: "Trip",
             useYachtClass: true,

@@ -1,8 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
+
 /**
  * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
  * different names? Was hard to get that looking at the code.
@@ -11,6 +14,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
  * The property "destination" sometimes refeers to countries, sometimes destinations.
  */
 const DestinationsMobile = ({
+  type,
   title,
   subtitle,
   departs,
@@ -25,7 +29,11 @@ const DestinationsMobile = ({
   country,
 }) => {
   const theme = process.env.GATSBY_THEME
-
+  const pageConfiguration = useWebSiteConfigQuery()
+  const buttonCardText =
+    type === "country"
+      ? pageConfiguration.countryPage.buttonCardText
+      : pageConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -80,7 +88,7 @@ const DestinationsMobile = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            explore
+            {buttonCardText}
           </Link>
         </div>
       </div>
