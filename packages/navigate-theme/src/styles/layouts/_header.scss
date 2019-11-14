@@ -164,9 +164,17 @@
       grid-template-rows: 4rem 10rem 1rem;
       top: 40%;
 
+      @include respond(phone) {
+        grid-template-rows: 2rem 10rem 1rem;
+      }
+
       & h1 {
         font-size: 12rem;
         text-transform: none;
+
+        @include respond(phone) {
+          font-size: 5rem;
+        }
       }
     }
   }
