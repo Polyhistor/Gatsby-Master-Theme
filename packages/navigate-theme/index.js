@@ -22,7 +22,7 @@ export {
 
 /*queries*/
 
-export { useBookingFormConfigQuery } from "./src/queries/webSiteConfigQueries"
+export { useWebSiteConfigQuery } from "./src/queries/webSiteConfigQueries"
 export { default as useImageQuery } from "./src/queries/imageQuery"
 export { default as useHomePageQuery } from "./src/queries/homePageQuery"
 export { default as useCountryQuery } from "./src/queries/countryQuery"

@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-/**
+/**x
  * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
  * different names? Was hard to get that looking at the code.
  * 2 - Those components are used both to render Countries box on Sail/Tour pages but also to render
@@ -12,6 +13,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
  */
 
 const DestinationsTablet = ({
+  type,
   destination,
   destinationUrl,
   title,
@@ -27,7 +29,11 @@ const DestinationsTablet = ({
   country,
 }) => {
   const theme = process.env.GATSBY_THEME
-
+  const pageConfiguration = useWebSiteConfigQuery()
+  const buttonCardText =
+    type === "country"
+      ? pageConfiguration.countryPage.buttonText
+      : pageConfiguration.destinationPage.buttonText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -81,7 +87,7 @@ const DestinationsTablet = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                explore
+                {pageConfiguration.buttonCardText}
               </Link>
             </div>
           </div>
@@ -106,7 +112,7 @@ const DestinationsTablet = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            explore
+            {buttonCardText}
           </Link>
         </div>
       </div>

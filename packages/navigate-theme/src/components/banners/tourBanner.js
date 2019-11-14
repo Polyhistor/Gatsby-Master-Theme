@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+/*conditional import*/
+
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 /**
  * TOOD:1 -  Components DestinationsMobile , DestinationsTablet, TourBanner are the same but have
@@ -20,6 +23,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
  TODO:       {variation === "ms" ? `From £${price} per day` : price}
  */
 const TourBanner = ({
+  type,
   destination,
   destinationUrl,
   title,
@@ -34,6 +38,12 @@ const TourBanner = ({
   duration,
   country,
 }) => {
+  const webSiteConfiguration = useWebSiteConfigQuery()
+  console.log(webSiteConfiguration)
+  const buttonCardText =
+    type === "country"
+      ? webSiteConfiguration.countryPage.buttonCardText
+      : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -74,7 +84,7 @@ const TourBanner = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                explore
+                {buttonCardText}
               </Link>
             </div>
           </div>
@@ -105,7 +115,7 @@ const TourBanner = ({
 
         <div className="mobile-yes u-padding-big ">
           <Link className={destination === "btn btn--green"} to="/">
-            explore
+            {buttonCardText}
           </Link>
         </div>
       </div>
