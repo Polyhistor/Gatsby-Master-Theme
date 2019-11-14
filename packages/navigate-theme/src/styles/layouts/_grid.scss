@@ -6,6 +6,10 @@
   // apply it to all the nodes except the last one
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(phone) {
+      margin-bottom: 0;
+    }
   }
 
   @include respond(laptop) {

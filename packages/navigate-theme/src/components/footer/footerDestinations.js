@@ -29,13 +29,13 @@ const FooterDestinations = ({ countrieList, pluginOptions }) => {
       <ul className="footer__trips-list">
         {renderDestinations(countryQuery, themeOptionsQueryData)}
       </ul>
-      <div className="footer__trips-qualmark">
+      {/* <div className="footer__trips-qualmark">
         <a href="https://www.qualmark.co.nz/" target="_blank">
           <svg className="svg-icon--QualMark_Footer">
             <use xlinkHref={withPrefix("sprite.svg#icon-Qualmark-Silver")} />
           </svg>
         </a>
-      </div>
+      </div> */}
     </div>
   )
 }

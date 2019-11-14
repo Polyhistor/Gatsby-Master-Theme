@@ -3,6 +3,7 @@ import React, { useContext } from "react"
 import SocialNetowrk from "./socialNetworks"
 import FooterContents from "./footerContents"
 import FooterCopyright from "./footerCopyright"
+import FooterLogoContainer from "./footerLogoContainer"
 
 const Footer = () => {
   return (
@@ -11,6 +12,7 @@ const Footer = () => {
         <div className="footer__main-container">
           <SocialNetowrk />
           <FooterContents />
+          <FooterLogoContainer />
           <FooterCopyright />
         </div>
       </div>

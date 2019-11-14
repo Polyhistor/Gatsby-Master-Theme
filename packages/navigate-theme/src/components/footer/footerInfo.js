@@ -32,11 +32,6 @@ const FooterInfo = () => {
             )
           })}
         </ul>
-        <div className="mobile-yes u-center-text">
-          <svg className="svg-icon--QualMark_Footer">
-            <use xlinkHref={withPrefix("sprite.svg#icon-Qualmark-Silver")} />
-          </svg>
-        </div>
       </div>
     </>
   )
