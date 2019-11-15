@@ -1,0 +1,60 @@
+.feature-box {
+  border-radius: 0.3rem 0.3rem 0 0;
+  height: 20rem;
+  overflow: hidden;
+
+  @include respond(laptop) {
+    height: 16rem;
+  }
+
+  @include respond(tablet) {
+  }
+
+  @include respond(phone) {
+    height: 10rem;
+    border-radius: 4px;
+  }
+
+  &__text-box {
+    padding: 1.3rem 1rem 1.7rem 1.5rem;
+    border: 1px solid $color-gray-light-2;
+    border-radius: 0 0 0.4rem 0.4rem;
+
+    @include respond(phone) {
+      padding: 1.5rem 0.3rem 1.7rem 0.5rem;
+      border: 0;
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      @include respond(tablet) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__text {
+    @extend .paragraph;
+    @extend .paragraph--extraBold;
+    display: block;
+    padding-bottom: 0.5rem;
+
+    @include respond(laptop) {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    font-family: Nunito-Regular;
+    font-size: 1.6rem;
+    color: $color-grey-dark-3;
+
+    @include respond(laptop) {
+      font-size: 1.3rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}

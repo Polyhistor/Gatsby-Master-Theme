@@ -2,7 +2,13 @@
   "build": {
     "env": {
       "CONTENTFUL_SPACE_ID": "y3c1z0oeea94",
-      "CONTENTFUL_ACCESS_TOKEN": "oQcR2u7hJALjciBok4YDzaMlKUEyBn1LlX-VgH0CGEQ"
-    }
+      "CONTENTFUL_ACCESS_TOKEN": "oQcR2u7hJALjciBok4YDzaMlKUEyBn1LlX-VgH0CGEQ",
+      "GATSBY_PRODUCT_ID": "8",
+      "GATSBY_API_URL": "https://api2.ntstage.com",
+      "WORDPRESS_URL": "devygacademy.wpengine.com",
+      "DISABLE_SHARP_CACHE": "0",
+      "GATSBY_SITE_URL": "https://wk.ntstage.com"
+    },
+    "use": "@now/static"
   }
 }

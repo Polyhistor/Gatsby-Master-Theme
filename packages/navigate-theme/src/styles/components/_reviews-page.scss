@@ -1,0 +1,23 @@
+.reviews {
+  &__block {
+    margin: 5rem 0rem;
+    max-width: 50%;
+
+    @include respond(phone) {
+      max-width: 100%;
+    }
+
+    & > h2 {
+      text-transform: none;
+    }
+  }
+
+  &__star-box {
+    max-width: 16%;
+    display: flex;
+
+    @include respond(phone) {
+      max-width: 44%;
+    }
+  }
+}

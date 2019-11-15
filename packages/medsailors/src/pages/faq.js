@@ -1,50 +1,58 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Reviews from "../components/reviews/reviews"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  SectionFAQ,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+  useFAQQuery,
+  renderSeo,
+} from "@nt-websites/navigate-theme"
 
-// shared components
-import { Landing } from "@nt-websites/shared"
-import { GreenBar } from "@nt-websites/shared"
-import { Banner } from "@nt-websites/shared"
-import { SectionFAQ } from "@nt-websites/shared"
+const FAQ = ({ data }) => {
+  const SVGIcon = "wheel"
 
-import { Trips } from "@nt-websites/shared"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useFAQQuery from "../queries/faqQuery"
-
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-
-const FAQ = () => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
 
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
+    >
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.destinationNewZealand.childImageSharp.fluid}
-          titleFirst="FAQ"
+          imageData={imageQuery.MSFAQ.childImageSharp.fluid}
+          titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          shape="triangle"
         />
       </div>
       <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
+        text="Skippered sailing holidays for 20-35 year olds"
+        imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <SectionFAQ
@@ -53,20 +61,39 @@ const FAQ = () => {
           { label: "ABOUT YOUR TRIP" },
           { label: "BUDGET & PAYMENT" },
           { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFTEY" },
+          { label: "TRAVEL & SAFETY" },
         ]}
       />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText="explore"
+        link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "faq" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
 
 export default FAQ

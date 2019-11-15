@@ -1,39 +1,40 @@
 import React from "react"
 
-import SEO from "../components/seo/seo"
-import Layout from "../components/layout/layout"
-import BannerHero from "../components/banners/bannerHero"
-import Reviews from "../components/reviews/reviews"
+// default components
+import {
+  Layout,
+  DestinationsMobile,
+  Landing,
+  GreenBarAlt,
+  BannerHero,
+  BoxContainer,
+  TourBanner,
+  Banner,
+  Reviews,
+  Trips,
+  WhyUsMobile,
+  FeaturedMobile,
+  DestinationsTablet,
+  useImageQuery,
+  useHomePageQuery,
+  useCountryQuery,
+  useDestinationQuery,
+  useFeatureBox,
+  renderSeo,
+  resolveVariationClass,
+} from "@nt-websites/navigate-theme"
 
-// shared components
-import { Landing } from "@nt-websites/shared"
-import { TourBanner } from "@nt-websites/shared"
-import { Popup } from "@nt-websites/shared"
-import { GreenBarAlt } from "@nt-websites/shared"
-import { WhyWildKiwi } from "@nt-websites/shared"
-import { Banner } from "@nt-websites/shared"
-import { BoxContainer } from "@nt-websites/shared"
-import { DestinationsMobile } from "@nt-websites/shared"
-import { DestinationsTablet } from "@nt-websites/shared"
-import { Trips } from "@nt-websites/shared"
-
-// mobile components
-import FeaturedMobile from "../components/mobile/featuredMobile"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import useDestinationQuery from "../queries/destinationQuery"
-
-const Index = () => {
+const IndexPage = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
+  const featuredBoxData = useFeatureBox()
 
-  // getting the number of tours
+  console.log(homeQuery)
+
+  // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
       dest => dest.node.destinationCountry === destination
@@ -41,6 +42,15 @@ const Index = () => {
     return result.length
   }
 
+  /**
+   * TODO: on DestinationsMobile or trip we always using the country node, but sometimes
+   * its is not country but destination. It was confusing to me to understand that the same
+   * property named by country is being used by countries & destinations.
+   *
+   *
+   * TODO: GreenAlt should not be static on the code, we creating a duplicate on the code. We should read that
+   * from the plugin configurations and render the countries,
+   */
   // rendering all the destination boxes
   const renderCountries = () => {
     return countryQuery
@@ -49,6 +59,7 @@ const Index = () => {
         return (
           <React.Fragment key={idx}>
             <DestinationsMobile
+              type="country"
               key={idx + 4}
               destination={country.node.slug}
               title={country.node.title}
@@ -60,6 +71,7 @@ const Index = () => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
             />
             <DestinationsTablet
+              type="country"
               key={idx + 8}
               destination={country.node.slug}
               title={country.node.title}
@@ -72,6 +84,7 @@ const Index = () => {
               SVGMap={country.node.svgMap.localFile.publicURL}
             />
             <TourBanner
+              type="country"
               key={idx + 12}
               destination={country.node.slug}
               title={country.node.title}
@@ -87,60 +100,113 @@ const Index = () => {
         )
       })
   }
+  /**
+   * Todo: Dynamic  destinations link - buttonFirstUrl
+   * Greenbar alt
+   */
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <Popup />
+    <Layout
+      Insta={{
+        photos: [
+          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
+          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
+          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
+          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+        ],
+        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
+      }}
+    >
+      {renderSeo(data)}
       <Landing
-        imageData={imageQuery.landing.childImageSharp.fluid}
-        titleFirst="epic"
-        TitleSecond="adventure"
-        TitleThird="tours"
-        subTitle="for 18 to 35 year olds"
-        buttonFirst="Explore Tours"
-        buttonFirstURL="/destinations"
+        imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
+        titleFirst="adventure"
+        TitleSecond="sailing"
+        TitleThird="holidays"
+        subTitle="for 20 to 35 year olds"
+        buttonFirst="Explore Trips"
+        buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonSecondURL="#popup"
-        buttonStyles={["green", "white"]}
-        variation={null}
+        buttonStyles={["white", "med-blue"]}
+        variation={false}
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
+        shape="Circle"
       />
+      <FeaturedMobile data={featuredBoxData} />
       <GreenBarAlt
         textList={[
-          { label: "destinations", link: "/destinations" },
-          { label: "new zealand", link: "/destinations/newzealand" },
-          { label: "australia", link: "/destinations/australia" },
-          { label: "europe", link: "/destinations/europe" },
+          { label: "destinations", link: "/tours" },
+          { label: "croatia", link: "/sail-croatia" },
+          { label: "greece", link: "/sail-greece" },
+          { label: "montenegro", link: "/sail-montenegro/discovery" },
+          { label: "turkey", link: "/sail-turkey/voyager" },
         ]}
       />
-      <WhyWildKiwi data={homeQuery[0].node.whyWildKiwi} />
-      <FeaturedMobile />
-      <div className="row row--patched mobile-yes">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+      <WhyUsMobile
+        data={homeQuery[0].node}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+      />
+      <div className="row row--patched">
+        <h2
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small u-center-text`}
+        >
+          Destinations
+        </h2>
       </div>
       <BannerHero
-        imageData={imageQuery.bannerHero.childImageSharp.fluid}
-        headerFirst="Flash-pack your way around New Zealand,"
-        headersecond="Australia and Europe."
-        subHeaderFirst="We have hunted out all the very best spots to give you the most epic small group experience, allowing you to sit back and take in all that these places have to offer from the comfort of our new, luxury cruisers. We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
+        imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
+        headerFirst="The perfect mix of"
+        headersecond="exploring, partying, and relaxation."
+        subHeaderFirst="Experience an unforgettable 7 days as you set
+        sail around the most breath-taking islands in
+        the Mediterranean, enjoying epic adventures
+        and authentic local culture."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <div className="row row--patched mobile-no">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+        <h2
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small`}
+        >
+          Destinations
+        </h2>
       </div>
+      {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="explore"
+        link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }
 
-export default Index
+export default IndexPage
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "home" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

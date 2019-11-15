@@ -1,39 +1,275 @@
 // getting our environment variables
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+
+if (process.env.NODE_ENV && process.env.NODE_ENV === "development") {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+}
+
+function getRobotsTxtPolicy() {
+  if (process.env.NODE_ENV !== "production") {
+    return [{ userAgent: "*", disallow: ["/"] }]
+  } else {
+    if (process.env.ROBOTS_TXT === "1") {
+      return [{ userAgent: "*", allow: "/" }]
+    } else {
+      return [{ userAgent: "*", disallow: ["/"] }]
+    }
+  }
+}
 
 module.exports = {
   siteMetadata: {
-    title: `Wild Kiwi`,
-    description: `We bring your dreams into reality`,
+    title: `New Zealand, Australia & Europe Adventure Tours | Wild Kiwi`,
+    description: `Book your New Zealand, Australia or Europe small group epic adventure tour today. Choose from a range of 7 - 28 day tours, perfect for 18 - 35 year olds.`,
     author: `Pouya Ataei`,
     copyright: `Navigate Group Ltd`,
+    siteUrl: process.env.GATSBY_SITE_URL,
   },
+
   plugins: [
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-playground`,
+    {
+      //TODO: read more about it: we are already using this plugin on shared theme, maybe we don't need to declare again or it might have some negative side effect.
+      resolve: "gatsby-plugin-react-helmet",
+    },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-breadcrumb`,
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
+        siteUrl: process.env.GATSBY_SITE_URL,
+        noTrailingSlash: true,
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: process.env.FACEBOOK_PIXEL_ID || "",
       },
     },
     {
-      resolve: `gatsby-plugin-nprogress`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        // Setting a color is optional.
-        color: `#1abc9c`,
-        // Disable the loading spinner.
-        showSpinner: true,
+        id: process.env.GOOGLE_TAG_MANAGER || "",
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        // Defaults to null
+        defaultDataLayer: { platform: "gatsby" },
       },
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        modalText: {
+          selection: "Please select your destination and tour",
+        },
+        host:
+          process.env.NODE_ENV !== "production"
+            ? null
+            : process.env.GATSBY_SITE_URL,
+        sitemap:
+          process.env.NODE_ENV !== "production"
+            ? null
+            : `${process.env.GATSBY_SITE_URL}/sitemap.xml`,
+        env: {
+          development: {
+            policy: getRobotsTxtPolicy(),
+          },
+          production: {
+            policy: getRobotsTxtPolicy(),
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // autoGenHomeLabel: optional 'Home' is default
+        autoGenHomeLabel: `home`,
+        // exlude: optional, include to overwrite these default excluded pages
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+        ],
+        // optional: switch to className styling
+        // see `useClassNames example with `AutoGen` below
+        useClassNames: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      },
+    },
+    {
+      resolve: "@nt-websites/navigate-theme",
+      options: {
+        site: {
+          name: `Wild Kiwi`,
+        },
+        contact: {
+          email: "hello@wildkiwi.com",
+          phoneAddress: [
+            {
+              text: "NEW ZEALAND",
+              country: "newzealand",
+              phone: "+64 (0)9 973 5676",
+              default: true,
+              selected: false,
+              address:
+                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+            },
+            {
+              text: "AUSTRALIA",
+              country: "australia",
+              phone: "+61 (02) 9133 8646",
+              default: false,
+              selected: false,
+              address:
+                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
+            },
+            {
+              text: "UNITED KINGDOM",
+              country: "uk",
+              phone: "+44 (0)20 3637 6466",
+              default: true,
+              selected: true,
+              address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
+            },
+          ],
+          leftSection: [
+            {
+              header: "Give us a call",
+              content: `Call us on any of the local numbers to save international calling fees and you will be redirected to our local office. See our office hours and phone number by selecting from the drop down`,
+            },
+            {
+              header: "Email us",
+              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:hello@wildkiwi.com?subject=WildKiwi contact form">hello@wildkiwi.com</a>`,
+            },
+            {
+              header: "Facebook",
+              content: `Send us a message and Like us on <a class="#LINK#" href="https://www.facebook.com/wildkiwitours" target="_blank">Facebook</a>`,
+            },
+            {
+              header: "Instagram",
+              content: `Follow us and tag us on&thinsp;<a class="#LINK#" href="//www.instagram.com/wildkiwitours" target="_blank">Instagram&thinsp;</a><a class="#LINK#" href="//www.instagram.com/explore/tags/wildkiwitours/" target="_blank">WildKiwiTours<a>`,
+            },
+            {
+              header: "Media",
+              content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
+            },
+          ],
+        },
+        footer: {
+          social: [
+            {
+              title: "Facebook",
+              link: "https://www.facebook.com/wildkiwitours",
+            },
+            {
+              title: "Instagram",
+              link: "https://www.instagram.com/wildkiwitours",
+            },
+            {
+              title: "Youtube",
+              link: "https://www.youtube.com/c/WildkiwiTours",
+            },
+          ],
+          info: [
+            {
+              title: "Our Vehicles",
+              link: "/our-vehicles",
+            },
+            {
+              title: "Blog",
+              link: "/blog",
+            },
+            {
+              title: "FAQ",
+              link: "/faq",
+            },
+            {
+              title: "How It Works",
+              link: "/how-it-works",
+            },
+            {
+              title: "About Us",
+              link: "/about-us",
+            },
+          ],
+        },
+        menuLabel: [
+          {
+            label: "destinations",
+            link: "/tours",
+            sub: [
+              { label: "new zealand", link: "/tours/new-zealand" },
+              { label: "australia", link: "/tours/australia" },
+              { label: "europe", link: "/tours/europe" },
+            ],
+          },
+          { label: "activities", link: "/activities", sub: null },
+          {
+            label: "how it works",
+            link: "/how-it-works",
+            sub: null,
+          },
+          {
+            label: "our yachts",
+            link: "/yachts",
+            sub: null,
+          },
+          { label: "faqs", link: "/faqs", sub: null },
+          { label: "contact", link: "/contact-us", sub: null },
+          {
+            label: "manage my booking",
+            link: "https://mytourinfo.com/auth/login",
+            sub: null,
+            external: true,
+          },
+        ],
+        /*TODO: remove prefix routes, we don't need that anymore*/
+
+        routesConfig: {
+          destinationRoute: `/tours`,
+          activitiesRoute: `/activities`,
+          destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
+          activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
+        },
+        nprogress: {
+          color: `#1abc9c`,
+          // Disable the loading spinner.
+          showSpinner: true,
+        },
+        contentful: {
+          spaceId: process.env.CONTENTFUL_SPACE_ID,
+          accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+          downloadLocal: true,
+        },
+        wordpress: {
+          baseUrl: process.env.WORDPRESS_URL,
+          perPage: 3,
+          concurrentRequests: 3,
+          includedRoutes: [
+            `**/categories`,
+            `**/posts`,
+            `**/users`,
+            `**/media`,
+            `**/tags`,
+          ],
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,22 +277,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: [
-            "Nunito-Regular",
-            "Nunito-Black",
-            "Nunito-SemiBold",
-            "Nunito-Extrabold",
-            "Nexa-Rust-2",
-          ],
-          urls: ["fonts.css"],
-        },
-      },
-    },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       options: {
@@ -87,70 +307,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        /*
-         * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
-         * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
-         */
-        baseUrl: `wildkiwi.com`,
-        // The protocol. This can be http or https.
-        protocol: `https`,
-        // Indicates whether the site is hosted on wordpress.com.
-        // If false, then the assumption is made that the site is self hosted.
-        // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
-        // If your site is hosted on wordpress.org, then set this to false.
-        hostingWPCOM: false,
-        // If useACF is true, then the source plugin will try to import the Wordpress ACF Plugin contents.
-        // This feature is untested for sites hosted on wordpress.com.
-        // Defaults to true.
-        useACF: true,
-        // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
-        // It can help you debug specific API Endpoints problems.
-        verboseOutput: true,
-        // Set how many pages are retrieved per API request.
-        perPage: 5,
-        // Search and Replace Urls across WordPress content.
-        searchAndReplaceContentUrls: {
-          sourceUrl: "https://wildkiwi.com/",
-          replacementUrl: "https://wildkiwi.com/",
-        },
-        // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 4,
-        // Set WP REST API routes whitelists
-        // and blacklists using glob patterns.
-        // Defaults to whitelist the routes shown
-        // in the example below.
-        // See: https://github.com/isaacs/minimatch
-        // Example:  `["/*/*/comments", "/yoast/**"]`
-        // ` will either include or exclude routes ending in `comments` and
-        // all routes that begin with `yoast` from fetch.
-        // Whitelisted routes using glob patterns
-        includedRoutes: [
-          `**/categories`,
-          `**/posts`,
-          `**/taxonomies`,
-          `**/users`,
-          `**/media`,
-          `/yoast/**`,
-        ],
-        // use a custom normalizer which is applied after the built-in ones.
-        normalizer: function({ entities }) {
-          return entities
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-headers`,
-      options: {
-        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-      },
-    },
   ],
 }

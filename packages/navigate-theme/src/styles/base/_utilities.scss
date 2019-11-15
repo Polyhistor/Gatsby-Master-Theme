@@ -1,0 +1,706 @@
+// positioning
+.u-center-text {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-bottom-sedium {
+  margin-bottom: 2.5rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+
+  @include respond(phone) {
+    margin-bottom: 7rem;
+  }
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-top-tiny {
+  margin-top: 1rem;
+}
+
+.u-margin-top-small {
+  margin-top: 3rem;
+}
+
+.u-margin-top-medium {
+  margin-top: 5rem;
+}
+
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+.u-margin-top-percent-10 {
+  margin-top: 10%;
+}
+
+.u-margin-left-tiny {
+  margin-left: 0.4rem;
+}
+
+.u-margin-left-medium {
+  margin-left: 6rem;
+}
+
+.u-margin-left-huge {
+  margin-left: 15rem;
+
+  @include respond(tablet) {
+    margin-left: 0rem;
+  }
+
+  @include respond(laptop) {
+    margin-left: 7rem;
+  }
+}
+
+.u-margin-left-titan {
+  margin-left: 38rem;
+
+  @include respond(phone) {
+    margin-left: 0rem;
+  }
+}
+
+.u-margin-right-big {
+  margin-right: 8rem;
+
+  @include respond(laptop) {
+    margin-right: 3rem;
+  }
+}
+
+.u-padding-big {
+  padding: 10rem;
+}
+
+.u-padding-top-sedium {
+  padding-top: 1.1rem;
+}
+
+.u-padding-top-medium {
+  padding-top: 1.5rem;
+}
+
+.u-padding-top-big {
+  padding-top: 3rem;
+
+  @include respond(tablet) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.u-padding-top-huge {
+  padding-top: 5rem;
+
+  @include respond(tablet) {
+    padding-top: 3rem;
+  }
+  @include respond(phone) {
+    padding-top: 1.5rem;
+  }
+}
+
+.u-padding-bottom-tiny {
+  padding-bottom: 1rem;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 1.5rem;
+}
+
+.u-padding-bottom-sedium {
+  padding-bottom: 2rem;
+}
+
+.u-padding-bottom-medium {
+  padding-bottom: 3rem;
+}
+
+.u-padding-left-medium {
+  padding-left: 3rem;
+}
+
+.u-padding-right-2 {
+  padding-right: 2rem;
+}
+
+.u-padding-right-medium {
+  padding-right: 3rem;
+}
+
+.u-padding-right-big {
+  padding-right: 6rem;
+}
+
+.u-padding-right-huge {
+  padding-right: 8rem;
+
+  @include respond(tablet) {
+    padding-right: 3rem;
+  }
+
+  @include respond(laptop) {
+    padding-right: 5rem;
+  }
+}
+
+.u-translateY-tiny {
+  transform: translateY(10%);
+}
+
+.u-translateY-small {
+  transform: translateY(15%);
+}
+
+.u-translateY-medium {
+  transform: translateY(20%);
+}
+
+.u-translateY-small-negative {
+  transform: translateY(-10%);
+}
+
+.u-translateY-sedium-negative {
+  transform: translateY(-20%);
+}
+
+.u-translateY-huge-negative {
+  transform: translateY(-75%);
+}
+
+.u-translateY-quarter {
+  transform: translateY(25%);
+}
+
+.u-translateY-30 {
+  transform: translateY(30%);
+}
+
+.u-translateY-35 {
+  transform: translateY(35%);
+}
+
+.u-translateY-half {
+  transform: translateY(50%);
+}
+
+.u-translateY-full {
+  transform: translateY(100%);
+}
+
+.parent-centralized {
+  &-tablet {
+    max-width: $grid-width-tablet;
+    margin: 0 auto;
+  }
+}
+
+.centralize {
+}
+
+// size
+
+.u-font-none-style {
+  text-transform: none;
+}
+
+.u-font-size-tiny {
+  font-size: 1.4rem;
+}
+
+.u-font-size-small {
+  font-size: 2rem;
+}
+
+.u-font-size-sedium {
+  font-size: 3rem;
+}
+
+.u-font-size-medium {
+  font-size: 4rem;
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+}
+
+.u-font-size-big {
+  font-size: 6rem;
+}
+
+.u-width-half {
+  width: 50%;
+}
+
+//text
+.u-capitalize {
+  text-transform: capitalize;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-regular {
+  font-family: Nunito-regular !important;
+}
+
+//colors
+.u-background-black {
+  background-color: black;
+}
+
+.u-background-teal {
+  background-color: #e8f8f5;
+}
+
+.u-color-white {
+  color: $color-white;
+}
+
+.u-color-green {
+  color: $color-primary;
+}
+
+.u-color-ms-teal {
+  color: $color-med-teal;
+}
+
+//styling
+.u-border-top-bottom {
+  border: 1px 0 1px 0 solid $color-grey-dark;
+}
+
+.u-border-bottom {
+  border-bottom: 1px solid $color-grey-dark;
+}
+
+.u-border-top {
+  border-top: 1px solid $color-grey-dark;
+}
+
+.u-background-teal {
+  background-color: $color-teal;
+}
+
+.u-color-gray {
+  color: $color-grey-dark;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-float-left {
+  float: left;
+}
+
+// state changes
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-trigger {
+  display: none;
+  @include respond(phone) {
+    display: block;
+    text-align: center;
+    padding: 1.7rem 2rem;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+  }
+}
+
+.read-more-target {
+  display: block;
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.read-more-state:checked ~ .read-more-target {
+  display: block;
+  font-size: inherit;
+}
+
+.read-more-state ~ .read-more-trigger:before,
+.read-more-state:checked ~ .read-more-trigger:before {
+  text-transform: uppercase;
+  font-family: Nunito-Black;
+  font-size: 1.6rem;
+  color: $color-primary;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: "view comments";
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: "hide comments";
+}
+
+.display-none {
+  display: none;
+}
+
+//editing external library css
+.breadcrumb__separator {
+  @include blackUpperCaseGreen;
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  @include respond(phone) {
+    height: 5.2rem;
+    width: 5.8rem;
+  }
+}
+
+._form-content {
+  & > ._form-title {
+    font-family: Nunito-Black;
+  }
+  & > ._form-body {
+    font-family: Nunito-Regular;
+  }
+}
+
+._form-element {
+  & input::placeholder {
+    font-family: Nunito-Regular;
+  }
+}
+
+.styles_modalCenter__L9F2w {
+  max-width: 100%;
+}
+
+.styles_overlay__CLSq- {
+  @include respond(phone) {
+    padding: 0;
+    position: fixed;
+    overflow: hidden;
+  }
+}
+
+.styles_modal__gNwvD {
+  @include respond(phone) {
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+.styles_closeIcon__1QwbI {
+  z-index: 10000;
+}
+
+//hotfixes
+
+.page-404 {
+  margin-top: 15rem;
+  height: 30rem;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+
+  & > h1 {
+    font-size: 15rem;
+  }
+
+  & > p {
+    font-size: 1.6rem;
+  }
+}
+
+.link {
+  text-decoration: none;
+  //removed default color: $color-primary;
+
+  &--wk {
+    color: $color-wk-green;
+  }
+
+  &--ms {
+    color: $color-med-teal;
+  }
+  &--yg {
+    color: $color-yg-blue;
+  }
+}
+
+.hotfix {
+  &--reviews {
+    height: 45rem;
+    grid-row: 6;
+
+    @include respond(laptop) {
+      grid-row: 13;
+    }
+
+    @include respond(tablet) {
+      grid-row: 8;
+      height: 69rem;
+    }
+
+    @include respond(phone) {
+      grid-row: 7;
+      height: 70rem;
+    }
+
+    & > section {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 90;
+
+      @include respond(tablet) {
+        height: 60rem;
+      }
+
+      @include respond(phone) {
+        height: 61.89rem;
+      }
+
+      & > .row > .col-1-of-4:first-of-type {
+        margin-left: -4rem;
+
+        @include respond(laptop) {
+          margin-left: 0rem;
+        }
+
+        @include respond(tablet) {
+          margin-left: 0;
+          margin-top: 1rem;
+        }
+
+        @include respond(phone) {
+          margin-left: 0rem;
+        }
+      }
+
+      & > .row > .col-1-of-4:last-of-type {
+        display: none;
+
+        @include respond(laptop) {
+          display: block;
+        }
+      }
+
+      & > .row > .col-1-of-4:nth-child(4) {
+        @include respond(desk) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--banner {
+    grid-row: 10;
+    grid-column: 1/-1;
+    margin-top: 5rem;
+
+    @include respond(tablet) {
+      grid-row: 11;
+    }
+
+    & > section {
+      margin-top: 0;
+
+      @include respond(phone) {
+        display: block;
+      }
+
+      & > .row {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &--narrow-banner {
+    & .bannerHero {
+      & .header {
+        height: 45rem;
+
+        & .header__button-box {
+          display: none;
+        }
+
+        & .header__text-box {
+          top: 44%;
+        }
+      }
+    }
+  }
+
+  &--destination {
+    & .section-mobile__watch-trailer {
+      & h2,
+      div {
+        display: none;
+      }
+    }
+  }
+}
+
+// css made elements
+
+.arrow {
+  // display: inline-block;
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: transparent;
+  // removed default border-top: 3px solid #1abc9c;
+  // border-left: 3px solid #1abc9c;
+  transition: all 250ms ease-in-out;
+  text-decoration: none;
+  color: transparent;
+  z-index: -1;
+
+  &--yg {
+    border-top: 3px solid $color-yg-orange;
+    border-left: 3px solid $color-yg-orange;
+  }
+
+  &--ms {
+    border-top: 3px solid $color-med-teal;
+    border-left: 3px solid $color-med-teal;
+  }
+
+  &--wk {
+    border-top: 3px solid $color-wk-green;
+    border-left: 3px solid $color-wk-green;
+  }
+}
+
+.arrow:hover {
+  border-color: gray;
+  border-width: 5px;
+}
+
+.arrow.down {
+  transform: rotate(-135deg);
+  right: 1.6rem;
+  top: 2.5rem;
+}
+
+// abnormaly
+
+.quasi-specific {
+  height: 7.1rem;
+  width: 6.9rem;
+
+  @include respond(laptop) {
+    height: 5.2rem;
+    width: 5.4rem;
+  }
+
+  @include respond(tablet) {
+    height: 5.4rem;
+    width: 5.2rem;
+  }
+
+  @include respond(phone) {
+    height: 4rem;
+    width: 4rem;
+    transform: translateY(10%);
+  }
+}
+
+.remove-width {
+  width: 0;
+}
+
+.mobile-float-left {
+  @include respond(tablet) {
+    float: left;
+  }
+  @include respond(phone) {
+    float: left;
+  }
+}
+
+.auto-width-height {
+  height: auto !important;
+  width: auto !important;
+}
+
+input::placeholder {
+  padding-left: 0.5rem;
+  color: $color-grey-dark;
+}
+
+input:focus {
+  outline: 2px solid $color-primary;
+  padding-left: 0.3rem;
+}
+
+textarea::placeholder {
+  padding-left: 1rem;
+  font-family: Nunito-Semibold;
+}
+
+textarea:focus {
+  outline: 2px solid $color-primary;
+  padding-left: 0.3rem;
+}
+
+// general CSS
+// this is for safari inputs (to avoid agent focus state)
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="textarea"] select:focus,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  font-size: 16px;
+  font-family: Nunito-Regular;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+/* Icons */
+.play-button {
+  padding-right: 0.6rem;
+}

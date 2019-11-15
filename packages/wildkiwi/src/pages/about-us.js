@@ -1,33 +1,34 @@
 import React from "react"
 
 // default components
-import Layout from "../components/layout/layout"
-import SEO from "../components/seo/seo"
-import Landing from "../components/header/landings/landing"
-import GreenBar from "../components/bars/greenBar"
-import Banner from "../components/banners/banner"
-import AboutUsSection from "../components/sections/aboutUsSection"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
-
-// utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
+import {
+  Layout,
+  SEO,
+  Landing,
+  GreenBar,
+  Banner,
+  AboutUsSection,
+  Reviews,
+  Trips,
+  useImageQuery,
+  useHomePageQuery,
+  renderSeo,
+} from "@nt-websites/navigate-theme"
 
 // the svgs shall later be compiled into one SVG-Sprite
 import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
-const HowItWorks = () => {
+const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
   return (
     <Layout>
-      <SEO title="Home" />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.vehiclesLady.childImageSharp.fluid}
+          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
           titleFirst="about us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -44,16 +45,35 @@ const HowItWorks = () => {
       />
       <AboutUsSection />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
+        link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
     </Layout>
   )
 }
 
-export default HowItWorks
+export default AboutUs
+/**
+ * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass
+ * this data as a context. See LekoArts answer in https://github.com/gatsbyjs/gatsby/issues/10023.
+ */
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "about-us" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`

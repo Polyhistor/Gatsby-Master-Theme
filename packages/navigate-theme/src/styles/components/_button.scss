@@ -1,0 +1,282 @@
+.btn {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: $color-white;
+  padding: 1.65rem 7.4rem;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 0.9rem;
+  white-space: pre;
+  @include bigUppercaseText;
+
+  &:hover {
+    cursor: pointer;
+  }
+  //YYYYY
+  &--ms-mobile {
+    background-color: $color-med-blue;
+    width: 31.2rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+
+  &--wk,
+  &--yg,
+  &--ms {
+    padding: 1.27rem 2.8rem;
+    border-radius: 0.4rem;
+    transform: translateY(-0.5rem);
+
+    @include respond(phone) {
+      padding: 1rem 2rem;
+      border-radius: 0.3rem;
+      margin-top: 1.3rem;
+    }
+  }
+  //YYYYY
+  &--yg {
+    background-color: $color-yg-orange;
+  }
+
+  &--wk {
+    background-color: $color-red;
+  }
+
+  &--ms {
+    background-color: $color-med-blue;
+  }
+
+  &--ms-teal {
+    background-color: $color-med-teal !important;
+    width: 31.2rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+
+  &--red2 {
+    background: $color-red;
+  }
+
+  &--med-blue {
+    background: $color-med-teal !important;
+    color: white !important;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  /*button that is used on the cards */
+  &__card {
+    padding: 1.27rem 2.8rem;
+    border-radius: 0.4rem;
+    transform: translateY(-0.5rem);
+
+    @include respond(phone) {
+      padding: 1rem 2rem;
+      border-radius: 0.3rem;
+      margin-top: 1.3rem;
+    }
+
+    &--yg {
+      background-color: $color-yg-blue;
+    }
+
+    &--wk {
+      background-color: $color-wk-green;
+    }
+
+    &--ms {
+      background-color: $color-med-blue;
+    }
+  }
+
+  &--secondary {
+    color: white !important;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--yg {
+      background: $color-yg-blue !important;
+    }
+    &--ms {
+      background: $color-med-teal !important;
+    }
+  }
+
+  &--primary {
+    background: $color-primary;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      width: 31.2rem !important;
+      height: 6rem;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &--yg {
+      background: $color-yg-blue !important;
+    }
+    &--ms {
+      background: $color-med-teal !important;
+    }
+
+    &-footer {
+      padding: 1rem 4.3rem;
+      font-size: 1.38rem;
+      color: $color-white;
+      background: $color-primary;
+      border: 1px solid $color-primary;
+      width: 22rem;
+      height: 4.8rem;
+
+      @include respond(tablet) {
+        padding: 1rem 4.6rem;
+        margin-top: 1.5rem;
+        margin-right: 18.1rem;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        border: 0;
+        width: 28rem;
+        height: 6rem;
+        justify-self: center;
+        background: $color-red;
+        border: 1px solid $color-red;
+      }
+      &--yg {
+        background: $color-yg-blue !important;
+      }
+      &--ms {
+        background: $color-med-teal !important;
+      }
+
+      &-ms {
+        background: $color-med-teal !important;
+      }
+    }
+  }
+  //TODO: remove green
+  &--green {
+    background: $color-primary;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(phone) {
+      width: 31.2rem !important;
+      height: 6rem;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-footer {
+      padding: 1rem 4.3rem;
+      font-size: 1.38rem;
+      color: $color-white;
+      background: $color-primary;
+      border: 1px solid $color-primary;
+      width: 22rem;
+      height: 4.8rem;
+
+      @include respond(tablet) {
+        padding: 1rem 4.6rem;
+        margin-top: 1.5rem;
+        margin-right: 18.1rem;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        border: 0;
+        width: 28rem;
+        height: 6rem;
+        justify-self: center;
+        background: $color-red;
+        border: 1px solid $color-red;
+      }
+      &--yg {
+        background: $color-yg-blue !important;
+      }
+      &--ms {
+        background: $color-med-teal !important;
+      }
+
+      &-ms {
+        background: $color-med-teal !important;
+      }
+    }
+  }
+  &--white {
+    @include greenWhite;
+    padding: 0.7rem 4.2rem;
+    width: 22rem;
+    height: 4.8rem;
+
+    @include respond(tablet) {
+      padding: 0.7rem 4.73rem;
+    }
+    &--ms {
+      color: $color-med-teal;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+    &--yg {
+      color: $color-yg-blue;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+
+    &--wk {
+      color: $color-wk-green;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+    &-med {
+      color: $color-med-teal;
+      background: white;
+      padding: 0.7rem 4.2rem;
+      width: 22rem;
+      height: 4.8rem;
+    }
+  }
+
+  &--white-mobile {
+    border: 1px solid $color-primary;
+    color: $color-primary;
+  }
+  &--transparent {
+    @include transparentButton;
+    padding: 1.55rem 8.04rem;
+  }
+}
