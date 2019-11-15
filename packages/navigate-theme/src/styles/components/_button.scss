@@ -52,6 +52,12 @@
 
   &--ms-teal {
     background-color: $color-med-teal !important;
+    width: 31.2rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
   }
 
   &--red2 {

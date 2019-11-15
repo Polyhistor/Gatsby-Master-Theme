@@ -62,10 +62,10 @@ const DestinationsMobile = ({
             >
               {title}
             </h3>
-            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
               {departs}
             </h5>
+            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
@@ -79,7 +79,7 @@ const DestinationsMobile = ({
         </div>
         <div className="u-center-text u-margin-top-tiny">
           <Link
-            className={theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"}
+            className={theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"}
             to={
               country !== undefined
                 ? `${
@@ -88,7 +88,7 @@ const DestinationsMobile = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            {buttonCardText}
+            {buttonCardText} {title}
           </Link>
         </div>
       </div>
