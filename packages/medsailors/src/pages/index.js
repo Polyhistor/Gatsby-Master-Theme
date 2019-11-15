@@ -4,7 +4,6 @@ import React from "react"
 import {
   Layout,
   DestinationsMobile,
-  SEO,
   Landing,
   GreenBarAlt,
   BannerHero,
@@ -20,6 +19,7 @@ import {
   useHomePageQuery,
   useCountryQuery,
   useDestinationQuery,
+  useFeatureBox,
   renderSeo,
   resolveVariationClass,
 } from "@nt-websites/navigate-theme"
@@ -30,6 +30,7 @@ const IndexPage = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
+  const featuredBoxData = useFeatureBox()
 
   // getting the number of tours for each country
   const filterDestinations = destination => {
@@ -129,6 +130,7 @@ const IndexPage = ({ data }) => {
         popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
         shape="Circle"
       />
+      <FeaturedMobile data={featuredBoxData} />
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/tours" },
@@ -142,7 +144,6 @@ const IndexPage = ({ data }) => {
         data={homeQuery[0].node.whyWildKiwi}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <FeaturedMobile />
       <div className="row row--patched mobile-yes">
         <h2
           className={`${resolveVariationClass(
