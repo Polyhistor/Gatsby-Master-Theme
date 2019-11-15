@@ -4,20 +4,22 @@ import Modal from "react-responsive-modal"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
 
-const WhyWildKiwi = ({ data, popupVideo }) => {
+const WhyWildKiwi = ({ data, popupVideo, mobileSpecific }) => {
   const theme = process.env.GATSBY_THEME
+
+  console.log("yp")
+  console.log(data)
 
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
-  const brandName = process.env.GATSBY_BRAND_NAME
 
   // rendering data
   const renderData = () =>
-    data.map((box, idx) => (
+    data.whyWildKiwi.map((box, idx) => (
       <Box
         key={idx}
         imageData={box.banner.localFile.childImageSharp.fluid}
-        title={box.titleMobile}
+        title={box.title}
         description={box.descriptionMobile.descriptionMobile}
       />
     ))
@@ -26,14 +28,11 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
     <>
       <div className="section-mobile__why-wild">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms  u-margin-bottom-small"
-              : "heading-1 u-margin-bottom-small"
-          }
+          className={`${resolveVariationClass("heading-2")} heading-2--black`}
         >
-          Why {brandName}?
+          {data.mobileIntoTitle}
         </h2>
+        <p>{data.mobileIntroDescription}</p>
         <div className="whywild">
           <div className="whywild__container">{renderData()}</div>
           <a
@@ -52,14 +51,14 @@ const WhyWildKiwi = ({ data, popupVideo }) => {
             </svg>
             <span>watch trailer</span>
           </a>
-          <Link
+          {/* <Link
             to="/how-it-works"
             className={`btn ${resolveVariationClass(
               "btn--white"
             )} u-margin-top-medium`}
           >
             <span>How it works</span>
-          </Link>
+          </Link> */}
         </div>
       </div>
       {/* setting modal values */}

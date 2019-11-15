@@ -3,18 +3,7 @@ import { withPrefix } from "gatsby"
 
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
-import Triangle from "../header/objects/triangle"
-import Circle from "../header/objects/circle"
-import Diamond from "../header/objects/diamond"
-import Xmark from "../header/objects/xMark"
-
-const TextBoxAlt = ({
-  setModal,
-  buttonSecond,
-  button2Class,
-  titleFirst,
-  shape,
-}) => {
+const TextBoxAlt = ({ setModal, buttonSecond, button2Class, titleFirst }) => {
   const button2ClassResolved = `btn ${resolveVariationClass(
     button2Class
   )} btn-animated`

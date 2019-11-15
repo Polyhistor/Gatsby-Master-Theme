@@ -45,7 +45,7 @@ const BannerHero = ({
             </div>
           </div>
         </BackgroundImage>
-        <Featured data={featuredBoxData[0].node} />
+        <Featured data={featuredBoxData} />
       </div>
     </section>
   )

@@ -11,12 +11,17 @@ axios.defaults.headers = {
 
 const API_ENDPOINTS = {
   ENQUIRY: `${process.env.GATSBY_API_URL}/enquiry`,
+  TOUR_DATES: `${process.env.GATSBY_API_URL}/dates/{TOUR_SLUG}`,
   TOUR: `${process.env.GATSBY_API_URL}/tours/{TOUR_SLUG}`,
   CONTACT: `${process.env.GATSBY_API_URL}/contact`,
 }
 
 export const getTourPricesRequest = tourSlug => {
   return axios.get(API_ENDPOINTS.TOUR.replace("{TOUR_SLUG}", tourSlug))
+}
+
+export const getTourDatesRequest = tourSlug => {
+  return axios.get(API_ENDPOINTS.TOUR_DATES.replace("{TOUR_SLUG}", tourSlug))
 }
 
 export const submitEnquiryRequest = data => {

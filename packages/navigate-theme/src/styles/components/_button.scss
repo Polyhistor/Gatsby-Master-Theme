@@ -6,7 +6,7 @@
   padding: 1.65rem 7.4rem;
   font-size: 1.1rem;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 0.9rem;
   white-space: pre;
   @include bigUppercaseText;
 
@@ -52,6 +52,12 @@
 
   &--ms-teal {
     background-color: $color-med-teal !important;
+    width: 31.2rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
   }
 
   &--red2 {

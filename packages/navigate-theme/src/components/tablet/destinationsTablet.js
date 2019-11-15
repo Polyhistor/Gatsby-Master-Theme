@@ -61,10 +61,10 @@ const DestinationsTablet = ({
             >
               {title}
             </h3>
-            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
               {departs}
             </h5>
+            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
