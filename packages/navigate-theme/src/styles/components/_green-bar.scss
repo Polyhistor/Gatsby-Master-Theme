@@ -1,5 +1,7 @@
 .green-bar {
-  //background-color: $color-primary;
+  @include respond(phone) {
+    display: none;
+  }
 
   &--wk {
     background-color: $color-wk-green;
@@ -11,10 +13,6 @@
   //TODO: check
   &--yg {
     background-color: $color-yg-blue;
-
-    /*  @include respond(phone) {
-      background-color: $color-med-blue;
-    }*/
   }
 
   &__container {
@@ -76,6 +74,7 @@
       grid-template-rows: repeat(2, 8rem);
       grid-template-columns: 22rem 22rem 22rem;
       grid-column-gap: 2rem;
+      height: 25rem;
     }
 
     @include respond(phone) {

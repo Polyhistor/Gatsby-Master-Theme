@@ -68,7 +68,7 @@ const BlogSearch = ({ pageContext }) => {
     // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
     const filteredData = []
 
-    return ourData.filter(element => {
+    return ourData.forEach(element => {
       // filter logic
       if (
         element.node.categories &&

@@ -19,7 +19,7 @@
     left: 3%;
     max-width: 40rem;
     display: grid;
-    grid-template-rows: 10rem 18rem 5rem;
+    grid-template-rows: 10rem min-content 5rem;
     grid-row-gap: 2.4rem;
 
     @include respond(laptop) {
@@ -61,9 +61,7 @@
       }
     }
     &--sub {
-      // font-family: Nunito-Regular;
       font-weight: 300;
-      // font-size: 1.6rem;
       @extend .paragraph;
       @extend .paragraph--white;
 

@@ -119,7 +119,6 @@ const Destination = ({ data }) => {
         shape="circle"
       />
       <Featured data={featuredBoxData} />
-      <FeaturedMobile />
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner

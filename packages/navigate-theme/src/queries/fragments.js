@@ -387,6 +387,8 @@ export const TeamFragment = graphql`
 // for why wild kiwi section that has been fetched from Contentful
 export const HomePageFragment = graphql`
   fragment HomePage on ContentfulHomePage {
+    mobileIntoTitle
+    mobileIntroDescription
     whyWildKiwi {
       banner {
         localFile {
@@ -398,7 +400,6 @@ export const HomePageFragment = graphql`
         }
       }
       title
-      titleMobile
       description {
         description
       }
@@ -534,6 +535,7 @@ export const YachtFragment = graphql`
 // featured banner
 export const FeaturedBoxFragment = graphql`
   fragment FeaturedBox on ContentfulFeaturedBannerLogos {
+    order
     logoName
     logoUrl
     logoImage {
