@@ -34,11 +34,8 @@
   }
 
   &__text {
-    // font-size: 2.1rem;
-    // font-family: Nunito-ExtraBold;
-    // color: $color-grey-dark-3;
-    @extend .heading-3;
-    @extend .heading-3--extraBold-capitalized-darkGrey;
+    @extend .paragraph;
+    @extend .paragraph--extraBold;
     display: block;
     padding-bottom: 0.5rem;
 
@@ -54,6 +51,10 @@
 
     @include respond(laptop) {
       font-size: 1.3rem;
+    }
+
+    @include respond(phone) {
+      display: none;
     }
   }
 }

@@ -11,7 +11,7 @@
   }
 
   @include respond(phone) {
-    height: 43rem;
+    height: 41rem;
     max-width: 32rem;
   }
 
@@ -143,7 +143,7 @@
 
     @include respond(phone) {
       top: 25%;
-      grid-template-rows: 1.5rem 18.6rem 12rem;
+      grid-template-rows: 0.5rem 22.2rem 7rem;
       grid-template-columns: 31rem;
       margin-left: 0.7rem;
     }
@@ -162,7 +162,7 @@
       grid-template-rows: 3rem 27.6rem 12rem;
 
       @include respond(phone) {
-        grid-template-rows: 0.5rem 23.2rem 7rem;
+        grid-template-rows: 0.5rem 22.2rem 7rem;
         margin-left: 0.7rem;
       }
     }
@@ -207,9 +207,6 @@
       }
     }
 
-    &--ms {
-    }
-
     & a:nth-child(1) {
       display: flex;
       justify-content: center;
@@ -227,8 +224,6 @@
       @include respond(phone) {
         width: 30.4rem;
         height: 6rem;
-        background: white;
-        color: $color-primary;
         font-family: Nunito-Black;
         font-size: 1.8rem;
       }
