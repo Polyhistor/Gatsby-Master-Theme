@@ -55,15 +55,7 @@ const FAQ = ({ data }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
-      <SectionFAQ
-        FAQData={FAQData}
-        categories={[
-          { label: "ABOUT YOUR TRIP" },
-          { label: "BUDGET & PAYMENT" },
-          { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFETY" },
-        ]}
-      />
+      <SectionFAQ FAQData={FAQData} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"

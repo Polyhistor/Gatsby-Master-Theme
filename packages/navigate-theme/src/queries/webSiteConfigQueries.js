@@ -6,6 +6,7 @@ export const useWebSiteConfigQuery = () => {
       sitePlugin(name: { eq: "@nt-websites/navigate-theme" }) {
         pluginOptions {
           config {
+            tourUnit
             destinationPage {
               buttonCardText
             }

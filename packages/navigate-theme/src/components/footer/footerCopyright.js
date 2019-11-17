@@ -27,10 +27,10 @@ const FooterCopyright = () => {
             © Copyright {data.site.siteMetadata.copyright}{" "}
           </div>
           <div className="col-md-1-of-4">
-            <Link to="/privacy-policy">
-              Privacy and Cookies Policy &nbsp;&nbsp;
-            </Link>
-            <Link to="/terms-conditions">Terms and Conditions</Link>
+            <Link to="/terms-conditions">Terms & Conditions</Link>
+          </div>
+          <div className="col-md-1-of-4">
+            <Link to="/privacy-policy">Privacy and Cookies Policy</Link>
           </div>
         </div>
       </div>

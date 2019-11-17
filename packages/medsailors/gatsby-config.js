@@ -113,6 +113,7 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          tourUnit: "Trip",
           countryPage: {
             buttonCardText: "Explore",
           },

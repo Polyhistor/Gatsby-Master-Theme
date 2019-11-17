@@ -25,42 +25,6 @@ const SectionFAQ = ({ FAQData }) => {
     setCategory(categoryData)
   }
 
-  /* we don't need to duplicate
-    
-    conditionally rendering FAQ categories
-    if (idx === 0) {
-      setCategory(categoryData)
-    }
-
-    if (idx === 1) {
-      setCategory(categoryBData)
-    }
-
-    if (idx === 2) {
-      setCategory(categoryCData)
-    }
-
-    if (idx === 3) {
-      setCategory(categoryDData)
-    }
-  }*/
-  /* We don't need to duplicate ??? 
-  // filter out what we need for CategoryA
-  const categoryAData = FAQData.filter(
-    faq => faq.node.category === categories[0].label
-  )
-  const categoryBData = FAQData.filter(
-    faq => faq.node.category === categories[1].label
-  )
-  const categoryCData = FAQData.filter(
-    faq => faq.node.category === categories[2].label
-  )
-  const categoryDData = FAQData.filter(
-    faq => faq.node.category === categories[3].label
-  )
- */
-  // setting our initial states
-
   const [initialCategory, setCategory] = useState([FAQData[0]])
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -120,21 +84,6 @@ const SectionFAQ = ({ FAQData }) => {
     const category = FAQData.filter(faq => faq.node.category === e.target.value)
 
     setCategory(category)
-    /* if (e.target.value === categories[0].label) {
-      setCategory(categoryAData)
-    }
-
-    if (e.target.value === categories[1].label) {
-      setCategory(categoryBData)
-    }
-
-    if (e.target.value === categories[2].label) {
-      setCategory(categoryCData)
-    }
-
-    if (e.target.value === categories[3].label) {
-      setCategory(categoryDData)
-    }*/
   }
 
   // rendering video boxes
@@ -149,9 +98,9 @@ const SectionFAQ = ({ FAQData }) => {
           </h3>
           <iframe
             src={e.node.videoUrl}
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       )
@@ -169,9 +118,10 @@ const SectionFAQ = ({ FAQData }) => {
               className="activity__dropdown"
               id="country"
             >
-              {FAQData.map(data => {
+              {/* .sort((firstEl, secondEl)=> ) */}
+              {FAQData.sort((a, b) => a.node.order - b.node.order).map(data => {
                 return (
-                  <option value={data.node.category}>
+                  <option key={data.node.category} value={data.node.category}>
                     {data.node.category}
                   </option>
                 )

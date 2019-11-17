@@ -97,6 +97,7 @@
     justify-content: center;
     height: 4.8rem;
     width: 18rem;
+    border-radius: 0.9rem;
 
     &--wk {
       @include respond(phone) {
@@ -118,10 +119,10 @@
       }
 
       &:not(:first-child) {
-        border: 1px solid white !important;
+        border: 1px solid #56c6ca !important;
 
         &:hover {
-          background: #5ed0b9;
+          background: #56c6ca !important;
         }
       }
     }

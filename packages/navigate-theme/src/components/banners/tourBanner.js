@@ -99,7 +99,12 @@ const TourBanner = ({
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
               </span>
-              {duration !== undefined ? "days" : "tours"}
+              {/* TODO - Clean this prologoned logic and make it come from contentful */}
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${webSiteConfiguration.tourUnit}`
+                : `${webSiteConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>

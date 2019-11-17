@@ -651,17 +651,18 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-gray-light-2;
   padding-left: 0.3rem;
 }
 
 textarea::placeholder {
   padding-left: 1rem;
   font-family: Nunito-Semibold;
+  color: $color-grey-dark;
 }
 
 textarea:focus {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-gray-light-2;
   padding-left: 0.3rem;
 }
 

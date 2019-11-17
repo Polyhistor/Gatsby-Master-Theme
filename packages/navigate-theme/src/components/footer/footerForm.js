@@ -51,7 +51,7 @@ const FooterForm = () => {
       </label>
       <div className="footer__form ">
         <h6 className="footer__trips-header">send us a message</h6>
-        <p className="u-color-gray u-padding-bottom-small u-font-size-tiny">
+        <p className="u-padding-bottom-small u-font-size-tiny">
           Feel free to drop us a note with any questions
         </p>
         <div className="footer__form-fields">
