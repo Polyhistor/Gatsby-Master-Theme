@@ -150,7 +150,7 @@ const IndexPage = ({ data }) => {
         <h2
           className={`${resolveVariationClass(
             "heading-1"
-          )} u-margin-bottom-small`}
+          )} u-margin-bottom-small mobile-yes`}
         >
           Destinations
         </h2>

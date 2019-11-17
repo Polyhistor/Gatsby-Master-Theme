@@ -167,6 +167,9 @@
     }
 
     &:first-child {
+      display: flex;
+      justify-content: flex-end;
+
       @include respond(laptop) {
         margin-left: 0rem;
       }

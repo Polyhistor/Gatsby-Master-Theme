@@ -39,7 +39,7 @@ const TourBanner = ({
   country,
 }) => {
   const webSiteConfiguration = useWebSiteConfigQuery()
-  console.log(webSiteConfiguration)
+
   const buttonCardText =
     type === "country"
       ? webSiteConfiguration.countryPage.buttonCardText
@@ -84,7 +84,7 @@ const TourBanner = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {buttonCardText}
+                {buttonCardText} {destination}
               </Link>
             </div>
           </div>

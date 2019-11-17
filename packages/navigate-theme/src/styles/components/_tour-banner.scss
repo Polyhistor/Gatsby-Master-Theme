@@ -28,15 +28,9 @@
     }
 
     &-subtitle {
-      @extend .heading-3;
-      @extend .heading-3--extraBold;
-      @extend .heading-3--darkGrey;
-
-      // @include respond(phone) {
-      //   color: $color-grey-dark-3;
-      //   font-family: Nunito-Black;
-      //   font-size: 3rem;
-      // }
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
+      color: $color-grey-dark-3;
 
       @include respond(tablet) {
         font-size: 3rem;
@@ -45,12 +39,7 @@
       &-departs {
         @extend .heading-3;
         @extend .heading-3--extraBold;
-        @extend .heading-3--grey;
-        // @include respond(phone) {
-        //   font-size: 1.6rem;
-        //   padding-top: 0.5rem;
-        //   font-family: Nunito-Black;
-        // }
+        color: $color-grey-dark !important;
 
         @include respond(tablet) {
           font-size: 1.5rem;
@@ -70,20 +59,11 @@
       }
     }
     &-price {
-      @extend .heading-3;
-      @extend .heading-3--extraBold;
-      @extend .heading-3--darkGrey;
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
 
       @include respond(tablet) {
         font-size: 2rem;
-      }
-
-      // @include respond(phone) {
-      //   font-size: 2rem;
-      //   font-family: Nunito-Black;
-      // }
-
-      &--ms {
       }
 
       &--yg {

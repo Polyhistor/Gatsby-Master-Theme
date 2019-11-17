@@ -332,6 +332,10 @@
     @include Nunito-Black;
   }
 
+  &--grey {
+    @include Color-Grey();
+  }
+
   &--uppercase {
     @include Uppercase();
   }
