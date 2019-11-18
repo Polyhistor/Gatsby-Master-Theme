@@ -15,6 +15,11 @@ const addSeoProperty = (yoastObject, seoObject, propertyName) => {
 const extractSeoFields = node => {
   let seoObject = {}
 
+  if (!Array.isArray(node.yoast_meta)) {
+    console.warn(`Blog ${node.slug} does not have yoast_meta definted.`)
+    return seoObject
+  }
+
   if (node.yoast_meta) {
     const title = node.yoast_meta.find(c => c.property === "og:title")
     const description = node.yoast_meta.find(c => c.name === "description")
@@ -70,16 +75,19 @@ exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
   })
 
   const seoFields = extractSeoFields(node)
+
+  const title = seoFields.title || node.title
+  const description = seoFields.description || node.excerpt
   createNodeField({
     node,
     name: "seoTitle",
-    value: seoFields.title || node.title,
+    value: title,
   })
 
   createNodeField({
     node,
     name: "seoDescription",
-    value: seoFields.description || node.exerpt,
+    value: description,
   })
 }
 
