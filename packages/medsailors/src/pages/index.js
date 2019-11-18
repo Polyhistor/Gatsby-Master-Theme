@@ -144,11 +144,11 @@ const IndexPage = ({ data }) => {
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <div className="row row--patched mobile-yes">
+      <div className="row row--patched">
         <h2
           className={`${resolveVariationClass(
             "heading-1"
-          )} u-margin-bottom-small u-center-text`}
+          )} u-margin-bottom-small mobile-yes`}
         >
           Destinations
         </h2>

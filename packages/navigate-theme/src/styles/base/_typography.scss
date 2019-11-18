@@ -155,6 +155,10 @@
     @include Nunito-ExtraBold;
   }
 
+  &--grey {
+    @include Color-Grey();
+  }
+
   &--extraBold-capitalized-darkGrey {
     @include Nunito-ExtraBold;
     @include Capitalize;
@@ -326,6 +330,10 @@
 
   &--black {
     @include Nunito-Black;
+  }
+
+  &--grey {
+    @include Color-Grey();
   }
 
   &--uppercase {

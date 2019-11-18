@@ -152,8 +152,9 @@
       }
     }
     &-sub {
-      @extend .heading-5;
-      @extend .heading-5--capitalized;
+      @extend .heading-4;
+      @extend .heading-4--grey;
+
       max-width: 20rem;
 
       @include respond(tablet) {
@@ -167,8 +168,9 @@
       }
     }
     &-price {
-      @extend .heading-5;
-      @extend .heading-5--capitalized;
+      @extend .heading-4;
+      @extend .heading-4--capitalized;
+      @extend .heading-4--darkGrey;
 
       &--ms {
         @extend .heading-5--ms;

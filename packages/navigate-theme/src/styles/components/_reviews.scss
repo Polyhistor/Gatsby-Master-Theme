@@ -3,7 +3,10 @@
   padding: 7rem 7rem;
 
   @include respond(laptop) {
-    padding: 7rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   @include respond(tablet) {
@@ -48,6 +51,7 @@
 
   &__stars-box {
     display: flex;
+    width: 100%;
   }
 
   &__title {
@@ -68,7 +72,6 @@
     & + a {
       padding: 1.45rem 5.6rem;
       margin-top: 2.5rem;
-      margin-left: -2.8rem;
       font-size: 1.38rem;
 
       @include respond(phone) {

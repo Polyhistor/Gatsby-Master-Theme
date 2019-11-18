@@ -34,6 +34,10 @@
     height: 7.7rem;
     margin-top: -1.19rem;
     margin-left: -0.7rem;
+
+    @include respond(laptop) {
+      margin-left: -2rem;
+    }
   }
 
   &--login {

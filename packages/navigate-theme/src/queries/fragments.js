@@ -340,6 +340,7 @@ export const HowItWorksFragment = graphql`
 // for FAQ lists that has been fetched from Contetnful
 export const FAQFragment = graphql`
   fragment FAQ on ContentfulFaq {
+    order
     questions
     answers
     category
@@ -432,6 +433,7 @@ export const HomePageFragment = graphql`
 // for why wild kiwi section on itinerary page
 export const WhyWildFragment = graphql`
   fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
+    order
     title
     description {
       description

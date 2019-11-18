@@ -47,7 +47,11 @@
       }
 
       &-mobile {
-        margin-top: 4.1rem;
+        &:not(:first-child) {
+          padding-top: 1.6rem;
+          border-top: 1.6rem solid #e7e7e7;
+        }
+
         @include respond(tablet) {
           display: none;
         }
@@ -149,7 +153,7 @@
     height: 35rem;
 
     @include respond(laptop) {
-      height: 44rem;
+      height: 39rem;
     }
 
     @include respond(tablet) {
@@ -164,6 +168,11 @@
 
     & > .row > * {
       margin-right: 0 !important;
+
+      @include respond(laptop) {
+        margin-right: 3rem !important;
+        width: 30rem;
+      }
     }
 
     & > .row {
@@ -186,6 +195,10 @@
         }
       }
       & .col-1-of-4:nth-child(4) {
+        @include respond(laptop) {
+          display: none;
+        }
+
         @include respond(tablet) {
           display: none;
         }
@@ -207,7 +220,8 @@
     &__why-wild {
       justify-content: center;
       margin-top: 4.8rem;
-      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 4.8rem solid $color-gray-light-2;
 
       & h2,
       p {

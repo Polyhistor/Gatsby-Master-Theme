@@ -39,6 +39,7 @@ const TourBanner = ({
   country,
 }) => {
   const webSiteConfiguration = useWebSiteConfigQuery()
+
   const buttonCardText =
     type === "country"
       ? webSiteConfiguration.countryPage.buttonCardText
@@ -57,10 +58,10 @@ const TourBanner = ({
             >
               {title}
             </h3>
-            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <h5 className="tour-banner__description-subtitle tour-banner__description-subtitle-departs">
               {departs}
             </h5>
+            <h4 className="tour-banner__description-subtitle">{subtitle}</h4>
             <p className="tour-banner__description-details">{details}</p>
             <p />
             <span
@@ -83,7 +84,7 @@ const TourBanner = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {buttonCardText}
+                {buttonCardText} {destination}
               </Link>
             </div>
           </div>
@@ -98,7 +99,12 @@ const TourBanner = ({
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
               </span>
-              {duration !== undefined ? "days" : "tours"}
+              {/* TODO - Clean this prologoned logic and make it come from contentful */}
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${webSiteConfiguration.tourUnit}`
+                : `${webSiteConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>
