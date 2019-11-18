@@ -13,7 +13,7 @@ const FooterInstagramBox = ({
   return (
     <a className="footer__instagram" href={url} target="_blank">
       <div className={resolveVariationClass("footer__instagram-box")}>
-        <h2>#Medsailors</h2>
+        <h2>#MedSailors</h2>
         <Img fluid={imageOne} />
         <Img fluid={imageTwo} />
         <Img fluid={imageThree} />

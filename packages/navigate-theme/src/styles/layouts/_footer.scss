@@ -262,6 +262,7 @@
 
       @include respond(laptop) {
         margin-bottom: 1rem;
+        width: 22rem;
       }
 
       @include respond(tablet) {
@@ -293,6 +294,7 @@
         @include respond(laptop) {
           grid-row: 3;
           height: 7rem;
+          width: 22rem;
         }
 
         @include respond(tablet) {
@@ -632,6 +634,10 @@
     & > div:nth-child(2) input {
       width: 29rem;
       border: 1px solid #e7e7e7;
+
+      @include respond(laptop) {
+        width: 22rem;
+      }
 
       @include respond(phone) {
         width: 30rem;

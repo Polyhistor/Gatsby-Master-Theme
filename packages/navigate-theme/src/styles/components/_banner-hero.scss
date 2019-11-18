@@ -1,6 +1,10 @@
 .banner-hero {
   height: 50rem;
 
+  @include respond(laptop) {
+    height: 47rem;
+  }
+
   &__image {
     border-radius: 0.3rem 0.3rem 0 0;
   }
