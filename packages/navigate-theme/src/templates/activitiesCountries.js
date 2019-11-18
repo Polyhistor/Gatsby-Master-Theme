@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"

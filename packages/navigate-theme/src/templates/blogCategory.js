@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { useStaticQuery } from "gatsby"
 
 import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"

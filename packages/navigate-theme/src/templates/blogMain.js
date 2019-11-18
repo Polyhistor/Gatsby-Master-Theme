@@ -8,7 +8,6 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
-import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 import useImageQuery from "../queries/imageQuery"

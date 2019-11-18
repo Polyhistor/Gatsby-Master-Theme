@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, withPrefix } from "gatsby"
+import { withPrefix } from "gatsby"
 import Modal from "react-responsive-modal"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
