@@ -139,7 +139,7 @@
     grid-template-rows: 27.6rem 12rem;
 
     @include respond(laptop) {
-      left: 6%;
+      left: 3%;
     }
 
     @include respond(tablet) {
