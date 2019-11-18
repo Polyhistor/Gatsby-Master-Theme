@@ -33,14 +33,14 @@ const NavigationMobile = () => {
       >
         <ul className="navigation-mobile__list">
           <li className="navigation-mobile__item">
-            <label className="navigation-mobile__icon" htmlFor="menu-btn">
-              <span className="navigation-mobile__hamburger" />
-            </label>
             <input
               className="navigation-mobile-btn"
               type="checkbox"
               id="menu-btn"
             />
+            <label className="navigation-mobile__icon" htmlFor="menu-btn">
+              <span className="navigation-mobile__hamburger" />
+            </label>
             <ul className="navigation-mobile__sub">{MobileNavItems()}</ul>
           </li>
           <MobileLogo />

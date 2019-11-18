@@ -34,14 +34,6 @@ const Buttonbox = () => {
             book
           </span>
         </a>
-        {/* <label className="navigation-mobile__icon" htmlFor="menu-btn">
-          <span className="navigation-mobile__hamburger" />
-        </label>
-        <input
-          className="navigation-mobile-btn"
-          type="checkbox"
-          id="menu-btn"
-        /> */}
       </div>
 
       <Modal

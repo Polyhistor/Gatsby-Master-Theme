@@ -147,11 +147,7 @@ const IndexPage = ({ data }) => {
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <div className="row row--patched">
-        <h2
-          className={`${resolveVariationClass(
-            "heading-1"
-          )} u-margin-bottom-small mobile-yes`}
-        >
+        <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
           Destinations
         </h2>
       </div>
