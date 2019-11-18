@@ -7,9 +7,6 @@ import Box from "../boxes/box"
 const WhyWildKiwi = ({ data, popupVideo, mobileSpecific }) => {
   const theme = process.env.GATSBY_THEME
 
-  console.log("yp")
-  console.log(data)
-
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 

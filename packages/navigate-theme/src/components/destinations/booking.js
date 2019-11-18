@@ -2,8 +2,8 @@ import React from "react"
 
 import BookingForm from "../destinations/bookingForm"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-
-const Booking = ({ data }) => {
+import BookForm from "../booking-form/book-form"
+const Booking = ({ slug, data }) => {
   return (
     <>
       <div id="booking" className="section-destination__booking">
@@ -14,7 +14,7 @@ const Booking = ({ data }) => {
         >
           Dates and pricing
         </h2>
-        <BookingForm data={data} inPage={true} />
+        <BookForm tourId={slug} inPage={true} />
       </div>
     </>
   )

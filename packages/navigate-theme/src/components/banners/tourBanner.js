@@ -39,7 +39,6 @@ const TourBanner = ({
   country,
 }) => {
   const webSiteConfiguration = useWebSiteConfigQuery()
-  console.log(webSiteConfiguration)
   const buttonCardText =
     type === "country"
       ? webSiteConfiguration.countryPage.buttonCardText
