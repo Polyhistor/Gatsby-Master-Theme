@@ -488,6 +488,10 @@
       }
     }
 
+    @include respond(laptop) {
+      grid-template-columns: 22rem 14rem 10rem 14rem 22rem;
+    }
+
     @include respond(tablet) {
       grid-template-columns: 1rem 20rem 15rem 15rem;
     }
@@ -651,6 +655,10 @@
     display: grid;
     grid-template-columns: 21rem 14rem 11rem 12rem 47rem;
     grid-column-gap: 5.5rem;
+
+    @include respond(laptop) {
+      grid-template-columns: 22rem 14rem 10rem 14rem 22rem;
+    }
 
     @include respond(phone) {
       text-align: center;
