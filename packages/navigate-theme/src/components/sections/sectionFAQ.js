@@ -30,21 +30,23 @@ const SectionFAQ = ({ FAQData }) => {
 
   // rendering buttons
   const renderButtons = () => {
-    return FAQData.map((faq, idx) => {
-      return (
-        <button
-          key={idx}
-          onClick={() => handleClick(idx)}
-          className={
-            idx === activeIndex
-              ? `${FAQButton} ${FAQButtonActive}`
-              : `${FAQButton}`
-          }
-        >
-          {faq.node.category}
-        </button>
-      )
-    })
+    return FAQData.sort((a, b) => a.node.order - b.node.order).map(
+      (faq, idx) => {
+        return (
+          <button
+            key={idx}
+            onClick={() => handleClick(idx)}
+            className={
+              idx === activeIndex
+                ? `${FAQButton} ${FAQButtonActive}`
+                : `${FAQButton}`
+            }
+          >
+            {faq.node.category}
+          </button>
+        )
+      }
+    )
   }
 
   // using useState hook to set our inital state

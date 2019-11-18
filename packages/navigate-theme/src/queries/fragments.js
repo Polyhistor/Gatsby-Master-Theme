@@ -433,6 +433,7 @@ export const HomePageFragment = graphql`
 // for why wild kiwi section on itinerary page
 export const WhyWildFragment = graphql`
   fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
+    order
     title
     description {
       description
