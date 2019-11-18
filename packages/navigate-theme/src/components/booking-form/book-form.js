@@ -47,6 +47,7 @@ const BookForm = ({ tourId, inPage }) => {
   const [productClasses, setProductClasses] = useState([])
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleDestinationChange = (destinationSlug, setFieldValue) => {
     if (destinationSlug === "all") {
@@ -163,6 +164,7 @@ const BookForm = ({ tourId, inPage }) => {
       const response = await submitEnquiryRequest(apiData)
       setSuccess(response.data.data)
     } catch (error) {
+      setError(true)
       alert("Sorry, something wrong happened. Please try again or contact us.")
     }
   }
@@ -174,7 +176,9 @@ const BookForm = ({ tourId, inPage }) => {
       }}
       className={inPage ? "booking-form booking-form--in-page" : "booking-form"}
     >
-      <a onClick={_ => window.history.go(-1)}>BACK</a>
+      <a onClick={_ => window.history.go(-1)}>
+        {success === false ? "BACK" : "CLOSE"}
+      </a>
       <h2>This is the new booking form. Styling coming soon.</h2>
       {success === false ? (
         <Formik
@@ -365,13 +369,18 @@ const BookForm = ({ tourId, inPage }) => {
                 <select
                   onChange={e => onDateChanged(e.target.value, setFieldValue)}
                   name="date"
+                  //  disabled={!tourIdState}
                   className={
                     errors.date
                       ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                       : "booking-form__fields booking-form__fields--half"
                   }
                 >
-                  <option value="">Please select your trip first</option>
+                  <option value="">
+                    {!tourIdState || tourIdState === "all"
+                      ? `Please select your destination first`
+                      : `Select departure date`}
+                  </option>
 
                   {response &&
                     response.dates &&
@@ -392,6 +401,7 @@ const BookForm = ({ tourId, inPage }) => {
                   onChange={e =>
                     onProductClassChanged(e.target.value, setFieldValue)
                   }
+                  //disabled={!values.date}
                   name="productClass"
                   value={values.priceId}
                   className={
@@ -400,7 +410,11 @@ const BookForm = ({ tourId, inPage }) => {
                       : "booking-form__fields booking-form__fields--half"
                   }
                 >
-                  <option value="">Select the class</option>
+                  <option value="">
+                    {!values.date
+                      ? `Please select the departure date first`
+                      : `Select yacht class `}
+                  </option>
 
                   {productClasses &&
                     productClasses.map((p, idx) => {
@@ -422,6 +436,7 @@ const BookForm = ({ tourId, inPage }) => {
                   onChange={e =>
                     onYachtCabinChanged(e.target.value, setFieldValue)
                   }
+                  //    disabled={!values.productClass}
                   value={values.yachtCabinId}
                   name="yachtCabinName"
                   className={
@@ -430,7 +445,12 @@ const BookForm = ({ tourId, inPage }) => {
                       : "booking-form__fields booking-form__fields--half"
                   }
                 >
-                  <option value="">Select the cabin type</option>
+                  <option value="">
+                    {!values.priceId
+                      ? `Please select the yacht class first`
+                      : `Select cabin type class `}
+                  </option>
+
                   {cabinTypes.map((e, idx) => (
                     <option key={idx} value={e.id}>
                       {getCabinDescription(e)}
@@ -517,7 +537,6 @@ const BookForm = ({ tourId, inPage }) => {
               >
                 Submit
               </button>
-              {/* <button >test</button> */}
             </Form>
           )}
         </Formik>
