@@ -36,16 +36,6 @@ const DestinationsMobile = ({
       : pageConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
-  // TODO - replace this logic with a CSS Solution
-
-  const banners = document.querySelectorAll(
-    ".section-tour-banner-newzealand-mobile"
-  )
-
-  console.log(banners)
-
-  // banners[3].styles.borderBottom = "0"
-
   return (
     <section className={`section-tour-banner-newzealand-mobile`}>
       <div className="row">
