@@ -32,8 +32,6 @@ const IndexPage = ({ data }) => {
   const destinationQuery = useDestinationQuery()
   const featuredBoxData = useFeatureBox()
 
-  console.log(homeQuery)
-
   // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(

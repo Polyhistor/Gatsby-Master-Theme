@@ -99,6 +99,11 @@ export const PHONE_NUMBER_LIST_ORDERED = [
     dial_code: "+297",
     code: "AW",
   },
+  {
+    name: "Australia",
+    dial_code: "+61",
+    code: "AU",
+  },
 
   {
     name: "Austria",
@@ -214,6 +219,11 @@ export const PHONE_NUMBER_LIST_ORDERED = [
     name: "Cameroon",
     dial_code: "+237",
     code: "CM",
+  },
+  {
+    name: "Canada",
+    dial_code: "+1",
+    code: "CA",
   },
 
   {
@@ -796,7 +806,11 @@ export const PHONE_NUMBER_LIST_ORDERED = [
     dial_code: "+687",
     code: "NC",
   },
-
+  {
+    name: "New Zealand",
+    dial_code: "+64",
+    code: "NZ",
+  },
   {
     name: "Nicaragua",
     dial_code: "+505",
@@ -1162,7 +1176,16 @@ export const PHONE_NUMBER_LIST_ORDERED = [
     dial_code: "+971",
     code: "AE",
   },
-
+  {
+    name: "United Kingdom",
+    dial_code: "+44",
+    code: "GB",
+  },
+  {
+    name: "United States",
+    dial_code: "+1",
+    code: "US",
+  },
   {
     name: "Uruguay",
     dial_code: "+598",

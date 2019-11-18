@@ -160,7 +160,11 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           <Reviews />
         </div>
         <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
-        <Booking data={ourData} inPage={true} />
+        <Booking
+          slug={data.contentfulDestinations.slug}
+          data={ourData}
+          inPage={true}
+        />
         <GetThere
           title="Getting there"
           paragraph={

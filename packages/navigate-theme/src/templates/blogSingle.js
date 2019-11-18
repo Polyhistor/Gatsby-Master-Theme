@@ -60,8 +60,8 @@ const BlogPostTemplate = ({ data }, idx) => {
       }}
     >
       <SEO
-        title={data.wordpressPost.title}
-        description={data.wordpressPost.excerpt}
+        title={data.wordpressPost.fields.seoTitle}
+        description={data.wordpressPost.fields.seoDescription}
       />
       <article className="blog-single">
         {/* error handling */}

@@ -23,7 +23,7 @@ const Book = () => {
       }}
     >
       <div className="row">
-        <BookForm tourId="croatia-discovery" inPage={true} />
+        <BookForm inPage={true} />
       </div>
     </Layout2>
   )

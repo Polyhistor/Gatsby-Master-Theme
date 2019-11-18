@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { withPrefix } from "gatsby"
+import { withPrefix, Link } from "gatsby"
 import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import BookingForm from "../destinations/bookingForm"
@@ -25,15 +25,15 @@ const Buttonbox = () => {
             </li>
           </div>
         </span>
-        <a href="#" className="header__nav-button-box-link">
+
+        <Link to="/enquire" className="header__nav-button-box-link">
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
-            onClick={() => setModal({ open: true })}
             className={`btn btn--wk btn-animated`}
           >
             book
           </span>
-        </a>
+        </Link>
       </div>
 
       <Modal
