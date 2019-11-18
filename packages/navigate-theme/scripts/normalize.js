@@ -3,6 +3,45 @@
 DEFAULT_BLOG_MEDIA_ID = 999999
 DEFAULT_AUTHOR_ID_MEDIA = 999999
 
+const addSeoProperty = (yoastObject, seoObject, propertyName) => {
+  if (yoastObject && yoastObject.content) {
+    Object.defineProperty(seoObject, propertyName, {
+      value: yoastObject.content,
+      writable: false,
+    })
+  }
+}
+
+const extractSeoFields = node => {
+  let seoObject = {}
+
+  if (node.yoast_meta) {
+    const title = node.yoast_meta.find(c => c.property === "og:title")
+    const description = node.yoast_meta.find(c => c.name === "description")
+    const twitterTitle = node.yoast_meta.find(c => c.name === "twitter:title")
+    const twitterCard = node.yoast_meta.find(c => c.name === "twitter:card")
+    //  const twitterImage = node.yoast_meta.find(c=>c.property === 'twitter:image');
+    const twitterDescription = node.yoast_meta.find(
+      c => c.name === "twitter:description"
+    )
+    //  const ogImage = node.yoast_meta.find(c=>c.property === 'twitter:description');
+    const ogTitle = node.yoast_meta.find(c => c.property === "og:title")
+    const ogDescription = node.yoast_meta.find(
+      c => c.property === "og:description"
+    )
+
+    addSeoProperty(title, seoObject, "title")
+    addSeoProperty(description, seoObject, "description")
+    addSeoProperty(twitterTitle, seoObject, "twitterTitle")
+    addSeoProperty(twitterCard, seoObject, "twitterCard")
+    addSeoProperty(twitterDescription, seoObject, "twitterDescription")
+    addSeoProperty(ogTitle, seoObject, "ogTitle")
+    addSeoProperty(ogDescription, seoObject, "ogDescription")
+
+    return seoObject
+  }
+}
+
 exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
   let contentfulBlogMedia = getNodes().filter(
     n =>
@@ -28,6 +67,19 @@ exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
     node,
     name: "featured_media___NODE",
     value: blogImage.image___NODE,
+  })
+
+  const seoFields = extractSeoFields(node)
+  createNodeField({
+    node,
+    name: "seoTitle",
+    value: seoFields.title || node.title,
+  })
+
+  createNodeField({
+    node,
+    name: "seoDescription",
+    value: seoFields.description || node.exerpt,
   })
 }
 

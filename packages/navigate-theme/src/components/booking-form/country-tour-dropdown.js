@@ -20,6 +20,33 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
       </option>
     ))
 
+  const renderDropdownValues = () => {
+    const items = buildDropDownValues()
+    return items.map(e => (
+      <option key={e.value} value={e.value}>
+        {e.name}
+      </option>
+    ))
+  }
+
+  const buildDropDownValues = () => {
+    let items = []
+
+    countryList[0].forEach(c => {
+      const destinations = destinationData.filter(d => {
+        return d.node.destinationCountry === c.node.slug
+      })
+      destinations.forEach(d => {
+        items.push({
+          name: `${c.node.title} - ${d.node.title}`,
+          value: d.node.slug,
+        })
+      })
+    })
+
+    return items
+  }
+
   const handleCountryDropdown = e => {
     setSelectValue("Tour")
 
@@ -51,22 +78,12 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
   return (
     <>
       <select
-        onChange={e => handleCountryDropdown(e)}
+        onChange={e => handleDestDropdown(e)}
         className={"activity__dropdown"}
         id="country"
       >
         <option value="all">Destination</option>
-        {renderCountries()}
-      </select>
-
-      <select
-        onChange={e => handleDestDropdown(e)}
-        className={resolveVariationClass("activity__dropdown")}
-        id="tours"
-        value={selectValue}
-      >
-        <option value="all">{destinationDropdownLabel}</option>
-        {renderDestinations()}
+        {renderDropdownValues()}
       </select>
     </>
   )

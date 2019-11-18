@@ -3,8 +3,6 @@ import React from "react"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
 const Featured = ({ data }) => {
-  console.log(data)
-
   const renderFeatures = () =>
     data
       .sort((a, b) => a.node.order - b.node.order)

@@ -55,6 +55,8 @@ export const BlogPostFragment = graphql`
       name
     }
     fields {
+      seoDescription
+      seoTitle
       featured_media {
         localFile {
           childImageSharp {
