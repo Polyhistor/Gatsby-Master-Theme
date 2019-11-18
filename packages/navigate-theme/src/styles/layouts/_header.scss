@@ -64,6 +64,10 @@
       width: 6rem;
       margin-right: 1rem;
 
+      @include respond(tablet) {
+        margin-right: 0;
+      }
+
       &:hover {
         border-bottom: 2px solid #1abc9c;
       }
@@ -84,8 +88,10 @@
     }
 
     @include respond(tablet) {
-      right: 7.5%;
+      right: 12.5%;
       margin-top: -1rem;
+      display: flex;
+      align-items: center;
     }
 
     @include respond(phone) {

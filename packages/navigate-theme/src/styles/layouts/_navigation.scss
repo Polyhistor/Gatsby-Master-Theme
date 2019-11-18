@@ -259,6 +259,10 @@
     height: 6.666667rem;
     max-width: 87.25rem;
 
+    @include respond(tablet) {
+      max-width: 110.25rem;
+    }
+
     &-btn {
       display: none;
 
@@ -277,11 +281,6 @@
 
       &:checked ~ .navigation-mobile__sub {
         background: white;
-
-        @include respond(tablet) {
-          margin-left: -9rem;
-          margin-top: 1.5rem;
-        }
 
         @include respond(phone) {
           width: 100vh;
@@ -341,11 +340,6 @@
       position: relative;
       width: 3rem;
       border-radius: 4px;
-      margin-top: 2rem;
-
-      @include respond(tablet) {
-        margin-left: -3.5rem;
-      }
 
       @include respond(phone) {
         margin-top: 1.1rem;
@@ -373,18 +367,6 @@
       top: -1.1rem;
     }
 
-    &__sub {
-      position: absolute;
-
-      @include respond(tablet) {
-        margin-top: -70rem;
-      }
-
-      @include respond(phone) {
-        margin-top: -80rem;
-      }
-    }
-
     &__list {
       width: 100%;
       text-align: center;
@@ -407,11 +389,6 @@
 
     &__item {
       float: right;
-
-      @include respond(tablet) {
-        float: left;
-        margin-left: -1rem;
-      }
     }
 
     &__logo {
@@ -420,8 +397,8 @@
         margin-left: 1rem;
         & > div:nth-of-type(1) {
           width: 6rem !important;
-          height: 5rem;
-          margin-top: -0.5rem;
+          height: 6.2rem;
+          margin-top: -1.1rem;
         }
       }
       @include respond(phone) {
