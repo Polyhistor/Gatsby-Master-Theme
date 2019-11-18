@@ -29,12 +29,14 @@ const DestinationsTablet = ({
   country,
 }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery()
+  const webSiteConfiguration = useWebSiteConfigQuery()
   const buttonCardText =
     type === "country"
-      ? pageConfiguration.countryPage.buttonText
-      : pageConfiguration.destinationPage.buttonText
+      ? webSiteConfiguration.countryPage.buttonCardText
+      : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
+  console.log(webSiteConfiguration)
 
   return (
     <section className="section-tour-banner-newzealand-tablet">
@@ -48,7 +50,11 @@ const DestinationsTablet = ({
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
               </span>
-              {duration !== undefined ? "days" : "tours"}
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${webSiteConfiguration.tourUnit}`
+                : `${webSiteConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>
@@ -87,7 +93,7 @@ const DestinationsTablet = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {pageConfiguration.buttonCardText}
+                {buttonCardText}
               </Link>
             </div>
           </div>

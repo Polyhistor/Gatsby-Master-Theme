@@ -70,11 +70,8 @@
     }
 
     @include respond(tablet) {
-      display: grid;
-      grid-template-rows: repeat(2, 8rem);
-      grid-template-columns: 22rem 22rem 22rem;
-      grid-column-gap: 2rem;
-      height: 25rem;
+      display: flex;
+      height: 9rem;
     }
 
     @include respond(phone) {
@@ -161,9 +158,8 @@
 
     @include respond(tablet) {
       font-size: 1.7rem;
-      flex-basis: 16rem;
-      margin-right: 0rem;
-      margin-bottom: 1rem;
+      flex-basis: 14rem;
+      margin-right: 1rem;
     }
 
     &:first-child {
@@ -176,8 +172,6 @@
 
       @include respond(tablet) {
         margin-left: 0rem;
-        margin-top: 1rem;
-        grid-column: 1/-1;
       }
 
       @include respond(phone) {

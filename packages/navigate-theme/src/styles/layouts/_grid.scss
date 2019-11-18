@@ -103,5 +103,12 @@
     @include respond(phone) {
       transform: translateY(4rem);
     }
+
+    & > h2 {
+      @include respond(phone) {
+        margin-bottom: 5rem;
+        text-align: center;
+      }
+    }
   }
 }
