@@ -1,6 +1,10 @@
 .review {
   padding: 10rem 4rem;
 
+  @include respond(laptop) {
+    padding: 10rem 0rem;
+  }
+
   @include respond(tablet) {
     padding: 2rem 2rem;
   }

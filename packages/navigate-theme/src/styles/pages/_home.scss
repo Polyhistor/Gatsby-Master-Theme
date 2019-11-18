@@ -168,6 +168,11 @@
 
     & > .row > * {
       margin-right: 0 !important;
+
+      @include respond(laptop) {
+        margin-right: 3rem !important;
+        width: 30rem;
+      }
     }
 
     & > .row {
@@ -190,6 +195,10 @@
         }
       }
       & .col-1-of-4:nth-child(4) {
+        @include respond(laptop) {
+          display: none;
+        }
+
         @include respond(tablet) {
           display: none;
         }
