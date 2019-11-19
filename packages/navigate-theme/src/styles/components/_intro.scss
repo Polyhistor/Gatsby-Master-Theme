@@ -1,0 +1,21 @@
+.intro {
+  text-align: center;
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+
+  &__title {
+    @extend .heading-2;
+    @extend .heading-2--darkGrey;
+
+    &--ms {
+      @extend .heading-2--ms;
+    }
+  }
+
+  &__description {
+    @extend .paragraph;
+    max-width: 77rem;
+    padding-top: 1.6rem;
+  }
+}

@@ -47,6 +47,12 @@
 
   &--ms {
     background-color: $color-med-blue;
+    width: 22rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.9rem;
   }
 
   &--ms-teal {

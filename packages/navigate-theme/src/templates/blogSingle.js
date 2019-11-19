@@ -99,7 +99,6 @@ const BlogPostTemplate = ({ data }, idx) => {
                 className="blog-single__avatar"
               />
             </Link>
-
             <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
               <span className="blog-single__author" key={idx + 2}>
                 By {data.wordpressPost.author.name}

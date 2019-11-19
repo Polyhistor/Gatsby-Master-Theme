@@ -1,6 +1,10 @@
 .facebook-reviews {
   width: 100%;
   padding: 7rem 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @include respond(laptop) {
     display: flex;

@@ -8,10 +8,7 @@ const NavLink = ({ test, url, text }) => {
 
   if (!test) {
     return (
-      <Link
-        className={theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"}
-        to={url}
-      >
+      <Link className={resolveVariationClass("btn")} to={url}>
         {text}
       </Link>
     )

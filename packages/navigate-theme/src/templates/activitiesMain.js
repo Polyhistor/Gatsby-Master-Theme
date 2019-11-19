@@ -10,6 +10,7 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
+import Intro from "../components/intro"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -196,7 +197,7 @@ const ActivitiesMain = ({ pageContext }) => {
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
-            <h5 className={resolveVariationClass("activity__price")}>
+            <h5 className="activity__price">
               {node.price === "free"
                 ? "free"
                 : node.price === "included"
@@ -251,15 +252,20 @@ const ActivitiesMain = ({ pageContext }) => {
         imageData={SVGIcon}
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
+      <Intro
+        title="The world’s most popular sailing destination"
+        description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.
+We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia."
+      ></Intro>
       <div className="row">
         <div className="activity__filter">
-          <h1
+          {/* <h1
             className={`${resolveVariationClass(
               "heading-1"
             )} u-margin-bottom-small`}
           >
             Add-on Activities
-          </h1>
+          </h1> */}
           <div className={resolveVariationClass("activity__selector")}>
             <select
               className={resolveVariationClass("activity__dropdown")}

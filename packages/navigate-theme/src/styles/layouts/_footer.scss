@@ -653,7 +653,7 @@
     border-top: 1px solid $color-gray-light-2;
     padding-top: 1rem;
     display: grid;
-    grid-template-columns: 1rem 20rem 15rem 15rem;
+    grid-template-columns: 21rem 14rem 11rem 12rem 47rem;
     grid-column-gap: 5.5rem;
 
     @include respond(laptop) {

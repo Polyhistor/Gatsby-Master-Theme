@@ -78,6 +78,7 @@ exports.normalizeBlogNode = async ({ createNodeField, getNodes, node }) => {
 
   const title = seoFields.title || node.title
   const description = seoFields.description || node.excerpt
+
   createNodeField({
     node,
     name: "seoTitle",

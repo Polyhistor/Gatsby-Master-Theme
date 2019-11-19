@@ -1,4 +1,13 @@
 .tour-banner {
+  &__container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+
+    & > div {
+      display: flex;
+    }
+  }
+
   &__description {
     padding: 2rem 2rem 0 2rem;
     &-title {
@@ -110,14 +119,6 @@
 
   &__figure {
     position: relative;
-    width: 60rem;
-
-    @include respond(laptop) {
-      width: 45rem;
-      &:first-child div {
-        height: 42rem;
-      }
-    }
 
     @include respond(tablet) {
       width: 70rem;
@@ -161,7 +162,7 @@
     }
 
     & > .gatsby-image-wrapper {
-      height: 40rem;
+      height: 100%;
 
       @include respond(phone) {
         height: 20rem;
@@ -171,17 +172,9 @@
   }
 
   &__svg-map-container {
-    height: 40rem;
+    display: flex;
     &:nth-child(1) img {
-      height: 40rem;
-      margin-left: -1.5rem;
-      width: 34.4rem;
-
-      @include respond(laptop) {
-        height: 42rem;
-        width: 30rem;
-      }
-
+      width: 100%;
       @include respond(tablet) {
         border-left: 1px solid #e7e7e7;
       }

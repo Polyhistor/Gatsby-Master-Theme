@@ -152,14 +152,14 @@ $breakpoints paraments:
 
   @if $breakpoint == tablet {
     // 775-1025
-    @media only screen and (min-width: 47.5em) and (max-width: 64em) {
+    @media only screen and (min-width: 47.5em) and (max-width: 75em) {
       @content;
     }
   }
 
   @if $breakpoint == laptop {
     // 1025-1429
-    @media only screen and (min-width: 64.1em) and (max-width: 90em) {
+    @media only screen and (min-width: 75.1em) and (max-width: 90em) {
       @content;
     }
   }
