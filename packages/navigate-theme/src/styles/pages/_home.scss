@@ -233,6 +233,10 @@
       & h2 {
         max-width: 70%;
         margin-bottom: 2.4rem;
+
+        @include respond(phone) {
+          max-width: 90%;
+        }
       }
 
       & p {

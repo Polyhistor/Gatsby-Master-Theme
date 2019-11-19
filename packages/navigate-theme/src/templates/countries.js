@@ -12,25 +12,26 @@ import FilteredTours from "../components/destinations/filteredTours"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
 import DestinationsTablet from "../components/tablet/destinationsTablet"
 import TourBanner from "../components/banners/tourBanner"
+import Intro from "../components/intro"
+import BoxContainer from "../components/boxes/boxContainer"
+import WhyUsMobile from "../components/mobile/whyWildkiwi"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useDestinationQuery from "../queries/destinationQuery"
-import { renderSeoFromContext } from "../helpers/seo-helper"
-
-// extracting our hook
 import useFeatureBox from "../queries/featuredBoxQuery"
 
-const Countries = ({ data, pageContext }) => {
-  const featuredBoxData = useFeatureBox()
+import { renderSeoFromContext } from "../helpers/seo-helper"
 
+const Countries = ({ data, pageContext }) => {
   const theme = process.env.GATSBY_THEME
 
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
+  const featuredBoxData = useFeatureBox()
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -140,7 +141,18 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
         shape="diamond"
       />
+      <Intro
+        title={data.contentfulCountry.introTitle}
+        description={data.contentfulCountry.introDescription}
+      ></Intro>
+      <WhyUsMobile
+        title={null}
+        data={homeQuery[0].node}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+      />
       <Featured data={featuredBoxData} />
+
+      <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
       {theme === "ms" ? (
         renderDestinations()
       ) : (

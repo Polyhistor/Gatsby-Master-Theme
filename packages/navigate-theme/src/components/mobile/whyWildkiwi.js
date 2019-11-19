@@ -4,7 +4,7 @@ import Modal from "react-responsive-modal"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
 
-const WhyWildKiwi = ({ data, popupVideo, mobileSpecific }) => {
+const WhyWildKiwi = ({ data, popupVideo, title }) => {
   const theme = process.env.GATSBY_THEME
 
   // setting the initial state for the modal
@@ -24,12 +24,19 @@ const WhyWildKiwi = ({ data, popupVideo, mobileSpecific }) => {
   return (
     <>
       <div className="section-mobile__why-wild">
-        <h2
-          className={`${resolveVariationClass("heading-2")} heading-2--black`}
-        >
-          {data.mobileIntroTitle}
-        </h2>
-        <p>{data.mobileIntroDescription}</p>
+        {title !== null ? (
+          <>
+            <h2
+              className={`${resolveVariationClass(
+                "heading-2"
+              )} heading-2--black`}
+            >
+              {data.mobileIntroTitle}
+            </h2>
+            <p>{data.mobileIntroDescription}</p>
+          </>
+        ) : null}
+
         <div className="whywild">
           <div className="whywild__container">{renderData()}</div>
           <a

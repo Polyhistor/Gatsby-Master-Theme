@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { commaHandler } from "../../hooks/commaHandler"
 import Img from "gatsby-image"
+
+import { commaHandler } from "../../hooks/commaHandler"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
+
+import Intro from "../intro"
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {

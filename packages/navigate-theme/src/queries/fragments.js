@@ -169,6 +169,8 @@ export const CountriesFragment = graphql`
   fragment Country on ContentfulCountry {
     contentfulid
     slug
+    introTitle
+    introDescription
     title
     banner {
       localFile {
