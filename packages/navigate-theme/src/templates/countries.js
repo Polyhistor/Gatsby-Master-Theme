@@ -141,6 +141,7 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
         shape="diamond"
       />
+      <Featured data={featuredBoxData} />
       <Intro
         title={data.contentfulCountry.introTitle}
         description={data.contentfulCountry.introDescription}
@@ -150,8 +151,6 @@ const Countries = ({ data, pageContext }) => {
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <Featured data={featuredBoxData} />
-
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
       {theme === "ms" ? (
         renderDestinations()
