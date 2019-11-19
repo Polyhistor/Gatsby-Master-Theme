@@ -27,7 +27,7 @@ const WhyWildKiwi = ({ data, popupVideo, mobileSpecific }) => {
         <h2
           className={`${resolveVariationClass("heading-2")} heading-2--black`}
         >
-          {data.mobileIntoTitle}
+          {data.mobileIntroTitle}
         </h2>
         <p>{data.mobileIntroDescription}</p>
         <div className="whywild">

@@ -390,7 +390,7 @@ export const TeamFragment = graphql`
 // for why wild kiwi section that has been fetched from Contentful
 export const HomePageFragment = graphql`
   fragment HomePage on ContentfulHomePage {
-    mobileIntoTitle
+    mobileIntroTitle
     mobileIntroDescription
     whyWildKiwi {
       banner {
