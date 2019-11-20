@@ -7,15 +7,15 @@ import {
   Landing,
   GreenBar,
   Banner,
-  SectionVehicle,
   Reviews,
   Trips,
   useHomePageQuery,
   useImageQuery,
-  useYachtQuery,
   OurYachts,
   renderSeo,
 } from "@nt-websites/navigate-theme"
+
+import useYachtQuery from "../queries/ourYachtQuery"
 
 const OurVehicles = ({ data }) => {
   const SVGIcon = "wheel"

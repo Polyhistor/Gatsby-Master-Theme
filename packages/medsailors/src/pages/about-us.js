@@ -12,10 +12,11 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  useWorkingForUs,
   WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
+
+import useWorkingForUs from "../queries/workingForUsQuery"
 
 // the svgs shall later be compiled into one SVG-Sprite
 const SVGIcon = "wheel"
