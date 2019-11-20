@@ -5,8 +5,8 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const SocialNetowrk = () => {
   const footerData = useThemeFooterQuery()
 
-  const youtubeLink = footerData.social.find(l => l.title === "Facebook").link
-  const facebookLink = footerData.social.find(l => l.title === "Youtube").link
+  const youtubeLink = footerData.social.find(l => l.title === "Youtube").link
+  const facebookLink = footerData.social.find(l => l.title === "Facebook").link
   const instagramLink = footerData.social.find(l => l.title === "Instagram")
     .link
 

@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <section className="section-facebook-reviews">
       <div className="row">
-        <div className="col-1-of-4">
+        <div>
           <div className="facebook-reviews">
             <span className={resolveVariationClass("facebook-reviews__rating")}>
               4.9<span className="facebook-reviews__rating-decimal">/5</span>
@@ -44,21 +44,21 @@ const Reviews = () => {
             </Link>
           </div>
         </div>
-        <div className="col-1-of-4">
+        <div>
           <Review
             text="Medsailors was above and beyond my expectations. A great mix of relaxing by the sea, touring the islands then eating, drinking and partying the night away."
             author="Matthew Handy"
             country="UK"
           />
         </div>
-        <div className="col-1-of-4">
+        <div>
           <Review
             text="I had one of the best weeks of my life with Med Sailors! I had the best crewmates, skipper, cheeky adventures, and food. We have already talked about our next Med Sailor crew reunion! Just do it...you won't regret it!"
             author="Alyson Erickson"
             country="USA"
           />
         </div>
-        <div className="col-1-of-4">
+        <div>
           <Review
             text="We loved every minute of it. Incredibly relaxing and so
             much fun. Every single member of staff was incredibly friendly, professional and helpful. I couldn’t recommend MedSailors more."
@@ -71,7 +71,7 @@ const Reviews = () => {
             aria-current="page"
             className={
               theme === "ms"
-                ? "btn btn--ms-mobile tablet-green-button"
+                ? "btn btn--ms-teal tablet-green-button"
                 : "btn btn--green tablet-green-button"
             }
             to="/reviews"

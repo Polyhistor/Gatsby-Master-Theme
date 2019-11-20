@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 export const FluidImageFragment = graphql`
   fragment FluidImage on File {
     childImageSharp {
-      fluid(quality: 70, maxWidth: 1160) {
+      fluid(quality: 100, maxWidth: 2160) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -15,8 +15,8 @@ export const FluidImageFragment = graphql`
 export const FluidImageFragmentBig = graphql`
   fragment FluidImageBig on File {
     childImageSharp {
-      fluid(quality: 80, maxWidth: 2160) {
-        ...GatsbyImageSharpFluid_withWebp
+      fluid(quality: 100, maxWidth: 3160) {
+        ...GatsbyImageSharpFluid
       }
     }
   }

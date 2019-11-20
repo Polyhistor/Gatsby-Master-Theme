@@ -75,7 +75,7 @@ const Countries = ({ data, pageContext }) => {
             country={e.destinationCountry}
             idx={idx === lastIndex ? lastIndex : null}
           />
-          <DestinationsTablet
+          {/* <DestinationsTablet
             type="destination"
             key={idx + 8}
             destination={e.slug}
@@ -91,7 +91,7 @@ const Countries = ({ data, pageContext }) => {
             variation="ms"
             duration={e.duration}
             country={e.destinationCountry}
-          />
+          /> */}
           <TourBanner
             type="destination"
             key={idx + 12}
@@ -132,6 +132,7 @@ const Countries = ({ data, pageContext }) => {
         variation="dest"
         popupVideo={popupUrl}
         shape="diamond"
+        mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
       <Intro
