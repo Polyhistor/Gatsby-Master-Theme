@@ -41,6 +41,12 @@
         @extend .heading-2--yg;
       }
 
+      &--wk {
+        @extend .heading-2;
+        @extend .heading-2--extraBold;
+        @extend .heading-2--wk;
+      }
+
       &--ms {
         @extend .heading-2;
         @extend .heading-2--extraBold;

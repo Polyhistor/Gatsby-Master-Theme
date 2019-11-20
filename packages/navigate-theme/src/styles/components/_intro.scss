@@ -15,6 +15,14 @@
     &--ms {
       @extend .heading-2--ms;
     }
+
+    &--wk {
+      @extend .heading-2--wk;
+    }
+
+    &--yg {
+      @extend .heading-2--yg;
+    }
   }
 
   &__description {

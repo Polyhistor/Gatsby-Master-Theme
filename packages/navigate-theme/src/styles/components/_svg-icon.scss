@@ -161,6 +161,26 @@
     height: 4rem;
   }
 
+  &--green-banner-svg-logo {
+    &--wk {
+      height: 3.7rem;
+      width: 17rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &--ms {
+      height: 3.7rem;
+      width: 5rem;
+      @include respond(phone) {
+        justify-self: center;
+        display: none;
+      }
+    }
+  }
+
   &--mountains {
     height: 3.7rem;
     width: 17rem;

@@ -11,7 +11,6 @@ import {
   Featured,
   TourBanner,
   DestinationsMobile,
-  FeaturedMobile,
   DestinationsTablet,
   useImageQuery,
   useCountryQuery,
