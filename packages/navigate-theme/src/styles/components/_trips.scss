@@ -145,10 +145,24 @@
     }
     &-main {
       @extend .heading-3;
-      @extend .heading-3--extraBold-capitalized-darkGrey;
 
       @include respond(phone) {
         font-size: 2.4rem;
+      }
+
+      &--ms {
+        // @extend .heading-3--ms;
+        @extend .heading-3--extraBold-capitalized-darkGrey;
+      }
+
+      &--wk {
+        // @extend .heading-3--wk;
+        @extend .heading-3--extraBold-capitalized-darkGrey;
+      }
+
+      &--yg {
+        // @extend .heading-3--yg;
+        @extend .heading-3--extraBold-capitalized-darkGrey;
       }
     }
     &-sub {
@@ -170,10 +184,10 @@
     &-price {
       @extend .heading-4;
       @extend .heading-4--capitalized;
-      @extend .heading-4--darkGrey;
+      //TODO: we don't need it @extend .heading-4--darkGrey;
 
       &--ms {
-        @extend .heading-5--ms;
+        @extend .heading-4--ms;
       }
 
       &--wk {
@@ -181,7 +195,7 @@
       }
 
       &--yg {
-        @extend .heading-5--yg;
+        @extend .heading-4--yg;
       }
 
       @include respond(tablet) {

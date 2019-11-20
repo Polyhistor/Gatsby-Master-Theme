@@ -26,7 +26,7 @@ const ActivitiesMain = ({ pageContext }) => {
     "acitivity-box-single__caption--free"
   )
 
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
+  const SVGIcon = theme === "ms" ? "wheel" : "mountains"
 
   // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
 
@@ -145,7 +145,11 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   const renderCountries = () =>
-    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
+    countryList[0].map((e, idx) => (
+      <option key={idx} value={e.node.slug}>
+        {e.node.title}
+      </option>
+    ))
 
   const handleFilter = ({ target }) => {
     const filteredData3 = []
@@ -283,8 +287,8 @@ We have three routes to suit any style, choose the ultimate way you want to feel
             >
               <option value="all">Tour</option>
               {filter !== null
-                ? filter.map(e => (
-                    <option key={e.node.title} value={e.node.slug}>
+                ? filter.map((e, idx) => (
+                    <option key={idx} value={e.node.slug}>
                       {e.node.title}
                     </option>
                   ))
