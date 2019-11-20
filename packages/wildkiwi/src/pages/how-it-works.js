@@ -47,7 +47,7 @@ const HowItWorks = ({ data }) => {
       />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
@@ -56,7 +56,6 @@ const HowItWorks = ({ data }) => {
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
-      
     </Layout>
   )
 }

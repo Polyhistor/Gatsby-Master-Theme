@@ -7,15 +7,15 @@ import {
   Landing,
   GreenBar,
   Banner,
-  SectionVehicle,
   Reviews,
   Trips,
   useHomePageQuery,
   useImageQuery,
-  useYachtQuery,
   OurYachts,
   renderSeo,
 } from "@nt-websites/navigate-theme"
+
+import useYachtQuery from "../queries/ourYachtQuery"
 
 const OurVehicles = ({ data }) => {
   const SVGIcon = "wheel"
@@ -26,17 +26,7 @@ const OurVehicles = ({ data }) => {
   const YachtQuery = useYachtQuery()
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing

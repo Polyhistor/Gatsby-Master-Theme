@@ -111,9 +111,6 @@ export { default as DestinationsTablet } from "./tablet/destinationsTablet"
 export { default as Trip } from "./trips/trip"
 export { default as Trips } from "./trips/trips"
 
-/* Contexts */
-export { default as footerContext } from "../contexts/footerContext"
-
 /*General Items*/
 export { default as Featured } from "./featured"
 export { default as GetInTouchData } from "./getInTouchData"

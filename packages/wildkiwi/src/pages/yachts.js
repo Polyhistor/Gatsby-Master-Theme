@@ -69,7 +69,7 @@ const OurVehicles = ({ data }) => {
       />
 
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

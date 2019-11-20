@@ -39,17 +39,7 @@ const GetInTouch = ({ data }) => {
   })
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing

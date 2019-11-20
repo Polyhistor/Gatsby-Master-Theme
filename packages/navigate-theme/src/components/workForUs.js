@@ -9,7 +9,7 @@ const WorkForUs = ({ data }) => {
       </a>
     ))
 
-  return (
+  return data ? (
     <div className="row">
       <section className="work-for-us">
         <div>
@@ -43,7 +43,7 @@ const WorkForUs = ({ data }) => {
         </div>
       </section>
     </div>
-  )
+  ) : null
 }
 
 export default WorkForUs

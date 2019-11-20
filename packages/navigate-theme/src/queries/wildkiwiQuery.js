@@ -13,6 +13,7 @@ const useWildkiwiQuery = () => {
       }
     }
   `)
+
   return wildKiwiData.allContentfulWhyWildSectionDestinations.edges
 }
 

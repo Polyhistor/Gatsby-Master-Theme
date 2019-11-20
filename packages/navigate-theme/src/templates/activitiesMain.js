@@ -211,17 +211,7 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       <SEO
         title={getActivitySeo().title}
         description={getActivitySeo().description}

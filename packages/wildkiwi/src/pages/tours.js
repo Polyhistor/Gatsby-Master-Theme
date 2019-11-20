@@ -16,12 +16,14 @@ import {
   useImageQuery,
   useCountryQuery,
   useHomePageQuery,
+  useFeatureBox,
   useDestinationQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
   // extracting our custom hook
+  const featuredBoxData = useFeatureBox()
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
   const homeQuery = useHomePageQuery()
@@ -97,12 +99,12 @@ const Destination = ({ data }) => {
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <Featured />
-      <FeaturedMobile />
+      <Featured data={featuredBoxData} />
+      <FeaturedMobile data={featuredBoxData} />
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
