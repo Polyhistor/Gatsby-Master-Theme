@@ -15,6 +15,21 @@
     max-width: 32rem;
   }
 
+  &__title {
+    margin-top: 7.2rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    @extend .heading-1;
+
+    &--ms {
+      @extend .heading-1--ms;
+    }
+
+    & ~ .bannerHero > .header {
+      height: 23.3rem;
+    }
+  }
+
   &__logo-box {
     position: fixed;
     left: 15%;
@@ -158,7 +173,6 @@
       top: 25%;
       grid-template-rows: 0.5rem 22.2rem 7rem;
       grid-template-columns: 31rem;
-      margin-left: 0.7rem;
     }
 
     &--dest {

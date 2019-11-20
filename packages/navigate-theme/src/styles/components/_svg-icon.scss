@@ -38,6 +38,11 @@
     @include respond(laptop) {
       margin-left: -2rem;
     }
+
+    @include respond(phone) {
+      width: 8rem;
+      height: 7.7rem;
+    }
   }
 
   &--login {
@@ -170,7 +175,6 @@
     width: 5rem;
     @include respond(phone) {
       justify-self: center;
-      display: none;
     }
   }
 

@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -12,7 +11,6 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 

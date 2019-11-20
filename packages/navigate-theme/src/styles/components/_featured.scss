@@ -184,6 +184,7 @@
 
     @include respond(phone) {
       height: 6rem;
+      display: none;
     }
 
     &--ms {
