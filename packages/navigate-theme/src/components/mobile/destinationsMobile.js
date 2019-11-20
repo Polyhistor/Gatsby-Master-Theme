@@ -27,6 +27,7 @@ const DestinationsMobile = ({
   variation,
   duration,
   country,
+  idx,
 }) => {
   const theme = process.env.GATSBY_THEME
   const pageConfiguration = useWebSiteConfigQuery()
@@ -37,7 +38,13 @@ const DestinationsMobile = ({
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
-    <section className={`section-tour-banner-newzealand-mobile`}>
+    <section
+      className={
+        idx !== null
+          ? "section-tour-banner-newzealand-mobile section-tour-banner-newzealand-mobile--last"
+          : "section-tour-banner-newzealand-mobile"
+      }
+    >
       <div className="row">
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
@@ -48,8 +55,12 @@ const DestinationsMobile = ({
             >
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
-              </span>{" "}
-              {duration !== undefined ? "days" : "tours"}
+              </span>
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${pageConfiguration.tourUnit}`
+                : `${pageConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>
@@ -77,9 +88,9 @@ const DestinationsMobile = ({
             </span>
           </div>
         </div>
-        <div className="u-center-text u-margin-top-tiny">
+        <div className="u-center-text">
           <Link
-            className={theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"}
+            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
             to={
               country !== undefined
                 ? `${
@@ -88,7 +99,9 @@ const DestinationsMobile = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            {buttonCardText} {title}
+            {type === "country"
+              ? `${buttonCardText}  ${destination}`
+              : buttonCardText}
           </Link>
         </div>
       </div>

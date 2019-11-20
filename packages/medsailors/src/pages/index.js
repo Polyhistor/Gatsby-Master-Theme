@@ -51,6 +51,7 @@ const IndexPage = ({ data }) => {
    */
   // rendering all the destination boxes
   const renderCountries = () => {
+    const lastIndex = countryQuery.length - 1
     return countryQuery
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((country, idx) => {
@@ -67,6 +68,7 @@ const IndexPage = ({ data }) => {
               price={country.node.price}
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
+              idx={idx === lastIndex ? lastIndex : null}
             />
             <DestinationsTablet
               type="country"

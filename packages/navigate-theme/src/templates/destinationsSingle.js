@@ -103,7 +103,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           subTitle={data.contentfulDestinations.route}
           daysText="Days"
           daysNum={data.contentfulDestinations.duration}
-          priceText="Price from"
+          priceText="From"
           price={data.contentfulDestinations.priceFrom}
           perDayText="Per day"
           perDay={data.contentfulDestinations.pricePerDay}
@@ -155,7 +155,10 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             specifics={data.contentfulDestinations.included}
           />
         )}
-        <ActivitiesBox activityData={data.contentfulDestinations.activity} />
+        <ActivitiesBox
+          title="Popular Activities"
+          activityData={data.contentfulDestinations.activity}
+        />
         <div className="hotfix--reviews">
           <Reviews />
         </div>

@@ -54,6 +54,7 @@ const Countries = ({ data, pageContext }) => {
   // rendering all the destination boxes
 
   const renderDestinations = () => {
+    const lastIndex = data.contentfulCountry.destinations.length - 1
     return data.contentfulCountry.destinations.map((e, idx) => {
       return (
         <Fragment key={idx}>
@@ -72,6 +73,7 @@ const Countries = ({ data, pageContext }) => {
             variation="ms"
             duration={e.duration}
             country={e.destinationCountry}
+            idx={idx === lastIndex ? lastIndex : null}
           />
           <DestinationsTablet
             type="destination"

@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-const ActivitiesBox = ({ activityData }) => {
+const ActivitiesBox = ({ activityData, title }) => {
   // TODO - CLEAN UP
 
   const activityLabelFree = resolveVariationClass(
@@ -62,7 +62,7 @@ const ActivitiesBox = ({ activityData }) => {
           "heading-1"
         )} u-padding-bottom-sedium`}
       >
-        Activities
+        {title}
       </h2>
       <div className="acitivity-box">{renderActivities()}</div>
       <Link

@@ -36,8 +36,6 @@ const DestinationsTablet = ({
       : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
-  console.log(webSiteConfiguration)
-
   return (
     <section className="section-tour-banner-newzealand-tablet">
       <div className="row">
@@ -93,7 +91,9 @@ const DestinationsTablet = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {buttonCardText}
+                {type === "country"
+                  ? `${buttonCardText}  ${destination}`
+                  : buttonCardText}
               </Link>
             </div>
           </div>

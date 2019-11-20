@@ -1,8 +1,12 @@
 .intro {
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 8rem;
   display: flex;
   justify-content: center;
+
+  @include respond(phone) {
+    margin-top: 4.8rem;
+  }
 
   &__title {
     @extend .heading-2;
