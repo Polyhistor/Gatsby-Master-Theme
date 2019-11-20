@@ -91,7 +91,9 @@ const DestinationsTablet = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {buttonCardText}
+                {type === "country"
+                  ? `${buttonCardText}  ${destination}`
+                  : buttonCardText}
               </Link>
             </div>
           </div>

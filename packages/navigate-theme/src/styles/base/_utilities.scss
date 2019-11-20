@@ -706,10 +706,14 @@ textarea {
   padding-right: 0.6rem;
 }
 
-main section:nth-of-type(13) {
-  border-bottom: 0 !important;
-}
-
-// main section .section-tour-banner-newzealand-mobile:last-of-type {
+// main section:nth-of-type(13) {
 //   border-bottom: 0 !important;
 // }
+
+// section:last-of-type .section-tour-banner-newzealand-mobile {
+//   display: none !important;
+// }
+
+[class~=".section-tour-banner-newzealand-mobile"]:last-of-type {
+  display: none;
+}

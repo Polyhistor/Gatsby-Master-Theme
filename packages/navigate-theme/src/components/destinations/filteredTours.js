@@ -7,7 +7,6 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
-import Intro from "../intro"
 // todo - clean up this file and separate the concerns
 
 const FilteredTour = ({ country, destinationData }) => {
