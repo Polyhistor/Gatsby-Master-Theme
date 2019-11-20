@@ -116,10 +116,10 @@ const Countries = ({ data, pageContext }) => {
     <Layout
       Insta={{
         photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
+          { imageOne: imageQuery.insta_1.childImageSharp.fluid },
+          { imageTwo: imageQuery.insta_2.childImageSharp.fluid },
+          { imageThree: imageQuery.insta_3.childImageSharp.fluid },
+          { imageFour: imageQuery.insta_4.childImageSharp.fluid },
         ],
         URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
       }}

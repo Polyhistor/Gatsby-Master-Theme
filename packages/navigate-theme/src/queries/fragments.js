@@ -470,6 +470,7 @@ export const ReviewsFragment = graphql`
 `
 
 // for working for us section
+/*
 export const WorkingForUsFragment = graphql`
   fragment WorkingForUs on ContentfulWorkingForUs {
     title1
@@ -515,8 +516,10 @@ export const WorkingForUsFragment = graphql`
     }
   }
 `
+*/
 
 // our yachts secetion
+/*
 export const YachtFragment = graphql`
   fragment Yacht on ContentfulOurYachts {
     title
@@ -538,6 +541,7 @@ export const YachtFragment = graphql`
   }
 `
 
+*/
 // featured banner
 export const FeaturedBoxFragment = graphql`
   fragment FeaturedBox on ContentfulFeaturedBannerLogos {
@@ -558,6 +562,16 @@ export const FooterLogos = graphql`
     logos {
       localFile {
         publicURL
+      }
+    }
+
+    instagramBoxImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 70, maxWidth: 1160) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }

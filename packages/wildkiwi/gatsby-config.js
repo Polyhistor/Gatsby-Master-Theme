@@ -114,6 +114,25 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          tourUnit: "Trip",
+          countryPage: {
+            buttonCardText: "Explore",
+          },
+          destinationPage: {
+            buttonCardText: "View Itinerary",
+          },
+          bookingForm: {
+            destinationDropdownLabel: "Tour",
+            useYachtClass: false,
+            yachtClasses: [
+              {
+                description: "none",
+                code: "none",
+              },
+            ],
+          },
+        },
         site: {
           name: `Wild Kiwi`,
         },
@@ -239,7 +258,9 @@ module.exports = {
           },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
-
+        modalText: {
+          selection: "Please select your destination and tour",
+        },
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
