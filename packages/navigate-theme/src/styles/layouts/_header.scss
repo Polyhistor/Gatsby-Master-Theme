@@ -257,8 +257,16 @@
   &__object {
     flex-basis: 2.5rem;
 
+    @include respond(phone) {
+      flex-basis: 2rem;
+    }
+
     &-container {
       display: flex;
+    }
+
+    & > img {
+      width: 1.5rem;
     }
   }
 }

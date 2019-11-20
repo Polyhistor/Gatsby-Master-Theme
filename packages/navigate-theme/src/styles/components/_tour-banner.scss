@@ -71,10 +71,6 @@
       @extend .paragraph;
       padding-bottom: 0.5rem;
 
-      @include respond(tablet) {
-        font-size: 2rem;
-      }
-
       @include respond(phone) {
         font-size: 1.6rem;
       }
@@ -165,7 +161,6 @@
       }
 
       @include respond(tablet) {
-        padding: 0.8rem;
         font-size: 1.3rem;
       }
     }

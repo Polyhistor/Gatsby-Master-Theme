@@ -71,7 +71,7 @@ const Reviews = () => {
             aria-current="page"
             className={
               theme === "ms"
-                ? "btn btn--ms-mobile tablet-green-button"
+                ? "btn btn--ms-teal tablet-green-button"
                 : "btn btn--green tablet-green-button"
             }
             to="/reviews"
