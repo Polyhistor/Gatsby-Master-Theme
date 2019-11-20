@@ -153,46 +153,36 @@
   &-facebook-reviews {
     background: $color-teal;
     max-width: 100%;
-    height: 39rem;
-
-    @include respond(laptop) {
-      height: 39rem;
-    }
-
-    @include respond(tablet) {
-      padding-top: 2rem;
-      height: 36rem;
-    }
+    height: 30.5rem;
 
     @include respond(phone) {
       height: 57.8rem;
       margin-top: 4rem;
     }
 
-    & > .row > * {
-      margin-right: 0 !important;
-
-      @include respond(laptop) {
-        margin-right: 3rem !important;
-        width: 30rem;
-      }
-    }
-
     & > .row {
-      transform: translateY(-9%);
+      display: grid;
+      grid-template-columns: 25% 22% 22% 22%;
+      column-gap: 3rem;
 
       @include respond(tablet) {
-        transform: translateY(-15%);
+        grid-template-columns: 50% 50%;
+        column-gap: 0.5rem;
+        align-items: center;
+      }
+
+      @include respond(phone) {
+        grid-template-columns: 100%;
       }
     }
 
     & > .row {
-      & .col-1-of-4:nth-child(2) {
+      & div:nth-child(2) {
         @include respond(phone) {
           display: none;
         }
       }
-      & .col-1-of-4:nth-child(3) {
+      & div:nth-child(3) {
         @include respond(tablet) {
           display: none;
         }
@@ -201,7 +191,7 @@
           display: none;
         }
       }
-      & .col-1-of-4:nth-child(4) {
+      & div:nth-child(4) {
         @include respond(laptop) {
           display: none;
         }
@@ -229,10 +219,6 @@
       margin-top: 4.8rem;
       padding-bottom: 3rem;
       border-bottom: 4.8rem solid $color-gray-light-2;
-
-      @include respond(phone) {
-        margin-bottom: 3rem;
-      }
 
       & h2,
       p {

@@ -1,14 +1,4 @@
 .review {
-  padding: 10rem 4rem;
-
-  @include respond(laptop) {
-    padding: 10rem 0rem;
-  }
-
-  @include respond(tablet) {
-    padding: 12rem 2rem;
-  }
-
   @include respond(phone) {
     padding: 0rem 1rem 1rem;
   }
