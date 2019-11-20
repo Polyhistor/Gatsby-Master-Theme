@@ -107,6 +107,7 @@
     & > h2 {
       @include respond(phone) {
         margin-bottom: 5rem;
+        margin-top: -1rem;
         text-align: center;
       }
     }

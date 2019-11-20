@@ -25,6 +25,7 @@ const Header = ({
   variation,
   popupVideo,
   shape,
+  mobileBanner,
 }) => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
@@ -51,7 +52,12 @@ const Header = ({
   // rendering the contents
   return (
     <>
-      <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
+      {mobileBanner ? <h1 className="mobile-yes">{titleFirst}</h1> : null}
+      <BackgroundImage
+        fluid={imageData}
+        className={mobileBanner ? "bannerHero bannerHero--alt" : "bannerHero"}
+        id="bannerHero"
+      >
         <div className="header">
           <div
             className={

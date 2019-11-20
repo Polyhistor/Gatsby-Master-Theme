@@ -192,10 +192,6 @@
         }
       }
       & div:nth-child(4) {
-        @include respond(laptop) {
-          display: none;
-        }
-
         @include respond(tablet) {
           display: none;
         }
