@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               idx={idx === lastIndex ? lastIndex : null}
             />
-            <DestinationsTablet
+            {/* <DestinationsTablet
               type="country"
               key={idx + 8}
               destination={country.node.slug}
@@ -82,7 +82,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
-            />
+            /> */}
             <TourBanner
               type="country"
               key={idx + 12}
@@ -144,7 +144,7 @@ const IndexPage = ({ data }) => {
       />
       <WhyUsMobile
         data={homeQuery[0].node}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
       />
       <div className="row row--patched">
         <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>

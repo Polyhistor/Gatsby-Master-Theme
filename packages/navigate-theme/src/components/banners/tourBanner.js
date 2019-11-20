@@ -114,7 +114,7 @@ const TourBanner = ({
             <div
               className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title
                 .toLowerCase()
-                .replace(/ /g, "")}  tablet-padding-top-medium`}
+                .replace(/ /g, "")} `}
             >
               <img src={SVGMap} />
             </div>
