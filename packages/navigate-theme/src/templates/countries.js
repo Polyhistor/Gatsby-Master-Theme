@@ -115,17 +115,7 @@ const Countries = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.insta_1.childImageSharp.fluid },
-          { imageTwo: imageQuery.insta_2.childImageSharp.fluid },
-          { imageThree: imageQuery.insta_3.childImageSharp.fluid },
-          { imageFour: imageQuery.insta_4.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeoFromContext(pageContext)}
       <Landing
         imageData={
