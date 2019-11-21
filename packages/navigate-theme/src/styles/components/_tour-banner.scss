@@ -22,17 +22,23 @@
 
   &__description {
     padding: 2rem 2rem 0 2rem;
+
+    @include respond(tablet) {
+      padding: 4rem 2rem 0 2rem;
+    }
+
     &-title {
       @extend .heading-2;
-      @extend .heading-2--extraBold-green;
+      @extend .heading-2--extraBold;
+      @extend .heading-2--darkGrey;
 
       @include respond(tablet) {
         font-size: 4.5rem;
       }
 
       @include respond(phone) {
-        font-size: 3.4rem;
         font-family: Nunito-Black;
+        line-height: 3rem;
       }
 
       &--yg {
@@ -45,12 +51,6 @@
         @extend .heading-2;
         @extend .heading-2--extraBold;
         @extend .heading-2--wk;
-      }
-
-      &--ms {
-        @extend .heading-2;
-        @extend .heading-2--extraBold;
-        @extend .heading-2--ms;
       }
     }
 
@@ -129,6 +129,10 @@
         display: none;
       }
     }
+
+    &--inCountry {
+      padding: 2rem 1rem 0 1rem;
+    }
   }
 
   &__figure {
@@ -146,7 +150,7 @@
 
     &-caption {
       position: absolute;
-      top: 3%;
+      top: 4%;
       left: 3%;
       text-transform: uppercase;
       font-family: Nunito-Black;
@@ -175,7 +179,7 @@
       height: 100%;
 
       @include respond(phone) {
-        height: 20rem;
+        height: 100%;
         border-radius: 3px;
       }
     }

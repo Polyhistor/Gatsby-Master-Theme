@@ -660,6 +660,10 @@
       grid-template-columns: 22rem 14rem 10rem 14rem 22rem;
     }
 
+    @include respond(tablet) {
+      grid-template-columns: 1rem 20rem 15rem 15rem;
+    }
+
     @include respond(phone) {
       grid-template-columns: 1fr;
       text-align: center;

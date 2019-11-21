@@ -6,7 +6,7 @@ import Layout from "../components/layout/layout"
 import Landing from "../components/header/landings/landing"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
-import Featured from "../components/featured"
+import GreenBar from "../components/bars/greenBar"
 import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
@@ -21,7 +21,6 @@ import resolveVariationClass from "../helpers/theme-variation-style"
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useDestinationQuery from "../queries/destinationQuery"
-import useFeatureBox from "../queries/featuredBoxQuery"
 
 import { renderSeoFromContext } from "../helpers/seo-helper"
 
@@ -32,7 +31,8 @@ const Countries = ({ data, pageContext }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
-  const featuredBoxData = useFeatureBox()
+
+  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -70,29 +70,14 @@ const Countries = ({ data, pageContext }) => {
             details={e.description}
             price={e.pricePerDay}
             tours={filterDestinations(e.slug)}
+            SVGMap={e.svgMap.localFile.publicURL}
             imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
             variation="ms"
             duration={e.duration}
             country={e.destinationCountry}
             idx={idx === lastIndex ? lastIndex : null}
+            inCountry={true}
           />
-          {/* <DestinationsTablet
-            type="destination"
-            key={idx + 8}
-            destination={e.slug}
-            destinationUrl={e.url}
-            title={e.title}
-            subtitle={e.days}
-            departs={e.route}
-            details={e.description}
-            price={e.pricePerDay}
-            tours={filterDestinations(e.slug)}
-            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
-            SVGMap={e.svgMap.localFile.publicURL}
-            variation="ms"
-            duration={e.duration}
-            country={e.destinationCountry}
-          /> */}
           <TourBanner
             type="destination"
             key={idx + 12}
@@ -128,14 +113,22 @@ const Countries = ({ data, pageContext }) => {
           data.contentfulCountry.slug === "europe" ? null : "#popup"
         }
         description={data.contentfulCountry.bannerDescription}
-        buttonStyles={["white", "white"]}
+        buttonStyles={["white", "med-blue"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo={popupUrl}
         shape="diamond"
         mobileBanner={true}
       />
-      <Featured data={featuredBoxData} />
+      {/* <Featured data={featuredBoxData} />  */}
+      <GreenBar
+        text={
+          theme === "ms"
+            ? "Skippered sailing holidays for 20-35 year olds"
+            : "Epic adventure tours for 18 to 35 year olds"
+        }
+        imageData={SVGIcon}
+      />
       <Intro
         title={data.contentfulCountry.introTitle}
         description={data.contentfulCountry.introDescription}
@@ -148,9 +141,11 @@ const Countries = ({ data, pageContext }) => {
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
       {theme === "ms" ? (
         <>
-          <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
-            Destinations
-          </h2>
+          <div className="row row--patched">
+            <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+              Our Routes
+            </h2>
+          </div>
           {renderDestinations()}
         </>
       ) : (

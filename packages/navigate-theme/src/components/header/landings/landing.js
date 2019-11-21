@@ -136,17 +136,6 @@ const Header = ({
           </div>
         </div>
       </BackgroundImage>
-
-      {mobileBanner ? (
-        <div className="mobile-yes">
-          <GreenBar
-            text="Skippered sailing holidays for 20-35 year olds"
-            imageData={SVGIcon}
-            imageAlt="Wild-Kiwi-Mountaints-Logo"
-          />
-        </div>
-      ) : null}
-
       {/* setting modal values */}
       <Modal
         open={open}

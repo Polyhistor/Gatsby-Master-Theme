@@ -28,6 +28,8 @@ const DestinationsMobile = ({
   duration,
   country,
   idx,
+  inCountry,
+  SVGMap,
 }) => {
   const theme = process.env.GATSBY_THEME
   const pageConfiguration = useWebSiteConfigQuery()
@@ -45,7 +47,7 @@ const DestinationsMobile = ({
           : "section-tour-banner-newzealand-mobile"
       }
     >
-      <div className="row">
+      <div className={inCountry ? "row--inCountry" : "row"}>
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
             {/* choosing image based on the given props */}
@@ -65,7 +67,13 @@ const DestinationsMobile = ({
           </figure>
         </div>
         <div className="">
-          <div className="tour-banner__description">
+          <div
+            className={
+              inCountry
+                ? "tour-banner__description tour-banner__description--inCountry"
+                : "tour-banner__description"
+            }
+          >
             <h3
               className={resolveVariationClass(
                 "tour-banner__description-title"
@@ -89,6 +97,15 @@ const DestinationsMobile = ({
           </div>
         </div>
         <div className="u-center-text">
+          {inCountry ? (
+            <div
+              className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title
+                .toLowerCase()
+                .replace(/ /g, "")} `}
+            >
+              <img src={SVGMap} />
+            </div>
+          ) : null}
           <Link
             className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
             to={
@@ -105,6 +122,24 @@ const DestinationsMobile = ({
           </Link>
         </div>
       </div>
+      {inCountry ? (
+        <div class="row">
+          <Link
+            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
+            to={
+              country !== undefined
+                ? `${
+                    themeOptionsQueryData.destinationCountryRoutePrefix
+                  }${country}/${destinationUrl || destination}`
+                : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
+            }
+          >
+            {type === "country"
+              ? `${buttonCardText}  ${destination}`
+              : buttonCardText}
+          </Link>
+        </div>
+      ) : null}
     </section>
   )
 }
