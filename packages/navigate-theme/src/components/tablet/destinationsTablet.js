@@ -93,7 +93,7 @@ const DestinationsTablet = ({
                 }
               >
                 {type === "country"
-                  ? `${buttonCardText}  ${destination}`
+                  ? `${buttonCardText}  ${title}`
                   : buttonCardText}
               </Link>
             </div>
@@ -119,7 +119,9 @@ const DestinationsTablet = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            {buttonCardText}
+            {type === "country"
+              ? `${buttonCardText}  ${title}`
+              : buttonCardText}
           </Link>
         </div>
       </div>

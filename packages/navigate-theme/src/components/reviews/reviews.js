@@ -1,9 +1,22 @@
 import React from "react"
 import { withPrefix, Link } from "gatsby"
 import resolveVariationClass from "../../helpers/theme-variation-style"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
+import useReviewQuery from "../../queries/reviewQuery"
+import { splitText } from "../../helpers/formatter"
 import Review from "./review"
 
 const Reviews = () => {
+  const reviewGeneralInfo = useWebSiteConfigQuery().review
+
+  const reviewData = useReviewQuery()
+
+  const reviewsDisplayBanner = reviewData
+    .filter(r => {
+      return r.node.showInReviewsBanner === true
+    })
+    .slice(0, 3)
+
   const theme = process.env.GATSBY_THEME
 
   return (
@@ -12,7 +25,10 @@ const Reviews = () => {
         <div>
           <div className="facebook-reviews">
             <span className={resolveVariationClass("facebook-reviews__rating")}>
-              4.9<span className="facebook-reviews__rating-decimal">/5</span>
+              {reviewGeneralInfo.rating}
+              <span className="facebook-reviews__rating-decimal">
+                /{reviewGeneralInfo.maxRating}
+              </span>
             </span>
             <center className="facebook-reviews__stars-box">
               <svg className="svg-icon--star-big">
@@ -33,7 +49,7 @@ const Reviews = () => {
             </center>
             <center className="facebook-reviews__title">Facebook Review</center>
             <center className="facebook-reviews__subtitle">
-              based on 151 reviews
+              based on {reviewGeneralInfo.totalFacebookReviews} reviews
             </center>
             <Link
               aria-current="page"
@@ -44,12 +60,17 @@ const Reviews = () => {
             </Link>
           </div>
         </div>
-        <div>
-          <Review
-            text="Medsailors was above and beyond my expectations. A great mix of relaxing by the sea, touring the islands then eating, drinking and partying the night away."
-            author="Matthew Handy"
-            country="UK"
-          />
+        {reviewsDisplayBanner.map((review, idx) => (
+          <div key={idx}>
+            <Review
+              text={splitText(review.node.reviewText.reviewText, 260)}
+              author={review.node.name}
+              country={review.node.country}
+            />
+          </div>
+        ))}
+        {/*
+         
         </div>
         <div>
           <Review
@@ -66,6 +87,15 @@ const Reviews = () => {
             country="Australia"
           />
         </div>
+         <div>
+          <Review
+            text="Medsailors was above and beyond my expectations. A great mix of relaxing by the sea, touring the islands then eating, drinking and partying the night away."
+            author="Matthew Handy"
+            country="UK"
+          />
+        </div>
+          */}
+
         <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
           <Link
             aria-current="page"

@@ -10,7 +10,7 @@ import Featured from "../components/featured"
 import Banner from "../components/banners/banner"
 import FilteredTours from "../components/destinations/filteredTours"
 import DestinationsMobile from "../components/mobile/destinationsMobile"
-import DestinationsTablet from "../components/tablet/destinationsTablet"
+
 import TourBanner from "../components/banners/tourBanner"
 import Intro from "../components/intro"
 import BoxContainer from "../components/boxes/boxContainer"

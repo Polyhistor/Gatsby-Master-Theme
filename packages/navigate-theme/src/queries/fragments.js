@@ -462,9 +462,12 @@ export const ReviewsFragment = graphql`
     country
     reccomended
     name
+    showInReviewsBanner
+    link
     reviewText {
       reviewText
     }
+
     date
   }
 `

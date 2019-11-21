@@ -112,6 +112,13 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          review: {
+            maxRating: "5",
+            rating: "4.9",
+            totalFacebookReviews: 151,
+          },
+          tourUnit: "Trip",
+          useHeaderShapes: false,
           countryPage: {
             buttonCardText: "View Trip",
           },

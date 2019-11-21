@@ -5,7 +5,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const Trips = ({ data, headerText }) => {
   let currency
 
-  console.log(data)
   // function that programatically adds comma to the price
   let commaAdder = price => {
     return price

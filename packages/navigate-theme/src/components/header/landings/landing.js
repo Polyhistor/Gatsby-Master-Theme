@@ -4,7 +4,7 @@ import Modal from "react-responsive-modal"
 import BackgroundImage from "gatsby-background-image"
 
 import resolveVariationClass from "../../../helpers/theme-variation-style"
-
+import { useWebSiteConfigQuery } from "../../../queries/webSiteConfigQueries"
 import TextBox from "../textBox"
 import TextBoxAlt from "../textBox-alt"
 import Triangle from "../../header/objects/triangle"
@@ -29,6 +29,39 @@ const Header = ({
   mobileBanner,
 }) => {
   const SVGIcon = "wheel"
+
+  const webSiteConfig = useWebSiteConfigQuery()
+  const renderShapes = () => {
+    if (!webSiteConfig.useHeaderShapes) {
+      return null
+    }
+    return (
+      <div className="header__object-container">
+        {shape === "circle" ? (
+          <>
+            <Circle></Circle>
+            <Xmark></Xmark>
+            <Circle></Circle>
+            <Xmark></Xmark>
+          </>
+        ) : shape === "diamond" ? (
+          <>
+            <Diamond></Diamond>
+            <Xmark></Xmark>
+            <Diamond></Diamond>
+            <Xmark></Xmark>
+          </>
+        ) : (
+          <>
+            <Triangle></Triangle>
+            <Xmark></Xmark>
+            <Triangle></Triangle>
+            <Xmark></Xmark>
+          </>
+        )}
+      </div>
+    )
+  }
 
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
@@ -73,30 +106,7 @@ const Header = ({
                 : "header__text-box header__text-box--alt"
             }
           >
-            <div className="header__object-container">
-              {shape === "circle" ? (
-                <>
-                  <Circle></Circle>
-                  <Xmark></Xmark>
-                  <Circle></Circle>
-                  <Xmark></Xmark>
-                </>
-              ) : shape === "diamond" ? (
-                <>
-                  <Diamond></Diamond>
-                  <Xmark></Xmark>
-                  <Diamond></Diamond>
-                  <Xmark></Xmark>
-                </>
-              ) : (
-                <>
-                  <Triangle></Triangle>
-                  <Xmark></Xmark>
-                  <Triangle></Triangle>
-                  <Xmark></Xmark>
-                </>
-              )}
-            </div>
+            {renderShapes()}
             {variation === false ? (
               <TextBox
                 setModal={setModal}

@@ -115,7 +115,13 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
-          tourUnit: "Trip",
+          review: {
+            maxRating: "5",
+            rating: "4.9",
+            totalFacebookReviews: 151,
+          },
+          useHeaderShapes: false,
+          tourUnit: "Tour",
           countryPage: {
             buttonCardText: "Explore",
           },
@@ -245,7 +251,7 @@ module.exports = {
           },
           {
             label: "our vehicles",
-            link: "/our vehicles",
+            link: "/our-vehicles",
             sub: null,
           },
           { label: "faqs", link: "/faqs", sub: null },
