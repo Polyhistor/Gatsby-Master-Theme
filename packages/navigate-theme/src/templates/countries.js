@@ -15,6 +15,7 @@ import TourBanner from "../components/banners/tourBanner"
 import Intro from "../components/intro"
 import BoxContainer from "../components/boxes/boxContainer"
 import WhyUsMobile from "../components/mobile/whyWildkiwi"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -146,7 +147,12 @@ const Countries = ({ data, pageContext }) => {
       />
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
       {theme === "ms" ? (
-        renderDestinations()
+        <>
+          <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+            Destinations
+          </h2>
+          {renderDestinations()}
+        </>
       ) : (
         <FilteredTours
           country={data.contentfulCountry.slug}

@@ -176,7 +176,6 @@
       width: 5rem;
       @include respond(phone) {
         justify-self: center;
-        display: none;
       }
     }
   }

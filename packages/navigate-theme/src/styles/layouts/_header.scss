@@ -7,7 +7,7 @@
   margin: 0 auto;
 
   @include respond(laptop) {
-    max-width: 112.666rem;
+    max-width: 115rem;
   }
 
   @include respond(phone) {
@@ -26,7 +26,9 @@
     }
 
     & ~ .bannerHero > .header {
-      height: 23.3rem;
+      @include respond(phone) {
+        height: 23.3rem;
+      }
     }
   }
 
@@ -160,10 +162,6 @@
     top: 25%;
     display: grid;
     grid-template-rows: 27.6rem 12rem;
-
-    @include respond(laptop) {
-      left: 3%;
-    }
 
     @include respond(tablet) {
       left: 8.1rem;
