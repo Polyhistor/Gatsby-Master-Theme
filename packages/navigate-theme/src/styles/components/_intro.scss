@@ -11,6 +11,7 @@
   &__title {
     @extend .heading-2;
     @extend .heading-2--darkGrey;
+    line-height: 3rem;
 
     &--ms {
       @extend .heading-2--ms;

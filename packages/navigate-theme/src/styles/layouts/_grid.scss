@@ -50,10 +50,6 @@
   [class^="col-"] {
     float: left;
 
-    &:not(:last-child) {
-      margin-right: $gutter-horizontal;
-    }
-
     @include respond(phone) {
       margin-right: 0;
       margin-bottom: 0;
