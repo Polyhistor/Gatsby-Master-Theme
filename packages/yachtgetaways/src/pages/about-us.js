@@ -15,9 +15,6 @@ import {
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-// the svgs shall later be compiled into one SVG-Sprite
-const SVGIcon = "wheel"
-
 const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()

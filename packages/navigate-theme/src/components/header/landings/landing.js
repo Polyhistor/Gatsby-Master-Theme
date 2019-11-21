@@ -28,8 +28,6 @@ const Header = ({
   shape,
   mobileBanner,
 }) => {
-  const SVGIcon = "wheel"
-
   const webSiteConfig = useWebSiteConfigQuery()
   const renderShapes = () => {
     if (!webSiteConfig.useHeaderShapes) {

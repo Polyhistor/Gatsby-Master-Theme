@@ -17,8 +17,6 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const OurVehicles = ({ data }) => {
-  const SVGIcon = "wheel"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
