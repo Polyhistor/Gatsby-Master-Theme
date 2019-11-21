@@ -117,7 +117,7 @@ const DestinationsMobile = ({
             }
           >
             {type === "country"
-              ? `${buttonCardText}  ${destination}`
+              ? `${buttonCardText}  ${title}`
               : buttonCardText}
           </Link>
         </div>

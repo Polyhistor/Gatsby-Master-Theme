@@ -123,9 +123,11 @@ const IndexPage = ({ data }) => {
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <FeaturedMobile data={featuredBoxData} />
+
       <div className="row row--patched">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+        <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+          Destinations
+        </h2>
       </div>
       <BannerHero
         imageData={imageQuery.bannerHero.childImageSharp.fluid}

@@ -1,6 +1,6 @@
 .featured {
   height: 12.2rem;
-  background: black;
+
   text-transform: uppercase;
   position: relative;
   border-radius: 0 0 0.3rem 0.3rem;
@@ -18,7 +18,7 @@
   }
 
   &--wk {
-    background: $color-wk-green;
+    background: black;
   }
 
   &--yg {
