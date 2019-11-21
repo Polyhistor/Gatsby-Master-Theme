@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -14,9 +13,6 @@ import {
   useHomePageQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
-
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
@@ -38,11 +34,7 @@ const AboutUs = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageData={wildKiwiMountains}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <AboutUsSection />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}

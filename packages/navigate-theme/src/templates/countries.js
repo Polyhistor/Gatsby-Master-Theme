@@ -32,8 +32,6 @@ const Countries = ({ data, pageContext }) => {
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
 
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
-
   // getting the number of yours for each country
   const filterDestinations = destination => {
     const result = destinationData.filter(
@@ -121,14 +119,7 @@ const Countries = ({ data, pageContext }) => {
         mobileBanner={true}
       />
       {/* <Featured data={featuredBoxData} />  */}
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure tours for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-      />
+      <GreenBar />
       <Intro
         title={data.contentfulCountry.introTitle}
         description={data.contentfulCountry.introDescription}

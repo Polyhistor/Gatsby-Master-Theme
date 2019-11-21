@@ -113,6 +113,12 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          greenBar: {
+            text: "Skippered sailing holidays for 20-35 year olds",
+            icon: "wheel",
+            iconAlt: "MedSailors Tour",
+          },
+
           review: {
             maxRating: "5",
             rating: "4.9",

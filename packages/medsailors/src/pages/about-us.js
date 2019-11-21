@@ -16,9 +16,6 @@ import {
 
 import useWorkingForUs from "../queries/workingForUsQuery"
 
-// the svgs shall later be compiled into one SVG-Sprite
-const SVGIcon = "wheel"
-
 const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -40,11 +37,7 @@ const AboutUs = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

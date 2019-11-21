@@ -11,6 +11,11 @@ export const useWebSiteConfigQuery = () => {
               rating
               totalFacebookReviews
             }
+            greenBar {
+              text
+              icon
+              iconAlt
+            }
             tourUnit
             useHeaderShapes
             destinationPage {

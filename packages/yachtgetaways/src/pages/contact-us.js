@@ -19,11 +19,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   const link = resolveVariationClass("link")
-
-  const SVGIcon = "wheel"
 
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -55,11 +51,7 @@ const GetInTouch = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <SectionGetInTouch
         phoneNumberData={contactData.phoneAddress}
         leftContactSection={leftContactSection}

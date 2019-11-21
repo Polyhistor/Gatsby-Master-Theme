@@ -5,7 +5,6 @@ import React from "react"
 import {
   Layout,
   Landing,
-  GreenBar,
   Banner,
   Reviews,
   Trips,
@@ -18,8 +17,6 @@ import {
 import useYachtQuery from "../queries/ourYachtQuery"
 
 const OurVehicles = ({ data }) => {
-  const SVGIcon = "wheel"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -41,11 +38,7 @@ const OurVehicles = ({ data }) => {
           shape="diamond"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+
       <OurYachts data={YachtQuery} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

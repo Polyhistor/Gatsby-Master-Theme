@@ -115,6 +115,11 @@ module.exports = {
       resolve: "@nt-websites/navigate-theme",
       options: {
         config: {
+          greenBar: {
+            text: "Epic adventure for 18 to 35 year olds",
+            icon: "mountains",
+            iconAlt: "Wild-Kiwi-Mountaints-Logo",
+          },
           review: {
             maxRating: "5",
             rating: "4.9",

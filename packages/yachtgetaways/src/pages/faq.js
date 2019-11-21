@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -17,8 +16,6 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
-  const SVGIcon = "wheel"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -39,11 +36,7 @@ const FAQ = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <SectionFAQ
         FAQData={FAQData}
         categories={[

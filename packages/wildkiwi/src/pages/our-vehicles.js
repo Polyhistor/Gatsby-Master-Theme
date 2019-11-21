@@ -35,10 +35,7 @@ const OurVehicles = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+
       <SectionVehicle
         imageOne={imageQuery.vehicleInterior.childImageSharp.fluid}
         imageTwo={imageQuery.vehicleSouth.childImageSharp.fluid}

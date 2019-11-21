@@ -1,8 +1,11 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-const GreenBar = ({ text, imageData }) => {
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
+const GreenBar = () => {
   // TODO CLEAN UP ALL THE CALLS TO GATBSY_THEME ENV VARIABLE
+
+  const greenBar = useWebSiteConfigQuery().greenBar
 
   const iconClass = `${resolveVariationClass(
     "svg-icon--green-banner-svg-logo"
@@ -12,10 +15,10 @@ const GreenBar = ({ text, imageData }) => {
     <section className={resolveVariationClass("green-bar")}>
       <div className="green-bar__container">
         <svg className={iconClass}>
-          <use xlinkHref={withPrefix(`sprite.svg#icon-${imageData}`)} />
+          <use xlinkHref={withPrefix(`sprite.svg#icon-${greenBar.icon}`)} />
         </svg>
         <h2 className="heading-alternative heading-alternative--white">
-          {text}
+          {greenBar.text}
         </h2>
       </div>
     </section>

@@ -10,8 +10,6 @@ import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 
 import { renderSeoFromContext } from "../helpers/seo-helper"
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -68,15 +66,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure for 18 to 35 year olds"
-        }
-        imageData={wildKiwiMountains}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <div className="row">
         <div className="activity__main">
           {renderActivities()}

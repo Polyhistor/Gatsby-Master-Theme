@@ -12,7 +12,6 @@ import {
   useImageQuery,
   useHomePageQuery,
   useWorkingForUs,
-  WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -40,11 +39,7 @@ const AboutUs = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

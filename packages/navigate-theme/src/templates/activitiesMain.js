@@ -26,8 +26,6 @@ const ActivitiesMain = ({ pageContext }) => {
     "acitivity-box-single__caption--free"
   )
 
-  const SVGIcon = theme === "ms" ? "wheel" : "mountains"
-
   // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
 
   // extracting our custom hook
@@ -237,15 +235,7 @@ const ActivitiesMain = ({ pageContext }) => {
           shape="triangle"
         />
       </div>
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <Intro
         title="The world’s most popular sailing destination"
         description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.

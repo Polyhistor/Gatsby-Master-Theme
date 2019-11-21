@@ -35,8 +35,6 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   //TODO: workaround to change the header text quickly
   const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
 
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -74,14 +72,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         buttonText="watch trail"
         buttonTextSecond="view photos"
       />
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure tours for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-      />
+      <GreenBar />
       <DestinationSection>
         <TripBox
           destinationCountry={data.contentfulDestinations.destinationCountry}
