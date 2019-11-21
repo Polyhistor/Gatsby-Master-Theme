@@ -14,7 +14,6 @@ import {
   Trips,
   WhyUsMobile,
   FeaturedMobile,
-  DestinationsTablet,
   useImageQuery,
   useHomePageQuery,
   useCountryQuery,

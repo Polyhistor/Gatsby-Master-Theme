@@ -11,6 +11,7 @@ import Triangle from "../../header/objects/triangle"
 import Circle from "../../header/objects/circle"
 import Diamond from "../../header/objects/diamond"
 import Xmark from "../../header/objects/xMark"
+import GreenBar from "../../bars/greenBar"
 
 const Header = ({
   imageData,
@@ -27,6 +28,8 @@ const Header = ({
   shape,
   mobileBanner,
 }) => {
+  const SVGIcon = "wheel"
+
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
@@ -52,7 +55,11 @@ const Header = ({
   // rendering the contents
   return (
     <>
-      {mobileBanner ? <h1 className="mobile-yes">{titleFirst}</h1> : null}
+      {mobileBanner ? (
+        <h1 className={`${resolveVariationClass("header__title")} mobile-yes`}>
+          {titleFirst}
+        </h1>
+      ) : null}
       <BackgroundImage
         fluid={imageData}
         className={mobileBanner ? "bannerHero bannerHero--alt" : "bannerHero"}
@@ -119,6 +126,17 @@ const Header = ({
           </div>
         </div>
       </BackgroundImage>
+
+      {mobileBanner ? (
+        <div className="mobile-yes">
+          <GreenBar
+            text="Skippered sailing holidays for 20-35 year olds"
+            imageData={SVGIcon}
+            imageAlt="Wild-Kiwi-Mountaints-Logo"
+          />
+        </div>
+      ) : null}
+
       {/* setting modal values */}
       <Modal
         open={open}
