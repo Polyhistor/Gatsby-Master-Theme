@@ -247,9 +247,8 @@ const ActivitiesMain = ({ pageContext }) => {
         imageAlt="Wild-Kiwi-Mountaints-Logo"
       />
       <Intro
-        title="The world’s most popular sailing destination"
-        description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.
-We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia."
+        title="Personalise your sailing with add-on activities"
+        description="Make your sailing holiday exactly what you want it to be with a wide range of add on activites to choose from. From adrenaline watersports to local wine tastings, personalise your holiday the way you want it."
       ></Intro>
       <div className="row">
         <div className="activity__filter">
@@ -266,7 +265,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
               id="country"
               onChange={handleSubmit}
             >
-              <option value="all">Country</option>
+              <option value="all">Select Country</option>
 
               {renderCountries()}
             </select>
@@ -306,9 +305,9 @@ We have three routes to suit any style, choose the ultimate way you want to feel
                 text="Previous"
               />
             </div>
-            <div className="blog__main-nextLink">
-              <NavLink test={last} url={`/activities/${nextUrl}`} text="More" />
-            </div>
+            {/* <div className="blog__main-nextLink">
+              {/* <NavLink test={last} url={`/activities/${nextUrl}`} text="More" /> */}
+            {/* </div>  */}
           </div>
         </div>
         <Banner
