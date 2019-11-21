@@ -138,6 +138,10 @@
     }
 
     & > .row > .col-1-of-4 {
+      &:not(:last-child) {
+        margin-right: 1.3rem;
+      }
+
       @include respond(tablet) {
         width: 34.3rem;
       }
