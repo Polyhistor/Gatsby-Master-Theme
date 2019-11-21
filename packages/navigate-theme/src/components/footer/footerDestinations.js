@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, withPrefix } from "gatsby"
+import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import useCountryQuery from "../../queries/countryQuery"
 

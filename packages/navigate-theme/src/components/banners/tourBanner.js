@@ -86,7 +86,7 @@ const TourBanner = ({
                   }
                 >
                   {type === "country"
-                    ? `${buttonCardText}  ${destination}`
+                    ? `${buttonCardText}  ${title}`
                     : buttonCardText}
                 </Link>
               </div>
