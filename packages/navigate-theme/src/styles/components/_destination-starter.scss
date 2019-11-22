@@ -4,6 +4,12 @@
     max-width: 48%;
   }
 
+  & h1 {
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
   &__body {
     @extend .paragraph;
   }
