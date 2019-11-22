@@ -1,8 +1,10 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const ActivitiesBox = ({ activityData, title }) => {
   // TODO - CLEAN UP
 

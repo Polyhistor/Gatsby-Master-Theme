@@ -267,6 +267,7 @@
 
       @include respond(tablet) {
         margin-bottom: 1rem;
+        width: 22rem;
       }
 
       @include respond(phone) {
@@ -300,6 +301,7 @@
         @include respond(tablet) {
           grid-row: 3;
           height: 7rem;
+          width: 22rem;
         }
 
         @include respond(phone) {
@@ -449,7 +451,6 @@
     @include respond(tablet) {
       grid-template-columns: 8rem 8rem 14rem 22rem;
       grid-column-gap: 3rem;
-      margin-left: 5rem;
     }
 
     @include respond(phone) {
@@ -640,6 +641,10 @@
       border: 1px solid #e7e7e7;
 
       @include respond(laptop) {
+        width: 22rem;
+      }
+
+      @include respond(tablet) {
         width: 22rem;
       }
 

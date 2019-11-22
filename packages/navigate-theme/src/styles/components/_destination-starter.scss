@@ -1,4 +1,9 @@
 .destination-starter {
+  @include respond(tablet) {
+    margin-top: 1rem;
+    max-width: 48%;
+  }
+
   &__body {
     @extend .paragraph;
   }

@@ -1,10 +1,14 @@
 import React from "react"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
 import resolveVariationClass from "../../helpers/theme-variation-style"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
 const WhyWild = ({ WhyWildData, headerText }) => {
   const brandName = process.env.GATSBY_BRAND_NAME
+
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   const renderWhyWildData = () => {
     return WhyWildData.sort((a, b) => a.node.order - b.node.order).map(
@@ -16,9 +20,7 @@ const WhyWild = ({ WhyWildData, headerText }) => {
               alt={why.node.title}
               fluid={why.node.banner.localFile.childImageSharp.fluid}
             />
-            <h3 className={resolveVariationClass("WhyWild-box-single__title")}>
-              {why.node.title}
-            </h3>
+            <h3 className="WhyWild-box-single__title">{why.node.title}</h3>
             <p className="WhyWild-box-single__description">
               {why.node.description.description}
             </p>
@@ -37,6 +39,12 @@ const WhyWild = ({ WhyWildData, headerText }) => {
         {headerText ? headerText : `Why ${brandName}`}
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
+      <Link
+        to={`${themeOptionsQueryData.vehiclesRoute}`}
+        className={resolveVariationClass("acitivity-box-button")}
+      >
+        Learn More
+      </Link>
     </div>
   )
 }

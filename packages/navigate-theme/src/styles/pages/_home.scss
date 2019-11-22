@@ -140,6 +140,10 @@
     & > .row > .col-1-of-4 {
       &:not(:last-child) {
         margin-right: 1.3rem;
+
+        @include respond(phone) {
+          margin-right: 0;
+        }
       }
 
       @include respond(tablet) {
