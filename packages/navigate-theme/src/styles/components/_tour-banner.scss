@@ -33,7 +33,7 @@
       @extend .heading-2--darkGrey;
 
       @include respond(tablet) {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
       }
 
       @include respond(phone) {
