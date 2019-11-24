@@ -78,12 +78,22 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
   return (
     <>
       <select
-        onChange={e => handleDestDropdown(e)}
+        onChange={e => handleCountryDropdown(e)}
         className={"activity__dropdown"}
         id="country"
       >
         <option value="all">Destination</option>
-        {renderDropdownValues()}
+        {renderCountries()}
+      </select>
+
+      <select
+        onChange={e => handleDestDropdown(e)}
+        className={resolveVariationClass("activity__dropdown")}
+        id="tours"
+        value={selectValue}
+      >
+        <option value="all">{destinationDropdownLabel}</option>
+        {renderDestinations()}
       </select>
     </>
   )
