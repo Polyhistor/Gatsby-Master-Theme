@@ -33,9 +33,7 @@ const Trip = ({
             {title}
           </h3>
           <h5 className="trips__description-sub">{subtitle}</h5>
-          <p className={resolveVariationClass("trips__description-price")}>
-            {price}
-          </p>
+          <p className="trips__description-price">{price}</p>
         </div>
       </Link>
     </div>

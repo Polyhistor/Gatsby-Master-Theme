@@ -118,6 +118,19 @@
   margin: 0 auto;
 }
 
+@mixin centralizeFlex {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin mobileBorder {
+  border-bottom: 1.6rem solid $color-gray-light-2;
+}
+
+@mixin mobileBorderBig {
+  border-bottom: 4.8rem solid $color-gray-light-2;
+}
+
 @mixin black-upper {
   font-family: Nunito-Black;
   text-transform: uppercase;

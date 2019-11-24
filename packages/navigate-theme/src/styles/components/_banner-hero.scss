@@ -13,7 +13,7 @@
     height: 24rem;
 
     @include respond(phone) {
-      height: 35rem;
+      height: 20.8rem;
     }
   }
   &__text-box {
@@ -48,9 +48,14 @@
       }
 
       @include respond(phone) {
-        @include centralize;
         width: 95%;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 1.8rem !important;
       }
     }
   }

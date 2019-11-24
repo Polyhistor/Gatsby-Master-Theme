@@ -48,7 +48,9 @@
     @include respond(phone) {
       grid-row: 5;
       grid-template-columns: 1fr;
-      margin-bottom: 7rem;
+      max-width: 31.2rem;
+      margin-top: 0rem;
+      grid-row-gap: 0;
     }
 
     & h2 {
@@ -56,6 +58,8 @@
 
       @include respond(phone) {
         grid-column: 1/1;
+        margin-bottom: 1.6rem;
+        text-align: center;
       }
     }
 

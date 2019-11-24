@@ -69,6 +69,8 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           data.contentfulDestinations.bannerImages[4].localFile.childImageSharp
             .fluid
         }
+        mobileBanner={true}
+        mobileTitle={data.contentfulDestinations.title}
         buttonText="watch trail"
         buttonTextSecond="view photos"
       />

@@ -22,19 +22,9 @@
   }
 
   &__image {
-    // width: 21rem;
-    // height: 14rem;
     grid-row: 1;
     border-top-right-radius: 0.4rem;
     border-top-left-radius: 0.4rem;
-
-    @include respond(laptop) {
-    }
-
-    @include respond(phone) {
-      height: 22rem;
-      width: 30rem;
-    }
   }
 
   &__text {
@@ -93,11 +83,16 @@
 
     @include respond(phone) {
       grid-template-columns: 1fr;
+      max-width: 31.2rem;
     }
 
     & > h2 {
       grid-row: 1;
       grid-column: 1/-1;
+
+      @include respond(phone) {
+        text-align: center;
+      }
     }
   }
 }

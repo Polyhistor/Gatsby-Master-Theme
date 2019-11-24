@@ -30,8 +30,7 @@
     //TODO: remove color primary
     @include respond(phone) {
       @include bigCapitalText;
-      //   color: $color-primary;
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
 
     &--yg {

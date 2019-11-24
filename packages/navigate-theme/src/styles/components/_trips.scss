@@ -191,6 +191,7 @@
     &-price {
       @extend .heading-4;
       @extend .heading-4--capitalized;
+      @extend .heading-4--darkGrey;
       //TODO: we don't need it @extend .heading-4--darkGrey;
 
       &--ms {

@@ -15,7 +15,7 @@ import logoContext from "../../contexts/logoContext"
 import "../../styles/fonts/_fonts.css"
 import "../../styles/main.scss"
 
-const Layout = ({ children, Insta }) => {
+const Layout = ({ children }) => {
   Layout.propTypes = {
     children: PropTypes.node.isRequired,
   }
@@ -27,7 +27,6 @@ const Layout = ({ children, Insta }) => {
         <NavigationMobile />
       </logoContext.LogoProvider>
       <main>{children}</main>
-
       <Footer />
     </>
   )
