@@ -3,9 +3,9 @@
   float: left;
   position: relative;
 
-  @include respond(laptop) {
-    &:nth-child(4) {
-      padding-right: 0;
+  &:nth-child(4) {
+    @include respond(laptop) {
+      padding-right: 0 !important;
     }
   }
 
@@ -72,7 +72,7 @@
     height: 13rem;
 
     @include respond(laptop) {
-      width: 28rem;
+      width: 29.2rem;
       height: 17rem;
     }
 
