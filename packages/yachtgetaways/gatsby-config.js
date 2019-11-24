@@ -279,6 +279,7 @@ module.exports = {
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
+          vehiclesRoute: `/yachts`,
           destinationCountryRoutePrefix: `/sail-` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
