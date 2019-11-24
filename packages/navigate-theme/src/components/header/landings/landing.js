@@ -5,13 +5,13 @@ import BackgroundImage from "gatsby-background-image"
 
 import resolveVariationClass from "../../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../../queries/webSiteConfigQueries"
+
 import TextBox from "../textBox"
 import TextBoxAlt from "../textBox-alt"
 import Triangle from "../../header/objects/triangle"
 import Circle from "../../header/objects/circle"
 import Diamond from "../../header/objects/diamond"
 import Xmark from "../../header/objects/xMark"
-import GreenBar from "../../bars/greenBar"
 
 const Header = ({
   imageData,

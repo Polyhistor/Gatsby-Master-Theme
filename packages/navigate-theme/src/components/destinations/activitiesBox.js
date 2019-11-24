@@ -48,9 +48,7 @@ const ActivitiesBox = ({ activityData, title }) => {
               </figure>
               <h3 className="acitivity-box-single__title">{title}</h3>
               <h4 className="acitivity-box-single__sub-title">{subtitle}</h4>
-              <span className={resolveVariationClass("heading-5")}>
-                {price}
-              </span>
+              <span className="acitivity-box-single__price">{price}</span>
             </div>
           </Link>
         )

@@ -464,8 +464,8 @@
     }
 
     @include respond(phone) {
-      grid-row: 7;
-      height: 70rem;
+      grid-row: 9;
+      height: 61rem;
     }
 
     & > section {
@@ -479,7 +479,7 @@
       }
 
       @include respond(phone) {
-        height: 61.89rem;
+        height: 56.89rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -496,6 +496,7 @@
 
         @include respond(phone) {
           margin-left: 0rem;
+          max-width: 100%;
         }
       }
 
@@ -524,6 +525,10 @@
       grid-row: 11;
     }
 
+    @include respond(phone) {
+      margin-top: 5.8rem;
+    }
+
     & > section {
       margin-top: 0;
 
@@ -533,6 +538,10 @@
 
       & > .row {
         margin-left: 0;
+
+        @include respond(phone) {
+          max-width: 100%;
+        }
       }
     }
   }

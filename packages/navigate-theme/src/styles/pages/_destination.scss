@@ -8,7 +8,7 @@
 
     @include respond(laptop) {
       max-width: 120rem;
-      grid-template-columns: 84.2rem 27rem;
+      grid-template-columns: 84.2rem 34.1rem;
       grid-column-gap: 1.6rem;
     }
 
@@ -18,7 +18,6 @@
     }
 
     @include respond(phone) {
-      max-width: 30rem;
       grid-template-columns: 100%;
     }
 
@@ -29,6 +28,13 @@
       @include respond(tablet) {
         grid-row: 1;
         grid-column: 1/-1;
+      }
+
+      @include respond(phone) {
+        @include centralizeFlex;
+        @include mobileBorderBig;
+        padding: 4.8rem;
+        text-align: center;
       }
     }
 
@@ -43,6 +49,10 @@
 
       @include respond(phone) {
         grid-row: 3;
+        padding: 4.8rem 0;
+        @include mobileBorderBig;
+        @include centralizeFlex;
+        width: 100%;
       }
     }
 
@@ -57,6 +67,11 @@
 
       @include respond(phone) {
         grid-row: 4;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 4.8rem 0;
+        @include mobileBorderBig;
       }
     }
 
@@ -70,8 +85,11 @@
       }
 
       @include respond(phone) {
+        @include centralizeFlex;
+        @include mobileBorderBig;
         grid-row: 2;
         grid-column: 1;
+        padding: 4.8rem;
       }
     }
 
@@ -86,6 +104,9 @@
 
       @include respond(phone) {
         grid-row: 5;
+        @include centralizeFlex;
+        @include mobileBorderBig;
+        padding: 4.8rem 0;
       }
     }
 
@@ -100,6 +121,11 @@
 
       @include respond(phone) {
         grid-row: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4.8rem 0;
+        @include mobileBorderBig;
       }
     }
 
@@ -116,8 +142,13 @@
       }
 
       @include respond(phone) {
-        grid-row: 8;
-        display: none;
+        grid-row: 7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+        @include mobileBorderBig;
+        padding: 4.8rem 0;
       }
     }
 
@@ -130,6 +161,7 @@
       }
 
       @include respond(phone) {
+        grid-row: 8;
       }
 
       & > h1 {

@@ -17,6 +17,7 @@
     margin-top: 4rem;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
+    margin-top: 0rem;
   }
 
   &--europe {
@@ -34,7 +35,7 @@
     }
 
     @include respond(phone) {
-      height: 40rem;
+      height: 25rem;
     }
 
     & > a {
