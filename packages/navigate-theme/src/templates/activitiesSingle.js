@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 // default components
 import Layout2 from "../components/layout/layout2"
@@ -43,7 +44,6 @@ const ActivitiesSingle = ({
   return (
     <Layout2>
       {renderSeoFromContext(pageContext)}
-
       <LandingChartered
         bannerFirst={
           data.contentfulActivities.bannerImages[0].localFile.childImageSharp
@@ -79,13 +79,13 @@ const ActivitiesSingle = ({
       />
       <GreenBar />
       <SectionActivity>
-        {/* <div className="activity__breadcrumb-container">
+        <div className="activity__breadcrumb-container">
           <Breadcrumb
             className="activity__breadcrumb"
             crumbs={crumbs}
             crumbSeparator="&ensp;/&ensp;"
           />
-        </div> */}
+        </div>
         <ActivityScaffold
           title={data.contentfulActivities.title}
           subtitle={data.contentfulActivities.subtitle}
