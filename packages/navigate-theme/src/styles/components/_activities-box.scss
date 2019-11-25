@@ -33,7 +33,7 @@
     grid-template-rows: min-content min-content 2rem 2rem;
 
     @include respond(tablet) {
-      grid-template-rows: 15rem 2.5rem 2rem 2rem;
+      grid-template-rows: 24rem 2.5rem 2rem 2rem;
     }
 
     @include respond(phone) {
@@ -96,6 +96,15 @@
       padding-top: 1.6rem;
       @extend .paragraph;
       @extend .paragraph--black;
+
+      @include respond(tablet) {
+        padding-top: 0rem;
+      }
+
+      @include respond(phone) {
+        line-height: 1.8rem;
+        padding-bottom: 0.6rem;
+      }
     }
 
     &__sub-title {
@@ -148,7 +157,7 @@
     }
 
     @include respond(tablet) {
-      margin-left: auto;
+      margin-left: 0;
       margin-right: auto;
       text-align: center;
       margin-top: 3rem;
