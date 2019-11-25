@@ -26,12 +26,12 @@ const TripBox = ({
           <h2 className="trip-box__title">{title}</h2>
           <div className="trip-box__info">
             <div className="trip-box__price">
-              <span className="paragraph">{daysNum}</span>
+              <span className="paragraph">{daysNum} &thinsp;</span>
               <span className="paragraph">{daysText} &nbsp;</span>
               <span className="paragraph">&#9679;</span>
               <span className="paragraph">&nbsp; {priceText} </span>
               <span className="paragraph">
-                &nbsp;{`${currency[1]}${commaHandler(price)}`}
+                &nbsp;{`${currency[1]}${commaHandler(price)}pp`}
               </span>
             </div>
           </div>

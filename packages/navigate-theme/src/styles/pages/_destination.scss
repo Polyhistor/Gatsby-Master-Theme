@@ -8,7 +8,7 @@
 
     @include respond(laptop) {
       max-width: 120rem;
-      grid-template-columns: 84.2rem 34.1rem;
+      grid-template-columns: 81.2rem 34.1rem;
       grid-column-gap: 1.6rem;
     }
 
@@ -35,6 +35,7 @@
         @include mobileBorderBig;
         padding: 4.8rem;
         text-align: center;
+        margin-top: 0;
       }
     }
 
