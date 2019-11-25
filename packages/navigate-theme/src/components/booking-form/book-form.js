@@ -195,7 +195,7 @@ const BookForm = ({ tourId, inPage }) => {
             emailConfirm: "",
             phoneCountryCode: "",
             phoneNumber: "",
-            gender: "male",
+            gender: "",
             comments: "",
             consent: false,
             yachtCabinName: "",
@@ -222,22 +222,8 @@ const BookForm = ({ tourId, inPage }) => {
                   onDestinationChange={handleDestinationChange}
                 />
               )}
-              <div className="booking-details__fields-container">
-                <Field
-                  component="select"
-                  name="gender"
-                  className={
-                    errors.gender
-                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                      : "booking-form__fields booking-form__fields--half"
-                  }
-                >
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </Field>
-                <Error touched={touched.gender} message={errors.gender} />
-              </div>
-
+              <br />
+              <label>First Name*</label>
               <div className="booking-details__fields-container">
                 <Field
                   type="text"
@@ -252,6 +238,7 @@ const BookForm = ({ tourId, inPage }) => {
                 ></Field>
                 <Error touched={touched.firstName} message={errors.firstName} />
               </div>
+              <label>Last Name*</label>
               <div className="booking-details__fields-container">
                 <Field
                   type="text"
@@ -265,7 +252,7 @@ const BookForm = ({ tourId, inPage }) => {
                 ></Field>
                 <Error touched={touched.lastName} message={errors.lastName} />
               </div>
-
+              <label>Email*</label>
               <div className="booking-details__fields-container">
                 <Field
                   type="text"
@@ -279,7 +266,7 @@ const BookForm = ({ tourId, inPage }) => {
                 ></Field>
                 <Error touched={touched.email} message={errors.email} />
               </div>
-
+              <label>Confirm Email*</label>
               <div className="booking-details__fields-container">
                 <Field
                   type="text"
@@ -296,6 +283,7 @@ const BookForm = ({ tourId, inPage }) => {
                   message={errors.emailConfirm}
                 />
               </div>
+              <label>Country Code*</label>
               <div className="booking-details__fields-container">
                 <Field
                   component="select"
@@ -325,6 +313,7 @@ const BookForm = ({ tourId, inPage }) => {
                   message={errors.phoneCountryCode}
                 />
               </div>
+              <label>Contact Number:</label>
               <div className="booking-details__fields-container">
                 <Field
                   type="number"
@@ -341,30 +330,53 @@ const BookForm = ({ tourId, inPage }) => {
                   message={errors.phoneNumber}
                 />
               </div>
+              <label>Gender*</label>
               <div className="booking-details__fields-container">
                 <Field
                   component="select"
+                  name="gender"
+                  className={
+                    errors.gender
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
+                >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </Field>
+                <Error touched={touched.gender} message={errors.gender} />
+              </div>
+              <label>Age*</label>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
                   name="age"
-                  placeholder="Age *"
+                  placeholder="Age "
                   className={
                     errors.age
                       ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
                       : "booking-form__fields booking-form__fields--half"
                   }
-                >
-                  <option disabled value="">
-                    Select your age
-                  </option>
-                  {getPaxAges().map((p, idx) => {
-                    return (
-                      <option key={idx} value={p}>
-                        {p}
-                      </option>
-                    )
-                  })}
-                </Field>
+                ></Field>
                 <Error touched={touched.age} message={errors.age} />
               </div>
+              <label>No. of Travelers*</label>
+              <div className="booking-details__fields-container">
+                <Field
+                  type="number"
+                  name="guests"
+                  placeholder="No. of Travelers"
+                  className={
+                    errors.guests
+                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                      : "booking-form__fields booking-form__fields--half"
+                  }
+                ></Field>
+
+                <Error touched={touched.guests} message={errors.guests} />
+              </div>
+              <label>Departure Date*</label>
               <div className="booking-details__fields-container">
                 <select
                   onChange={e => onDateChanged(e.target.value, setFieldValue)}
@@ -395,101 +407,81 @@ const BookForm = ({ tourId, inPage }) => {
 
                 <Error touched={touched.date} message={errors.date} />
               </div>
+              {productClasses && (
+                <>
+                  <label>Yacht Type*</label>
+                  <div className="booking-details__fields-container">
+                    <select
+                      onChange={e =>
+                        onProductClassChanged(e.target.value, setFieldValue)
+                      }
+                      //disabled={!values.date}
+                      name="productClass"
+                      value={values.priceId}
+                      className={
+                        errors.productClass
+                          ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                          : "booking-form__fields booking-form__fields--half"
+                      }
+                    >
+                      <option value="">
+                        {!values.date
+                          ? `Please select the departure date first`
+                          : `Select yacht class `}
+                      </option>
 
-              <div className="booking-details__fields-container">
-                <select
-                  onChange={e =>
-                    onProductClassChanged(e.target.value, setFieldValue)
-                  }
-                  //disabled={!values.date}
-                  name="productClass"
-                  value={values.priceId}
-                  className={
-                    errors.productClass
-                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                      : "booking-form__fields booking-form__fields--half"
-                  }
-                >
-                  <option value="">
-                    {!values.date
-                      ? `Please select the departure date first`
-                      : `Select yacht class `}
-                  </option>
+                      {productClasses.map((p, idx) => {
+                        return (
+                          <option key={idx} value={p.id}>
+                            {p.name}
+                          </option>
+                        )
+                      })}
+                    </select>
+                    <Error
+                      touched={touched.productClass}
+                      message={errors.productClass}
+                    />
+                  </div>
+                </>
+              )}
+              {cabinTypes && cabinTypes.length > 0 && (
+                <>
+                  <label>Cabin Type*</label>
+                  <div className="booking-details__fields-container">
+                    <select
+                      onChange={e =>
+                        onYachtCabinChanged(e.target.value, setFieldValue)
+                      }
+                      //    disabled={!values.productClass}
+                      value={values.yachtCabinId}
+                      name="yachtCabinName"
+                      className={
+                        errors.yachtCabinName
+                          ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
+                          : "booking-form__fields booking-form__fields--half"
+                      }
+                    >
+                      <option value="">
+                        {!values.priceId
+                          ? `Please select the yacht class first`
+                          : `Select cabin type class `}
+                      </option>
 
-                  {productClasses &&
-                    productClasses.map((p, idx) => {
-                      return (
-                        <option key={idx} value={p.id}>
-                          {p.name}
+                      {cabinTypes.map((e, idx) => (
+                        <option key={idx} value={e.id}>
+                          {getCabinDescription(e)}
                         </option>
-                      )
-                    })}
-                </select>
-                <Error
-                  touched={touched.productClass}
-                  message={errors.productClass}
-                />
-              </div>
+                      ))}
+                    </select>
 
-              <div className="booking-details__fields-container">
-                <select
-                  onChange={e =>
-                    onYachtCabinChanged(e.target.value, setFieldValue)
-                  }
-                  //    disabled={!values.productClass}
-                  value={values.yachtCabinId}
-                  name="yachtCabinName"
-                  className={
-                    errors.yachtCabinName
-                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                      : "booking-form__fields booking-form__fields--half"
-                  }
-                >
-                  <option value="">
-                    {!values.priceId
-                      ? `Please select the yacht class first`
-                      : `Select cabin type class `}
-                  </option>
-
-                  {cabinTypes.map((e, idx) => (
-                    <option key={idx} value={e.id}>
-                      {getCabinDescription(e)}
-                    </option>
-                  ))}
-                </select>
-
-                <Error
-                  touched={touched.yachtCabinName}
-                  message={errors.yachtCabinName}
-                />
-              </div>
-
-              <div className="booking-details__fields-container">
-                <Field
-                  component="select"
-                  name="guests"
-                  className={
-                    errors.guests
-                      ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                      : "booking-form__fields booking-form__fields--half"
-                  }
-                >
-                  <option value="">Select Passengers</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">10+</option>
-                </Field>
-
-                <Error touched={touched.guests} message={errors.guests} />
-              </div>
+                    <Error
+                      touched={touched.yachtCabinName}
+                      message={errors.yachtCabinName}
+                    />
+                  </div>
+                </>
+              )}
 
               <div className="booking-details__fields-container">
                 <Field
