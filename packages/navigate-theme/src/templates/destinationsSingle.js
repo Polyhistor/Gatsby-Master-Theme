@@ -13,7 +13,8 @@ import Includes from "../components/destinations/includes"
 import ActivitiesBox from "../components/destinations/activitiesBox"
 import Reviews from "../components/reviews/reviews"
 import WhyWild from "../components/destinations/whyWild"
-import Booking from "../components/destinations/booking"
+import BookForm from "../components/booking-form/book-form"
+import PriceTable from "../components/booking-form/price-table"
 import GetThere from "../components/destinations/getThere"
 import Banner from "../components/banners/banner"
 import Trips from "../components/trips/trips"
@@ -146,11 +147,14 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           <Reviews />
         </div>
         <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
-        <Booking
+
+        <PriceTable
           slug={data.contentfulDestinations.slug}
           data={ourData}
           inPage={true}
         />
+
+        <BookForm tourId={data.contentfulDestinations.slug} inPage={true} />
         <GetThere
           title="Getting there"
           paragraph={
