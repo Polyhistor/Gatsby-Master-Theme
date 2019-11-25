@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
@@ -29,11 +30,11 @@ const DestinationsTablet = ({
   country,
 }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery()
+  const webSiteConfiguration = useWebSiteConfigQuery()
   const buttonCardText =
     type === "country"
-      ? pageConfiguration.countryPage.buttonText
-      : pageConfiguration.destinationPage.buttonText
+      ? webSiteConfiguration.countryPage.buttonCardText
+      : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
@@ -48,7 +49,11 @@ const DestinationsTablet = ({
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
               </span>
-              {duration !== undefined ? "days" : "tours"}
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${webSiteConfiguration.tourUnit}`
+                : `${webSiteConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>
@@ -87,7 +92,9 @@ const DestinationsTablet = ({
                     : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
                 }
               >
-                {pageConfiguration.buttonCardText}
+                {type === "country"
+                  ? `${buttonCardText}  ${title}`
+                  : buttonCardText}
               </Link>
             </div>
           </div>
@@ -112,7 +119,9 @@ const DestinationsTablet = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            {buttonCardText}
+            {type === "country"
+              ? `${buttonCardText}  ${title}`
+              : buttonCardText}
           </Link>
         </div>
       </div>

@@ -7,8 +7,6 @@ import NavButton from "./navButton"
 import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 const NavItems = () => {
-  const theme = process.env.GATSBY_THEME
-
   const menuLabels = useMenuLabelQuery()
 
   // iterating through link items

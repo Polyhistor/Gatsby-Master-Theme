@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -16,11 +15,8 @@ import {
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
-
 const HowItWorks = ({ data }) => {
-  const SVGIcon = "wheel"
+ 
 
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -28,17 +24,7 @@ const HowItWorks = ({ data }) => {
   const howItWorksData = useHowItWorksQuery()
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -53,11 +39,7 @@ const HowItWorks = ({ data }) => {
           shape="circle"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
+import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const Banner = ({
   imageData,
   header,
@@ -25,7 +27,10 @@ const Banner = ({
                 </span>
               </h2>
               <div>
-                <Link to={link} className="btn btn--transparent btn-animated">
+                <Link
+                  to={link}
+                  className={`btn ${resolveVariationClass("btn--white")}`}
+                >
                   {buttonText}
                 </Link>
               </div>

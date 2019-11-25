@@ -2,7 +2,7 @@ import React from "react"
 
 import Box from "./box"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-const BoxContainer = ({ dataArray }) => {
+const BoxContainer = ({ dataArray, title }) => {
   const brandName = process.env.GATSBY_BRAND_NAME
 
   // function that takes an array of data and render jsx for it
@@ -19,13 +19,15 @@ const BoxContainer = ({ dataArray }) => {
   return (
     <section className="section-why-us mobile-no">
       <div className="row">
-        <h2
-          className={`${resolveVariationClass(
-            "heading-1"
-          )} u-margin-bottom-sedium`}
-        >
-          Why {brandName}?
-        </h2>
+        {title !== null ? (
+          <h2
+            className={`${resolveVariationClass(
+              "heading-1"
+            )} u-margin-bottom-sedium`}
+          >
+            Why {brandName}?
+          </h2>
+        ) : null}
         {renderBoxes()}
       </div>
     </section>

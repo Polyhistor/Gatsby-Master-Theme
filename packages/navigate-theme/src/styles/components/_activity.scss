@@ -54,8 +54,8 @@
 
   &__subtitle {
     grid-column: 2;
-    @extend .paragraph;
-    @extend .paragraph--extraBold-capitalized-grey;
+    @extend .heading-4;
+    @extend .heading-4--grey;
 
     @include respond(phone) {
       font-size: 2rem;
@@ -65,10 +65,10 @@
   }
 
   &__price {
-    //TODO: extends heading variation on variation.
     grid-column: 2;
     @extend .heading-4;
-    @extend .heading-4--black;
+    @extend .heading-4--capitalized;
+    @extend .heading-4--darkGrey;
 
     @include respond(phone) {
       grid-row: 4;
@@ -77,10 +77,6 @@
 
     &--yg {
       color: $color-yg-blue;
-    }
-
-    &--ms {
-      color: $color-med-teal;
     }
 
     &--wk {

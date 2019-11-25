@@ -48,20 +48,10 @@ const BlogPostTemplate = ({ data }, idx) => {
   const imageQuery = useImageQuery()
 
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       <SEO
-        title={data.wordpressPost.title}
-        description={data.wordpressPost.excerpt}
+        title={data.wordpressPost.fields.seoTitle}
+        description={data.wordpressPost.fields.seoDescription}
       />
       <article className="blog-single">
         {/* error handling */}
@@ -99,7 +89,6 @@ const BlogPostTemplate = ({ data }, idx) => {
                 className="blog-single__avatar"
               />
             </Link>
-
             <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
               <span className="blog-single__author" key={idx + 2}>
                 By {data.wordpressPost.author.name}

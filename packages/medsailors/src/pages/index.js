@@ -14,7 +14,6 @@ import {
   Trips,
   WhyUsMobile,
   FeaturedMobile,
-  DestinationsTablet,
   useImageQuery,
   useHomePageQuery,
   useCountryQuery,
@@ -31,8 +30,6 @@ const IndexPage = ({ data }) => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
   const featuredBoxData = useFeatureBox()
-
-  console.log(homeQuery)
 
   // getting the number of tours for each country
   const filterDestinations = destination => {
@@ -53,6 +50,7 @@ const IndexPage = ({ data }) => {
    */
   // rendering all the destination boxes
   const renderCountries = () => {
+    const lastIndex = countryQuery.length - 1
     return countryQuery
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((country, idx) => {
@@ -69,8 +67,9 @@ const IndexPage = ({ data }) => {
               price={country.node.price}
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
+              idx={idx === lastIndex ? lastIndex : null}
             />
-            <DestinationsTablet
+            {/* <DestinationsTablet
               type="country"
               key={idx + 8}
               destination={country.node.slug}
@@ -82,7 +81,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
-            />
+            /> */}
             <TourBanner
               type="country"
               key={idx + 12}
@@ -106,17 +105,7 @@ const IndexPage = ({ data }) => {
    */
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
@@ -144,14 +133,10 @@ const IndexPage = ({ data }) => {
       />
       <WhyUsMobile
         data={homeQuery[0].node}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
       />
       <div className="row row--patched">
-        <h2
-          className={`${resolveVariationClass(
-            "heading-1"
-          )} u-margin-bottom-small u-center-text`}
-        >
+        <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
           Destinations
         </h2>
       </div>

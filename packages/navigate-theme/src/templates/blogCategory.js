@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { useStaticQuery } from "gatsby"
 
 import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
@@ -49,17 +48,7 @@ const BlogCategory = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       <SEO title={`${pageContext.name} | ${pageContext.site.name}`} />
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">

@@ -8,7 +8,6 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
-import { renderSeoFromContext } from "../helpers/seo-helper"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 import useImageQuery from "../queries/imageQuery"
@@ -76,17 +75,7 @@ const IndexPage = ({ pageContext }) => {
 
   return (
     //TODO: blog seo should be handled in contentful
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       <SEO title={getBlogSeo().title} description={getBlogSeo().description} />
       <div className="row">
         <div className="blog__main">

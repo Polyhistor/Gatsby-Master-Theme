@@ -1,10 +1,4 @@
 .review {
-  padding: 10rem 4rem;
-
-  @include respond(tablet) {
-    padding: 2rem 2rem;
-  }
-
   @include respond(phone) {
     padding: 0rem 1rem 1rem;
   }
@@ -36,8 +30,7 @@
     //TODO: remove color primary
     @include respond(phone) {
       @include bigCapitalText;
-      //   color: $color-primary;
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
 
     &--yg {

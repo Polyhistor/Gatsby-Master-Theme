@@ -114,6 +114,36 @@ module.exports = {
     {
       resolve: "@nt-websites/navigate-theme",
       options: {
+        config: {
+          greenBar: {
+            text: "Epic adventure for 18 to 35 year olds",
+            icon: "mountains",
+            iconAlt: "Wild-Kiwi-Mountaints-Logo",
+          },
+          review: {
+            maxRating: "5",
+            rating: "4.9",
+            totalFacebookReviews: 151,
+          },
+          useHeaderShapes: false,
+          tourUnit: "Tour",
+          countryPage: {
+            buttonCardText: "Explore",
+          },
+          destinationPage: {
+            buttonCardText: "View Itinerary",
+          },
+          bookingForm: {
+            destinationDropdownLabel: "Tour",
+            useYachtClass: false,
+            yachtClasses: [
+              {
+                description: "none",
+                code: "none",
+              },
+            ],
+          },
+        },
         site: {
           name: `Wild Kiwi`,
         },
@@ -225,8 +255,8 @@ module.exports = {
             sub: null,
           },
           {
-            label: "our yachts",
-            link: "/yachts",
+            label: "our vehicles",
+            link: "/our-vehicles",
             sub: null,
           },
           { label: "faqs", link: "/faqs", sub: null },
@@ -239,10 +269,13 @@ module.exports = {
           },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
-
+        modalText: {
+          selection: "Please select your destination and tour",
+        },
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
+          vehiclesRoute: `/our-vehicles`,
           destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
@@ -260,13 +293,7 @@ module.exports = {
           baseUrl: process.env.WORDPRESS_URL,
           perPage: 3,
           concurrentRequests: 3,
-          includedRoutes: [
-            `**/categories`,
-            `**/posts`,
-            `**/users`,
-            `**/media`,
-            `**/tags`,
-          ],
+          includedRoutes: [`**/categories`, `**/posts`, `**/users`, `**/tags`],
         },
       },
     },

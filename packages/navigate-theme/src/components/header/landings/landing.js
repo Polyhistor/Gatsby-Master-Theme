@@ -4,6 +4,7 @@ import Modal from "react-responsive-modal"
 import BackgroundImage from "gatsby-background-image"
 
 import resolveVariationClass from "../../../helpers/theme-variation-style"
+import { useWebSiteConfigQuery } from "../../../queries/webSiteConfigQueries"
 
 import TextBox from "../textBox"
 import TextBoxAlt from "../textBox-alt"
@@ -25,7 +26,41 @@ const Header = ({
   variation,
   popupVideo,
   shape,
+  mobileBanner,
 }) => {
+  const webSiteConfig = useWebSiteConfigQuery()
+  const renderShapes = () => {
+    if (!webSiteConfig.useHeaderShapes) {
+      return null
+    }
+    return (
+      <div className="header__object-container">
+        {shape === "circle" ? (
+          <>
+            <Circle></Circle>
+            <Xmark></Xmark>
+            <Circle></Circle>
+            <Xmark></Xmark>
+          </>
+        ) : shape === "diamond" ? (
+          <>
+            <Diamond></Diamond>
+            <Xmark></Xmark>
+            <Diamond></Diamond>
+            <Xmark></Xmark>
+          </>
+        ) : (
+          <>
+            <Triangle></Triangle>
+            <Xmark></Xmark>
+            <Triangle></Triangle>
+            <Xmark></Xmark>
+          </>
+        )}
+      </div>
+    )
+  }
+
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
@@ -51,7 +86,16 @@ const Header = ({
   // rendering the contents
   return (
     <>
-      <BackgroundImage fluid={imageData} className="bannerHero" id="bannerHero">
+      {mobileBanner ? (
+        <h1 className={`${resolveVariationClass("header__title")} mobile-yes`}>
+          {titleFirst}
+        </h1>
+      ) : null}
+      <BackgroundImage
+        fluid={imageData}
+        className={mobileBanner ? "bannerHero bannerHero--alt" : "bannerHero"}
+        id="bannerHero"
+      >
         <div className="header">
           <div
             className={
@@ -60,30 +104,7 @@ const Header = ({
                 : "header__text-box header__text-box--alt"
             }
           >
-            <div className="header__object-container">
-              {shape === "circle" ? (
-                <>
-                  <Circle></Circle>
-                  <Xmark></Xmark>
-                  <Circle></Circle>
-                  <Xmark></Xmark>
-                </>
-              ) : shape === "diamond" ? (
-                <>
-                  <Diamond></Diamond>
-                  <Xmark></Xmark>
-                  <Diamond></Diamond>
-                  <Xmark></Xmark>
-                </>
-              ) : (
-                <>
-                  <Triangle></Triangle>
-                  <Xmark></Xmark>
-                  <Triangle></Triangle>
-                  <Xmark></Xmark>
-                </>
-              )}
-            </div>
+            {renderShapes()}
             {variation === false ? (
               <TextBox
                 setModal={setModal}

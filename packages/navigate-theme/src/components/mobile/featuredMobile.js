@@ -8,7 +8,7 @@ const FeaturedMobile = ({ data }) => {
       .sort((a, b) => a.node.order - b.node.order)
       .map((e, idx) => (
         <div key={idx} className="featured__container-image">
-          <a href={e.logoUrl} target="__blank">
+          <a href={e.node.logoUrl} target="__blank">
             <img src={e.node.logoImage.localFile.publicURL}></img>
           </a>
         </div>

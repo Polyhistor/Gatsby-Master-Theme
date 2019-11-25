@@ -11,22 +11,11 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
-  const SVGIcon = "wheel"
   // extracting our custom hook
   const imageQuery = useImageQuery()
 
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       {renderSeo(data)}
 
       <div className="hotfix--narrow-banner">
@@ -41,11 +30,7 @@ const Reviews = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+
       <SectionReview />
     </Layout2>
   )

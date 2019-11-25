@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -12,13 +11,10 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  useWorkingForUs,
-  WorkForUs,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-// the svgs shall later be compiled into one SVG-Sprite
-const SVGIcon = "wheel"
+import useWorkingForUs from "../queries/workingForUsQuery"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
@@ -27,17 +23,7 @@ const AboutUs = ({ data }) => {
   const workForUsQuery = useWorkingForUs()
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -51,11 +37,7 @@ const AboutUs = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

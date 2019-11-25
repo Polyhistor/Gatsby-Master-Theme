@@ -32,8 +32,6 @@ const ActivitiesSingle = ({
 
   const theme = process.env.GATSBY_THEME
 
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
-
   let customCrub = []
 
   crumbs.forEach(e => [...customCrub, e.pathname])
@@ -43,17 +41,7 @@ const ActivitiesSingle = ({
   const imageQuery = useImageQuery()
 
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       {renderSeoFromContext(pageContext)}
 
       <LandingChartered
@@ -89,15 +77,7 @@ const ActivitiesSingle = ({
         buttonTextSecond="view photos"
         imagesLength={data.contentfulActivities.bannerImages.length}
       />
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <SectionActivity>
         {/* <div className="activity__breadcrumb-container">
           <Breadcrumb

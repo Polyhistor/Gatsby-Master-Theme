@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 export const FluidImageFragment = graphql`
   fragment FluidImage on File {
     childImageSharp {
-      fluid(quality: 70, maxWidth: 1160) {
+      fluid(quality: 100, maxWidth: 2160) {
         ...GatsbyImageSharpFluid
       }
     }
@@ -15,8 +15,8 @@ export const FluidImageFragment = graphql`
 export const FluidImageFragmentBig = graphql`
   fragment FluidImageBig on File {
     childImageSharp {
-      fluid(quality: 80, maxWidth: 2160) {
-        ...GatsbyImageSharpFluid_withWebp
+      fluid(quality: 100, maxWidth: 3160) {
+        ...GatsbyImageSharpFluid
       }
     }
   }
@@ -55,6 +55,8 @@ export const BlogPostFragment = graphql`
       name
     }
     fields {
+      seoDescription
+      seoTitle
       featured_media {
         localFile {
           childImageSharp {
@@ -167,6 +169,8 @@ export const CountriesFragment = graphql`
   fragment Country on ContentfulCountry {
     contentfulid
     slug
+    introTitle
+    introDescription
     title
     banner {
       localFile {
@@ -340,6 +344,7 @@ export const HowItWorksFragment = graphql`
 // for FAQ lists that has been fetched from Contetnful
 export const FAQFragment = graphql`
   fragment FAQ on ContentfulFaq {
+    order
     questions
     answers
     category
@@ -387,7 +392,7 @@ export const TeamFragment = graphql`
 // for why wild kiwi section that has been fetched from Contentful
 export const HomePageFragment = graphql`
   fragment HomePage on ContentfulHomePage {
-    mobileIntoTitle
+    mobileIntroTitle
     mobileIntroDescription
     whyWildKiwi {
       banner {
@@ -432,6 +437,7 @@ export const HomePageFragment = graphql`
 // for why wild kiwi section on itinerary page
 export const WhyWildFragment = graphql`
   fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
+    order
     title
     description {
       description
@@ -456,14 +462,18 @@ export const ReviewsFragment = graphql`
     country
     reccomended
     name
+    showInReviewsBanner
+    link
     reviewText {
       reviewText
     }
+
     date
   }
 `
 
 // for working for us section
+/*
 export const WorkingForUsFragment = graphql`
   fragment WorkingForUs on ContentfulWorkingForUs {
     title1
@@ -509,8 +519,10 @@ export const WorkingForUsFragment = graphql`
     }
   }
 `
+*/
 
 // our yachts secetion
+/*
 export const YachtFragment = graphql`
   fragment Yacht on ContentfulOurYachts {
     title
@@ -532,6 +544,7 @@ export const YachtFragment = graphql`
   }
 `
 
+*/
 // featured banner
 export const FeaturedBoxFragment = graphql`
   fragment FeaturedBox on ContentfulFeaturedBannerLogos {
@@ -552,6 +565,16 @@ export const FooterLogos = graphql`
     logos {
       localFile {
         publicURL
+      }
+    }
+
+    instagramBoxImages {
+      localFile {
+        childImageSharp {
+          fluid(quality: 70, maxWidth: 1160) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }

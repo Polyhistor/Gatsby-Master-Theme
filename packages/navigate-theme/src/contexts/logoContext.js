@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo, createContext } from "react"
+import React, { useContext, useState, createContext } from "react"
 
 const logoContext = createContext()
 

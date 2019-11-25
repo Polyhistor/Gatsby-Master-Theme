@@ -3,8 +3,8 @@ import { withPrefix } from "gatsby"
 
 const IncludesMS = () => {
   return (
-    <>
-      <section className="includes--ms">
+    <section className="section-destination__includes">
+      <div className="includes--ms">
         <h2 className="heading-1 heading-1--ms">What’s included</h2>
         <div>
           <svg className={`svg-icon--MSIncludes`}>
@@ -62,8 +62,8 @@ const IncludesMS = () => {
           </svg>
           <p>Transfers to Hvar Old Town (Croatia only)</p>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

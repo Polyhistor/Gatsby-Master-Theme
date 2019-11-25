@@ -118,6 +118,19 @@
   margin: 0 auto;
 }
 
+@mixin centralizeFlex {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin mobileBorder {
+  border-bottom: 1.6rem solid $color-gray-light-2;
+}
+
+@mixin mobileBorderBig {
+  border-bottom: 4.8rem solid $color-gray-light-2;
+}
+
 @mixin black-upper {
   font-family: Nunito-Black;
   text-transform: uppercase;
@@ -152,14 +165,14 @@ $breakpoints paraments:
 
   @if $breakpoint == tablet {
     // 775-1025
-    @media only screen and (min-width: 47.5em) and (max-width: 64em) {
+    @media only screen and (min-width: 47.5em) and (max-width: 75em) {
       @content;
     }
   }
 
   @if $breakpoint == laptop {
     // 1025-1429
-    @media only screen and (min-width: 64.1em) and (max-width: 90em) {
+    @media only screen and (min-width: 75.1em) and (max-width: 90em) {
       @content;
     }
   }

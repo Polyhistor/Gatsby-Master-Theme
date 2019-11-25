@@ -11,19 +11,9 @@ import {
 const Book = () => {
   const imageQuery = useImageQuery()
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       <div className="row">
-        <BookForm tourId="croatia-discovery" inPage={true} />
+        <BookForm inPage={true} />
       </div>
     </Layout2>
   )

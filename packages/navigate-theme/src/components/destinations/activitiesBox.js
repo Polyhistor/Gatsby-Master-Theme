@@ -1,9 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
-const ActivitiesBox = ({ activityData }) => {
+
+const ActivitiesBox = ({ activityData, title }) => {
   // TODO - CLEAN UP
 
   const activityLabelFree = resolveVariationClass(
@@ -46,9 +48,7 @@ const ActivitiesBox = ({ activityData }) => {
               </figure>
               <h3 className="acitivity-box-single__title">{title}</h3>
               <h4 className="acitivity-box-single__sub-title">{subtitle}</h4>
-              <span className={resolveVariationClass("heading-5")}>
-                {price}
-              </span>
+              <span className="acitivity-box-single__price">{price}</span>
             </div>
           </Link>
         )
@@ -62,7 +62,7 @@ const ActivitiesBox = ({ activityData }) => {
           "heading-1"
         )} u-padding-bottom-sedium`}
       >
-        Activities
+        {title}
       </h2>
       <div className="acitivity-box">{renderActivities()}</div>
       <Link

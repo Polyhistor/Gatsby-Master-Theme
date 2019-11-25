@@ -35,10 +35,7 @@ const OurVehicles = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+
       <SectionVehicle
         imageOne={imageQuery.vehicleInterior.childImageSharp.fluid}
         imageTwo={imageQuery.vehicleSouth.childImageSharp.fluid}
@@ -69,7 +66,7 @@ const OurVehicles = ({ data }) => {
       />
 
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

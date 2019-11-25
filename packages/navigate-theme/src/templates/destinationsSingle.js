@@ -35,8 +35,6 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   //TODO: workaround to change the header text quickly
   const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
 
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -48,17 +46,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - implement second phase of the context system
 
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       {renderSeoFromContext(pageContext)}
       <LandingChartered
         bannerFirst={
@@ -81,17 +69,12 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           data.contentfulDestinations.bannerImages[4].localFile.childImageSharp
             .fluid
         }
+        mobileBanner={true}
+        mobileTitle={data.contentfulDestinations.title}
         buttonText="watch trail"
         buttonTextSecond="view photos"
       />
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure tours for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-      />
+      <GreenBar />
       <DestinationSection>
         <TripBox
           destinationCountry={data.contentfulDestinations.destinationCountry}
@@ -103,7 +86,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           subTitle={data.contentfulDestinations.route}
           daysText="Days"
           daysNum={data.contentfulDestinations.duration}
-          priceText="Price from"
+          priceText="From"
           price={data.contentfulDestinations.priceFrom}
           perDayText="Per day"
           perDay={data.contentfulDestinations.pricePerDay}
@@ -155,12 +138,19 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             specifics={data.contentfulDestinations.included}
           />
         )}
-        <ActivitiesBox activityData={data.contentfulDestinations.activity} />
+        <ActivitiesBox
+          title="Popular Activities"
+          activityData={data.contentfulDestinations.activity}
+        />
         <div className="hotfix--reviews">
           <Reviews />
         </div>
         <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
-        <Booking data={ourData} inPage={true} />
+        <Booking
+          slug={data.contentfulDestinations.slug}
+          data={ourData}
+          inPage={true}
+        />
         <GetThere
           title="Getting there"
           paragraph={

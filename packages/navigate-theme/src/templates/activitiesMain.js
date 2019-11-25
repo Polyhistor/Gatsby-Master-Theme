@@ -10,6 +10,7 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
+import Intro from "../components/intro"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -24,8 +25,6 @@ const ActivitiesMain = ({ pageContext }) => {
   const activityLabelFree = resolveVariationClass(
     "acitivity-box-single__caption--free"
   )
-
-  const SVGIcon = theme === "ms" ? "wheel" : "-mountains"
 
   // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
 
@@ -144,7 +143,11 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   const renderCountries = () =>
-    countryList[0].map(e => <option value={e.node.slug}>{e.node.title}</option>)
+    countryList[0].map((e, idx) => (
+      <option key={idx} value={e.node.slug}>
+        {e.node.title}
+      </option>
+    ))
 
   const handleFilter = ({ target }) => {
     const filteredData3 = []
@@ -196,7 +199,7 @@ const ActivitiesMain = ({ pageContext }) => {
             )}
             <h3 className="activity__title">{node.title}</h3>
             <h4 className="activity__subtitle">{node.subtitle}</h4>
-            <h5 className={resolveVariationClass("activity__price")}>
+            <h5 className="activity__price">
               {node.price === "free"
                 ? "free"
                 : node.price === "included"
@@ -210,17 +213,7 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       <SEO
         title={getActivitySeo().title}
         description={getActivitySeo().description}
@@ -242,31 +235,27 @@ const ActivitiesMain = ({ pageContext }) => {
           shape="triangle"
         />
       </div>
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure for 18 to 35 year olds"
-        }
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
+      <Intro
+        title="Personalise your sailing with add-on activities"
+        description="Make your sailing holiday exactly what you want it to be with a wide range of add on activites to choose from. From adrenaline watersports to local wine tastings, personalise your holiday the way you want it."
+      ></Intro>
       <div className="row">
         <div className="activity__filter">
-          <h1
+          {/* <h1
             className={`${resolveVariationClass(
               "heading-1"
             )} u-margin-bottom-small`}
           >
             Add-on Activities
-          </h1>
+          </h1> */}
           <div className={resolveVariationClass("activity__selector")}>
             <select
               className={resolveVariationClass("activity__dropdown")}
               id="country"
               onChange={handleSubmit}
             >
-              <option value="all">Country</option>
+              <option value="all">Select Country</option>
 
               {renderCountries()}
             </select>
@@ -287,8 +276,8 @@ const ActivitiesMain = ({ pageContext }) => {
             >
               <option value="all">Tour</option>
               {filter !== null
-                ? filter.map(e => (
-                    <option key={e.node.title} value={e.node.slug}>
+                ? filter.map((e, idx) => (
+                    <option key={idx} value={e.node.slug}>
                       {e.node.title}
                     </option>
                   ))
@@ -306,9 +295,9 @@ const ActivitiesMain = ({ pageContext }) => {
                 text="Previous"
               />
             </div>
-            <div className="blog__main-nextLink">
-              <NavLink test={last} url={`/activities/${nextUrl}`} text="More" />
-            </div>
+            {/* <div className="blog__main-nextLink">
+              {/* <NavLink test={last} url={`/activities/${nextUrl}`} text="More" /> */}
+            {/* </div>  */}
           </div>
         </div>
         <Banner

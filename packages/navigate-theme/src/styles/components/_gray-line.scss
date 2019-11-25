@@ -1,0 +1,19 @@
+.gray-line {
+  @include respond(desktop) {
+    display: none;
+  }
+
+  @include respond(laptop) {
+    display: none;
+  }
+
+  @include respond(phone) {
+    height: 1.6rem;
+  }
+
+  &--big {
+    @include respond(phone) {
+      height: 4.8rem;
+    }
+  }
+}

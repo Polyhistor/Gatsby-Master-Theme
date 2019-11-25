@@ -2,13 +2,11 @@ import React from "react"
 import Img from "gatsby-image"
 
 import { WorkForUs } from "@nt-websites/navigate-theme"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import useAboutUsQuery from "../../queries/aboutUsQuery"
 import useTeamQuery from "../../queries/teamQuery"
 
 export const AboutUs = ({ data }) => {
-  const theme = process.env.GATSBY_THEME
-
   // extracting query out of our custom hook
   const aboutUsData = useAboutUsQuery()
 
@@ -63,31 +61,29 @@ export const AboutUs = ({ data }) => {
     <section className="section-about-us">
       <div className="about-us__container">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms  u-margin-bottom-small"
-              : "heading-1"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small`}
         >
           Our Values
         </h2>
         {renderHowBoxes()}
+        {data && (
+          <>
+            <h2
+              className={`${resolveVariationClass(
+                "heading-1"
+              )} u-margin-bottom-small`}
+            >
+              Working for us
+            </h2>
+            <WorkForUs data={data}></WorkForUs>
+          </>
+        )}
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms  u-margin-bottom-small"
-              : "heading-1"
-          }
-        >
-          Working for us
-        </h2>
-        <WorkForUs data={data}></WorkForUs>
-        <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms  u-margin-bottom-small"
-              : "heading-1"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-margin-bottom-small`}
         >
           Meet our loving team
         </h2>

@@ -7,17 +7,7 @@ import { useImageQuery } from "@nt-websites/navigate-theme"
 const NotFoundPage = () => {
   const imageQuery = useImageQuery()
   return (
-    <Layout2
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout2>
       <SEO title="404: Not found" />
       <section className="page-404">
         <h3 className="feature-box__text">Whoops!</h3>

@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
@@ -11,8 +10,6 @@ import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 
 import { renderSeoFromContext } from "../helpers/seo-helper"
-// the svgs shall later be compiled into one SVG-Sprite
-import wildKiwiMountains from "../images/WildKiwi_Mountains.svg"
 
 // utilities
 import useImageQuery from "../queries/imageQuery"
@@ -55,17 +52,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
   }
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeoFromContext(pageContext)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -79,15 +66,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text={
-          theme === "ms"
-            ? "Skippered sailing holidays for 20-35 year olds"
-            : "Epic adventure for 18 to 35 year olds"
-        }
-        imageData={wildKiwiMountains}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <div className="row">
         <div className="activity__main">
           {renderActivities()}

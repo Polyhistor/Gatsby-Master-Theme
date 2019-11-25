@@ -1,8 +1,10 @@
 import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const Trip = ({
   url,
   imageData,
@@ -10,8 +12,6 @@ const Trip = ({
   subtitle,
   title,
   price,
-  priceDay,
-  slug,
   country,
 }) => {
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
@@ -29,11 +29,11 @@ const Trip = ({
           </figcaption>
         </figure>
         <div className="trips__description">
-          <h3 className="trips__description-main">{title}</h3>
+          <h3 className={resolveVariationClass("trips__description-main")}>
+            {title}
+          </h3>
           <h5 className="trips__description-sub">{subtitle}</h5>
-          <p className={resolveVariationClass("trips__description-price")}>
-            {price}
-          </p>
+          <p className="trips__description-price">{price}</p>
         </div>
       </Link>
     </div>

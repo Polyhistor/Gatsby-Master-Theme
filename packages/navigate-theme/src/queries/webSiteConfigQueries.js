@@ -6,6 +6,18 @@ export const useWebSiteConfigQuery = () => {
       sitePlugin(name: { eq: "@nt-websites/navigate-theme" }) {
         pluginOptions {
           config {
+            review {
+              maxRating
+              rating
+              totalFacebookReviews
+            }
+            greenBar {
+              text
+              icon
+              iconAlt
+            }
+            tourUnit
+            useHeaderShapes
             destinationPage {
               buttonCardText
             }

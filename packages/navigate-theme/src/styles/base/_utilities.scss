@@ -450,21 +450,22 @@
 
 .hotfix {
   &--reviews {
-    height: 45rem;
+    height: 40.5rem;
     grid-row: 6;
 
     @include respond(laptop) {
       grid-row: 13;
+      height: 37.5rem;
     }
 
     @include respond(tablet) {
       grid-row: 8;
-      height: 69rem;
+      height: 37rem;
     }
 
     @include respond(phone) {
-      grid-row: 7;
-      height: 70rem;
+      grid-row: 9;
+      height: 61rem;
     }
 
     & > section {
@@ -474,11 +475,11 @@
       z-index: 90;
 
       @include respond(tablet) {
-        height: 60rem;
+        height: 30rem;
       }
 
       @include respond(phone) {
-        height: 61.89rem;
+        height: 56.89rem;
       }
 
       & > .row > .col-1-of-4:first-of-type {
@@ -495,6 +496,7 @@
 
         @include respond(phone) {
           margin-left: 0rem;
+          max-width: 100%;
         }
       }
 
@@ -523,6 +525,10 @@
       grid-row: 11;
     }
 
+    @include respond(phone) {
+      margin-top: 5.8rem;
+    }
+
     & > section {
       margin-top: 0;
 
@@ -532,6 +538,10 @@
 
       & > .row {
         margin-left: 0;
+
+        @include respond(phone) {
+          max-width: 100%;
+        }
       }
     }
   }
@@ -651,18 +661,29 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-gray-light-2;
   padding-left: 0.3rem;
 }
 
 textarea::placeholder {
   padding-left: 1rem;
   font-family: Nunito-Semibold;
+  color: $color-grey-dark;
 }
 
 textarea:focus {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-gray-light-2;
   padding-left: 0.3rem;
+}
+
+.bannerHero {
+  &--alt {
+    & > .header > .header__text-box {
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
 }
 
 // general CSS
@@ -703,4 +724,16 @@ textarea {
 /* Icons */
 .play-button {
   padding-right: 0.6rem;
+}
+
+// main section:nth-of-type(13) {
+//   border-bottom: 0 !important;
+// }
+
+// section:last-of-type .section-tour-banner-newzealand-mobile {
+//   display: none !important;
+// }
+
+[class~=".section-tour-banner-newzealand-mobile"]:last-of-type {
+  display: none;
 }

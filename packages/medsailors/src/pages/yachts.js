@@ -5,38 +5,25 @@ import React from "react"
 import {
   Layout,
   Landing,
-  GreenBar,
   Banner,
-  SectionVehicle,
   Reviews,
   Trips,
   useHomePageQuery,
   useImageQuery,
-  useYachtQuery,
   OurYachts,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-const OurVehicles = ({ data }) => {
-  const SVGIcon = "wheel"
+import useYachtQuery from "../queries/ourYachtQuery"
 
+const OurVehicles = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -51,11 +38,7 @@ const OurVehicles = ({ data }) => {
           shape="diamond"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+
       <OurYachts data={YachtQuery} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}

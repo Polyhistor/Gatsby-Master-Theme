@@ -7,7 +7,6 @@ import {
   Landing,
   GreenBar,
   Banner,
-  SectionVehicle,
   Reviews,
   Trips,
   useHomePageQuery,
@@ -18,8 +17,6 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const OurVehicles = ({ data }) => {
-  const SVGIcon = "wheel"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -40,11 +37,7 @@ const OurVehicles = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <OurYachts data={YachtQuery} />
       <Banner
         imageData={imageQuery.banner.childImageSharp.fluid}

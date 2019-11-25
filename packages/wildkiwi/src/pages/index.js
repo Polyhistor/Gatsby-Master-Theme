@@ -21,6 +21,7 @@ import {
   useCountryQuery,
   useDestinationQuery,
   renderSeo,
+  useFeatureBox,
   resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
@@ -30,7 +31,7 @@ const IndexPage = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
-
+  const featuredBoxData = useFeatureBox()
   // getting the number of tours for each country
   const filterDestinations = destination => {
     const result = destinationQuery.filter(
@@ -92,6 +93,7 @@ const IndexPage = ({ data }) => {
    * Todo: Dynamic  destinations link - buttonFirstUrl
    * Greenbar alt
    */
+
   return (
     <Layout>
       {renderSeo(data)}
@@ -118,12 +120,14 @@ const IndexPage = ({ data }) => {
         ]}
       />
       <WhyUsMobile
-        data={homeQuery[0].node.whyWildKiwi}
+        data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <FeaturedMobile />
-      <div className="row row--patched mobile-yes">
-        <h2 className="green-title u-margin-bottom-small">Destinations</h2>
+
+      <div className="row row--patched">
+        <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+          Destinations
+        </h2>
       </div>
       <BannerHero
         imageData={imageQuery.bannerHero.childImageSharp.fluid}
@@ -145,7 +149,7 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

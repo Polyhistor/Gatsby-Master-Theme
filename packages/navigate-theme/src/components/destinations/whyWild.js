@@ -1,29 +1,33 @@
 import React from "react"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
+
 import resolveVariationClass from "../../helpers/theme-variation-style"
+import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
+
 const WhyWild = ({ WhyWildData, headerText }) => {
-  // TODO - cleanup
-  const theme = process.env.GATSBY_THEME
   const brandName = process.env.GATSBY_BRAND_NAME
 
+  const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
   const renderWhyWildData = () => {
-    return WhyWildData.map((why, idx) => {
-      return (
-        <div key={idx} className="WhyWild-box-single">
-          <Img
-            className="WhyWild-box-single__image"
-            alt={why.node.title}
-            fluid={why.node.banner.localFile.childImageSharp.fluid}
-          />
-          <h3 className={resolveVariationClass("WhyWild-box-single__title")}>
-            {why.node.title}
-          </h3>
-          <p className="WhyWild-box-single__description">
-            {why.node.description.description}
-          </p>
-        </div>
-      )
-    })
+    return WhyWildData.sort((a, b) => a.node.order - b.node.order).map(
+      (why, idx) => {
+        return (
+          <div key={idx} className="WhyWild-box-single">
+            <Img
+              className="WhyWild-box-single__image"
+              alt={why.node.title}
+              fluid={why.node.banner.localFile.childImageSharp.fluid}
+            />
+            <h3 className="WhyWild-box-single__title">{why.node.title}</h3>
+            <p className="WhyWild-box-single__description">
+              {why.node.description.description}
+            </p>
+          </div>
+        )
+      }
+    )
   }
   return (
     <div className="section-destination__why-wild">
@@ -35,6 +39,12 @@ const WhyWild = ({ WhyWildData, headerText }) => {
         {headerText ? headerText : `Why ${brandName}`}
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
+      <Link
+        to={`${themeOptionsQueryData.vehiclesRoute}`}
+        className={resolveVariationClass("acitivity-box-button")}
+      >
+        Learn More
+      </Link>
     </div>
   )
 }

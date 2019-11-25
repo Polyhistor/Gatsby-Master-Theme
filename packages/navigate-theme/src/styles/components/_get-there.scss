@@ -7,11 +7,10 @@
 
   @include respond(laptop) {
     grid-template-rows: 7rem min-content 22rem;
-    width: 187%;
   }
 
   @include respond(tablet) {
-    grid-template-rows: 7rem min-content 11rem;
+    grid-template-rows: 7rem min-content 4rem;
   }
 
   @include respond(phone) {

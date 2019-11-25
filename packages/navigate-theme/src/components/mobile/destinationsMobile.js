@@ -27,6 +27,9 @@ const DestinationsMobile = ({
   variation,
   duration,
   country,
+  idx,
+  inCountry,
+  SVGMap,
 }) => {
   const theme = process.env.GATSBY_THEME
   const pageConfiguration = useWebSiteConfigQuery()
@@ -37,8 +40,14 @@ const DestinationsMobile = ({
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   return (
-    <section className={`section-tour-banner-newzealand-mobile`}>
-      <div className="row">
+    <section
+      className={
+        idx !== null
+          ? "section-tour-banner-newzealand-mobile section-tour-banner-newzealand-mobile--last"
+          : "section-tour-banner-newzealand-mobile"
+      }
+    >
+      <div className={inCountry ? "row--inCountry" : "row"}>
         <div className="tablet-margin-left-negative-normal auto-width-height">
           <figure className="tour-banner__figure">
             {/* choosing image based on the given props */}
@@ -48,13 +57,23 @@ const DestinationsMobile = ({
             >
               <span className="tour-banner__days">
                 {duration !== undefined ? duration : tours}
-              </span>{" "}
-              {duration !== undefined ? "days" : "tours"}
+              </span>
+              {duration !== undefined
+                ? "days"
+                : tours === 1
+                ? `${pageConfiguration.tourUnit}`
+                : `${pageConfiguration.tourUnit}s`}
             </figcaption>
           </figure>
         </div>
         <div className="">
-          <div className="tour-banner__description">
+          <div
+            className={
+              inCountry
+                ? "tour-banner__description tour-banner__description--inCountry"
+                : "tour-banner__description"
+            }
+          >
             <h3
               className={resolveVariationClass(
                 "tour-banner__description-title"
@@ -77,9 +96,18 @@ const DestinationsMobile = ({
             </span>
           </div>
         </div>
-        <div className="u-center-text u-margin-top-tiny">
+        <div className="u-center-text">
+          {inCountry ? (
+            <div
+              className={`tour-banner__svg-map-container tour-banner__svg-map-container--${title
+                .toLowerCase()
+                .replace(/ /g, "")} `}
+            >
+              <img src={SVGMap} />
+            </div>
+          ) : null}
           <Link
-            className={theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"}
+            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
             to={
               country !== undefined
                 ? `${
@@ -88,10 +116,30 @@ const DestinationsMobile = ({
                 : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
             }
           >
-            {buttonCardText} {title}
+            {type === "country"
+              ? `${buttonCardText}  ${title}`
+              : buttonCardText}
           </Link>
         </div>
       </div>
+      {inCountry ? (
+        <div class="row">
+          <Link
+            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
+            to={
+              country !== undefined
+                ? `${
+                    themeOptionsQueryData.destinationCountryRoutePrefix
+                  }${country}/${destinationUrl || destination}`
+                : `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}`
+            }
+          >
+            {type === "country"
+              ? `${buttonCardText}  ${destination}`
+              : buttonCardText}
+          </Link>
+        </div>
+      ) : null}
     </section>
   )
 }

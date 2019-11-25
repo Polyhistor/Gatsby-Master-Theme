@@ -8,6 +8,7 @@ const useThemeRoutesConfigQuery = () => {
           routesConfig {
             destinationRoute
             activitiesRoute
+            vehiclesRoute
             destinationCountryRoutePrefix
             activitiesCountryRoutePrefix
           }

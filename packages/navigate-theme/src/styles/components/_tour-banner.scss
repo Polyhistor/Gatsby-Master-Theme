@@ -1,17 +1,44 @@
 .tour-banner {
+  &__container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+
+    @include respond(tablet) {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50% 50%;
+    }
+
+    & > div:nth-child(2) {
+      @include respond(tablet) {
+        grid-column: 1/3;
+        grid-row: 1;
+      }
+    }
+
+    & > div:nth-child(3) {
+      display: flex;
+    }
+  }
+
   &__description {
     padding: 2rem 2rem 0 2rem;
+
+    @include respond(tablet) {
+      padding: 4rem 2rem 0 2rem;
+    }
+
     &-title {
       @extend .heading-2;
-      @extend .heading-2--extraBold-green;
+      @extend .heading-2--extraBold;
+      @extend .heading-2--darkGrey;
 
       @include respond(tablet) {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
       }
 
       @include respond(phone) {
-        font-size: 3.4rem;
         font-family: Nunito-Black;
+        line-height: 3rem;
       }
 
       &--yg {
@@ -20,23 +47,17 @@
         @extend .heading-2--yg;
       }
 
-      &--ms {
+      &--wk {
         @extend .heading-2;
         @extend .heading-2--extraBold;
-        @extend .heading-2--ms;
+        @extend .heading-2--wk;
       }
     }
 
     &-subtitle {
-      @extend .heading-3;
-      @extend .heading-3--extraBold;
-      @extend .heading-3--darkGrey;
-
-      // @include respond(phone) {
-      //   color: $color-grey-dark-3;
-      //   font-family: Nunito-Black;
-      //   font-size: 3rem;
-      // }
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
+      color: $color-grey-dark-3;
 
       @include respond(tablet) {
         font-size: 3rem;
@@ -45,12 +66,7 @@
       &-departs {
         @extend .heading-3;
         @extend .heading-3--extraBold;
-        @extend .heading-3--grey;
-        // @include respond(phone) {
-        //   font-size: 1.6rem;
-        //   padding-top: 0.5rem;
-        //   font-family: Nunito-Black;
-        // }
+        color: $color-grey-dark !important;
 
         @include respond(tablet) {
           font-size: 1.5rem;
@@ -61,29 +77,16 @@
       @extend .paragraph;
       padding-bottom: 0.5rem;
 
-      @include respond(tablet) {
-        font-size: 2rem;
-      }
-
       @include respond(phone) {
         font-size: 1.6rem;
       }
     }
     &-price {
-      @extend .heading-3;
-      @extend .heading-3--extraBold;
-      @extend .heading-3--darkGrey;
+      @extend .paragraph;
+      @extend .paragraph--extraBold;
 
       @include respond(tablet) {
         font-size: 2rem;
-      }
-
-      // @include respond(phone) {
-      //   font-size: 2rem;
-      //   font-family: Nunito-Black;
-      // }
-
-      &--ms {
       }
 
       &--yg {
@@ -126,23 +129,16 @@
         display: none;
       }
     }
+
+    &--inCountry {
+      padding: 2rem 1rem 0 1rem;
+    }
   }
 
   &__figure {
     position: relative;
-    width: 60rem;
-
-    @include respond(laptop) {
-      width: 45rem;
-      &:first-child div {
-        height: 42rem;
-      }
-    }
 
     @include respond(tablet) {
-      width: 70rem;
-      margin-left: 4.9rem;
-
       &:first-child(1) div {
         border-radius: 6px;
       }
@@ -154,7 +150,7 @@
 
     &-caption {
       position: absolute;
-      top: 3%;
+      top: 4%;
       left: 3%;
       text-transform: uppercase;
       font-family: Nunito-Black;
@@ -175,33 +171,25 @@
       }
 
       @include respond(tablet) {
-        padding: 0.8rem;
         font-size: 1.3rem;
       }
     }
 
     & > .gatsby-image-wrapper {
-      height: 40rem;
+      height: 100%;
 
       @include respond(phone) {
-        height: 20rem;
+        height: 100%;
         border-radius: 3px;
       }
     }
   }
 
   &__svg-map-container {
-    height: 40rem;
+    display: flex;
     &:nth-child(1) img {
-      height: 40rem;
-      margin-left: -1.5rem;
-      width: 34.4rem;
-
-      @include respond(laptop) {
-        height: 36rem;
-        width: 30rem;
-      }
-
+      width: 100%;
+      height: 100%;
       @include respond(tablet) {
         border-left: 1px solid #e7e7e7;
       }
@@ -260,13 +248,6 @@
         }
       }
     }
-
-    @include respond(tablet) {
-      &:nth-child(1) img {
-        height: 48rem;
-        padding-top: 2rem;
-      }
-    }
   }
 
   &__days {
@@ -274,12 +255,5 @@
     display: block;
     height: 2.6rem;
     margin-top: 0.6rem;
-
-    @include respond(tablet) {
-      font-size: 3.5rem;
-      display: block;
-      height: 3.6rem;
-      margin-top: -1.1rem;
-    }
   }
 }

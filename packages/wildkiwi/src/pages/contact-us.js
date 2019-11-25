@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -12,7 +11,6 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  Error,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -84,16 +82,13 @@ const GetInTouch = ({ data }) => {
           variation="dest"
         />
       </div>
-      <GreenBar
-        text="Epic adventure for 18 to 35 year olds"
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
+      <GreenBar />
       <SectionGetInTouch
         phoneNumberData={countryPhoneNumber}
         leftContactSection={leftContactData}
       />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={imageQuery.banner.childImageSharp.fluid}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

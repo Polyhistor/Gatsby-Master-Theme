@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -17,25 +16,13 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
-  const SVGIcon = "wheel"
-
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
 
   return (
-    <Layout
-      Insta={{
-        photos: [
-          { imageOne: imageQuery.instaOneMS.childImageSharp.fluid },
-          { imageTwo: imageQuery.instaTwoMS.childImageSharp.fluid },
-          { imageThree: imageQuery.instaThreeMS.childImageSharp.fluid },
-          { imageFour: imageQuery.instaFourMS.childImageSharp.fluid },
-        ],
-        URL: "https://www.instagram.com/explore/tags/medsailors/?hl=en",
-      }}
-    >
+    <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
@@ -50,20 +37,8 @@ const FAQ = ({ data }) => {
           shape="triangle"
         />
       </div>
-      <GreenBar
-        text="Skippered sailing holidays for 20-35 year olds"
-        imageData={SVGIcon}
-        imageAlt="Wild-Kiwi-Mountaints-Logo"
-      />
-      <SectionFAQ
-        FAQData={FAQData}
-        categories={[
-          { label: "ABOUT YOUR TRIP" },
-          { label: "BUDGET & PAYMENT" },
-          { label: "TRANSPORT" },
-          { label: "TRAVEL & SAFETY" },
-        ]}
-      />
+      <GreenBar />
+      <SectionFAQ FAQData={FAQData} />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"

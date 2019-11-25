@@ -34,6 +34,15 @@
     height: 7.7rem;
     margin-top: -1.19rem;
     margin-left: -0.7rem;
+
+    @include respond(laptop) {
+      margin-left: -2rem;
+    }
+
+    @include respond(phone) {
+      width: 8rem;
+      height: 7.7rem;
+    }
   }
 
   &--login {
@@ -127,7 +136,7 @@
 
   &--Facebook {
     height: 4.5rem;
-    width: 3rem;
+    width: 4rem;
 
     &-grey {
       width: 3rem;
@@ -152,6 +161,26 @@
     height: 4rem;
   }
 
+  &--green-banner-svg-logo {
+    &--wk {
+      height: 3.7rem;
+      width: 17rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &--ms {
+      height: 3.7rem;
+      width: 5rem;
+      @include respond(phone) {
+        justify-self: center;
+        display: none;
+      }
+    }
+  }
+
   &--mountains {
     height: 3.7rem;
     width: 17rem;
@@ -166,7 +195,6 @@
     width: 5rem;
     @include respond(phone) {
       justify-self: center;
-      display: none;
     }
   }
 
