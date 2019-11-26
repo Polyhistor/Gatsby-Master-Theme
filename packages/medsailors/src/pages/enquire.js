@@ -7,6 +7,9 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const getCountryAndTourUrl = (routePrefix, path) => {
+  if (!path) {
+    return undefined
+  }
   if (path.indexOf(routePrefix) === -1) {
     return undefined
   }
