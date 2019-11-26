@@ -311,6 +311,12 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      YachtsMobileBanner: file(
+        relativePath: { eq: "medsailors-yacht-flotilla-corfu-blue-caves.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData
