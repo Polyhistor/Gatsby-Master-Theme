@@ -11,6 +11,11 @@ export const YachtFragment = graphql`
         publicURL
       }
     }
+    yachtMap6X4 {
+        localFile{
+          publicURL
+        }
+      }
     keyFeatures
     images {
       localFile {

@@ -40,8 +40,6 @@ export {
 } from "./src/queries/themeRoutesConfigQuery"
 export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
 export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
-//export { default as useWorkingForUs } from "./src/queries/workingForUsQuery"
-//export { default as useYachtQuery } from "./src/queries/ourYachtQuery"
 export { default as useFeatureBox } from "./src/queries/featuredBoxQuery"
 export { default as useContactQuery } from "./src/queries/contactQuery"
 export { default as useThemeModalQuery } from "./src/queries/themeModalQuery"
@@ -52,7 +50,6 @@ export { default as BookForm } from "./src/components/booking-form/book-form"
 
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
-export { default as OurYachts } from "./src/components/yachts/yachtSingle"
 
 /* Activity */
 export {
@@ -64,6 +61,9 @@ export {
 export {
   default as SectionActivity,
 } from "./src/components/activity/sectionActivity"
+
+export { default as YachtSingle } from "./src/components/yachts/yachtSingle"
+
 /*Banner*/
 
 export { default as Banner } from "./src/components/banners/banner"
@@ -237,3 +237,11 @@ export {
 export {
   default as resolveVariationClass,
 } from "./src/helpers/theme-variation-style"
+
+export {
+  Desktop,
+  Laptop,
+  Tablet,
+  Phone,
+  DefaultRender,
+} from "./src/helpers/conditionalRenders"
