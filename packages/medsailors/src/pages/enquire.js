@@ -29,7 +29,7 @@ const getCountryAndTourUrl = (routePrefix, path) => {
 }
 
 const Book = ({ location }) => {
-  const path = location.state.path
+  const path = location.state ? location.state.path : undefined
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
   const countryAndTour = getCountryAndTourUrl(
