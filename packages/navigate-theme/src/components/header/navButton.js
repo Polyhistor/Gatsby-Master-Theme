@@ -10,6 +10,8 @@ const Buttonbox = props => {
     open: false,
   })
 
+  console.log(props)
+
   return (
     <>
       <div className="header__nav-button">

@@ -164,7 +164,7 @@ const PriceTable = ({ data }) => {
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
               type="checkbox"
-              checked={idx === 0 ? "true" : null}
+              checked={idx === 0 ? true : null}
             ></input>
             <label
               className="booking-form__plus-holder"
