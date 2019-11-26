@@ -294,12 +294,14 @@ module.exports = {
           destinationCountryRoutePrefix: `/sail-` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
+
         nprogress: {
           color: `#1abc9c`,
           // Disable the loading spinner.
           showSpinner: true,
         },
         contentful: {
+          environment: process.env.CONTENTFUL_ENVIRONMENT,
           spaceId: process.env.CONTENTFUL_SPACE_ID,
           accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
           downloadLocal: true,
@@ -309,6 +311,14 @@ module.exports = {
           perPage: 4,
           concurrentRequests: 3,
           includedRoutes: [`**/categories`, `**/posts`, `**/users`],
+        },
+
+        vehicle: {
+          mobileIntro:
+            "We have a variety of yacht and cabin types so you can travel in style",
+          mobileDescription:
+            "Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia.",
+          linkURL: "https://ms.ntstage.com/",
         },
       },
     },

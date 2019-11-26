@@ -8,7 +8,7 @@
 
     @include respond(laptop) {
       max-width: 120rem;
-      grid-template-columns: 84.2rem 34.1rem;
+      grid-template-columns: 81.2rem 34.1rem;
       grid-column-gap: 1.6rem;
     }
 
@@ -35,6 +35,7 @@
         @include mobileBorderBig;
         padding: 4.8rem;
         text-align: center;
+        margin-top: 0;
       }
     }
 
@@ -152,7 +153,7 @@
       }
     }
 
-    &__booking {
+    &__price-table {
       grid-row: 8;
       grid-column: 1/-1;
 
@@ -170,11 +171,30 @@
         color: white;
       }
     }
-    &__get-there {
+
+    &__booking {
       grid-row: 9;
+      grid-column: 1;
 
       @include respond(tablet) {
         grid-row: 10;
+      }
+
+      @include respond(phone) {
+        grid-row: 9;
+      }
+
+      & > h1 {
+        font-size: 5rem;
+        padding: 23rem 55rem;
+        color: white;
+      }
+    }
+    &__get-there {
+      grid-row: 10;
+
+      @include respond(tablet) {
+        grid-row: 11;
       }
 
       @include respond(phone) {

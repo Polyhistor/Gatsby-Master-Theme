@@ -1,10 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useCountryQuery from "../../queries/countryQuery"
 import useDestinationQuery from "../../queries/destinationQuery"
 
-const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
+const CountryDestinationDropdown = ({
+  defaultValues,
+  onDestinationChange,
+  setFieldValue,
+}) => {
   const bookingFormConfig = useWebSiteConfigQuery().bookingForm
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
 
@@ -12,7 +16,35 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
   const countryData = useCountryQuery()
   const [destinationFilter, setDestinationFilter] = useState(null)
   const countryList = useState(countryData)
-  const [selectValue, setSelectValue] = useState("all")
+  const [selectedCountry, setSelectedCountry] = useState("all")
+  const [selectedTour, setSeletedTour] = useState("all")
+
+  const loadDefaultValues = () => {
+    if (defaultValues) {
+      setSelectedCountry(defaultValues.country)
+      const filteredDests = destinationData.filter(d => {
+        return d.node.destinationCountry === defaultValues.country
+      })
+      setDestinationFilter(filteredDests)
+
+      const destination = filteredDests.find(d => {
+        return d.node.url === defaultValues.tourUrl
+      })
+
+      if (!destination) {
+        console.warning("destination not found")
+      } else {
+        setSeletedTour(destination.node.slug)
+        onDestinationChange(destination.node.slug, setFieldValue)
+      }
+      /*reset all form fields*/
+    }
+  }
+
+  useEffect(() => {
+    loadDefaultValues()
+  }, [])
+
   const renderCountries = () =>
     countryList[0].map(e => (
       <option key={e.node.slug} value={e.node.slug}>
@@ -20,6 +52,7 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
       </option>
     ))
 
+  /* not used anymore
   const renderDropdownValues = () => {
     const items = buildDropDownValues()
     return items.map(e => (
@@ -27,7 +60,7 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
         {e.name}
       </option>
     ))
-  }
+  }*/
 
   const buildDropDownValues = () => {
     let items = []
@@ -48,7 +81,8 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
   }
 
   const handleCountryDropdown = e => {
-    setSelectValue("Tour")
+    setSeletedTour("all")
+    setSelectedCountry(e.target.value)
 
     const filteredDests = destinationData.filter(d => {
       return d.node.destinationCountry === e.target.value
@@ -71,19 +105,30 @@ const CountryDestinationDropdown = ({ onDestinationChange, setFieldValue }) => {
   }
 
   const handleDestDropdown = e => {
-    setSelectValue(e.target.value)
+    setSeletedTour(e.target.value)
     onDestinationChange(e.target.value, setFieldValue)
   }
 
   return (
     <>
       <select
-        onChange={e => handleDestDropdown(e)}
+        onChange={e => handleCountryDropdown(e)}
         className={"activity__dropdown"}
+        value={selectedCountry}
         id="country"
       >
         <option value="all">Destination</option>
-        {renderDropdownValues()}
+        {renderCountries()}
+      </select>
+
+      <select
+        onChange={e => handleDestDropdown(e)}
+        className={resolveVariationClass("activity__dropdown")}
+        id="tours"
+        value={selectedTour}
+      >
+        <option value="all">{destinationDropdownLabel}</option>
+        {renderDestinations()}
       </select>
     </>
   )

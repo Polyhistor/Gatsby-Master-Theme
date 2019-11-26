@@ -1,37 +1,71 @@
 import React from "react"
 import Img from "gatsby-image"
 
-const YachtSingle = ({ data }) => {
-  const renderList = list => list.map(e => <li>{e}</li>)
-  const renderImage = img =>
-    img.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
+import useImageQuery from "../../queries/imageQuery"
+import { Laptop, Mobile, DefaultRender } from "../../helpers/conditionalRenders"
+import Intro from "../../components/intro"
+
+const YachtSingle = ({ data, popupVideo }) => {
+  const imageData = useImageQuery()
+
+  const renderList = (list, idx) => list.map(e => <li key={idx}>{e}</li>)
+  const renderImage = (img, idx) =>
+    img.map(e => (
+      <Img key={idx} fluid={e.localFile.childImageSharp.fluid}></Img>
+    ))
 
   const renderYachts = () =>
     data
       .sort((a, b) => a.node.order - b.node.order)
       .map(({ node }, idx) => (
         <section className="yacht" key={idx}>
-          <h2 className="heading-2 heading-2--ms">{node.title}</h2>
-          <h4 className="heading-3 heading-3--ms">{node.subtitle}</h4>
-          <p className="paragraph u-margin-bottom-small">
-            {node.description.description}
-          </p>
-          <h4 className="heading-3 heading-3--ms">key features</h4>
-          <ul className="paragraph u-margin-bottom-small">
-            {renderList(node.keyFeatures)}
-          </ul>
-          {/* <h4 className="heading-3 heading-3--ms">excluded</h4> */}
-          {/* <ul className="paragraph u-margin-bottom-small">
-          {renderList(node.excluded)}
-        </ul> */}
-          <div>{renderImage(node.images)}</div>
+          <div className="yacht__inner">
+            <div className="yacht__info">
+              <h2 className="yacht__title">{node.title}</h2>
+              <h4 className="yacht__sub-title">{node.subtitle}</h4>
+              <p className="paragraph u-margin-bottom-small">
+                {node.description.description}
+              </p>
+              <h4 className="yacht__sub-title">Key Features</h4>
+              <ul>{renderList(node.keyFeatures)}</ul>
+            </div>
+            <div className="yacht__images">{renderImage(node.images)}</div>
+            <div className="yacht__map">
+              <DefaultRender>
+                <Laptop>
+                  <img src={node.yachtMap6X4.localFile.publicURL}></img>
+                </Laptop>
+                <img src={node.yachtMap.localFile.publicURL}></img>
+              </DefaultRender>
+            </div>
+          </div>
         </section>
       ))
 
   return (
-    <div className="row u-margin-top-big">
-      <section className="yacht-container">{renderYachts()}</section>
-    </div>
+    <>
+      <Intro
+        title="We have a variety of yacht and cabin
+types so you can travel in style"
+        description="Experience an unforgettable 7 days as you set sail around the most
+breathtaking islands Croatia has to offer. We have three routes to suit any
+style, choose the ultimate way you want to feel the beauty of Croatia."
+        mobileButton={true}
+        popupvideoURL={popupVideo}
+      />
+
+      <section className="yacht-container">
+        <div className="row">
+          <h2 class="heading-1 heading-1--ms u-margin-bottom-sedium">
+            Yacht Types
+          </h2>
+          <Mobile>
+            <Img fluid={imageData.MedsailorsBanner.childImageSharp.fluid}></Img>
+          </Mobile>
+          {renderYachts()}
+        </div>
+      </section>
+    </>
   )
 }
 

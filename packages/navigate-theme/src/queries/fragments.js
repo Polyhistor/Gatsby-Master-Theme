@@ -567,7 +567,7 @@ export const FooterLogos = graphql`
         publicURL
       }
     }
-
+    instagramBoxUrl
     instagramBoxImages {
       localFile {
         childImageSharp {

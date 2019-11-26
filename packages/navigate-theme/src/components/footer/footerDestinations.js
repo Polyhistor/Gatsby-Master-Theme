@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import useCountryQuery from "../../queries/countryQuery"
 
+//TODO: RENDER COUNTRIES?
 const renderDestinations = (countryList, themeOptionsQueryData) => {
   return countryList
     .sort((a, b) => a.node.contentfulid - b.node.contentfulid)

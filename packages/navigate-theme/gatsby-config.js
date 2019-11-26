@@ -21,6 +21,7 @@ module.exports = themeOptions => {
       {
         resolve: `gatsby-source-contentful`,
         options: {
+          environment: themeOptions.contentful.environment,
           spaceId: themeOptions.contentful.spaceId,
           accessToken: themeOptions.contentful.accessToken,
           downloadLocal: themeOptions.contentful.downloadLocal,

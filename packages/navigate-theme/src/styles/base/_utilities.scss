@@ -464,7 +464,7 @@
     }
 
     @include respond(phone) {
-      grid-row: 9;
+      grid-row: 10;
       height: 61rem;
     }
 
@@ -515,14 +515,16 @@
       }
     }
   }
-
+  /*
+  TODO: Pouya I changed this for price table
+  */
   &--banner {
-    grid-row: 10;
+    grid-row: 11;
     grid-column: 1/-1;
     margin-top: 5rem;
 
     @include respond(tablet) {
-      grid-row: 11;
+      grid-row: 12;
     }
 
     @include respond(phone) {
@@ -558,6 +560,20 @@
         & .header__text-box {
           top: 44%;
         }
+      }
+    }
+
+    &--yachts {
+      & .bannerHero {
+        & .header {
+          & .header__button-box {
+            display: block;
+          }
+        }
+      }
+
+      & ~ .intro > .row > .intro__description {
+        max-width: 87rem;
       }
     }
   }
