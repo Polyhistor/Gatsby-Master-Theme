@@ -3,8 +3,8 @@ import { withPrefix, Link } from "gatsby"
 import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import BookingForm from "../destinations/bookingForm"
-
-const Buttonbox = () => {
+import { Location } from "@reach/router"
+const Buttonbox = props => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({
     open: false,
@@ -26,7 +26,11 @@ const Buttonbox = () => {
           </div>
         </span>
 
-        <Link to="/enquire" className="header__nav-button-box-link">
+        <Link
+          to="/enquire"
+          state={{ path: props.location.pathname }}
+          className="header__nav-button-box-link"
+        >
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
             className={`btn btn--wk btn-animated`}
@@ -48,4 +52,8 @@ const Buttonbox = () => {
   )
 }
 
-export default Buttonbox
+export default props => (
+  <Location>
+    {locationProps => <Buttonbox {...locationProps} {...props} />}
+  </Location>
+)
