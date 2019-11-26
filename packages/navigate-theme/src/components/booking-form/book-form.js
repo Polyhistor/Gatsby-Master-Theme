@@ -3,9 +3,10 @@ import { getTourDatesRequest, submitEnquiryRequest } from "../../services/api"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import Error from "./error"
+import useCountryQuery from "../../queries/countryQuery"
+import useDestinationQuery from "../../queries/destinationQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
-import { getPaxAges } from "../../config/pax-age"
 import { PHONE_NUMBER_LIST_ORDERED } from "../../config/phone-country-code"
 import CountryDestinationDropdown from "./country-tour-dropdown"
 const validationSchema = Yup.object().shape({
@@ -40,7 +41,7 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("gender is required"),
 })
 
-const BookForm = ({ tourId, inPage }) => {
+const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
   const theme = process.env.GATSBY_THEME
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
@@ -207,9 +208,11 @@ const BookForm = ({ tourId, inPage }) => {
           inPage ? "booking-form booking-form--in-page" : "booking-form"
         }
       >
-        <button onClick={_ => window.history.go(-1)}>
-          {success === false ? "BACK" : "CLOSE"}
-        </button>
+        {!tourId && (
+          <button onClick={_ => window.history.go(-1)}>
+            {success === false ? "BACK" : "CLOSE"}
+          </button>
+        )}
 
         {success === false ? (
           <Formik
@@ -249,6 +252,7 @@ const BookForm = ({ tourId, inPage }) => {
               <Form>
                 {!tourId && (
                   <CountryDestinationDropdown
+                    defaultValues={countryAndTour}
                     setFieldValue={setFieldValue}
                     onDestinationChange={handleDestinationChange}
                   />

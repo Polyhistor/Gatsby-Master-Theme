@@ -44,6 +44,8 @@ const FilteredTour = ({ country, destinationData }) => {
   })
 
   // using useState hook for the purposes of our filter
+
+  //TODO: DATA for state variable?? what is this data about? better name for variable?
   const [data, setData] = useState(destinationData)
 
   // handling the filter functionality
@@ -143,7 +145,7 @@ const FilteredTour = ({ country, destinationData }) => {
                   ? "btn btn--ms-teal tablet-green-button"
                   : "btn btn--green tablet-green-button"
               }
-              to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.slug}`}
+              to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.url}`}
             >
               {pageConfiguration.destinationPage.buttonCardText}
             </Link>
