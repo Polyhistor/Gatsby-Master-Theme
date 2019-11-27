@@ -6,16 +6,14 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const PriceTable = ({ data }) => {
-  const websiteConfig = useWebSiteConfigQuery()
-
-  console.log(bookingFormConfig)
-
-  const bookingFormConfig =
-    websiteConfig.sitePlugin.pluginOptions.config.bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
   const useYachtClass = bookingFormConfig.useYachtClass
+
+  console.log(data)
 
   // render buyerInfo
   const renderIfno = () => {
@@ -31,8 +29,6 @@ const PriceTable = ({ data }) => {
       )
     }
   }
-
-  const bookingFormPromo = resolveVariationClass("booking-form__promo")
 
   const bookingFormAvailablity = resolveVariationClass(
     "booking-form__availability"
@@ -57,22 +53,22 @@ const PriceTable = ({ data }) => {
   // initiating an empty array that stores references to our nodes
   const refs = []
 
-  const renderHeader = () => {
-    if (useYachtClass) {
-      return (
-        <div className="booking-form__header-classes">
-          {pricesClassOrdered.map((p, idx) => {
-            return (
-              <h4 key={idx} className={resolveVariationClass("heading-4")}>
-                {p.description}
-              </h4>
-            )
-          })}
-        </div>
-      )
-    }
-    return null
-  }
+  // const renderHeader = () => {
+  //   if (useYachtClass) {
+  //     return (
+  //       <div className="booking-form__header-classes">
+  //         {pricesClassOrdered.map((p, idx) => {
+  //           return (
+  //             <h4 key={idx} className={resolveVariationClass("heading-4")}>
+  //               {p.description}
+  //             </h4>
+  //           )
+  //         })}
+  //       </div>
+  //     )
+  //   }
+  //   return null
+  // }
 
   const handleClick = () => {
     alert("Implement go to booking form below")
@@ -161,6 +157,7 @@ const PriceTable = ({ data }) => {
           <div className="booking-form__shown">
             <div className="booking-form__intro">
               <span className="booking-form__month">{e.description}</span>
+              <span className="booking-form__promo">{e.sale}</span>
             </div>
             <input
               className="booking-form__input"
@@ -171,8 +168,9 @@ const PriceTable = ({ data }) => {
             <label
               className="booking-form__plus-holder"
               htmlFor={`plus-holder-${idx + 50}`}
-            ></label>
-
+            >
+              <span className="booking-form__angle-arrow"></span>
+            </label>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
                 <div
@@ -192,15 +190,6 @@ const PriceTable = ({ data }) => {
                       </span>
                     </div>
                     <div className="booking-form__mediator">
-                      <span
-                        className={
-                          d.availability === "Sold Out"
-                            ? `${bookingFormPromo} booking-form__promo--soldout`
-                            : `${bookingFormPromo}`
-                        }
-                      >
-                        {d.sale}
-                      </span>
                       <div className="booking-form__line-container">
                         <div
                           className={
@@ -275,7 +264,7 @@ const PriceTable = ({ data }) => {
               </div>
             )}
             <div className="booking-form__entries">
-              {renderHeader()}
+              {/* {renderHeader()} */}
               {renderEntries()}
               {renderIfno()}
             </div>
