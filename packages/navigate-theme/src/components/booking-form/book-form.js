@@ -5,7 +5,7 @@ import * as Yup from "yup"
 import Img from "gatsby-image"
 import Error from "./error"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
-
+import BookSuccess from "../booking-form/book-success"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { PHONE_NUMBER_LIST_ORDERED } from "../../config/phone-country-code"
@@ -177,417 +177,365 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
     }
   }
 
+  const getFieldErrorClass = fieldErrors => {
+    return fieldErrors
+      ? "booking-form__fields booking-form__fields--error"
+      : "booking-form__fields"
+  }
+
   const renderImages = _ =>
     bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
 
-  const renderThankMessage = _ => {
-    return (
-      <div className="booking-form__thank-you">
-        <h2 className="green-title">Thanks for your booking enquiry.</h2>
-        <p className="feature-box__description">
-          A member of our team will get back to you with your booking details
-          within 24 hours.
-        </p>
-        <p className="feature-box__description">
-          We are sending a welcome message to your email address now. If you do
-          not receive it, please contact us at <a href={email}>{email}</a>
-        </p>
-      </div>
-    )
-  }
-
   return (
     <div id="booking" className="section-destination__booking">
-      <h2
-        className={`${resolveVariationClass(
-          "heading-1"
-        )} u-padding-bottom-small`}
-      >
-        Secure Your Spot
-      </h2>
-
-      <p>
-        Please let us know your desired destination and travel date preference
-        using the below form. We’ll be in touch within 24 hours to let you know
-        availability. Any questions please fill in the comments form below or
-        just email us at <strong>{email}</strong>
-      </p>
-
-      <section
-        className={
-          inPage ? "booking-form booking-form--in-page" : "booking-form"
-        }
-      >
-        {!tourId && (
-          <button onClick={_ => window.history.go(-1)}>
-            {success === false ? "BACK" : "CLOSE"}
-          </button>
-        )}
-
-        {success === false ? (
-          <Formik
-            initialValues={{
-              siteLocation: inPage ? "PAGE" : "POPUP BUTTON",
-              priceId: "",
-              date: "",
-              guests: "",
-              productClass: "",
-              age: "",
-              firstName: "",
-              lastName: "",
-              email: "",
-              emailConfirm: "",
-              phoneCountryCode: "",
-              phoneNumber: "",
-              gender: "",
-              comments: "",
-              consent: false,
-              yachtCabinName: "",
-              yachtCabinPrice: "",
-              yachtCabinId: "",
-            }}
-            validationSchema={validationSchema}
-            onSubmit={async (values, actions) => {
-              await submitForm(values, actions)
-            }}
+      {success ? (
+        <BookSuccess email={email} />
+      ) : (
+        <>
+          <h2
+            className={`${resolveVariationClass(
+              "heading-1"
+            )} u-padding-bottom-small`}
           >
-            {({
-              errors,
-              touched,
-              handleChange,
-              values,
-              setFieldTouched,
-              setFieldValue,
-            }) => (
-              <Form>
-                {!tourId && (
-                  <CountryDestinationDropdown
-                    defaultValues={countryAndTour}
-                    setFieldValue={setFieldValue}
-                    onDestinationChange={handleDestinationChange}
-                  />
-                )}
-                <br />
-                <label>First Name*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name *"
-                    className="booking-form__fields"
-                    className={
-                      errors.firstName
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  ></Field>
-                  <Error
-                    touched={touched.firstName}
-                    message={errors.firstName}
-                  />
-                </div>
-                <label>Last Name*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name *"
-                    className={
-                      errors.lastName
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  ></Field>
-                  <Error touched={touched.lastName} message={errors.lastName} />
-                </div>
-                <label>Email*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="text"
-                    name="email"
-                    placeholder="Email Address *"
-                    className={
-                      errors.email
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  ></Field>
-                  <Error touched={touched.email} message={errors.email} />
-                </div>
-                <label>Confirm Email*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="text"
-                    name="emailConfirm"
-                    placeholder="Confirm Email Address *"
-                    className={
-                      errors.emailConfirm
-                        ? "booking-form__fields booking-form__fields--error"
-                        : "booking-form__fields"
-                    }
-                  ></Field>
-                  <Error
-                    touched={touched.emailConfirm}
-                    message={errors.emailConfirm}
-                  />
-                </div>
-                <label>Country Code*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    component="select"
-                    name="phoneCountryCode"
-                    placeholder="Country Code *"
-                    className={
-                      errors.phoneCountryCode
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  >
-                    <option value="">Select Country Code</option>
-                    {PHONE_NUMBER_LIST_ORDERED.map((p, idx) => {
-                      if (!p.dial_code) {
-                        return <option key={idx} disabled value=""></option>
-                      } else {
-                        return (
-                          <option key={idx} value={p.dial_code}>
-                            {p.name} {p.dial_code}
-                          </option>
-                        )
-                      }
-                    })}
-                  </Field>
-                  <Error
-                    touched={touched.phoneCountryCode}
-                    message={errors.phoneCountryCode}
-                  />
-                </div>
-                <label>Contact Number:</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="number"
-                    name="phoneNumber"
-                    placeholder="Mobile *"
-                    className={
-                      errors.phoneNumber
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  ></Field>
-                  <Error
-                    touched={touched.phoneNumber}
-                    message={errors.phoneNumber}
-                  />
-                </div>
-                <label>Gender*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    component="select"
-                    name="gender"
-                    className={
-                      errors.gender
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </Field>
-                  <Error touched={touched.gender} message={errors.gender} />
-                </div>
-                <label>Age*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="number"
-                    name="age"
-                    placeholder="Age "
-                    className={
-                      errors.age
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  ></Field>
-                  <Error touched={touched.age} message={errors.age} />
-                </div>
-                <label>No. of Travelers*</label>
-                <div className="booking-details__fields-container">
-                  <Field
-                    type="number"
-                    name="guests"
-                    placeholder="No. of Travelers"
-                    className={
-                      errors.guests
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  ></Field>
+            Secure Your Spot
+          </h2>
 
-                  <Error touched={touched.guests} message={errors.guests} />
-                </div>
-                <label>Departure Date*</label>
-                <div className="booking-details__fields-container">
-                  <select
-                    onChange={e => onDateChanged(e.target.value, setFieldValue)}
-                    name="date"
-                    //  disabled={!tourIdState}
-                    className={
-                      errors.date
-                        ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                        : "booking-form__fields booking-form__fields--half"
-                    }
-                  >
-                    <option value="">
-                      {!tourIdState || tourIdState === "all"
-                        ? `Please select your destination first`
-                        : `Select departure date`}
-                    </option>
+          <p>
+            Please let us know your desired destination and travel date
+            preference using the below form. We’ll be in touch within 24 hours
+            to let you know availability. Any questions please fill in the
+            comments form below or just email us at <strong>{email}</strong>
+          </p>
 
-                    {response &&
-                      response.dates &&
-                      response.dates.map((p, idx) => {
-                        return (
-                          <option key={idx} value={p.date}>
-                            {p.dateFormated}
-                          </option>
-                        )
-                      })}
-                  </select>
+          <section
+            className={
+              inPage ? "booking-form booking-form--in-page" : "booking-form"
+            }
+          >
+            {!tourId && (
+              <button onClick={_ => window.history.go(-1)}>BACK</button>
+            )}
 
-                  <Error touched={touched.date} message={errors.date} />
-                </div>
-                {productClasses && (
-                  <>
-                    <label>Yacht Type*</label>
-                    <div className="booking-details__fields-container">
-                      <select
-                        onChange={e =>
-                          onProductClassChanged(e.target.value, setFieldValue)
-                        }
-                        //disabled={!values.date}
-                        name="productClass"
-                        value={values.priceId}
-                        className={
-                          errors.productClass
-                            ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                            : "booking-form__fields booking-form__fields--half"
-                        }
-                      >
-                        <option value="">
-                          {!values.date
-                            ? `Please select the departure date first`
-                            : `Select yacht class `}
-                        </option>
-
-                        {productClasses.map((p, idx) => {
+            <Formik
+              initialValues={{
+                siteLocation: inPage ? "PAGE" : "POPUP BUTTON",
+                priceId: "",
+                date: "",
+                guests: "",
+                productClass: "",
+                age: "",
+                firstName: "",
+                lastName: "",
+                email: "",
+                emailConfirm: "",
+                phoneCountryCode: "",
+                phoneNumber: "",
+                gender: "",
+                comments: "",
+                consent: false,
+                yachtCabinName: "",
+                yachtCabinPrice: "",
+                yachtCabinId: "",
+              }}
+              validationSchema={validationSchema}
+              onSubmit={async (values, actions) => {
+                await submitForm(values, actions)
+              }}
+            >
+              {({
+                errors,
+                touched,
+                handleChange,
+                values,
+                setFieldTouched,
+                setFieldValue,
+              }) => (
+                <Form>
+                  {!tourId && (
+                    <CountryDestinationDropdown
+                      defaultValues={countryAndTour}
+                      setFieldValue={setFieldValue}
+                      onDestinationChange={handleDestinationChange}
+                    />
+                  )}
+                  <br />
+                  <label>First Name*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name *"
+                      className="booking-form__fields"
+                      className={getFieldErrorClass(errors.firstName)}
+                    ></Field>
+                    <Error
+                      touched={touched.firstName}
+                      message={errors.firstName}
+                    />
+                  </div>
+                  <label>Last Name*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name *"
+                      className={getFieldErrorClass(errors.lastName)}
+                    ></Field>
+                    <Error
+                      touched={touched.lastName}
+                      message={errors.lastName}
+                    />
+                  </div>
+                  <label>Email*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="text"
+                      name="email"
+                      placeholder="Email Address *"
+                      className={getFieldErrorClass(errors.email)}
+                    ></Field>
+                    <Error touched={touched.email} message={errors.email} />
+                  </div>
+                  <label>Confirm Email*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="text"
+                      name="emailConfirm"
+                      placeholder="Confirm Email Address *"
+                      className={getFieldErrorClass(errors.emailConfirm)}
+                    ></Field>
+                    <Error
+                      touched={touched.emailConfirm}
+                      message={errors.emailConfirm}
+                    />
+                  </div>
+                  <label>Country Code*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      component="select"
+                      name="phoneCountryCode"
+                      placeholder="Country Code *"
+                      className={getFieldErrorClass(errors.phoneCountryCode)}
+                    >
+                      <option value="">Select Country Code</option>
+                      {PHONE_NUMBER_LIST_ORDERED.map((p, idx) => {
+                        if (!p.dial_code) {
+                          return <option key={idx} disabled value=""></option>
+                        } else {
                           return (
-                            <option key={idx} value={p.id}>
-                              {p.name}
+                            <option key={idx} value={p.dial_code}>
+                              {p.name} {p.dial_code}
+                            </option>
+                          )
+                        }
+                      })}
+                    </Field>
+                    <Error
+                      touched={touched.phoneCountryCode}
+                      message={errors.phoneCountryCode}
+                    />
+                  </div>
+                  <label>Contact Number:</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="number"
+                      name="phoneNumber"
+                      placeholder="Mobile *"
+                      className={getFieldErrorClass(errors.phoneNumber)}
+                    ></Field>
+                    <Error
+                      touched={touched.phoneNumber}
+                      message={errors.phoneNumber}
+                    />
+                  </div>
+                  <label>Gender*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      component="select"
+                      name="gender"
+                      className={getFieldErrorClass(errors.gender)}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </Field>
+                    <Error touched={touched.gender} message={errors.gender} />
+                  </div>
+                  <label>Age*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="number"
+                      name="age"
+                      placeholder="Age "
+                      className={getFieldErrorClass(errors.age)}
+                    ></Field>
+                    <Error touched={touched.age} message={errors.age} />
+                  </div>
+                  <label>No. of Travelers*</label>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      type="number"
+                      name="guests"
+                      placeholder="No. of Travelers"
+                      className={getFieldErrorClass(errors.guests)}
+                    ></Field>
+
+                    <Error touched={touched.guests} message={errors.guests} />
+                  </div>
+                  <label>Departure Date*</label>
+                  <div className="booking-details__fields-container">
+                    <select
+                      onChange={e =>
+                        onDateChanged(e.target.value, setFieldValue)
+                      }
+                      name="date"
+                      //  disabled={!tourIdState}
+                      className={getFieldErrorClass(errors.date)}
+                    >
+                      <option value="">
+                        {!tourIdState || tourIdState === "all"
+                          ? `Please select your destination first`
+                          : `Select departure date`}
+                      </option>
+
+                      {response &&
+                        response.dates &&
+                        response.dates.map((p, idx) => {
+                          return (
+                            <option key={idx} value={p.date}>
+                              {p.dateFormated}
                             </option>
                           )
                         })}
-                      </select>
-                      <Error
-                        touched={touched.productClass}
-                        message={errors.productClass}
-                      />
-                    </div>
-                  </>
-                )}
-                {cabinTypes && cabinTypes.length > 0 && (
-                  <>
-                    <label>Cabin Type*</label>
-                    <div className="booking-details__fields-container">
-                      <select
-                        onChange={e =>
-                          onYachtCabinChanged(e.target.value, setFieldValue)
-                        }
-                        //    disabled={!values.productClass}
-                        value={values.yachtCabinId}
-                        name="yachtCabinName"
-                        className={
-                          errors.yachtCabinName
-                            ? "booking-form__fields booking-form__fields--half booking-form__fields--error"
-                            : "booking-form__fields booking-form__fields--half"
-                        }
-                      >
-                        <option value="">
-                          {!values.priceId
-                            ? `Please select the yacht class first`
-                            : `Select cabin type class `}
-                        </option>
+                    </select>
 
-                        {cabinTypes.map((e, idx) => (
-                          <option key={idx} value={e.id}>
-                            {getCabinDescription(e)}
+                    <Error touched={touched.date} message={errors.date} />
+                  </div>
+                  {productClasses && (
+                    <>
+                      <label>Yacht Type*</label>
+                      <div className="booking-details__fields-container">
+                        <select
+                          onChange={e =>
+                            onProductClassChanged(e.target.value, setFieldValue)
+                          }
+                          //disabled={!values.date}
+                          name="productClass"
+                          value={values.priceId}
+                          className={getFieldErrorClass(errors.productClass)}
+                        >
+                          <option value="">
+                            {!values.date
+                              ? `Please select the departure date first`
+                              : `Select yacht class `}
                           </option>
-                        ))}
-                      </select>
 
-                      <Error
-                        touched={touched.yachtCabinName}
-                        message={errors.yachtCabinName}
-                      />
-                    </div>
-                  </>
-                )}
+                          {productClasses.map((p, idx) => {
+                            return (
+                              <option key={idx} value={p.id}>
+                                {p.name}
+                              </option>
+                            )
+                          })}
+                        </select>
+                        <Error
+                          touched={touched.productClass}
+                          message={errors.productClass}
+                        />
+                      </div>
+                    </>
+                  )}
+                  {cabinTypes && cabinTypes.length > 0 && (
+                    <>
+                      <label>Cabin Type*</label>
+                      <div className="booking-details__fields-container">
+                        <select
+                          onChange={e =>
+                            onYachtCabinChanged(e.target.value, setFieldValue)
+                          }
+                          //    disabled={!values.productClass}
+                          value={values.yachtCabinId}
+                          name="yachtCabinName"
+                          className={getFieldErrorClass(errors.yachtCabinName)}
+                        >
+                          <option value="">
+                            {!values.priceId
+                              ? `Please select the yacht class first`
+                              : `Select cabin type class `}
+                          </option>
 
-                <div className="booking-details__fields-container">
-                  <Field
-                    component="textarea"
-                    name="comments"
-                    placeholder="Comments"
-                    className="booking-form__fields booking-form__fields--textarea"
-                  ></Field>
-                </div>
-                <div className="booking-details__fields-container">
-                  <Field
-                    id="consent"
-                    name="consent"
-                    type="checkbox"
-                    required
-                  ></Field>
-                  <label htmlFor="consent">
-                    I accept the&thinsp;
-                    <a
-                      className={resolveVariationClass("link")}
-                      href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
-                      target="_blank"
-                    >
-                      terms and conditions
-                    </a>
-                  </label>
-                </div>
-                {theme === "ms" && response ? (
-                  <>
-                    <p className="booking-form__additional-info mobile-yes">
-                      {response.booking_notes} {response.general_notes}
-                    </p>
-                  </>
-                ) : null}
-                <button
-                  id={
-                    inPage
-                      ? TAG_MANAGER_TRACKER.IN_PAGE_SUBMIT_BUTTON
-                      : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
-                  }
-                  type="submit"
-                  className={
-                    theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"
-                  }
-                >
-                  Submit
-                </button>
-              </Form>
-            )}
-          </Formik>
-        ) : (
-          renderThankMessage(success.email)
-        )}
+                          {cabinTypes.map((e, idx) => (
+                            <option key={idx} value={e.id}>
+                              {getCabinDescription(e)}
+                            </option>
+                          ))}
+                        </select>
 
-        <br />
-        <h1>images</h1>
-        {renderImages()}
-      </section>
+                        <Error
+                          touched={touched.yachtCabinName}
+                          message={errors.yachtCabinName}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  <div className="booking-details__fields-container">
+                    <Field
+                      component="textarea"
+                      name="comments"
+                      placeholder="Comments"
+                      className="booking-form__fields booking-form__fields--textarea"
+                    ></Field>
+                  </div>
+                  <div className="booking-details__fields-container">
+                    <Field
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      required
+                    ></Field>
+                    <label htmlFor="consent">
+                      I accept the&thinsp;
+                      <a
+                        className={resolveVariationClass("link")}
+                        href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
+                        target="_blank"
+                      >
+                        terms and conditions
+                      </a>
+                    </label>
+                  </div>
+                  {response &&
+                  response.booking_notes &&
+                  response.general_notes ? (
+                    <>
+                      <p className="booking-form__additional-info mobile-yes">
+                        {response.booking_notes} {response.general_notes}
+                      </p>
+                    </>
+                  ) : null}
+                  <button
+                    id={
+                      inPage
+                        ? TAG_MANAGER_TRACKER.IN_PAGE_SUBMIT_BUTTON
+                        : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
+                    }
+                    type="submit"
+                    className={
+                      theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"
+                    }
+                  >
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </section>
+        </>
+      )}
+      <br />
+      <h1>images</h1>
+      {renderImages()}
     </div>
   )
 }
