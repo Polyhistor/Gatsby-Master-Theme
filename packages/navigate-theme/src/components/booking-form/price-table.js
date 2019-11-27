@@ -6,8 +6,12 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const PriceTable = ({ data }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
-    .config.bookingForm
+  const websiteConfig = useWebSiteConfigQuery()
+
+  console.log(bookingFormConfig)
+
+  const bookingFormConfig =
+    websiteConfig.sitePlugin.pluginOptions.config.bookingForm
 
   const priceTableHeaderDescription = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.priceTableHeaderDescription
@@ -116,14 +120,10 @@ const PriceTable = ({ data }) => {
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
               <span className={bookingFormAvailablity}>{p.availability}</span>
-
-              {p.rrp && (
-                <span className="booking-form__original">
-                  {p.currencySymbol}
-                  {p.rrp}
-                </span>
-              )}
-
+              <span className="booking-form__original">
+                {p.currencySymbol}
+                {p.rrp}
+              </span>
               <span className="booking-form__discount">
                 {p.currencySymbol}
                 {p.rrpWithDiscount}&thinsp;
@@ -175,7 +175,9 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <span className="booking-form__month">{e.description}</span>
+            <div className="booking-form__intro">
+              <span className="booking-form__month">{e.description}</span>
+            </div>
             <input
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
@@ -186,6 +188,7 @@ const PriceTable = ({ data }) => {
               className="booking-form__plus-holder"
               htmlFor={`plus-holder-${idx + 50}`}
             ></label>
+
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
                 <div
