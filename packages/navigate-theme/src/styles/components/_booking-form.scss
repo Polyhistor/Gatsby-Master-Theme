@@ -13,19 +13,32 @@
     padding: 0;
   }
 
+  &__base-price {
+    grid-column: 4;
+    font-family: Nunito-SemiBold;
+    text-transform: none;
+    color: $color-grey-dark-3;
+    font-size: 2.2rem;
+    justify-self: end;
+    padding-right: 5.5rem;
+
+    & > span {
+      font-size: 1.4rem;
+    }
+  }
+
   &__intro {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     height: 4.8rem;
     align-items: center;
-    border: 1px solid $color-grey-dark-2;
+    border-bottom: 1px solid $color-grey-dark-2;
   }
 
   &__month {
     font-family: Nunito-SemiBold;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: $color-grey-dark-3;
-    padding-left: 1.6rem;
     text-transform: capitalize;
   }
 
@@ -66,6 +79,15 @@
       @include respond(phone) {
         font-size: 3rem;
       }
+    }
+  }
+
+  &__class-container {
+    & h4 {
+      font-size: 1.8rem;
+      font-family: Nunito-Semibold;
+      color: $color-med-teal;
+      text-transform: none;
     }
   }
 
@@ -382,6 +404,10 @@
     @extend .paragraph;
     text-transform: uppercase;
     overflow: hidden;
+
+    &:nth-child(1) {
+      border-top: 1px solid gray;
+    }
   }
 
   &__shown {
@@ -395,26 +421,24 @@
       transform: rotate(135deg);
     }
 
+    & input:checked ~ .booking-form__intro {
+      border-bottom: 1px solid $color-gray-light-2;
+    }
+
     @include respond(laptop) {
       max-width: 95%;
     }
   }
 
   &__hidden {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     max-height: 0rem;
     transition: all 0.3s;
+    display: grid;
+    grid-template-columns: 1fr;
 
     &-entries {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-      overflow: hidden;
-      cursor: pointer;
-      text-align: center;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 25% 75%;
 
       @include respond(laptop) {
         align-items: center;
@@ -457,11 +481,6 @@
   }
 
   &__left {
-    display: flex;
-    justify-content: space-between;
-    width: 32%;
-    align-items: center;
-
     @include respond(tablet) {
       width: 36%;
       margin-left: -1rem;
@@ -478,10 +497,7 @@
 
   &__right {
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 21.5rem);
-    justify-content: right;
-    align-items: center;
+    grid-template-columns: repeat(3, 33.3%);
 
     @include respond(laptop) {
       width: 95%;
@@ -502,8 +518,6 @@
     }
 
     &--ms {
-      width: 68%;
-
       @include respond(phone) {
         flex-direction: column;
         width: 100%;
@@ -514,7 +528,6 @@
   &__date-container {
     display: flex;
     flex-direction: column;
-    width: 10rem;
 
     @include respond(tablet) {
       width: 8.5rem;

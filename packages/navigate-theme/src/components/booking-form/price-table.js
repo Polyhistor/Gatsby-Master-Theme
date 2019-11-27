@@ -116,10 +116,12 @@ const PriceTable = ({ data }) => {
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
               <span className={bookingFormAvailablity}>{p.availability}</span>
-              <span className="booking-form__original">
-                {p.currencySymbol}
-                {p.rrp}
-              </span>
+              {p.rrp && (
+                <span className="booking-form__original">
+                  {p.currencySymbol}
+                  {p.rrp}
+                </span>
+              )}
               <span className="booking-form__discount">
                 {p.currencySymbol}
                 {p.rrpWithDiscount}&thinsp;
@@ -171,10 +173,6 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <div className="booking-form__intro">
-              <span className="booking-form__month">{e.description}</span>
-              <span className="booking-form__promo">{e.sale}</span>
-            </div>
             <input
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
@@ -187,7 +185,20 @@ const PriceTable = ({ data }) => {
             >
               <span className="booking-form__angle-arrow"></span>
             </label>
+            <div className="booking-form__intro">
+              <span className="booking-form__month">{e.description}</span>
+              <span className="booking-form__promo">{e.sale}</span>
+              <span className="booking-form__base-price">
+                from {e.from.currencySymbol}
+                {e.from.price} <span>pp {e.from.currencyCode}</span>
+              </span>
+            </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
+              <div className="booking-form__class-container">
+                {pricesClassOrdered.map((p, idx) => {
+                  return <h4 key={idx}>{p.description}</h4>
+                })}
+              </div>
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
@@ -205,7 +216,7 @@ const PriceTable = ({ data }) => {
                         {d.startLocation}
                       </span>
                     </div>
-                    <div className="booking-form__mediator">
+                    {/* <div className="booking-form__mediator">
                       <div className="booking-form__line-container">
                         <div
                           className={
@@ -232,15 +243,15 @@ const PriceTable = ({ data }) => {
                       <span className="booking-form__duration">
                         {d.durationInDays} Days
                       </span>
-                    </div>
-                    <div className="booking-form__date-container">
+                    </div> */}
+                    {/* <div className="booking-form__date-container">
                       <span className="booking-form__date booking-form__date--end">
                         {d.endDateShort}
                       </span>
                       <span className="booking-form__destination booking-form__destination--end">
                         {d.endLocation}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className={resolveVariationClass("booking-form__right")}>
                     {useYachtClass ? renderPrices(d.prices) : null}
