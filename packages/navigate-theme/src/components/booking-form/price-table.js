@@ -9,6 +9,9 @@ const PriceTable = ({ data }) => {
   const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.bookingForm
 
+  const priceTableHeaderDescription = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.priceTableHeaderDescription
+
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
   const useYachtClass = bookingFormConfig.useYachtClass
@@ -72,6 +75,19 @@ const PriceTable = ({ data }) => {
 
   const handleClick = () => {
     alert("Implement go to booking form below")
+  }
+
+  //POUYA CHANGE HERE.
+  const renderPriceHeaderDescription = _ => {
+    return priceTableHeaderDescription.map(desc => {
+      return (
+        <p>
+          POUYA RENDER ICON FROM SPRITE.svg - icon-name:
+          <strong>{desc.icon}</strong>
+          {desc.text}
+        </p>
+      )
+    })
   }
 
   // rendering prices
@@ -257,17 +273,8 @@ const PriceTable = ({ data }) => {
                   <h2 className={resolveVariationClass("heading-1")}>
                     {data.data.data.description} Pricing
                   </h2>
-                  <p>
-                    TODO: Contentful data here. Check the available dates below
-                    and then fill in the following booking form to enquire or
-                    secure your place.{" "}
-                  </p>
 
-                  <p>
-                    Our boats accommodate 8-12 guests so book as a solo, couple
-                    or if you have a group of friends you can book your own
-                    dedicated yacht.
-                  </p>
+                  {renderPriceHeaderDescription()}
                 </>
               </div>
             )}
