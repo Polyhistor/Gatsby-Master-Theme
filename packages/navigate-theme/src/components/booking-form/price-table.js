@@ -6,8 +6,12 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const PriceTable = ({ data }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
-    .config.bookingForm
+  const websiteConfig = useWebSiteConfigQuery()
+
+  console.log(bookingFormConfig)
+
+  const bookingFormConfig =
+    websiteConfig.sitePlugin.pluginOptions.config.bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
@@ -100,14 +104,10 @@ const PriceTable = ({ data }) => {
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
               <span className={bookingFormAvailablity}>{p.availability}</span>
-
-              {p.rrp && (
-                <span className="booking-form__original">
-                  {p.currencySymbol}
-                  {p.rrp}
-                </span>
-              )}
-
+              <span className="booking-form__original">
+                {p.currencySymbol}
+                {p.rrp}
+              </span>
               <span className="booking-form__discount">
                 {p.currencySymbol}
                 {p.rrpWithDiscount}&thinsp;
@@ -159,19 +159,20 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <div>
+            <div className="booking-form__intro">
               <span className="booking-form__month">{e.description}</span>
-              <input
-                className="booking-form__input"
-                id={`plus-holder-${idx + 50}`}
-                type="checkbox"
-                checked={idx === 0 ? true : null}
-              ></input>
-              <label
-                className="booking-form__plus-holder"
-                htmlFor={`plus-holder-${idx + 50}`}
-              ></label>
             </div>
+            <input
+              className="booking-form__input"
+              id={`plus-holder-${idx + 50}`}
+              type="checkbox"
+              checked={idx === 0 ? true : null}
+            ></input>
+            <label
+              className="booking-form__plus-holder"
+              htmlFor={`plus-holder-${idx + 50}`}
+            ></label>
+
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
                 <div
