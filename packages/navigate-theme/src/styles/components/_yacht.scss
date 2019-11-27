@@ -67,6 +67,14 @@
           text-align: center;
         }
       }
+
+      & > div {
+        @include respond(phone) {
+          max-width: 31.2rem;
+          margin: 0 auto;
+          border-radius: 0.4rem;
+        }
+      }
     }
   }
 
