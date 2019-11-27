@@ -492,7 +492,6 @@ const DetailsForm = ({
                   >
                     Submit
                   </button>
-                  {/* <button >test</button> */}
                 </Form>
               )}
             </Formik>
