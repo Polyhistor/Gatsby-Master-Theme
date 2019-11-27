@@ -3,6 +3,9 @@ import { graphql, useStaticQuery } from "gatsby"
 export const useWebSiteConfigQuery = () => {
   const query = useStaticQuery(graphql`
     query {
+      contentfulWebsiteConfiguration(identifier: { eq: "main" }) {
+        ...WebSiteConfiguration
+      }
       sitePlugin(name: { eq: "@nt-websites/navigate-theme" }) {
         pluginOptions {
           config {
@@ -38,5 +41,5 @@ export const useWebSiteConfigQuery = () => {
     }
   `)
 
-  return query.sitePlugin.pluginOptions.config
+  return query
 }

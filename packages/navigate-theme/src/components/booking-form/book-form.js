@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react"
 import { getTourDatesRequest, submitEnquiryRequest } from "../../services/api"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
+import Img from "gatsby-image"
 import Error from "./error"
-import useCountryQuery from "../../queries/countryQuery"
-import useDestinationQuery from "../../queries/destinationQuery"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
+
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { PHONE_NUMBER_LIST_ORDERED } from "../../config/phone-country-code"
@@ -49,6 +50,12 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
+
+  const bannerImages = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .bookingFormImages
+
+  const email = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .bookingFormEmailContact
 
   const handleDestinationChange = (destinationSlug, setFieldValue) => {
     if (destinationSlug === "all") {
@@ -170,7 +177,10 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
     }
   }
 
-  const renderThankMessage = email => {
+  const renderImages = _ =>
+    bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
+
+  const renderThankMessage = _ => {
     return (
       <div className="booking-form__thank-you">
         <h2 className="green-title">Thanks for your booking enquiry.</h2>
@@ -200,7 +210,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
         Please let us know your desired destination and travel date preference
         using the below form. We’ll be in touch within 24 hours to let you know
         availability. Any questions please fill in the comments form below or
-        just email us at EMAIL EMAIL EMAIL HERE
+        just email us at <strong>{email}</strong>
       </p>
 
       <section
@@ -573,6 +583,10 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
         ) : (
           renderThankMessage(success.email)
         )}
+
+        <br />
+        <h1>images</h1>
+        {renderImages()}
       </section>
     </div>
   )

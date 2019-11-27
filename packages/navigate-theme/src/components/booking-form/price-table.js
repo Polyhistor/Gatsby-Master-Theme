@@ -6,7 +6,8 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const PriceTable = ({ data }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
@@ -99,10 +100,14 @@ const PriceTable = ({ data }) => {
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
               <span className={bookingFormAvailablity}>{p.availability}</span>
-              <span className="booking-form__original">
-                {p.currencySymbol}
-                {p.rrp}
-              </span>
+
+              {p.rrp && (
+                <span className="booking-form__original">
+                  {p.currencySymbol}
+                  {p.rrp}
+                </span>
+              )}
+
               <span className="booking-form__discount">
                 {p.currencySymbol}
                 {p.rrpWithDiscount}&thinsp;

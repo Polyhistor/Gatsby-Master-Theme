@@ -5,7 +5,7 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 const GreenBar = () => {
   // TODO CLEAN UP ALL THE CALLS TO GATBSY_THEME ENV VARIABLE
 
-  const greenBar = useWebSiteConfigQuery().greenBar
+  const greenBar = useWebSiteConfigQuery().sitePlugin.pluginOptions.config.greenBar
 
   const iconClass = `${resolveVariationClass(
     "svg-icon--green-banner-svg-logo"

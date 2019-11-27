@@ -434,6 +434,21 @@ export const HomePageFragment = graphql`
   }
 `
 
+export const WebSiteConfiguration = graphql`
+  fragment WebSiteConfiguration on ContentfulWebsiteConfiguration {
+    bookingFormEmailContact
+    bookingFormImages {
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 1000, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
+
 // for why wild kiwi section on itinerary page
 export const WhyWildFragment = graphql`
   fragment WhyWildSection on ContentfulWhyWildSectionDestinations {
