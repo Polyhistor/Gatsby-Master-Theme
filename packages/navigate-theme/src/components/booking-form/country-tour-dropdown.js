@@ -9,7 +9,8 @@ const CountryDestinationDropdown = ({
   onDestinationChange,
   setFieldValue,
 }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
 
   const destinationData = useDestinationQuery()

@@ -13,7 +13,7 @@ import useThemeModalQuery from "../../queries/themeModalQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BookingForm = ({ data, country, inPage }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions.config.bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses

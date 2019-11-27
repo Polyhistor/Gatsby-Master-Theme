@@ -11,7 +11,8 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const FilteredTour = ({ country, destinationData }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery()
+  const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
   const buttonClass = resolveVariationClass("filtered-tour__button")
   const buttonClassActive = resolveVariationClass("filtered-tour__button")

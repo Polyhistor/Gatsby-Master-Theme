@@ -32,7 +32,7 @@ const DestinationsMobile = ({
   SVGMap,
 }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery()
+  const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
   const buttonCardText =
     type === "country"
       ? pageConfiguration.countryPage.buttonCardText
