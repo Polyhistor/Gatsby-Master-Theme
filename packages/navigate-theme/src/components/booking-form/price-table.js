@@ -154,17 +154,19 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <span className="booking-form__month">{e.description}</span>
-            <input
-              className="booking-form__input"
-              id={`plus-holder-${idx + 50}`}
-              type="checkbox"
-              checked={idx === 0 ? true : null}
-            ></input>
-            <label
-              className="booking-form__plus-holder"
-              htmlFor={`plus-holder-${idx + 50}`}
-            ></label>
+            <div>
+              <span className="booking-form__month">{e.description}</span>
+              <input
+                className="booking-form__input"
+                id={`plus-holder-${idx + 50}`}
+                type="checkbox"
+                checked={idx === 0 ? true : null}
+              ></input>
+              <label
+                className="booking-form__plus-holder"
+                htmlFor={`plus-holder-${idx + 50}`}
+              ></label>
+            </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {e.dates.map((d, idx2) => (
                 <div
