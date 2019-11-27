@@ -2,7 +2,12 @@ import React from "react"
 import Img from "gatsby-image"
 
 import useImageQuery from "../../queries/imageQuery"
-import { Laptop, Mobile, DefaultRender } from "../../helpers/conditionalRenders"
+import {
+  Laptop,
+  Mobile,
+  Tablet,
+  DefaultRender,
+} from "../../helpers/conditionalRenders"
 import Intro from "../../components/intro"
 
 const YachtSingle = ({ data, popupVideo }) => {
@@ -35,6 +40,9 @@ const YachtSingle = ({ data, popupVideo }) => {
                 <Laptop>
                   <img src={node.yachtMap6X4.localFile.publicURL}></img>
                 </Laptop>
+                <Tablet>
+                  <img src={node.yachtMap6X4.localFile.publicURL}></img>
+                </Tablet>
                 <img src={node.yachtMap.localFile.publicURL}></img>
               </DefaultRender>
             </div>
@@ -45,11 +53,8 @@ const YachtSingle = ({ data, popupVideo }) => {
   return (
     <>
       <Intro
-        title="We have a variety of yacht and cabin
-types so you can travel in style"
-        description="Experience an unforgettable 7 days as you set sail around the most
-breathtaking islands Croatia has to offer. We have three routes to suit any
-style, choose the ultimate way you want to feel the beauty of Croatia."
+        title="We've got a boat to suit every traveller"
+        description="Set sail around the Mediterranean in our modern yachts and catamarans. We have three modern boats to suit any travel style, so you can choose the ultimate way to experience your dream sailing holiday."
         mobileButton={true}
         popupvideoURL={popupVideo}
       />
@@ -60,7 +65,9 @@ style, choose the ultimate way you want to feel the beauty of Croatia."
             Yacht Types
           </h2>
           <Mobile>
-            <Img fluid={imageData.MedsailorsBanner.childImageSharp.fluid}></Img>
+            <Img
+              fluid={imageData.YachtsMobileBanner.childImageSharp.fluid}
+            ></Img>
           </Mobile>
           {renderYachts()}
         </div>
