@@ -159,12 +159,7 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <span className="booking-form__month">
-              {/*POUYA - MONTH INFORMATION */}
-              {e.description} - {e.sale} - from {e.from.currencySymbol}{" "}
-              {e.from.price}
-              {e.from.currencyCode}
-            </span>
+            <span className="booking-form__month">{e.description}</span>
             <input
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}

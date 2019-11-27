@@ -1,22 +1,26 @@
 import React from "react"
 
-// default components
+// import YachtSingle from "../components/yachts/yachtSingle"
 
+// default components
 import {
   Layout,
   Landing,
   Banner,
   Reviews,
   Trips,
+  YachtSingle,
   useHomePageQuery,
   useImageQuery,
-  OurYachts,
   renderSeo,
+  GreenBar,
 } from "@nt-websites/navigate-theme"
 
 import useYachtQuery from "../queries/ourYachtQuery"
 
-const OurVehicles = ({ data }) => {
+let popupUrl = "https://ms.ntstage.com/"
+
+const Yachts = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -25,21 +29,25 @@ const OurVehicles = ({ data }) => {
   return (
     <Layout>
       {renderSeo(data)}
-      <div className="hotfix--narrow-banner">
+      <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
           imageData={imageQuery.ourYachts.childImageSharp.fluid}
           titleFirst="Our yachts"
-          buttonFirst="expore"
-          buttonFirstURL="/blog"
-          description="We have a variety of yacht and cabin types so you can travel in style."
-          buttonStyles={["white", "white"]}
+          buttonSecond="watch trailer"
+          buttonSecondURL="#popup"
+          buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
-          shape="diamond"
+          popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+          shape="square"
+          mobileBanner={true}
         />
+        <GreenBar />
       </div>
-
-      <OurYachts data={YachtQuery} />
+      <YachtSingle
+        data={YachtQuery}
+        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+      />
       <Banner
         imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
         header="How It Works"
@@ -54,7 +62,7 @@ const OurVehicles = ({ data }) => {
   )
 }
 
-export default OurVehicles
+export default Yachts
 
 /**
  * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass

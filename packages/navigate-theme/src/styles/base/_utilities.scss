@@ -562,6 +562,20 @@
         }
       }
     }
+
+    &--yachts {
+      & .bannerHero {
+        & .header {
+          & .header__button-box {
+            display: block;
+          }
+        }
+      }
+
+      & ~ .intro > .row > .intro__description {
+        max-width: 87rem;
+      }
+    }
   }
 
   &--destination {
