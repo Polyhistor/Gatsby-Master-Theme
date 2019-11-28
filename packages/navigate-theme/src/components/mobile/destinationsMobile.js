@@ -32,7 +32,8 @@ const DestinationsMobile = ({
   SVGMap,
 }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+  const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config
   const buttonCardText =
     type === "country"
       ? pageConfiguration.countryPage.buttonCardText
@@ -107,7 +108,7 @@ const DestinationsMobile = ({
             </div>
           ) : null}
           <Link
-            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
+            className={resolveVariationClass("btn")}
             to={
               country !== undefined
                 ? `${
@@ -125,7 +126,7 @@ const DestinationsMobile = ({
       {inCountry ? (
         <div class="row">
           <Link
-            className={theme === "ms" ? "btn btn--ms" : "btn btn--green"}
+            className={resolveVariationClass("btn")}
             to={
               country !== undefined
                 ? `${

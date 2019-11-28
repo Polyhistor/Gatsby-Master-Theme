@@ -39,6 +39,7 @@ const FooterForm = () => {
         className="footer__input mobile-yes"
         type="checkbox"
       />
+      {/*TODO style standard*/}
       <label
         htmlFor="footer__input"
         className={

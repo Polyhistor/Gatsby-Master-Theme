@@ -10,8 +10,6 @@ const Itinerary = ({
   itineraryTitles,
   itineraryConditional,
 }) => {
-  const theme = process.env.GATSBY_THEME
-
   // using hooks to update our stylings
   const [show, setShow] = useState(false)
 
@@ -41,11 +39,9 @@ const Itinerary = ({
     <section className="section-destination__itinerary">
       <div className="itinerary">
         <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms u-padding-bottom-sedium"
-              : "heading-1 heading-1--green u-padding-bottom-sedium"
-          }
+          className={`${resolveVariationClass(
+            "heading-1"
+          )} u-padding-bottom-sedium`}
         >
           {title}
         </h2>

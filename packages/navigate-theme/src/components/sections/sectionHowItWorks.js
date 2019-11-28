@@ -49,13 +49,8 @@ const HowItWorks = ({ data }) => {
     <section className="section-how-it-works">
       <div className="how-it-works__container">
         {renderHowBoxes()}
-        <h2
-          className={
-            theme === "ms"
-              ? "heading-1 heading-1--ms"
-              : "heading-1 u-margin-bottom-small"
-          }
-        >
+        {/*TODO: old wk - heading-1 u-margin-bottom-small"*/}
+        <h2 className={resolveVariationClass("heading-1")}>
           Our travel experiences
         </h2>
       </div>

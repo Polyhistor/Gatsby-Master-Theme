@@ -100,6 +100,25 @@ const Countries = ({ data, pageContext }) => {
     })
   }
 
+  /*TODO: create a new component and delegate it to this component*/
+  const renderDestinationBanner = () => {
+    return pageContext.toursBannerType === "default" ? (
+      <>
+        <div className="row row--patched">
+          <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+            Our Routes
+          </h2>
+        </div>
+        {renderDestinations()}
+      </>
+    ) : (
+      <FilteredTours
+        country={data.contentfulCountry.slug}
+        destinationData={destinationData}
+      />
+    )
+  }
+
   return (
     <Layout>
       {renderSeoFromContext(pageContext)}
@@ -120,7 +139,7 @@ const Countries = ({ data, pageContext }) => {
         shape="diamond"
         mobileBanner={true}
       />
-      {/* <Featured data={featuredBoxData} />  */}
+
       <GreenBar />
       <Intro
         title={data.contentfulCountry.introTitle}
@@ -129,24 +148,10 @@ const Countries = ({ data, pageContext }) => {
       <WhyUsMobile
         title={null}
         data={homeQuery[0].node}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo={popupUrl}
       />
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
-      {theme === "ms" ? (
-        <>
-          <div className="row row--patched">
-            <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
-              Our Routes
-            </h2>
-          </div>
-          {renderDestinations()}
-        </>
-      ) : (
-        <FilteredTours
-          country={data.contentfulCountry.slug}
-          destinationData={destinationData}
-        />
-      )}
+      {renderDestinationBanner()}
 
       <Banner
         imageData={bottomBannerImage}

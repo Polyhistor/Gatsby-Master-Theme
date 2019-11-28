@@ -521,9 +521,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                         : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
                     }
                     type="submit"
-                    className={
-                      theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"
-                    }
+                    className={resolveVariationClass("btn")}
                   >
                     Submit
                   </button>

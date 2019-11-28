@@ -362,6 +362,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         path: `${themeOptions.routesConfig.destinationCountryRoutePrefix}${country.node.slug}`,
         component: CountriesTemplate,
         context: {
+          toursBannerType: themeOptions.config.countryPage.toursBannerType,
           slug: country.node.slug,
           metadata: country.node.seo,
         },
