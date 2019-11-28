@@ -127,6 +127,7 @@ module.exports = {
           useHeaderShapes: true,
           tourUnit: "Trip",
           countryPage: {
+            toursBannerType: "default",
             buttonCardText: "Explore",
           },
           destinationPage: {

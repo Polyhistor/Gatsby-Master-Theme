@@ -437,6 +437,12 @@ export const HomePageFragment = graphql`
 export const WebSiteConfiguration = graphql`
   fragment WebSiteConfiguration on ContentfulWebsiteConfiguration {
     bookingFormEmailContact
+    websiteBottomBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     priceTableHeaderDescription {
       icon
       text

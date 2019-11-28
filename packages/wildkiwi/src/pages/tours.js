@@ -19,10 +19,14 @@ import {
   useFeatureBox,
   useDestinationQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const featuredBoxData = useFeatureBox()
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
@@ -104,7 +108,7 @@ const Destination = ({ data }) => {
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

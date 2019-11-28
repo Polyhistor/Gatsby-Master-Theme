@@ -3,6 +3,7 @@ import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
 import { Error } from "@nt-websites/navigate-theme"
 import { submitContactRequest } from "../../services/api"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 
 // Our Schema validation logics here
@@ -22,7 +23,7 @@ let finalAPI
 const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
   const theme = process.env.GATSBY_THEME
 
-  const link = theme === "ms" ? "link link--ms" : "link"
+  const link = resolveVariationClass("link")
 
   // object that we use to synthesize later with form fields later
   //const partialData = { productId: 8 }
@@ -201,7 +202,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                     >
                       I accept the&thinsp;
                       <a
-                        className={theme === "ms" ? "link link--ms" : "link"}
+                        className={resolveVariationClass("link")}
                         href={`${process.env.GATSBY_SITE_URL}/terms-conditions`}
                         target="_blank"
                       >

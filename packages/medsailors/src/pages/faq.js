@@ -12,11 +12,16 @@ import {
   useImageQuery,
   useHomePageQuery,
   useFAQQuery,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
@@ -40,7 +45,7 @@ const FAQ = ({ data }) => {
       <GreenBar />
       <SectionFAQ FAQData={FAQData} />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How It Works"
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Our Tours"

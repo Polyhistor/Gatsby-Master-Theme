@@ -21,6 +21,7 @@ import {
   useFeatureBox,
   renderSeo,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
@@ -30,6 +31,9 @@ const IndexPage = ({ data }) => {
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
   const featuredBoxData = useFeatureBox()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   // getting the number of tours for each country
   const filterDestinations = destination => {
@@ -163,7 +167,7 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

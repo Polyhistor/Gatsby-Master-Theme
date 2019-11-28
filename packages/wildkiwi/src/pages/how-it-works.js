@@ -13,10 +13,14 @@ import {
   useHomePageQuery,
   useHowItWorksQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const HowItWorks = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const howItWorksData = useHowItWorksQuery()
@@ -39,7 +43,7 @@ const HowItWorks = ({ data }) => {
       <GreenBar />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
