@@ -13,6 +13,21 @@
     padding: 0;
   }
 
+  &__info {
+    flex-direction: column;
+    padding-top: 1.1rem;
+
+    &-entry {
+      display: grid;
+      grid-template-columns: 4% 50%;
+      align-items: center;
+
+      & > p {
+        @extend .paragraph;
+      }
+    }
+  }
+
   &__base-price {
     grid-column: 4;
     font-family: Nunito-SemiBold;
@@ -30,9 +45,8 @@
   &__intro {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    height: 4.8rem;
+    height: 6.4rem;
     align-items: center;
-    border-bottom: 1px solid $color-grey-dark-2;
   }
 
   &__month {
@@ -47,7 +61,7 @@
     position: absolute;
     display: block;
     right: 2rem;
-    top: 1.3rem;
+    top: 2.4rem;
     height: 1.5rem;
     width: 1.5rem;
     border-left: 2px solid #5d5d5d;
@@ -83,11 +97,27 @@
   }
 
   &__class-container {
+    display: grid;
+    grid-template-columns: 24.9% 25.1% 25% 25%;
+    height: 4.8rem;
+    border-left: 1px solid $color-gray-light-2;
+
+    & h4:nth-child(1) {
+      grid-column: 2;
+    }
     & h4 {
       font-size: 1.8rem;
       font-family: Nunito-Semibold;
       color: $color-med-teal;
       text-transform: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid $color-gray-light-2;
+
+      &:nth-of-type(1) {
+        border-left: 1px solid $color-gray-light-2;
+      }
     }
   }
 
@@ -408,6 +438,11 @@
     &:nth-child(1) {
       border-top: 1px solid gray;
     }
+
+    &-price-holder {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   &__shown {
@@ -435,10 +470,13 @@
     transition: all 0.3s;
     display: grid;
     grid-template-columns: 1fr;
+    border-bottom: 1px solid #767676;
 
     &-entries {
       display: grid;
       grid-template-columns: 25% 75%;
+      height: 8.8rem;
+      align-items: center;
 
       @include respond(laptop) {
         align-items: center;
@@ -481,6 +519,12 @@
   }
 
   &__left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid $color-gray-light-2;
+    border-left: 1px solid $color-gray-light-2;
+
     @include respond(tablet) {
       width: 36%;
       margin-left: -1rem;
@@ -498,6 +542,9 @@
   &__right {
     display: grid;
     grid-template-columns: repeat(3, 33.3%);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
     @include respond(laptop) {
       width: 95%;
@@ -528,6 +575,7 @@
   &__date-container {
     display: flex;
     flex-direction: column;
+    padding-left: 1.6rem;
 
     @include respond(tablet) {
       width: 8.5rem;
@@ -541,6 +589,8 @@
 
   &__date {
     font-family: Nunito-Black;
+    font-size: 2.2rem;
+    text-transform: none;
 
     @include respond(tablet) {
       font-size: 1.1rem;
@@ -559,9 +609,8 @@
   }
 
   &__destination {
-    font-size: 0.9rem;
-    text-align: left;
-    margin-left: 0.4rem;
+    font-size: 1.2rem;
+    text-transform: none;
 
     @include respond(phone) {
       margin-left: 0rem;
@@ -647,6 +696,8 @@
   &__promo {
     font-size: 1.4rem;
     color: $color-red;
+    display: flex;
+    justify-content: center;
 
     &--soldout {
       color: $color-gray-light-2;
@@ -665,10 +716,11 @@
   }
 
   &__price {
-    display: flex;
-    width: 88%;
-    justify-content: flex-end;
+    display: grid;
     align-items: center;
+    grid-template-columns: 61% 37%;
+    grid-column-gap: 0.6rem;
+    width: 100%;
 
     @include respond(phone) {
       width: 100%;
@@ -679,20 +731,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 5rem;
-      margin-left: 0.1rem;
-      border: 1px solid #e7e7e7;
-      border-radius: 0.3rem;
-      transition: all 0.2s ease-in;
+      height: 100%;
+      border-right: 1px solid $color-gray-light-2;
 
       &--soldout {
         color: $color-gray-light-2;
         pointer-events: none;
-      }
 
-      &:hover {
-        background: $color-gray-light-2;
-        border: 1px solid $color-grey-dark;
+        &
+          > .booking-form__price
+          > .booking-form__availability-container
+          > span {
+          color: $color-gray-light-2;
+        }
       }
 
       @include respond(phone) {
@@ -723,9 +774,11 @@
   }
 
   &__original {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
     text-decoration-line: line-through;
-    margin-right: 0.4rem;
+    margin-right: 0.6rem;
+    align-items: center;
+    display: flex;
 
     @include respond(phone) {
       font-size: 1.3rem;
@@ -733,7 +786,8 @@
   }
 
   &__discount {
-    font-family: Nunito-Black;
+    font-family: Nunito-SemiBold;
+    font-size: 2.2rem;
 
     @include respond(tablet) {
       font-size: 1.1rem;
@@ -742,11 +796,16 @@
     @include respond(phone) {
       font-size: 1.3rem;
     }
+
+    & > span {
+      font-size: 1.4rem;
+      text-transform: none;
+    }
   }
 
   &__availability {
     text-transform: capitalize;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: $color-primary;
     margin-right: 0.4rem;
 
@@ -777,6 +836,11 @@
 
     &--sold-out {
       color: $color-gray-light-2;
+    }
+
+    &-container {
+      display: flex;
+      padding-top: 0.6rem;
     }
   }
 

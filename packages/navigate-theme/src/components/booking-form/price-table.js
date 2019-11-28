@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withPrefix } from "gatsby"
 import Loader from "react-loader-spinner"
 
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
@@ -15,8 +16,6 @@ const PriceTable = ({ data }) => {
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
   const useYachtClass = bookingFormConfig.useYachtClass
-
-  console.log(data)
 
   // render buyerInfo
   const renderIfno = () => {
@@ -81,11 +80,12 @@ const PriceTable = ({ data }) => {
   const renderPriceHeaderDescription = _ => {
     return priceTableHeaderDescription.map(desc => {
       return (
-        <p>
-          POUYA RENDER ICON FROM SPRITE.svg - icon-name:
-          <strong>{desc.icon}</strong>
-          {desc.text}
-        </p>
+        <div className="booking-form__info-entry">
+          <svg className={`svg-icon--MSIncludes`}>
+            <use xlinkHref={withPrefix(`sprite.svg#${desc.icon}`)} />
+          </svg>
+          <p>{desc.text}</p>
+        </div>
       )
     })
   }
@@ -98,7 +98,6 @@ const PriceTable = ({ data }) => {
         return (
           <div
             key={idx}
-            onClick={() => handleClick(p)}
             className={
               p.availability === "Sold Out"
                 ? "booking-form__price-entry booking-form__price-entry--soldout"
@@ -115,18 +114,25 @@ const PriceTable = ({ data }) => {
               </div>
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
-              <span className={bookingFormAvailablity}>{p.availability}</span>
-              {p.rrp && (
-                <span className="booking-form__original">
+              <div className="booking-form__entry-price-holder">
+                {p.rrp && (
+                  <span className="booking-form__original">
+                    {p.currencySymbol}
+                    {p.rrp}
+                  </span>
+                )}
+                <span className="booking-form__discount">
                   {p.currencySymbol}
-                  {p.rrp}
+                  {p.rrpWithDiscount}
+                  <span>
+                    pp&thinsp;
+                    {p.currencyCode}
+                  </span>
                 </span>
-              )}
-              <span className="booking-form__discount">
-                {p.currencySymbol}
-                {p.rrpWithDiscount}&thinsp;
-                {p.currencyCode}
-              </span>
+              </div>
+              <div className="booking-form__availability-container">
+                <span className={bookingFormAvailablity}>{p.availability}</span>
+              </div>
             </div>
           </div>
         )
@@ -214,6 +220,9 @@ const PriceTable = ({ data }) => {
                       </span>
                       <span className="booking-form__destination">
                         {d.startLocation}
+                        &thinsp; &#9679; &thinsp;
+                        {d.durationInDays} days&thinsp; &#9679; &thinsp;
+                        {d.startDay} to {d.endDay}
                       </span>
                     </div>
                     {/* <div className="booking-form__mediator">
@@ -271,13 +280,14 @@ const PriceTable = ({ data }) => {
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">
             {receivedData !== null && (
-              <div className="booking-form__tour-title u-margin-bottom-medium">
+              <div className="booking-form__tour-title u-margin-bottom-small">
                 <>
                   <h2 className={resolveVariationClass("heading-1")}>
                     {data.data.data.description} Pricing
                   </h2>
-
-                  {renderPriceHeaderDescription()}
+                  <div className="booking-form__info">
+                    {renderPriceHeaderDescription()}
+                  </div>
                 </>
               </div>
             )}

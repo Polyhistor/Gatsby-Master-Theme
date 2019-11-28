@@ -137,15 +137,15 @@ module.exports = {
             useYachtClass: true,
             yachtClasses: [
               {
-                description: "Premier Yacht",
-                code: "Premier Yacht",
+                description: "Premium Yacht",
+                code: "Premium Yacht",
               },
               {
-                description: "SUPERIOR MONOCAT",
+                description: "Superior Monocat",
                 code: "Superior Monocat",
               },
               {
-                description: "CATAMARAN",
+                description: "Catamaran",
                 code: "Catamaran",
               },
             ],
