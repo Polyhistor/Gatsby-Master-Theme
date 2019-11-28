@@ -23,10 +23,14 @@ import {
   renderSeo,
   useFeatureBox,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()

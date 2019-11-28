@@ -13,10 +13,15 @@ import {
   useHomePageQuery,
   useFAQQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()

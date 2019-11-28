@@ -42,10 +42,6 @@ const useImageQuery = () => {
         ...FluidImageBig
       }
 
-      banner: file(relativePath: { eq: "wild-kiwi-how-it-works.jpg" }) {
-        ...FluidImageBig
-      }
-
       bannerHero: file(
         relativePath: {
           eq: "wild-kiwi-adventure-tours-flashpacking-new-zealand-australia-small-groups.jpg"
@@ -268,12 +264,6 @@ const useImageQuery = () => {
 
       MsHowItWorksBanner: file(
         relativePath: { eq: "group-jump-off-catamaran-greece.jpg" }
-      ) {
-        ...FluidImage
-      }
-
-      MSBottomBanner: file(
-        relativePath: { eq: "yachts-anchored-blue-caves-corfu.jpg" }
       ) {
         ...FluidImage
       }

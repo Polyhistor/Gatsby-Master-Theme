@@ -19,10 +19,14 @@ import {
   useFeatureBox,
   useDestinationQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const featuredBoxData = useFeatureBox()
   const imageQuery = useImageQuery()
   const countryQuery = useCountryQuery()
