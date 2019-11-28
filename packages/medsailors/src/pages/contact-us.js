@@ -14,12 +14,17 @@ import {
   renderSeo,
   useContactQuery,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
   const link = resolveVariationClass("link")
 
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const contactData = useContactQuery()
@@ -56,7 +61,7 @@ const GetInTouch = ({ data }) => {
         leftContactSection={leftContactSection}
       />{" "}
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How It Works"
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Our Tours"

@@ -8,7 +8,7 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
-
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 
 // utilities
@@ -21,7 +21,9 @@ const ActivitiesCountries = ({ pageContext, data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
-
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const renderActivities = () => {
     return data.allContentfulActivities.edges.map(({ node }, idx) => {
       return (
@@ -84,11 +86,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           </div> */}
         </div>
         <Banner
-          imageData={
-            theme === "ms"
-              ? imageQuery.MSBottomBanner.childImageSharp.fluid
-              : imageQuery.banner.childImageSharp.fluid
-          }
+          imageData={bottomBannerImage}
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
           buttonText="continue"

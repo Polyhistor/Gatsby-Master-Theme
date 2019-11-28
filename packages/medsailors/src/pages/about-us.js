@@ -11,6 +11,7 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -21,6 +22,9 @@ const AboutUs = ({ data }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const workForUsQuery = useWorkingForUs()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>
@@ -40,7 +44,7 @@ const AboutUs = ({ data }) => {
       <GreenBar />
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How It Works"
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Our Tours"

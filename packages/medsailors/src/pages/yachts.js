@@ -12,6 +12,7 @@ import {
   YachtSingle,
   useHomePageQuery,
   useImageQuery,
+  useWebSiteConfigQuery,
   renderSeo,
   GreenBar,
 } from "@nt-websites/navigate-theme"
@@ -22,6 +23,10 @@ let popupUrl = "https://ms.ntstage.com/"
 
 const Yachts = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
@@ -49,7 +54,7 @@ const Yachts = ({ data }) => {
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <Banner
-        imageData={imageQuery.MSBottomBanner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How It Works"
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Our Tours"

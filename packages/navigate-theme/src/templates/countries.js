@@ -16,7 +16,7 @@ import Intro from "../components/intro"
 import BoxContainer from "../components/boxes/boxContainer"
 import WhyUsMobile from "../components/mobile/whyWildkiwi"
 import resolveVariationClass from "../helpers/theme-variation-style"
-
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
@@ -26,7 +26,9 @@ import { renderSeoFromContext } from "../helpers/seo-helper"
 
 const Countries = ({ data, pageContext }) => {
   const theme = process.env.GATSBY_THEME
-
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
@@ -147,11 +149,7 @@ const Countries = ({ data, pageContext }) => {
       )}
 
       <Banner
-        imageData={
-          theme === "ms"
-            ? imageQuery.MSBottomBanner.childImageSharp.fluid
-            : imageQuery.banner.childImageSharp.fluid
-        }
+        imageData={bottomBannerImage}
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

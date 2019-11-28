@@ -149,7 +149,7 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="How it works"
         subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"

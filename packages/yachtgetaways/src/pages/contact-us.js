@@ -58,7 +58,7 @@ const GetInTouch = ({ data }) => {
       />{" "}
       />
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"

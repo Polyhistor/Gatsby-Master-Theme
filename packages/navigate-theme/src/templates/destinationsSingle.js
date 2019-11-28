@@ -26,7 +26,7 @@ import useHomePageQuery from "../queries/homePageQuery"
 import useWildkiwiQuery from "../queries/wildkiwiQuery"
 import { useFetchHook } from "../hooks/useFetchHook"
 import { renderSeoFromContext } from "../helpers/seo-helper"
-
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
@@ -40,7 +40,9 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const WhyWildData = useWildkiwiQuery()
-
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   // data to be fetched
   const ourData = useFetchHook(data.contentfulDestinations.slug)
 
@@ -171,11 +173,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         />
         <div className="hotfix--banner">
           <Banner
-            imageData={
-              theme === "ms"
-                ? imageQuery.MSBottomBanner.childImageSharp.fluid
-                : imageQuery.banner.childImageSharp.fluid
-            }
+            imageData={bottomBannerImage}
             header="How It Works"
             subHeaderFirst="Everything You Need To"
             subHeaderSecond="Know About Our Tours"
