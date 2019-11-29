@@ -115,19 +115,22 @@ const PriceTable = ({ data }) => {
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
               <div className="booking-form__entry-price-holder">
-                {p.rrp && (
+                {p.priceB && (
                   <span className="booking-form__original">
                     {p.currencySymbol}
-                    {p.rrp}
+                    {p.priceB}
                   </span>
                 )}
                 <span className="booking-form__discount">
                   {p.currencySymbol}
-                  {p.rrpWithDiscount}
-                  <span>
-                    pp&thinsp;
-                    {p.currencyCode}
-                  </span>
+                  {p.priceA}
+
+                  {p.currencyCode && (
+                    <span>
+                      pp&thinsp;
+                      {p.currencyCode}
+                    </span>
+                  )}
                 </span>
               </div>
               <div className="booking-form__availability-container">
