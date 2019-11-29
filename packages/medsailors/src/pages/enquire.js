@@ -7,6 +7,7 @@ import {
   GreenBar,
   useImageQuery,
   useThemeRoutesConfigQuery,
+  renderSeo,
 } from "@nt-websites/navigate-theme"
 
 const getCountryAndTourUrl = (routePrefix, path) => {
@@ -66,3 +67,18 @@ const Book = ({ location }) => {
 }
 
 export default Book
+
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "enquire" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
