@@ -1,8 +1,11 @@
 import React from "react"
 
 import {
-  Layout2,
+  Layout,
+  Landing,
   BookForm,
+  GreenBar,
+  useImageQuery,
   useThemeRoutesConfigQuery,
 } from "@nt-websites/navigate-theme"
 
@@ -29,6 +32,8 @@ const getCountryAndTourUrl = (routePrefix, path) => {
 }
 
 const Book = ({ location }) => {
+  const imageQuery = useImageQuery()
+
   const path = location.state ? location.state.path : undefined
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -38,11 +43,25 @@ const Book = ({ location }) => {
   )
 
   return (
-    <Layout2>
+    <Layout>
+      <div className="hotfix--narrow-banner">
+        <Landing
+          imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
+          titleFirst="Book Now"
+          buttonFirst="expore"
+          buttonFirstURL="/blog"
+          description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
+          buttonStyles={["white", "white"]}
+          optMargin="u-margin-top-percent-10"
+          variation="dest"
+          shape="cricle"
+        />
+        <GreenBar />
+      </div>
       <div className="row">
         <BookForm countryAndTour={countryAndTour} inPage={true} />
       </div>
-    </Layout2>
+    </Layout>
   )
 }
 

@@ -447,6 +447,7 @@ export const WebSiteConfiguration = graphql`
       icon
       text
     }
+
     bookingFormImages {
       localFile {
         childImageSharp {

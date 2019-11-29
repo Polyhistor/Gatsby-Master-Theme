@@ -3,14 +3,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const BookSuccess = ({ email }) => {
   return (
     <>
-      <h2
-        className={`${resolveVariationClass(
-          "heading-1"
-        )} u-padding-bottom-small`}
-      >
-        enquiry Success - pouya maybe hide this title on success?
-      </h2>
-      <section className="booking-form booking-form--in-page">
+      <section>
         {<button onClick={_ => window.history.go(-1)}>CLOSE</button>}
 
         <div className="booking-form__thank-you">

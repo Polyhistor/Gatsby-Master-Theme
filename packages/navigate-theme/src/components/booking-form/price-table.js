@@ -279,7 +279,7 @@ const PriceTable = ({ data }) => {
 
   return (
     <div id="priceTable" className="section-destination__price-table">
-      <section className="booking-form booking-form--in-page">
+      <section className="price-list">
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">
             {receivedData !== null && (

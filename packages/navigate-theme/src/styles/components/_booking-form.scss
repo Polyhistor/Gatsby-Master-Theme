@@ -1,5 +1,6 @@
 .booking-form {
-  padding: 3rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 0.4rem;
 
   @include respond(laptop) {
     width: 104rem;
@@ -11,6 +12,17 @@
 
   @include respond(phone) {
     padding: 0;
+  }
+
+  & > form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row-gap: 0.8rem;
+    padding: 1.6rem;
+
+    & > select {
+      margin-bottom: 0.8rem;
+    }
   }
 
   &__info {
@@ -78,6 +90,8 @@
   }
 
   &--in-page {
+    display: grid;
+    grid-template-columns: 47% 53%;
     padding: 0rem;
   }
 
@@ -368,32 +382,43 @@
   }
 
   &__dropdown {
-    margin-bottom: 4rem;
+    height: 4.8rem;
+    width: 27rem;
+    background: white;
+    font-family: Nunito-Black;
+    font-size: 1.6rem;
 
-    @include respond(phone) {
-      margin-bottom: 1rem;
+    &--ms {
+      color: #06babf;
+      border: 1px solid #06babf;
     }
 
-    & > .activity__selector {
-      @include respond(phone) {
-        left: 2.5%;
-        margin-bottom: 1rem;
-      }
-      & > select {
-        @include respond(phone) {
-          padding: 1rem 4rem 1rem 1rem;
-          width: 29rem;
-        }
+    // margin-bottom: 4rem;
 
-        &:after {
-          margin-left: -3rem;
-        }
-      }
+    // @include respond(phone) {
+    //   margin-bottom: 1rem;
+    // }
 
-      &:after {
-        left: 28.2rem;
-      }
-    }
+    // & > .activity__selector {
+    //   @include respond(phone) {
+    //     left: 2.5%;
+    //     margin-bottom: 1rem;
+    //   }
+    //   & > select {
+    //     @include respond(phone) {
+    //       padding: 1rem 4rem 1rem 1rem;
+    //       width: 29rem;
+    //     }
+
+    //     &:after {
+    //       margin-left: -3rem;
+    //     }
+    //   }
+
+    //   &:after {
+    //     left: 28.2rem;
+    //   }
+    // }
   }
 
   &__input {
@@ -779,6 +804,7 @@
     margin-right: 0.6rem;
     align-items: center;
     display: flex;
+    padding-top: 0.6rem;
 
     @include respond(phone) {
       font-size: 1.3rem;
@@ -1091,8 +1117,8 @@
   }
 
   &__fields {
-    width: 26.4rem;
-    height: 3.4rem;
+    width: 27rem;
+    height: 4.8rem;
     border-radius: 0.3rem;
     border: 1px solid #aeaeae;
     font-size: 1.6rem;
@@ -1112,7 +1138,9 @@
     }
 
     &--half {
-      width: 12.2rem;
+      & input {
+        width: 12.2rem !important;
+      }
 
       @include respond(tablet) {
         width: 17.6rem;
@@ -1128,7 +1156,9 @@
     }
 
     &--textarea {
-      height: 8rem;
+      height: 9rem;
+      width: 55rem;
+      margin-top: 1.2rem;
     }
   }
 
@@ -1167,5 +1197,27 @@
       font-size: 1.6rem;
       padding-bottom: 1rem;
     }
+  }
+
+  &__back-holder {
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    cursor: pointer;
+
+    > a {
+      color: $color-med-teal;
+      font-family: Nunito-Black;
+      padding-left: 0.6rem;
+    }
+  }
+
+  &__arrow {
+    display: block;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-left: 0.15rem solid #06babf;
+    border-bottom: 0.15rem solid #06babf;
+    transform: rotate(45deg);
   }
 }

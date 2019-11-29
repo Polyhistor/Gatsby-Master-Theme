@@ -1,0 +1,57 @@
+.booking-details {
+  &__fields-container {
+    & label {
+      font-size: 1.4rem;
+    }
+    & input {
+      height: 4.8rem;
+      width: 27rem;
+      border: 1px solid $color-gray-light-2;
+      border-radius: 0.3rem;
+    }
+    & div {
+      font-size: 1.4rem;
+      color: #fa5a5f;
+    }
+
+    &--half {
+      display: flex;
+      flex-direction: column;
+      & input,
+      & select {
+        width: 100%;
+      }
+    }
+
+    & select {
+      background: white;
+      color: $color-grey-dark;
+    }
+
+    &--consent {
+      display: flex;
+      align-items: center;
+
+      & input {
+        width: 2rem;
+      }
+    }
+  }
+
+  &__spanner {
+    display: grid;
+    grid-template-columns: 31.6% 31.6% 31.6%;
+    grid-column-gap: 1rem;
+    grid-column: 1/-1;
+  }
+
+  &__email {
+    font-family: Nunito-Black;
+  }
+
+  &__image-container {
+    & > .gatsby-image-wrapper {
+      height: 39.5rem;
+    }
+  }
+}

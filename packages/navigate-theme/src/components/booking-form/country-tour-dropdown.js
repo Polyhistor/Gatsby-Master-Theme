@@ -114,7 +114,7 @@ const CountryDestinationDropdown = ({
     <>
       <select
         onChange={e => handleCountryDropdown(e)}
-        className={"activity__dropdown"}
+        className={resolveVariationClass("booking-form__dropdown")}
         value={selectedCountry}
         id="country"
       >
@@ -124,7 +124,7 @@ const CountryDestinationDropdown = ({
 
       <select
         onChange={e => handleDestDropdown(e)}
-        className={resolveVariationClass("activity__dropdown")}
+        className={resolveVariationClass("booking-form__dropdown")}
         id="tours"
         value={selectedTour}
       >

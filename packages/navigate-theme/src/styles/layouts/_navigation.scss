@@ -82,14 +82,14 @@
       }
     }
 
-    &:hover {
-      .navigation__dropdown-item {
-        @include respond(phone) {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    }
+    // &:hover {
+    //   .navigation__dropdown-item {
+    //     @include respond(phone) {
+    //       width: 100%;
+    //       text-align: center;
+    //     }
+    //   }
+    // }
 
     &-item {
       display: none;
