@@ -261,7 +261,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       type="text"
                       name="firstName"
-                      placeholder="First Name *"
                       className="booking-form__fields"
                       className={getFieldErrorClass(errors.firstName)}
                     ></Field>
@@ -276,7 +275,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       type="text"
                       name="lastName"
-                      placeholder="Last Name *"
                       className={getFieldErrorClass(errors.lastName)}
                     ></Field>
                     <Error
@@ -290,7 +288,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       type="text"
                       name="email"
-                      placeholder="Email Address *"
                       className={getFieldErrorClass(errors.email)}
                     ></Field>
                     <Error touched={touched.email} message={errors.email} />
@@ -301,7 +298,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       type="text"
                       name="emailConfirm"
-                      placeholder="Confirm Email Address *"
                       className={getFieldErrorClass(errors.emailConfirm)}
                     ></Field>
                     <Error
@@ -315,7 +311,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       component="select"
                       name="phoneCountryCode"
-                      placeholder="Country Code *"
                       className={getFieldErrorClass(errors.phoneCountryCode)}
                     >
                       <option value="">Select Country Code</option>
@@ -342,7 +337,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <Field
                       type="number"
                       name="phoneNumber"
-                      placeholder="Mobile *"
                       className={getFieldErrorClass(errors.phoneNumber)}
                     ></Field>
                     <Error
@@ -371,7 +365,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                       <Field
                         type="number"
                         name="age"
-                        placeholder="Age "
                         className={getFieldErrorClass(errors.age)}
                       ></Field>
                       <Error touched={touched.age} message={errors.age} />
@@ -382,7 +375,6 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                       <Field
                         type="number"
                         name="guests"
-                        placeholder="No. of Travelers"
                         className={getFieldErrorClass(errors.guests)}
                       ></Field>
 
