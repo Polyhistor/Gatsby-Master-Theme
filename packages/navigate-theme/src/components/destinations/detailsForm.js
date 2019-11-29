@@ -472,7 +472,7 @@ const DetailsForm = ({
                       </a>
                     </label>
                   </div>
-                  {theme === "ms" ? (
+                  {bookingNotes && generalNotes ? (
                     <>
                       <p className="booking-form__additional-info mobile-yes">
                         {bookingNotes} {generalNotes}
@@ -487,12 +487,12 @@ const DetailsForm = ({
                     }
                     type="submit"
                     className={
-                      theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"
+                      resolveVariationClass("btn")
+                      /* theme review theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"*/
                     }
                   >
                     Submit
                   </button>
-                  {/* <button >test</button> */}
                 </Form>
               )}
             </Formik>

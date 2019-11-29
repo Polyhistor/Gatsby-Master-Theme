@@ -11,7 +11,8 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const FilteredTour = ({ country, destinationData }) => {
   const theme = process.env.GATSBY_THEME
-  const pageConfiguration = useWebSiteConfigQuery()
+  const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
   const buttonClass = resolveVariationClass("filtered-tour__button")
   const buttonClassActive = resolveVariationClass("filtered-tour__button")
@@ -91,11 +92,7 @@ const FilteredTour = ({ country, destinationData }) => {
         return (
           <div
             key={idx}
-            className={
-              theme === "ms"
-                ? "filtered-tour u-margin-top-big "
-                : "filtered-tour"
-            }
+            className="filtered-tour u-margin-top-big"
             to={`destinations/${country}/${element.node.slug}`}
           >
             <figure className="filtered-tour__image-container">
@@ -140,11 +137,7 @@ const FilteredTour = ({ country, destinationData }) => {
             </div>
             <Link
               aria-current="page"
-              className={
-                theme === "ms"
-                  ? "btn btn--ms-teal tablet-green-button"
-                  : "btn btn--green tablet-green-button"
-              }
+              className={`${resolveVariationClass("btn")} tablet-green-button`}
               to={`${themeOptionsQueryData.destinationCountryRoutePrefix}${country}/${element.node.url}`}
             >
               {pageConfiguration.destinationPage.buttonCardText}

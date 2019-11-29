@@ -6,7 +6,7 @@ import resolveVariationClass from "../helpers/theme-variation-style"
 import Modal from "react-responsive-modal"
 import { Mobile } from "../helpers/conditionalRenders"
 
-const Intro = ({ title, description, popupvideoURL, mobileButton }) => {
+const Intro = ({ title, description, popupvideoURL, mobileButton, email }) => {
   const theme = process.env.GATSBY_THEME
 
   // setting the initial state for the modal
@@ -16,7 +16,12 @@ const Intro = ({ title, description, popupvideoURL, mobileButton }) => {
     <section className="intro">
       <div className="row">
         <h2 className={resolveVariationClass("intro__title")}>{title}</h2>
-        <p className="intro__description">{description}</p>
+        <p className="intro__description">
+          {description}{" "}
+          <span className="booking-details__email">
+            {email !== null ? email : null}
+          </span>
+        </p>
         {mobileButton ? (
           <Mobile>
             <a

@@ -11,7 +11,7 @@ import Trips from "../components/trips/trips"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 import Intro from "../components/intro"
-
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
@@ -21,7 +21,9 @@ import resolveVariationClass from "../helpers/theme-variation-style"
 const ActivitiesMain = ({ pageContext }) => {
   // TODO - CLEAN UP
   const theme = process.env.GATSBY_THEME
-
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const activityLabelFree = resolveVariationClass(
     "acitivity-box-single__caption--free"
   )
@@ -301,11 +303,7 @@ const ActivitiesMain = ({ pageContext }) => {
           </div>
         </div>
         <Banner
-          imageData={
-            theme === "ms"
-              ? imageQuery.MSBottomBanner.childImageSharp.fluid
-              : imageQuery.banner.childImageSharp.fluid
-          }
+          imageData={bottomBannerImage}
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"

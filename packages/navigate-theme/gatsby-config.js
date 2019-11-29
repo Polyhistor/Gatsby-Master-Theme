@@ -76,7 +76,7 @@ module.exports = themeOptions => {
 
           // Set how many simultaneous requests are sent at once.
           concurrentRequests: themeOptions.wordpress.concurrentRequests,
-          // Set WP REST API routes whitelists
+          // Set WP REST API routes whitelistscontentfulWebsiteConfiguration
           // and blacklists using glob patterns.
           // Defaults to whitelist the routes shown
           // in the example below.

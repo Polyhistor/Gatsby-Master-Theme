@@ -128,6 +128,7 @@ module.exports = {
           useHeaderShapes: false,
           tourUnit: "Tour",
           countryPage: {
+            toursBannerType: "filteredTours",
             buttonCardText: "Explore",
           },
           destinationPage: {

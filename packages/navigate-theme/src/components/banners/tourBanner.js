@@ -38,7 +38,7 @@ const TourBanner = ({
   duration,
   country,
 }) => {
-  const webSiteConfiguration = useWebSiteConfigQuery()
+  const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
 
   const buttonCardText =
     type === "country"

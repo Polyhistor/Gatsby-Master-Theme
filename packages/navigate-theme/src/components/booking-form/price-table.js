@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withPrefix } from "gatsby"
 import Loader from "react-loader-spinner"
 
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
@@ -6,7 +7,11 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const PriceTable = ({ data }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
+
+  const priceTableHeaderDescription = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.priceTableHeaderDescription
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses
@@ -26,8 +31,6 @@ const PriceTable = ({ data }) => {
       )
     }
   }
-
-  const bookingFormPromo = resolveVariationClass("booking-form__promo")
 
   const bookingFormAvailablity = resolveVariationClass(
     "booking-form__availability"
@@ -52,25 +55,39 @@ const PriceTable = ({ data }) => {
   // initiating an empty array that stores references to our nodes
   const refs = []
 
-  const renderHeader = () => {
-    if (useYachtClass) {
-      return (
-        <div className="booking-form__header-classes">
-          {pricesClassOrdered.map((p, idx) => {
-            return (
-              <h4 key={idx} className={resolveVariationClass("heading-4")}>
-                {p.description}
-              </h4>
-            )
-          })}
-        </div>
-      )
-    }
-    return null
-  }
+  // const renderHeader = () => {
+  //   if (useYachtClass) {
+  //     return (
+  //       <div className="booking-form__header-classes">
+  //         {pricesClassOrdered.map((p, idx) => {
+  //           return (
+  //             <h4 key={idx} className={resolveVariationClass("heading-4")}>
+  //               {p.description}
+  //             </h4>
+  //           )
+  //         })}
+  //       </div>
+  //     )
+  //   }
+  //   return null
+  // }
 
   const handleClick = () => {
     alert("Implement go to booking form below")
+  }
+
+  //POUYA CHANGE HERE.
+  const renderPriceHeaderDescription = _ => {
+    return priceTableHeaderDescription.map(desc => {
+      return (
+        <div className="booking-form__info-entry">
+          <svg className={`svg-icon--MSIncludes`}>
+            <use xlinkHref={withPrefix(`sprite.svg#${desc.icon}`)} />
+          </svg>
+          <p>{desc.text}</p>
+        </div>
+      )
+    })
   }
 
   // rendering prices
@@ -81,7 +98,6 @@ const PriceTable = ({ data }) => {
         return (
           <div
             key={idx}
-            onClick={() => handleClick(p)}
             className={
               p.availability === "Sold Out"
                 ? "booking-form__price-entry booking-form__price-entry--soldout"
@@ -98,16 +114,28 @@ const PriceTable = ({ data }) => {
               </div>
             ) : null}
             <div className={resolveVariationClass("booking-form__price")}>
-              <span className={bookingFormAvailablity}>{p.availability}</span>
-              <span className="booking-form__original">
-                {p.currencySymbol}
-                {p.rrp}
-              </span>
-              <span className="booking-form__discount">
-                {p.currencySymbol}
-                {p.rrpWithDiscount}&thinsp;
-                {p.currencyCode}
-              </span>
+              <div className="booking-form__entry-price-holder">
+                {p.priceB && (
+                  <span className="booking-form__original">
+                    {p.currencySymbol}
+                    {p.priceB}
+                  </span>
+                )}
+                <span className="booking-form__discount">
+                  {p.currencySymbol}
+                  {p.priceA}
+
+                  {p.currencyCode && (
+                    <span>
+                      pp&thinsp;
+                      {p.currencyCode}
+                    </span>
+                  )}
+                </span>
+              </div>
+              <div className="booking-form__availability-container">
+                <span className={bookingFormAvailablity}>{p.availability}</span>
+              </div>
             </div>
           </div>
         )
@@ -154,7 +182,6 @@ const PriceTable = ({ data }) => {
           }
         >
           <div className="booking-form__shown">
-            <span className="booking-form__month">{e.description}</span>
             <input
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
@@ -164,8 +191,23 @@ const PriceTable = ({ data }) => {
             <label
               className="booking-form__plus-holder"
               htmlFor={`plus-holder-${idx + 50}`}
-            ></label>
+            >
+              <span className="booking-form__angle-arrow"></span>
+            </label>
+            <div className="booking-form__intro">
+              <span className="booking-form__month">{e.description}</span>
+              <span className="booking-form__promo">{e.sale}</span>
+              <span className="booking-form__base-price">
+                from {e.from.currencySymbol}
+                {e.from.price} <span>pp {e.from.currencyCode}</span>
+              </span>
+            </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
+              <div className="booking-form__class-container">
+                {pricesClassOrdered.map((p, idx) => {
+                  return <h4 key={idx}>{p.description}</h4>
+                })}
+              </div>
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
@@ -181,18 +223,12 @@ const PriceTable = ({ data }) => {
                       </span>
                       <span className="booking-form__destination">
                         {d.startLocation}
+                        &thinsp; &#9679; &thinsp;
+                        {d.durationInDays} days&thinsp; &#9679; &thinsp;
+                        {d.startDay} to {d.endDay}
                       </span>
                     </div>
-                    <div className="booking-form__mediator">
-                      <span
-                        className={
-                          d.availability === "Sold Out"
-                            ? `${bookingFormPromo} booking-form__promo--soldout`
-                            : `${bookingFormPromo}`
-                        }
-                      >
-                        {d.sale}
-                      </span>
+                    {/* <div className="booking-form__mediator">
                       <div className="booking-form__line-container">
                         <div
                           className={
@@ -219,15 +255,15 @@ const PriceTable = ({ data }) => {
                       <span className="booking-form__duration">
                         {d.durationInDays} Days
                       </span>
-                    </div>
-                    <div className="booking-form__date-container">
+                    </div> */}
+                    {/* <div className="booking-form__date-container">
                       <span className="booking-form__date booking-form__date--end">
                         {d.endDateShort}
                       </span>
                       <span className="booking-form__destination booking-form__destination--end">
                         {d.endLocation}
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className={resolveVariationClass("booking-form__right")}>
                     {useYachtClass ? renderPrices(d.prices) : null}
@@ -243,31 +279,23 @@ const PriceTable = ({ data }) => {
 
   return (
     <div id="priceTable" className="section-destination__price-table">
-      <section className="booking-form booking-form--in-page">
+      <section className="price-list">
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">
             {receivedData !== null && (
-              <div className="booking-form__tour-title u-margin-bottom-medium">
+              <div className="booking-form__tour-title u-margin-bottom-small">
                 <>
                   <h2 className={resolveVariationClass("heading-1")}>
                     {data.data.data.description} Pricing
                   </h2>
-                  <p>
-                    TODO: Contentful data here. Check the available dates below
-                    and then fill in the following booking form to enquire or
-                    secure your place.{" "}
-                  </p>
-
-                  <p>
-                    Our boats accommodate 8-12 guests so book as a solo, couple
-                    or if you have a group of friends you can book your own
-                    dedicated yacht.
-                  </p>
+                  <div className="booking-form__info">
+                    {renderPriceHeaderDescription()}
+                  </div>
                 </>
               </div>
             )}
             <div className="booking-form__entries">
-              {renderHeader()}
+              {/* {renderHeader()} */}
               {renderEntries()}
               {renderIfno()}
             </div>

@@ -127,6 +127,7 @@ module.exports = {
           useHeaderShapes: true,
           tourUnit: "Trip",
           countryPage: {
+            toursBannerType: "default",
             buttonCardText: "Explore",
           },
           destinationPage: {
@@ -141,11 +142,11 @@ module.exports = {
                 code: "Premier Yacht",
               },
               {
-                description: "SUPERIOR MONOCAT",
+                description: "Superior Monocat",
                 code: "Superior Monocat",
               },
               {
-                description: "CATAMARAN",
+                description: "Catamaran",
                 code: "Catamaran",
               },
             ],

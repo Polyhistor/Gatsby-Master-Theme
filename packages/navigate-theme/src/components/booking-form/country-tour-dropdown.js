@@ -9,7 +9,8 @@ const CountryDestinationDropdown = ({
   onDestinationChange,
   setFieldValue,
 }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
 
   const destinationData = useDestinationQuery()
@@ -113,7 +114,7 @@ const CountryDestinationDropdown = ({
     <>
       <select
         onChange={e => handleCountryDropdown(e)}
-        className={"activity__dropdown"}
+        className={resolveVariationClass("booking-form__dropdown")}
         value={selectedCountry}
         id="country"
       >
@@ -123,7 +124,7 @@ const CountryDestinationDropdown = ({
 
       <select
         onChange={e => handleDestDropdown(e)}
-        className={resolveVariationClass("activity__dropdown")}
+        className={resolveVariationClass("booking-form__dropdown")}
         id="tours"
         value={selectedTour}
       >

@@ -28,7 +28,7 @@ const Header = ({
   shape,
   mobileBanner,
 }) => {
-  const webSiteConfig = useWebSiteConfigQuery()
+  const webSiteConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
   const renderShapes = () => {
     if (!webSiteConfig.useHeaderShapes) {
       return null

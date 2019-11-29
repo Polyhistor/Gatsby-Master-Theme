@@ -5,7 +5,6 @@ import React from "react"
 import {
   Layout,
   Landing,
-  GreenBar,
   Banner,
   SectionVehicle,
   Reviews,
@@ -13,10 +12,14 @@ import {
   useHomePageQuery,
   useImageQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const OurVehicles = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
 
@@ -35,7 +38,6 @@ const OurVehicles = ({ data }) => {
           variation="dest"
         />
       </div>
-
       <SectionVehicle
         imageOne={imageQuery.vehicleInterior.childImageSharp.fluid}
         imageTwo={imageQuery.vehicleSouth.childImageSharp.fluid}
@@ -64,9 +66,8 @@ const OurVehicles = ({ data }) => {
         from around the world. Either way, you’ll feel right
         at home in one of our luxury tour vehicles"
       />
-
       <Banner
-        imageData={imageQuery.banner.childImageSharp.fluid}
+        imageData={bottomBannerImage}
         header="looking for adventure?"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
