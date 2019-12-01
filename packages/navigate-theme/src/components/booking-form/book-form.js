@@ -19,27 +19,27 @@ const validationSchema = Yup.object().shape({
     .min(1, "At least one guest has to be entered")
     .required("Please enter the guest number"),
   firstName: Yup.string()
-    .min(1, "First Name must be at least a character")
-    .required("First Name must be entered"),
+    .min(1, "First name must be at least a character")
+    .required("First name is required"),
   lastName: Yup.string()
     .min(1, "Last name must be at least a character")
-    .required("Last Name must be enetered"),
+    .required("Last name is required"),
   email: Yup.string()
     .email("please enter a valid email address")
-    .required("email is required"),
+    .required("Email is required"),
   emailConfirm: Yup.string()
     .email("please enter a valida email address")
     .oneOf([Yup.ref("email")], "email must match")
-    .required("email confirm is required"),
+    .required("Email confirm is required"),
   phoneCountryCode: Yup.number()
     .positive("value must be positive")
-    .required("country code is required"),
+    .required("Country code is required"),
   phoneNumber: Yup.number()
     .positive("value must be positive")
-    .required("number is required"),
+    .required("Number is required"),
   age: Yup.number()
     .positive("value must be positive")
-    .required("age is required"),
+    .required("Age is required"),
   date: Yup.string().required("Date is required"),
   productClass: Yup.string().required("Yacht Class is required"),
   yachtCabinName: Yup.string().required("Yacht Cabin type is required"),
@@ -261,7 +261,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     />
                   )}
                   <div className="booking-details__fields-container">
-                    <label>First Name*</label>
+                    <label>First Name</label>
                     <Field
                       type="text"
                       name="firstName"
@@ -275,7 +275,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   </div>
 
                   <div className="booking-details__fields-container">
-                    <label>Last Name*</label>
+                    <label>Last Name</label>
                     <Field
                       type="text"
                       name="lastName"
@@ -288,7 +288,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   </div>
 
                   <div className="booking-details__fields-container">
-                    <label>Email*</label>
+                    <label>Email</label>
                     <Field
                       type="text"
                       name="email"
@@ -298,7 +298,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   </div>
 
                   <div className="booking-details__fields-container">
-                    <label>Confirm Email*</label>
+                    <label>Confirm Email</label>
                     <Field
                       type="text"
                       name="emailConfirm"
@@ -311,7 +311,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   </div>
 
                   <div className="booking-details__fields-container">
-                    <label>Country Code*</label>
+                    <label>Country Code</label>
                     <Field
                       component="select"
                       name="phoneCountryCode"
@@ -351,7 +351,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
 
                   <div className="booking-details__spanner-three">
                     <div className="booking-details__fields-container booking-details__fields-container--half">
-                      <label>Gender*</label>
+                      <label>Gender</label>
                       <Field
                         component="select"
                         name="gender"
@@ -365,7 +365,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     </div>
 
                     <div className="booking-details__fields-container booking-details__fields-container--half">
-                      <label>Age*</label>
+                      <label>Age</label>
                       <Field
                         type="number"
                         name="age"
@@ -375,7 +375,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     </div>
 
                     <div className="booking-details__fields-container booking-details__fields-container--half">
-                      <label>No. of Travelers*</label>
+                      <label>No. of Travelers</label>
                       <Field
                         type="number"
                         name="guests"
@@ -388,7 +388,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
 
                   <div className="booking-details__spanner-two">
                     <div className="booking-details__fields-container">
-                      <label>Departure Date*</label>
+                      <label>Departure Date</label>
                       <select
                         onChange={e =>
                           onDateChanged(e.target.value, setFieldValue)
@@ -420,7 +420,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   {productClasses && (
                     <>
                       <div className="booking-details__fields-container">
-                        <label>Yacht Type*</label>
+                        <label>Yacht Type</label>
                         <select
                           onChange={e =>
                             onProductClassChanged(e.target.value, setFieldValue)
@@ -454,7 +454,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   {cabinTypes && cabinTypes.length > 0 && (
                     <>
                       <div className="booking-details__fields-container">
-                        <label>Cabin Type*</label>
+                        <label>Cabin Type</label>
                         <select
                           onChange={e =>
                             onYachtCabinChanged(e.target.value, setFieldValue)
@@ -541,9 +541,9 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
             </Formik>
           )}
 
-          <div className="booking-details__image-container">
+          {/* <div className="booking-details__image-container">
             {renderImages()}
-          </div>
+          </div> */}
         </section>
       </>
     </div>
