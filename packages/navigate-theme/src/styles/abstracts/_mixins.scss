@@ -141,6 +141,14 @@
   font-size: 1.6rem;
 }
 
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 // Pouya's media query manager
 /* 
 specified dimensions : 

@@ -166,8 +166,10 @@
 
     &:not(:first-child) {
       &:hover {
-        border-bottom: 2px solid $color-primary;
-        animation: blinkText 0.8s ease-out;
+        @include hover-supported {
+          border-bottom: 2px solid $color-primary;
+          animation: blinkText 0.8s ease-out;
+        }
 
         @include respond(phone) {
           animation: blinkText 0s ease-out;
@@ -195,8 +197,10 @@
     &--ms {
       &:not(:first-child) {
         &:hover {
-          border-bottom: 2px solid $color-med-teal;
-          animation: blinkText 0.8s ease-out;
+          @include hover-supported {
+            border-bottom: 2px solid $color-med-teal;
+            animation: blinkText 0.8s ease-out;
+          }
         }
       }
     }
