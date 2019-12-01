@@ -174,7 +174,7 @@
 
     &__booking {
       grid-row: 9;
-      grid-column: 1;
+      grid-column: 1/-1;
 
       @include respond(tablet) {
         grid-row: 10;
@@ -188,6 +188,10 @@
         font-size: 5rem;
         padding: 23rem 55rem;
         color: white;
+      }
+
+      & .intro {
+        margin-top: 0rem;
       }
     }
     &__get-there {

@@ -1,13 +1,14 @@
 import React from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const BookSuccess = ({ email }) => {
   return (
     <>
-      <section>
-        {<button onClick={_ => window.history.go(-1)}>CLOSE</button>}
-
-        <div className="booking-form__thank-you">
-          <h2 className="green-title">Thanks for your booking enquiry.</h2>
+      <section className="booking-form__thank-you">
+        <div className="booking-form__thank-you-container">
+          <h2 className={resolveVariationClass("heading-2")}>
+            Thanks for your booking enquiry.
+          </h2>
 
           <p className="feature-box__description">
             We are sending a welcome message to your email address now. If you
@@ -25,6 +26,12 @@ const BookSuccess = ({ email }) => {
             ASAP!
           </p>
         </div>
+        <button
+          className={resolveVariationClass("btn")}
+          onClick={_ => window.history.go(-1)}
+        >
+          Continue
+        </button>
       </section>
     </>
   )
