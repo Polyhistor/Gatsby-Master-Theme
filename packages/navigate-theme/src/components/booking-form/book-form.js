@@ -201,10 +201,14 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
               comments form below or just email us at"
           email={email}
         ></Intro>
-        <div className="booking-form__back-holder">
-          <span className="booking-form__arrow"></span>
-          {!tourId && <a onClick={_ => window.history.go(-1)}>BACK</a>}
-        </div>
+        {success ? (
+          <div className="booking-form__back-holder"></div>
+        ) : (
+          <div className="booking-form__back-holder">
+            <span className="booking-form__arrow"></span>
+            {!tourId && <a onClick={_ => window.history.go(-1)}>BACK</a>}
+          </div>
+        )}
 
         <section
           className={
@@ -345,7 +349,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     />
                   </div>
 
-                  <div className="booking-details__spanner">
+                  <div className="booking-details__spanner-three">
                     <div className="booking-details__fields-container booking-details__fields-container--half">
                       <label>Gender*</label>
                       <Field
@@ -382,7 +386,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     </div>
                   </div>
 
-                  <div className="booking-details__spanner">
+                  <div className="booking-details__spanner-two">
                     <div className="booking-details__fields-container">
                       <label>Departure Date*</label>
                       <select
@@ -480,7 +484,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                       </div>
                     </>
                   )}
-                  <div className="booking-details__spanner">
+                  <div className="booking-details__spanner-one">
                     <div className="booking-details__fields-container">
                       <Field
                         component="textarea"

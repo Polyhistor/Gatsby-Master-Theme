@@ -49,13 +49,13 @@ const Book = ({ location }) => {
         <Landing
           imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
           titleFirst="Book Now"
-          buttonFirst="expore"
-          buttonFirstURL="/blog"
+          // buttonFirst="expore"
+          // buttonFirstURL="/blog"
           description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
-          buttonStyles={["white", "white"]}
+          buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
-          variation="dest"
-          shape="cricle"
+          shape="diamond"
+          mobileBanner={true}
         />
         <GreenBar />
       </div>
