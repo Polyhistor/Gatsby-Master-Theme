@@ -52,11 +52,15 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
     return null
   }
 
+  const authorSeoDescription =
+    data.wordpressWpUsers.description ||
+    `${pageContext.site.name} | Author | ${data.wordpressWpUsers.name}`
+
   return (
     <Layout2>
       <SEO
         title={`${data.wordpressWpUsers.name} | Author at ${pageContext.site.name} `}
-        description={data.wordpressWpUsers.description}
+        description={authorSeoDescription}
       />
       <div className="row">
         <div className="blog-author">
