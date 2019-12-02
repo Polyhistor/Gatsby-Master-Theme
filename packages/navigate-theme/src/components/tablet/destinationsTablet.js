@@ -82,9 +82,7 @@ const DestinationsTablet = ({
             </span>
             <div className="tour-banner__description-button-box mobile-no">
               <Link
-                className={
-                  theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"
-                }
+                className={`btn ${resolveVariationClass("btn-mobile")}`}
                 to={
                   country !== undefined
                     ? `${
@@ -111,7 +109,7 @@ const DestinationsTablet = ({
 
         <div className="mobile-yes u-padding-big ">
           <Link
-            className={theme === "ms" ? "btn btn--ms-mobile" : "btn btn--green"}
+            className={resolveVariationClass("btn-mobile")}
             to={
               country !== undefined
                 ? `${
