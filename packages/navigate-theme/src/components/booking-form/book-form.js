@@ -17,7 +17,7 @@ import Intro from "../../components/intro"
 const validationSchema = Yup.object().shape({
   guests: Yup.number()
     .min(1, "At least one guest has to be entered")
-    .required("Please enter the guest number"),
+    .required("No. of guests is required"),
   firstName: Yup.string()
     .min(1, "First name must be at least a character")
     .required("First name is required"),
@@ -43,7 +43,7 @@ const validationSchema = Yup.object().shape({
   date: Yup.string().required("Date is required"),
   productClass: Yup.string().required("Yacht Class is required"),
   yachtCabinName: Yup.string().required("Yacht Cabin type is required"),
-  gender: Yup.string().required("gender is required"),
+  gender: Yup.string().required("Gender is required"),
 })
 
 const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
@@ -208,7 +208,16 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
             ) : (
               <div className="booking-form__back-holder">
                 <span className="booking-form__arrow"></span>
-                {!tourId && <a onClick={_ => window.history.back()}>BACK</a>}
+                {!tourId && (
+                  <a
+                    onClick={_ => {
+                      window.history.go(-1)
+                      window.event.preventDefault()
+                    }}
+                  >
+                    BACK
+                  </a>
+                )}
               </div>
             )}
           </>

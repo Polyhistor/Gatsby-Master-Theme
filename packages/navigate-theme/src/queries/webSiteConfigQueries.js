@@ -29,6 +29,7 @@ export const useWebSiteConfigQuery = () => {
             }
             bookingForm {
               destinationDropdownLabel
+              countryDropdownLabel
               useYachtClass
               yachtClasses {
                 description
