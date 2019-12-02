@@ -443,6 +443,12 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    websiteLogo {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     priceTableHeaderDescription {
       icon
       text
