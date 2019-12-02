@@ -9,7 +9,7 @@
     @include respond(laptop) {
       max-width: 120rem;
       grid-template-columns: 81.2rem 34.1rem;
-      grid-column-gap: 1.6rem;
+      grid-column-gap: 4.69rem;
     }
 
     @include respond(tablet) {
