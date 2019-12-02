@@ -63,13 +63,12 @@ const IndexPage = ({ pageContext }) => {
   }
 
   const getBlogSeo = () => {
+    const description = `View Our Blogs Of Mediterranean Sailing Holiday. Join Other 20-35s For A Sailing Adventure With MedSailors. Visit Our Website Now.`
     return {
       title: first
         ? `Blog | ${site.siteMetadata.title}`
         : `Blog | ${site.siteMetadata.title} | Page ${index}`,
-      description: first
-        ? site.siteMetadata.description
-        : `${site.siteMetadata.description} | Page ${index}`,
+      description: first ? description : `${description} | Page ${index}`,
     }
   }
 
