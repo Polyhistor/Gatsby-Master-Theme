@@ -109,6 +109,7 @@
     grid-template-columns: 100%;
     padding: 0rem;
     grid-column-gap: 10.3rem;
+    margin-top: 2.4rem;
 
     @include respond(laptop) {
       display: grid;
@@ -607,10 +608,10 @@
     align-items: center;
     height: 100%;
 
-    @include respond(laptop) {
-      width: 95%;
-      grid-template-columns: repeat(3, 21.5rem);
-    }
+    // @include respond(laptop) {
+    //   width: 95%;
+    //   grid-template-columns: repeat(3, 21.5rem);
+    // }
 
     @include respond(tablet) {
       width: 68%;
