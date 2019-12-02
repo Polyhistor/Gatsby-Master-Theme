@@ -5,10 +5,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 // TODO - clean up
 
 const SectionFAQ = ({ FAQData }) => {
-  const theme = process.env.GATSBY_THEME
-
-  const color = theme === "ms" ? "u-color-ms-teal" : "u-color-green"
-
   const FAQButton = resolveVariationClass("FAQ__button")
 
   const FAQButtonActive = resolveVariationClass("FAQ__button--active")
@@ -94,7 +90,9 @@ const SectionFAQ = ({ FAQData }) => {
       return (
         <div className="video-box">
           <h3
-            className={`includes__title--second heading-alternative ${color} u-padding-bottom-small`}
+            className={`${resolveVariationClass(
+              "FAQ__video-title"
+            )} includes__title--second heading-alternative u-padding-bottom-small`}
           >
             {e.node.title}
           </h3>

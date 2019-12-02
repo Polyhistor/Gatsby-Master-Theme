@@ -45,6 +45,23 @@
     background-color: $color-red;
   }
 
+  &--ms {
+    background-color: $color-med-blue;
+    width: 22rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.9rem;
+
+    @include respond(phone) {
+      width: 100%;
+      height: 6rem;
+      font-size: 1.6rem;
+      margin-top: 1.6rem;
+    }
+  }
+
   &-mobile {
     width: 31.2rem;
     height: 6rem;
@@ -63,23 +80,6 @@
 
     &--wk {
       background-color: $color-wk-green;
-    }
-  }
-
-  &--ms {
-    background-color: $color-med-blue;
-    width: 22rem;
-    height: 4.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.9rem;
-
-    @include respond(phone) {
-      width: 100%;
-      height: 6rem;
-      font-size: 1.6rem;
-      margin-top: 1.6rem;
     }
   }
 
@@ -216,6 +216,52 @@
       &-ms {
         background: $color-med-teal !important;
       }
+    }
+  }
+
+  &-footer {
+    font-size: 1.38rem;
+    width: 22rem;
+    height: 4.8rem;
+    color: $color-white;
+
+    @include respond(phone) {
+      width: 31.2rem !important;
+      height: 6rem;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include respond(tablet) {
+      padding: 1rem 4.6rem;
+      margin-top: 1.5rem;
+      margin-right: 18.1rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+      margin-top: 4rem;
+      font-size: 1.8rem;
+      border: 0;
+      width: 28rem;
+      height: 6rem;
+      justify-self: center;
+    }
+    &--yg {
+      background: $color-yg-blue !important;
+
+      border: 1px solid $color-yg-blue;
+    }
+    &--ms {
+      background: $color-med-teal !important;
+      border: 1px solid $color-med-teal;
+    }
+
+    &--wk {
+      background: $color-wk-green !important;
+      border: 1px solid $color-wk-green;
     }
   }
   //TODO: remove green
