@@ -182,6 +182,8 @@
 
       @include respond(phone) {
         grid-row: 9;
+        max-width: 31.2rem;
+        margin: 0 auto;
       }
 
       & > h1 {

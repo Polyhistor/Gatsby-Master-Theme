@@ -58,7 +58,7 @@ const Book = ({ location }) => {
         <GreenBar />
       </div>
       <div className="row">
-        <BookForm countryAndTour={countryAndTour} inPage={true} />
+        <BookForm countryAndTour={countryAndTour} inPage={false} />
       </div>
     </Layout>
   )

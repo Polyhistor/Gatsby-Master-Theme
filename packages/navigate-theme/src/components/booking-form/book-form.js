@@ -201,15 +201,18 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
               comments form below or just email us at"
           email={email}
         ></Intro>
-        {success ? (
-          <div className="booking-form__back-holder"></div>
-        ) : (
-          <div className="booking-form__back-holder">
-            <span className="booking-form__arrow"></span>
-            {!tourId && <a onClick={_ => window.history.go(-1)}>BACK</a>}
-          </div>
+        {inPage ? null : (
+          <>
+            {success ? (
+              <div className="booking-form__back-holder"></div>
+            ) : (
+              <div className="booking-form__back-holder">
+                <span className="booking-form__arrow"></span>
+                {!tourId && <a onClick={_ => window.history.back()}>BACK</a>}
+              </div>
+            )}
+          </>
         )}
-
         <section
           className={
             inPage ? "booking-form booking-form--in-page" : "booking-form"
