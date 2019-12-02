@@ -21,8 +21,12 @@ export const useWebSiteConfigQuery = () => {
             }
             tourUnit
             useHeaderShapes
+            acitivitesPage {
+              howItWorksBannerText
+            }
             destinationPage {
               buttonCardText
+              howItWorksBannerText
             }
             countryPage {
               buttonCardText

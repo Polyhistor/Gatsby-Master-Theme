@@ -19,16 +19,18 @@ import useCountryQuery from "../queries/countryQuery"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
 const ActivitiesMain = ({ pageContext }) => {
-  // TODO - CLEAN UP
-  const theme = process.env.GATSBY_THEME
+  const activitiesBanner = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.activitiesBanner.localFile.childImageSharp
+    .fluid
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
+
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.acitivitesPage.howItWorksBannerText
   const activityLabelFree = resolveVariationClass(
     "acitivity-box-single__caption--free"
   )
-
-  // const activitiyBoxSingleFree = theme === "ms" : "acitivity-box-single__caption acitivity-box-single__caption--free"
 
   // extracting our custom hook
   const imageQuery = useImageQuery()
@@ -53,7 +55,6 @@ const ActivitiesMain = ({ pageContext }) => {
 
   // previous and next page logic
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
 
   // using useState hook for the pourposes of our filter
   const [data, setData] = useState(group)
@@ -222,11 +223,7 @@ const ActivitiesMain = ({ pageContext }) => {
       />
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={
-            theme === "ms"
-              ? imageQuery.MSActivities.childImageSharp.fluid
-              : imageQuery.activitiesBanner.childImageSharp.fluid
-          }
+          imageData={activitiesBanner}
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -297,9 +294,6 @@ const ActivitiesMain = ({ pageContext }) => {
                 text="Previous"
               />
             </div>
-            {/* <div className="blog__main-nextLink">
-              {/* <NavLink test={last} url={`/activities/${nextUrl}`} text="More" /> */}
-            {/* </div>  */}
           </div>
         </div>
         <Banner
@@ -307,7 +301,7 @@ const ActivitiesMain = ({ pageContext }) => {
           header="How it works"
           subHeaderFirst="everything you need to"
           subHeaderSecond="know about our tours"
-          buttonText={theme === "ms" ? "explore" : "continue"}
+          buttonText={howItWorksBannerText}
           link="/how-it-works"
         />
       </div>

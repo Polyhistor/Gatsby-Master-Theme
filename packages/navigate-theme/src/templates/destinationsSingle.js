@@ -37,7 +37,8 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
 
   // extracting our custom hook
-  const imageQuery = useImageQuery()
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
   const homeQuery = useHomePageQuery()
   const WhyWildData = useWildkiwiQuery()
   const bottomBannerImage = useWebSiteConfigQuery()
@@ -177,7 +178,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             header="How It Works"
             subHeaderFirst="Everything You Need To"
             subHeaderSecond="Know About Our Tours"
-            buttonText={theme === "ms" ? "explore" : "learn more"}
+            buttonText={howItWorksBannerText}
             link="/how-it-works"
           />
         </div>

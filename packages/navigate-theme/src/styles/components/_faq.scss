@@ -1,4 +1,18 @@
 .FAQ {
+  &__video-title {
+    &--ms {
+      color: $color-med-teal;
+    }
+
+    &--yg {
+      color: $color-yg-blue;
+    }
+
+    &--wk {
+      color: $color-wk-green;
+    }
+  }
+
   &__container {
     min-height: 4rem;
   }

@@ -127,8 +127,11 @@ module.exports = {
           countryPage: {
             buttonCardText: "View Trip",
           },
+          acitivitesPage: {
+            howItWorksBannerText: "explore",
+          },
           destinationPage: {
-            toursBannerType: "default",
+            howItWorksBannerText: "explore",
             buttonCardText: "Explore",
           },
           bookingForm: {

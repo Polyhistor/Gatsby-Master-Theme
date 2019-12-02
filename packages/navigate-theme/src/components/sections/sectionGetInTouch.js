@@ -212,11 +212,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                   </div>
                   <button
                     id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
-                    className={
-                      theme === "ms"
-                        ? "btn btn--green-footer btn--ms-teal"
-                        : "btn btn--green-footer"
-                    }
+                    className={`btn ${resolveVariationClass("btn-footer")}`}
                     type="submit"
                   >
                     submit
