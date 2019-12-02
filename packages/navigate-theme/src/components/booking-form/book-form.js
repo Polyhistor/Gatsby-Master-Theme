@@ -368,7 +368,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                         name="gender"
                         className={getFieldErrorClass(errors.gender)}
                       >
-                        <option value="">Select Gender</option>
+                        <option value="">Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                       </Field>
