@@ -472,7 +472,6 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                           onChange={e =>
                             onYachtCabinChanged(e.target.value, setFieldValue)
                           }
-                          //    disabled={!values.productClass}
                           value={values.yachtCabinId}
                           name="yachtCabinName"
                           className={getFieldErrorClass(errors.yachtCabinName)}
