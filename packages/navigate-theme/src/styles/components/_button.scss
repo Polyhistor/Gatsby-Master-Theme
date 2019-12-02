@@ -45,6 +45,27 @@
     background-color: $color-red;
   }
 
+  &-mobile {
+    width: 31.2rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+
+    &--ms {
+      background-color: $color-med-blue;
+    }
+
+    &--yg {
+      background-color: $color-yg-blue;
+    }
+
+    &--wk {
+      background-color: $color-wk-green;
+    }
+  }
+
   &--ms {
     background-color: $color-med-blue;
     width: 22rem;

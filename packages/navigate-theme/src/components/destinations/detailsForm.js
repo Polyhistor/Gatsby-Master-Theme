@@ -486,10 +486,7 @@ const DetailsForm = ({
                         : TAG_MANAGER_TRACKER.POPUP_SUBMIT_BUTTON
                     }
                     type="submit"
-                    className={
-                      resolveVariationClass("btn")
-                      /* theme review theme === "ms" ? "btn btn--ms-teal" : "btn btn--green"*/
-                    }
+                    className={`btn ${resolveVariationClass("btn")}`}
                   >
                     Submit
                   </button>

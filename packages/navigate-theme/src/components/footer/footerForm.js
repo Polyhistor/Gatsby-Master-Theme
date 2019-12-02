@@ -42,11 +42,7 @@ const FooterForm = () => {
       {/*TODO style standard*/}
       <label
         htmlFor="footer__input"
-        className={
-          theme === "ms"
-            ? "btn btn--ms-mobile mobile-yes"
-            : "btn btn--green mobile-yes"
-        }
+        className={`btn ${resolveVariationClass("btn-mobile")} mobile-yes`}
       >
         send message
       </label>
