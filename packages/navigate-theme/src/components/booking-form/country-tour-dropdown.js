@@ -14,7 +14,6 @@ const CountryDestinationDropdown = ({
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
   const countryDropdownLabel = bookingFormConfig.countryDropdownLabel
 
-  const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
   const [destinationFilter, setDestinationFilter] = useState(null)
   const countryList = useState(countryData)
@@ -24,20 +23,20 @@ const CountryDestinationDropdown = ({
   const loadDefaultValues = () => {
     if (defaultValues) {
       setSelectedCountry(defaultValues.country)
-      const filteredDests = destinationData.filter(d => {
-        return d.node.destinationCountry === defaultValues.country
+      const selectedCountry = countryData.filter(d => {
+        return d.node.slug === defaultValues.country
       })
-      setDestinationFilter(filteredDests)
+      setDestinationFilter(selectedCountry.node.destinations)
 
-      const destination = filteredDests.find(d => {
-        return d.node.url === defaultValues.tourUrl
+      const destination = selectedCountry.node.destinations.find(d => {
+        return d.url === defaultValues.tourUrl
       })
 
       if (!destination) {
         console.warning("destination not found")
       } else {
-        setSeletedTour(destination.node.slug)
-        onDestinationChange(destination.node.slug, setFieldValue)
+        setSeletedTour(destination.slug)
+        onDestinationChange(destination.slug, setFieldValue)
       }
       /*reset all form fields*/
     }
@@ -47,49 +46,22 @@ const CountryDestinationDropdown = ({
     loadDefaultValues()
   }, [])
 
-  const renderCountries = () =>
-    countryList[0].map(e => (
+  const renderCountries = () => {
+    console.log(countryList)
+    return countryList[0].map(e => (
       <option key={e.node.slug} value={e.node.slug}>
         {e.node.title}
       </option>
     ))
-
-  /* not used anymore
-  const renderDropdownValues = () => {
-    const items = buildDropDownValues()
-    return items.map(e => (
-      <option key={e.value} value={e.value}>
-        {e.name}
-      </option>
-    ))
-  }*/
-
-  const buildDropDownValues = () => {
-    let items = []
-
-    countryList[0].forEach(c => {
-      const destinations = destinationData.filter(d => {
-        return d.node.destinationCountry === c.node.slug
-      })
-      destinations.forEach(d => {
-        items.push({
-          name: `${c.node.title} - ${d.node.title}`,
-          value: d.node.slug,
-        })
-      })
-    })
-
-    return items
   }
 
   const handleCountryDropdown = e => {
     setSeletedTour("all")
     setSelectedCountry(e.target.value)
 
-    const filteredDests = destinationData.filter(d => {
-      return d.node.destinationCountry === e.target.value
-    })
-    setDestinationFilter(filteredDests)
+    const country = countryData.find(c => c.node.slug === e.target.value)
+
+    setDestinationFilter(country.node.destinations)
     /*reset all form fields*/
     onDestinationChange("all", setFieldValue)
   }
@@ -99,8 +71,8 @@ const CountryDestinationDropdown = ({
       return null
     } else {
       return destinationFilter.map(e => (
-        <option key={e.node.slug} value={e.node.slug}>
-          {e.node.title}
+        <option key={e.slug} value={e.slug}>
+          {e.title}
         </option>
       ))
     }
