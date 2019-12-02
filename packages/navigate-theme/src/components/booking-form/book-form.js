@@ -276,7 +276,6 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                     <Field
                       type="text"
                       name="firstName"
-                      className="booking-form__fields"
                       className={getFieldErrorClass(errors.firstName)}
                     ></Field>
                     <Error
