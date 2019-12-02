@@ -46,8 +46,7 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("Gender is required"),
 })
 
-const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
-  const theme = process.env.GATSBY_THEME
+const BookForm = ({ countryAndTour, tourId, inPage }) => {
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
   const [productClasses, setProductClasses] = useState([])
@@ -401,7 +400,8 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   <div className="booking-details__spanner-two">
                     <div className="booking-details__fields-container">
                       <label>Departure Date</label>
-                      <select
+                      <Field
+                        component="select"
                         onChange={e =>
                           onDateChanged(e.target.value, setFieldValue)
                         }
@@ -424,7 +424,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                               </option>
                             )
                           })}
-                      </select>
+                      </Field>
                       <Error touched={touched.date} message={errors.date} />
                     </div>
                   </div>
@@ -433,7 +433,8 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                     <>
                       <div className="booking-details__fields-container">
                         <label>Yacht Type</label>
-                        <select
+                        <Field
+                          component="select"
                           onChange={e =>
                             onProductClassChanged(e.target.value, setFieldValue)
                           }
@@ -455,7 +456,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                               </option>
                             )
                           })}
-                        </select>
+                        </Field>
                         <Error
                           touched={touched.productClass}
                           message={errors.productClass}
@@ -465,7 +466,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                   )}
                   {cabinTypes && cabinTypes.length > 0 && (
                     <>
-                      <div className="booking-details__fields-container">
+                      <Field className="booking-details__fields-container">
                         <label>Cabin Type</label>
                         <select
                           onChange={e =>
@@ -493,7 +494,7 @@ const BookForm = ({ countryAndTour, tourId, inPage, path }) => {
                           touched={touched.yachtCabinName}
                           message={errors.yachtCabinName}
                         />
-                      </div>
+                      </Field>
                     </>
                   )}
                   <div className="booking-details__spanner-one">
