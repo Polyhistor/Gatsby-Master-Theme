@@ -50,6 +50,10 @@
       grid-template-columns: 4% 50%;
       align-items: center;
 
+      @include respond(tablet) {
+        grid-template-columns: 8% 92%;
+      }
+
       & > p {
         @extend .paragraph;
       }
@@ -94,7 +98,6 @@
     width: 1.5rem;
     border-left: 2px solid #5d5d5d;
     border-bottom: 2px solid #5d5d5d;
-    border-radius: 0 0.6rem;
     transform: rotate(-45deg);
   }
 
@@ -151,7 +154,7 @@
     border-left: 1px solid $color-gray-light-2;
 
     @include respond(laptop) {
-      grid-template-columns: 24.9% 25% 25.1% 25%;
+      grid-template-columns: 24.8% 25.1% 25.05% 25%;
     }
 
     & h4:nth-child(1) {
@@ -529,7 +532,7 @@
     }
 
     @include respond(laptop) {
-      max-width: 95%;
+      max-width: 100%;
     }
   }
 
@@ -548,6 +551,7 @@
 
       @include respond(laptop) {
         align-items: center;
+        grid-template-columns: 25% 74.9%;
       }
 
       @include respond(phone) {
@@ -594,8 +598,6 @@
     border-left: 1px solid $color-gray-light-2;
 
     @include respond(tablet) {
-      width: 36%;
-      margin-left: -1rem;
     }
 
     @include respond(phone) {
@@ -645,7 +647,6 @@
     padding-left: 1.6rem;
 
     @include respond(tablet) {
-      width: 8.5rem;
     }
 
     @include respond(phone) {
