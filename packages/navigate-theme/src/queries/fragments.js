@@ -443,6 +443,12 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    activitiesBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     websiteLogo {
       localFile {
         ...FluidImage

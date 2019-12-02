@@ -127,11 +127,15 @@ module.exports = {
           },
           useHeaderShapes: false,
           tourUnit: "Tour",
+          acitivitesPage: {
+            howItWorksBannerText: "continue",
+          },
           countryPage: {
             toursBannerType: "filteredTours",
             buttonCardText: "Explore",
           },
           destinationPage: {
+            howItWorksBannerText: "learn more",
             buttonCardText: "View Itinerary",
           },
           bookingForm: {
