@@ -433,8 +433,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                     <>
                       <div className="booking-details__fields-container">
                         <label>Yacht Type</label>
-                        <Field
-                          component="select"
+                        <select
                           onChange={e =>
                             onProductClassChanged(e.target.value, setFieldValue)
                           }
@@ -456,7 +455,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                               </option>
                             )
                           })}
-                        </Field>
+                        </select>
                         <Error
                           touched={touched.productClass}
                           message={errors.productClass}
@@ -466,9 +465,10 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                   )}
                   {cabinTypes && cabinTypes.length > 0 && (
                     <>
-                      <Field className="booking-details__fields-container">
+                      <div className="booking-details__fields-container">
                         <label>Cabin Type</label>
-                        <select
+                        <Field
+                          component="select"
                           onChange={e =>
                             onYachtCabinChanged(e.target.value, setFieldValue)
                           }
@@ -487,13 +487,13 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                               {getCabinDescription(e)}
                             </option>
                           ))}
-                        </select>
+                        </Field>
 
                         <Error
                           touched={touched.yachtCabinName}
                           message={errors.yachtCabinName}
                         />
-                      </Field>
+                      </div>
                     </>
                   )}
                   <div className="booking-details__spanner-one">
