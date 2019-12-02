@@ -2,27 +2,18 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import useImageQuery from "../../queries/imageQuery"
+import resolveVariationClass from "../../helpers/theme-variation-style"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const Logo = () => {
-  const imageData = useImageQuery()
-
-  const theme = process.env.GATSBY_THEME
-  const logoQuery =
-    theme === "ms"
-      ? imageData.MSlogo.childImageSharp.fluid
-      : imageData.logo.childImageSharp.fluid
+  console.log(useWebSiteConfigQuery().contentfulWebsiteConfiguration)
+  const imageLogo = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .websiteLogo.localFile.childImageSharp.fluid
 
   return (
-    <Link
-      className={
-        theme === "ms"
-          ? "navigation-mobile__logo navigation-mobile__logo--ms"
-          : "navigation-mobile__logo"
-      }
-      to="/"
-    >
-      <Img fluid={logoQuery} style={{ width: "12rem" }} />
+    //TODO: WILDKIWI css style
+    <Link className={resolveVariationClass("navigation-mobile__logo")} to="/">
+      <Img fluid={imageLogo} style={{ width: "12rem" }} />
     </Link>
   )
 }

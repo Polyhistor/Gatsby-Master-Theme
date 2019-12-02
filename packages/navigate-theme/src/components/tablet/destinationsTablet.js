@@ -30,7 +30,8 @@ const DestinationsTablet = ({
   country,
 }) => {
   const theme = process.env.GATSBY_THEME
-  const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+  const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config
   const buttonCardText =
     type === "country"
       ? webSiteConfiguration.countryPage.buttonCardText
