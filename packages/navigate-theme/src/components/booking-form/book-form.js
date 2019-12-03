@@ -192,14 +192,16 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   return (
     <div id="booking" className="section-destination__booking">
       <>
-        <Intro
-          title="  Secure Your Spot"
-          description=" Please let us know your desired destination and travel date
+        {!success && (
+          <Intro
+            title="Secure Your Spot"
+            description=" Please let us know your desired destination and travel date
               preference using the below form. We’ll be in touch within 24 hours
               to let you know availability. Any questions please fill in the
               comments form below or just email us at"
-          email={email}
-        ></Intro>
+            email={email}
+          ></Intro>
+        )}
         {inPage ? null : (
           <>
             {success ? (
