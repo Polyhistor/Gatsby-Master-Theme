@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useCountryQuery from "../../queries/countryQuery"
-import useDestinationQuery from "../../queries/destinationQuery"
 
 const CountryDestinationDropdown = ({
   defaultValues,
@@ -47,12 +46,15 @@ const CountryDestinationDropdown = ({
   }, [])
 
   const renderCountries = () => {
-    console.log(countryList)
-    return countryList[0].map(e => (
-      <option key={e.node.slug} value={e.node.slug}>
-        {e.node.title}
-      </option>
-    ))
+    return countryList[0]
+      .sort((a, b) => a.node.order - b.node.order)
+      .map(e => {
+        return (
+          <option key={e.node.slug} value={e.node.slug}>
+            {e.node.title}
+          </option>
+        )
+      })
   }
 
   const handleCountryDropdown = e => {
@@ -61,7 +63,9 @@ const CountryDestinationDropdown = ({
 
     const country = countryData.find(c => c.node.slug === e.target.value)
 
-    setDestinationFilter(country.node.destinations)
+    const destinations = country ? country.node.destinations : []
+
+    setDestinationFilter(destinations)
     /*reset all form fields*/
     onDestinationChange("all", setFieldValue)
   }

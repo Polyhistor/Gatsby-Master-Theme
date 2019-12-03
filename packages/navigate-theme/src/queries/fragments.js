@@ -181,6 +181,7 @@ export const CountriesFragment = graphql`
         }
       }
     }
+    order
     trailer
     days
     departure
