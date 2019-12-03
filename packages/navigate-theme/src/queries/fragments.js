@@ -444,6 +444,12 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    enquiryBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     activitiesBanner {
       localFile {
         ...FluidImage
