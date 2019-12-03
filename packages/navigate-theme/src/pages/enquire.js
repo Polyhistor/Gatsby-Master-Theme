@@ -4,8 +4,8 @@ import Layout from "../components/layout/layout"
 import Landing from "../components/header/landings/landing"
 import BookForm from "../components/booking-form/book-form"
 import GreenBar from "../components/bars/greenBar"
-import useImageQuery from "../queries/imageQuery"
 import useThemeRoutesConfigQuery from "../queries/themeRoutesConfigQuery"
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import { renderSeo } from "../helpers/seo-helper"
 
 const getCountryAndTourUrl = (routePrefix, path) => {
@@ -31,7 +31,8 @@ const getCountryAndTourUrl = (routePrefix, path) => {
 }
 
 const Book = ({ location, data }) => {
-  const imageQuery = useImageQuery()
+  const enquiryBanner = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .enquiryBannerImage.localFile.childImageSharp.fluid
 
   const path = location.state ? location.state.path : undefined
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
@@ -46,7 +47,7 @@ const Book = ({ location, data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
+          imageData={enquiryBanner}
           titleFirst="Book Now"
           description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
           buttonStyles={["white", "med-blue"]}
