@@ -32,7 +32,7 @@
       grid-column: 1;
       width: 100%;
       border: 0;
-      padding-top: 1.6rem 0 0 0;
+      padding: 1.6rem 0 0 0 !important;
     }
 
     & > select {
@@ -72,6 +72,10 @@
     & > span {
       font-size: 1.4rem;
     }
+
+    @include respond(tablet) {
+      font-size: 2rem;
+    }
   }
 
   &__intro {
@@ -79,6 +83,10 @@
     grid-template-columns: 25% 25% 25% 25%;
     height: 6.4rem;
     align-items: center;
+
+    @include respond(tablet) {
+      grid-template-columns: 25% 25% 17% 33%;
+    }
   }
 
   &__month {
@@ -86,6 +94,10 @@
     font-size: 2.2rem;
     color: $color-grey-dark-3;
     text-transform: capitalize;
+
+    @include respond(tablet) {
+      font-size: 2rem;
+    }
   }
 
   &__angle-arrow {
@@ -94,8 +106,8 @@
     display: block;
     right: 2rem;
     top: 2.4rem;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
     border-left: 2px solid #5d5d5d;
     border-bottom: 2px solid #5d5d5d;
     transform: rotate(-45deg);
@@ -155,6 +167,10 @@
 
     @include respond(laptop) {
       grid-template-columns: 24.8% 25.1% 25.05% 25%;
+    }
+
+    @include respond(tablet) {
+      grid-template-columns: 24.8% 25.1% 25% 25.1%;
     }
 
     & h4:nth-child(1) {
@@ -621,8 +637,8 @@
     }
 
     @include respond(tablet) {
-      width: 68%;
-      grid-template-columns: repeat(3, 14rem);
+      // width: 68%;
+      // grid-template-columns: repeat(3, 14rem);
     }
 
     @include respond(phone) {
@@ -647,6 +663,8 @@
     padding-left: 1.6rem;
 
     @include respond(tablet) {
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
     }
 
     @include respond(phone) {
@@ -661,7 +679,7 @@
     text-transform: none;
 
     @include respond(tablet) {
-      font-size: 1.1rem;
+      font-size: 2rem;
     }
 
     @include respond(phone) {
@@ -692,6 +710,12 @@
 
       @include respond(phone) {
         margin-right: 0rem !important;
+      }
+    }
+
+    & > span {
+      @include respond(tablet) {
+        display: none;
       }
     }
   }
@@ -786,9 +810,14 @@
   &__price {
     display: grid;
     align-items: center;
-    grid-template-columns: 61% 37%;
+    grid-template-columns: 57% 41%;
     grid-column-gap: 0.6rem;
     width: 100%;
+
+    @include respond(tablet) {
+      display: flex;
+      flex-direction: column;
+    }
 
     @include respond(phone) {
       width: 100%;
@@ -857,9 +886,10 @@
   &__discount {
     font-family: Nunito-SemiBold;
     font-size: 2.2rem;
+    padding-top: 0.1rem;
 
     @include respond(tablet) {
-      font-size: 1.1rem;
+      font-size: 2rem;
     }
 
     @include respond(phone) {
@@ -884,12 +914,6 @@
 
       @include respond(laptop) {
         margin-left: 0;
-      }
-
-      @include respond(tablet) {
-        margin-left: 0rem;
-        width: 4rem;
-        font-size: 0.8rem;
       }
 
       @include respond(phone) {

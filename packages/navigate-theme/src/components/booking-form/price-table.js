@@ -222,10 +222,12 @@ const PriceTable = ({ data }) => {
                         {d.startDateShort}
                       </span>
                       <span className="booking-form__destination">
-                        {d.startLocation}
+                        Departs {d.startLocation}
                         &thinsp; &#9679; &thinsp;
-                        {d.durationInDays} days&thinsp; &#9679; &thinsp;
-                        {d.startDay} to {d.endDay}
+                        {d.durationInDays} days&thinsp;
+                        <span>
+                          &#9679; &thinsp; {d.startDay} to {d.endDay}
+                        </span>
                       </span>
                     </div>
                     {/* <div className="booking-form__mediator">
