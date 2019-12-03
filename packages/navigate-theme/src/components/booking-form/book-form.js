@@ -408,11 +408,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                         //  disabled={!tourIdState}
                         className={getFieldErrorClass(errors.date)}
                       >
-                        <option value="">
-                          {!tourIdState || tourIdState === "all"
-                            ? `Select destination`
-                            : `Select departure date`}
-                        </option>
+                        <option value="">Select departure date</option>
 
                         {response &&
                           response.dates &&
@@ -424,7 +420,14 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                             )
                           })}
                       </Field>
-                      <Error touched={touched.date} message={errors.date} />
+                      {!tourIdState || tourIdState === "all" ? (
+                        <Error
+                          touched={touched.date}
+                          message={"Please select the destination first "}
+                        />
+                      ) : (
+                        <Error touched={touched.date} message={errors.date} />
+                      )}
                     </div>
                   </div>
 
@@ -432,7 +435,8 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                     <>
                       <div className="booking-details__fields-container">
                         <label>Yacht Type</label>
-                        <select
+                        <Field
+                          component="select"
                           onChange={e =>
                             onProductClassChanged(e.target.value, setFieldValue)
                           }
@@ -441,11 +445,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                           value={values.priceId}
                           className={getFieldErrorClass(errors.productClass)}
                         >
-                          <option value="">
-                            {!values.date
-                              ? `Select the departure date`
-                              : `Select yacht class `}
-                          </option>
+                          <option value="">Select yacht class</option>
 
                           {productClasses.map((p, idx) => {
                             return (
@@ -454,11 +454,18 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                               </option>
                             )
                           })}
-                        </select>
-                        <Error
-                          touched={touched.productClass}
-                          message={errors.productClass}
-                        />
+                        </Field>
+                        {!values.date || values.date.trim() === "" ? (
+                          <Error
+                            touched={touched.productClass}
+                            message={"Please select the departure date first "}
+                          />
+                        ) : (
+                          <Error
+                            touched={touched.productClass}
+                            message={errors.productClass}
+                          />
+                        )}
                       </div>
                     </>
                   )}
@@ -475,11 +482,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                           name="yachtCabinName"
                           className={getFieldErrorClass(errors.yachtCabinName)}
                         >
-                          <option value="">
-                            {!values.priceId
-                              ? `Please select the yacht class first`
-                              : `Select cabin type class `}
-                          </option>
+                          <option value="">Select cabin type class</option>
 
                           {cabinTypes.map((e, idx) => (
                             <option key={idx} value={e.id}>
@@ -488,10 +491,17 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                           ))}
                         </Field>
 
-                        <Error
-                          touched={touched.yachtCabinName}
-                          message={errors.yachtCabinName}
-                        />
+                        {!values.priceId ? (
+                          <Error
+                            touched={touched.yachtCabinName}
+                            message={"Please select the yacht class first"}
+                          />
+                        ) : (
+                          <Error
+                            touched={touched.yachtCabinName}
+                            message={errors.yachtCabinName}
+                          />
+                        )}
                       </div>
                     </>
                   )}

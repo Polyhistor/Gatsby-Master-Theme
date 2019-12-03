@@ -6,7 +6,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const Logo = () => {
-  console.log(useWebSiteConfigQuery().contentfulWebsiteConfiguration)
   const imageLogo = useWebSiteConfigQuery().contentfulWebsiteConfiguration
     .websiteLogo.localFile.childImageSharp.fluid
 
