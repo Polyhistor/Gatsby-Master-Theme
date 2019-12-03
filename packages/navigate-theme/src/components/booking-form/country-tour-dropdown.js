@@ -22,9 +22,12 @@ const CountryDestinationDropdown = ({
   const loadDefaultValues = () => {
     if (defaultValues) {
       setSelectedCountry(defaultValues.country)
-      const selectedCountry = countryData.filter(d => {
+      console.log(countryData)
+
+      const selectedCountry = countryData.find(d => {
         return d.node.slug === defaultValues.country
       })
+
       setDestinationFilter(selectedCountry.node.destinations)
 
       const destination = selectedCountry.node.destinations.find(d => {
