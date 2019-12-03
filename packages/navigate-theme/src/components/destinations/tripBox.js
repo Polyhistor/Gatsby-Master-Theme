@@ -37,7 +37,7 @@ const TripBox = ({
           </div>
           <a
             id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
-            href="#booking"
+            href="#priceTable"
             onClick={() => navigate("#booking")}
             className="trip-box__availablitity"
           >
