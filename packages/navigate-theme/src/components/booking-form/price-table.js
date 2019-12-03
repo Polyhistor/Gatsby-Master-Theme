@@ -195,7 +195,7 @@ const PriceTable = ({ data }) => {
               <span className="booking-form__angle-arrow"></span>
             </label>
             <div className="booking-form__intro">
-              <span className="booking-form__month">{e.description}</span>
+              <span className="booking-form__month">{e.shortDescription}</span>
               <span className="booking-form__promo">{e.sale}</span>
               <span className="booking-form__base-price">
                 from {e.from.currencySymbol}
