@@ -77,7 +77,7 @@
     @include respond(tablet) {
       position: absolute;
       left: -100%;
-      top: 73%;
+      top: 74.3%;
     }
   }
 
@@ -102,7 +102,7 @@
       // grid-column-gap: 1rem;
       position: absolute;
       left: -100%;
-      top: 79.8%;
+      top: 82.8%;
     }
 
     @include respond(phone) {
@@ -155,7 +155,7 @@
       width: 32.2rem;
       left: -100%;
       position: absolute;
-      top: 86.5%;
+      top: 89%;
     }
 
     // @include respond(phone) {
