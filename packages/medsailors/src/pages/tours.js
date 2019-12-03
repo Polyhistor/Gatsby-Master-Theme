@@ -104,11 +104,12 @@ const Destination = ({ data }) => {
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
         description="Enjoy 7 unforgettable days sailing around the most breath-taking places in the Mediterranean."
-        buttonStyles={["white", "white"]}
+        buttonStyles={["white", "med-blue"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/enc_I-WJx0c"
         shape="circle"
+        mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
       {renderCountries()}
