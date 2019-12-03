@@ -54,8 +54,8 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
 
-  const bannerImages = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-    .bookingFormImages
+  // const bannerImages = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+  //   .bookingFormImages
 
   const email = useWebSiteConfigQuery().contentfulWebsiteConfiguration
     .bookingFormEmailContact
@@ -186,8 +186,8 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
       : "booking-form__fields"
   }
 
-  const renderImages = _ =>
-    bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
+  // const renderImages = _ =>
+  //   bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
 
   return (
     <div id="booking" className="section-destination__booking">
