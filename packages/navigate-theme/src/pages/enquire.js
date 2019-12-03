@@ -1,14 +1,12 @@
 import React from "react"
 
-import {
-  Layout,
-  Landing,
-  BookForm,
-  GreenBar,
-  useImageQuery,
-  useThemeRoutesConfigQuery,
-  renderSeo,
-} from "@nt-websites/navigate-theme"
+import Layout from "../components/layout/layout"
+import Landing from "../components/header/landings/landing"
+import BookForm from "../components/booking-form/book-form"
+import GreenBar from "../components/bars/greenBar"
+import useImageQuery from "../queries/imageQuery"
+import useThemeRoutesConfigQuery from "../queries/themeRoutesConfigQuery"
+import { renderSeo } from "../helpers/seo-helper"
 
 const getCountryAndTourUrl = (routePrefix, path) => {
   if (!path) {
@@ -32,7 +30,7 @@ const getCountryAndTourUrl = (routePrefix, path) => {
   }
 }
 
-const Book = ({ location }) => {
+const Book = ({ location, data }) => {
   const imageQuery = useImageQuery()
 
   const path = location.state ? location.state.path : undefined
@@ -45,6 +43,7 @@ const Book = ({ location }) => {
 
   return (
     <Layout>
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
