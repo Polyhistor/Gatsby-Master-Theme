@@ -144,11 +144,7 @@ export const ActivitiesFragment = graphql`
       title
       slug
     }
-    svgMap {
-      localFile {
-        publicURL
-      }
-    }
+
     description {
       json
     }

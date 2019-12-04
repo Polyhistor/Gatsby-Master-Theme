@@ -5,7 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
-const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
+const ActivityScaffold = ({ title, subtitle, price, description }) => {
   // this allows us to render specific node types
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
   const options = {
@@ -34,9 +34,7 @@ const ActivityScaffold = ({ title, subtitle, price, svgMap, description }) => {
           {documentToReactComponents(description, options)}
         </article>
       )}
-      {svgMap !== null ? (
-        <img className="activity__svg-map" src={svgMap} alt={title} />
-      ) : null}
+
       <div className="activity__button-box">
         <Link
           to={`${themeOptionsQueryData.activitiesRoute}`}
