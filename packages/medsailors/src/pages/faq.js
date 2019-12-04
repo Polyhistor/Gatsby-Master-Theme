@@ -40,6 +40,7 @@ const FAQ = ({ data }) => {
           optMargin="u-margin-top-percent-10"
           variation="dest"
           shape="triangle"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
