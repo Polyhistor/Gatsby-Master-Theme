@@ -43,7 +43,7 @@ const Yachts = ({ data }) => {
           buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
-          popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
           shape="square"
           mobileBanner={true}
         />
@@ -51,7 +51,7 @@ const Yachts = ({ data }) => {
       </div>
       <YachtSingle
         data={YachtQuery}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
       <Banner
         imageData={bottomBannerImage}

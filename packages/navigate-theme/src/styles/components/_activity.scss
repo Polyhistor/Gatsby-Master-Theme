@@ -6,11 +6,11 @@
     border-bottom: 1px solid $color-gray-light-2;
 
     @include respond(laptop) {
-      grid-template-columns: 25rem 60rem;
+      grid-template-columns: 0.1rem 60rem;
     }
 
     @include respond(tablet) {
-      grid-template-columns: 25rem 40rem;
+      grid-template-columns: 0.1rem 60rem;
       grid-template-rows: 5rem 3rem 4rem min-content 12rem;
     }
 
