@@ -66,6 +66,7 @@ const ActivitiesCountries = ({ pageContext, data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />

@@ -1,9 +1,8 @@
 .activity {
   &--single {
     display: grid;
-    grid-template-columns: 25rem 68rem;
+    grid-template-columns: 0.1rem 68rem;
     grid-template-rows: 5rem 3rem 4rem minmax(10rem, min-content) 12rem;
-    grid-column-gap: 7rem;
     border-bottom: 1px solid $color-gray-light-2;
 
     @include respond(laptop) {
@@ -48,6 +47,7 @@
       font-size: 2rem;
       grid-row: 2;
       grid-column: 1;
+      padding-top: 0.8rem;
     }
   }
 
@@ -57,7 +57,7 @@
     @extend .heading-4--grey;
 
     @include respond(phone) {
-      font-size: 2rem;
+      font-size: 1.4rem;
       grid-row: 3;
       grid-column: 1;
     }
@@ -225,6 +225,7 @@
 
         @include respond(phone) {
           height: 12rem;
+          margin-bottom: 0;
         }
       }
     }
