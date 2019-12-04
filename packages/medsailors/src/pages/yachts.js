@@ -1,8 +1,5 @@
 import React from "react"
 
-// import YachtSingle from "../components/yachts/yachtSingle"
-
-// default components
 import {
   Layout,
   Landing,
