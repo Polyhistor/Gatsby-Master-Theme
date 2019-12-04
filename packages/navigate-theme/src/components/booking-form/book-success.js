@@ -10,16 +10,13 @@ const BookSuccess = ({ email }) => {
             Thanks for your booking enquiry.
           </h2>
 
+          <p className="paragraph"></p>
           <p className="paragraph">
-            We are sending a welcome message to your email address now. If you
-            do not receive it, please contact us at{" "}
+            We are sending a welcome message to you shortly. If you do not
+            receive it, please let us know at{" "}
             <a href={`mailto:${email}`}>{email}</a>
-          </p>
-          <p className="paragraph">
-            We are sending a welcome message to you shortly, if you don’t
-            receive it please let us know at sales@medsailors.com. Please note:
-            Our office hours are Monday to Friday 9 am - 5.30 pm &#38; Saturday
-            12 pm - 4 pm.
+            Please note: Our office hours are Monday to Friday 9 am - 5.30 pm
+            &#38; Saturday 12 pm - 4 pm.
           </p>
 
           <p className="paragraph">
