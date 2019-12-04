@@ -72,7 +72,7 @@ const FooterForm = () => {
 
                   setSuccess({
                     success: true,
-                    message: JSON.stringify(response.data.data.message),
+                    message: response.data.data.message,
                   })
                 } catch (error) {
                   //TODO: catch error
