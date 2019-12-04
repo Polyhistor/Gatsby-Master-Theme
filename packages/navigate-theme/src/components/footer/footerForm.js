@@ -21,10 +21,8 @@ const validationSchema = Yup.object().shape({
 let finalAPI
 
 const FooterForm = () => {
-  const theme = process.env.GATSBY_THEME
-
   // object that we use to synthesize later with form fields later
-  const partialData = { productId: 8 }
+  const partialData = { productId: process.env.GATSBY_PRODUCT_ID }
 
   // setting the state for the success message
   const [{ success, message }, setSuccess] = useState({

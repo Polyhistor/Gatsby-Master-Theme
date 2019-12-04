@@ -10,7 +10,6 @@ const Logo = () => {
     .websiteLogo.localFile.childImageSharp.fluid
 
   return (
-    //TODO: WILDKIWI css style
     <Link className={resolveVariationClass("navigation-mobile__logo")} to="/">
       <Img fluid={imageLogo} style={{ width: "12rem" }} />
     </Link>
