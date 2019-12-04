@@ -12,7 +12,8 @@ const BookSuccess = ({ email }) => {
 
           <p className="paragraph">
             We are sending a welcome message to your email address now. If you
-            do not receive it, please contact us at <a href={email}>{email}</a>
+            do not receive it, please contact us at{" "}
+            <a href={`mailto:${email}`}>{email}</a>
           </p>
           <p className="paragraph">
             We are sending a welcome message to you shortly, if you don’t
