@@ -216,6 +216,7 @@ export const CountriesFragment = graphql`
         }
       }
     }
+    directToTrip
   }
 `
 
