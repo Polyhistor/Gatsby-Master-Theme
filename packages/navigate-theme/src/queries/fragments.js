@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 // for fluid images that we use on boxes, tours banners, etc
 export const FluidImageFragment = graphql`
   fragment FluidImage on File {
+    publicURL
     childImageSharp {
       fluid(quality: 100, maxWidth: 2160) {
         ...GatsbyImageSharpFluid

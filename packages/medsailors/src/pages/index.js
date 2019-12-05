@@ -192,6 +192,11 @@ export const query = graphql`
     ) {
       edges {
         node {
+          openGraphImage {
+            localFile {
+              publicURL
+            }
+          }
           title
           description
         }

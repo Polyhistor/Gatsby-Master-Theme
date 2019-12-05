@@ -42,7 +42,19 @@ const extractSeoFromContext = pageContext => {
  */
 export const renderSeo = data => {
   const metadata = extractSeoData(data)
-  return <SEO title={metadata.title} description={metadata.description} />
+
+  const imageLink =
+    metadata.openGraphImage && metadata.openGraphImage.localFile
+      ? `${process.env.GATSBY_SITE_URL}${metadata.openGraphImage.localFile.publicURL}`
+      : undefined
+
+  return (
+    <SEO
+      imageLink={imageLink}
+      title={metadata.title}
+      description={metadata.description}
+    />
+  )
 }
 
 /**
