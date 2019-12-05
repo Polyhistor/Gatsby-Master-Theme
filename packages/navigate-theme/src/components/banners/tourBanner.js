@@ -17,6 +17,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
  * using the same business logic but different styling, html.
  *
  * The business logic should be abstracted from the three components as they basically use the same logic but different interface.
+ *
  */
 
 /*
@@ -38,7 +39,8 @@ const TourBanner = ({
   duration,
   country,
 }) => {
-  const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+  const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config
 
   const buttonCardText =
     type === "country"
