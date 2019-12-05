@@ -4,6 +4,10 @@
   position: relative;
 
   &:nth-child(4) {
+    @include respond(tablet) {
+      padding-right: 0 !important;
+    }
+
     @include respond(laptop) {
       padding-right: 0 !important;
     }
