@@ -43,6 +43,8 @@ const IndexPage = ({ data }) => {
     return result.length
   }
 
+  console.log(countryQuery)
+
   /**
    * TODO: on DestinationsMobile or trip we always using the country node, but sometimes
    * its is not country but destination. It was confusing to me to understand that the same
@@ -64,6 +66,7 @@ const IndexPage = ({ data }) => {
               type="country"
               key={idx + 4}
               destination={country.node.slug}
+              destinationsArray={country.node.destinations}
               title={country.node.title}
               subtitle={country.node.days}
               departs={country.node.departure}
@@ -72,24 +75,13 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               idx={idx === lastIndex ? lastIndex : null}
+              directToTrip={country.node.directToTrip}
             />
-            {/* <DestinationsTablet
-              type="country"
-              key={idx + 8}
-              destination={country.node.slug}
-              title={country.node.title}
-              subtitle={country.node.days}
-              departs={country.node.departure}
-              details={country.node.description}
-              price={country.node.price}
-              tours={filterDestinations(country.node.slug)}
-              imageData={country.node.banner.localFile.childImageSharp.fluid}
-              SVGMap={country.node.svgMap.localFile.publicURL}
-            /> */}
             <TourBanner
               type="country"
               key={idx + 12}
               destination={country.node.slug}
+              destinationsArray={country.node.destinations}
               title={country.node.title}
               subtitle={country.node.days}
               departs={country.node.departure}
@@ -98,6 +90,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
+              directToTrip={country.node.directToTrip}
             />
           </React.Fragment>
         )

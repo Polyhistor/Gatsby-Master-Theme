@@ -26,7 +26,9 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const TourBanner = ({
   type,
   destination,
+  slug,
   destinationUrl,
+  destinationsArray,
   title,
   subtitle,
   departs,
@@ -38,6 +40,7 @@ const TourBanner = ({
   variation,
   duration,
   country,
+  directToTrip,
 }) => {
   const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config
@@ -47,6 +50,14 @@ const TourBanner = ({
       ? webSiteConfiguration.countryPage.buttonCardText
       : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
+  // console.log(directToTrip)
+
+  console.log(destinationsArray)
+
+  // console.log(themeOptionsQueryData)
+
+  // {`${location.origin}/${useWebSiteConfigQuery.destinationCountryRoutePrefix}${country.node.lug}`}
 
   return (
     <section className={`section-tour-banner-newzealand`}>
@@ -80,7 +91,9 @@ const TourBanner = ({
                     "btn__card"
                   )} tablet-green-button`}
                   to={
-                    country !== undefined
+                    directToTrip
+                      ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}/${destinationsArray[0].url}`
+                      : country !== undefined
                       ? `${
                           themeOptionsQueryData.destinationCountryRoutePrefix
                         }${country}/${destinationUrl || destination}`
