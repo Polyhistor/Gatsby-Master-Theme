@@ -15,6 +15,8 @@ const BookSuccess = ({ email }) => {
             We are sending a welcome message to you shortly. If you do not
             receive it, please let us know at{" "}
             <a href={`mailto:${email}`}>{email}</a>
+          </p>
+          <p className="paragraph">
             Please note: Our office hours are Monday to Friday 9 am - 5.30 pm
             &#38; Saturday 12 pm - 4 pm.
           </p>
