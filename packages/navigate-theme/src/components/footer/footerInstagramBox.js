@@ -12,7 +12,7 @@ const FooterInstagramBox = () => {
   return (
     <a className="footer__instagram" href={url} target="_blank">
       <div className={resolveVariationClass("footer__instagram-box")}>
-        <h2>#MedSailors</h2>
+        <h2>#{process.env.GATSBY_BRAND_NAME}</h2>
         {images.map((img, idx) => (
           <Img key={idx} fluid={img.localFile.childImageSharp.fluid} />
         ))}
