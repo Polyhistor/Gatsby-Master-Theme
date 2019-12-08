@@ -127,6 +127,8 @@ module.exports = {
           },
           useHeaderShapes: false,
           tourUnit: "Tour",
+          playIcon:
+            "data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgo8dGl0bGU+UGxheS1CdXR0b248L3RpdGxlPgo8cGF0aCBmaWxsPSIjMjliOTlhIiBkPSJNMjIuNzggMTUuOTMybC0xMC4wMzkgNS4wMjB2LTEwLjA0MWwxMC4wMzkgNS4wMjB6TTMxLjg2NSAxNS45MzJjMC04Ljc5OS03LjEzMy0xNS45MzItMTUuOTMyLTE1LjkzMnMtMTUuOTMyIDcuMTMzLTE1LjkzMiAxNS45MzJjMCA4LjgwMSA3LjEzMyAxNS45MzIgMTUuOTMyIDE1LjkzMnMxNS45MzItNy4xMzEgMTUuOTMyLTE1LjkzMnoiPjwvcGF0aD4KPC9zdmc+Cg==",
           acitivitesPage: {
             howItWorksBannerText: "continue",
           },

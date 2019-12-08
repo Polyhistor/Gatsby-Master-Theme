@@ -157,7 +157,15 @@
       }
 
       &--wk {
-        font-size: 7rem !important;
+        font-size: 6.21rem;
+        line-height: 5rem;
+
+        & > span > span {
+          font-size: 1.6rem;
+          font-family: Nexa-Rust-2;
+          background: none;
+          padding: 0;
+        }
       }
     }
     &__sub {
@@ -198,6 +206,13 @@
         grid-template-rows: 0.5rem 22.2rem 7rem;
         margin-left: 0.7rem;
       }
+    }
+
+    &--wk {
+      position: absolute;
+      top: 33%;
+      display: grid;
+      grid-template-rows: 13.9rem 12rem;
     }
 
     &--alt {

@@ -110,9 +110,8 @@ const IndexPage = ({ data }) => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonSecondURL=""
         buttonStyles={["green", "white"]}
-        variation={null}
+        variation={false}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
       <GreenBarAlt

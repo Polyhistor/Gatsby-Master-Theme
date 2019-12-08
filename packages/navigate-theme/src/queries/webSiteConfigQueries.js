@@ -21,6 +21,7 @@ export const useWebSiteConfigQuery = () => {
             }
             tourUnit
             useHeaderShapes
+            playIcon
             acitivitesPage {
               howItWorksBannerText
             }
