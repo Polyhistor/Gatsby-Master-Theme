@@ -4,10 +4,6 @@ import { withPrefix } from "gatsby"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const TextBoxAlt = ({ setModal, buttonSecond, button2Class, titleFirst }) => {
-  const button2ClassResolved = `btn ${resolveVariationClass(
-    button2Class
-  )} btn-animated`
-
   return (
     <>
       <h1
@@ -21,7 +17,7 @@ const TextBoxAlt = ({ setModal, buttonSecond, button2Class, titleFirst }) => {
         <a
           href="#"
           onClick={() => setModal({ open: true })}
-          className={button2ClassResolved}
+          className={button2Class}
         >
           <img
             className="play-button"

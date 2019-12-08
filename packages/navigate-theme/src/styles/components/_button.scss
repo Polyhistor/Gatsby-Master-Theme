@@ -97,6 +97,7 @@
     background: $color-red;
   }
 
+  // TO BE RENAMED TO BUTTON TRAILER
   &--med-blue {
     background: $color-med-teal !important;
     color: white !important;
@@ -111,6 +112,10 @@
       height: 6rem;
       font-size: 1.6rem;
       padding: 0;
+    }
+
+    &--wk {
+      background: $color-wk-green !important;
     }
   }
   /*button that is used on the cards */
