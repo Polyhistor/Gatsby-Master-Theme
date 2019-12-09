@@ -22,7 +22,6 @@ const CountryDestinationDropdown = ({
   const loadDefaultValues = () => {
     if (defaultValues) {
       setSelectedCountry(defaultValues.country)
-      console.log(countryData)
 
       const selectedCountry = countryData.find(d => {
         return d.node.slug === defaultValues.country
@@ -51,9 +50,9 @@ const CountryDestinationDropdown = ({
   const renderCountries = () => {
     return countryList[0]
       .sort((a, b) => a.node.order - b.node.order)
-      .map(e => {
+      .map((e, index) => {
         return (
-          <option key={e.node.slug} value={e.node.slug}>
+          <option key={index} value={e.node.slug}>
             {e.node.title}
           </option>
         )
@@ -77,8 +76,8 @@ const CountryDestinationDropdown = ({
     if (!destinationFilter) {
       return null
     } else {
-      return destinationFilter.map(e => (
-        <option key={e.slug} value={e.slug}>
+      return destinationFilter.map((e, index) => (
+        <option key={index} value={e.slug}>
           {e.title}
         </option>
       ))

@@ -43,8 +43,6 @@ const IndexPage = ({ data }) => {
     return result.length
   }
 
-  console.log(countryQuery)
-
   /**
    * TODO: on DestinationsMobile or trip we always using the country node, but sometimes
    * its is not country but destination. It was confusing to me to understand that the same

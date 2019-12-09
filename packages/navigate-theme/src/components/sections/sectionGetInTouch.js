@@ -98,10 +98,13 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
             </select>
           </div>
           {renderContactNumber()}
-          <div className="get-in-touch__container">
-            <h3 className="get-in-touch__header">Address</h3>
-            <pre className="get-in-touch__paragraph">{getAddress(state)}</pre>
-          </div>
+          {getAddress(state) && (
+            <div className="get-in-touch__container">
+              <h3 className="get-in-touch__header">Address</h3>
+              <pre className="get-in-touch__paragraph">{getAddress(state)}</pre>
+            </div>
+          )}
+
           {success ? (
             <h3 className="u-padding-top-medium filtered-tour__description-price">
               {message}

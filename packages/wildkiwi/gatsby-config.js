@@ -161,27 +161,25 @@ module.exports = {
             {
               text: "NEW ZEALAND",
               country: "newzealand",
-              phone: "+64 (0)9 973 5676",
+              phone: "+64 (0) 9 973 5676",
               default: true,
-              selected: false,
+              selected: true,
               address:
                 "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
             },
             {
               text: "AUSTRALIA",
               country: "australia",
-              phone: "+61 (02) 9133 8646",
+              phone: "+61 (0) 2 9133 8646",
               default: false,
               selected: false,
-              address:
-                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
             },
             {
               text: "UNITED KINGDOM",
               country: "uk",
-              phone: "+44 (0)20 3637 6466",
-              default: true,
-              selected: true,
+              phone: "+44 (0) 20 3637 6466",
+              default: false,
+              selected: false,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
             },
           ],

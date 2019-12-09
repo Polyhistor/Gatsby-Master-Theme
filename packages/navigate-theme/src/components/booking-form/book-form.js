@@ -54,8 +54,13 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
 
-  // const bannerImages = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-  //   .bookingFormImages
+  const useYachtClass = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .bookingForm.useYachtClass
+
+  if (!useYachtClass) {
+    delete validationSchema.fields.productClass
+    delete validationSchema.fields.yachtCabinName
+  }
 
   const email = useWebSiteConfigQuery().contentfulWebsiteConfiguration
     .bookingFormEmailContact
@@ -102,7 +107,13 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         console.warn("Invalid date")
       }
     } else {
-      setProductClasses(findDate.class)
+      if (!useYachtClass) {
+        const findDateWithClass = response.dates.find(d => d.date === date)
+        const priceId = findDateWithClass.class[0].id
+        setFieldValue("priceId", priceId)
+      } else {
+        setProductClasses(findDate.class)
+      }
     }
   }
 
@@ -433,7 +444,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                     </div>
                   </div>
 
-                  {productClasses && (
+                  {useYachtClass && (
                     <>
                       <div className="booking-details__fields-container">
                         <label>Yacht Type</label>
@@ -471,7 +482,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                       </div>
                     </>
                   )}
-                  {cabinTypes && cabinTypes.length > 0 && (
+                  {useYachtClass && cabinTypes && cabinTypes.length > 0 && (
                     <>
                       <div className="booking-details__fields-container">
                         <label>Cabin Type</label>
