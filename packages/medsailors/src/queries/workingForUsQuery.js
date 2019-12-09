@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "./node_modules/gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 const useWorkingForUsQuery = () => {
   const workingForUsData = useStaticQuery(graphql`

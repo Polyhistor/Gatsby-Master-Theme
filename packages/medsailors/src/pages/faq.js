@@ -1,4 +1,4 @@
-import React from "./node_modules/react"
+import React from "react"
 
 // default components
 import {
@@ -14,7 +14,7 @@ import {
   useFAQQuery,
   useWebSiteConfigQuery,
   renderSeo,
-} from "./node_modules/@nt-websites/navigate-theme"
+} from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
   // extracting our custom hook

@@ -1,4 +1,4 @@
-import React from "./node_modules/react"
+import React from "react"
 
 // default components
 import {
@@ -13,7 +13,7 @@ import {
   useHomePageQuery,
   useWebSiteConfigQuery,
   renderSeo,
-} from "./node_modules/@nt-websites/navigate-theme"
+} from "@nt-websites/navigate-theme"
 
 import useWorkingForUs from "../queries/workingForUsQuery"
 
