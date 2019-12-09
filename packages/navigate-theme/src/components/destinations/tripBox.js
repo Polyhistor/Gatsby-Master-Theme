@@ -21,8 +21,6 @@ const TripBox = ({
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
 
-  console.log(location)
-
   return (
     <>
       <div className="section-destination__trip-box">

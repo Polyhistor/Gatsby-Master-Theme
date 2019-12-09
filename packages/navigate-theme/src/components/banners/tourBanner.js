@@ -51,14 +51,6 @@ const TourBanner = ({
       : webSiteConfiguration.destinationPage.buttonCardText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
-  // console.log(directToTrip)
-
-  console.log(destinationsArray)
-
-  // console.log(themeOptionsQueryData)
-
-  // {`${location.origin}/${useWebSiteConfigQuery.destinationCountryRoutePrefix}${country.node.lug}`}
-
   return (
     <section className={`section-tour-banner-newzealand`}>
       <div className="row">
