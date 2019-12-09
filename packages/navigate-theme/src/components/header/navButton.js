@@ -40,7 +40,7 @@ const Buttonbox = props => {
         >
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
-            className={`btn btn--wk btn-animated`}
+            className="btn btn--book"
           >
             book
           </span>

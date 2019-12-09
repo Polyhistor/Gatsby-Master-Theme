@@ -1,4 +1,4 @@
-import React from "react"
+import React from "./node_modules/react"
 
 import {
   Layout,
@@ -12,7 +12,7 @@ import {
   useWebSiteConfigQuery,
   renderSeo,
   GreenBar,
-} from "@nt-websites/navigate-theme"
+} from "./node_modules/@nt-websites/navigate-theme"
 
 import useYachtQuery from "../queries/ourYachtQuery"
 
