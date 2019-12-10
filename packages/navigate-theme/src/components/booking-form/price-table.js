@@ -105,7 +105,7 @@ const PriceTable = ({ data }) => {
 
                   {p.currencyCode && (
                     <span>
-                      pp&thinsp;
+                      &thinsp;
                       {p.currencyCode}
                     </span>
                   )}
