@@ -7,8 +7,6 @@ import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const ActivityRelated = ({ country }) => {
-  const theme = process.env.GATSBY_THEME
-
   const activityQuery = useActivityQuery()
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
   // looping over elements and rendering

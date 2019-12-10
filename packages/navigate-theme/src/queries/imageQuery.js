@@ -162,14 +162,6 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      logo: file(relativePath: { eq: "WildKiwi.png" }) {
-        ...FluidImage
-      }
-
-      MSlogo: file(relativePath: { eq: "MedSailors-Logo-01.jpg" }) {
-        ...FluidImage
-      }
-
       vehiclesLady: file(relativePath: { eq: "WildKiwi-1866.jpg" }) {
         ...FluidImage
       }
@@ -203,7 +195,7 @@ const useImageQuery = () => {
       }
 
       aboutUsBanner: file(
-        relativePath: { eq: "mount-cook-new-zealand-wild-kiwi-tours.jpg" }
+        relativePath: { eq: "sunset-view-over-greek-islands.jpg" }
       ) {
         ...FluidImage
       }
@@ -223,7 +215,7 @@ const useImageQuery = () => {
       }
 
       FAQsBanner: file(
-        relativePath: { eq: "mount-cook-new-zealand-faqs.jpg" }
+        relativePath: { eq: "guests-on-floatie-medsailors-croatia.jpg" }
       ) {
         ...FluidImage
       }
@@ -297,7 +289,13 @@ const useImageQuery = () => {
       }
 
       MSFAQ: file(
-        relativePath: { eq: "guests-jump-off-medsailors-yacht.jpg" }
+        relativePath: { eq: "guests-on-floatie-medsailors-croatia.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      YGFAQ: file(
+        relativePath: { eq: "yachts-anchored-at-blue-caves-corfu.jpg" }
       ) {
         ...FluidImage
       }

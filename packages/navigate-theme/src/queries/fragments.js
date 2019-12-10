@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 // for fluid images that we use on boxes, tours banners, etc
 export const FluidImageFragment = graphql`
   fragment FluidImage on File {
+    publicURL
     childImageSharp {
       fluid(quality: 100, maxWidth: 2160) {
         ...GatsbyImageSharpFluid
@@ -144,11 +145,7 @@ export const ActivitiesFragment = graphql`
       title
       slug
     }
-    svgMap {
-      localFile {
-        publicURL
-      }
-    }
+
     description {
       json
     }
@@ -181,6 +178,7 @@ export const CountriesFragment = graphql`
         }
       }
     }
+    order
     trailer
     days
     departure
@@ -218,6 +216,7 @@ export const CountriesFragment = graphql`
         }
       }
     }
+    directToTrip
   }
 `
 
@@ -438,6 +437,24 @@ export const WebSiteConfiguration = graphql`
   fragment WebSiteConfiguration on ContentfulWebsiteConfiguration {
     bookingFormEmailContact
     websiteBottomBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    enquiryBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    activitiesBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    websiteLogo {
       localFile {
         ...FluidImage
       }

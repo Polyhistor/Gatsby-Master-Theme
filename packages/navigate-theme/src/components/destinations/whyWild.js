@@ -5,6 +5,8 @@ import { Link } from "gatsby"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
 
+// TODO - change this component name to something more generic and not whywild
+
 const WhyWild = ({ WhyWildData, headerText }) => {
   const brandName = process.env.GATSBY_BRAND_NAME
 
@@ -43,7 +45,7 @@ const WhyWild = ({ WhyWildData, headerText }) => {
         to={`${themeOptionsQueryData.vehiclesRoute}`}
         className={resolveVariationClass("acitivity-box-button")}
       >
-        Learn More
+        {themeOptionsQueryData.vehiclesText}
       </Link>
     </div>
   )

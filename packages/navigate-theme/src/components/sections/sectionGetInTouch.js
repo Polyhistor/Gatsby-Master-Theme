@@ -98,10 +98,13 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
             </select>
           </div>
           {renderContactNumber()}
-          <div className="get-in-touch__container">
-            <h3 className="get-in-touch__header">Address</h3>
-            <pre className="get-in-touch__paragraph">{getAddress(state)}</pre>
-          </div>
+          {getAddress(state) && (
+            <div className="get-in-touch__container">
+              <h3 className="get-in-touch__header">Address</h3>
+              <pre className="get-in-touch__paragraph">{getAddress(state)}</pre>
+            </div>
+          )}
+
           {success ? (
             <h3 className="u-padding-top-medium filtered-tour__description-price">
               {message}
@@ -212,11 +215,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                   </div>
                   <button
                     id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
-                    className={
-                      theme === "ms"
-                        ? "btn btn--green-footer btn--ms-teal"
-                        : "btn btn--green-footer"
-                    }
+                    className={`btn ${resolveVariationClass("btn-footer")}`}
                     type="submit"
                   >
                     submit

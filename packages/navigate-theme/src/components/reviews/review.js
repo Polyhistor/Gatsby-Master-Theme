@@ -5,11 +5,11 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const Review = ({ text, author, country }) => {
   return (
     <div className="review">
-      <div className="review__stars-box u-padding-bottom-small">
+      {/* <div className="review__stars-box u-padding-bottom-small">
         <svg className="svg-icon--facebook">
           <use xlinkHref={withPrefix("sprite.svg#icon-Facebook-Review-01")} />
         </svg>
-      </div>
+      </div> */}
       <p className="review__paragraph u-padding-bottom-small">{text}</p>
       <span
         className={`${resolveVariationClass(

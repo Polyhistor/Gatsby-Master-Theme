@@ -21,10 +21,12 @@ import {
   useDestinationQuery,
   renderSeo,
   resolveVariationClass,
+  useFeatureBox,
 } from "@nt-websites/navigate-theme"
 
 const IndexPage = ({ data }) => {
   // extracting our custom hook
+  const featuredBoxData = useFeatureBox()
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
@@ -129,10 +131,10 @@ const IndexPage = ({ data }) => {
         ]}
       />
       <WhyUsMobile
-        data={homeQuery[0].node.whyWildKiwi}
+        data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <FeaturedMobile />
+      <FeaturedMobile data={featuredBoxData} />
       <div className="row row--patched mobile-yes">
         <h2
           className={`${resolveVariationClass(

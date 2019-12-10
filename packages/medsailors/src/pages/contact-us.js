@@ -53,6 +53,7 @@ const GetInTouch = ({ data }) => {
           optMargin="u-margin-top-percent-10"
           variation="dest"
           shape="circle"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />

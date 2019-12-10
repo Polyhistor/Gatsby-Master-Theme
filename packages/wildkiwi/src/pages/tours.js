@@ -98,7 +98,7 @@ const Destination = ({ data }) => {
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
         description="Choose your Wild Kiwi adventure from our destinations below and embark on your next flashpacking adventure full of incredible sites and amazing people."
-        buttonStyles={["white", "white"]}
+        buttonStyles={["white", "med-blue"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"

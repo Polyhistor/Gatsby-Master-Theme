@@ -21,10 +21,8 @@ const validationSchema = Yup.object().shape({
 let finalAPI
 
 const FooterForm = () => {
-  const theme = process.env.GATSBY_THEME
-
   // object that we use to synthesize later with form fields later
-  const partialData = { productId: 8 }
+  const partialData = { productId: process.env.GATSBY_PRODUCT_ID }
 
   // setting the state for the success message
   const [{ success, message }, setSuccess] = useState({
@@ -42,11 +40,7 @@ const FooterForm = () => {
       {/*TODO style standard*/}
       <label
         htmlFor="footer__input"
-        className={
-          theme === "ms"
-            ? "btn btn--ms-mobile mobile-yes"
-            : "btn btn--green mobile-yes"
-        }
+        className={`btn ${resolveVariationClass("btn-mobile")} mobile-yes`}
       >
         send message
       </label>
@@ -78,7 +72,7 @@ const FooterForm = () => {
 
                   setSuccess({
                     success: true,
-                    message: JSON.stringify(response.data.data.message),
+                    message: response.data.data.message,
                   })
                 } catch (error) {
                   //TODO: catch error

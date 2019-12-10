@@ -15,7 +15,9 @@ const FilteredTour = ({ country, destinationData }) => {
     .config
   // TODO - WE SHOULD REPLACE all these repetitive button codes with something better
   const buttonClass = resolveVariationClass("filtered-tour__button")
-  const buttonClassActive = resolveVariationClass("filtered-tour__button")
+  const buttonClassActive = resolveVariationClass(
+    "filtered-tour__button--active"
+  )
 
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -44,7 +46,7 @@ const FilteredTour = ({ country, destinationData }) => {
     threeWeeks: false,
   })
 
-  // using useState hook for the purposes of our filter
+  console.log(filter)
 
   //TODO: DATA for state variable?? what is this data about? better name for variable?
   const [data, setData] = useState(destinationData)
@@ -92,7 +94,7 @@ const FilteredTour = ({ country, destinationData }) => {
         return (
           <div
             key={idx}
-            className="filtered-tour u-margin-top-big"
+            className="filtered-tour"
             to={`destinations/${country}/${element.node.slug}`}
           >
             <figure className="filtered-tour__image-container">

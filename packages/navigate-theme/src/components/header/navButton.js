@@ -2,8 +2,12 @@ import React, { useState } from "react"
 import { withPrefix, Link } from "gatsby"
 import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
-import BookingForm from "../destinations/bookingForm"
 import { Location } from "@reach/router"
+import { navigate } from "gatsby"
+
+import BookingForm from "../destinations/bookingForm"
+// import {navigate} from "reach/router"
+
 const Buttonbox = props => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({
@@ -13,18 +17,21 @@ const Buttonbox = props => {
   return (
     <>
       <div className="header__nav-button">
-        <span className="header__nav-button-box-icon">
-          <svg className="svg-icon--login">
-            <use xlinkHref={withPrefix("sprite.svg#icon-Login")} />
-          </svg>
-          <div className="navigation__dropdown navigation__dropdown--alt">
-            <li className="navigation__dropdown-item">
-              <a href="https://mytourinfo.com/" target="_blank">
-                manage booking
-              </a>
-            </li>
-          </div>
-        </span>
+        <a href="https://mytourinfo.com/" target="_blank">
+          <span className="header__nav-button-box-icon">
+            <svg className="svg-icon--login">
+              <use xlinkHref={withPrefix("sprite.svg#icon-Login")} />
+            </svg>
+
+            <div className="navigation__dropdown navigation__dropdown--alt">
+              <li className="navigation__dropdown-item">
+                <a href="https://mytourinfo.com/" target="_blank">
+                  manage booking
+                </a>
+              </li>
+            </div>
+          </span>
+        </a>
 
         <Link
           to="/enquire"
@@ -33,7 +40,7 @@ const Buttonbox = props => {
         >
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
-            className={`btn btn--wk btn-animated`}
+            className="btn btn--book"
           >
             book
           </span>

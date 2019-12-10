@@ -76,7 +76,7 @@ export default Terms
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "terms-condition" } }
+      filter: { referencedPageIdentifier: { eq: "terms-conditions" } }
     ) {
       edges {
         node {

@@ -21,14 +21,20 @@ export const useWebSiteConfigQuery = () => {
             }
             tourUnit
             useHeaderShapes
+            playIcon
+            acitivitesPage {
+              howItWorksBannerText
+            }
             destinationPage {
               buttonCardText
+              howItWorksBannerText
             }
             countryPage {
               buttonCardText
             }
             bookingForm {
               destinationDropdownLabel
+              countryDropdownLabel
               useYachtClass
               yachtClasses {
                 description

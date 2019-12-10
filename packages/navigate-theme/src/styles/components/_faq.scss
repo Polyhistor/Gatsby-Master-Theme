@@ -1,4 +1,18 @@
 .FAQ {
+  &__video-title {
+    &--ms {
+      color: $color-med-teal;
+    }
+
+    &--yg {
+      color: $color-yg-blue;
+    }
+
+    &--wk {
+      color: $color-wk-green;
+    }
+  }
+
   &__container {
     min-height: 4rem;
   }
@@ -147,6 +161,7 @@
     @extend .paragraph--green;
     transform: translateY(-0.8rem);
     line-height: 3rem;
+    max-width: 90%;
 
     @include respond(phone) {
       width: 85%;

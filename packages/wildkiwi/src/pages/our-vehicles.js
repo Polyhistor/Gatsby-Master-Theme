@@ -1,10 +1,9 @@
 import React from "react"
 
-// default components
-
 import {
   Layout,
   Landing,
+  GreenBar,
   Banner,
   SectionVehicle,
   Reviews,
@@ -38,6 +37,7 @@ const OurVehicles = ({ data }) => {
           variation="dest"
         />
       </div>
+      <GreenBar />
       <SectionVehicle
         imageOne={imageQuery.vehicleInterior.childImageSharp.fluid}
         imageTwo={imageQuery.vehicleSouth.childImageSharp.fluid}

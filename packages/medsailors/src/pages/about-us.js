@@ -32,13 +32,14 @@ const AboutUs = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
-          titleFirst="about us"
+          titleFirst="About us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="We’re lucky enough to be incredibly passionate about what we do."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />

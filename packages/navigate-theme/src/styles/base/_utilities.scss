@@ -450,7 +450,7 @@
 
 .hotfix {
   &--reviews {
-    height: 40.5rem;
+    height: 47.5rem;
     grid-row: 6;
 
     @include respond(laptop) {
@@ -475,7 +475,7 @@
       z-index: 90;
 
       @include respond(tablet) {
-        height: 30rem;
+        height: 34rem;
       }
 
       @include respond(phone) {

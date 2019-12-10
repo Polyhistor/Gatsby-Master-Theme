@@ -47,9 +47,14 @@ const BlogCategory = ({ data, pageContext }) => {
     })
   }
 
+  const seoDescription = `${pageContext.name} | ${pageContext.site.name}`
+
   return (
     <Layout2>
-      <SEO title={`${pageContext.name} | ${pageContext.site.name}`} />
+      <SEO
+        description={seoDescription}
+        title={`${pageContext.name} | ${pageContext.site.name}`}
+      />
       <div className="row">
         <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
           Category : {pageContext.name}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useCountryQuery from "../../queries/countryQuery"
-import useDestinationQuery from "../../queries/destinationQuery"
 
 const CountryDestinationDropdown = ({
   defaultValues,
@@ -12,8 +11,8 @@ const CountryDestinationDropdown = ({
   const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.bookingForm
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
+  const countryDropdownLabel = bookingFormConfig.countryDropdownLabel
 
-  const destinationData = useDestinationQuery()
   const countryData = useCountryQuery()
   const [destinationFilter, setDestinationFilter] = useState(null)
   const countryList = useState(countryData)
@@ -23,20 +22,22 @@ const CountryDestinationDropdown = ({
   const loadDefaultValues = () => {
     if (defaultValues) {
       setSelectedCountry(defaultValues.country)
-      const filteredDests = destinationData.filter(d => {
-        return d.node.destinationCountry === defaultValues.country
-      })
-      setDestinationFilter(filteredDests)
 
-      const destination = filteredDests.find(d => {
-        return d.node.url === defaultValues.tourUrl
+      const selectedCountry = countryData.find(d => {
+        return d.node.slug === defaultValues.country
+      })
+
+      setDestinationFilter(selectedCountry.node.destinations)
+
+      const destination = selectedCountry.node.destinations.find(d => {
+        return d.url === defaultValues.tourUrl
       })
 
       if (!destination) {
         console.warning("destination not found")
       } else {
-        setSeletedTour(destination.node.slug)
-        onDestinationChange(destination.node.slug, setFieldValue)
+        setSeletedTour(destination.slug)
+        onDestinationChange(destination.slug, setFieldValue)
       }
       /*reset all form fields*/
     }
@@ -46,49 +47,27 @@ const CountryDestinationDropdown = ({
     loadDefaultValues()
   }, [])
 
-  const renderCountries = () =>
-    countryList[0].map(e => (
-      <option key={e.node.slug} value={e.node.slug}>
-        {e.node.title}
-      </option>
-    ))
-
-  /* not used anymore
-  const renderDropdownValues = () => {
-    const items = buildDropDownValues()
-    return items.map(e => (
-      <option key={e.value} value={e.value}>
-        {e.name}
-      </option>
-    ))
-  }*/
-
-  const buildDropDownValues = () => {
-    let items = []
-
-    countryList[0].forEach(c => {
-      const destinations = destinationData.filter(d => {
-        return d.node.destinationCountry === c.node.slug
+  const renderCountries = () => {
+    return countryList[0]
+      .sort((a, b) => a.node.order - b.node.order)
+      .map((e, index) => {
+        return (
+          <option key={index} value={e.node.slug}>
+            {e.node.title}
+          </option>
+        )
       })
-      destinations.forEach(d => {
-        items.push({
-          name: `${c.node.title} - ${d.node.title}`,
-          value: d.node.slug,
-        })
-      })
-    })
-
-    return items
   }
 
   const handleCountryDropdown = e => {
     setSeletedTour("all")
     setSelectedCountry(e.target.value)
 
-    const filteredDests = destinationData.filter(d => {
-      return d.node.destinationCountry === e.target.value
-    })
-    setDestinationFilter(filteredDests)
+    const country = countryData.find(c => c.node.slug === e.target.value)
+
+    const destinations = country ? country.node.destinations : []
+
+    setDestinationFilter(destinations)
     /*reset all form fields*/
     onDestinationChange("all", setFieldValue)
   }
@@ -97,9 +76,9 @@ const CountryDestinationDropdown = ({
     if (!destinationFilter) {
       return null
     } else {
-      return destinationFilter.map(e => (
-        <option key={e.node.slug} value={e.node.slug}>
-          {e.node.title}
+      return destinationFilter.map((e, index) => (
+        <option key={index} value={e.slug}>
+          {e.title}
         </option>
       ))
     }
@@ -118,7 +97,7 @@ const CountryDestinationDropdown = ({
         value={selectedCountry}
         id="country"
       >
-        <option value="all">Destination</option>
+        <option value="all">{countryDropdownLabel}</option>
         {renderCountries()}
       </select>
 

@@ -55,38 +55,75 @@ const PriceTable = ({ data }) => {
   // initiating an empty array that stores references to our nodes
   const refs = []
 
-  // const renderHeader = () => {
-  //   if (useYachtClass) {
-  //     return (
-  //       <div className="booking-form__header-classes">
-  //         {pricesClassOrdered.map((p, idx) => {
-  //           return (
-  //             <h4 key={idx} className={resolveVariationClass("heading-4")}>
-  //               {p.description}
-  //             </h4>
-  //           )
-  //         })}
-  //       </div>
-  //     )
-  //   }
-  //   return null
-  // }
-
-  const handleClick = () => {
-    alert("Implement go to booking form below")
-  }
-
   //POUYA CHANGE HERE.
   const renderPriceHeaderDescription = _ => {
-    return priceTableHeaderDescription.map(desc => {
+    return priceTableHeaderDescription.map((desc, idx) => {
       return (
-        <div className="booking-form__info-entry">
+        <div key={idx} className="booking-form__info-entry">
           <svg className={`svg-icon--MSIncludes`}>
             <use xlinkHref={withPrefix(`sprite.svg#${desc.icon}`)} />
           </svg>
           <p>{desc.text}</p>
         </div>
       )
+    })
+  }
+
+  const renderpricesAlt = prices => {
+    return prices.map((p, idx) => {
+      if (p) {
+        return (
+          <div
+            key={idx}
+            className={
+              p.availability === "Sold Out"
+                ? "booking-form__price-entry booking-form__price-entry--soldout"
+                : "booking-form__price-entry"
+            }
+          >
+            {useYachtClass ? (
+              <div
+                className={`mobile-yes heading-5--capitalized ${resolveVariationClass(
+                  "heading-5"
+                )}`}
+              >
+                {p.productClass}
+              </div>
+            ) : null}
+            <div className={resolveVariationClass("booking-form__price")}>
+              <div className="booking-form__entry-price-holder">
+                {p.priceB && (
+                  <span className="booking-form__original">
+                    {p.currencySymbol}
+                    {p.priceB}
+                    ss
+                  </span>
+                )}
+                <span className="booking-form__discount">
+                  {p.currencySymbol}
+                  {p.priceA}
+
+                  {p.currencyCode && (
+                    <span>
+                      pp&thinsp;
+                      {p.currencyCode}
+                    </span>
+                  )}
+                </span>
+              </div>
+              <div className="booking-form__availability-container">
+                <span className={bookingFormAvailablity}>{p.availability}</span>
+              </div>
+            </div>
+          </div>
+        )
+      } else {
+        return (
+          <div className="booking-form__price-entry heading-5" key={idx}>
+            NOT AVAILABLE
+          </div>
+        )
+      }
     })
   }
 
@@ -195,7 +232,7 @@ const PriceTable = ({ data }) => {
               <span className="booking-form__angle-arrow"></span>
             </label>
             <div className="booking-form__intro">
-              <span className="booking-form__month">{e.description}</span>
+              <span className="booking-form__month">{e.shortDescription}</span>
               <span className="booking-form__promo">{e.sale}</span>
               <span className="booking-form__base-price">
                 from {e.from.currencySymbol}
@@ -203,15 +240,17 @@ const PriceTable = ({ data }) => {
               </span>
             </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
-              <div className="booking-form__class-container">
-                {pricesClassOrdered.map((p, idx) => {
-                  return <h4 key={idx}>{p.description}</h4>
-                })}
-              </div>
+              {useYachtClass ? (
+                <div className="booking-form__class-container">
+                  {pricesClassOrdered.map((p, idx) => {
+                    return <h4 key={idx}>{p.description}</h4>
+                  })}
+                </div>
+              ) : null}
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
-                  onClick={useYachtClass ? null : _ => handleClick()}
+                  /*onClick={useYachtClass ? null : _ => handleClick()}*/
                   className={resolveVariationClass(
                     "booking-form__hidden-entries"
                   )}
@@ -221,11 +260,17 @@ const PriceTable = ({ data }) => {
                       <span className="booking-form__date">
                         {d.startDateShort}
                       </span>
-                      <span className="booking-form__destination">
-                        {d.startLocation}
+                      <span
+                        className={resolveVariationClass(
+                          "booking-form__destination"
+                        )}
+                      >
+                        Departs {d.startLocation}
                         &thinsp; &#9679; &thinsp;
-                        {d.durationInDays} days&thinsp; &#9679; &thinsp;
-                        {d.startDay} to {d.endDay}
+                        {d.durationInDays} days&thinsp;
+                        <span>
+                          &#9679; &thinsp; {d.startDay} to {d.endDay}
+                        </span>
                       </span>
                     </div>
                     {/* <div className="booking-form__mediator">
@@ -266,7 +311,9 @@ const PriceTable = ({ data }) => {
                     </div> */}
                   </div>
                   <div className={resolveVariationClass("booking-form__right")}>
-                    {useYachtClass ? renderPrices(d.prices) : null}
+                    {useYachtClass
+                      ? renderPrices(d.prices)
+                      : renderpricesAlt(d.prices)}
                   </div>
                 </div>
               ))}

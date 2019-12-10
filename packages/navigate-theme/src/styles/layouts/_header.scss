@@ -155,6 +155,18 @@
           transform: translateY(-18px);
         }
       }
+
+      &--wk {
+        font-size: 6.21rem !important;
+        line-height: 5rem;
+
+        & > span > span {
+          font-size: 1.6rem;
+          font-family: Nexa-Rust-2;
+          background: none;
+          padding: 0;
+        }
+      }
     }
     &__sub {
       animation: moveInleft 2s ease-out;
@@ -196,6 +208,13 @@
       }
     }
 
+    &--wk {
+      position: absolute;
+      top: 33%;
+      display: grid;
+      grid-template-rows: 13.9rem 12rem;
+    }
+
     &--alt {
       grid-template-rows: 4rem 10rem 1rem;
       top: 40%;
@@ -206,6 +225,7 @@
 
       & h1 {
         font-size: 12rem;
+        grid-row: 2;
         text-transform: none;
 
         @include respond(phone) {
@@ -219,6 +239,7 @@
     display: grid;
     grid-template-rows: 4.8rem 4.8rem;
     grid-row-gap: 1.6rem;
+    grid-row: 3;
 
     @include respond(laptop) {
       margin-right: 13.7rem;

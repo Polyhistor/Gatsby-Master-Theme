@@ -3,7 +3,6 @@ import React from "react"
 // default components
 import {
   Layout,
-  SEO,
   Landing,
   GreenBar,
   Banner,
@@ -12,16 +11,19 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  Error,
   renderSeo,
   useContactQuery,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const GetInTouch = ({ data }) => {
   const link = resolveVariationClass("link")
 
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const contactData = useContactQuery()

@@ -11,15 +11,20 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  useWorkingForUs,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
+
+import useWorkingForUs from "../queries/workingForUsQuery"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const workForUsQuery = useWorkingForUs()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>

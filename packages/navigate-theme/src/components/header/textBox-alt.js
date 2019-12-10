@@ -1,12 +1,11 @@
 import React from "react"
-import { withPrefix } from "gatsby"
 
 import resolveVariationClass from "../../helpers/theme-variation-style"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const TextBoxAlt = ({ setModal, buttonSecond, button2Class, titleFirst }) => {
-  const button2ClassResolved = `btn ${resolveVariationClass(
-    button2Class
-  )} btn-animated`
+  // const playIcon = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+  //   .playIcon
 
   return (
     <>
@@ -21,7 +20,7 @@ const TextBoxAlt = ({ setModal, buttonSecond, button2Class, titleFirst }) => {
         <a
           href="#"
           onClick={() => setModal({ open: true })}
-          className={button2ClassResolved}
+          className={button2Class}
         >
           <img
             className="play-button"

@@ -1,7 +1,8 @@
 import React from "react"
-import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
+import { Link, navigate } from "gatsby"
+// import { navigate } from "@reach/router"
 
-import { navigate } from "@reach/router"
+import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
 
@@ -15,6 +16,7 @@ const TripBox = ({
   priceText,
   price,
   availablity,
+  location,
 }) => {
   // setting currency based on our custom hook
   let currency = useCurrencySymbol(destinationCountry)
@@ -35,14 +37,13 @@ const TripBox = ({
               </span>
             </div>
           </div>
-          <a
+          <span
             id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
-            href="#booking"
-            onClick={() => navigate("#booking")}
+            onClick={() => navigate(`${location.pathname}#priceTable`)}
             className="trip-box__availablitity"
           >
             {availablity}
-          </a>
+          </span>
           <figure className="trip-box__figure">
             <img className="trip-box__image" src={imageData} alt={imageAlt} />
           </figure>

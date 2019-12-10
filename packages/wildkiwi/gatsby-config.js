@@ -116,7 +116,7 @@ module.exports = {
       options: {
         config: {
           greenBar: {
-            text: "Epic adventure for 18 to 35 year olds",
+            text: "Epic adventure tours for 18 to 35 year olds",
             icon: "mountains",
             iconAlt: "Wild-Kiwi-Mountaints-Logo",
           },
@@ -127,14 +127,21 @@ module.exports = {
           },
           useHeaderShapes: false,
           tourUnit: "Tour",
+          playIcon:
+            "data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgo8dGl0bGU+UGxheS1CdXR0b248L3RpdGxlPgo8cGF0aCBmaWxsPSIjMjliOTlhIiBkPSJNMjIuNzggMTUuOTMybC0xMC4wMzkgNS4wMjB2LTEwLjA0MWwxMC4wMzkgNS4wMjB6TTMxLjg2NSAxNS45MzJjMC04Ljc5OS03LjEzMy0xNS45MzItMTUuOTMyLTE1LjkzMnMtMTUuOTMyIDcuMTMzLTE1LjkzMiAxNS45MzJjMCA4LjgwMSA3LjEzMyAxNS45MzIgMTUuOTMyIDE1LjkzMnMxNS45MzItNy4xMzEgMTUuOTMyLTE1LjkzMnoiPjwvcGF0aD4KPC9zdmc+Cg==",
+          acitivitesPage: {
+            howItWorksBannerText: "continue",
+          },
           countryPage: {
             toursBannerType: "filteredTours",
             buttonCardText: "Explore",
           },
           destinationPage: {
+            howItWorksBannerText: "learn more",
             buttonCardText: "View Itinerary",
           },
           bookingForm: {
+            countryDropdownLabel: "Destination",
             destinationDropdownLabel: "Tour",
             useYachtClass: false,
             yachtClasses: [
@@ -154,27 +161,25 @@ module.exports = {
             {
               text: "NEW ZEALAND",
               country: "newzealand",
-              phone: "+64 (0)9 973 5676",
+              phone: "+64 (0) 9 973 5676",
               default: true,
-              selected: false,
+              selected: true,
               address:
                 "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
             },
             {
               text: "AUSTRALIA",
               country: "australia",
-              phone: "+61 (02) 9133 8646",
+              phone: "+61 (0) 2 9133 8646",
               default: false,
               selected: false,
-              address:
-                "Level 2, 29 Hargreaves\nStreet,\nSt Marys Bay,\nAuckland 1011, NZ",
             },
             {
               text: "UNITED KINGDOM",
               country: "uk",
-              phone: "+44 (0)20 3637 6466",
-              default: true,
-              selected: true,
+              phone: "+44 (0) 20 3637 6466",
+              default: false,
+              selected: false,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
             },
           ],
@@ -276,7 +281,8 @@ module.exports = {
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
-          vehiclesRoute: `/our-vehicles`,
+          vehiclesRoute: `/how-it-works`,
+          vehiclesText: `How it works`,
           destinationCountryRoutePrefix: `/tours/` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ title, description, author, lang }) {
+function SEO({ title, description, author, lang, imageLink }) {
   /*The default SEO comes from homePage*/
 
   const { site } = useStaticQuery(
@@ -22,6 +22,7 @@ function SEO({ title, description, author, lang }) {
 
   const globalMetadata = {
     title: title || site.siteMetadata.title,
+    imageUrl: imageLink,
     description: description || site.siteMetadata.description,
     lang,
   }
@@ -31,11 +32,7 @@ function SEO({ title, description, author, lang }) {
    * replace default props using site metadata
    */
 
-  const buildTwitterMeta = (
-    metadata,
-    type = "website",
-    imageUrl = undefined
-  ) => {
+  const buildTwitterMeta = (metadata, type = "website") => {
     const metas = []
 
     metas.push({
@@ -52,21 +49,17 @@ function SEO({ title, description, author, lang }) {
       name: `og:description`,
       content: metadata.description,
     })
-    if (imageUrl) {
+    if (metadata.imageUrl) {
       metas.push({
         name: `og:image`,
-        content: imageUrl,
+        content: metadata.imageUrl,
       })
     }
 
     return metas
   }
 
-  const buildOpenGraphMeta = (
-    metadata,
-    cardType = "summary_large_image",
-    imageUrl = undefined
-  ) => {
+  const buildOpenGraphMeta = (metadata, cardType = "summary_large_image") => {
     const metas = []
 
     metas.push({
@@ -80,14 +73,14 @@ function SEO({ title, description, author, lang }) {
     })
 
     metas.push({
-      name: `twiiter:title`,
+      name: `twitter:title`,
       content: metadata.title,
     })
 
-    if (imageUrl) {
+    if (metadata.imageUrl) {
       metas.push({
         name: `twitter:image`,
-        content: imageUrl,
+        content: metadata.imageUrl,
       })
     }
 
@@ -118,22 +111,8 @@ function SEO({ title, description, author, lang }) {
         lang: globalMetadata.lang,
       }}
       title={globalMetadata.title}
-      //   <script
-      //   src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
-      //   type="text/javascript"
-      //   charset="utf-8"
-      // />
-
-      // <script src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6" type="text/javascript" charset="utf-8"></script>
-
       meta={buildMetaTags(globalMetadata)}
-    >
-      {/* <script
-        src="https://navigatetravel9905.activehosted.com/f/embed.php?id=6"
-        type="text/javascript"
-        charset="utf-8"
-      /> */}
-    </Helmet>
+    ></Helmet>
   )
 }
 

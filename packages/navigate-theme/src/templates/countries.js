@@ -152,7 +152,6 @@ const Countries = ({ data, pageContext }) => {
       />
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
       {renderDestinationBanner()}
-
       <Banner
         imageData={bottomBannerImage}
         header="How it works"

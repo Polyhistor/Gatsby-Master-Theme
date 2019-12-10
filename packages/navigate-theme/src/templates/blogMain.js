@@ -10,7 +10,6 @@ import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
-import useImageQuery from "../queries/imageQuery"
 
 const IndexPage = ({ pageContext }) => {
   // our pagination
@@ -19,7 +18,6 @@ const IndexPage = ({ pageContext }) => {
   const nextUrl = (index + 1).toString()
   // extracting our custom hook
   const homeQuery = useHomePageQuery()
-  const imageQuery = useImageQuery()
 
   const { site } = useStaticQuery(
     graphql`
@@ -53,7 +51,12 @@ const IndexPage = ({ pageContext }) => {
                 alt={node.title}
               />
             )}
-            <h3 className="blog__main-title">{node.title}</h3>
+            <h3
+              dangerouslySetInnerHTML={{
+                __html: node.title,
+              }}
+              className="blog__main-title"
+            ></h3>
             <h4 className="blog__main-category">{blogMainCategory}</h4>
             <h5 className="blog__main-author">{node.author.name}</h5>
           </Link>
@@ -63,13 +66,12 @@ const IndexPage = ({ pageContext }) => {
   }
 
   const getBlogSeo = () => {
+    const description = `View Our Blogs Of Mediterranean Sailing Holiday. Join Other 20-35s For A Sailing Adventure With MedSailors. Visit Our Website Now.`
     return {
       title: first
         ? `Blog | ${site.siteMetadata.title}`
         : `Blog | ${site.siteMetadata.title} | Page ${index}`,
-      description: first
-        ? site.siteMetadata.description
-        : `${site.siteMetadata.description} | Page ${index}`,
+      description: first ? description : `${description} | Page ${index}`,
     }
   }
 
