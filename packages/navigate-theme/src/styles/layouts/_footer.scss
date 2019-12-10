@@ -463,7 +463,7 @@
 
   &__logo-container {
     display: grid;
-    grid-template-columns: 21rem 14rem 11rem 12rem 47rem;
+    grid-template-columns: 22rem 14rem 10rem 14rem 10rem 12rem;
     grid-column-gap: 5.5rem;
     align-items: center;
     height: 10rem;
@@ -504,6 +504,12 @@
       border-top: 0;
       margin-bottom: 5rem;
       grid-row-gap: 2rem;
+    }
+
+    &--wk {
+      @include respond(tablet) {
+        grid-template-columns: 0.1rem 12rem 10rem 15rem 7rem;
+      }
     }
   }
 

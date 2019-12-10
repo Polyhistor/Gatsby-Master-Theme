@@ -78,15 +78,73 @@ const PriceTable = ({ data }) => {
 
   //POUYA CHANGE HERE.
   const renderPriceHeaderDescription = _ => {
-    return priceTableHeaderDescription.map(desc => {
+    return priceTableHeaderDescription.map((desc, idx) => {
       return (
-        <div className="booking-form__info-entry">
+        <div key={idx} className="booking-form__info-entry">
           <svg className={`svg-icon--MSIncludes`}>
             <use xlinkHref={withPrefix(`sprite.svg#${desc.icon}`)} />
           </svg>
           <p>{desc.text}</p>
         </div>
       )
+    })
+  }
+
+  const renderpricesAlt = prices => {
+    return prices.map((p, idx) => {
+      if (p) {
+        return (
+          <div
+            key={idx}
+            className={
+              p.availability === "Sold Out"
+                ? "booking-form__price-entry booking-form__price-entry--soldout"
+                : "booking-form__price-entry"
+            }
+          >
+            {useYachtClass ? (
+              <div
+                className={`mobile-yes heading-5--capitalized ${resolveVariationClass(
+                  "heading-5"
+                )}`}
+              >
+                {p.productClass}
+              </div>
+            ) : null}
+            <div className={resolveVariationClass("booking-form__price")}>
+              <div className="booking-form__entry-price-holder">
+                {p.priceB && (
+                  <span className="booking-form__original">
+                    {p.currencySymbol}
+                    {p.priceB}
+                    ss
+                  </span>
+                )}
+                <span className="booking-form__discount">
+                  {p.currencySymbol}
+                  {p.priceA}
+
+                  {p.currencyCode && (
+                    <span>
+                      pp&thinsp;
+                      {p.currencyCode}
+                    </span>
+                  )}
+                </span>
+              </div>
+              <div className="booking-form__availability-container">
+                <span className={bookingFormAvailablity}>{p.availability}</span>
+              </div>
+            </div>
+          </div>
+        )
+      } else {
+        return (
+          <div className="booking-form__price-entry heading-5" key={idx}>
+            NOT AVAILABLE
+          </div>
+        )
+      }
     })
   }
 
@@ -203,11 +261,13 @@ const PriceTable = ({ data }) => {
               </span>
             </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
-              <div className="booking-form__class-container">
-                {pricesClassOrdered.map((p, idx) => {
-                  return <h4 key={idx}>{p.description}</h4>
-                })}
-              </div>
+              {useYachtClass ? (
+                <div className="booking-form__class-container">
+                  {pricesClassOrdered.map((p, idx) => {
+                    return <h4 key={idx}>{p.description}</h4>
+                  })}
+                </div>
+              ) : null}
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
@@ -221,7 +281,11 @@ const PriceTable = ({ data }) => {
                       <span className="booking-form__date">
                         {d.startDateShort}
                       </span>
-                      <span className="booking-form__destination">
+                      <span
+                        className={resolveVariationClass(
+                          "booking-form__destination"
+                        )}
+                      >
                         Departs {d.startLocation}
                         &thinsp; &#9679; &thinsp;
                         {d.durationInDays} days&thinsp;
@@ -268,7 +332,9 @@ const PriceTable = ({ data }) => {
                     </div> */}
                   </div>
                   <div className={resolveVariationClass("booking-form__right")}>
-                    {useYachtClass ? renderPrices(d.prices) : null}
+                    {useYachtClass
+                      ? renderPrices(d.prices)
+                      : renderpricesAlt(d.prices)}
                   </div>
                 </div>
               ))}

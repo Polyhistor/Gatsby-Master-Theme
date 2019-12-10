@@ -22,7 +22,7 @@ const Trips = ({ data, headerText }) => {
         ? (currency = ["NZD", "$"])
         : trip.destinationCountry === "australia"
         ? (currency = ["AUD", "$"])
-        : (currency = ["EURO", "€"])
+        : (currency = ["EUR", "€"])
 
       return (
         <Trip

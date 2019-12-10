@@ -631,6 +631,12 @@
       &--selected {
         background-color: red;
       }
+
+      &--wk {
+        & > div:nth-child(1) {
+          border-right: 0;
+        }
+      }
     }
   }
 
@@ -685,6 +691,23 @@
       @include respond(phone) {
         flex-direction: column;
         width: 100%;
+      }
+    }
+
+    &--wk {
+      border-right: 1px solid $color-gray-light-2;
+
+      @include respond(phone) {
+        border-right: 0;
+      }
+
+      & > div {
+        border-right: 0;
+        grid-column: 2;
+
+        @include respond(tablet) {
+          grid-column: 3;
+        }
       }
     }
   }
@@ -748,6 +771,12 @@
 
     & > span {
       @include respond(tablet) {
+        display: none;
+      }
+    }
+
+    &--wk {
+      & > span {
         display: none;
       }
     }
@@ -861,6 +890,18 @@
       width: 100%;
       align-items: flex-end;
       grid-template-columns: 70% 27%;
+    }
+
+    &--wk {
+      @include respond(phone) {
+        width: 100% !important;
+      }
+
+      & div {
+        @include respond(phone) {
+          justify-content: flex-start;
+        }
+      }
     }
 
     &-entry {

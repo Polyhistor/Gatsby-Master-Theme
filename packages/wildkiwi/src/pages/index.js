@@ -63,7 +63,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
             />
-            <DestinationsTablet
+            {/* <DestinationsTablet
               type="country"
               key={idx + 8}
               destination={country.node.slug}
@@ -75,7 +75,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
-            />
+            /> */}
             <TourBanner
               type="country"
               key={idx + 12}
@@ -136,7 +136,7 @@ const IndexPage = ({ data }) => {
         imageData={imageQuery.bannerHero.childImageSharp.fluid}
         headerFirst="Flash-pack your way around New Zealand, "
         headersecond="Australia and Europe."
-        subHeaderFirst="Experience an unforgettable 7 days as you set sail around the most breath-taking islands in the Mediterranean, enjoying epic adventures and authentic local culture."
+        subHeaderFirst="We jam-pack our tours full of adventure, like-minded humans between the ages of 18 and 35 years and local guides who’ll show you all of the best on and off-the-beaten-track places."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />

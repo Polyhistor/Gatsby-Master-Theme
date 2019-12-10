@@ -9,6 +9,7 @@ const useThemeRoutesConfigQuery = () => {
             destinationRoute
             activitiesRoute
             vehiclesRoute
+            vehiclesText
             destinationCountryRoutePrefix
             activitiesCountryRoutePrefix
           }

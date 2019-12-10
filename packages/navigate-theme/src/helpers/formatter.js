@@ -11,7 +11,7 @@ export const splitText = (text, maxLength) => {
       }
     }
 
-    result = result.replace(/\n/g, "")
+    // result = result.replace(/\n/g, "")
 
     return result
   } catch (error) {
