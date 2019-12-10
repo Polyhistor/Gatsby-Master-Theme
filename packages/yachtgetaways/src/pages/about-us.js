@@ -11,10 +11,11 @@ import {
   Trips,
   useImageQuery,
   useHomePageQuery,
-  useWorkingForUs,
   useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
+
+import useWorkingForUs from "../queries/workingForUsQuery"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
