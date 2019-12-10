@@ -4,8 +4,6 @@ import BoxText from "../boxes/boxText"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const Highlight = ({ title, images, titles, descriptions }) => {
-  const theme = process.env.GATSBY_THEME
-
   const renderHighlights = () => {
     return titles.map((higlight, idx) => {
       return (

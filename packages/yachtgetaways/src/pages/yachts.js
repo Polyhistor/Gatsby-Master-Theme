@@ -1,23 +1,27 @@
 import React from "react"
 
-// default components
-
 import {
   Layout,
   Landing,
-  GreenBar,
   Banner,
   Reviews,
   Trips,
+  YachtSingle,
   useHomePageQuery,
   useImageQuery,
-  useYachtQuery,
-  OurYachts,
+  useWebSiteConfigQuery,
   renderSeo,
+  GreenBar,
 } from "@nt-websites/navigate-theme"
 
-const OurVehicles = ({ data }) => {
+import useYachtQuery from "../queries/ourYachtQuery"
+
+const Yachts = ({ data }) => {
   // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
@@ -25,35 +29,40 @@ const OurVehicles = ({ data }) => {
   return (
     <Layout>
       {renderSeo(data)}
-      <div className="hotfix--narrow-banner">
+      <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
           imageData={imageQuery.ourYachts.childImageSharp.fluid}
-          titleFirst="Our Yachts"
-          buttonFirst="expore"
-          buttonFirstURL="/blog"
-          description="We have a variety of yacht and cabin types so you can travel in style."
-          buttonStyles={["white", "white"]}
+          titleFirst="Our yachts"
+          buttonSecond="watch trailer"
+          buttonSecondURL="#popup"
+          buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+          shape="square"
+          mobileBanner={true}
         />
+        <GreenBar />
       </div>
-      <GreenBar />
-      <OurYachts data={YachtQuery} />
+      <YachtSingle
+        data={YachtQuery}
+        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+      />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
+      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )
 }
 
-export default OurVehicles
+export default Yachts
 
 /**
  * We should use seo identifier variables from const PAGE_SEO_IDENTIFIER on this query instead plain strings. . But to do so, we need to pass

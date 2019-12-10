@@ -13,6 +13,7 @@ import {
   useHomePageQuery,
   useFAQQuery,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const FAQ = ({ data }) => {
@@ -20,13 +21,16 @@ const FAQ = ({ data }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MSFAQ.childImageSharp.fluid}
+          imageData={imageQuery.YGFAQ.childImageSharp.fluid}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"

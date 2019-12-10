@@ -29,6 +29,7 @@ import { renderSeoFromContext } from "../helpers/seo-helper"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
+
   const theme = process.env.GATSBY_THEME
 
   //TODO: Why wildkiwi text header should not be static on the code.
