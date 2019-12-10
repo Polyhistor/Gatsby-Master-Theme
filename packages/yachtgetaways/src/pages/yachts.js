@@ -14,6 +14,7 @@ import {
   useYachtQuery,
   OurYachts,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const OurVehicles = ({ data }) => {
@@ -21,6 +22,9 @@ const OurVehicles = ({ data }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>

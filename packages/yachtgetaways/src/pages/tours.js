@@ -19,6 +19,7 @@ import {
   useDestinationQuery,
   useFeatureBox,
   renderSeo,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
@@ -28,6 +29,9 @@ const Destination = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const destinationQuery = useDestinationQuery()
   const featuredBoxData = useFeatureBox()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -109,6 +113,7 @@ const Destination = ({ data }) => {
       />
       <Featured data={featuredBoxData[0].node} />
       <FeaturedMobile />
+      <FeaturedMobile data={featuredBoxData} />
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner

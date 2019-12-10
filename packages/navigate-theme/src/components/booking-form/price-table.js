@@ -55,27 +55,6 @@ const PriceTable = ({ data }) => {
   // initiating an empty array that stores references to our nodes
   const refs = []
 
-  // const renderHeader = () => {
-  //   if (useYachtClass) {
-  //     return (
-  //       <div className="booking-form__header-classes">
-  //         {pricesClassOrdered.map((p, idx) => {
-  //           return (
-  //             <h4 key={idx} className={resolveVariationClass("heading-4")}>
-  //               {p.description}
-  //             </h4>
-  //           )
-  //         })}
-  //       </div>
-  //     )
-  //   }
-  //   return null
-  // }
-
-  const handleClick = () => {
-    alert("Implement go to booking form below")
-  }
-
   //POUYA CHANGE HERE.
   const renderPriceHeaderDescription = _ => {
     return priceTableHeaderDescription.map(desc => {
@@ -211,7 +190,7 @@ const PriceTable = ({ data }) => {
               {e.dates.map((d, idx2) => (
                 <div
                   key={idx2}
-                  onClick={useYachtClass ? null : _ => handleClick()}
+                  /*onClick={useYachtClass ? null : _ => handleClick()}*/
                   className={resolveVariationClass(
                     "booking-form__hidden-entries"
                   )}

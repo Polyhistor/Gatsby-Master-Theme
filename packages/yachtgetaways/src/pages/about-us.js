@@ -12,6 +12,7 @@ import {
   useImageQuery,
   useHomePageQuery,
   useWorkingForUs,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
@@ -20,6 +21,9 @@ const AboutUs = ({ data }) => {
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const workForUsQuery = useWorkingForUs()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>

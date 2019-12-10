@@ -63,8 +63,6 @@ const DetailsForm = ({
 
   const bookingFormPromo = resolveVariationClass("booking-form__promo")
 
-  const theme = process.env.GATSBY_THEME
-
   const renderingCabins = () =>
     cabins.filter(c => c.product_class === productClass)
 
