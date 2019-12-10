@@ -7,6 +7,11 @@ const renderContactNumber = (phoneNumberData, country) => {
   return getContactNumber.phone
 }
 
+const getOfficeHours = (country, phoneNumberData) => {
+  const phone = phoneNumberData.find(p => p.country === country)
+  return `${phone.startHour} - ${phone.endHour}`
+}
+
 const getAddress = (country, phoneNumberData) => {
   const ad = phoneNumberData.find(p => p.country === country)
   return ad.address
@@ -51,7 +56,9 @@ const FooterContact = () => {
       <h6 className="footer__trips-header footer__trips-link" />
       <ul className="footer__trips-list">
         <li className="footer__trips-item">Opening Hours</li>
-        <li className="footer__trips-item">8:30am - 5:30pm</li>
+        <li className="footer__trips-item">
+          {getOfficeHours(state, phoneNumberData)}
+        </li>
         <li className="footer__trips-item u-padding-top-sedium">
           {getAddress(state, phoneNumberData)}
         </li>
