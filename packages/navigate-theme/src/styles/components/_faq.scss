@@ -161,6 +161,7 @@
     @extend .paragraph--green;
     transform: translateY(-0.8rem);
     line-height: 3rem;
+    max-width: 90%;
 
     @include respond(phone) {
       width: 85%;

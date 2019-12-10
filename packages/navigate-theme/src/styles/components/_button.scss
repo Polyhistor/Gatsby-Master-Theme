@@ -13,6 +13,7 @@
   &:hover {
     cursor: pointer;
   }
+
   //YYYYY
   &--ms-mobile {
     background-color: $color-med-blue;
@@ -42,7 +43,7 @@
   }
 
   &--wk {
-    background-color: $color-red;
+    background-color: $color-wk-green;
   }
 
   &--ms {
@@ -374,5 +375,10 @@
   &--transparent {
     @include transparentButton;
     padding: 1.55rem 8.04rem;
+  }
+
+  &--book {
+    background: $color-red;
+    padding: 1.27rem 2.8rem;
   }
 }

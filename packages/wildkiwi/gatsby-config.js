@@ -116,7 +116,7 @@ module.exports = {
       options: {
         config: {
           greenBar: {
-            text: "Epic adventure for 18 to 35 year olds",
+            text: "Epic adventure tours for 18 to 35 year olds",
             icon: "mountains",
             iconAlt: "Wild-Kiwi-Mountaints-Logo",
           },

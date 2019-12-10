@@ -418,14 +418,20 @@
     }
 
     &__logo {
+      &--wk {
+        & > div {
+          @include respond(tablet) {
+            width: 11.5rem !important;
+            margin-top: 0rem !important;
+          }
+        }
+      }
+
       @include respond(tablet) {
         float: left;
         margin-left: -2rem;
-        & > div:nth-of-type(1) {
-          width: 6.5rem !important;
-          margin-top: -1.1rem;
-        }
       }
+
       @include respond(phone) {
         float: left;
         margin-left: 1.2rem;
@@ -441,6 +447,13 @@
           & > div:nth-of-type(1) {
             width: 7rem !important;
             height: 6.2rem;
+          }
+        }
+
+        & > div {
+          @include respond(tablet) {
+            width: 6.5rem !important;
+            margin-top: -1.1rem;
           }
         }
       }

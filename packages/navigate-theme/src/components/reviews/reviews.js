@@ -7,7 +7,8 @@ import { splitText } from "../../helpers/formatter"
 import Review from "./review"
 
 const Reviews = () => {
-  const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions.config.review
+  const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.review
 
   const reviewData = useReviewQuery()
 
