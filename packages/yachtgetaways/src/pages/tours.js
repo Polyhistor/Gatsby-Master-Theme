@@ -111,9 +111,7 @@ const Destination = ({ data }) => {
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
-      <Featured data={featuredBoxData[0].node} />
-      <FeaturedMobile />
-      <FeaturedMobile data={featuredBoxData} />
+      <Featured data={featuredBoxData} />
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
