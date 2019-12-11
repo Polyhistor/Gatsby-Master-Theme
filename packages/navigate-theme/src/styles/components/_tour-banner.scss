@@ -218,7 +218,6 @@
     }
 
     &--europe {
-      height: 40rem;
       @include respond(tablet) {
         height: 100%;
       }
