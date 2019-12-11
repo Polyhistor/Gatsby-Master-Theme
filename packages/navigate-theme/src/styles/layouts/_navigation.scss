@@ -264,6 +264,10 @@
 
     &--wk {
       background: black;
+
+      @include respond(tablet) {
+        background: transparent;
+      }
     }
 
     &--ms {
