@@ -1,6 +1,7 @@
 .review {
   @include respond(phone) {
     padding: 0rem 1rem 1rem;
+    margin-top: 4rem;
   }
 
   &__stars-box {
