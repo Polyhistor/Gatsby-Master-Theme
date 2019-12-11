@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { withPrefix, Link } from "gatsby"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { Location } from "@reach/router"
@@ -40,7 +41,7 @@ const Buttonbox = props => {
         >
           <span
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
-            className="btn btn--book"
+            className={`btn ${resolveVariationClass("btn__book")} btn-animated`}
           >
             book
           </span>
