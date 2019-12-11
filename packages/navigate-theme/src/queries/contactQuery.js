@@ -7,7 +7,10 @@ const useContactQuery = () => {
         pluginOptions {
           contact {
             email
+
             phoneAddress {
+              startHour
+              endHour
               text
               country
               phone

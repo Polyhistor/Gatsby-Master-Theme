@@ -161,7 +161,10 @@ module.exports = {
           phoneAddress: [
             {
               text: "NEW ZEALAND",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               country: "newzealand",
+
               phone: "+64 (0) 9 973 5676",
               default: false,
               selected: false,
@@ -171,6 +174,8 @@ module.exports = {
             {
               text: "AUSTRALIA",
               country: "australia",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               phone: "+61 (0) 2 9133 8646",
               default: false,
               selected: false,
@@ -179,8 +184,11 @@ module.exports = {
             },
             {
               text: "UNITED KINGDOM",
+              startHour: "9:00am",
+              endHour: "5:30am",
               country: "uk",
-              phone: "+44 (0) 20 3637 6466",
+
+              phone: "+44 (0) 20 3637 0071",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -288,6 +296,7 @@ module.exports = {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
           vehiclesRoute: `/yachts`,
+          vehiclesText: `Learn More`,
           destinationCountryRoutePrefix: `/sail-` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
