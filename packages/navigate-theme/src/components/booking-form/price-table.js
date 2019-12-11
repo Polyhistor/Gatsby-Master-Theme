@@ -98,7 +98,6 @@ const PriceTable = ({ data }) => {
                   <span className="booking-form__original">
                     {p.currencySymbol}
                     {p.priceB}
-                    ss
                   </span>
                 )}
                 <span className="booking-form__discount">
@@ -268,9 +267,19 @@ const PriceTable = ({ data }) => {
                           "booking-form__destination"
                         )}
                       >
-                        Departs {d.startLocation}
-                        &thinsp; &#9679; &thinsp;
-                        {d.durationInDays} days&thinsp;
+                        {useYachtClass ? (
+                          <>
+                            Departs {d.startLocation}
+                            &thinsp; &#9679; &thinsp;
+                            {d.durationInDays} days&thinsp;
+                          </>
+                        ) : (
+                          <>
+                            {d.startLocation} to {d.endLocation}
+                            &thinsp; &#9679; &thinsp;
+                            {d.durationInDays} days&thinsp;
+                          </>
+                        )}
                         <span>
                           &#9679; &thinsp; {d.startDay} to {d.endDay}
                         </span>

@@ -629,6 +629,10 @@
       }
 
       &--wk {
+        @include respond(phone) {
+          height: 13rem;
+        }
+
         & > div:nth-child(1) {
           border-right: 0;
         }
@@ -695,6 +699,7 @@
 
       @include respond(phone) {
         border-right: 0;
+        margin-top: 0;
       }
 
       & > div {
@@ -1359,6 +1364,10 @@
       display: grid;
       grid-row-gap: 1.6rem;
       padding-bottom: 6.4rem;
+
+      & + button {
+        width: 22rem;
+      }
     }
   }
 
