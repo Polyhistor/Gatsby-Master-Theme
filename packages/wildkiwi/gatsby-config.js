@@ -271,7 +271,7 @@ module.exports = {
             link: "/our-vehicles",
             sub: null,
           },
-          { label: "faqs", link: "/faqs", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",

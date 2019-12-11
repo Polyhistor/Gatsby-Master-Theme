@@ -611,6 +611,7 @@ export const FooterLogos = graphql`
       }
     }
     instagramBoxUrl
+    instagramHashtag
     instagramBoxImages {
       localFile {
         childImageSharp {
