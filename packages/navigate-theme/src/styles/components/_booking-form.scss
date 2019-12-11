@@ -630,11 +630,16 @@
 
       &--wk {
         @include respond(phone) {
-          height: 13rem;
+          height: 12rem;
         }
 
         & > div:nth-child(1) {
           border-right: 0;
+
+          @include respond(phone) {
+            padding-bottom: 0;
+            border-bottom: 0;
+          }
         }
       }
     }
