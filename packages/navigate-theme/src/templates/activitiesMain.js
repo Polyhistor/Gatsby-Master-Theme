@@ -237,8 +237,8 @@ const ActivitiesMain = ({ pageContext }) => {
       </div>
       <GreenBar />
       <Intro
-        title="Personalise your sailing with add-on activities"
-        description="Make your sailing holiday exactly what you want it to be with a wide range of add on activites to choose from. From adrenaline watersports to local wine tastings, personalise your holiday the way you want it."
+        title="Personalise your epic adventure"
+        description="Make your adventure exactly what you want it to be with a wide range of add on activities to choose from. From adrenaline-pumping adventures to chilled out thrills, personalise your road trip the way you want it."
       ></Intro>
       <div className="row">
         <div className="activity__filter">
