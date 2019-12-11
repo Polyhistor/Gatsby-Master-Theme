@@ -161,11 +161,8 @@
         line-height: 5rem;
 
         @include respond(phone) {
-          // experimental
-          font-size: 10rem;
-
-          // font-size: 4rem !important;
-          // line-height: 4rem;
+          font-size: 4rem !important;
+          line-height: 4rem;
         }
 
         & > span > span {
