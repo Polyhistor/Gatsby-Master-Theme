@@ -33,6 +33,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
     success: false,
     message: null,
   })
+  const [isLoading, setLoading] = useState(false)
 
   const defaultPhoneNumberCountry = phoneNumberData.find(p => p.selected)
     .country
@@ -119,6 +120,7 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
               }}
               validationSchema={validationSchema}
               onSubmit={async (values, { resetForm }) => {
+                setLoading(true)
                 finalAPI = {
                   ...values,
                   ...{
@@ -129,12 +131,14 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                   const response = await submitContactRequest(
                     JSON.stringify(finalAPI)
                   )
+                  setLoading(false)
                   setSuccess({
                     success: true,
                     message: JSON.stringify(response.data.data.message),
                   })
                   resetForm()
                 } catch (error) {
+                  setLoading(false)
                   //TODO: catch error and show in ui
                 }
               }}
@@ -214,11 +218,12 @@ const SectionGetInTouch = ({ leftContactSection, phoneNumberData }) => {
                     </label>
                   </div>
                   <button
+                    disabled={isLoading}
                     id={TAG_MANAGER_TRACKER.CONTACT_PAGE_BUTTON}
                     className={`btn ${resolveVariationClass("btn-footer")}`}
                     type="submit"
                   >
-                    submit
+                    {isLoading ? `Loading...` : `Submit`}
                   </button>
                 </Form>
               )}

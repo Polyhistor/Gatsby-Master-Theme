@@ -49,6 +49,7 @@ const validationSchema = Yup.object().shape({
 const BookForm = ({ countryAndTour, tourId, inPage }) => {
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
+  const [isLoading, setLoading] = useState(false)
   const [productClasses, setProductClasses] = useState([])
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
@@ -178,6 +179,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   }, [tourIdState])
 
   const submitForm = async (values, actions) => {
+    setLoading(true)
     let apiData = {
       ...values,
     }
@@ -185,7 +187,9 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     try {
       const response = await submitEnquiryRequest(apiData)
       setSuccess(response.data.data)
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       setError(true)
       alert("Sorry, something wrong happened. Please try again or contact us.")
     }
@@ -559,6 +563,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                   ) : null}
                   <div className="booking-details__spanner">
                     <button
+                      disabled={isLoading}
                       id={
                         inPage
                           ? TAG_MANAGER_TRACKER.IN_PAGE_SUBMIT_BUTTON
@@ -567,7 +572,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                       type="submit"
                       className={resolveVariationClass("btn")}
                     >
-                      Submit
+                      {isLoading ? `Loading...` : `Submit`}
                     </button>
                   </div>
                 </Form>

@@ -21,6 +21,7 @@ const validationSchema = Yup.object().shape({
 let finalAPI
 
 const FooterForm = () => {
+  const [isLoading, setLoading] = useState(false)
   // object that we use to synthesize later with form fields later
   const partialData = { productId: process.env.GATSBY_PRODUCT_ID }
 
@@ -64,17 +65,21 @@ const FooterForm = () => {
               }}
               validationSchema={validationSchema}
               onSubmit={async values => {
+                setLoading(true)
                 finalAPI = { ...values, ...partialData }
                 try {
                   const response = await submitContactRequest(
                     JSON.stringify(finalAPI)
                   )
 
+                  setLoading(false)
+
                   setSuccess({
                     success: true,
                     message: response.data.data.message,
                   })
                 } catch (error) {
+                  setLoading(false)
                   //TODO: catch error
                   // console.log(
                   //   error,
@@ -149,11 +154,12 @@ const FooterForm = () => {
                     </label>
                   </div>
                   <button
+                    disabled={isLoading}
                     id={TAG_MANAGER_TRACKER.CONTACT_FOOTER_BUTTON}
                     className={resolveVariationClass("btn btn--green-footer")}
                     type="submit"
                   >
-                    submit
+                    {isLoading ? `Loading...` : `Submit`}
                   </button>
                 </Form>
               )}
