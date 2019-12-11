@@ -236,8 +236,10 @@ const PriceTable = ({ data }) => {
             <div className="booking-form__intro">
               <span className="booking-form__month">{e.shortDescription}</span>
               <span className="booking-form__promo">{e.sale}</span>
-              <span className="booking-form__base-price">
-                from {e.from.currencySymbol}
+              <span
+                className={resolveVariationClass("booking-form__base-price")}
+              >
+                <span>from</span> {e.from.currencySymbol}
                 {e.from.price} <span>pp {e.from.currencyCode}</span>
               </span>
             </div>
