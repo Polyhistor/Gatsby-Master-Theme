@@ -1,6 +1,8 @@
 import React from "react"
 
 import { useScrollHandler } from "../../hooks/useScrollHandler"
+import resolveVariationClass from "../../helpers/theme-variation-style"
+
 import NavItems from "./navItems"
 
 const Navigation = () => {
