@@ -191,7 +191,7 @@ module.exports = {
               country: "uk",
               startHour: "9:00am",
               endHour: "5:30pm",
-              phone: "+44 (0) 20 3637 6466",
+              phone: "+44 (0) 20 3637 0071",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
