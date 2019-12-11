@@ -192,6 +192,11 @@
       height: 100%;
       @include respond(tablet) {
         border-left: 1px solid #e7e7e7;
+
+        // experimental
+        height: 61rem;
+        padding-top: 2rem;
+        width: 20rem;
       }
     }
 
@@ -199,9 +204,6 @@
       & > img {
         @include respond(laptop) {
           width: 33rem;
-        }
-
-        @include respond(tablet) {
         }
       }
     }
@@ -213,13 +215,6 @@
           margin-top: 2rem;
         }
 
-        @include respond(tablet) {
-          width: 37rem;
-          height: 38rem;
-          margin-left: -4rem;
-          margin-top: 1rem;
-        }
-
         @include respond(phone) {
           width: 33rem;
           margin-left: 0;
@@ -229,18 +224,15 @@
 
     &--europe {
       height: 40rem;
+      @include respond(tablet) {
+        height: 100%;
+      }
+
       & > img {
         @include respond(laptop) {
           width: 29.7rem;
           height: 41rem;
           margin-top: 0.1px;
-        }
-
-        @include respond(tablet) {
-          width: 37.1rem;
-          height: 42.9rem;
-          margin-left: -7.4rem;
-          margin-top: -1.6rem;
         }
 
         @include respond(phone) {

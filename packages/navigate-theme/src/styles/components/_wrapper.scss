@@ -45,4 +45,26 @@
     background: $color-med-light-teal;
     border-bottom: 2px solid white;
   }
+
+  &-mobile {
+    &--wk {
+      @include respond(phone) {
+        background: black;
+      }
+    }
+
+    &--yg {
+      @include respond(phone) {
+        background: $color-yg-blue;
+        border-bottom: 2px solid white;
+      }
+    }
+
+    &--ms {
+      @include respond(phone) {
+        background: $color-med-light-teal;
+        border-bottom: 2px solid white;
+      }
+    }
+  }
 }

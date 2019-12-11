@@ -262,6 +262,20 @@
     height: 6.666667rem;
     max-width: 87.25rem;
 
+    &--wk {
+      background: black;
+    }
+
+    &--ms {
+      background: $color-med-light-teal;
+      border-bottom: 2px solid white;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
+      border-bottom: 2px solid white;
+    }
+
     &-btn {
       display: none;
 

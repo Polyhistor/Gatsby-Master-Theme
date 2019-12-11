@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import MobileLogo from "../mobile/mobileLogo"
 import MobileNavItems from "../mobile/mobileNavItems"
 
+import resolveVariationClass from "../../helpers/theme-variation-style"
+
 const NavigationMobile = () => {
   // using some cool hooks instead of class based components
   const [scroll, setScroll] = useState(1)
@@ -24,7 +26,7 @@ const NavigationMobile = () => {
   }, [scroll])
 
   return (
-    <div className="navigation-mobile">
+    <div className={resolveVariationClass("navigation-mobile")}>
       {/* updating nav className based on user scroll */}
       <nav
         className={

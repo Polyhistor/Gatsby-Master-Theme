@@ -160,6 +160,14 @@
         font-size: 6.21rem !important;
         line-height: 5rem;
 
+        @include respond(phone) {
+          // experimental
+          font-size: 10rem;
+
+          // font-size: 4rem !important;
+          // line-height: 4rem;
+        }
+
         & > span > span {
           font-size: 1.6rem;
           font-family: Nexa-Rust-2;
@@ -213,6 +221,10 @@
       top: 33%;
       display: grid;
       grid-template-rows: 13.9rem 12rem;
+
+      @include respond(phone) {
+        grid-template-rows: 8.9rem 12rem;
+      }
     }
 
     &--alt {
