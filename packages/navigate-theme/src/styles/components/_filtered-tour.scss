@@ -165,8 +165,9 @@
     }
 
     @include respond(phone) {
+      width: 31.2rem;
       bottom: 1.5%;
-      left: -1%;
+      left: -2%;
     }
   }
 

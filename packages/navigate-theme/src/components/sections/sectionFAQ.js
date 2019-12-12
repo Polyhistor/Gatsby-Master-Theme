@@ -21,6 +21,12 @@ const SectionFAQ = ({ FAQData }) => {
     setCategory(categoryData)
   }
 
+  console.log("even before yo")
+  console.log([FAQData])
+
+  console.log("faqdatayaya")
+  console.log([FAQData[0]])
+
   const [initialCategory, setCategory] = useState([FAQData[0]])
   const [activeIndex, setActiveIndex] = useState(0)
 

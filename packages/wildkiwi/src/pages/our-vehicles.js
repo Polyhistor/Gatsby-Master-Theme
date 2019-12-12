@@ -8,6 +8,7 @@ import {
   SectionVehicle,
   Reviews,
   Trips,
+  Intro,
   useHomePageQuery,
   useImageQuery,
   renderSeo,
@@ -29,12 +30,13 @@ const OurVehicles = ({ data }) => {
         <Landing
           imageData={imageQuery.ourVehiclesBanner.childImageSharp.fluid}
           titleFirst="Our Vehicles"
-          buttonFirst="expore"
-          buttonFirstURL="/blog"
-          description="Our luxury vehicles raise the bar when it comes to road trip comfort."
+          buttonSecond="watch trailer"
+          buttonSecondURL="#popup"
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />

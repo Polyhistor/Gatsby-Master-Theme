@@ -3,6 +3,8 @@ import Img from "gatsby-image"
 import Modal from "react-responsive-modal"
 import { withPrefix } from "gatsby"
 
+import Intro from "../../components/intro"
+
 const SectionVehicles = ({
   imageOne,
   imageTwo,
@@ -26,6 +28,11 @@ const SectionVehicles = ({
 
   return (
     <>
+      <Intro
+        title="Our luxury vehicles raise the bar"
+        description="Part of the adventure is getting there, so you may as well do it in style! Cruise around in our luxury tour vehicles and experience the ultimate in comfort and style on your road trip."
+      />
+
       <section className="section-vehicles">
         <div className="vehicles__container">
           <div className="vehicles__images">

@@ -26,6 +26,8 @@ const FAQ = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
 
+  console.log(FAQData)
+
   return (
     <Layout>
       {renderSeo(data)}
