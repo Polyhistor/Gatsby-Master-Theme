@@ -12,6 +12,7 @@ module.exports = themeOptions => {
       `gatsby-plugin-breadcrumb`,
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-sharp`,
+      `gatsby-plugin-polyfill-io`,
       /*{
         resolve: "gatsby-plugin-brotli",
         options: {
