@@ -70,10 +70,10 @@ const OurVehicles = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
+        header="How it works"
+        subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
-        buttonText="continue"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />
