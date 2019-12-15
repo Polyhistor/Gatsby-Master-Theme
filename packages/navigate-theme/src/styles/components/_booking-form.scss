@@ -366,7 +366,6 @@
   &__body {
     height: 70vh;
     width: 66vw;
-    margin-top: 4rem;
     overflow: scroll;
 
     @include respond(laptop) {

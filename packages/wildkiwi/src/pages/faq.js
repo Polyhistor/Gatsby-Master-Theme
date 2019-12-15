@@ -9,7 +9,6 @@ import {
   SectionFAQ,
   Reviews,
   Trips,
-  useImageQuery,
   useHomePageQuery,
   useFAQQuery,
   renderSeo,
@@ -22,18 +21,18 @@ const FAQ = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
+  const FAQBannerImmage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .faqBanner.localFile.childImageSharp.fluid
+
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
-
-  console.log(FAQData)
 
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.FAQsBanner.childImageSharp.fluid}
+          imageData={FAQBannerImmage}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"

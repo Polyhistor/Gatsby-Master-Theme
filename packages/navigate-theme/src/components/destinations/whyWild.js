@@ -42,6 +42,7 @@ const WhyWild = ({ WhyWildData, headerText }) => {
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
       <Link
+        id="priceTable"
         to={`${themeOptionsQueryData.vehiclesRoute}`}
         className={resolveVariationClass("acitivity-box-button")}
       >

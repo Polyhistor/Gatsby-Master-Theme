@@ -454,6 +454,18 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    reviewsBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    faqBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     websiteLogo {
       localFile {
         ...FluidImage
