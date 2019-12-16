@@ -49,12 +49,6 @@
     margin-top: -2rem;
 
     @include respond(tablet) {
-      // position: absolute;
-      // top: -2.7rem;
-      // padding-top: 2.7rem;
-      // height: 10rem;
-      // width: 15.5rem;
-      // left: 14rem;
       display: none;
     }
 
