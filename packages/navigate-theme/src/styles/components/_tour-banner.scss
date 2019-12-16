@@ -33,7 +33,7 @@
       @extend .heading-2--darkGrey;
 
       @include respond(tablet) {
-        font-size: 3.5rem;
+        font-size: 3.1rem;
       }
 
       @include respond(phone) {
@@ -69,7 +69,7 @@
         color: $color-grey-dark !important;
 
         @include respond(tablet) {
-          font-size: 1.5rem;
+          font-size: 2rem;
         }
       }
     }
