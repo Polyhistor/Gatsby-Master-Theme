@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const BookSuccess = ({ email }) => {

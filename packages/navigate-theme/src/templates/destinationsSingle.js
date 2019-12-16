@@ -21,12 +21,12 @@ import Trips from "../components/trips/trips"
 import IncludesMS from "../components/destinations/includesMS"
 
 // utilities
-import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
 import useWildkiwiQuery from "../queries/wildkiwiQuery"
 import { useFetchHook } from "../hooks/useFetchHook"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
+
 const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
 

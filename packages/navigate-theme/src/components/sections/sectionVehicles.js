@@ -49,27 +49,6 @@ const SectionVehicles = ({
               {renderList()}
             </ul>
             <p>{paragraphSecond}</p>
-            {/* <a
-            className="btn btn--green btn-animated mobile-green-buton"
-            href="/blog"
-          >
-            Watch Vehicles Tour
-          </a> */}
-
-            <a
-              href="#"
-              onClick={() => setModal({ open: true })}
-              className="btn btn--green btn-animated  u-margin-top-sedium"
-            >
-              <svg className="svg-icon--play-button svg-icon--play-button--mobile">
-                <use
-                  xlinkHref={withPrefix(
-                    "sprite.svg#icon-Play-Button-White-A-1"
-                  )}
-                />
-              </svg>
-              <span>VEHICLE TOUR</span>
-            </a>
           </div>
         </div>
       </section>

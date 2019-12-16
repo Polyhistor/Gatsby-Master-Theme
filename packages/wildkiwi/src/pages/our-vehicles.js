@@ -26,7 +26,7 @@ const OurVehicles = ({ data }) => {
   return (
     <Layout>
       {renderSeo(data)}
-      <div className="hotfix--narrow-banner">
+      <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
           imageData={imageQuery.ourVehiclesBanner.childImageSharp.fluid}
           titleFirst="Our Vehicles"
