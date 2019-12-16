@@ -482,37 +482,43 @@
         height: 56.89rem;
       }
 
-      & > .row > .col-1-of-4:first-of-type {
-        margin-left: -4rem;
-
-        @include respond(laptop) {
-          margin-left: 0rem;
-        }
-
-        @include respond(tablet) {
-          margin-left: 0;
-          margin-top: 1rem;
-        }
-
-        @include respond(phone) {
-          margin-left: 0rem;
-          max-width: 100%;
-        }
-      }
-
-      & > .row > .col-1-of-4:last-of-type {
-        display: none;
-
-        @include respond(laptop) {
-          display: block;
-        }
-      }
-
-      & > .row > .col-1-of-4:nth-child(4) {
-        @include respond(desk) {
+      & > .row {
+        & div:nth-child(4) {
           display: none;
         }
       }
+
+      // & > .row > .col-1-of-4:first-of-type {
+      //   margin-left: -4rem;
+
+      //   @include respond(laptop) {
+      //     margin-left: 0rem;
+      //   }
+
+      //   @include respond(tablet) {
+      //     margin-left: 0;
+      //     margin-top: 1rem;
+      //   }
+
+      //   @include respond(phone) {
+      //     margin-left: 0rem;
+      //     max-width: 100%;
+      //   }
+      // }
+
+      // & > .row > .col-1-of-4:last-of-type {
+      //   display: none;
+
+      //   @include respond(laptop) {
+      //     display: block;
+      //   }
+      // }
+
+      // & > .row > .col-1-of-4:nth-child(4) {
+      //   @include respond(desk) {
+      //     display: none;
+      //   }
+      // }
     }
   }
   /*
