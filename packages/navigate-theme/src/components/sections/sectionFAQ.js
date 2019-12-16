@@ -21,17 +21,8 @@ const SectionFAQ = ({ FAQData }) => {
     setCategory(categoryData)
   }
 
-  console.log("even before yo")
-  console.log([FAQData])
-
-  console.log("first element")
-  console.log([FAQData[0]])
-
   const [initialCategory, setCategory] = useState([FAQData[1]])
   const [activeIndex, setActiveIndex] = useState(0)
-
-  console.log("initial category")
-  console.log(initialCategory)
 
   // rendering buttons
   const renderButtons = () => {
@@ -57,8 +48,6 @@ const SectionFAQ = ({ FAQData }) => {
   // using useState hook to set our inital state
   const renderFAQs = (min, max) => {
     return initialCategory.map(element => {
-      console.log("element")
-      console.log(element)
       return element.node.questions.map((questtion, idx) => {
         while (idx >= min && idx < max) {
           return (
