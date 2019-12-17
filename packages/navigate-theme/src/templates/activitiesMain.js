@@ -156,7 +156,7 @@ const ActivitiesMain = ({ pageContext }) => {
     const filteredData3 = []
 
     if (target.value === "all") {
-      return setData(filter)
+      return setData(CountryData)
     }
 
     CountryData.filter(e =>
@@ -256,7 +256,6 @@ const ActivitiesMain = ({ pageContext }) => {
               onChange={handleSubmit}
             >
               <option value="all">Select Country</option>
-
               {renderCountries()}
             </select>
           </div>
