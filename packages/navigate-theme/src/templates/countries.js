@@ -104,8 +104,12 @@ const Countries = ({ data, pageContext }) => {
   const renderDestinationBanner = () => {
     return pageContext.toursBannerType === "default" ? (
       <>
-        <div className="row row--patched">
-          <h2 className={`${resolveVariationClass("heading-1")} mobile-yes`}>
+        <div className="row row--patched ">
+          <h2
+            className={`${resolveVariationClass(
+              "heading-1"
+            )} u-margin-bottom-small`}
+          >
             Our Routes
           </h2>
         </div>
@@ -151,6 +155,7 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
       />
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
+
       {renderDestinationBanner()}
       <Banner
         imageData={bottomBannerImage}
