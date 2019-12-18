@@ -60,7 +60,7 @@
       color: $color-grey-dark-3;
 
       @include respond(tablet) {
-        font-size: 3rem;
+        font-size: 2rem;
       }
 
       &-departs {

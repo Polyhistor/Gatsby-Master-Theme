@@ -20,6 +20,8 @@
     width: 62%;
     margin: 0 auto;
     border: 1px solid #e7e7e7;
+    border-radius: 0.4rem;
+    background: white;
 
     @include respond(tablet) {
       grid-template-columns: 48% 51%;
@@ -39,6 +41,16 @@
       margin-bottom: 0.8rem;
       margin-top: 0.8rem;
     }
+  }
+
+  &__wrapper {
+    background: #f7f7f7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    display: grid;
+    max-width: 100%;
   }
 
   &__info {
@@ -150,6 +162,9 @@
     padding: 0rem;
     grid-column-gap: 10.3rem;
     margin-top: 2.4rem;
+    margin-bottom: 8rem;
+    margin-left: auto;
+    margin-right: auto;
 
     @include respond(laptop) {
       display: grid;
@@ -1355,8 +1370,9 @@
   &__thank-you {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 1.6rem;
+    align-items: center;
 
     & > h2,
     & > p {
@@ -1367,7 +1383,9 @@
     &-container {
       display: grid;
       grid-row-gap: 1.6rem;
-      padding-bottom: 6.4rem;
+      padding-bottom: 4.4rem;
+      text-align: center;
+      max-width: 50rem;
 
       & + button {
         width: 22rem;

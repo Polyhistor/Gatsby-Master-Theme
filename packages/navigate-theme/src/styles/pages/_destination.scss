@@ -175,8 +175,10 @@
     }
 
     &__booking {
+      // position: relative;
       grid-row: 9;
-      grid-column: 1/-1;
+      height: 99.8rem;
+      // grid-column: 1/-1;
 
       @include respond(tablet) {
         grid-row: 10;
@@ -196,7 +198,18 @@
       }
 
       & .intro {
-        margin-top: 0rem;
+        margin-top: 8rem;
+
+        & .row {
+          & h2 {
+            font-size: 3.5rem;
+            font-family: Archer-Bold;
+          }
+
+          & p {
+            max-width: 50rem;
+          }
+        }
       }
     }
     &__get-there {

@@ -210,7 +210,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
 
   return (
     <div id="booking" className="section-destination__booking">
-      <>
+      <div className="booking-form__wrapper">
         {!success && (
           <Intro
             title="Secure Your Spot"
@@ -589,7 +589,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
             {renderImages()}
           </div> */}
         </section>
-      </>
+      </div>
     </div>
   )
 }
