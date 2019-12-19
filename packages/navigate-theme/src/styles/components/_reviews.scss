@@ -13,10 +13,6 @@
     align-items: center;
   }
 
-  @include respond(tablet) {
-    margin-top: 2rem;
-  }
-
   @include respond(phone) {
     text-align: center;
     padding-bottom: 1.5rem;

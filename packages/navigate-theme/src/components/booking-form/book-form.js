@@ -209,7 +209,15 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   //   bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
 
   return (
-    <div ref={sectionRef} id="booking" className="section-destination__booking">
+    <div
+      ref={sectionRef}
+      id="booking"
+      className={
+        inPage
+          ? "section-destination__booking section-destination__booking--in-page"
+          : "section-destination__booking"
+      }
+    >
       <div className="booking-form__wrapper">
         {!success && (
           <Intro
