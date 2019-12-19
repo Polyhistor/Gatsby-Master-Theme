@@ -266,22 +266,22 @@ module.exports = {
               { label: "croatia", link: "/sail-croatia" },
               { label: "greece", link: "/sail-greece" },
               { label: "montenegro", link: "/sail-montenegro" },
-              { label: "turkey", link: "/sail-turkey" },
               { label: "italy", link: "/sail-italy" },
             ],
           },
-          { label: "activities", link: "/activities", sub: null },
+
           {
             label: "how it works",
             link: "/how-it-works",
             sub: null,
           },
           {
-            label: "our yachts",
+            label: "our catamarans",
             link: "/yachts",
             sub: null,
           },
           { label: "faq", link: "/faq", sub: null },
+          { label: "blog", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",
