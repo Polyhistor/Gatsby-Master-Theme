@@ -143,7 +143,6 @@ const Countries = ({ data, pageContext }) => {
         shape="diamond"
         mobileBanner={true}
       />
-
       <GreenBar />
       <Intro
         title={data.contentfulCountry.introTitle}
