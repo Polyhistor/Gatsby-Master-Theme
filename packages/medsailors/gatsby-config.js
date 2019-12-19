@@ -218,6 +218,10 @@ module.exports = {
               header: "Media",
               content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
             },
+            {
+              header: "Working For Us",
+              content: `For more information on working for us and how to apply, please click <a class="#LINK#" href="/about-us#work-for-us">here</a>`,
+            },
           ],
         },
         footer: {
@@ -255,6 +259,10 @@ module.exports = {
             {
               title: "About Us",
               link: "/about-us",
+            },
+            {
+              title: "Working for Us",
+              link: "/about-us#work-for-us",
             },
             {
               title: "Activities",
