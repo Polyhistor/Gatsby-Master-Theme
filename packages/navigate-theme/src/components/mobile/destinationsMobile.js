@@ -93,7 +93,7 @@ const DestinationsMobile = ({
                 "tour-banner__description-price"
               )}
             >
-              {variation === "ms" ? `From £${price} per day` : price}
+              {variation === "ms" ? `From €${price} per day` : price}
             </span>
           </div>
         </div>

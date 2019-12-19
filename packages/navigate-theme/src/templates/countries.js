@@ -155,7 +155,6 @@ const Countries = ({ data, pageContext }) => {
         popupVideo={popupUrl}
       />
       <BoxContainer title={null} dataArray={homeQuery[0].node.whyWildKiwi} />
-
       {renderDestinationBanner()}
       <Banner
         imageData={bottomBannerImage}
