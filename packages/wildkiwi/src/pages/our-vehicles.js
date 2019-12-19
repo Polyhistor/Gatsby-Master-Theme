@@ -32,7 +32,7 @@ const OurVehicles = ({ data }) => {
           titleFirst="Our Vehicles"
           buttonSecond="watch trailer"
           buttonSecondURL="#popup"
-          buttonStyles={["white", "white"]}
+          buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
           popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
