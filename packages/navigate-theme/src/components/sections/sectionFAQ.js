@@ -48,32 +48,35 @@ const SectionFAQ = ({ FAQData }) => {
   // using useState hook to set our inital state
   const renderFAQs = (min, max) => {
     return initialCategory.map(element => {
-      return element.node.questions.map((questtion, idx) => {
-        while (idx >= min && idx < max) {
-          return (
-            <li className="FAQ__list-item" key={idx}>
-              <input
-                className="FAQ__input"
-                id={`FAQ__tab-${idx}`}
-                type="checkbox"
-                name="tabs"
-              />
-              <label htmlFor={`FAQ__tab-${idx}`}>
-                <span className={resolveVariationClass("FAQ__icon")}>
-                  {idx + 1}
-                </span>
-                <h3 className={resolveVariationClass("FAQ__question")}>
-                  {questtion}
-                </h3>
-              </label>
-              <a className={`${resolveVariationClass("arrow")} down`} />
-              <div className="FAQ__answer-container">
-                <p className="FAQ__paragraph">{element.node.answers[idx]}</p>
-              </div>
-            </li>
-          )
-        }
-      })
+      console.log(element)
+      return !element.node.questionsanswers
+        ? null
+        : element.node.questionsanswers.map((qa, idx) => {
+            while (idx >= min && idx < max) {
+              return (
+                <li className="FAQ__list-item" key={idx}>
+                  <input
+                    className="FAQ__input"
+                    id={`FAQ__tab-${idx}`}
+                    type="checkbox"
+                    name="tabs"
+                  />
+                  <label htmlFor={`FAQ__tab-${idx}`}>
+                    <span className={resolveVariationClass("FAQ__icon")}>
+                      {idx + 1}
+                    </span>
+                    <h3 className={resolveVariationClass("FAQ__question")}>
+                      {qa.question}
+                    </h3>
+                  </label>
+                  <a className={`${resolveVariationClass("arrow")} down`} />
+                  <div className="FAQ__answer-container">
+                    <p className="FAQ__paragraph">{qa.answer}</p>
+                  </div>
+                </li>
+              )
+            }
+          })
     })
   }
 
