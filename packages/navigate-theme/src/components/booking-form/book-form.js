@@ -257,7 +257,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
           }
         >
           {success ? (
-            <BookSuccess email={email} />
+            <BookSuccess email={email} showContinueButton={!inPage} />
           ) : (
             <Formik
               initialValues={{
