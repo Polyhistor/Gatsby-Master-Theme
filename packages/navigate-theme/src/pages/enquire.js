@@ -57,7 +57,7 @@ const Book = ({ location, data }) => {
         />
         <GreenBar />
       </div>
-      <div className="row">
+      <div className="row booking-form--enquiry">
         <BookForm countryAndTour={countryAndTour} inPage={false} />
       </div>
     </Layout>
