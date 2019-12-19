@@ -1,7 +1,7 @@
 import React from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
-const BookSuccess = ({ email }) => {
+const BookSuccess = ({ email, showContinueButton }) => {
   return (
     <>
       <section className="booking-form__thank-you">
@@ -26,12 +26,15 @@ const BookSuccess = ({ email }) => {
             ASAP!
           </p>
         </div>
+        {showContinueButton && 
         <button
-          className={resolveVariationClass("btn")}
-          onClick={_ => window.history.go(-1)}
-        >
-          Continue
-        </button>
+        className={resolveVariationClass("btn")}
+        onClick={_ => window.history.go(-1)}
+      >
+        Continue
+      </button>
+        }
+        
       </section>
     </>
   )
