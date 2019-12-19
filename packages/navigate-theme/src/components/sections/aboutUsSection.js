@@ -70,12 +70,13 @@ export const AboutUs = ({ data }) => {
         {renderHowBoxes()}
         {data && (
           <>
+            <a id="work-for-us"></a>
             <h2
               className={`${resolveVariationClass(
                 "heading-1"
               )} u-margin-bottom-small`}
             >
-              <a id="work-for-us"></a>Working for us
+              Working for us
             </h2>
             <WorkForUs data={data}></WorkForUs>
           </>
