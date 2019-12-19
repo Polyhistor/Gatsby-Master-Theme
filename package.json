@@ -80,6 +80,7 @@
     "build:medsailors": "cd packages/medsailors && npm run build",
     "test:medsailors": "cd packages/medsailors && npm run test",
     "lint:medsailors": "cd packages/medsailors && npm run lint",
+    "gatsby:yachtgetaways": "cd packages/yachtgetaways && gatsby develop",
     "start:yachtgetaways": "cd packages/yachtgetaways && npm run start",
     "build:yachtgetaways": "cd packages/yachtgetaways && npm run build",
     "test:yachtgetaways": "cd packages/yachtgetaways && npm run test",
