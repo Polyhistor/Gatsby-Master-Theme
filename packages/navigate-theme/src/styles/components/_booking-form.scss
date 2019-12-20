@@ -79,6 +79,7 @@
       max-width: 31.2rem;
       margin: 0 auto;
       background: none;
+      position: relative;
     }
   }
 
@@ -209,6 +210,7 @@
     @include respond(phone) {
       grid-template-columns: 100%;
       grid-column-gap: 0rem;
+      margin-bottom: 0;
     }
   }
 
