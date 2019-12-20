@@ -8,11 +8,12 @@ const FooterInstagramBox = () => {
   const footerData = useFooterQuery()
   const images = footerData[0].node.instagramBoxImages
   const url = footerData[0].node.instagramBoxUrl
+  const instagramHash = footerData[0].node.instagramHashtag
 
   return (
     <a className="footer__instagram" href={url} target="_blank">
       <div className={resolveVariationClass("footer__instagram-box")}>
-        <h2>#{process.env.GATSBY_BRAND_NAME}</h2>
+        <h2>{instagramHash}</h2>
         {images.map((img, idx) => (
           <Img key={idx} fluid={img.localFile.childImageSharp.fluid} />
         ))}

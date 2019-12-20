@@ -1,6 +1,7 @@
 import React from "react"
 
 import { useScrollHandler } from "../../hooks/useScrollHandler"
+
 import NavItems from "./navItems"
 
 const Navigation = () => {

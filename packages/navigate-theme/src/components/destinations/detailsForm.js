@@ -215,8 +215,8 @@ const DetailsForm = ({
 
                 try {
                   const response = await submitEnquiryRequest(finalAPI)
-
                   setSuccess(response.data.data)
+                  window.scrollTo("#thank-you")
                 } catch (error) {
                   // console.log(
                   //   error,

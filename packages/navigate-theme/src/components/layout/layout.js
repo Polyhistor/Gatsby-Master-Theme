@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
     <>
       <Navigation />
       <NavigationMobile />
-
       <main>{children}</main>
       <Footer />
     </>

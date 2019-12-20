@@ -170,7 +170,7 @@
     align-items: center;
 
     @include respond(tablet) {
-      height: 33.5rem;
+      height: 36.5rem;
     }
 
     @include respond(phone) {
@@ -182,6 +182,10 @@
       display: grid;
       grid-template-columns: 25% 22% 22% 22%;
       column-gap: 3rem;
+
+      @include respond(laptop) {
+        grid-template-columns: 25% 19% 19% 22%;
+      }
 
       @include respond(tablet) {
         grid-template-columns: 50% 50%;

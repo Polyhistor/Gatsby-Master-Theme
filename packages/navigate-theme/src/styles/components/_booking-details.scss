@@ -1,4 +1,6 @@
 .booking-details {
+
+
   &__fields-container {
     & label {
       font-size: 1.4rem;
@@ -55,6 +57,12 @@
   }
 
   &__spanner {
+
+  & > button  {
+    width: 22rem;
+    height: 4.8rem;
+  }
+
     &-three {
       display: grid;
       grid-template-columns: 32.3% 32.3% 32.6%;

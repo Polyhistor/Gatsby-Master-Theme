@@ -44,11 +44,11 @@ const HowItWorks = ({ data }) => {
       <SectionHowItWorks data={howItWorksData} />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
-        link="/faqs"
+        header="Our FAQs"
+        subHeaderFirst="Read our FAQs for more"
+        subHeaderSecond="info about our tours"
+        buttonText="explore"
+        link="/faq"
       />
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />

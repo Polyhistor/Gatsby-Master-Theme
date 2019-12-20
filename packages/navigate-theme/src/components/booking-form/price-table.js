@@ -38,6 +38,8 @@ const PriceTable = ({ data }) => {
 
   const bookingFormDot = resolveVariationClass("booking-form__do")
 
+  // const [checkerState, setCheckerState] = useState(true)
+
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
   let receivedData = null
 
@@ -96,7 +98,6 @@ const PriceTable = ({ data }) => {
                   <span className="booking-form__original">
                     {p.currencySymbol}
                     {p.priceB}
-                    ss
                   </span>
                 )}
                 <span className="booking-form__discount">
@@ -224,6 +225,7 @@ const PriceTable = ({ data }) => {
               id={`plus-holder-${idx + 50}`}
               type="checkbox"
               checked={idx === 0 ? true : null}
+              // onClick={() => setCheckerState(!checkerState)}
             ></input>
             <label
               className="booking-form__plus-holder"
@@ -234,8 +236,10 @@ const PriceTable = ({ data }) => {
             <div className="booking-form__intro">
               <span className="booking-form__month">{e.shortDescription}</span>
               <span className="booking-form__promo">{e.sale}</span>
-              <span className="booking-form__base-price">
-                from {e.from.currencySymbol}
+              <span
+                className={resolveVariationClass("booking-form__base-price")}
+              >
+                <span>from</span> {e.from.currencySymbol}
                 {e.from.price} <span>pp {e.from.currencyCode}</span>
               </span>
             </div>
@@ -265,9 +269,19 @@ const PriceTable = ({ data }) => {
                           "booking-form__destination"
                         )}
                       >
-                        Departs {d.startLocation}
-                        &thinsp; &#9679; &thinsp;
-                        {d.durationInDays} days&thinsp;
+                        {useYachtClass ? (
+                          <>
+                            Departs {d.startLocation}
+                            &thinsp; &#9679; &thinsp;
+                            {d.durationInDays} days&thinsp;
+                          </>
+                        ) : (
+                          <>
+                            {d.startLocation} to {d.endLocation}
+                            &thinsp; &#9679; &thinsp;
+                            {d.durationInDays} days&thinsp;
+                          </>
+                        )}
                         <span>
                           &#9679; &thinsp; {d.startDay} to {d.endDay}
                         </span>
@@ -325,7 +339,7 @@ const PriceTable = ({ data }) => {
   }
 
   return (
-    <div id="priceTable" className="section-destination__price-table">
+    <div className="section-destination__price-table">
       <section className="price-list">
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">

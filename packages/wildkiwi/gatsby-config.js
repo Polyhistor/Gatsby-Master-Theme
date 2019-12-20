@@ -128,7 +128,7 @@ module.exports = {
           useHeaderShapes: false,
           tourUnit: "Tour",
           playIcon:
-            "data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgo8dGl0bGU+UGxheS1CdXR0b248L3RpdGxlPgo8cGF0aCBmaWxsPSIjMjliOTlhIiBkPSJNMjIuNzggMTUuOTMybC0xMC4wMzkgNS4wMjB2LTEwLjA0MWwxMC4wMzkgNS4wMjB6TTMxLjg2NSAxNS45MzJjMC04Ljc5OS03LjEzMy0xNS45MzItMTUuOTMyLTE1LjkzMnMtMTUuOTMyIDcuMTMzLTE1LjkzMiAxNS45MzJjMCA4LjgwMSA3LjEzMyAxNS45MzIgMTUuOTMyIDE1LjkzMnMxNS45MzItNy4xMzEgMTUuOTMyLTE1LjkzMnoiPjwvcGF0aD4KPC9zdmc+Cg==",
+            "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMC4wMjVweCIgaGVpZ2h0PSIyMC4wODVweCIgdmlld0JveD0iMCAwIDIwLjAyNSAyMC4wODUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwLjAyNSAyMC4wODUiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkxheWVyXzEiPg0KCTxnPg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTQuMjk4LDEwbC02LjMwMSwzLjE1MVY2Ljg0OUwxNC4yOTgsMTB6IE0yMCwxMGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwQzQuNDc3LDAsMCw0LjQ3NywwLDEwDQoJCQljMCw1LjUyNCw0LjQ3NywxMCwxMCwxMEMxNS41MjMsMjAsMjAsMTUuNTI0LDIwLDEwIi8+DQoJPC9nPg0KPC9nPg0KPGcgaWQ9IkxheWVyXzIiPg0KPC9nPg0KPC9zdmc+DQo=",
           acitivitesPage: {
             howItWorksBannerText: "continue",
           },
@@ -160,6 +160,8 @@ module.exports = {
           phoneAddress: [
             {
               text: "NEW ZEALAND",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               country: "newzealand",
               phone: "+64 (0) 9 973 5676",
               default: true,
@@ -169,6 +171,8 @@ module.exports = {
             },
             {
               text: "AUSTRALIA",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               country: "australia",
               phone: "+61 (0) 2 9133 8646",
               default: false,
@@ -176,8 +180,10 @@ module.exports = {
             },
             {
               text: "UNITED KINGDOM",
+              startHour: "9:00am",
+              endHour: "5:30pm",
               country: "uk",
-              phone: "+44 (0) 20 3637 6466",
+              phone: "+44 (0) 20 3637 0071",
               default: false,
               selected: false,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -265,7 +271,7 @@ module.exports = {
             link: "/our-vehicles",
             sub: null,
           },
-          { label: "faqs", link: "/faqs", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
             label: "manage my booking",

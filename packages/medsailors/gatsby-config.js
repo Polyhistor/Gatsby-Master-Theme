@@ -166,6 +166,8 @@ module.exports = {
           phoneAddress: [
             {
               text: "NEW ZEALAND",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               country: "newzealand",
               phone: "+64 (0) 9 973 5676",
               default: false,
@@ -176,6 +178,8 @@ module.exports = {
             {
               text: "AUSTRALIA",
               country: "australia",
+              startHour: "8:30am",
+              endHour: "5:00pm",
               phone: "+61 (0) 2 9133 8646",
               default: false,
               selected: false,
@@ -185,7 +189,9 @@ module.exports = {
             {
               text: "UNITED KINGDOM",
               country: "uk",
-              phone: "+44 (0) 20 3637 6466",
+              startHour: "9:00am",
+              endHour: "5:30pm",
+              phone: "+44 (0) 20 3637 0071",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -211,6 +217,10 @@ module.exports = {
             {
               header: "Media",
               content: `Email press@navigatetravel.com to discuss any press or partnership opportunities`,
+            },
+            {
+              header: "Working For Us",
+              content: `For more information on working for us and how to apply, please click <a class="#LINK#" href="/about-us#work-for-us">here</a>`,
             },
           ],
         },
@@ -249,6 +259,10 @@ module.exports = {
             {
               title: "About Us",
               link: "/about-us",
+            },
+            {
+              title: "Working for Us",
+              link: "/about-us#work-for-us",
             },
             {
               title: "Activities",

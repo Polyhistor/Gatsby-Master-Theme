@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import Img from "gatsby-image"
+import React, { useState, useEffect, useRef } from "react"
 
 import { getTourDatesRequest, submitEnquiryRequest } from "../../services/api"
 import { Formik, Field, Form } from "formik"
@@ -47,12 +46,17 @@ const validationSchema = Yup.object().shape({
 })
 
 const BookForm = ({ countryAndTour, tourId, inPage }) => {
+  // TODO - clean all the usestates and replace them with userReducer instead
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
+  const [isLoading, setLoading] = useState(false)
   const [productClasses, setProductClasses] = useState([])
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
+
+  const sectionRef = useRef(null)
+  const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop - 80)
 
   const useYachtClass = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
     .bookingForm.useYachtClass
@@ -178,6 +182,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   }, [tourIdState])
 
   const submitForm = async (values, actions) => {
+    setLoading(true)
     let apiData = {
       ...values,
     }
@@ -185,7 +190,10 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     try {
       const response = await submitEnquiryRequest(apiData)
       setSuccess(response.data.data)
+      setLoading(false)
+      scrollToRef(sectionRef)
     } catch (error) {
+      setLoading(false)
       setError(true)
       alert("Sorry, something wrong happened. Please try again or contact us.")
     }
@@ -201,8 +209,16 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   //   bannerImages.map(e => <Img fluid={e.localFile.childImageSharp.fluid}></Img>)
 
   return (
-    <div id="booking" className="section-destination__booking">
-      <>
+    <div
+      ref={sectionRef}
+      id="booking"
+      className={
+        inPage
+          ? "section-destination__booking section-destination__booking--in-page"
+          : "section-destination__booking"
+      }
+    >
+      <div className="booking-form__wrapper">
         {!success && (
           <Intro
             title="Secure Your Spot"
@@ -235,12 +251,13 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
           </>
         )}
         <section
+          ref={sectionRef}
           className={
             inPage ? "booking-form booking-form--in-page" : "booking-form"
           }
         >
           {success ? (
-            <BookSuccess email={email} />
+            <BookSuccess email={email} showContinueButton={!inPage} />
           ) : (
             <Formik
               initialValues={{
@@ -559,6 +576,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                   ) : null}
                   <div className="booking-details__spanner">
                     <button
+                      disabled={isLoading}
                       id={
                         inPage
                           ? TAG_MANAGER_TRACKER.IN_PAGE_SUBMIT_BUTTON
@@ -567,7 +585,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                       type="submit"
                       className={resolveVariationClass("btn")}
                     >
-                      Submit
+                      {isLoading ? `Loading...` : `Submit`}
                     </button>
                   </div>
                 </Form>
@@ -579,7 +597,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
             {renderImages()}
           </div> */}
         </section>
-      </>
+      </div>
     </div>
   )
 }

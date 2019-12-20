@@ -13,10 +13,6 @@
     align-items: center;
   }
 
-  @include respond(tablet) {
-    margin-top: 2rem;
-  }
-
   @include respond(phone) {
     text-align: center;
     padding-bottom: 1.5rem;
@@ -24,7 +20,6 @@
   }
 
   &__rating {
-    //TODO: font should not be here for wk,ms & yg
     font-family: Nunito-Black;
     color: $color-primary;
     font-size: 8rem;

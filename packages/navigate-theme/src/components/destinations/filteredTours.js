@@ -46,8 +46,6 @@ const FilteredTour = ({ country, destinationData }) => {
     threeWeeks: false,
   })
 
-  console.log(filter)
-
   //TODO: DATA for state variable?? what is this data about? better name for variable?
   const [data, setData] = useState(destinationData)
 

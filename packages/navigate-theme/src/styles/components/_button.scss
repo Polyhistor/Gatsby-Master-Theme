@@ -13,6 +13,29 @@
   &:hover {
     cursor: pointer;
   }
+  //book button
+
+  &__book {
+    padding: 1.27rem 2.8rem;
+    border-radius: 0.4rem;
+
+    @include respond(phone) {
+      padding: 1rem 2rem;
+      border-radius: 0.3rem;
+      margin-top: 2.3rem;
+    }
+
+    &--yg {
+      background-color: $color-yg-orange;
+    }
+
+    &--wk {
+      background-color: $color-red;
+    }
+    &--ms {
+      background-color: $color-red;
+    }
+  }
 
   //YYYYY
   &--ms-mobile {
@@ -35,6 +58,14 @@
       padding: 1rem 2rem;
       border-radius: 0.3rem;
       margin-top: 2.3rem;
+      height: 6rem;
+      width: 31.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 1.6rem;
+      font-size: 1.6rem;
+      border-radius: 0.4rem;
     }
   }
   //YYYYY

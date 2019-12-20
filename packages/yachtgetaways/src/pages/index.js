@@ -126,7 +126,6 @@ const IndexPage = ({ data }) => {
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
           { label: "montenegro", link: "/sail-montenegro" },
-          { label: "turkey", link: "/sail-turkey" },
           { label: "italy", link: "/sail-italy" },
         ]}
       />

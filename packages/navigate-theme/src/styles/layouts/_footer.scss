@@ -494,13 +494,14 @@
     }
 
     @include respond(tablet) {
-      grid-template-columns: 1rem 20rem 15rem 15rem;
+      grid-template-columns: 2.1rem 12rem 11rem 15rem 10rem;
+      grid-column-gap: 4.4rem;
     }
 
     @include respond(phone) {
       display: grid;
       grid-template-columns: 1fr;
-      height: 20rem;
+      height: 27rem;
       border-top: 0;
       margin-bottom: 5rem;
       grid-row-gap: 2rem;

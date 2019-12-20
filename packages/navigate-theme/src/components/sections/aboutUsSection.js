@@ -70,6 +70,7 @@ export const AboutUs = ({ data }) => {
         {renderHowBoxes()}
         {data && (
           <>
+            <a id="work-for-us"></a>
             <h2
               className={`${resolveVariationClass(
                 "heading-1"

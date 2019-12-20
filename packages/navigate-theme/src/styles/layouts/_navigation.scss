@@ -47,14 +47,10 @@
     left: -3rem;
     top: 7.5rem;
     margin-top: -2rem;
+    display: none;
 
     @include respond(tablet) {
-      position: absolute;
-      top: -2.7rem;
-      padding-top: 2.7rem;
-      height: 10rem;
-      width: 15.5rem;
-      left: 14rem;
+      display: none;
     }
 
     @include respond(phone) {
@@ -92,7 +88,6 @@
     // }
 
     &-item {
-      display: none;
       padding: 1.7rem 3rem;
       background: white;
       text-align: center;
@@ -178,9 +173,9 @@
     }
 
     &:nth-of-type(2) {
-      &:hover ~ .navigation__dropdown > .navigation__dropdown-item {
+      &:hover .navigation__dropdown {
         display: block;
-        position: relative;
+        position: absolute;
       }
     }
 
@@ -261,6 +256,24 @@
     padding: 1.2rem;
     height: 6.666667rem;
     max-width: 87.25rem;
+
+    &--wk {
+      background: black;
+
+      @include respond(tablet) {
+        background: transparent;
+      }
+    }
+
+    &--ms {
+      background: $color-med-light-teal;
+      border-bottom: 2px solid white;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
+      border-bottom: 2px solid white;
+    }
 
     &-btn {
       display: none;

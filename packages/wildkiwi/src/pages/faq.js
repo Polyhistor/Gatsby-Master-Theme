@@ -9,7 +9,6 @@ import {
   SectionFAQ,
   Reviews,
   Trips,
-  useImageQuery,
   useHomePageQuery,
   useFAQQuery,
   renderSeo,
@@ -22,7 +21,9 @@ const FAQ = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
+  const FAQBannerImmage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .faqBanner.localFile.childImageSharp.fluid
+
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
 
@@ -31,7 +32,7 @@ const FAQ = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.FAQsBanner.childImageSharp.fluid}
+          imageData={FAQBannerImmage}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -45,10 +46,10 @@ const FAQ = ({ data }) => {
       <SectionFAQ FAQData={FAQData} />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
+        header="How it works"
+        subHeaderFirst="Everything you need to"
         subHeaderSecond="know about our tours"
-        buttonText="continue"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />

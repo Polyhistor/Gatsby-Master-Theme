@@ -42,10 +42,10 @@ const AboutUs = ({ data }) => {
       <AboutUsSection />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        header="Our FAQs"
+        subHeaderFirst="Read our FAQs for more"
+        subHeaderSecond="info about our tours"
+        buttonText="explore"
         link="/how-it-works"
       />
       <Reviews />

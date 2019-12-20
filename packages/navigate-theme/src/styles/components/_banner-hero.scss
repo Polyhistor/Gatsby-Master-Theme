@@ -1,6 +1,11 @@
 .banner-hero {
   height: 50rem;
 
+  @include respond(tablet) {
+    height: 38rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  }
+
   @include respond(laptop) {
     height: 47rem;
   }

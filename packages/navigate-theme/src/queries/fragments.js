@@ -454,6 +454,18 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    reviewsBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    faqBanner {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     websiteLogo {
       localFile {
         ...FluidImage
@@ -611,6 +623,7 @@ export const FooterLogos = graphql`
       }
     }
     instagramBoxUrl
+    instagramHashtag
     instagramBoxImages {
       localFile {
         childImageSharp {

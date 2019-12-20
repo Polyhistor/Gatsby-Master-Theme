@@ -11,6 +11,17 @@
     border: 0;
   }
 
+  &--enquiry {
+    & > div {
+      & > div {
+        background: white;
+        & .intro {
+          margin-top: 0rem;
+        }
+      }
+    }
+  }
+
   & > form {
     display: grid;
     grid-template-columns: 49% 49%;
@@ -20,6 +31,9 @@
     width: 62%;
     margin: 0 auto;
     border: 1px solid #e7e7e7;
+    border-radius: 0.4rem;
+    background: white;
+    width: 110rem;
 
     @include respond(tablet) {
       grid-template-columns: 48% 51%;
@@ -38,6 +52,22 @@
     & > select {
       margin-bottom: 0.8rem;
       margin-top: 0.8rem;
+    }
+  }
+
+  &__wrapper {
+    background: #f7f7f7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    display: grid;
+    max-width: 100%;
+
+    @include respond(phone) {
+      max-width: 31.2rem;
+      margin: 0 auto;
+      background: none;
     }
   }
 
@@ -150,6 +180,9 @@
     padding: 0rem;
     grid-column-gap: 10.3rem;
     margin-top: 2.4rem;
+    margin-bottom: 8rem;
+    margin-left: auto;
+    margin-right: auto;
 
     @include respond(laptop) {
       display: grid;
@@ -366,7 +399,6 @@
   &__body {
     height: 70vh;
     width: 66vw;
-    margin-top: 4rem;
     overflow: scroll;
 
     @include respond(laptop) {
@@ -629,8 +661,17 @@
       }
 
       &--wk {
+        @include respond(phone) {
+          height: 12rem;
+        }
+
         & > div:nth-child(1) {
           border-right: 0;
+
+          @include respond(phone) {
+            padding-bottom: 0;
+            border-bottom: 0;
+          }
         }
       }
     }
@@ -695,6 +736,7 @@
 
       @include respond(phone) {
         border-right: 0;
+        margin-top: 0;
       }
 
       & > div {
@@ -1346,8 +1388,9 @@
   &__thank-you {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 1.6rem;
+    align-items: center;
 
     & > h2,
     & > p {
@@ -1358,7 +1401,13 @@
     &-container {
       display: grid;
       grid-row-gap: 1.6rem;
-      padding-bottom: 6.4rem;
+      padding-bottom: 4.4rem;
+      text-align: center;
+      max-width: 50rem;
+
+      & + button {
+        width: 22rem;
+      }
     }
   }
 
@@ -1378,7 +1427,7 @@
     align-items: center;
     cursor: pointer;
     font-size: 1.6rem;
-    margin-left: 19.5%;
+    margin-left: 21.5%;
     margin-top: 2.4rem;
 
     > a {
