@@ -176,10 +176,8 @@
     }
 
     &__booking {
-      // position: relative;
       grid-row: 9;
-      height: 99.8rem;
-      // grid-column: 1/-1;
+      height: 94.2rem;
 
       @include respond(tablet) {
         grid-row: 10;
@@ -189,7 +187,7 @@
         grid-row: 9;
         max-width: 31.2rem;
         margin: 0 auto;
-        height: 137.8rem;
+        height: 100%;
       }
 
       & > h1 {

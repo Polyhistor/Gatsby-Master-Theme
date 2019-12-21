@@ -351,7 +351,7 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#1abc9c`,
         display: `standalone`,
-        icon: `src/images/wild_kiwi_favicon.svg`, // This path is relative to the root of the site.
+        icon: `src/images/Yacht-Getaways-Favicon-1.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -4,7 +4,6 @@ import React from "react"
 import {
   Layout,
   DestinationsMobile,
-  SEO,
   Landing,
   GreenBarAlt,
   BannerHero,
@@ -14,8 +13,6 @@ import {
   Reviews,
   Trips,
   WhyUsMobile,
-  FeaturedMobile,
-  DestinationsTablet,
   useImageQuery,
   useHomePageQuery,
   useCountryQuery,
@@ -63,19 +60,6 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
             />
-            {/* <DestinationsTablet
-              type="country"
-              key={idx + 8}
-              destination={country.node.slug}
-              title={country.node.title}
-              subtitle={country.node.days}
-              departs={country.node.departure}
-              details={country.node.description}
-              price={country.node.price}
-              tours={filterDestinations(country.node.slug)}
-              imageData={country.node.banner.localFile.childImageSharp.fluid}
-              SVGMap={country.node.svgMap.localFile.publicURL}
-            /> */}
             <TourBanner
               type="country"
               key={idx + 12}
@@ -110,7 +94,7 @@ const IndexPage = ({ data }) => {
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonStyles={["green", "white"]}
+        buttonStyles={["white", "green"]}
         variation={false}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
       />
