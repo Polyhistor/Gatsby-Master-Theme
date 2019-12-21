@@ -36,6 +36,7 @@ export const useWebSiteConfigQuery = () => {
               destinationDropdownLabel
               countryDropdownLabel
               useYachtClass
+              bookButtonText
               yachtClasses {
                 description
                 code
