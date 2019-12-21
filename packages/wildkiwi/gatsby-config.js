@@ -141,6 +141,7 @@ module.exports = {
             buttonCardText: "View Itinerary",
           },
           bookingForm: {
+            bookButtonText: "Book",
             countryDropdownLabel: "Destination",
             destinationDropdownLabel: "Tour",
             useYachtClass: false,

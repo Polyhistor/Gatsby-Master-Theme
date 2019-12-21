@@ -138,6 +138,7 @@ module.exports = {
             buttonCardText: "Explore",
           },
           bookingForm: {
+            bookButtonText: "Enquire",
             destinationDropdownLabel: "Trip",
             countryDropdownLabel: "Select Destination",
             useYachtClass: true,
@@ -280,7 +281,7 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
-          { label: "faq", link: "/faq", sub: null },
+          { label: "faqs", link: "/faq", sub: null },
           { label: "blog", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
           {
