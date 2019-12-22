@@ -1440,8 +1440,10 @@
     align-items: center;
     cursor: pointer;
     font-size: 1.6rem;
-    margin-left: 21.5%;
-    margin-top: 2.4rem;
+    max-width: 114rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 109rem;
 
     @include respond(laptop) {
       max-width: 114rem;
