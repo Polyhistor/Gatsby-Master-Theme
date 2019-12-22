@@ -4,13 +4,15 @@ import { Link } from "gatsby"
 
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import useThemeRoutesConfigQuery from "../../queries/themeRoutesConfigQuery"
-
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 // TODO - change this component name to something more generic and not whywild
 
-const WhyWild = ({ WhyWildData, headerText }) => {
-  const brandName = process.env.GATSBY_BRAND_NAME
-
+const WhyWild = ({ WhyWildData }) => {
+  const whyUsHeaderText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.whyUsHeaderText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
+
+  console.log(useWebSiteConfigQuery())
 
   const renderWhyWildData = () => {
     return WhyWildData.sort((a, b) => a.node.order - b.node.order).map(
@@ -38,7 +40,7 @@ const WhyWild = ({ WhyWildData, headerText }) => {
           "heading-1"
         )} u-margin-bottom-small`}
       >
-        {headerText ? headerText : `Why ${brandName}`}
+        {whyUsHeaderText}
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
       <Link

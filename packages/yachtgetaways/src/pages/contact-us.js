@@ -68,7 +68,10 @@ const GetInTouch = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
+      <Trips
+        data={homeQuery[0].node.popularTours}
+        headerText="Our Explorer Routes"
+      />
     </Layout>
   )
 }

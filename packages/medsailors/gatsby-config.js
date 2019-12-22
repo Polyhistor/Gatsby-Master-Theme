@@ -131,14 +131,20 @@ module.exports = {
             toursBannerType: "default",
             buttonCardText: "Explore",
           },
+          bookPage: {
+            bannerText: "Book Now",
+          },
           acitivitesPage: {
             howItWorksBannerText: "explore",
           },
           destinationPage: {
+            whyUsHeaderText: "Our Yachts",
+            showIncludedSection: true,
             howItWorksBannerText: "explore",
             buttonCardText: "View Trip",
           },
           bookingForm: {
+            bookButtonText: "Book",
             destinationDropdownLabel: "Select Trip",
             countryDropdownLabel: "Select Destination",
             useYachtClass: true,

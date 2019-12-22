@@ -34,12 +34,13 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
 
   //TODO: Why wildkiwi text header should not be static on the code.
 
-  //TODO: workaround to change the header text quickly
-  const headerText = process.env.GATSBY_PRODUCT_ID === "1" ? "Our Yachts" : null
-
   // extracting our custom hook
+
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.destinationPage.howItWorksBannerText
+
+  const showIncludedSection = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.showIncludedSection
   const homeQuery = useHomePageQuery()
   const WhyWildData = useWildkiwiQuery()
   const bottomBannerImage = useWebSiteConfigQuery()
@@ -49,6 +50,32 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const ourData = useFetchHook(data.contentfulDestinations.slug)
 
   // TODO - implement second phase of the context system
+
+  const renderIncluded = () => {
+    if (!showIncludedSection) {
+      return null
+    }
+
+    if (theme === "ms") {
+      return <IncludesMS />
+    } else {
+      return (
+        <Includes
+          title="What’s included on every Wild Kiwi tour"
+          iconFirst="Guide"
+          textFirst="Expert local guide/driver"
+          iconSecond="Bus"
+          textSecond="New 18 seat vehicle"
+          iconThird="Bed"
+          textThird="Flash-pack accomodation"
+          iconFourth="Toaster"
+          textFourth="Breakfast everyday"
+          titleSecond="What's also included on this tour"
+          specifics={data.contentfulDestinations.included}
+        />
+      )
+    }
+  }
 
   return (
     <Layout2>
@@ -126,23 +153,9 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             data.contentfulDestinations.itinerary.itineraryDescription
           }
         />
-        {theme === "ms" ? (
-          <IncludesMS />
-        ) : (
-          <Includes
-            title="What’s included on every Wild Kiwi tour"
-            iconFirst="Guide"
-            textFirst="Expert local guide/driver"
-            iconSecond="Bus"
-            textSecond="New 18 seat vehicle"
-            iconThird="Bed"
-            textThird="Flash-pack accomodation"
-            iconFourth="Toaster"
-            textFourth="Breakfast everyday"
-            titleSecond="What's also included on this tour"
-            specifics={data.contentfulDestinations.included}
-          />
-        )}
+
+        {renderIncluded()}
+
         <ActivitiesBox
           title="Popular Activities"
           activityData={data.contentfulDestinations.activity}
@@ -150,7 +163,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
         <div className="hotfix--reviews">
           <Reviews />
         </div>
-        <WhyWild headerText={headerText} WhyWildData={WhyWildData} />
+        <WhyWild WhyWildData={WhyWildData} />
         <PriceTable
           slug={data.contentfulDestinations.slug}
           data={ourData}

@@ -118,7 +118,7 @@ const IndexPage = ({ data }) => {
         buttonSecondURL=""
         buttonStyles={["primary", "white"]}
         variation={null}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
       />
       <GreenBarAlt
         textList={[
@@ -176,7 +176,10 @@ const IndexPage = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Tours" />
+      <Trips
+        data={homeQuery[0].node.popularTours}
+        headerText="Our Explorer Routes"
+      />
     </Layout>
   )
 }

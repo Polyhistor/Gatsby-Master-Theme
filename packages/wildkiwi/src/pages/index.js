@@ -4,7 +4,6 @@ import React from "react"
 import {
   Layout,
   DestinationsMobile,
-  SEO,
   Landing,
   GreenBarAlt,
   BannerHero,
@@ -14,8 +13,6 @@ import {
   Reviews,
   Trips,
   WhyUsMobile,
-  FeaturedMobile,
-  DestinationsTablet,
   useImageQuery,
   useHomePageQuery,
   useCountryQuery,
