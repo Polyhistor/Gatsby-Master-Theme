@@ -72,13 +72,15 @@ const BlogPostTemplate = ({ data }, idx) => {
           {renderBlogCategoryLink(data.wordpressPost.categories)}
 
           {data.wordpressPost.data !== null && (
-            <h1 className="blog-single__title" key={idx}>
-              {data.wordpressPost.title}
-            </h1>
+            <h1
+              className="blog-single__title"
+              dangerouslySetInnerHTML={{
+                __html: data.wordpressPost.title,
+              }}
+              key={idx}
+            ></h1>
           )}
           <div className="blog-single__author-container">
-            {/* some error checking */}
-
             <Link to={`blog/author/${data.wordpressPost.author.slug}`}>
               <Img
                 fluid={

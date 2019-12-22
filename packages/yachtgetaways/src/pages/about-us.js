@@ -45,9 +45,9 @@ const AboutUs = ({ data }) => {
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Family Yacht Charter"
+        subHeaderFirst="Everything You Need To Know About"
+        subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="explore"
         link="/how-it-works"
       />
