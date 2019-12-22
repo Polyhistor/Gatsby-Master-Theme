@@ -112,12 +112,11 @@ const IndexPage = ({ data }) => {
         TitleSecond="sailing"
         TitleThird="holidays"
         subTitle="for 20 to 35 year olds"
-        buttonFirst="Explore Tours"
+        buttonFirst="Explore Trips"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonSecondURL=""
         buttonStyles={["primary", "white"]}
-        variation={null}
+        variation={false}
         popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
       />
       <GreenBarAlt
