@@ -48,14 +48,14 @@
 
     @include respond(tablet) {
       grid-template-columns: 48% 51%;
-      width: 100%;
+      width: 92%;
     }
 
     @include respond(phone) {
       height: 100%;
       grid-template-columns: 100%;
       grid-column: 1;
-      width: 100%;
+      width: 93%;
       border: 0;
       padding: 1.6rem 0 0 0 !important;
     }
@@ -1440,28 +1440,33 @@
     align-items: center;
     cursor: pointer;
     font-size: 1.6rem;
-    margin-left: 7.5%;
+    margin-left: 21.5%;
     margin-top: 2.4rem;
 
     @include respond(laptop) {
-      margin-left: 6.2%;
-    }
-
-    > a {
-      color: $color-med-teal;
-      font-family: Nunito-Black;
-      padding-left: 0.6rem;
+      max-width: 114rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 109rem;
     }
 
     @include respond(tablet) {
-      margin-top: 2rem;
-      margin-left: 5rem;
+      max-width: 78rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 72rem;
     }
 
     @include respond(phone) {
       margin-top: 2rem;
       justify-content: center;
       margin-left: 0;
+    }
+
+    > a {
+      color: $color-med-teal;
+      font-family: Nunito-Black;
+      padding-left: 0.6rem;
     }
   }
 
