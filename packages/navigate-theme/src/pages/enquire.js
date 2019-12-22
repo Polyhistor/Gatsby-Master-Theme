@@ -34,6 +34,9 @@ const Book = ({ location, data }) => {
   const enquiryBanner = useWebSiteConfigQuery().contentfulWebsiteConfiguration
     .enquiryBannerImage.localFile.childImageSharp.fluid
 
+  const bannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .bookPage.bannerText
+
   const path = location.state ? location.state.path : undefined
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
@@ -48,7 +51,7 @@ const Book = ({ location, data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={enquiryBanner}
-          titleFirst="Book Now"
+          titleFirst={bannerText}
           description="Have questions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
           buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"

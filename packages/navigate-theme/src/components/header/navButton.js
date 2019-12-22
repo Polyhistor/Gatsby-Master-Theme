@@ -5,11 +5,15 @@ import Modal from "react-responsive-modal"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { Location } from "@reach/router"
 import { navigate } from "gatsby"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 import BookingForm from "../destinations/bookingForm"
 // import {navigate} from "reach/router"
 
 const Buttonbox = props => {
+  const bookButtonText = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .bookingForm.bookButtonText
+
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({
     open: false,
@@ -43,7 +47,7 @@ const Buttonbox = props => {
             id={TAG_MANAGER_TRACKER.POPUP_LAUNCH_BUTTON}
             className={`btn ${resolveVariationClass("btn__book")} btn-animated`}
           >
-            book
+            {bookButtonText}
           </span>
         </Link>
       </div>
