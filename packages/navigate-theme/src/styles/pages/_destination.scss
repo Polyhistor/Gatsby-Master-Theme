@@ -7,9 +7,9 @@
     grid-column-gap: 5rem;
 
     @include respond(laptop) {
-      max-width: 120rem;
-      grid-template-columns: 81.2rem 34.1rem;
-      grid-column-gap: 2.69rem;
+      max-width: 117rem;
+      grid-template-columns: 81.2rem 34rem;
+      grid-column-gap: 1.6rem;
     }
 
     @include respond(tablet) {
