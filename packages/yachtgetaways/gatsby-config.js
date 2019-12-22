@@ -128,14 +128,19 @@ module.exports = {
             "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMC4wMjVweCIgaGVpZ2h0PSIyMC4wODVweCIgdmlld0JveD0iMCAwIDIwLjAyNSAyMC4wODUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwLjAyNSAyMC4wODUiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkxheWVyXzEiPg0KCTxnPg0KCQk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTQuMjk4LDEwbC02LjMwMSwzLjE1MVY2Ljg0OUwxNC4yOTgsMTB6IE0yMCwxMGMwLTUuNTIzLTQuNDc4LTEwLTEwLTEwQzQuNDc3LDAsMCw0LjQ3NywwLDEwDQoJCQljMCw1LjUyNCw0LjQ3NywxMCwxMCwxMEMxNS41MjMsMjAsMjAsMTUuNTI0LDIwLDEwIi8+DQoJPC9nPg0KPC9nPg0KPGcgaWQ9IkxheWVyXzIiPg0KPC9nPg0KPC9zdmc+DQo=",
           countryPage: {
             toursBannerType: "default",
-            buttonCardText: "View Trip",
+            buttonCardText: "Explore",
+          },
+          bookPage: {
+            bannerText: "Enquiry Now",
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
           },
           destinationPage: {
+            showIncludedSection: false,
+            whyUsHeaderText: "Our Catamarans & Crew",
             howItWorksBannerText: "explore",
-            buttonCardText: "Explore",
+            buttonCardText: "View Trip",
           },
           bookingForm: {
             bookButtonText: "Enquire",
@@ -165,7 +170,6 @@ module.exports = {
               startHour: "8:30am",
               endHour: "5:00pm",
               country: "newzealand",
-
               phone: "+64 (0) 9 973 5676",
               default: false,
               selected: false,
@@ -188,8 +192,7 @@ module.exports = {
               startHour: "9:00am",
               endHour: "5:30am",
               country: "uk",
-
-              phone: "+44 (0) 20 3637 0071",
+              phone: "+44 (0) 20 3637 4986",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -202,7 +205,7 @@ module.exports = {
             },
             {
               header: "Email us",
-              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@medsailors.com?subject=MedSailors contact form">sales@medsailors.com</a>`,
+              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@yachtgetaways.com?subject=Yacht Getaways contact form">sales@achtgetaways.com</a>`,
             },
             {
               header: "Facebook",
@@ -238,7 +241,7 @@ module.exports = {
           ],
           info: [
             {
-              title: "Our Yachts",
+              title: "Our Catamarans",
               link: "/yachts",
             },
             {
@@ -256,6 +259,10 @@ module.exports = {
             {
               title: "About Us",
               link: "/about-us",
+            },
+            {
+              title: "Working for Us",
+              link: "/about-us#work-for-us",
             },
           ],
         },

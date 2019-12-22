@@ -132,11 +132,16 @@ module.exports = {
           acitivitesPage: {
             howItWorksBannerText: "continue",
           },
+          bookPage: {
+            bannerText: "Book Now",
+          },
           countryPage: {
             toursBannerType: "filteredTours",
             buttonCardText: "Explore",
           },
           destinationPage: {
+            showIncludedSection: true,
+            whyUsHeaderText: "Why Wild Kiwi",
             howItWorksBannerText: "learn more",
             buttonCardText: "View Itinerary",
           },

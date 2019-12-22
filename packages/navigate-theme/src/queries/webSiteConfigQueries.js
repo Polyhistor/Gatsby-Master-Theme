@@ -26,11 +26,16 @@ export const useWebSiteConfigQuery = () => {
               howItWorksBannerText
             }
             destinationPage {
+              showIncludedSection
+              whyUsHeaderText
               buttonCardText
               howItWorksBannerText
             }
             countryPage {
               buttonCardText
+            }
+            bookPage {
+              bannerText
             }
             bookingForm {
               destinationDropdownLabel

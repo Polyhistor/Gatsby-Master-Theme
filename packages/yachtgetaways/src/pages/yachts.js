@@ -57,7 +57,10 @@ const Yachts = ({ data }) => {
         link="/how-it-works"
       />
       <Reviews />
-      <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
+      <Trips
+        data={homeQuery[0].node.popularTours}
+        headerText="Our Explorer Routes"
+      />
     </Layout>
   )
 }
