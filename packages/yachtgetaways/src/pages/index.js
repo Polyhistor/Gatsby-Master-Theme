@@ -108,8 +108,8 @@ const IndexPage = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
-        titleFirst="adventure"
-        TitleSecond="sailing"
+        titleFirst="The ultimate"
+        TitleSecond="skippered sailing"
         TitleThird="holidays"
         subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Trips"
@@ -117,7 +117,7 @@ const IndexPage = ({ data }) => {
         buttonSecond="watch trailer"
         buttonStyles={["primary", "white"]}
         variation={false}
-        popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
       <GreenBarAlt
         textList={[
@@ -145,12 +145,9 @@ const IndexPage = ({ data }) => {
       </div>
       <BannerHero
         imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
-        headerFirst="The perfect mix of"
-        headersecond="exploring, partying, and relaxation."
-        subHeaderFirst="Experience an unforgettable 7 days as you set
-        sail around the most breath-taking islands in
-        the Mediterranean, enjoying epic adventures
-        and authentic local culture."
+        headerFirst="The perfect escape"
+        headersecond="to explore and relax."
+        subHeaderFirst="Discover the best destinations of the Mediterranean on your own skippered sailing yacht. Sit back and relax on your perfect holiday getaway, sailing between historic ports and secluded bays."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
