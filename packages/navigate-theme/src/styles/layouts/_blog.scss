@@ -124,8 +124,11 @@
       }
 
       & img {
-        width: 623px !important;
-        height: 414px !important;
+        &.size-full {
+          width: 623px !important;
+          height: 414px !important;
+        }
+
         display: block;
         margin: 2rem 0 2rem -3.2rem;
         border-radius: 0.3rem;
