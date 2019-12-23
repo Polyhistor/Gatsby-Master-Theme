@@ -131,7 +131,7 @@ module.exports = {
             buttonCardText: "Explore",
           },
           bookPage: {
-            bannerText: "Enquiry",
+            bannerText: "Enquire",
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
