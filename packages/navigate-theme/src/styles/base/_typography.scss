@@ -18,6 +18,10 @@
   font-family: Archer-Bold;
 }
 
+@mixin DMSerif {
+  font-family: "DM Serif Display";
+}
+
 @mixin Capitalize {
   text-transform: capitalize;
 }
@@ -84,6 +88,7 @@
   }
   //TODO: Include font and color mixing
   &--yg {
+    @include DMSerif();
     color: $color-yg-blue;
   }
 
