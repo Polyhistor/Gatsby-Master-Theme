@@ -81,7 +81,6 @@
 }
 
 .heading-1 {
-  //removed @include Nunito-Black;
   font-size: 3.5rem;
   @include Color-Green;
   @include Capitalize;
@@ -90,7 +89,7 @@
     @include Archer-Pro();
     @include Color-MS-Teal();
   }
-  //TODO: Include font and color mixing
+
   &--yg {
     @include DMSerif();
     @include Color-YG-Blue();
@@ -124,7 +123,7 @@
   &--extraBold {
     @include Nunito-ExtraBold();
   }
-
+  
   &--ms {
     @include Color-MS-Teal;
   }

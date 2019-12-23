@@ -249,7 +249,9 @@
     max-width: 87.25rem;
 
     &--wk {
-      background: black;
+      @include respond(phone) {
+        background: black;
+      }
 
       @include respond(tablet) {
         background: transparent;
@@ -257,8 +259,10 @@
     }
 
     &--ms {
-      background: $color-med-light-teal;
-      border-bottom: 2px solid white;
+      @include respond(mobile) {
+        background: $color-med-light-teal;
+        border-bottom: 2px solid white;
+      }
     }
 
     &--yg {
