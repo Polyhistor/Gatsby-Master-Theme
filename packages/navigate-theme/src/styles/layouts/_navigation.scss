@@ -1,4 +1,12 @@
 .navigation {
+  &--ms {
+    & + .wrapper {
+      @include respond(phone) {
+        background: $color-med-light-teal;
+      }
+    }
+  }
+
   &__nav {
     position: fixed;
     top: 0;
@@ -266,8 +274,10 @@
     }
 
     &--yg {
-      background: $color-yg-blue;
-      border-bottom: 2px solid white;
+      @include respond(phone) {
+        background: $color-yg-blue;
+        border-bottom: 2px solid white;
+      }
     }
 
     &-btn {
