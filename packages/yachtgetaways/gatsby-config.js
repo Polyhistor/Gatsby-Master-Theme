@@ -140,7 +140,7 @@ module.exports = {
             buttonCardText: "Explore",
           },
           bookPage: {
-            bannerText: "Enquiry Now",
+            bannerText: "Enquiry",
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
@@ -214,7 +214,7 @@ module.exports = {
             },
             {
               header: "Email us",
-              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@yachtgetaways.com?subject=Yacht Getaways contact form">sales@achtgetaways.com</a>`,
+              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@yachtgetaways.com?subject=Yacht Getaways contact form">sales@yachtgetaways.com</a>`,
             },
             {
               header: "Facebook",

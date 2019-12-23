@@ -18,9 +18,12 @@ const BlogRelated = ({ blogQuery }) => {
               }
             />
           )}
-          <h3 className="blog-single__title blog-single__title--side">
-            {element.node.title}
-          </h3>
+          <h3
+            dangerouslySetInnerHTML={{
+              __html: element.node.title,
+            }}
+            className="blog-single__title blog-single__title--side"
+          ></h3>
           <h4>
             {element.node.categories && element.node.categories.length > 0
               ? element.node.categories[0].name

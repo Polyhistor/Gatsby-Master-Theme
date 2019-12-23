@@ -61,9 +61,9 @@ const GetInTouch = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="looking for adventure?"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
+        header="Family Yacht Charter"
+        subHeaderFirst="Everything You Need To Know About"
+        subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="continue"
         link="/how-it-works"
       />
