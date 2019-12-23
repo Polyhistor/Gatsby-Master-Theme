@@ -100,9 +100,9 @@
 <path fill="#fedc00" style="fill: var(--color4, #fedc00)" d="M7.768 28.423l17.705-24.846h-0.258l-17.705 24.846z"></path>
 <path fill="#00bac0" style="fill: var(--color1, #00bac0)" d="M32 0h1.778v32h-1.778v-32z"></path>
 </symbol>
-<symbol id="icon-Facebook" viewBox="0 0 16 32">
-<title>Facebook</title>
-<path fill="#fff" style="fill: var(--color3, #fff)" d="M10.62 9.583v0-2.57c0-1.232 0.877-1.528 1.511-1.528h3.863v-5.485h-5.317c-5.916 0-7.241 4.063-7.241 6.703v2.88h-3.436v6.407h3.471v16.010h6.889v-16.010h5.093l0.226-2.519 0.411-3.888h-5.469z"></path>
+<symbol id="icon-Facebook" viewBox="0 0 32 32">
+<title>Facebook-Footer-01</title>
+<path fill="#fff" style="fill: var(--color1, #fff)" d="M16 0c-8.838 0-16 7.163-16 15.998 0 7.989 5.858 14.613 11.384 15.474 0 0 2.113 0.327 2.126-1.805v-9.042h-4.087v-4.622h4.087l0.003-3.527c0-4.011 2.376-6.235 6.032-6.235 1.747 0 1.747 0 3.567 0.336v3.913h-2.007c-1.983 0-2.622 1.242-2.622 2.51l0.002 3.001h4.447l-0.711 4.621h-3.736v9.029c0 0 0 2.153 2.127 1.822 5.528-0.862 11.387-7.486 11.387-15.474 0-8.834-7.166-15.998-16-15.998z"></path>
 </symbol>
 <symbol id="icon-Instagram" viewBox="0 0 35 32">
 <title>Instagram</title>
