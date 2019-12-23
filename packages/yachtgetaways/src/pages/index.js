@@ -108,13 +108,14 @@ const IndexPage = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
-        headerFirst="The perfect escape"
-        headersecond="to explore and relax."
-        subHeaderFirst="Discover the best destinations of the Mediterranean on your own skippered sailing yacht. Sit back and relax on your perfect holiday getaway, sailing between historic ports and secluded bays."
+        titleFirst="Luxury Skippered "
+        TitleSecond="Sailing Holidays"
+        TitleThird=""
+        // subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Trips"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonStyles={["primary", "white"]}
+        buttonStyles={["white", "primary"]}
         variation={false}
         popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
       />
