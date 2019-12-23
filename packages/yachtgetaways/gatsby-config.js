@@ -40,11 +40,20 @@ module.exports = {
         noTrailingSlash: true,
       },
     },
-
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: process.env.FACEBOOK_PIXEL_ID || "",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `DM Serif Display`,
+          },
+        ],
       },
     },
     {
