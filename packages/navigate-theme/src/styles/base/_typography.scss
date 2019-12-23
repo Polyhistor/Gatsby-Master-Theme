@@ -54,6 +54,10 @@
   color: $color-med-teal;
 }
 
+@mixin Color-YG-Blue {
+  color: $color-yg-blue;
+}
+
 .title {
   @include Nexa-Rust;
   font-size: 6rem;
@@ -89,7 +93,7 @@
   //TODO: Include font and color mixing
   &--yg {
     @include DMSerif();
-    color: $color-yg-blue;
+    @include Color-YG-Blue();
   }
 
   &--wk {
