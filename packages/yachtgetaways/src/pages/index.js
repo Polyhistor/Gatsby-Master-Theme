@@ -108,16 +108,16 @@ const IndexPage = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
-        titleFirst="adventure"
-        TitleSecond="sailing"
-        TitleThird="holidays"
+        titleFirst="The Ultimate "
+        TitleSecond="Skippered"
+        TitleThird=""
         subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Tours"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
         buttonSecondURL=""
         buttonStyles={["primary", "white"]}
-        variation={null}
+        variation={false}
         popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
       />
       <GreenBarAlt
