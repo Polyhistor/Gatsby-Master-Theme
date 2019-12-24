@@ -18,6 +18,10 @@
   font-family: Archer-Bold;
 }
 
+@mixin DMSerif {
+  font-family: "DM Serif Display";
+}
+
 @mixin Capitalize {
   text-transform: capitalize;
 }
@@ -50,6 +54,10 @@
   color: $color-med-teal;
 }
 
+@mixin Color-YG-Blue {
+  color: $color-yg-blue;
+}
+
 .title {
   @include Nexa-Rust;
   font-size: 6rem;
@@ -73,7 +81,6 @@
 }
 
 .heading-1 {
-  //removed @include Nunito-Black;
   font-size: 3.5rem;
   @include Color-Green;
   @include Capitalize;
@@ -82,9 +89,10 @@
     @include Archer-Pro();
     @include Color-MS-Teal();
   }
-  //TODO: Include font and color mixing
+
   &--yg {
-    color: $color-yg-blue;
+    @include DMSerif();
+    @include Color-YG-Blue();
   }
 
   &--wk {
@@ -115,7 +123,7 @@
   &--extraBold {
     @include Nunito-ExtraBold();
   }
-
+  
   &--ms {
     @include Color-MS-Teal;
   }

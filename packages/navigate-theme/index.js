@@ -242,6 +242,6 @@ export {
   Desktop,
   Laptop,
   Tablet,
-  Phone,
+  Mobile,
   DefaultRender,
 } from "./src/helpers/conditionalRenders"

@@ -122,8 +122,8 @@ module.exports = {
       options: {
         config: {
           greenBar: {
-            text: "Skippered sailing holidays for 20-35 year olds",
-            icon: "wheel",
+            text: "Luxury skippered sailing holidays",
+            icon: "Sunset",
             iconAlt: "yg-Logo",
           },
           review: {
