@@ -270,6 +270,11 @@ module.exports = {
               link: "/about-us",
             },
             {
+              title: "Family Yacht Charters",
+              link: "/family-yacht-charters",
+            },
+
+            {
               title: "Working for Us",
               link: "/about-us#work-for-us",
             },
