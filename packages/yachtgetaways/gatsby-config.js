@@ -123,7 +123,7 @@ module.exports = {
         config: {
           greenBar: {
             text: "Luxury skippered sailing holidays",
-            icon: "wheel",
+            icon: "Sunset",
             iconAlt: "yg-Logo",
           },
           review: {
