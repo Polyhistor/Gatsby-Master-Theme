@@ -1,7 +1,7 @@
 import React from "react"
 
 import { useScrollHandler } from "../../hooks/useScrollHandler"
-
+import resolveVariationClass from "../../helpers/theme-variation-style"
 import NavItems from "./navItems"
 
 const Navigation = () => {
@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="navigation">
+      <div className={resolveVariationClass("navigation")}>
         {/* updating nav className based on user scroll */}
         <nav className="navigation__nav">
           <ul className="navigation__list">

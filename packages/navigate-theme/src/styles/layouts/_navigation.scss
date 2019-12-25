@@ -1,4 +1,12 @@
 .navigation {
+  &--ms {
+    & + .wrapper {
+      @include respond(phone) {
+        background: $color-med-light-teal;
+      }
+    }
+  }
+
   &__nav {
     position: fixed;
     top: 0;
@@ -249,7 +257,9 @@
     max-width: 87.25rem;
 
     &--wk {
-      background: black;
+      @include respond(phone) {
+        background: black;
+      }
 
       @include respond(tablet) {
         background: transparent;
@@ -257,13 +267,17 @@
     }
 
     &--ms {
-      background: $color-med-light-teal;
-      border-bottom: 2px solid white;
+      @include respond(mobile) {
+        background: $color-med-light-teal;
+        border-bottom: 2px solid white;
+      }
     }
 
     &--yg {
-      background: $color-yg-blue;
-      border-bottom: 2px solid white;
+      @include respond(phone) {
+        background: $color-yg-blue;
+        border-bottom: 2px solid white;
+      }
     }
 
     &-btn {

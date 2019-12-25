@@ -108,16 +108,15 @@ const IndexPage = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
-        titleFirst="adventure"
-        TitleSecond="sailing"
-        TitleThird="holidays"
-        subTitle="for 20 to 35 year olds"
-        buttonFirst="Explore Tours"
+        titleFirst="Luxury Skippered "
+        TitleSecond="Sailing Holidays"
+        TitleThird=""
+        // subTitle="for 20 to 35 year olds"
+        buttonFirst="Explore Trips"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
-        buttonSecondURL=""
-        buttonStyles={["primary", "white"]}
-        variation={null}
+        buttonStyles={["white", "primary"]}
+        variation={false}
         popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
       />
       <GreenBarAlt
@@ -146,12 +145,9 @@ const IndexPage = ({ data }) => {
       </div>
       <BannerHero
         imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
-        headerFirst="The perfect mix of"
-        headersecond="exploring, partying, and relaxation."
-        subHeaderFirst="Experience an unforgettable 7 days as you set
-        sail around the most breath-taking islands in
-        the Mediterranean, enjoying epic adventures
-        and authentic local culture."
+        headerFirst="The perfect escape"
+        headersecond="to explore and relax."
+        subHeaderFirst="Discover the best destinations of the Mediterranean on your own skippered sailing yacht. Sit back and relax on your perfect holiday getaway, sailing between historic ports and secluded bays."
         buttonText="how it works"
       />
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
@@ -169,9 +165,9 @@ const IndexPage = ({ data }) => {
       {renderCountries()}
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="How it works"
-        subHeaderFirst="Everything you need to"
-        subHeaderSecond="know about our tours"
+        header="Family Yacht Charter"
+        subHeaderFirst="Everything You Need To Know About"
+        subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="explore"
         link="/how-it-works"
       />

@@ -172,6 +172,17 @@
           padding: 0;
         }
       }
+
+      &--yg {
+        font-family: "DM Serif Display";
+        text-transform: capitalize;
+        font-weight: 500;
+        line-height: 7rem;
+
+        & > span {
+          display: none;
+        }
+      }
     }
     &__sub {
       animation: moveInleft 2s ease-out;
@@ -222,6 +233,10 @@
       @include respond(phone) {
         grid-template-rows: 8.9rem 12rem;
       }
+    }
+
+    &--yg {
+      grid-template-rows: 15.6rem 0rem;
     }
 
     &--alt {

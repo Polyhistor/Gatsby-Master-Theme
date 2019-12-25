@@ -40,11 +40,20 @@ module.exports = {
         noTrailingSlash: true,
       },
     },
-
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: process.env.FACEBOOK_PIXEL_ID || "",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `DM Serif Display`,
+          },
+        ],
       },
     },
     {
@@ -113,8 +122,8 @@ module.exports = {
       options: {
         config: {
           greenBar: {
-            text: "Skippered sailing holidays for 20-35 year olds",
-            icon: "wheel",
+            text: "Luxury skippered sailing holidays",
+            icon: "Sunset",
             iconAlt: "yg-Logo",
           },
           review: {
@@ -131,7 +140,7 @@ module.exports = {
             buttonCardText: "Explore",
           },
           bookPage: {
-            bannerText: "Enquiry Now",
+            bannerText: "Enquire",
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
@@ -205,7 +214,7 @@ module.exports = {
             },
             {
               header: "Email us",
-              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@yachtgetaways.com?subject=Yacht Getaways contact form">sales@achtgetaways.com</a>`,
+              content: `For any enquiries please write to us at <br /><a class="#LINK#" href="mailto:sales@yachtgetaways.com?subject=Yacht Getaways contact form">sales@yachtgetaways.com</a>`,
             },
             {
               header: "Facebook",
