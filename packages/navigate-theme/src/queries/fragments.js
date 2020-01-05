@@ -347,6 +347,10 @@ export const FAQFragment = graphql`
     questions
     answers
     category
+    questionsanswers {
+      question
+      answer
+    }
   }
 `
 
