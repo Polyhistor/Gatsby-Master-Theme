@@ -160,6 +160,10 @@
       background: $color-med-blue;
     }
 
+    &--yg {
+      background: $color-yg-blue;
+    }
+
     @include respond(tablet) {
       margin-left: 0;
       margin-right: auto;
