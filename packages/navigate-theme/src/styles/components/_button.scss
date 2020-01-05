@@ -149,6 +149,10 @@
     &--wk {
       background: $color-wk-green !important;
     }
+
+    &--yg {
+      background: $color-yg-blue !important;
+    }
   }
   /*button that is used on the cards */
   &__card {
@@ -344,6 +348,7 @@
       }
       &--yg {
         background: $color-yg-blue !important;
+        border: 1px solid $color-yg-blue;
       }
       &--ms {
         background: $color-med-teal !important;

@@ -121,6 +121,10 @@
     &--ms {
       background-color: $color-med-blue;
     }
+
+    &--yg {
+      background-color: $color-yg-blue;
+    }
   }
 
   @include respond(phone) {
