@@ -157,6 +157,10 @@
     @extend .heading-2;
     @extend .heading-2--extraBold;
     @extend .heading-2--ms;
+
+    &--yg {
+      @extend .heading-2--yg;
+    }
   }
 
   &__sub-title {
