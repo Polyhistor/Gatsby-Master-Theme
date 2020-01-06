@@ -8,6 +8,7 @@ import {
   Tablet,
   DefaultRender,
 } from "../../helpers/conditionalRenders"
+import { resolveVariationClass } from "@nt-websites/navigate-theme"
 import Intro from "../../components/intro"
 
 const YachtSingle = ({ data, popupVideo }) => {
@@ -26,7 +27,9 @@ const YachtSingle = ({ data, popupVideo }) => {
         <section className="yacht" key={idx}>
           <div className="yacht__inner">
             <div className="yacht__info">
-              <h2 className="yacht__title">{node.title}</h2>
+              <h2 className={`${resolveVariationClass("yacht__title")}`}>
+                {node.title}
+              </h2>
               <h4 className="yacht__sub-title">{node.subtitle}</h4>
               <p className="paragraph u-margin-bottom-small">
                 {node.description.description}
@@ -61,7 +64,11 @@ const YachtSingle = ({ data, popupVideo }) => {
 
       <section className="yacht-container">
         <div className="row">
-          <h2 class="heading-1 heading-1--ms u-margin-bottom-sedium">
+          <h2
+            class={`${resolveVariationClass(
+              `heading-1`
+            )} u-margin-bottom-sedium`}
+          >
             Yacht Types
           </h2>
           <Mobile>

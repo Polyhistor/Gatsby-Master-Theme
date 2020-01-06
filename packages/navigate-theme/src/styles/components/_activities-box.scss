@@ -74,11 +74,15 @@
       &--free {
         background-color: $color-primary;
 
-        &-ms {
-          background-color: $color-med-teal;
-        }
+        // &-ms {
+        //   background-color: $color-med-teal;
+        // }
         &--ms {
           background-color: $color-med-teal;
+        }
+
+        &--yg {
+          background-color: $color-yg-blue;
         }
       }
 
@@ -154,6 +158,10 @@
 
     &--ms {
       background: $color-med-blue;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
     }
 
     @include respond(tablet) {
