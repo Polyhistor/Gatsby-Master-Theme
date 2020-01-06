@@ -1,15 +1,5 @@
 import React from "react"
-import {
-  BLOCKS,
-  MARKS,
-  INLINES,
-  HEADING_1,
-  HEADING_2,
-  OL_LIST,
-  UL_LIST,
-  CODE,
-  BOLD,
-} from "@contentful/rich-text-types"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import {
