@@ -294,6 +294,12 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      YGBanner: file(
+        relativePath: { eq: "catamaran-sailing-croatia-yacht-getaways.jpg" }
+      ) {
+        ...FluidImage
+      }
+
       YGFAQ: file(
         relativePath: { eq: "yachts-anchored-at-blue-caves-corfu.jpg" }
       ) {

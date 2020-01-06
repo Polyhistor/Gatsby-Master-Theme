@@ -107,7 +107,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       {renderSeo(data)}
       <Landing
-        imageData={imageQuery.MedsailorsBanner.childImageSharp.fluid}
+        imageData={imageQuery.YGBanner.childImageSharp.fluid}
         titleFirst="Luxury Skippered "
         TitleSecond="Sailing Holidays"
         TitleThird=""
