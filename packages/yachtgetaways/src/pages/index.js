@@ -144,7 +144,7 @@ const IndexPage = ({ data }) => {
         </h2>
       </div>
       <BannerHero
-        imageData={imageQuery.MsHomePageBanner1.childImageSharp.fluid}
+        imageData={imageQuery.YGHomePageBanner1.childImageSharp.fluid}
         headerFirst="The perfect escape"
         headersecond="to explore and relax."
         subHeaderFirst="Discover the best destinations of the Mediterranean on your own skippered sailing yacht. Sit back and relax on your perfect holiday getaway, sailing between historic ports and secluded bays."

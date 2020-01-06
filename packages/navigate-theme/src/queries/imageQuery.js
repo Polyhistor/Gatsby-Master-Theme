@@ -300,6 +300,12 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
+      YGHomePageBanner1: file(
+        relativePath: { eq: "yacht-getaways-catamaran-sailing-greece.jpg" }
+      ) {
+        ...FluidImage
+      }
+
       YGFAQ: file(
         relativePath: { eq: "yachts-anchored-at-blue-caves-corfu.jpg" }
       ) {

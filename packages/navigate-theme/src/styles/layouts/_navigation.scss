@@ -199,6 +199,17 @@
       }
     }
 
+    &--yg {
+      &:not(:first-child) {
+        &:hover {
+          @include hover-supported {
+            border-bottom: 2px solid #f58442;
+            animation: blinkText 0.8s ease-out;
+          }
+        }
+      }
+    }
+
     &:hover > .navigation__dropdown > .navigation__dropdown-item {
       display: block;
     }
