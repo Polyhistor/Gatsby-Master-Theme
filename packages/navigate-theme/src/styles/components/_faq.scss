@@ -95,25 +95,32 @@
     width: 22rem;
     height: 4.8rem;
 
+    &--ms {
+      color: $color-med-teal;
+      border: 1px solid $color-med-teal;
+    }
+
+    &--yg {
+      color: $color-yg-blue;
+      border: 1px solid $color-yg-blue;
+    }
+
     @include respond(phone) {
       display: none;
     }
 
     &--active {
       @include whiteGreen;
-      &-ms {
-        background: $color-med-teal;
-        color: white !important;
-      }
+
       &--ms {
         background: $color-med-teal;
         color: white !important;
       }
-    }
 
-    &--ms {
-      color: $color-med-teal;
-      border: 1px solid $color-med-teal;
+      &--yg {
+        background: $color-yg-blue;
+        color: white !important;
+      }
     }
   }
 
@@ -139,6 +146,10 @@
 
     &--ms {
       background: $color-med-teal;
+    }
+
+    &--yg {
+      background: $color-yg-blue;
     }
   }
 
@@ -169,6 +180,10 @@
 
     &--ms {
       color: $color-med-teal;
+    }
+
+    &--yg {
+      color: $color-yg-blue;
     }
   }
 
