@@ -32,7 +32,7 @@ const Yachts = ({ data }) => {
       <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
           imageData={imageQuery.ourYachts.childImageSharp.fluid}
-          titleFirst="Our yachts"
+          titleFirst="Our catamarans"
           buttonSecond="watch trailer"
           buttonSecondURL="#popup"
           buttonStyles={["white", "med-blue"]}
