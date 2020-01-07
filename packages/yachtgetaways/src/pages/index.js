@@ -117,7 +117,7 @@ const IndexPage = ({ data }) => {
         buttonSecond="watch trailer"
         buttonStyles={["white", "primary"]}
         variation={false}
-        popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
       <GreenBarAlt
         textList={[
