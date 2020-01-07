@@ -12,6 +12,7 @@ import {
   useImageQuery,
   useHomePageQuery,
   useHowItWorksQuery,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
