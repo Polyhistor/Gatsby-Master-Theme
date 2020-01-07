@@ -21,12 +21,16 @@ const HowItWorks = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const howItWorksData = useHowItWorksQuery()
 
+  const howItWorksBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.howItWorksBannerImage.localFile
+    .childImageSharp.fluid
+
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
+          imageData={howItWorksBannerImage}
           titleFirst="How it works"
           buttonFirst="expore"
           buttonFirstURL="/blog"
