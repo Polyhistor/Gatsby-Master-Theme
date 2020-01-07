@@ -82,6 +82,7 @@
     "lint:medsailors": "cd packages/medsailors && npm run lint",
     "gatsby:yachtgetaways": "cd packages/yachtgetaways && gatsby develop",
     "start:yachtgetaways": "cd packages/yachtgetaways && npm run start",
+    "gatsby:clean:yachtgetaways": "cd packages/yachtgetaways && gatsby clean",
     "build:yachtgetaways": "cd packages/yachtgetaways && npm run build",
     "test:yachtgetaways": "cd packages/yachtgetaways && npm run test",
     "lint:yachtgetaways": "cd packages/yachtgetaways && npm run lint",

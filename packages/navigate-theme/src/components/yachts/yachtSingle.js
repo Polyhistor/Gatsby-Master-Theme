@@ -11,7 +11,7 @@ import {
 import { resolveVariationClass } from "@nt-websites/navigate-theme"
 import Intro from "../../components/intro"
 
-const YachtSingle = ({ data, popupVideo }) => {
+const YachtSingle = ({ data, popupVideo, title }) => {
   const imageData = useImageQuery()
 
   const renderList = (list, idx) => list.map(e => <li key={idx}>{e}</li>)
@@ -55,12 +55,14 @@ const YachtSingle = ({ data, popupVideo }) => {
 
   return (
     <>
-      <Intro
-        title="We've got a boat to suit every traveller"
-        description="Set sail around the Mediterranean in our modern yachts and catamarans. We have three modern boats to suit any travel style, so you can choose the ultimate way to experience your dream sailing holiday."
-        mobileButton={true}
-        popupvideoURL={popupVideo}
-      />
+      {title === false ? null : (
+        <Intro
+          title="We've got a boat to suit every traveller"
+          description="Set sail around the Mediterranean in our modern yachts and catamarans. We have three modern boats to suit any travel style, so you can choose the ultimate way to experience your dream sailing holiday."
+          mobileButton={true}
+          popupvideoURL={popupVideo}
+        />
+      )}
 
       <section className="yacht-container">
         <div className="row">
