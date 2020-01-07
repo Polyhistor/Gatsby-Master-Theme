@@ -25,6 +25,10 @@ const GetInTouch = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const contactUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.contactUsBannerImage.localFile
+    .childImageSharp.fluid
+
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const contactData = useContactQuery()
@@ -44,7 +48,7 @@ const GetInTouch = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MSContact.childImageSharp.fluid}
+          imageData={contactUsBannerImage}
           titleFirst="Get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"
