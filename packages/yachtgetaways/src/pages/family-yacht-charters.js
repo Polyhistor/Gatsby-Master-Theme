@@ -40,15 +40,16 @@ const FamilyYacht = ({ data }) => {
     {
       imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
       header: "title1",
-      subHeader: "sub header 1",
+      description:
+        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
       items: ["item 1", "item 2"],
     },
-
     {
       imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
-      header: "title2",
-      subHeader: "sub header 2",
-      items: ["item 3", "item 4"],
+      header: "title1",
+      description:
+        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
+      items: ["item 1", "item 2"],
     },
   ]
 
@@ -57,13 +58,11 @@ const FamilyYacht = ({ data }) => {
       <DuoBox
         header={item.header}
         imageFluid={item.imageFluid}
-        subHeader={item.subHeader}
+        description={item.description}
         featuredItems={item.items}
       />
     ))
   }
-
-  console.log(YachtQuery)
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -150,6 +149,14 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         data={YachtQuery}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
+      <section className="duo-boxes">
+        <div className="row">
+          <h2 class="heading-1 heading-1--yg u-margin-bottom-sedium">
+            Your Crew
+          </h2>
+          {renderDuoBoxes()}
+        </div>
+      </section>
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
@@ -164,9 +171,6 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routess"
       />
-      <section className="duo-boxes">
-        <div className="POUAA-CHANGE-HERE-duobox-class">{renderDuoBoxes()}</div>
-      </section>
     </Layout>
   )
 }
