@@ -23,8 +23,8 @@ const DuoBox = ({
     <div className="duo-boxes__container">
       <Img className="duo-boxes__image" alt={imageAlt} fluid={imageFluid} />
 
-      <div className="duo-boxes__title">{header} </div>
-      <div className="duo-boxes__description">{description}</div>
+      <h3 className="duo-boxes__title">{header} </h3>
+      <p className="duo-boxes__description">{description}</p>
 
       <div className="duo-boxes__list">
         {renderFeaturedItems(featuredItems)}

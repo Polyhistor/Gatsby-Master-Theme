@@ -44,12 +44,12 @@ const FamilyYacht = ({ data }) => {
         "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
       items: ["item 1", "item 2"],
     },
-
     {
       imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
-      header: "title2",
-      description: "sub header 2",
-      items: ["item 3", "item 4"],
+      header: "title1",
+      description:
+        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
+      items: ["item 1", "item 2"],
     },
   ]
 
@@ -150,7 +150,12 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
       <section className="duo-boxes">
-        <div className="row">{renderDuoBoxes()}</div>
+        <div className="row">
+          <h2 class="heading-1 heading-1--yg u-margin-bottom-sedium">
+            Your Crew
+          </h2>
+          {renderDuoBoxes()}
+        </div>
       </section>
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
