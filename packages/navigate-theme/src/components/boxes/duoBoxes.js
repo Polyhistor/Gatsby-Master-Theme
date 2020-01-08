@@ -1,15 +1,28 @@
 import React from "react"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 
-const DuoBoxes = () =>{
-    return (
-        <section className="duo-boxes">
-            <Img></Img>
-            <div className=""> </div>
-            <div > </div>
-            duo boxes
-        </section>
-    )
+const renderFeaturedItems = items => {
+  return (
+    <ul>
+      {items.map((i, idx) => (
+        <li key={idx}>{i}</li>
+      ))}
+    </ul>
+  )
 }
 
-export const DuoBoxes
+const DuoBox = ({ imageFluid, imageAlt, header, subHeader, featuredItems }) => {
+  return (
+    <div className="duobox">
+      <Img className="imageClass" fluid={imageFluid} />
+
+      <div className="header">{header} </div>
+      <div className="subheader">{subHeader}</div>
+
+      {renderFeaturedItems(featuredItems)}
+    </div>
+  )
+}
+
+export default DuoBox

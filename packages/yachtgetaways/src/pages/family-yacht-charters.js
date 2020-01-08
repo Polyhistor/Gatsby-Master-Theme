@@ -11,6 +11,7 @@ import {
   DestinationsMobile,
   DestinationsTablet,
   filterDestinations,
+  DuoBox,
   TourBanner,
   Reviews,
   YachtSingle,
@@ -34,6 +35,33 @@ const FamilyYacht = ({ data }) => {
   const destinationQuery = useDestinationQuery()
   const howItWorksData = useHowItWorksQuery()
   const YachtQuery = useYachtQuery()
+
+  const duoBoxFakeData = [
+    {
+      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
+      header: "title1",
+      subHeader: "sub header 1",
+      items: ["item 1", "item 2"],
+    },
+
+    {
+      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
+      header: "title2",
+      subHeader: "sub header 2",
+      items: ["item 3", "item 4"],
+    },
+  ]
+
+  const renderDuoBoxes = () => {
+    return duoBoxFakeData.map(item => (
+      <DuoBox
+        header={item.header}
+        imageFluid={item.imageFluid}
+        subHeader={item.subHeader}
+        featuredItems={item.items}
+      />
+    ))
+  }
 
   console.log(YachtQuery)
 
@@ -136,6 +164,9 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routess"
       />
+      <section className="duo-boxes">
+        <div className="POUAA-CHANGE-HERE-duobox-class">{renderDuoBoxes()}</div>
+      </section>
     </Layout>
   )
 }
