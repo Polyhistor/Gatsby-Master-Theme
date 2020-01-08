@@ -1,0 +1,6 @@
+.duo-boxes {
+  &__container {
+    display: grid;
+    grid-template-rows: min-content 3rem 10rem;
+  }
+}

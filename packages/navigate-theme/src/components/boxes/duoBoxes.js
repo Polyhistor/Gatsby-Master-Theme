@@ -12,15 +12,23 @@ const renderFeaturedItems = items => {
   )
 }
 
-const DuoBox = ({ imageFluid, imageAlt, header, subHeader, featuredItems }) => {
+const DuoBox = ({
+  imageFluid,
+  imageAlt,
+  header,
+  description,
+  featuredItems,
+}) => {
   return (
-    <div className="duobox">
-      <Img className="imageClass" fluid={imageFluid} />
+    <div className="duo-boxes__container">
+      <Img className="duo-boxes__image" alt={imageAlt} fluid={imageFluid} />
 
-      <div className="header">{header} </div>
-      <div className="subheader">{subHeader}</div>
+      <div className="duo-boxes__title">{header} </div>
+      <div className="duo-boxes__description">{description}</div>
 
-      {renderFeaturedItems(featuredItems)}
+      <div className="duo-boxes__list">
+        {renderFeaturedItems(featuredItems)}
+      </div>
     </div>
   )
 }
