@@ -2,6 +2,8 @@ import React from "react"
 import Img from "gatsby-image"
 
 const WorkForUs = ({ data }) => {
+  console.log(data)
+
   const renderLinks = (links, urls) =>
     links.map((link, idx) => (
       <a target="__blank" className="work-for-us__links" href={urls[idx]}>

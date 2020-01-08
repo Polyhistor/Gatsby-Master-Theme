@@ -122,7 +122,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         data={YachtQuery}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
-      <SectionHowItWorks data={howItWorksData} />
+      {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
         header="Family Yacht Charter"
