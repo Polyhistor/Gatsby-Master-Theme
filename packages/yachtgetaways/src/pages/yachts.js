@@ -22,7 +22,10 @@ const Yachts = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
+  const ourYachtsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.ourYachtsBannerImage.localFile
+    .childImageSharp.fluid
+
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
@@ -31,7 +34,7 @@ const Yachts = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
-          imageData={imageQuery.ourYachts.childImageSharp.fluid}
+          imageData={ourYachtsBannerImage}
           titleFirst="Our catamarans"
           buttonSecond="watch trailer"
           buttonSecondURL="#popup"

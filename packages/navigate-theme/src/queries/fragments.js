@@ -488,6 +488,12 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    ourYachtsBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     priceTableHeaderDescription {
       icon
       text
