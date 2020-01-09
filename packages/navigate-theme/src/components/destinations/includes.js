@@ -50,7 +50,6 @@ const includes = ({
           <use xlinkHref={withPrefix(`sprite.svg#icon-${icons[3].icon}`)} />
         </svg>
         <span className="includes__text--fourth">{icons[3].text}</span>
-
         <h4 className="includes__title includes__title--second ">
           {titleSecond}
         </h4>
