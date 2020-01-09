@@ -39,8 +39,9 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.destinationPage.howItWorksBannerText
 
-  const showIncludedSection = useWebSiteConfigQuery().sitePlugin.pluginOptions
-    .config.destinationPage.showIncludedSection
+  const icons = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .destinationPage.icons
+
   const homeQuery = useHomePageQuery()
   const WhyWildData = useWildkiwiQuery()
   const bottomBannerImage = useWebSiteConfigQuery()
@@ -52,12 +53,8 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - implement second phase of the context system
 
   const renderIncluded = () => {
-    if (!showIncludedSection) {
-      return null
-    }
-
-    if (theme === "ms") {
-      return <IncludesMS />
+    if (theme === "ms" || theme === "yg") {
+      return <IncludesMS icons={icons} />
     } else {
       return (
         <Includes
@@ -153,9 +150,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             data.contentfulDestinations.itinerary.itineraryDescription
           }
         />
-
         {renderIncluded()}
-
         <ActivitiesBox
           title="Popular Activities"
           activityData={data.contentfulDestinations.activity}
