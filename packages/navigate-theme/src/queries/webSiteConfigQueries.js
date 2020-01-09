@@ -14,6 +14,7 @@ export const useWebSiteConfigQuery = () => {
               rating
               totalFacebookReviews
             }
+            useTrustPilotReview
             greenBar {
               text
               icon

@@ -151,7 +151,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       />
       <section className="duo-boxes">
         <div className="row">
-          <h2 class="heading-1 heading-1--yg u-margin-bottom-sedium">
+          <h2 className="heading-1 heading-1--yg u-margin-bottom-sedium">
             Your Crew
           </h2>
           {renderDuoBoxes()}

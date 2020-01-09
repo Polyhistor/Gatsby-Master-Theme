@@ -67,7 +67,7 @@ const YachtSingle = ({ data, popupVideo, title }) => {
       <section className="yacht-container">
         <div className="row">
           <h2
-            class={`${resolveVariationClass(
+            className={`${resolveVariationClass(
               `heading-1`
             )} u-margin-bottom-sedium`}
           >

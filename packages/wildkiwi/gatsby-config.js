@@ -120,6 +120,7 @@ module.exports = {
             icon: "mountains",
             iconAlt: "Wild-Kiwi-Mountaints-Logo",
           },
+          useTrustPilotReview: false,
           review: {
             maxRating: "5",
             rating: "4.9",

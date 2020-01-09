@@ -118,6 +118,7 @@ module.exports = {
             icon: "wheel",
             iconAlt: "MedSailors Tour",
           },
+          useTrustPilotReview: false,
           review: {
             maxRating: "5",
             rating: "4.9",

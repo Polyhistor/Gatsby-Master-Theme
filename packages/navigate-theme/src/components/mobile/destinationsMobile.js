@@ -124,7 +124,7 @@ const DestinationsMobile = ({
         </div>
       </div>
       {inCountry ? (
-        <div class="row">
+        <div className="row">
           <Link
             className={resolveVariationClass("btn")}
             to={

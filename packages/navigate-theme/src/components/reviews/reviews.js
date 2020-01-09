@@ -5,10 +5,14 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useReviewQuery from "../../queries/reviewQuery"
 import { splitText } from "../../helpers/formatter"
 import Review from "./review"
+import TrustBox from "./trustpilot"
 
 const Reviews = () => {
   const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.review
+
+  const useTrustPilot = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .useTrustPilotReview
 
   const reviewData = useReviewQuery()
 
@@ -20,57 +24,77 @@ const Reviews = () => {
 
   const theme = process.env.GATSBY_THEME
 
-  return (
-    <section className="section-facebook-reviews">
-      <div className="row">
-        <div>
-          <div className="facebook-reviews">
-            <span className={resolveVariationClass("facebook-reviews__rating")}>
-              {reviewGeneralInfo.rating}
-              <span className="facebook-reviews__rating-decimal">
-                /{reviewGeneralInfo.maxRating}
-              </span>
-            </span>
-            <center className="facebook-reviews__stars-box">
-              <svg className="svg-icon--star-big">
-                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-              </svg>
-              <svg className="svg-icon--star-big">
-                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-              </svg>
-              <svg className="svg-icon--star-big">
-                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-              </svg>
-              <svg className="svg-icon--star-big">
-                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-              </svg>
-              <svg className="svg-icon--star-big">
-                <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
-              </svg>
-            </center>
-            <center className="facebook-reviews__title">Facebook Review</center>
-            <center className="facebook-reviews__subtitle">
-              based on {reviewGeneralInfo.totalFacebookReviews} reviews
-            </center>
-            <Link
-              aria-current="page"
-              className={`btn ${resolveVariationClass("btn--primary")}`}
-              to="/reviews"
-            >
-              more reviews
-            </Link>
+  const renderTrustBox = () => {
+    return (
+      <section className="section-truspilot-reviews">
+        <div className="row">
+          <div>
+            <TrustBox />
           </div>
         </div>
-        {reviewsDisplayBanner.map((review, idx) => (
-          <div key={idx}>
-            <Review
-              text={splitText(review.node.reviewText.reviewText, 260)}
-              author={review.node.name}
-              country={review.node.country}
-            />
-          </div>
-        ))}
-        {/*
+      </section>
+    )
+  }
+
+  return (
+    <>
+      {useTrustPilot ? (
+        renderTrustBox()
+      ) : (
+        <section className="section-facebook-reviews">
+          <div className="row">
+            <div>
+              <div className="facebook-reviews">
+                <span
+                  className={resolveVariationClass("facebook-reviews__rating")}
+                >
+                  {reviewGeneralInfo.rating}
+                  <span className="facebook-reviews__rating-decimal">
+                    /{reviewGeneralInfo.maxRating}
+                  </span>
+                </span>
+                <center className="facebook-reviews__stars-box">
+                  <svg className="svg-icon--star-big">
+                    <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+                  </svg>
+                  <svg className="svg-icon--star-big">
+                    <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+                  </svg>
+                  <svg className="svg-icon--star-big">
+                    <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+                  </svg>
+                  <svg className="svg-icon--star-big">
+                    <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+                  </svg>
+                  <svg className="svg-icon--star-big">
+                    <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+                  </svg>
+                </center>
+                <center className="facebook-reviews__title">
+                  Facebook Review
+                </center>
+                <center className="facebook-reviews__subtitle">
+                  based on {reviewGeneralInfo.totalFacebookReviews} reviews
+                </center>
+                <Link
+                  aria-current="page"
+                  className={`btn ${resolveVariationClass("btn--primary")}`}
+                  to="/reviews"
+                >
+                  more reviews
+                </Link>
+              </div>
+            </div>
+            {reviewsDisplayBanner.map((review, idx) => (
+              <div key={idx}>
+                <Review
+                  text={splitText(review.node.reviewText.reviewText, 260)}
+                  author={review.node.name}
+                  country={review.node.country}
+                />
+              </div>
+            ))}
+            {/*
          
         </div>
         <div>
@@ -97,21 +121,23 @@ const Reviews = () => {
         </div>
           */}
 
-        <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
-          <Link
-            aria-current="page"
-            className={
-              theme === "ms"
-                ? "btn btn--ms-teal tablet-green-button"
-                : "btn btn--green tablet-green-button"
-            }
-            to="/reviews"
-          >
-            more reviews
-          </Link>
-        </div>
-      </div>
-    </section>
+            <div className="mobile-yes u-center-text u-margin-top-tiny u-margin-left-tiny">
+              <Link
+                aria-current="page"
+                className={
+                  theme === "ms"
+                    ? "btn btn--ms-teal tablet-green-button"
+                    : "btn btn--green tablet-green-button"
+                }
+                to="/reviews"
+              >
+                more reviews
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   )
 }
 

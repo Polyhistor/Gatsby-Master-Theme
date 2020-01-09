@@ -126,6 +126,7 @@ module.exports = {
             icon: "Sunset",
             iconAlt: "yg-Logo",
           },
+          useTrustPilotReview: true,
           review: {
             maxRating: "5",
             rating: "4.9",
