@@ -151,9 +151,17 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
       const cabinTypes = response.cabins.filter(
         c => c.product_class === productClass.name
       )
+
+      console.log(cabinTypes)
+
       setFieldValue("productClass", productClass.name)
       setFieldValue("priceId", productClass.id)
-      setCabinTypes(cabinTypes)
+
+      if (cabinTypes.length === 0) {
+        delete validationSchema.fields.yachtCabinName
+      } else {
+        setCabinTypes(cabinTypes)
+      }
     } else {
       setFieldValue("productClass", "")
       setFieldValue("priceId", "")
