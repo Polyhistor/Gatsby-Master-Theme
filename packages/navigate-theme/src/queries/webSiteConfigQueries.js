@@ -30,6 +30,10 @@ export const useWebSiteConfigQuery = () => {
               whyUsHeaderText
               buttonCardText
               howItWorksBannerText
+              icons {
+                icon
+                text
+              }
             }
             countryPage {
               buttonCardText

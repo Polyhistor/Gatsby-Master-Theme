@@ -142,6 +142,42 @@ module.exports = {
             showIncludedSection: true,
             howItWorksBannerText: "explore",
             buttonCardText: "View Trip",
+            icons: [
+              {
+                icon: "icon-Days-01",
+                text: "Seven days’ accommodation onboard your own yacht",
+              },
+              {
+                icon: "icon-Pizza-01",
+                text: "Breakfast & lunch made fresh every day",
+              },
+              { icon: "icon-Tea-01", text: "Tea, coffee and drinking water" },
+              {
+                icon: "icon-Wheel-01",
+                text: "Explore & learn to sail with your professional skipper",
+              },
+              {
+                icon: "icon-BYO-Drinks-01",
+                text: "BYO: bring your own drinks and snacks",
+              },
+              {
+                icon: "icon-Bed-01",
+                text: "Towels, bed linen end of week cleaning fees",
+              },
+              {
+                icon: "icon-Guest-Leader-01",
+                text:
+                  "Live like a local with the help of your ‘Guest Experience Leader’",
+              },
+              {
+                icon: "icon-Water-Sports-01",
+                text: "Stand Up Paddle Board, dinghy and snorkelling gear",
+              },
+              {
+                icon: "icon-Map-01",
+                text: "Transfers to Hvar Old Town (Croatia only)",
+              },
+            ],
           },
           bookingForm: {
             bookButtonText: "Book",
