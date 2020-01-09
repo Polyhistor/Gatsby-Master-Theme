@@ -58,6 +58,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
     } else {
       return (
         <Includes
+          icons={icons}
           title="What’s included on every Wild Kiwi tour"
           iconFirst="Guide"
           textFirst="Expert local guide/driver"
