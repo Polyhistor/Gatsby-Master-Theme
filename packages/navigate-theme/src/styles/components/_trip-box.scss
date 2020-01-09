@@ -19,7 +19,7 @@
   }
 
   @include respond(phone) {
-    grid-template-rows: 4rem 4rem 7.5rem 41.4rem;
+    grid-template-rows: min-content 4rem 7.5rem 41.4rem;
     grid-template-columns: 31.2rem;
   }
 
