@@ -5,8 +5,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
 
 const WhyWildKiwi = ({ data, popupVideo, title }) => {
-  const theme = process.env.GATSBY_THEME
-
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
