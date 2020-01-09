@@ -5,8 +5,6 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
 
 const WhyWildKiwi = ({ data, popupVideo, title }) => {
-  const theme = process.env.GATSBY_THEME
-
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
 
@@ -43,11 +41,7 @@ const WhyWildKiwi = ({ data, popupVideo, title }) => {
             <a
               onClick={() => setModal({ open: true })}
               href="#"
-              className={
-                theme === "ms"
-                  ? "btn btn--med-blue btn-animated  u-margin-top-medium"
-                  : "btn btn--green btn-animated  u-margin-top-medium"
-              }
+              className={`btn ${resolveVariationClass("btn--trailer-button")}`}
             >
               <svg className="svg-icon--play-button svg-icon--play-button--mobile">
                 <use
