@@ -126,7 +126,7 @@ const FamilyYacht = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-          titleFirst="Family Bookings"
+          titleFirst="Private Yacht Bookings"
           description="Everything you need to know about sailing with us."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
@@ -160,7 +160,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="Family Yacht Charter"
+        header="Private Yacht Charter"
         subHeaderFirst="Everything You Need To Know About"
         subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="continue"

@@ -115,7 +115,7 @@ const Destination = ({ data }) => {
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
         imageData={bottomBannerImage}
-        header="Family Yacht Charter"
+        header="Private Yacht Charter"
         subHeaderFirst="Everything You Need To Know About"
         subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="continue"

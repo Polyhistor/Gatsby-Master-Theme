@@ -45,7 +45,7 @@ const HowItWorks = ({ data }) => {
       <SectionHowItWorks data={howItWorksData} />
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="Family Yacht Charter"
+        header="Private Yacht Charter"
         subHeaderFirst="Everything You Need To Know About"
         subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="continue"
