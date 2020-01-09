@@ -310,6 +310,14 @@ module.exports = {
               link: "/about-us",
             },
             {
+              title: "Activities",
+              link: "/activities",
+            },
+            {
+              title: "Reviews",
+              link: "/reviews",
+            },
+            {
               title: "Family Yacht Charters",
               link: "/family-yacht-charters",
             },
