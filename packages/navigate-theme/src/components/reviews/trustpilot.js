@@ -16,14 +16,19 @@ const TrustBox = () => {
       aScript.async = "true"
       document.head.appendChild(aScript)
       aScript.onload = function() {
-        var trustbox = document.getElementById("trustbox")
+        var trustbox = document.getElementById("yg-trustbox")
+        window.Trustpilot.loadFromElement(trustbox)
+      }
+    } else {
+      if (window.Trustpilot) {
+        var trustbox = document.getElementById("yg-trustbox")
         window.Trustpilot.loadFromElement(trustbox)
       }
     }
   }, [])
   return (
     <div
-      id="trustbox"
+      id="yg-trustbox"
       data-locale="en-GB"
       data-template-id="539adbd6dec7e10e686debee"
       data-businessunit-id="5a33cc12b894c90f18f19bf8"
