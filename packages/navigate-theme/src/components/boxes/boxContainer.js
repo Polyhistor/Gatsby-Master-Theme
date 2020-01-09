@@ -25,7 +25,7 @@ const BoxContainer = ({ dataArray, title }) => {
               "heading-1"
             )} u-margin-bottom-sedium`}
           >
-            Why {brandName}?
+            {title === undefined ? `Why ${brandName}?` : title}
           </h2>
         ) : null}
         {renderBoxes()}

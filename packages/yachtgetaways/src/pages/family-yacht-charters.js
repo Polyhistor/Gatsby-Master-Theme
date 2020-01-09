@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // default components
 import {
@@ -6,20 +6,119 @@ import {
   Landing,
   GreenBar,
   Banner,
+  BoxContainer,
   SectionHowItWorks,
+  DestinationsMobile,
+  DestinationsTablet,
+  filterDestinations,
+  DuoBox,
+  TourBanner,
   Reviews,
+  YachtSingle,
   Trips,
   useImageQuery,
   useHomePageQuery,
   useHowItWorksQuery,
+  useCountryQuery,
+  useDestinationQuery,
   renderSeo,
+  Intro,
 } from "@nt-websites/navigate-theme"
+
+import useYachtQuery from "../queries/ourYachtQuery"
 
 const FamilyYacht = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
+  const countryQuery = useCountryQuery()
+  const destinationQuery = useDestinationQuery()
   const howItWorksData = useHowItWorksQuery()
+  const YachtQuery = useYachtQuery()
+
+  const duoBoxFakeData = [
+    {
+      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
+      header: "title1",
+      description:
+        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
+      items: ["item 1", "item 2"],
+    },
+    {
+      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
+      header: "title1",
+      description:
+        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
+      items: ["item 1", "item 2"],
+    },
+  ]
+
+  const renderDuoBoxes = () => {
+    return duoBoxFakeData.map(item => (
+      <DuoBox
+        header={item.header}
+        imageFluid={item.imageFluid}
+        description={item.description}
+        featuredItems={item.items}
+      />
+    ))
+  }
+
+  // getting the number of yours for each country
+  const filterDestinations = destination => {
+    const result = destinationQuery.filter(
+      dest => dest.node.destinationCountry === destination
+    )
+    return result.length
+  }
+
+  // rendering all the destination boxes
+  const renderCountries = () => {
+    return countryQuery.map((country, idx) => {
+      return (
+        <Fragment key={idx}>
+          <DestinationsMobile
+            type="country"
+            key={idx + 4}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+          />
+          <DestinationsTablet
+            type="country"
+            key={idx + 8}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+          <TourBanner
+            type="country"
+            key={idx + 12}
+            destination={country.node.slug}
+            title={country.node.title}
+            subtitle={country.node.days}
+            departs={country.node.departure}
+            details={country.node.description}
+            price={country.node.price}
+            tours={filterDestinations(country.node.slug)}
+            imageData={country.node.banner.localFile.childImageSharp.fluid}
+            SVGMap={country.node.svgMap.localFile.publicURL}
+          />
+        </Fragment>
+      )
+    })
+  }
 
   return (
     <Layout>
@@ -35,7 +134,30 @@ const FamilyYacht = ({ data }) => {
         />
       </div>
       <GreenBar />
-      <SectionHowItWorks data={howItWorksData} />
+      <Intro
+        title="The world’s most popular sailing destination"
+        description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.
+We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia."
+      ></Intro>
+      <BoxContainer
+        title="Why charter a private yacht?"
+        dataArray={homeQuery[0].node.whyWildKiwi}
+      />
+      {renderCountries()}
+      <YachtSingle
+        title={false}
+        data={YachtQuery}
+        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+      />
+      <section className="duo-boxes">
+        <div className="row">
+          <h2 className="heading-1 heading-1--yg u-margin-bottom-sedium">
+            Your Crew
+          </h2>
+          {renderDuoBoxes()}
+        </div>
+      </section>
+      {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
         header="Family Yacht Charter"

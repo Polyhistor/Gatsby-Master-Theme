@@ -43,14 +43,7 @@ const Countries = ({ data, pageContext }) => {
   }
 
   // setting proper URL based on country
-  //TODO: This youtube video should not be static on code. We need to define it on
-  //contentful
-  let popupUrl =
-    data.contentfulCountry.slug === "new-zealand"
-      ? "https://www.youtube.com/embed/19GIN9tj-NY"
-      : data.contentfulCountry.slug === "australia"
-      ? "https://www.youtube.com/embed/a1MwJNEJZBw"
-      : data.contentfulCountry.trailer
+  let popupUrl = data.contentfulCountry.trailer
 
   // rendering all the destination boxes
 

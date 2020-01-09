@@ -14,6 +14,7 @@ export const useWebSiteConfigQuery = () => {
               rating
               totalFacebookReviews
             }
+            useTrustPilotReview
             greenBar {
               text
               icon
@@ -30,6 +31,10 @@ export const useWebSiteConfigQuery = () => {
               whyUsHeaderText
               buttonCardText
               howItWorksBannerText
+              icons {
+                icon
+                text
+              }
             }
             countryPage {
               buttonCardText

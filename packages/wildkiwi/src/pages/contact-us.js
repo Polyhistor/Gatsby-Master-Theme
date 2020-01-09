@@ -31,8 +31,13 @@ const GetInTouch = ({ data }) => {
   })
 
   // extracting our custom hook
-  const imageQuery = useImageQuery()
+
   const homeQuery = useHomePageQuery()
+
+  const contactUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.contactUsBannerImage.localFile
+    .childImageSharp.fluid
+
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
@@ -41,7 +46,7 @@ const GetInTouch = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.getInTouchBanner.childImageSharp.fluid}
+          imageData={contactUsBannerImage}
           titleFirst="get in touch"
           buttonFirst="expore"
           buttonFirstURL="/blog"

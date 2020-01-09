@@ -476,6 +476,24 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
+    contactUsBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    howItWorksBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    ourYachtsBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
     priceTableHeaderDescription {
       icon
       text

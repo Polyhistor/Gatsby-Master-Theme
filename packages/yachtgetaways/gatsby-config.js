@@ -126,6 +126,7 @@ module.exports = {
             icon: "Sunset",
             iconAlt: "yg-Logo",
           },
+          useTrustPilotReview: true,
           review: {
             maxRating: "5",
             rating: "4.9",
@@ -150,6 +151,45 @@ module.exports = {
             whyUsHeaderText: "Our Catamarans & Crew",
             howItWorksBannerText: "explore",
             buttonCardText: "View Trip",
+
+            icons: [
+              {
+                icon: "icon-YG-Calandar-01",
+                text: "Seven nights' accommodation in your own Catamaran",
+              },
+              {
+                icon: "icon-YG-Bread-01",
+                text: "Breakfast & lunch freshly prepared daily",
+              },
+              {
+                icon: "icon-YG-Cocktail-01",
+                text: "BYO - Bring your own drinks and snacks on board",
+              },
+              {
+                icon: "icon-YG-Wheel-01",
+                text: "Explore & learn to sail with your RYA qualified Skipper",
+              },
+              {
+                icon: "icon-YG-Wine-01",
+                text: "Accompanying wine during lunch",
+              },
+              {
+                icon: "icon-YG-Paddleboard-01",
+                text: "2 Stand up paddleboards & snorkelling equipment",
+              },
+              {
+                icon: "icon-YG-Host-01",
+                text: "Superb hospitality with your professional Host",
+              },
+              {
+                icon: "icon-YG-Tea-01",
+                text: "Complimentary tea, coffee and drinking water",
+              },
+              {
+                icon: "icon-YG-Bed-01",
+                text: "Towels and fresh linen for the week",
+              },
+            ],
           },
           bookingForm: {
             bookButtonText: "Enquire",
@@ -268,6 +308,14 @@ module.exports = {
             {
               title: "About Us",
               link: "/about-us",
+            },
+            {
+              title: "Activities",
+              link: "/activities",
+            },
+            {
+              title: "Reviews",
+              link: "/reviews",
             },
             {
               title: "Family Yacht Charters",

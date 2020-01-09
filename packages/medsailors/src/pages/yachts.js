@@ -16,24 +16,25 @@ import {
 
 import useYachtQuery from "../queries/ourYachtQuery"
 
-let popupUrl = "https://ms.ntstage.com/"
-
 const Yachts = ({ data }) => {
   // extracting our custom hook
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
+
+  const ourYachtsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.ourYachtsBannerImage.localFile
+    .childImageSharp.fluid
 
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
-          imageData={imageQuery.ourYachts.childImageSharp.fluid}
+          imageData={ourYachtsBannerImage}
           titleFirst="Our yachts"
           buttonSecond="watch trailer"
           buttonSecondURL="#popup"

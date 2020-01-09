@@ -22,7 +22,10 @@ const Yachts = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
+  const ourYachtsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.ourYachtsBannerImage.localFile
+    .childImageSharp.fluid
+
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
@@ -31,14 +34,14 @@ const Yachts = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner hotfix--narrow-banner--yachts">
         <Landing
-          imageData={imageQuery.ourYachts.childImageSharp.fluid}
-          titleFirst="Our yachts"
+          imageData={ourYachtsBannerImage}
+          titleFirst="Our catamarans"
           buttonSecond="watch trailer"
           buttonSecondURL="#popup"
           buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
-          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+          popupVideo="https://www.youtube.com/embed/mVdoQcIvwao"
           shape="square"
           mobileBanner={true}
         />

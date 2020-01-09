@@ -50,6 +50,7 @@ export { default as BookForm } from "./src/components/booking-form/book-form"
 
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
+export { default as Intro } from "./src/components/intro"
 
 /* Activity */
 export {
@@ -80,6 +81,7 @@ export { default as GreenBar } from "./src/components/bars/greenBar"
 export { default as NavLink } from "./src/components/blog/blogNavLink" //TODO: does not belong to blog.
 export { default as BlogRelated } from "./src/components/blog/blogRelated"
 /*Box*/
+export { default as DuoBox } from "./src/components/boxes/duoBoxes"
 export { default as Box } from "./src/components/boxes/box"
 export { default as BoxContainer } from "./src/components/boxes/boxContainer"
 export { default as BoxText } from "./src/components/boxes/boxText"

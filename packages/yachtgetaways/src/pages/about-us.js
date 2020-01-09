@@ -32,7 +32,7 @@ const AboutUs = ({ data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
-          titleFirst="about us"
+          titleFirst="About us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="We’re lucky enough to be incredibly passionate about what we do."

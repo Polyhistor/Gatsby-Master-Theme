@@ -117,7 +117,7 @@ const IndexPage = ({ data }) => {
         buttonSecond="watch trailer"
         buttonStyles={["white", "primary"]}
         variation={false}
-        popupVideo="https://www.youtube.com/embed/JKUZ2oQtd4"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
       <GreenBarAlt
         textList={[
@@ -130,7 +130,7 @@ const IndexPage = ({ data }) => {
       />
       <WhyUsMobile
         data={homeQuery[0].node}
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
       <FeaturedMobile data={featuredBoxData} />
       <div className="row row--patched mobile-yes">
