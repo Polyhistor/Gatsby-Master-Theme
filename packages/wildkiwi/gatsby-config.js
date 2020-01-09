@@ -145,6 +145,21 @@ module.exports = {
             whyUsHeaderText: "Why Wild Kiwi",
             howItWorksBannerText: "learn more",
             buttonCardText: "View Itinerary",
+            icons: [
+              {
+                icon: "Guide",
+                text: "Expert local guide/driver",
+              },
+              {
+                icon: "Bus",
+                text: "New 18 seat vehicle",
+              },
+              { icon: "Bed", text: "Flash-pack accomodation" },
+              {
+                icon: "Toaster",
+                text: "Breakfast everyday",
+              },
+            ],
           },
           bookingForm: {
             bookButtonText: "Book",
