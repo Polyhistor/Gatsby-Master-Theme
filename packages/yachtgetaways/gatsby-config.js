@@ -318,8 +318,8 @@ module.exports = {
               link: "/reviews",
             },
             {
-              title: "Family Yacht Charters",
-              link: "/family-yacht-charters",
+              title: "Private Yacht Charters",
+              link: "/private-yacht-charters",
             },
 
             {
