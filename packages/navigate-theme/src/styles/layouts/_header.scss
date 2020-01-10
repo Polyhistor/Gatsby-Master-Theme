@@ -30,6 +30,10 @@
         height: 23.3rem;
       }
     }
+
+    &--yg {
+      @extend .heading-1--yg;
+    }
   }
 
   &__logo-box {
