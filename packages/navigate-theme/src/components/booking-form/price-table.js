@@ -245,7 +245,11 @@ const PriceTable = ({ data }) => {
             </div>
             <div className="booking-form__hidden" ref={r => (refs[idx] = r)}>
               {useYachtClass ? (
-                <div className="booking-form__class-container">
+                <div
+                  className={resolveVariationClass(
+                    "booking-form__class-container"
+                  )}
+                >
                   {pricesClassOrdered.map((p, idx) => {
                     return <h4 key={idx}>{p.description}</h4>
                   })}
