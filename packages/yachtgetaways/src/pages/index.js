@@ -174,7 +174,7 @@ const IndexPage = ({ data }) => {
         imageData={bottomBannerImage}
         header="How It Works"
         subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        subHeaderSecond="Know About Booking your own private yacht"
         buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
