@@ -21,6 +21,10 @@
     @include respond(phone) {
       height: 20.8rem;
     }
+
+    &::before {
+      border-radius: 0.3rem;
+    }
   }
   &__text-box {
     position: absolute;

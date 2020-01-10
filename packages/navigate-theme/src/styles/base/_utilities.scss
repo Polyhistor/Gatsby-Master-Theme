@@ -708,6 +708,11 @@ textarea:focus {
   }
 }
 
+.radius {
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
 // general CSS
 // this is for safari inputs (to avoid agent focus state)
 input[type="color"],

@@ -32,6 +32,9 @@ const GetInTouch = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const contactData = useContactQuery()
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   /*replace link*/
   const leftContactSection = contactData.leftSection.map(c => {
     c.content = c.content
@@ -65,10 +68,10 @@ const GetInTouch = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
       <Reviews />

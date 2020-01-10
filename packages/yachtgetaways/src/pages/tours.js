@@ -31,6 +31,8 @@ const Destination = ({ data }) => {
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
 
   // getting the number of yours for each country
   const filterDestinations = destination => {
@@ -115,10 +117,10 @@ const Destination = ({ data }) => {
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
         imageData={bottomBannerImage}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
       <Reviews />
