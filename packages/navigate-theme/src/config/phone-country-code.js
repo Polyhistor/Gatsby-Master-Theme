@@ -25,7 +25,7 @@ export const PHONE_NUMBER_LIST_ORDERED = [
   },
   {
     name: "United States",
-    dial_code: "+1",
+    dial_code: "+1 ",
     code: "US",
   },
   {
