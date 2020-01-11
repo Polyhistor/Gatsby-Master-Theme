@@ -31,6 +31,10 @@
     @extend .paragraph;
     color: $color-med-teal;
     display: block;
+
+    &--yg {
+      color: $color-yg-blue;
+    }
   }
 
   & div:first-child {

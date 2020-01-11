@@ -1,12 +1,18 @@
 import React from "react"
 import Img from "gatsby-image"
 
+import resolveVariationClass from "../helpers/theme-variation-style"
+
 const WorkForUs = ({ data }) => {
   console.log(data)
 
   const renderLinks = (links, urls) =>
     links.map((link, idx) => (
-      <a target="__blank" className="work-for-us__links" href={urls[idx]}>
+      <a
+        target="__blank"
+        className={resolveVariationClass("work-for-us__links")}
+        href={urls[idx]}
+      >
         {link}
       </a>
     ))
