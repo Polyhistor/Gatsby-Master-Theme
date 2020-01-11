@@ -236,6 +236,10 @@
     height: 29rem;
     background: #f9f9f9;
     padding: 8rem;
+
+    @include respond(phone) {
+      height: 100%;
+    }
   }
 
   &-mobile {

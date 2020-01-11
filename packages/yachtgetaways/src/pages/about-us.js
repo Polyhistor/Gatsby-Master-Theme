@@ -49,7 +49,7 @@ const AboutUs = ({ data }) => {
         subHeaderFirst="Everything You Need To Know About"
         subHeaderSecond="Booking Your Own Private Yacht"
         buttonText="explore"
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

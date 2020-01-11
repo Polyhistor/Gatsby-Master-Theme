@@ -72,7 +72,7 @@ const GetInTouch = ({ data }) => {
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Our Tours"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

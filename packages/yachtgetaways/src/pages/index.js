@@ -176,7 +176,7 @@ const IndexPage = ({ data }) => {
         subHeaderFirst="Everything You Need To"
         subHeaderSecond="Know About Booking your own private yacht"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips
