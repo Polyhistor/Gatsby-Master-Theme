@@ -26,6 +26,7 @@ import useWildkiwiQuery from "../queries/wildkiwiQuery"
 import { useFetchHook } from "../hooks/useFetchHook"
 import { renderSeoFromContext } from "../helpers/seo-helper"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 const DestinationsSingle = ({ pageContext, data, location }) => {
   // TODO - CLEAN UP
@@ -156,7 +157,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           title="Popular Activities"
           activityData={data.contentfulDestinations.activity}
         />
-        <div className="hotfix--reviews">
+        <div className={resolveVariationClass("hotfix--reviews")}>
           <Reviews />
         </div>
         <WhyWild WhyWildData={WhyWildData} />
