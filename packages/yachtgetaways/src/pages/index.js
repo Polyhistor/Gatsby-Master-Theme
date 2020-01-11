@@ -131,8 +131,8 @@ const IndexPage = ({ data }) => {
           { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
-          { label: "montenegro", link: "/sail-montenegro" },
-          { label: "italy", link: "/sail-italy" },
+          { label: "montenegro", link: "/sail-montenegro/explorer" },
+          { label: "italy", link: "/sail-italy/explorer" },
         ]}
       />
       <WhyUsMobile

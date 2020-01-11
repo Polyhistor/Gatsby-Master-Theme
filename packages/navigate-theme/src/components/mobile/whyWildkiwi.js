@@ -3,10 +3,14 @@ import { withPrefix } from "gatsby"
 import Modal from "react-responsive-modal"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 import Box from "../boxes/box"
+import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
 const WhyWildKiwi = ({ data, popupVideo, title }) => {
   // setting the initial state for the modal
   const [{ open }, setModal] = useState({ open: false })
+
+  const playIcon = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .playIcon
 
   // rendering data
   const renderData = () =>
@@ -43,13 +47,18 @@ const WhyWildKiwi = ({ data, popupVideo, title }) => {
               href="#"
               className={`btn ${resolveVariationClass("btn--trailer-button")}`}
             >
-              <svg className="svg-icon--play-button svg-icon--play-button--mobile">
+              {/* <svg className="svg-icon--play-button svg-icon--play-button--mobile">
                 <use
                   xlinkHref={withPrefix(
                     "sprite.svg#icon-Play-Button-White-A-1"
                   )}
                 />
-              </svg>
+              </svg> */}
+              <img
+                className="play-button"
+                src={playIcon}
+                alt="play-button"
+              ></img>
               <span>watch trailer</span>
             </a>
             {/* <Link
