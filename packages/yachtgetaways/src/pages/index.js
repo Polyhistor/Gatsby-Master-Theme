@@ -172,9 +172,9 @@ const IndexPage = ({ data }) => {
       {renderCountries()}
       <Banner
         imageData={bottomBannerImage}
-        header="Book your"
-        subHeaderFirst="own private"
-        subHeaderSecond="sailing trip"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />
