@@ -371,7 +371,7 @@ module.exports = {
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
         nprogress: {
-          color: `#1abc9c`,
+          color: `#020652`,
           // Disable the loading spinner.
           showSpinner: true,
         },
@@ -414,11 +414,11 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `MedSailors`,
-        short_name: `MS`,
+        name: `YachGetAways`,
+        short_name: `YG`,
         start_url: `/`,
         background_color: `#f7f0eb`,
-        theme_color: `#1abc9c`,
+        theme_color: `#020652`,
         display: `standalone`,
         icon: `src/images/Yacht-Getaways-Favicon-1.svg`, // This path is relative to the root of the site.
       },
