@@ -15,7 +15,7 @@ const Banner = ({
   return (
     <section className="section-banner section-banner-hero mobile-no">
       <div className="row">
-        <BackgroundImage Tag="section" fluid={imageData}>
+        <BackgroundImage Tag="section" fluid={imageData} className="radius">
           <div className="banner-hero banner-hero-2">
             <div className="banner-hero__text-box banner-hero__text-box-2">
               <h2 className="banner-hero-heading">

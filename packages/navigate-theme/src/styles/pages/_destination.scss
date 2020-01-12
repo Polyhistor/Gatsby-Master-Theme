@@ -153,6 +153,14 @@
         @include mobileBorderBig;
         padding: 4.8rem 0;
       }
+
+      & > h2 {
+        @include respond(phone) {
+          max-width: 31.2rem;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
     }
 
     &__price-table {

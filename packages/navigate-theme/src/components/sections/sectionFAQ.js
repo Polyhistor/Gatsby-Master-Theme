@@ -117,10 +117,10 @@ const SectionFAQ = ({ FAQData }) => {
       <div className="FAQ__container">
         <div className="FAQ__buttons">{renderButtons()}</div>
         <div className="mobile-yes">
-          <div className="activity__selector">
+          <div className={resolveVariationClass("activity__selector")}>
             <select
               onChange={handleDropdown}
-              className="activity__dropdown"
+              className={resolveVariationClass("acstivity__dropdown")}
               id="country"
             >
               {/* .sort((firstEl, secondEl)=> ) */}

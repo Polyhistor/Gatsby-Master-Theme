@@ -34,6 +34,9 @@ const Countries = ({ data, pageContext }) => {
   const homeQuery = useHomePageQuery()
   const destinationData = useDestinationQuery()
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   // getting the number of yours for each country
   const filterDestinations = destination => {
     const result = destinationData.filter(
@@ -150,10 +153,10 @@ const Countries = ({ data, pageContext }) => {
       {renderDestinationBanner()}
       <Banner
         imageData={bottomBannerImage}
-        header="How it works"
-        subHeaderFirst="everything you need to"
-        subHeaderSecond="know about our tours"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
       <Reviews />

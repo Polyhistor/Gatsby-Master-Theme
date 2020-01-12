@@ -35,6 +35,10 @@
       @include respond(tablet) {
         font-size: 1.8rem;
       }
+
+      &--yg {
+        color: $color-yg-blue;
+      }
     }
 
     &__title {

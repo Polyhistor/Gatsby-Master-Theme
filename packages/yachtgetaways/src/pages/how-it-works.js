@@ -26,6 +26,13 @@ const HowItWorks = ({ data }) => {
     .contentfulWebsiteConfiguration.howItWorksBannerImage.localFile
     .childImageSharp.fluid
 
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   return (
     <Layout>
       {renderSeo(data)}
@@ -44,12 +51,12 @@ const HowItWorks = ({ data }) => {
       <GreenBar />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="continue"
-        link="/faq"
+        imageData={bottomBannerImage}
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
+        link="/how-it-works"
       />
       <Reviews />
       <Trips

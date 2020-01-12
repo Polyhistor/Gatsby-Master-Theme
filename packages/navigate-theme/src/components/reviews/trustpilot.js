@@ -30,9 +30,9 @@ const TrustBox = () => {
     <div
       id="yg-trustbox"
       data-locale="en-GB"
-      data-template-id="539adbd6dec7e10e686debee"
+      data-template-id="53aa8912dec7e10d38f59f36"
       data-businessunit-id="5a33cc12b894c90f18f19bf8"
-      data-style-height="500px"
+      data-style-height="300px"
       data-style-width="100%"
       data-theme="light"
       data-tags="SelectedReview"

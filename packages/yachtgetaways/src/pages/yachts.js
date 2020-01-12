@@ -29,6 +29,9 @@ const Yachts = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   return (
     <Layout>
       {renderSeo(data)}
@@ -53,11 +56,11 @@ const Yachts = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="explore"
-        link="/how-it-works"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

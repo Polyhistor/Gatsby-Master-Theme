@@ -25,6 +25,9 @@ const FAQ = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   return (
     <Layout>
       {renderSeo(data)}
@@ -38,6 +41,7 @@ const FAQ = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
@@ -52,10 +56,10 @@ const FAQ = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="continue"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
       <Reviews />

@@ -21,6 +21,7 @@ import {
   useDestinationQuery,
   renderSeo,
   resolveVariationClass,
+  useWebSiteConfigQuery,
   useFeatureBox,
 } from "@nt-websites/navigate-theme"
 
@@ -31,6 +32,12 @@ const IndexPage = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
 
   // getting the number of tours for each country
   const filterDestinations = destination => {
@@ -124,8 +131,8 @@ const IndexPage = ({ data }) => {
           { label: "destinations", link: "/tours" },
           { label: "croatia", link: "/sail-croatia" },
           { label: "greece", link: "/sail-greece" },
-          { label: "montenegro", link: "/sail-montenegro" },
-          { label: "italy", link: "/sail-italy" },
+          { label: "montenegro", link: "/sail-montenegro/explorer" },
+          { label: "italy", link: "/sail-italy/explorer" },
         ]}
       />
       <WhyUsMobile
@@ -164,12 +171,12 @@ const IndexPage = ({ data }) => {
       {/* rendering all destinations */}
       {renderCountries()}
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="Family Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
-        buttonText="explore"
-        link="/how-it-works"
+        imageData={bottomBannerImage}
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Booking your own private yacht"
+        buttonText={howItWorksBannerText}
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

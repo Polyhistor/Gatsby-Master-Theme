@@ -520,6 +520,10 @@
       //   }
       // }
     }
+
+    &--yg {
+      height: 37.5rem;
+    }
   }
   /*
   TODO: Pouya I changed this for price table
@@ -706,6 +710,11 @@ textarea:focus {
       }
     }
   }
+}
+
+.radius {
+  border-radius: 0.4rem;
+  overflow: hidden;
 }
 
 // general CSS

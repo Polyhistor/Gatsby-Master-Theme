@@ -321,7 +321,7 @@
 
       @include respond(phone) {
         top: 1.5rem;
-        left: 25rem;
+        left: 23rem;
         position: absolute;
         margin-left: 4rem;
       }
@@ -345,6 +345,11 @@
       & select {
         color: $color-yg-blue;
         border: 1px solid $color-yg-blue;
+      }
+
+      &:after {
+        border-left: 2px solid $color-yg-blue;
+        border-bottom: 2px solid $color-yg-blue;
       }
     }
   }

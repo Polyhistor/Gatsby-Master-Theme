@@ -264,6 +264,12 @@
         border-left: 1px solid $color-gray-light-2;
       }
     }
+
+    &--yg {
+      & > h4 {
+        color: $color-yg-blue;
+      }
+    }
   }
 
   &__conditional-text {
@@ -687,6 +693,12 @@
           }
         }
       }
+
+      &--yg {
+        @include respond(phone) {
+          height: 19rem !important;
+        }
+      }
     }
   }
 
@@ -741,6 +753,12 @@
       @include respond(phone) {
         flex-direction: column;
         width: 100%;
+      }
+    }
+
+    &--yg {
+      @include respond(phone) {
+        flex-direction: column;
       }
     }
 
@@ -1063,6 +1081,10 @@
         margin-right: 1rem;
         font-size: 1.2rem;
       }
+    }
+
+    &--yg {
+      color: $color-yg-blue;
     }
 
     &--selected {
@@ -1470,6 +1492,17 @@
       color: $color-med-teal;
       font-family: Nunito-Black;
       padding-left: 0.6rem;
+    }
+
+    &--yg {
+      & > span {
+        border-left: 0.15rem solid $color-yg-blue;
+        border-bottom: 0.15rem solid $color-yg-blue;
+      }
+
+      & > a {
+        color: $color-yg-blue;
+      }
     }
   }
 

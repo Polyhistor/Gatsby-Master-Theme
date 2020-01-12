@@ -16,6 +16,7 @@ import {
 
 import useBlogQuery from "../queries/blogQuery"
 import useImageQuery from "../queries/imageQuery"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 import Layout2 from "../components/layout/layout2"
 import BlogRelated from "../components/blog/blogRelated"
@@ -27,7 +28,7 @@ const renderBlogCategoryLink = categories => {
   if (category) {
     return (
       <Link
-        className="blog-single__categories"
+        className={resolveVariationClass("blog-single__categories")}
         to={`blog/category/${category.slug}`}
       >
         {/* // getting only the first element of the categories array, because in this we do only need one category */}

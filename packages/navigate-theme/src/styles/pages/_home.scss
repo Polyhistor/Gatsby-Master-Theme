@@ -232,6 +232,16 @@
     }
   }
 
+  &-truspilot-reviews {
+    height: 29rem;
+    background: #f9f9f9;
+    padding: 8rem;
+
+    @include respond(phone) {
+      height: 100%;
+    }
+  }
+
   &-mobile {
     &__why-wild {
       justify-content: center;

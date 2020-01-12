@@ -29,6 +29,7 @@ const ActivityScaffold = ({ title, subtitle, price, description }) => {
       <h1 className="activity__title">{title}</h1>
       <h3 className="activity__subtitle">{subtitle}</h3>
       <h4 className={resolveVariationClass("activity__price")}>{price}</h4>
+
       {description !== null && (
         <article className="activity__body">
           {documentToReactComponents(description, options)}
