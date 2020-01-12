@@ -240,9 +240,13 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         {inPage ? null : (
           <>
             {success ? (
-              <div className="booking-form__back-holder"></div>
+              <div
+                className={resolveVariationClass("booking-form__back-holder")}
+              ></div>
             ) : (
-              <div className="booking-form__back-holder">
+              <div
+                className={resolveVariationClass("booking-form__back-holder")}
+              >
                 <span className="booking-form__arrow"></span>
                 {!tourId && (
                   <a

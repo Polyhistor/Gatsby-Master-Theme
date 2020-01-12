@@ -1493,6 +1493,17 @@
       font-family: Nunito-Black;
       padding-left: 0.6rem;
     }
+
+    &--yg {
+      & > span {
+        border-left: 0.15rem solid $color-yg-blue;
+        border-bottom: 0.15rem solid $color-yg-blue;
+      }
+
+      & > a {
+        color: $color-yg-blue;
+      }
+    }
   }
 
   &__arrow {

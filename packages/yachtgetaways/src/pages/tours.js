@@ -111,6 +111,7 @@ const Destination = ({ data }) => {
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
       {renderCountries()}
