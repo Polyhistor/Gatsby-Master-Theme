@@ -21,6 +21,7 @@ import {
   useHowItWorksQuery,
   useCountryQuery,
   useDestinationQuery,
+  useWebSiteConfigQuery,
   renderSeo,
   Intro,
 } from "@nt-websites/navigate-theme"
@@ -35,6 +36,11 @@ const FamilyYacht = ({ data }) => {
   const destinationQuery = useDestinationQuery()
   const howItWorksData = useHowItWorksQuery()
   const YachtQuery = useYachtQuery()
+
+  // extracting our custom hook
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
 
   const duoBoxFakeData = [
     {
@@ -159,10 +165,10 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       </section>
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
-        imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-        header="Private Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
+        imageData={bottomBannerImage}
+        header="Book your"
+        subHeaderFirst="own private"
+        subHeaderSecond="sailing trip"
         buttonText="continue"
         link="/faq"
       />
