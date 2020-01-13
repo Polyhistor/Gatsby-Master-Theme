@@ -33,7 +33,7 @@
     grid-template-rows: min-content min-content 2rem 2rem;
 
     @include respond(tablet) {
-      grid-template-rows: 24rem 2.5rem 2rem 2rem;
+      grid-template-rows: 16rem 2.5rem 2rem 2rem;
     }
 
     @include respond(phone) {
@@ -185,8 +185,8 @@
   }
 
   & .acitivity-box-single:last-child {
-    @include respond(tablet) {
-      display: none;
-    }
+    // @include respond(tablet) {
+    //   display: none;
+    // }
   }
 }
