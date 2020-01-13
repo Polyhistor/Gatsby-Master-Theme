@@ -112,7 +112,7 @@ const Destination = ({ data }) => {
         buttonStyles={["white", "med-blue"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
         mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
