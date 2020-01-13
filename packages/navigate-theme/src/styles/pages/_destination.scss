@@ -181,6 +181,10 @@
         padding: 23rem 55rem;
         color: white;
       }
+
+      &--yg {
+        grid-row: 9;
+      }
     }
 
     &__booking {
@@ -221,6 +225,11 @@
             max-width: 50rem;
           }
         }
+      }
+
+      &--yg {
+        grid-row: 10;
+        height: 102.2rem;
       }
     }
     &__get-there {
