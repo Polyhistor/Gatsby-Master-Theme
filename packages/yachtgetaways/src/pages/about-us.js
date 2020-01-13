@@ -26,12 +26,16 @@ const AboutUs = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const aboutUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.aboutUsBannerImage.localFile.childImageSharp
+    .fluid
+
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
+          imageData={aboutUsBannerImage}
           titleFirst="About us"
           buttonFirst="expore"
           buttonFirstURL="/blog"

@@ -19,8 +19,8 @@ import useCountryQuery from "../queries/countryQuery"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
 const ActivitiesMain = ({ pageContext }) => {
-  const activitiesBanner = useWebSiteConfigQuery()
-    .contentfulWebsiteConfiguration.activitiesBanner.localFile.childImageSharp
+  const activitiesBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.activitiesBannerImage.localFile.childImageSharp
     .fluid
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
@@ -223,7 +223,7 @@ const ActivitiesMain = ({ pageContext }) => {
       />
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={activitiesBanner}
+          imageData={activitiesBannerImage}
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"

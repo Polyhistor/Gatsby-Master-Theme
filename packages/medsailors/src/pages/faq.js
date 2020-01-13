@@ -22,7 +22,9 @@ const FAQ = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const imageQuery = useImageQuery()
+  const faqBannerImage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .aboutUsBannerImage.localFile.childImageSharp.fluid
+
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
 
@@ -31,7 +33,7 @@ const FAQ = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MSFAQ.childImageSharp.fluid}
+          imageData={faqBannerImage}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"

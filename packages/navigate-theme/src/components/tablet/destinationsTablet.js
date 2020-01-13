@@ -17,6 +17,7 @@ const DestinationsTablet = ({
   type,
   destination,
   destinationUrl,
+  destinationsArray,
   title,
   subtitle,
   departs,
@@ -28,6 +29,7 @@ const DestinationsTablet = ({
   variation,
   duration,
   country,
+  directToTrip,
 }) => {
   const theme = process.env.GATSBY_THEME
   const webSiteConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
@@ -84,7 +86,9 @@ const DestinationsTablet = ({
               <Link
                 className={`btn ${resolveVariationClass("btn-mobile")}`}
                 to={
-                  country !== undefined
+                  type === "country" && directToTrip
+                    ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}/${destinationsArray[0].url}`
+                    : country !== undefined
                     ? `${
                         themeOptionsQueryData.destinationCountryRoutePrefix
                       }${country}/${destinationUrl || destination}`

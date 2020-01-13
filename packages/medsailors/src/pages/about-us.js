@@ -19,19 +19,22 @@ import useWorkingForUs from "../queries/workingForUsQuery"
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
-  const imageQuery = useImageQuery()
+
   const homeQuery = useHomePageQuery()
   const workForUsQuery = useWorkingForUs()
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const aboutUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.aboutUsBannerImage.localFile.childImageSharp
+    .fluid
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
+          imageData={aboutUsBannerImage}
           titleFirst="About us"
           buttonFirst="expore"
           buttonFirstURL="/blog"

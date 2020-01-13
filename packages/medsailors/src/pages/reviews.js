@@ -10,11 +10,13 @@ import {
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
-
-
 const Reviews = ({ data }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
+
+  const reviewsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
+    .fluid
 
   return (
     <Layout2>
@@ -22,7 +24,7 @@ const Reviews = ({ data }) => {
 
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.ReviewsBanner.childImageSharp.fluid}
+          imageData={reviewsBannerImage}
           titleFirst="reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"

@@ -4,8 +4,6 @@ import Img from "gatsby-image"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
 const WorkForUs = ({ data }) => {
-  console.log(data)
-
   const renderLinks = (links, urls) =>
     links.map((link, idx) => (
       <a

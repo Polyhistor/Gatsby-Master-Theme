@@ -17,18 +17,22 @@ import {
 
 const AboutUs = ({ data }) => {
   // extracting our custom hook
-  const imageQuery = useImageQuery()
+
   const homeQuery = useHomePageQuery()
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
+
+  const aboutUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.aboutUsBannerImage.localFile.childImageSharp
+    .fluid
 
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
+          imageData={aboutUsBannerImage}
           titleFirst="about us"
           buttonFirst="expore"
           buttonFirstURL="/blog"

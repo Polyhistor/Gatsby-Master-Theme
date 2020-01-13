@@ -200,7 +200,7 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      activitiesBanner: file(
+      activitiesBannerImage: file(
         relativePath: {
           eq: "bungy-jumping-queenstown-wild-kiwi-activities.jpg"
         }

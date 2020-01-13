@@ -452,19 +452,25 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
-    activitiesBanner {
+    activitiesBannerImage {
       localFile {
         ...FluidImage
       }
     }
 
-    reviewsBanner {
+    reviewsBannerImage {
       localFile {
         ...FluidImage
       }
     }
 
-    faqBanner {
+    aboutUsBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    faqBannerImage {
       localFile {
         ...FluidImage
       }

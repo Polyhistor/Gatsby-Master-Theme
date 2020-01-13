@@ -83,7 +83,7 @@ const TourBanner = ({
                     "btn__card"
                   )} tablet-green-button`}
                   to={
-                    directToTrip
+                    type === "country" && directToTrip
                       ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}/${destinationsArray[0].url}`
                       : country !== undefined
                       ? `${

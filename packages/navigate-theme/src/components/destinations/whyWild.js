@@ -12,8 +12,6 @@ const WhyWild = ({ WhyWildData }) => {
     .config.destinationPage.whyUsHeaderText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
-  console.log(useWebSiteConfigQuery())
-
   const renderWhyWildData = () => {
     return WhyWildData.sort((a, b) => a.node.order - b.node.order).map(
       (why, idx) => {

@@ -152,8 +152,6 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         c => c.product_class === productClass.name
       )
 
-      console.log(cabinTypes)
-
       setFieldValue("productClass", productClass.name)
       setFieldValue("priceId", productClass.id)
 
