@@ -103,7 +103,7 @@ const Destination = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MSCountries.childImageSharp.fluid}
-        titleFirst="DESTINATIONS"
+        titleFirst="Destinations"
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
         description="Enjoy 7 unforgettable days sailing around the most breath-taking places in the Mediterranean."

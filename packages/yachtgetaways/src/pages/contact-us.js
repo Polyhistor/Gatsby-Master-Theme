@@ -58,13 +58,13 @@ const GetInTouch = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
       <SectionGetInTouch
         phoneNumberData={contactData.phoneAddress}
         leftContactSection={leftContactSection}
-      />{" "}
       />
       <Banner
         imageData={bottomBannerImage}
