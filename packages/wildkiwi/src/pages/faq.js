@@ -22,7 +22,7 @@ const FAQ = ({ data }) => {
     .childImageSharp.fluid
 
   const FAQBannerImmage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-    .faqBanner.localFile.childImageSharp.fluid
+    .faqBannerImage.localFile.childImageSharp.fluid
 
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
