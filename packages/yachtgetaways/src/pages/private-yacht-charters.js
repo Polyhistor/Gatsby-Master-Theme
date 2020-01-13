@@ -17,6 +17,7 @@ import {
   YachtSingle,
   Trips,
   useImageQuery,
+  BookForm,
   useHomePageQuery,
   useHowItWorksQuery,
   useCountryQuery,
@@ -163,6 +164,9 @@ We have three routes to suit any style, choose the ultimate way you want to feel
           {renderDuoBoxes()}
         </div>
       </section>
+      <div className="row booking-form--enquiry">
+        <BookForm countryAndTour={undefined} inPage={false} />
+      </div>
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={bottomBannerImage}
