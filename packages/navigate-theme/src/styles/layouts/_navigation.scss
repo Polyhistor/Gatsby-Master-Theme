@@ -486,6 +486,12 @@
           }
         }
       }
+
+      &--yg {
+        @include respond(tablet) {
+          margin-top: 1rem;
+        }
+      }
     }
 
     @include respond(desk) {
