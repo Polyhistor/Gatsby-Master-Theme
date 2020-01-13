@@ -29,7 +29,7 @@ const FAQ = ({ data }) => {
     .config.destinationPage.howItWorksBannerText
 
   const faqBannerImage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-    .aboutUsBannerImage.localFile.childImageSharp.fluid
+    .faqBannerImage.localFile.childImageSharp.fluid
 
   return (
     <Layout>

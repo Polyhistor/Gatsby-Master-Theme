@@ -7,13 +7,11 @@ import {
   GreenBar,
   SectionReview,
   useImageQuery,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
-  // extracting our custom hook
-  const imageQuery = useImageQuery()
-
   const reviewsBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
     .fluid

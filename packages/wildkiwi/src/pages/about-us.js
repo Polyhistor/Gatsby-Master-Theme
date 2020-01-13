@@ -9,7 +9,6 @@ import {
   AboutUsSection,
   Reviews,
   Trips,
-  useImageQuery,
   useHomePageQuery,
   renderSeo,
   useWebSiteConfigQuery,

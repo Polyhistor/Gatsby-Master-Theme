@@ -9,7 +9,6 @@ import {
   SectionFAQ,
   Reviews,
   Trips,
-  useImageQuery,
   useHomePageQuery,
   useFAQQuery,
   useWebSiteConfigQuery,
@@ -23,7 +22,7 @@ const FAQ = ({ data }) => {
     .childImageSharp.fluid
 
   const faqBannerImage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-    .aboutUsBannerImage.localFile.childImageSharp.fluid
+    .faqBannerImage.localFile.childImageSharp.fluid
 
   const homeQuery = useHomePageQuery()
   const FAQData = useFAQQuery()
