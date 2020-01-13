@@ -150,6 +150,10 @@
     //   width: 27rem;
     // }
 
+    &--yg {
+      background-color: $color-yg-orange;
+    }
+
     @include respond(tablet) {
       width: 32.2rem;
       left: -100%;

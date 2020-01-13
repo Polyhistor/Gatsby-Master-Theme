@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { useStaticQuery } from "gatsby"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 import Layout2 from "../components/layout/layout2"
 import Banner from "../components/banners/banner"
@@ -39,7 +40,9 @@ const BlogTag = ({ data, pageContext }) => {
               />
             )}
             <h3 className="blog__main-title">{node.title}</h3>
-            <h4 className="blog__main-category">{node.categories[0].name}</h4>
+            <h4 className={resolveVariationClass("blog__main-category")}>
+              {node.categories[0].name}
+            </h4>
           </Link>
         </div>
       )
