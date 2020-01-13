@@ -31,13 +31,9 @@ const Intro = ({ title, description, popupvideoURL, mobileButton, email }) => {
             <a
               onClick={() => setModal({ open: true })}
               href="#"
-              className={
-                theme === "ms"
-                  ? "btn btn--med-blue btn-animated  u-margin-top-medium"
-                  : theme === "yg"
-                  ? "btn btn--yg btn-animated  u-margin-top-medium"
-                  : "btn btn--green btn-animated  u-margin-top-medium"
-              }
+              className={`btn ${resolveVariationClass(
+                "btn--trailer-button"
+              )} u-margin-top-medium`}
             >
               <img
                 className="play-button"

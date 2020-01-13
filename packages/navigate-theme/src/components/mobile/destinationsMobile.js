@@ -12,6 +12,10 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
  * 2 - Those components are used both to render Countries box on Sail/Tour pages but also to render
  * the destinations in country pages, we should have a better name for component and the property .
  * The property "destination" sometimes refeers to countries, sometimes destinations.
+ 
+ 2 - resolveVariationClass("btn") - btn--yg btn--ms is to generic to be used to destination mobile. 
+ It should be another button, e.g btn--card or btn--destination-card, etc.
+ 
  */
 const DestinationsMobile = ({
   type,
@@ -23,6 +27,7 @@ const DestinationsMobile = ({
   tours,
   imageData,
   destinationUrl,
+  destinationsArray,
   destination,
   variation,
   duration,
@@ -30,6 +35,7 @@ const DestinationsMobile = ({
   idx,
   inCountry,
   SVGMap,
+  directToTrip,
 }) => {
   const theme = process.env.GATSBY_THEME
   const pageConfiguration = useWebSiteConfigQuery().sitePlugin.pluginOptions
@@ -110,7 +116,9 @@ const DestinationsMobile = ({
           <Link
             className={resolveVariationClass("btn")}
             to={
-              country !== undefined
+              type === "country" && directToTrip
+                ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}/${destinationsArray[0].url}`
+                : country !== undefined
                 ? `${
                     themeOptionsQueryData.destinationCountryRoutePrefix
                   }${country}/${destinationUrl || destination}`
@@ -128,7 +136,9 @@ const DestinationsMobile = ({
           <Link
             className={resolveVariationClass("btn")}
             to={
-              country !== undefined
+              type === "country" && directToTrip
+                ? `${themeOptionsQueryData.destinationCountryRoutePrefix}${destination}/${destinationsArray[0].url}`
+                : country !== undefined
                 ? `${
                     themeOptionsQueryData.destinationCountryRoutePrefix
                   }${country}/${destinationUrl || destination}`

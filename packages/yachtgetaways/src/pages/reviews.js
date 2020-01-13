@@ -7,12 +7,16 @@ import {
   GreenBar,
   SectionReview,
   useImageQuery,
+  useWebSiteConfigQuery,
   renderSeo,
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
   // extracting our custom hook
-  const imageQuery = useImageQuery()
+
+  const reviewsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
+    .fluid
 
   return (
     <Layout2>
@@ -20,8 +24,8 @@ const Reviews = ({ data }) => {
 
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.ReviewsBanner.childImageSharp.fluid}
-          titleFirst="reviews"
+          imageData={reviewsBannerImage}
+          titleFirst="Reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Don’t just take our word for it, check out what our customers have to say!"

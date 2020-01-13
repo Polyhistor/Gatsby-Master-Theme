@@ -28,12 +28,15 @@ const FAQ = ({ data }) => {
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.destinationPage.howItWorksBannerText
 
+  const faqBannerImage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .faqBannerImage.localFile.childImageSharp.fluid
+
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.YGFAQ.childImageSharp.fluid}
+          imageData={faqBannerImage}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"

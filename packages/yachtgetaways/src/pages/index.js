@@ -61,12 +61,23 @@ const IndexPage = ({ data }) => {
     return countryQuery
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((country, idx) => {
+        if (
+          !(
+            country.node.directToTrip === false ||
+            country.node.directToTrip === true
+          )
+        ) {
+          alert("te peguei")
+          alert(country.node.slug)
+        }
+
         return (
           <React.Fragment key={idx}>
             <DestinationsMobile
               type="country"
               key={idx + 4}
               destination={country.node.slug}
+              destinationsArray={country.node.destinations}
               title={country.node.title}
               subtitle={country.node.days}
               departs={country.node.departure}
@@ -74,23 +85,13 @@ const IndexPage = ({ data }) => {
               price={country.node.price}
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
+              directToTrip={country.node.directToTrip}
             />
-            <DestinationsTablet
-              type="country"
-              key={idx + 8}
-              destination={country.node.slug}
-              title={country.node.title}
-              subtitle={country.node.days}
-              departs={country.node.departure}
-              details={country.node.description}
-              price={country.node.price}
-              tours={filterDestinations(country.node.slug)}
-              imageData={country.node.banner.localFile.childImageSharp.fluid}
-              SVGMap={country.node.svgMap.localFile.publicURL}
-            />
+
             <TourBanner
               type="country"
               key={idx + 12}
+              destinationsArray={country.node.destinations}
               destination={country.node.slug}
               title={country.node.title}
               subtitle={country.node.days}
@@ -100,6 +101,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
+              directToTrip={country.node.directToTrip}
             />
           </React.Fragment>
         )
