@@ -222,8 +222,10 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
       id="booking"
       className={
         inPage
-          ? "section-destination__booking section-destination__booking--in-page"
-          : "section-destination__booking"
+          ? `${resolveVariationClass(
+              "section-destination__booking"
+            )} section-destination__booking--in-page`
+          : resolveVariationClass("section-destination__booking")
       }
     >
       <div className="booking-form__wrapper">
