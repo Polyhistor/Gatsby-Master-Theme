@@ -19,6 +19,8 @@ import {
   useFeatureBox,
   renderSeo,
   useWebSiteConfigQuery,
+  Mobile,
+  GreenBar,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
@@ -114,6 +116,9 @@ const Destination = ({ data }) => {
         mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
+      <Mobile>
+        <GreenBar></GreenBar>
+      </Mobile>
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
