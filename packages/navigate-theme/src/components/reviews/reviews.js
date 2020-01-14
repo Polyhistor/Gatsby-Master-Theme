@@ -5,7 +5,7 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useReviewQuery from "../../queries/reviewQuery"
 import { splitText } from "../../helpers/formatter"
 import Review from "./review"
-import TrustBox from "./trustpilot"
+import TrustPilotBox from "./trustpilot"
 
 const Reviews = () => {
   const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
@@ -29,7 +29,7 @@ const Reviews = () => {
       <section className="section-truspilot-reviews">
         <div className="row">
           <div>
-            <TrustBox />
+            <TrustPilotBox widgetTemplateId={"53aa8912dec7e10d38f59f36"} />
           </div>
         </div>
       </section>

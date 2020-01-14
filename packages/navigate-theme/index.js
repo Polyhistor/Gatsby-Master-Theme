@@ -179,6 +179,7 @@ export { default as WhyUsMobile } from "./src/components/mobile/whyWildkiwi"
 /*Reviews*/
 
 export { default as Review } from "./src/components/reviews/review"
+export { default as TrustPilotBox } from "./src/components/reviews/trustpilot"
 export { default as Reviews } from "./src/components/reviews/reviews"
 export { default as SectionFAQ } from "./src/components/sections/sectionFAQ"
 
