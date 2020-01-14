@@ -12,11 +12,9 @@ import {
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
-
   const reviewsBannerImage = useWebSiteConfigQuery()
-.contentfulWebsiteConfiguration.reviewsBanner.localFile
-.childImageSharp.fluid
-
+    .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
+    .fluid
 
   return (
     <Layout2>
