@@ -9,6 +9,7 @@
 
   @include respond(tablet) {
     grid-template-columns: repeat(3, 22.5rem);
+    grid-row-gap: 3rem;
   }
 
   @include respond(phone) {

@@ -12,6 +12,8 @@ const WhyWild = ({ WhyWildData }) => {
     .config.destinationPage.whyUsHeaderText
   const themeOptionsQueryData = useThemeRoutesConfigQuery()
 
+  const theme = process.env.GATSBY_THEME
+
   const renderWhyWildData = () => {
     return WhyWildData.sort((a, b) => a.node.order - b.node.order).map(
       (why, idx) => {
@@ -42,7 +44,7 @@ const WhyWild = ({ WhyWildData }) => {
       </h2>
       <div className="WhyWild-box">{renderWhyWildData()}</div>
       <Link
-        id="priceTable"
+        id={theme === "yg" ? null : "priceTable"}
         to={`${themeOptionsQueryData.vehiclesRoute}`}
         className={resolveVariationClass("acitivity-box-button")}
       >

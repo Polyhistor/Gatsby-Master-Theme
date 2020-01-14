@@ -127,7 +127,7 @@ const Destination = ({ data }) => {
         subHeaderFirst="Book your own"
         subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips
