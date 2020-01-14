@@ -10,6 +10,8 @@ const PriceTable = ({ data }) => {
   const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.bookingForm
 
+  const theme = process.env.GATSBY_THEME
+
   const priceTableHeaderDescription = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.priceTableHeaderDescription
 
@@ -219,7 +221,10 @@ const PriceTable = ({ data }) => {
               : "booking-form__entry"
           }
         >
-          <div className="booking-form__shown">
+          <div
+            // id={theme === "yg" ? "priceTable" : null}
+            className="booking-form__shown"
+          >
             <input
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
@@ -343,7 +348,10 @@ const PriceTable = ({ data }) => {
   }
 
   return (
-    <div className={resolveVariationClass("section-destination__price-table")}>
+    <div
+      id={theme === "yg" ? "priceTable" : null}
+      className={resolveVariationClass("section-destination__price-table")}
+    >
       <section className="price-list">
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">

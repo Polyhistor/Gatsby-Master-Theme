@@ -524,6 +524,10 @@
     &--yg {
       height: 37.5rem;
       grid-row: 8;
+
+      & > section {
+        height: 32.89rem !important;
+      }
     }
   }
   /*
