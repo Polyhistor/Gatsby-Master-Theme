@@ -727,6 +727,14 @@ textarea:focus {
   grid-template-columns: 25% 25% 25% 25%;
   margin-bottom: 0 !important;
 
+  @include respond(phone) {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 0 auto;
+    max-width: 100% !important;
+  }
+
   & > section {
     grid-column: 1/4;
     grid-row: 1;
@@ -734,15 +742,31 @@ textarea:focus {
 
   & > section > div {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    }
   }
 
   & > div.gatsby-image-wrapper {
     width: 31rem;
     height: 18.2rem;
     margin-top: 48%;
-  }
+    border-radius: 0.4rem;
 
-  &:first-of-type {
+    @include respond(laptop) {
+      width: 28rem;
+      height: 16.2rem;
+      margin-left: 4%;
+    }
+
+    @include respond(tablet) {
+      display: none;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
 

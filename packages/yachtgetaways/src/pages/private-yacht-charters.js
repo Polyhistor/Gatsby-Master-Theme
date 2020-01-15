@@ -178,7 +178,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       <div className="row private-includes">
         <IncludesMS icons={icons} />
         <Image
-          fluid={imageQuery.CatamaranSailingGreece.childImageSharp.fluid}
+          fluid={imageQuery.PaddleBoardingGreece.childImageSharp.fluid}
         ></Image>
       </div>
       <div className="row booking-form--enquiry">
