@@ -12,8 +12,12 @@ import {
 } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-// calling our query
-import { useTermsQuery, renderSeo, Layout2 } from "@nt-websites/navigate-theme"
+import {
+  useTermsQuery,
+  renderSeo,
+  Layout2,
+  resolveVariationClass,
+} from "@nt-websites/navigate-theme"
 
 const Terms = ({ data }) => {
   const options = {
@@ -36,7 +40,11 @@ const Terms = ({ data }) => {
       [INLINES.HYPERLINK]: (node, children) => {
         const URL = node.data.uri
         return (
-          <a href={URL} className="activity__hyperlink" target="_blank">
+          <a
+            href={URL}
+            className={resolveVariationClass("activity__hyperlink")}
+            target="_blank"
+          >
             {children}
           </a>
         )
