@@ -158,6 +158,9 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
       if (cabinTypes.length === 0) {
         delete validationSchema.fields.yachtCabinName
       } else {
+        validationSchema.fields.yachtCabinName = Yup.string().required(
+          "Yacht Cabin type is required"
+        )
         setCabinTypes(cabinTypes)
       }
     } else {
