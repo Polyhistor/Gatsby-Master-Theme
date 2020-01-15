@@ -474,6 +474,10 @@
       right: 0;
       z-index: 90;
 
+      @include respond(laptop) {
+        margin-top: 10rem;
+      }
+
       @include respond(tablet) {
         height: 34rem;
       }
