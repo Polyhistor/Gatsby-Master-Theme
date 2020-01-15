@@ -229,7 +229,11 @@
 
       &--yg {
         grid-row: 10;
-        height: 127.2rem;
+        height: 102.2rem;
+
+        @include respond(phone) {
+          height: 100%;
+        }
       }
     }
     &__get-there {

@@ -15,7 +15,7 @@ const Reviews = ({ data }) => {
 
   const renderTrustBox = () => {
     return (
-      <section className="section-truspilot-reviews">
+      <section className="section-truspilot-reviews section-truspilot-reviews--in-page">
         <div className="row">
           <div>
             <TrustPilotBox

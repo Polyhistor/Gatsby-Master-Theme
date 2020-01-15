@@ -51,6 +51,7 @@ export { default as BookForm } from "./src/components/booking-form/book-form"
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
 export { default as Intro } from "./src/components/intro"
+export { default as IncludesMS } from "./src/components/destinations/includesMS"
 
 /* Activity */
 export {

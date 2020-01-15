@@ -317,6 +317,18 @@ const useImageQuery = () => {
       ) {
         ...FluidImage
       }
+
+      CatamaranSailingGreece: file(
+        relativePath: { eq: "catamaran-sailing-greece.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      PaddleBoardingGreece: file(
+        relativePath: { eq: "paddle-boarding-greece-ionian-islands.jpg" }
+      ) {
+        ...FluidImage
+      }
     }
   `)
   return ImageData
