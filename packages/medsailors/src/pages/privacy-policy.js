@@ -13,14 +13,12 @@ import {
 } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import {
-  Layout2,
-  usePrivacyQuery,
-  renderSeo,
-  useImageQuery,
-} from "@nt-websites/navigate-theme"
+import { Layout2, renderSeo } from "@nt-websites/navigate-theme"
 
 const Privacy = ({ data }) => {
+  const privacyPolicyJsonData = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.privacyPolicy.json
+
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -52,19 +50,12 @@ const Privacy = ({ data }) => {
     },
   }
 
-  // calling our hook
-  const privacyData = usePrivacyQuery()
-  const imageQuery = useImageQuery()
-
   return (
     <Layout2>
       {renderSeo(data)}
       <div className="section-tc">
         <article className="tour-banner__description-details u-margin-top-huge">
-          {documentToReactComponents(
-            privacyData[0].node.description.json,
-            options
-          )}
+          {documentToReactComponents(privacyPolicyJsonData, options)}
         </article>
       </div>
     </Layout2>

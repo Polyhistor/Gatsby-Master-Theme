@@ -34,11 +34,11 @@ export { default as useReviewQuery } from "./src/queries/reviewQuery"
 export { default as useTeamQuery } from "./src/queries/teamQuery"
 export { default as useThemeFooterQuery } from "./src/queries/themeFooterQuery"
 export { default as useWildkiwiQuery } from "./src/queries/wildkiwiQuery"
-export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
+
 export {
   default as useThemeRoutesConfigQuery,
 } from "./src/queries/themeRoutesConfigQuery"
-export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
+
 export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
 export { default as useFeatureBox } from "./src/queries/featuredBoxQuery"
 export { default as useContactQuery } from "./src/queries/contactQuery"
