@@ -722,6 +722,30 @@ textarea:focus {
   overflow: hidden;
 }
 
+.private-includes {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin-bottom: 0 !important;
+
+  & > section {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  & > section > div {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
+
+  & > div.gatsby-image-wrapper {
+    width: 31rem;
+    height: 18.2rem;
+    margin-top: 48%;
+  }
+
+  &:first-of-type {
+  }
+}
+
 // general CSS
 // this is for safari inputs (to avoid agent focus state)
 input[type="color"],

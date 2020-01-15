@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import Image from "gatsby-image"
 
 // default components
 import {
@@ -25,6 +26,7 @@ import {
   useWebSiteConfigQuery,
   renderSeo,
   Intro,
+  IncludesMS,
 } from "@nt-websites/navigate-theme"
 
 import useYachtQuery from "../queries/ourYachtQuery"
@@ -37,6 +39,9 @@ const FamilyYacht = ({ data }) => {
   const destinationQuery = useDestinationQuery()
   const howItWorksData = useHowItWorksQuery()
   const YachtQuery = useYachtQuery()
+
+  const icons = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .destinationPage.icons
 
   // extracting our custom hook
   const bottomBannerImage = useWebSiteConfigQuery()
@@ -164,6 +169,18 @@ We have three routes to suit any style, choose the ultimate way you want to feel
           {renderDuoBoxes()}
         </div>
       </section>
+      <div className="row private-includes">
+        <IncludesMS icons={icons} />
+        <Image
+          fluid={imageQuery.CatamaranSailingGreece.childImageSharp.fluid}
+        ></Image>
+      </div>
+      <div className="row private-includes">
+        <IncludesMS icons={icons} />
+        <Image
+          fluid={imageQuery.CatamaranSailingGreece.childImageSharp.fluid}
+        ></Image>
+      </div>
       <div className="row booking-form--enquiry">
         <BookForm countryAndTour={undefined} inPage={false} />
       </div>
