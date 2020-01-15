@@ -36,7 +36,7 @@ const getThere = ({
   }
 
   return (
-    <div className="section-destination__get-there">
+    <div className={resolveVariationClass("section-destination__get-there")}>
       <div className="get-there">
         <h2
           className={`${resolveVariationClass(
