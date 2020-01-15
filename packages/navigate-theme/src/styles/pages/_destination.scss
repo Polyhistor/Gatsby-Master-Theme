@@ -246,6 +246,10 @@
       @include respond(phone) {
         display: none;
       }
+
+      &--yg {
+        grid-row: 12;
+      }
     }
   }
 

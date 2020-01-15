@@ -101,6 +101,10 @@
   &__hyperlink {
     color: #1abc9c;
     font-family: Nunito-Extrabold;
+
+    &--yg {
+      color: $color-yg-blue;
+    }
   }
 
   &__svg-map {

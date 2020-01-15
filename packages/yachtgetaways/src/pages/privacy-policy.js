@@ -6,6 +6,7 @@ import {
   Layout2,
   useWebSiteConfigQuery,
   renderSeo,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const Privacy = ({ data }) => {
@@ -32,7 +33,11 @@ const Privacy = ({ data }) => {
       [INLINES.HYPERLINK]: (node, children) => {
         const URL = node.data.uri
         return (
-          <a href={URL} className="activity__hyperlink" target="_blank">
+          <a
+            href={URL}
+            className={resolveVariationClass("activity__hyperlink")}
+            target="_blank"
+          >
             {children}
           </a>
         )

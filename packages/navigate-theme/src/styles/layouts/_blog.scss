@@ -147,6 +147,12 @@
         font-family: Nunito-Extrabold;
       }
 
+      &--yg {
+        & a {
+          color: $color-yg-blue;
+        }
+      }
+
       &::selection,
       ::-webkit-selection,
       ::-moz-selection {
@@ -209,6 +215,12 @@
       grid-row-gap: 2rem;
       justify-content: center;
 
+      &--yg {
+        & h4 {
+          color: $color-yg-blue;
+        }
+      }
+
       @include respond(tablet) {
         grid-template-columns: repeat(3, 25rem);
       }
@@ -243,6 +255,7 @@
 
       & h4 {
         @extend .heading-4;
+        color: $color-wk-green;
 
         @include respond(phone) {
           grid-column: 2;

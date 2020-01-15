@@ -474,6 +474,10 @@
       right: 0;
       z-index: 90;
 
+      @include respond(laptop) {
+        margin-top: 10rem;
+      }
+
       @include respond(tablet) {
         height: 34rem;
       }
@@ -527,6 +531,10 @@
 
       & > section {
         height: 32.89rem !important;
+
+        @include respond(laptop) {
+          height: 28.89rem !important;
+        }
       }
     }
   }

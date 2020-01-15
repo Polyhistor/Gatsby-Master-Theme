@@ -107,7 +107,7 @@ const BlogPostTemplate = ({ data }, idx) => {
             </span>
           </div>
           <div
-            className="blog-single__content"
+            className={resolveVariationClass("blog-single__content")}
             dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
           />
           <div className="blog-single__sidebar">
@@ -188,7 +188,7 @@ const BlogPostTemplate = ({ data }, idx) => {
         <h2 className="green-title u-margin-top-big mobile-yes">
           Related stories
         </h2>
-        <div className="blog-single__related">
+        <div className={resolveVariationClass("blog-single__related")}>
           <BlogRelated blogQuery={blogQuery} />
         </div>
       </article>
