@@ -61,16 +61,6 @@ const IndexPage = ({ data }) => {
     return countryQuery
       .sort((a, b) => a.node.contentfulid - b.node.contentfulid)
       .map((country, idx) => {
-        if (
-          !(
-            country.node.directToTrip === false ||
-            country.node.directToTrip === true
-          )
-        ) {
-          alert("te peguei")
-          alert(country.node.slug)
-        }
-
         return (
           <React.Fragment key={idx}>
             <DestinationsMobile

@@ -7,6 +7,7 @@ const useYachtQuery = () => {
         edges {
           node {
             ...Yacht
+            familyPage
           }
         }
       }
