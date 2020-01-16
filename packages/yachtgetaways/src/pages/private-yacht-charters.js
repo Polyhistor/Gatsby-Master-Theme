@@ -199,7 +199,7 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       <Reviews />
       <Trips
         data={homeQuery[0].node.popularTours}
-        headerText="Our Explorer Routess"
+        headerText="Our Explorer Routes"
       />
     </Layout>
   )
