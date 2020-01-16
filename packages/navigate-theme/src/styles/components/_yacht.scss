@@ -47,7 +47,7 @@
   }
 
   &-container {
-    display: grid;
+    // display: grid;
     margin-top: 8rem;
 
     @include respond(phone) {
