@@ -123,7 +123,7 @@
   &--extraBold {
     @include Nunito-ExtraBold();
   }
-  
+
   &--ms {
     @include Color-MS-Teal;
   }
@@ -489,6 +489,10 @@
   @include respond(phone) {
     font-size: 3rem;
     text-align: center;
+  }
+
+  &--yg {
+    color: $color-yg-blue;
   }
 }
 

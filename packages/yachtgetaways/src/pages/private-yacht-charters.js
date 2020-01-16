@@ -18,7 +18,6 @@ import {
   useImageQuery,
   BookForm,
   useHomePageQuery,
-  useHowItWorksQuery,
   useCountryQuery,
   useDestinationQuery,
   useWebSiteConfigQuery,
@@ -39,6 +38,8 @@ const FamilyYacht = ({ data }) => {
 
   const privateYachtQuery = usePrivateYachtQuery()
 
+  console.log(privateYachtQuery)
+
   //TODO: compoentns should not receive .node, it should have instead direct props objects values.
 
   const ourYachts = [
@@ -53,6 +54,9 @@ const FamilyYacht = ({ data }) => {
     }),
   ]
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   const whatIsIncludedIcons = privateYachtQuery[0].node.whatIsIncluded
   const optionalExtrasSection = privateYachtQuery[0].node.optionalExtras
   const bannerImage =
@@ -66,7 +70,10 @@ const FamilyYacht = ({ data }) => {
     return privateYachtQuery[0].node.ourCrewBoxes.map((item, index) => (
       <DuoBox
         header={item.header}
-        imageFluid={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
+        imageFluid={
+          privateYachtQuery[0].node.ourCrewBoxImages[index].localFile
+            .childImageSharp.fluid
+        }
         description={item.description}
         featuredItems={item.items}
       />
@@ -190,9 +197,8 @@ const FamilyYacht = ({ data }) => {
       </div>
       <GreenBar />
       <Intro
-        title="The world’s most popular sailing destination"
-        description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.
-We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia."
+        title={privateYachtQuery[0].node.introTitle}
+        description={privateYachtQuery[0].node.introText}
       ></Intro>
       <BoxContainer
         title="Why charter a private yacht?"
@@ -222,15 +228,9 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       </section>
       <div className="row private-includes">
         <IncludesMS icons={whatIsIncludedIcons} />
-        <Image
-          fluid={imageQuery.CatamaranSailingGreece.childImageSharp.fluid}
-        ></Image>
       </div>
       <div className="row private-includes">
         <IncludesMS title="Optional Extras" icons={optionalExtrasSection} />
-        <Image
-          fluid={imageQuery.PaddleBoardingGreece.childImageSharp.fluid}
-        ></Image>
       </div>
       <div className="row booking-form--enquiry">
         <BookForm countryAndTour={undefined} inPage={false} />
@@ -238,16 +238,16 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={bottomBannerImage}
-        header="Book your"
-        subHeaderFirst="own private"
-        subHeaderSecond="sailing trip"
-        buttonText="continue"
-        link="/faq"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
+        link="/how-it-works"
       />
       <Reviews />
       <Trips
         data={homeQuery[0].node.popularTours}
-        headerText="Our Explorer Routess"
+        headerText="Our Explorer Routes"
       />
     </Layout>
   )

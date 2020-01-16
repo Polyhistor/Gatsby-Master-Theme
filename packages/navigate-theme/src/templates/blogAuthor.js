@@ -7,6 +7,7 @@ import SEO from "../components/seo/seo"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
@@ -26,7 +27,11 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
           // since our wordpress source plugin did not support limit method on the query, we use the index trick
           while (idx < 12) {
             return (
-              <Link to={`/blog/${slug}`} key={id} className="article-single">
+              <Link
+                to={`/blog/${slug}`}
+                key={id}
+                className={resolveVariationClass("article-single")}
+              >
                 {fields.featured_media !== null && (
                   <Img
                     className="article-single__thumb"
@@ -37,7 +42,9 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
                   />
                 )}
                 <h2 className="article-single__title">{title}</h2>
-                <h3 className="article-single__sub-title">
+                <h3
+                  className={resolveVariationClass("article-single__sub-title")}
+                >
                   {categories && categories.length > 0
                     ? categories[0].name
                     : "Uncategorised"}
@@ -100,7 +107,12 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
               </a>
             </div>
           </div>
-          <h2 className="green-title u-margin-top-medium u-margin-bottom-medium ">
+          {/* TODO - green-title should be changed to something more meaningful */}
+          <h2
+            className={`${resolveVariationClass(
+              "green-title"
+            )} u-margin-top-medium u-margin-bottom-medium")`}
+          >
             My latest articles
           </h2>
           <div className="blog-author__article">{renderArticles()}</div>

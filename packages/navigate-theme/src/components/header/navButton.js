@@ -23,7 +23,9 @@ const Buttonbox = props => {
     <>
       <div className="header__nav-button">
         <a href="https://mytourinfo.com/" target="_blank">
-          <span className="header__nav-button-box-icon">
+          <span
+            className={resolveVariationClass("header__nav-button-box-icon")}
+          >
             <svg className="svg-icon--login">
               <use xlinkHref={withPrefix("sprite.svg#icon-Login")} />
             </svg>

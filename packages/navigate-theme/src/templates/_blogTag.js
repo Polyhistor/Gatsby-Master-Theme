@@ -53,7 +53,11 @@ const BlogTag = ({ data, pageContext }) => {
     <Layout2>
       <SEO title={`${pageContext.name} | ${pageContext.site.name}`}></SEO>
       <div className="row">
-        <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
+        <h2
+          className={`${resolveVariationClass(
+            "blog__categorized-header"
+          )} green-title u-margin-bottom-small u-margin-top-huge`}
+        >
           Tag : {pageContext.name}
         </h2>
         <div className="blog__categorized">{renderBlogs()}</div>

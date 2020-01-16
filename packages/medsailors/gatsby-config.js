@@ -137,6 +137,9 @@ module.exports = {
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
+            introTitle: "Personalise your epic adventure",
+            intoDescription:
+              "Make your adventure exactly what you want it to be with a wide range of add on activities to choose from. From adrenaline-pumping adventures to chilled out thrills, personalise your road trip the way you want it.",
           },
           destinationPage: {
             whyUsHeaderText: "Our Yachts",
