@@ -7,6 +7,7 @@ import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
@@ -40,7 +41,9 @@ const BlogCategory = ({ data, pageContext }) => {
               />
             )}
             <h3 className="blog__main-title">{node.title}</h3>
-            <h4 className="blog__main-category">{node.categories[0].name}</h4>
+            <h4 className={resolveVariationClass("blog__main-category")}>
+              {node.categories[0].name}
+            </h4>
           </Link>
         </div>
       )
