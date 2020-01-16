@@ -230,7 +230,7 @@ const FamilyYacht = ({ data }) => {
         <IncludesMS icons={whatIsIncludedIcons} />
       </div>
       <div className="row private-includes">
-        <IncludesMS title="Optional Extras" icons={optionalExtrasSection} />
+        <IncludesMS title="Additional Costs" icons={optionalExtrasSection} />
       </div>
       <div className="row booking-form--enquiry">
         <BookForm countryAndTour={undefined} inPage={false} />

@@ -34,7 +34,7 @@
     text-align: center;
     list-style: none;
 
-    & li:last-of-type {
+    & li:nth-child(9) {
       @include respond(desk) {
         display: none;
       }
@@ -78,7 +78,7 @@
 
     &--alt {
       left: -5rem;
-      top: 3.4rem;
+      top: 7rem;
       width: 16.8rem;
 
       @include respond(phone) {
