@@ -48,6 +48,9 @@ const FamilyYacht = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
   const duoBoxFakeData = [
     {
       imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
@@ -187,11 +190,11 @@ We have three routes to suit any style, choose the ultimate way you want to feel
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
         imageData={bottomBannerImage}
-        header="Book your"
-        subHeaderFirst="own private"
-        subHeaderSecond="sailing trip"
-        buttonText="continue"
-        link="/faq"
+        header="How It Works"
+        subHeaderFirst="Everything You Need To"
+        subHeaderSecond="Know About Our Tours"
+        buttonText={howItWorksBannerText}
+        link="/how-it-works"
       />
       <Reviews />
       <Trips
