@@ -348,10 +348,7 @@ const PriceTable = ({ data }) => {
   }
 
   return (
-    <div
-      id={theme === "yg" ? "priceTable" : null}
-      className={resolveVariationClass("section-destination__price-table")}
-    >
+    <div className={resolveVariationClass("section-destination__price-table")}>
       <section className="price-list">
         <div className={"booking-form__body booking-form__body--in-page"}>
           <div className="booking-form__phase-1">

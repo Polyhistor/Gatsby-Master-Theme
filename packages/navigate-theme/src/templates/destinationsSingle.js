@@ -157,10 +157,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
           title="Popular Activities"
           activityData={data.contentfulDestinations.activity}
         />
-        <div
-          // id="priceTable"
-          className={resolveVariationClass("hotfix--reviews")}
-        >
+        <div className={resolveVariationClass("hotfix--reviews")}>
           <Reviews />
         </div>
         <WhyWild WhyWildData={WhyWildData} />

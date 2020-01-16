@@ -26,13 +26,19 @@ const Reviews = () => {
 
   const renderTrustBox = () => {
     return (
-      <section className="section-truspilot-reviews">
-        <div className="row">
-          <div>
-            <TrustPilotBox widgetTemplateId={"53aa8912dec7e10d38f59f36"} />
+      <>
+        <section className="section-truspilot-reviews">
+          <div className="row">
+            <div>
+              <TrustPilotBox widgetTemplateId={"53aa8912dec7e10d38f59f36"} />
+            </div>
           </div>
-        </div>
-      </section>
+          <div
+            className="anchor"
+            id={theme === "yg" ? "priceTable" : null}
+          ></div>
+        </section>
+      </>
     )
   }
 

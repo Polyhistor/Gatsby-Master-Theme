@@ -725,6 +725,11 @@ textarea:focus {
   }
 }
 
+.anchor {
+  position: absolute;
+  bottom: 3.5rem;
+}
+
 .radius {
   border-radius: 0.4rem;
   overflow: hidden;
