@@ -981,6 +981,7 @@
         color: $color-yg-blue;
         font-family: Nunito-Extrabold;
         font-size: 3rem;
+        text-transform: uppercase;
       }
 
       @include respond(tablet) {
