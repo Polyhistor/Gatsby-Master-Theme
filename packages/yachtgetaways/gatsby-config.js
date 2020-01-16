@@ -145,13 +145,15 @@ module.exports = {
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
+            introTitle: "Personalise your sailing holiday",
+            intoDescription:
+              "Make your holiday exactly what you want it to be with a wide range of activities during the week. Both on water or on land activities allow you to truly experience the Mediterranean the way you want.",
           },
           destinationPage: {
             showIncludedSection: false,
             whyUsHeaderText: "Our Catamarans & Crew",
             howItWorksBannerText: "explore",
             buttonCardText: "View Trip",
-
             icons: [
               {
                 icon: "icon-YG-Calandar-01",
@@ -204,6 +206,46 @@ module.exports = {
               {
                 description: "Prestige Catamaran",
                 code: "Prestige Catamaran",
+              },
+            ],
+          },
+          privateYacht: {
+            icons: [
+              {
+                icon: "icon-YG-Calandar-01",
+                text: "Seven nights' accommodation in your own Catamaran",
+              },
+              {
+                icon: "icon-YG-Bread-01",
+                text: "Breakfast & lunch freshly prepared daily",
+              },
+              {
+                icon: "icon-YG-Cocktail-01",
+                text: "BYO - Bring your own drinks and snacks on board",
+              },
+              {
+                icon: "icon-YG-Wheel-01",
+                text: "Explore & learn to sail with your RYA qualified Skipper",
+              },
+              {
+                icon: "icon-YG-Wine-01",
+                text: "Accompanying wine during lunch",
+              },
+              {
+                icon: "icon-YG-Paddleboard-01",
+                text: "2 Stand up paddleboards & snorkelling equipment",
+              },
+              {
+                icon: "icon-YG-Host-01",
+                text: "Superb hospitality with your professional Host",
+              },
+              {
+                icon: "icon-YG-Tea-01",
+                text: "Complimentary tea, coffee and drinking water",
+              },
+              {
+                icon: "icon-YG-Bed-01",
+                text: "Towels and fresh linen for the week",
               },
             ],
           },

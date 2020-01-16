@@ -25,6 +25,8 @@ export const useWebSiteConfigQuery = () => {
             playIcon
             acitivitesPage {
               howItWorksBannerText
+              introTitle
+              intoDescription
             }
             destinationPage {
               showIncludedSection
