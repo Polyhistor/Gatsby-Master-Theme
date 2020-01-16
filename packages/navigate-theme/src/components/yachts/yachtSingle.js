@@ -11,7 +11,7 @@ import {
 import { resolveVariationClass } from "@nt-websites/navigate-theme"
 import Intro from "../../components/intro"
 
-const YachtSingle = ({ data, popupVideo, title }) => {
+const YachtSingle = ({ data, popupVideo, title, sectionTitle }) => {
   const imageData = useImageQuery()
 
   const renderList = (list, idx) => list.map(e => <li key={idx}>{e}</li>)
@@ -71,7 +71,7 @@ const YachtSingle = ({ data, popupVideo, title }) => {
               `heading-1`
             )} u-margin-bottom-sedium`}
           >
-            Yacht Types
+            {sectionTitle ? sectionTitle : `Yacht Types`}
           </h2>
           <Mobile>
             <Img

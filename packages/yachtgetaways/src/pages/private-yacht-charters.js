@@ -8,10 +8,8 @@ import {
   GreenBar,
   Banner,
   BoxContainer,
-  SectionHowItWorks,
   DestinationsMobile,
   DestinationsTablet,
-  filterDestinations,
   DuoBox,
   TourBanner,
   Reviews,
@@ -20,7 +18,6 @@ import {
   useImageQuery,
   BookForm,
   useHomePageQuery,
-  useHowItWorksQuery,
   useCountryQuery,
   useDestinationQuery,
   useWebSiteConfigQuery,
@@ -30,6 +27,7 @@ import {
 } from "@nt-websites/navigate-theme"
 
 import useYachtQuery from "../queries/ourYachtQuery"
+import usePrivateYachtQuery from "../queries/privateYachtQuery"
 
 const FamilyYacht = ({ data }) => {
   // extracting our custom hook
@@ -37,42 +35,45 @@ const FamilyYacht = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const countryQuery = useCountryQuery()
   const destinationQuery = useDestinationQuery()
-  const howItWorksData = useHowItWorksQuery()
-  const YachtQuery = useYachtQuery()
 
-  const icons = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
-    .destinationPage.icons
+  const privateYachtQuery = usePrivateYachtQuery()
 
+  console.log(privateYachtQuery)
+
+  //TODO: compoentns should not receive .node, it should have instead direct props objects values.
+
+  const ourYachts = [
+    ...privateYachtQuery[0].node.ourYachts.map(c => {
+      return { node: c }
+    }),
+  ]
+
+  const ourCatamarans = [
+    ...privateYachtQuery[0].node.ourCatamarans.map(c => {
+      return { node: c }
+    }),
+  ]
+
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
+
+  const whatIsIncludedIcons = privateYachtQuery[0].node.whatIsIncluded
+  const optionalExtrasSection = privateYachtQuery[0].node.optionalExtras
+  const bannerImage =
+    privateYachtQuery[0].node.bannerImage.localFile.childImageSharp.fluid
   // extracting our custom hook
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
-  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
-    .config.destinationPage.howItWorksBannerText
-
-  const duoBoxFakeData = [
-    {
-      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
-      header: "title1",
-      description:
-        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
-      items: ["item 1", "item 2"],
-    },
-    {
-      imageFluid: imageQuery.MsHowItWorksBanner.childImageSharp.fluid,
-      header: "title1",
-      description:
-        "Your Skipper is there to help you get the most out of your sailing holiday, and will help you plan out your route for the week. They’ll navigate while you relax, sit back and enjoy!",
-      items: ["item 1", "item 2"],
-    },
-  ]
-
   const renderDuoBoxes = () => {
-    return duoBoxFakeData.map(item => (
+    return privateYachtQuery[0].node.ourCrewBoxes.map((item, index) => (
       <DuoBox
         header={item.header}
-        imageFluid={item.imageFluid}
+        imageFluid={
+          privateYachtQuery[0].node.ourCrewBoxImages[index].localFile
+            .childImageSharp.fluid
+        }
         description={item.description}
         featuredItems={item.items}
       />
@@ -85,6 +86,52 @@ const FamilyYacht = ({ data }) => {
       dest => dest.node.destinationCountry === destination
     )
     return result.length
+  }
+
+  const renderDestinations = () => {
+    const lastIndex = privateYachtQuery[0].node.destinations.length - 1
+    return privateYachtQuery[0].node.destinations.map((e, idx) => {
+      return (
+        <Fragment key={idx}>
+          <DestinationsMobile
+            type="destination"
+            key={idx + 4}
+            destination={e.slug}
+            destinationUrl={e.url}
+            title={e.title}
+            subtitle={e.days}
+            departs={e.route}
+            details={e.description}
+            price={e.pricePerDay}
+            tours={filterDestinations(e.slug)}
+            SVGMap={e.svgMap.localFile.publicURL}
+            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
+            variation="ms"
+            duration={e.duration}
+            country={e.destinationCountry}
+            idx={idx === lastIndex ? lastIndex : null}
+            inCountry={true}
+          />
+          <TourBanner
+            type="destination"
+            key={idx + 12}
+            destination={e.slug}
+            destinationUrl={e.url}
+            title={e.title}
+            subtitle={e.days}
+            departs={e.route}
+            details={e.description}
+            price={e.pricePerDay}
+            tours={filterDestinations(e.slug)}
+            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
+            SVGMap={e.svgMap.localFile.publicURL}
+            variation="ms"
+            duration={e.duration}
+            country={e.destinationCountry}
+          />
+        </Fragment>
+      )
+    })
   }
 
   // rendering all the destination boxes
@@ -140,8 +187,8 @@ const FamilyYacht = ({ data }) => {
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.MsHowItWorksBanner.childImageSharp.fluid}
-          titleFirst="Private Yacht Charters"
+          imageData={bannerImage}
+          titleFirst="Private Yacht Bookings"
           description="Everything you need to know about sailing with us."
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
@@ -150,18 +197,25 @@ const FamilyYacht = ({ data }) => {
       </div>
       <GreenBar />
       <Intro
-        title="The world’s most popular sailing destination"
-        description="Experience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer.
-We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia."
+        title={privateYachtQuery[0].node.introTitle}
+        description={privateYachtQuery[0].node.introText}
       ></Intro>
       <BoxContainer
         title="Why charter a private yacht?"
         dataArray={homeQuery[0].node.whyWildKiwi}
       />
-      {renderCountries()}
+      {renderDestinations()}
+      <YachtSingle
+        sectionTitle="Our Catamarans"
+        title={false}
+        data={ourCatamarans}
+        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+      />
+
       <YachtSingle
         title={false}
-        data={YachtQuery}
+        sectionTitle="Our Yachts"
+        data={ourYachts}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
       <section className="duo-boxes">
@@ -173,16 +227,10 @@ We have three routes to suit any style, choose the ultimate way you want to feel
         </div>
       </section>
       <div className="row private-includes">
-        <IncludesMS icons={icons} />
-        <Image
-          fluid={imageQuery.CatamaranSailingGreece.childImageSharp.fluid}
-        ></Image>
+        <IncludesMS icons={whatIsIncludedIcons} />
       </div>
       <div className="row private-includes">
-        <IncludesMS icons={icons} />
-        <Image
-          fluid={imageQuery.PaddleBoardingGreece.childImageSharp.fluid}
-        ></Image>
+        <IncludesMS title="Optional Extras" icons={optionalExtrasSection} />
       </div>
       <div className="row booking-form--enquiry">
         <BookForm countryAndTour={undefined} inPage={false} />
