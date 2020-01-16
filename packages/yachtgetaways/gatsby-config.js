@@ -392,6 +392,11 @@ module.exports = {
             link: "/yachts",
             sub: null,
           },
+          {
+            label: "private charter",
+            link: "/private-yacht-charters",
+            sub: null,
+          },
           { label: "faqs", link: "/faq", sub: null },
           { label: "blog", link: "/blog", sub: null },
           { label: "contact", link: "/contact-us", sub: null },
