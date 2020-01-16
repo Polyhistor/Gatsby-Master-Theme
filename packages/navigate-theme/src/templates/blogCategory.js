@@ -59,7 +59,11 @@ const BlogCategory = ({ data, pageContext }) => {
         title={`${pageContext.name} | ${pageContext.site.name}`}
       />
       <div className="row">
-        <h2 className="blog__categorized-header green-title u-margin-bottom-small u-margin-top-huge">
+        <h2
+          className={`${resolveVariationClass(
+            "blog__categorized-header"
+          )} reen-title u-margin-bottom-small u-margin-top-huge`}
+        >
           Category : {pageContext.name}
         </h2>
         <div className="blog__categorized">{renderBlogs()}</div>
