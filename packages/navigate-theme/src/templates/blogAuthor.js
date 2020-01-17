@@ -9,6 +9,8 @@ import Reviews from "../components/reviews/reviews"
 import Trips from "../components/trips/trips"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
+// TODO - clean up component, remove unnecessary stuff
+
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
 import useImageQuery from "../queries/imageQuery"
