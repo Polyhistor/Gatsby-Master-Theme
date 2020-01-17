@@ -225,7 +225,9 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         inPage
           ? `${resolveVariationClass(
               "section-destination__booking"
-            )} section-destination__booking--in-page`
+            )} section-destination__booking--in-page ${
+              success ? "success" : null
+            }`
           : resolveVariationClass("section-destination__booking")
       }
     >
