@@ -90,7 +90,7 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
               {data.wordpressWpUsers.acf.description}
             </p>
             <div className="blog-author__social">
-              <span className="blog-author__follow">follow</span>
+              {/* <span className="blog-author__follow">follow</span>
               <a href={data.wordpressWpUsers.acf.facebook}>
                 <svg className="svg-icon--Facebook-grey">
                   <use
@@ -104,7 +104,7 @@ const BlogAuthorTemplate = ({ data, pageContext }) => {
                     xlinkHref={withPrefix("sprite.svg#icon-Instagram--grey")}
                   />
                 </svg>
-              </a>
+              </a> */}
             </div>
           </div>
           {/* TODO - green-title should be changed to something more meaningful */}
