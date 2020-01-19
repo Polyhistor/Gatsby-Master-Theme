@@ -164,6 +164,25 @@ module.exports = {
               },
             ],
           },
+          reviewsPage: {
+            introTitle: "",
+            introDescription: "",
+            logos: [
+              {
+                icon: "icon-YG-Calandar-01",
+                text: "Seven nights' accommodation in your own Catamaran",
+              },
+              {
+                icon: "icon-YG-Bread-01",
+                text: "Breakfast & lunch freshly prepared daily",
+              },
+              {
+                icon: "icon-YG-Cocktail-01",
+                text: "BYO - Bring your own drinks and snacks on board",
+              },
+            ],
+            text: "",
+          },
           bookingForm: {
             bookButtonText: "Book",
             countryDropdownLabel: "Destination",
