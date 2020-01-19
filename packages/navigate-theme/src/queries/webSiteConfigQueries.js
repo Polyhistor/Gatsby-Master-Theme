@@ -44,7 +44,10 @@ export const useWebSiteConfigQuery = () => {
             reviewsPage {
               introTitle
               introDescription
-              logos
+              logos {
+                icon
+                rating
+              }
               text
             }
             bookPage {

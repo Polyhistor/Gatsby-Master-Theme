@@ -5,6 +5,7 @@ import Landing from "../components/header/landings/landing"
 import Intro from "../components/intro"
 import GreenBar from "../components/bars/greenBar"
 import useImageQuery from "../queries/imageQuery"
+import logoRatingContainer from "../components/reviews/logoRatingContainer"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import { renderSeo } from "../helpers/seo-helper"
 
