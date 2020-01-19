@@ -5,7 +5,7 @@ import Landing from "../components/header/landings/landing"
 import Intro from "../components/intro"
 import GreenBar from "../components/bars/greenBar"
 import useImageQuery from "../queries/imageQuery"
-import logoRatingContainer from "../components/reviews/logoRatingContainer"
+import LogoRatingContainer from "../components/reviews/logoRatingContainer"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import { renderSeo } from "../helpers/seo-helper"
 
@@ -13,6 +13,9 @@ const Reviews = ({ data }) => {
   const reviewsBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
     .fluid
+
+  const reviewsPageInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.reviewsPage.logos
 
   return (
     <Layout2>
@@ -29,11 +32,11 @@ const Reviews = ({ data }) => {
           variation="dest"
         />
       </div>
-
       <Intro
         title="The world's most popular sailing destination"
         description="Exprience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia"
       ></Intro>
+      <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
     </Layout2>
   )
 }
