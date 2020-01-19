@@ -2,10 +2,11 @@ import React from "react"
 
 import Layout2 from "../components/layout/layout2"
 import Landing from "../components/header/landings/landing"
+import Intro from "../components/intro"
 import GreenBar from "../components/bars/greenBar"
 import useImageQuery from "../queries/imageQuery"
-import useWebSiteConfigQuery from "../queries/webSiteConfigQueries"
-import renderSeo from "../helpers/seo-helper"
+import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
+import { renderSeo } from "../helpers/seo-helper"
 
 const Reviews = ({ data }) => {
   const reviewsBannerImage = useWebSiteConfigQuery()
@@ -15,7 +16,6 @@ const Reviews = ({ data }) => {
   return (
     <Layout2>
       {renderSeo(data)}
-
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={reviewsBannerImage}
@@ -29,7 +29,10 @@ const Reviews = ({ data }) => {
         />
       </div>
 
-      {/* <SectionReview /> */}
+      <Intro
+        title="The world's most popular sailing destination"
+        description="Exprience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia"
+      ></Intro>
     </Layout2>
   )
 }
