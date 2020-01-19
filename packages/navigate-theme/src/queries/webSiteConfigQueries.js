@@ -41,6 +41,12 @@ export const useWebSiteConfigQuery = () => {
             countryPage {
               buttonCardText
             }
+            reviewsPage {
+              introTitle
+              introDescription
+              logos
+              text
+            }
             bookPage {
               bannerText
             }
