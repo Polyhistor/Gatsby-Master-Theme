@@ -427,7 +427,6 @@ module.exports = {
           },
         ],
         /*TODO: remove prefix routes, we don't need that anymore*/
-
         routesConfig: {
           destinationRoute: `/tours`,
           activitiesRoute: `/activities`,
