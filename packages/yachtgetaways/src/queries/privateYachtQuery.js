@@ -6,23 +6,24 @@ const usePrivateYachtQuery = () => {
       allContentfulPrivateYachtCharter {
         edges {
           node {
-            destinations {
-              url
-              title
-              route
-              priceFrom
-              pricePerDay
+            privateYachtCountries {
+              ...Countries
+            }
+            privateYachtDestinations {
               slug
-              destinationCountry
+              title
+              countrySlug
+              departureCity
               duration
               description
-              duration
+              pricePerDay
               svgMap {
                 localFile {
                   publicURL
                 }
               }
-              bannerImages {
+
+              bannerImage {
                 localFile {
                   childImageSharp {
                     fluid(quality: 80, maxWidth: 770) {

@@ -204,7 +204,7 @@ const FamilyYacht = ({ data }) => {
         title="Why charter a private yacht?"
         dataArray={homeQuery[0].node.whyWildKiwi}
       />
-      {renderDestinations()}
+      {/*renderDestinations()*/}
       <YachtSingle
         sectionTitle="Our Catamarans"
         title={false}
