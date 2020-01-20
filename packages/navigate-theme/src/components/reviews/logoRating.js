@@ -2,17 +2,23 @@ import React from "react"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const LogoRating = ({ data }) => {
-  console.log(data)
-
   return (
     <div className="logo-rating">
-      <img className="logo-rating__icon"></img>
+      <img src={data.icon} className="logo-rating__icon"></img>
       <h4 className={resolveVariationClass("facebook-reviews__rating")}>
-        test
+        {data.rating}
+        <span
+          className={resolveVariationClass("facebook-reviews__rating-decimal")}
+        >
+          /5
+        </span>
       </h4>
-      <button className={`btn ${resolveVariationClass("btn__card")}`}>
-        test
-      </button>
+      <a
+        href={data.link}
+        className={`btn ${resolveVariationClass("btn__card")}`}
+      >
+        view reviews
+      </a>
     </div>
   )
 }

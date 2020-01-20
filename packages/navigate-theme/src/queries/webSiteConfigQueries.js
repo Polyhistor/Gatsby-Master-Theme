@@ -47,6 +47,7 @@ export const useWebSiteConfigQuery = () => {
               logos {
                 icon
                 rating
+                link
               }
               text
             }

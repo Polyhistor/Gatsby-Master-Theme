@@ -200,6 +200,7 @@ module.exports = {
                 rating: "BYO - Bring your own drinks and snacks on board",
               },
             ],
+            reviewsQuantity: 870
             text: "",
           },
           bookingForm: {
