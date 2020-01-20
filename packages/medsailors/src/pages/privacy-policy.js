@@ -10,6 +10,7 @@ import {
   CODE,
   BOLD,
   imageQuery,
+  useWebSiteConfigQuery,
 } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 

@@ -22,6 +22,13 @@ const Reviews = () => {
     })
     .slice(0, 3)
 
+  const renderStars = () =>
+    [...Array(5)].map((e, i) => (
+      <svg key={i} className="svg-icon--star-big">
+        <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+      </svg>
+    ))
+
   const theme = process.env.GATSBY_THEME
 
   const renderTrustBox = () => {

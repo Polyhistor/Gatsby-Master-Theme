@@ -7,11 +7,13 @@ import {
   renderSeo,
   Layout2,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
-const termsJsonData = useWebSiteConfigQuery().contentfulWebsiteConfiguration
-  .termsConditions.json
 const Terms = ({ data }) => {
+  const termsJsonData = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .termsConditions.json
+
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (

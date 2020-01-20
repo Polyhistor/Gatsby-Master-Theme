@@ -4,6 +4,10 @@
     margin-top: 4rem;
   }
 
+  &__board {
+    background: $color-gray-light-2;
+  }
+
   &__stars-box {
     display: flex;
     width: 3rem;

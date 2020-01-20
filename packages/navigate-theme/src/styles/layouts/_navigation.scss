@@ -46,6 +46,28 @@
     @include respond(phone) {
       transform: translateY(-61rem);
     }
+
+    &--ms {
+      & li:nth-child(8) {
+        @include respond(desk) {
+          display: none;
+        }
+        @include respond(laptop) {
+          display: none;
+        }
+      }
+    }
+
+    &--wk {
+      & li:nth-child(8) {
+        @include respond(desk) {
+          display: none;
+        }
+        @include respond(laptop) {
+          display: none;
+        }
+      }
+    }
   }
 
   &__dropdown {

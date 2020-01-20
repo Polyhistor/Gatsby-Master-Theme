@@ -6,4 +6,16 @@
     &--yg {
     }
   }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  &__stats {
+    text-align: center;
+    margin-top: 4.8rem;
+  }
 }
