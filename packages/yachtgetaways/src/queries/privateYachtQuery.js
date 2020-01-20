@@ -7,7 +7,7 @@ const usePrivateYachtQuery = () => {
         edges {
           node {
             privateYachtCountries {
-              ...Countries
+              ...Country
             }
             privateYachtDestinations {
               slug
