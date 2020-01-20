@@ -7,6 +7,7 @@ import {
   renderSeo,
   Layout2,
   resolveVariationClass,
+  useWebSiteConfigQuery,
 } from "@nt-websites/navigate-theme"
 
 const termsJsonData = useWebSiteConfigQuery().contentfulWebsiteConfiguration
