@@ -80,9 +80,10 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     .bookingFormEmailContact
 
   const handleDestinationChange = (destinationSlug, setFieldValue) => {
-    if (destinationSlug === "all") {
+    /*if (destinationSlug === "all") {
       cleanForm(setFieldValue)
-    }
+    }*/
+    cleanForm(setFieldValue)
     setTourId(destinationSlug)
   }
 
@@ -101,6 +102,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     setFieldValue("productClass", "")
     setFieldValue("priceId", "")
     setProductClasses([])
+    setExtraOptions([])
   }
 
   const cleanCabinTypes = setFieldValue => {
