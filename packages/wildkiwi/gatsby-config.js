@@ -188,6 +188,15 @@ module.exports = {
             countryDropdownLabel: "Destination",
             destinationDropdownLabel: "Tour",
             useYachtClass: false,
+            /*TODO: This logic only applies to YG. Should be handled
+            by the backend on fetch dates api call.*/
+
+            extraClassOptions: [
+              {
+                className: "N/A",
+                extraOptions: ["N/A"],
+              },
+            ],
             yachtClasses: [
               {
                 description: "none",

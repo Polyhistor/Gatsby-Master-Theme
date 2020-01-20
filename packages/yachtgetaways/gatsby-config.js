@@ -217,6 +217,19 @@ module.exports = {
             destinationDropdownLabel: "Trip",
             countryDropdownLabel: "Select Destination",
             useYachtClass: true,
+            extraClassOptions: [
+              {
+                /*Class name should be linked in MTI name*/
+
+                className: "Private Yacht",
+                extraOptions: [
+                  "Yacht Starter Pack",
+                  "Host + Food Service Pack",
+                  "Paddleboard",
+                  "Host",
+                ],
+              },
+            ],
             yachtClasses: [
               {
                 description: "Superior Catamaran",
