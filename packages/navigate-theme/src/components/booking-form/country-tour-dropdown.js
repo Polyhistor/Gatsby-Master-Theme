@@ -11,19 +11,21 @@ const getCountryList = (contentfulCountryData, propsCountryDestinationList) => {
     return propsCountryDestinationList
   }
 
-  const countriesDestinations = contentfulCountryData.map(c => {
-    return {
-      slug: c.node.slug,
-      title: c.node.title,
-      destinations: c.node.destinations.map(d => {
-        return {
-          url: d.url,
-          slug: d.slug,
-          title: d.title,
-        }
-      }),
-    }
-  })
+  const countriesDestinations = contentfulCountryData
+    .sort((a, b) => a.node.order - b.node.order)
+    .map(c => {
+      return {
+        slug: c.node.slug,
+        title: c.node.title,
+        destinations: c.node.destinations.map(d => {
+          return {
+            url: d.url,
+            slug: d.slug,
+            title: d.title,
+          }
+        }),
+      }
+    })
 
   return countriesDestinations
 }
