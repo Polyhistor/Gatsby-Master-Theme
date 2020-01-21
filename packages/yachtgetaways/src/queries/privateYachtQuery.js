@@ -12,7 +12,10 @@ const usePrivateYachtQuery = () => {
             privateYachtDestinations {
               slug
               title
-              countrySlug
+              country {
+                ...Country
+              }
+
               departureCity
               duration
               description

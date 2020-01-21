@@ -67,6 +67,31 @@ const FamilyYacht = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  /**
+   * Get the country and destination based on private yacht content.
+   * The countries will be fetched using privateYachtCountries.
+   * The destinations will be linked to the countries using
+   * countrySlug - it could be also used a reference for countries
+   * on each private yacht destination.
+   */
+  const getCountriesDestinationsList = () => {
+    return privateYachtQuery[0].node.privateYachtCountries.map(c => {
+      return {
+        title: c.title,
+        slug: c.slug,
+        destinations: privateYachtQuery[0].node.privateYachtDestinations
+          .filter(d => d.country.slug === c.slug)
+          .map(dest => {
+            return {
+              url: "",
+              slug: dest.slug,
+              title: dest.title,
+            }
+          }),
+      }
+    })
+  }
+
   const renderDuoBoxes = () => {
     return privateYachtQuery[0].node.ourCrewBoxes.map((item, index) => (
       <DuoBox
@@ -79,14 +104,6 @@ const FamilyYacht = ({ data }) => {
         featuredItems={item.items}
       />
     ))
-  }
-
-  // getting the number of yours for each country
-  const filterDestinations = destination => {
-    const result = destinationQuery.filter(
-      dest => dest.node.destinationCountry === destination
-    )
-    return result.length
   }
 
   const renderDestinations = () => {
@@ -168,7 +185,11 @@ const FamilyYacht = ({ data }) => {
         <IncludesMS title="Additional Costs" icons={optionalExtrasSection} />
       </div>
       <div id="enquiry" className="row booking-form--enquiry">
-        <BookForm countryAndTour={undefined} inPage={false} />
+        <BookForm
+          countryDestinationList={getCountriesDestinationsList()}
+          countryAndTour={undefined}
+          inPage={false}
+        />
       </div>
       {/* <SectionHowItWorks data={howItWorksData} /> */}
       <Banner
