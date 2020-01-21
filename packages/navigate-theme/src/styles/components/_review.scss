@@ -4,8 +4,65 @@
     margin-top: 4rem;
   }
 
-  &__board {
+  &__navigation {
+  }
+
+  &__page-count {
+    position: relative;
+    width: 31%;
+
+    &:after {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      border-left: 2px solid #5d5d5d;
+      border-bottom: 2px solid #5d5d5d;
+      transform: rotate(-45deg);
+      display: inline-block;
+      margin-left: -5.3rem;
+      margin-bottom: 0.15rem;
+    }
+  }
+
+  &__dropdown {
+    appearance: none;
+    border: none;
+    font-weight: 700;
+    padding: 0.5ch 3ch 0.5ch 1ch;
     background: $color-gray-light-2;
+    margin: 0 0.5rem;
+
+    &-wrapper {
+      width: 50%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__card {
+    background: white;
+    display: grid;
+    position: relative;
+    width: 50%;
+    margin: 2.4rem auto;
+    padding: 2.4rem;
+    grid-row-gap: 0.8rem;
+    border-radius: 0.4rem;
+  }
+
+  &__description {
+    @extend .paragraph;
+  }
+
+  &__icon {
+    justify-self: end;
+  }
+
+  &__board {
+    background: $color-gray-light-1;
+    padding: 2.4rem;
   }
 
   &__stars-box {

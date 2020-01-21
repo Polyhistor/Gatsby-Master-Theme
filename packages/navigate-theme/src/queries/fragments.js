@@ -557,8 +557,16 @@ export const ReviewsFragment = graphql`
     reviewText {
       reviewText
     }
-
     date
+    logo {
+      localFile {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1160) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `
 

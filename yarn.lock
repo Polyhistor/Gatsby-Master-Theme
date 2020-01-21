@@ -6966,12 +6966,26 @@ gatsby-plugin-sitemap@^2.2.16:
     pify "^3.0.0"
     sitemap "^1.13.0"
 
+gatsby-plugin-smoothscroll@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-smoothscroll/-/gatsby-plugin-smoothscroll-1.0.4.tgz#89368fa04ffe2d02f15a9acd637e9d1c5a2d7ec9"
+  integrity sha512-B61Iv/rGj0X5Uo43EtY+CYnM1ER0Ld/GfDCr9O1v+BzJ15KT2LxWPyk5/CbKb4O4VuX4n+jcQrOVBEyg2D1jIA==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
+
 gatsby-plugin-svg-sprite@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-svg-sprite/-/gatsby-plugin-svg-sprite-2.0.1.tgz#533c338788a70f9882333ef540df53b92bda0d4b"
   integrity sha512-HOioTgkKZpOkWoIK2WTXi4IEOjgs3M4K2kiIpNv0BXHAmqMpOZrbx2coWffUvjNmEnZFDK7ALkiICPrgNtV4Rg==
   dependencies:
     svg-sprite-loader "^4.1.3"
+
+gatsby-plugin-transitions@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-transitions/-/gatsby-plugin-transitions-2.1.6.tgz#1af79bd4dea1f0a1f4ce8cbea4e7b6f3c3bb4f33"
+  integrity sha512-00i35fsTMIXhSk9wGa6fdmOIujrv4gBhXqqw6jzJEtwdklacMtmtfQsgiwpF+4emST04c1JXX3+4dMCxFSocJA==
+  dependencies:
+    prop-types "^15.7.2"
 
 gatsby-react-router-scroll@^2.1.14:
   version "2.1.14"
@@ -12505,6 +12519,14 @@ react-spinner-children@^1.0.8:
     prop-types "^15.6.0"
     spin.js "^2.3.2"
 
+react-spring@^8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
+
 react-transition-group@^4.0.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
@@ -13488,6 +13510,11 @@ smart-buffer@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.0.2.tgz#5207858c3815cc69110703c6b94e46c15634395d"
   integrity sha512-JDhEpTKzXusOqXZ0BUIdH+CjFdO/CR3tLlf5CN34IypI+xMmXW1uB16OOY8z3cICbJlDAVJzNbwBhNO0wt9OAw==
+
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
