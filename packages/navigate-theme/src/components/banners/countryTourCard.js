@@ -70,13 +70,15 @@ const renderMobile = ({
             </h4>
             <p className="tour-banner__description-details">{description}</p>
             <p />
-            <span
-              className={resolveVariationClass(
-                "tour-banner__description-price"
-              )}
-            >
-              {bottomDescription}
-            </span>
+            {bottomDescription && (
+              <span
+                className={resolveVariationClass(
+                  "tour-banner__description-price"
+                )}
+              >
+                {bottomDescription}
+              </span>
+            )}
           </div>
         </div>
         <div className="u-center-text">
@@ -151,14 +153,16 @@ const CountryTourCard = ({
                 <p className="tour-banner__description-details">
                   {description}
                 </p>
+                {bottomDescription && (
+                  <span
+                    className={resolveVariationClass(
+                      "tour-banner__description-price"
+                    )}
+                  >
+                    {bottomDescription}
+                  </span>
+                )}
 
-                <span
-                  className={resolveVariationClass(
-                    "tour-banner__description-price"
-                  )}
-                >
-                  {bottomDescription}
-                </span>
                 <div className="tour-banner__description-button-box mobile-no">
                   <Link
                     className={`btn  ${resolveVariationClass(

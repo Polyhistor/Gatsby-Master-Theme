@@ -102,7 +102,6 @@ const FamilyYacht = ({ data }) => {
               subTitle={dest.departureCity}
               secondSubTitle={`${dest.duration} Days`}
               description={dest.description}
-              bottomDescription={`From $${dest.pricePerDay} per day`}
               circleBadgeTopText={dest.duration}
               circleBadgeBottomText={"DAYS"}
               svgMapImage={dest.svgMap.localFile.publicURL}
