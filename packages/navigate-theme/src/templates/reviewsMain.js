@@ -3,6 +3,8 @@ import { Link, navigate, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo/seo"
 import { TransitionLink } from "gatsby-plugin-transitions"
+import "rc-pagination/assets/index.css"
+import Pagination from "rc-pagination"
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
@@ -26,6 +28,8 @@ const ReviewsMain = ({ pageContext, location }) => {
   const { pageCount, group, index, first, last } = pageContext
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
+
+  console.log(pageContext)
 
   useEffect(() => {
     navigate(`${location.pathname}#reviews`)
@@ -52,6 +56,13 @@ const ReviewsMain = ({ pageContext, location }) => {
     console.log(e.target.value)
   }
 
+  const itemRender = (current, type, element) => {
+    if (type === "page") {
+      return <a href={`#${current}`}>{current}</a>
+    }
+    return element
+  }
+
   return (
     <Layout>
       <div className="hotfix--narrow-banner">
@@ -72,6 +83,11 @@ const ReviewsMain = ({ pageContext, location }) => {
         description="Exprience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia"
       ></Intro>
       <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
+
+      <div>
+        <Pagination total={100} itemRender={itemRender} />
+      </div>
+
       <ReviewsBoard>
         {renderCards()}
         <div className="review__dropdown-wrapper">
