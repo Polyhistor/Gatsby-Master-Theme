@@ -171,6 +171,20 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           }
         }
       }
+      allContentfulReviews {
+        edges {
+          node {
+            title
+            date
+            name
+            logo {
+              localFile {
+                publicURL
+              }
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     // error handling after the query
@@ -191,6 +205,8 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     // }
 
     const PageSeoMeta = result.data.allContentfulSeoPageMeta.edges
+
+    const Reviews = result.data.allContentfulReviews.edges
 
     // accesing the wordpress blog data via a variable
     const BlogPosts = result.data.allWordpressPost.edges
@@ -254,6 +270,14 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       pageTemplate: require.resolve("./src/templates/blogMain.js"),
       pageLength: 10,
       pathPrefix: "blog",
+    })
+
+    createPaginatedPages({
+      edges: Reviews,
+      createPage: createPage,
+      pageTemplate: require.resolve("./src/templates/reviewsMain.js"),
+      pageLength: 5,
+      pathPrefix: "reviews",
     })
 
     // creating another set of paginated page for the blog
