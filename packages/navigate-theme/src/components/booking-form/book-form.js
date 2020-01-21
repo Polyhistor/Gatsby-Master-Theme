@@ -51,7 +51,12 @@ Render function is to big. Wraop that into functional components/renders.
 
 
 */
-const BookForm = ({ countryAndTour, tourId, inPage }) => {
+const BookForm = ({
+  countryDestinationList,
+  countryAndTour,
+  tourId,
+  inPage,
+}) => {
   // TODO - clean all the usestates and replace them with userReducer instead
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
@@ -343,6 +348,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                 <Form>
                   {!tourId && (
                     <CountryDestinationDropdown
+                      countryDestinationsList={countryDestinationList}
                       defaultValues={countryAndTour}
                       setFieldValue={setFieldValue}
                       onDestinationChange={handleDestinationChange}
