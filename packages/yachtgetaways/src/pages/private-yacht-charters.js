@@ -9,6 +9,7 @@ import {
   Banner,
   BoxContainer,
   DestinationsMobile,
+  CountryTourCard,
   DestinationsTablet,
   DuoBox,
   TourBanner,
@@ -89,97 +90,32 @@ const FamilyYacht = ({ data }) => {
   }
 
   const renderDestinations = () => {
-    const lastIndex = privateYachtQuery[0].node.destinations.length - 1
-    return privateYachtQuery[0].node.destinations.map((e, idx) => {
-      return (
-        <Fragment key={idx}>
-          <DestinationsMobile
-            type="destination"
-            key={idx + 4}
-            destination={e.slug}
-            destinationUrl={e.url}
-            title={e.title}
-            subtitle={e.days}
-            departs={e.route}
-            details={e.description}
-            price={e.pricePerDay}
-            tours={filterDestinations(e.slug)}
-            SVGMap={e.svgMap.localFile.publicURL}
-            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
-            variation="ms"
-            duration={e.duration}
-            country={e.destinationCountry}
-            idx={idx === lastIndex ? lastIndex : null}
-            inCountry={true}
-          />
-          <TourBanner
-            type="destination"
-            key={idx + 12}
-            destination={e.slug}
-            destinationUrl={e.url}
-            title={e.title}
-            subtitle={e.days}
-            departs={e.route}
-            details={e.description}
-            price={e.pricePerDay}
-            tours={filterDestinations(e.slug)}
-            imageData={e.bannerImages[0].localFile.childImageSharp.fluid}
-            SVGMap={e.svgMap.localFile.publicURL}
-            variation="ms"
-            duration={e.duration}
-            country={e.destinationCountry}
-          />
-        </Fragment>
-      )
-    })
-  }
-
-  // rendering all the destination boxes
-  const renderCountries = () => {
-    return countryQuery.map((country, idx) => {
-      return (
-        <Fragment key={idx}>
-          <DestinationsMobile
-            type="country"
-            key={idx + 4}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-          />
-          <DestinationsTablet
-            type="country"
-            key={idx + 8}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          />
-          <TourBanner
-            type="country"
-            key={idx + 12}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          />
-        </Fragment>
-      )
-    })
+    const lastIndex =
+      privateYachtQuery[0].node.privateYachtDestinations.length - 1
+    return privateYachtQuery[0].node.privateYachtDestinations.map(
+      (dest, idx) => {
+        return (
+          <Fragment key={idx}>
+            <CountryTourCard
+              title={dest.title}
+              keyIndex={idx}
+              subTitle={dest.departureCity}
+              secondSubTitle={`${dest.duration} Days`}
+              description={dest.description}
+              bottomDescription={`From $${dest.pricePerDay} per day`}
+              circleBadgeTopText={dest.duration}
+              circleBadgeBottomText={"DAYS"}
+              svgMapImage={dest.svgMap.localFile.publicURL}
+              bannerImage={dest.bannerImage.localFile.childImageSharp.fluid}
+              buttonText={`Enquiry`}
+              buttonLink={`private-yacht-charters/#enquiry`}
+              isLastItem={lastIndex === idx}
+              mobileDisplayOnlySplitedSvgAndTitle={true}
+            />
+          </Fragment>
+        )
+      }
+    )
   }
 
   return (
@@ -204,7 +140,7 @@ const FamilyYacht = ({ data }) => {
         title="Why charter a private yacht?"
         dataArray={homeQuery[0].node.whyWildKiwi}
       />
-      {/*renderDestinations()*/}
+      {renderDestinations()}
       <YachtSingle
         sectionTitle="Our Catamarans"
         title={false}
@@ -232,7 +168,7 @@ const FamilyYacht = ({ data }) => {
       <div className="row private-includes">
         <IncludesMS title="Additional Costs" icons={optionalExtrasSection} />
       </div>
-      <div className="row booking-form--enquiry">
+      <div id="enquiry" className="row booking-form--enquiry">
         <BookForm countryAndTour={undefined} inPage={false} />
       </div>
       {/* <SectionHowItWorks data={howItWorksData} /> */}

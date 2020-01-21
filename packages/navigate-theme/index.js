@@ -87,6 +87,11 @@ export { default as Box } from "./src/components/boxes/box"
 export { default as BoxContainer } from "./src/components/boxes/boxContainer"
 export { default as BoxText } from "./src/components/boxes/boxText"
 /*Destinations*/
+
+export {
+  default as CountryTourCard,
+} from "./src/components/banners/countryTourCard"
+
 export {
   default as ActivitiesBox,
 } from "./src/components/destinations/activitiesBox"
