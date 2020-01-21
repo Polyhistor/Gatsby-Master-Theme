@@ -3,8 +3,7 @@ import { Link, navigate, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo/seo"
 import { TransitionLink } from "gatsby-plugin-transitions"
-import "rc-pagination/assets/index.css"
-import Pagination from "rc-pagination"
+
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
@@ -18,6 +17,7 @@ import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import LogoRatingContainer from "../components/reviews/logoRatingContainer"
 import ReviewsBoard from "../components/reviews/reviewsBoard"
 import ReviewCard from "../components/reviews/reviewCard"
+
 // utilities
 import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
@@ -29,11 +29,11 @@ const ReviewsMain = ({ pageContext, location }) => {
   const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   const nextUrl = (index + 1).toString()
 
-  console.log(pageContext)
+  // useEffect(() => {
+  //   navigate(`${location.pathname}#reviews`)
+  // }, [index])
 
-  useEffect(() => {
-    navigate(`${location.pathname}#reviews`)
-  }, [index])
+  console.log(pageContext)
 
   const renderCards = () =>
     group.map(c => (
@@ -52,15 +52,8 @@ const ReviewsMain = ({ pageContext, location }) => {
   const reviewsPageInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.reviewsPage.logos
 
-  const handleChange = e => {
-    console.log(e.target.value)
-  }
-
-  const itemRender = (current, type, element) => {
-    if (type === "page") {
-      return <a href={`#${current}`}>{current}</a>
-    }
-    return element
+  const handlePageClick = () => {
+    console.log("test")
   }
 
   return (
@@ -84,10 +77,6 @@ const ReviewsMain = ({ pageContext, location }) => {
       ></Intro>
       <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
 
-      <div>
-        <Pagination total={100} itemRender={itemRender} />
-      </div>
-
       <ReviewsBoard>
         {renderCards()}
         <div className="review__dropdown-wrapper">
@@ -102,7 +91,7 @@ const ReviewsMain = ({ pageContext, location }) => {
           <div className="review__page-count">
             <span className="paragraph">Showing page</span>
             <select
-              onChange={e => handleChange(e)}
+              onChange={e => handlePageClick(e)}
               className="review__dropdown"
             >
               {[...Array(pageCount)].map((e, i) => (
