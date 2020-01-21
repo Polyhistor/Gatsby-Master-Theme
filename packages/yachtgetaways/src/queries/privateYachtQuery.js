@@ -16,7 +16,6 @@ const usePrivateYachtQuery = () => {
               departureCity
               duration
               description
-              pricePerDay
               svgMap {
                 localFile {
                   publicURL
