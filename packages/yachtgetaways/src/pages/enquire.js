@@ -92,7 +92,7 @@ const Book = ({ location, data }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={enquiryBanner}
-          titleFirst={`bannerText`}
+          titleFirst={bannerText}
           description="Have quesssstions? Find all the answers below so you can be fully prepared for the adventure of a lifetime."
           buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
