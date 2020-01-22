@@ -2,4 +2,8 @@
   height: 80vh;
   width: 102vw;
   margin-top: 7rem;
+
+  @include respond(tablet) {
+    width: 99vw;
+  }
 }
