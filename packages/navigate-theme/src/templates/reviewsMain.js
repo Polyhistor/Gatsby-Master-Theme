@@ -33,6 +33,23 @@ const ReviewsMain = ({ pageContext, location }) => {
   //   navigate(`${location.pathname}#reviews`)
   // }, [index])
 
+  const chunkArray = (array, size) => {
+    let result = []
+    for (let value of array) {
+      let lastArray = result[result.length - 1]
+      if (!lastArray || lastArray.length == size) {
+        result.push([value])
+      } else {
+        lastArray.push(value)
+      }
+    }
+    return result
+  }
+
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+  console.log(chunkArray(arr, 2))
+
   console.log(pageContext)
 
   const renderCards = () =>
