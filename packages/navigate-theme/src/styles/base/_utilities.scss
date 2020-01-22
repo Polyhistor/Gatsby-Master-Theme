@@ -838,3 +838,9 @@ textarea {
 [class~=".section-tour-banner-newzealand-mobile"]:last-of-type {
   display: none;
 }
+
+.next,
+.previous,
+.selected {
+  opacity: 100% !important;
+}
