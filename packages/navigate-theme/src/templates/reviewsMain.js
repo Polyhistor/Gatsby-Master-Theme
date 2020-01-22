@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react"
-import { Link, navigate, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo/seo"
-import { TransitionLink } from "gatsby-plugin-transitions"
+import scrollTo from "gatsby-plugin-smoothscroll"
+import ReactPaginate from "react-paginate"
 
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
+import useHomePageQuery from "../queries/homePageQuery"
+
 import Trips from "../components/trips/trips"
+import Banner from "../components/banners/banner"
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 import Intro from "../components/intro"
@@ -17,43 +19,42 @@ import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import LogoRatingContainer from "../components/reviews/logoRatingContainer"
 import ReviewsBoard from "../components/reviews/reviewsBoard"
 import ReviewCard from "../components/reviews/reviewCard"
-
 // utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import resolveVariationClass from "../helpers/theme-variation-style"
+
+import useReviewQuery from "../queries/reviewQuery"
 
 const ReviewsMain = ({ pageContext, location }) => {
-  const { pageCount, group, index, first, last } = pageContext
-  const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
+  const reviewData = useReviewQuery()
+  const homeQuery = useHomePageQuery()
 
-  // useEffect(() => {
-  //   navigate(`${location.pathname}#reviews`)
-  // }, [index])
+  const bottomBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
+    .childImageSharp.fluid
+  const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.destinationPage.howItWorksBannerText
 
-  const chunkArray = (array, size) => {
-    let result = []
-    for (let value of array) {
-      let lastArray = result[result.length - 1]
-      if (!lastArray || lastArray.length == size) {
-        result.push([value])
-      } else {
-        lastArray.push(value)
-      }
-    }
-    return result
+  const rowsPerPage = 5
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [reviewsList, setReviewList] = useState([])
+
+  const loadReviews = () => {
+    const startIndex = currentPage * rowsPerPage - rowsPerPage
+    const endIndex = currentPage * rowsPerPage - 1
+
+    const reviews = reviewData.slice(startIndex, endIndex + 1)
+
+    setReviewList(reviews)
   }
 
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  useEffect(() => {
+    loadReviews()
+  }, [currentPage])
 
-  console.log(chunkArray(arr, 2))
-
-  console.log(pageContext)
+  console.log(reviewsList)
 
   const renderCards = () =>
-    group.map(c => (
+    reviewsList.map(c => (
       <ReviewCard
         title={c.node.title}
         name={c.node.name}
@@ -69,8 +70,25 @@ const ReviewsMain = ({ pageContext, location }) => {
   const reviewsPageInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.reviewsPage.logos
 
-  const handlePageClick = () => {
-    console.log("test")
+  const handleChange = e => {
+    setCurrentPage(e)
+  }
+
+  const getTotalPages = () => {
+    const totalReviews = reviewData.length
+    const divisionRest = totalReviews % rowsPerPage
+    const restDivisionSum = divisionRest > 0 ? 1 : 0
+    const totalPages =
+      totalReviews <= rowsPerPage
+        ? 1
+        : Math.floor(totalReviews / rowsPerPage) + restDivisionSum
+
+    return totalPages
+  }
+
+  const onPageChange = pageNumber => {
+    setCurrentPage(pageNumber.selected + 1)
+    scrollTo("#reviews")
   }
 
   return (
@@ -94,33 +112,52 @@ const ReviewsMain = ({ pageContext, location }) => {
       ></Intro>
       <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
 
+      <div></div>
+
       <ReviewsBoard>
         {renderCards()}
+
         <div className="review__dropdown-wrapper">
-          <div className="review__navigation">
-            <NavLink
-              test={first}
-              url={`/reviews/${previousUrl}`}
-              text="Previous"
-            />
-            <NavLink test={last} url={`/reviews/${nextUrl}`} text="Next" />
-          </div>
+          <ReactPaginate
+            pageCount={getTotalPages()}
+            onPageChange={onPageChange}
+            previousLabel={"<"}
+            nextLabel={">"}
+            breakLabel={"..."}
+            marginPagesDisplayed={10}
+            pageRangeDisplayed={10}
+          />
+
+          {/*<div className="review__navigation"></div>
           <div className="review__page-count">
             <span className="paragraph">Showing page</span>
             <select
-              onChange={e => handlePageClick(e)}
+              onChange={e => handleChange(e)}
               className="review__dropdown"
             >
-              {[...Array(pageCount)].map((e, i) => (
+              {[...Array(getTotalPages())].map((e, i) => (
                 <option key={i} value={i + 1}>
                   {i + 1}
                 </option>
               ))}
             </select>
-            <span className="paragraph"> of {pageCount}</span>
+            <span className="paragraph"> of {getTotalPages()}</span>
           </div>
+              */}
         </div>
       </ReviewsBoard>
+      <Banner
+        imageData={bottomBannerImage}
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
+        buttonText={howItWorksBannerText}
+        link="/private-yacht-charters"
+      />
+      <Trips
+        data={homeQuery[0].node.popularTours}
+        headerText="Our Explorer Routes"
+      />
     </Layout>
   )
 }

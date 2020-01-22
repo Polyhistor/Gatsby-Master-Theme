@@ -13,7 +13,10 @@ const LogoRatingContainer = ({ info }) => {
     <div className="row">
       <div className="logo-rating__container">{renderRatings()}</div>
       <div className="logo-rating__stats">
-        <p className="logo-rating__fact">{`Based on ${reviewsPageData.reviewsQuantity} reviews`}</p>
+        <p
+          className="logo-rating__fact"
+          id="reviews"
+        >{`Based on ${reviewsPageData.reviewsQuantity} reviews`}</p>
       </div>
     </div>
   )

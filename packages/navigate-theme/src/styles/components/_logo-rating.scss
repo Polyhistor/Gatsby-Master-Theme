@@ -6,6 +6,16 @@
   justify-content: center;
   text-align: center;
 
+  @include respond(tablet) {
+    margin-right: 0.8rem;
+  }
+
+  &:not(:last-of-type) {
+    @include respond(phone) {
+      margin-bottom: 4.8rem;
+    }
+  }
+
   & > a {
     justify-self: center;
   }
@@ -26,11 +36,23 @@
     max-width: 87%;
     margin: 0 auto;
     margin-top: 4.8rem;
+
+    @include respond(tablet) {
+      max-width: 98%;
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+    }
   }
 
   &__stats {
     text-align: center;
     margin-top: 4.8rem;
+
+    @include respond(phone) {
+      margin: 4.8rem 0rem;
+    }
   }
 
   &__fact {
