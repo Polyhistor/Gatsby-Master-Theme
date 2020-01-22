@@ -5,12 +5,12 @@ import SEO from "../components/seo/seo"
 import { TransitionLink } from "gatsby-plugin-transitions"
 import "rc-pagination/assets/index.css"
 import Pagination from "rc-pagination"
+import ReactPaginate from "react-paginate"
+
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
-import Banner from "../components/banners/banner"
-import Reviews from "../components/reviews/reviews"
-import Trips from "../components/trips/trips"
+
 import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 import Intro from "../components/intro"
@@ -19,24 +19,32 @@ import LogoRatingContainer from "../components/reviews/logoRatingContainer"
 import ReviewsBoard from "../components/reviews/reviewsBoard"
 import ReviewCard from "../components/reviews/reviewCard"
 // utilities
-import useImageQuery from "../queries/imageQuery"
-import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import resolveVariationClass from "../helpers/theme-variation-style"
+
+import useReviewQuery from "../queries/reviewQuery"
 
 const ReviewsMain = ({ pageContext, location }) => {
-  const { pageCount, group, index, first, last } = pageContext
-  const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
+  const reviewData = useReviewQuery()
 
-  console.log(pageContext)
+  const rowsPerPage = 5
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [reviewsList, setReviewList] = useState([])
+
+  const loadReviews = () => {
+    const startIndex = currentPage * rowsPerPage - rowsPerPage
+    const endIndex = currentPage * rowsPerPage - 1
+
+    const reviews = reviewData.slice(startIndex, endIndex + 1)
+
+    setReviewList(reviews)
+  }
 
   useEffect(() => {
-    navigate(`${location.pathname}#reviews`)
-  }, [index])
+    loadReviews()
+  }, [currentPage])
 
   const renderCards = () =>
-    group.map(c => (
+    reviewsList.map(c => (
       <ReviewCard
         title={c.node.title}
         name={c.node.name}
@@ -53,14 +61,38 @@ const ReviewsMain = ({ pageContext, location }) => {
     .config.reviewsPage.logos
 
   const handleChange = e => {
-    console.log(e.target.value)
+    setCurrentPage(e)
+  }
+
+  const getTotalPages = () => {
+    const totalReviews = reviewData.length
+    const divisionRest = totalReviews % rowsPerPage
+    const restDivisionSum = divisionRest > 0 ? 1 : 0
+    const totalPages =
+      totalReviews <= rowsPerPage
+        ? 1
+        : Math.floor(totalReviews / rowsPerPage) + restDivisionSum
+
+    return totalPages
   }
 
   const itemRender = (current, type, element) => {
     if (type === "page") {
-      return <a href={`#${current}`}>{current}</a>
+      return <a href="javascript:void(0);">{current}</a>
     }
+    if (type === "prev") {
+      return <a href="javascript:void(0);">{`Prev`}</a>
+    }
+
+    if (type === "next") {
+      return <a href="javascript:void(0);">{`Next`}</a>
+    }
+
     return element
+  }
+
+  const onPageChange = pageNumber => {
+    setCurrentPage(pageNumber.selected + 1)
   }
 
   return (
@@ -84,35 +116,37 @@ const ReviewsMain = ({ pageContext, location }) => {
       ></Intro>
       <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
 
-      <div>
-        <Pagination total={100} itemRender={itemRender} />
-      </div>
+      <div></div>
 
       <ReviewsBoard>
         {renderCards()}
+
         <div className="review__dropdown-wrapper">
-          <div className="review__navigation">
-            <NavLink
-              test={first}
-              url={`/reviews/${previousUrl}`}
-              text="Previous"
-            />
-            <NavLink test={last} url={`/reviews/${nextUrl}`} text="Next" />
-          </div>
+          <ReactPaginate
+            pageCount={getTotalPages()}
+            onPageChange={onPageChange}
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            marginPagesDisplayed={10}
+            pageRangeDisplayed={10}
+          />
+          {/*<div className="review__navigation"></div>
           <div className="review__page-count">
             <span className="paragraph">Showing page</span>
             <select
               onChange={e => handleChange(e)}
               className="review__dropdown"
             >
-              {[...Array(pageCount)].map((e, i) => (
+              {[...Array(getTotalPages())].map((e, i) => (
                 <option key={i} value={i + 1}>
                   {i + 1}
                 </option>
               ))}
             </select>
-            <span className="paragraph"> of {pageCount}</span>
+            <span className="paragraph"> of {getTotalPages()}</span>
           </div>
+              */}
         </div>
       </ReviewsBoard>
     </Layout>
