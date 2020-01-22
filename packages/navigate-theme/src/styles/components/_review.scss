@@ -44,6 +44,7 @@
         list-style: none;
 
         & > li {
+          opacity: 31%;
           padding-right: 1.6rem;
           font-size: 1.6rem;
           border: 1px solid gray;
@@ -53,7 +54,6 @@
           width: 4rem;
           background: white;
           margin-right: 1.6rem;
-          opacity: 31%;
 
           & > a {
             position: absolute;
