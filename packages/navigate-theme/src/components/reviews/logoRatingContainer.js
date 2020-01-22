@@ -2,7 +2,7 @@ import React from "react"
 import LogoRating from "./logoRating"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 
-const LogoRatingContainer = ({ info }) => {
+const LogoRatingContainer = ({ reviewsQuantity }) => {
   const reviewsPageData = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.reviewsPage
 
@@ -16,7 +16,7 @@ const LogoRatingContainer = ({ info }) => {
         <p
           className="logo-rating__fact"
           id="reviews"
-        >{`Based on ${reviewsPageData.reviewsQuantity} reviews`}</p>
+        >{`Based on ${reviewsQuantity} reviews`}</p>
       </div>
     </div>
   )

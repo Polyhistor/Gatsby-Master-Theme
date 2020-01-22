@@ -51,8 +51,6 @@ const ReviewsMain = ({ pageContext, location }) => {
     loadReviews()
   }, [currentPage])
 
-  console.log(reviewsList)
-
   const renderCards = () =>
     reviewsList.map(c => (
       <ReviewCard
@@ -110,7 +108,10 @@ const ReviewsMain = ({ pageContext, location }) => {
         title="The world's most popular sailing destination"
         description="Exprience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia"
       ></Intro>
-      <LogoRatingContainer info={reviewsPageInfo}></LogoRatingContainer>
+      <LogoRatingContainer
+        info={reviewsPageInfo}
+        reviewsQuantity={reviewData.length}
+      ></LogoRatingContainer>
 
       <div></div>
 
