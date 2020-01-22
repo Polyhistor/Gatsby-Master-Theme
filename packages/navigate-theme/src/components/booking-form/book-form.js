@@ -54,6 +54,7 @@ Render function is to big. Wraop that into functional components/renders.
 const BookForm = ({
   countryDestinationList,
   countryAndTour,
+  useFamilyPageDestinations,
   tourId,
   inPage,
 }) => {
