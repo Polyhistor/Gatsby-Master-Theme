@@ -560,8 +560,7 @@ export const ReviewsFragment = graphql`
     date
     logo {
       localFile {
-          publicURL
-        }
+        publicURL
       }
     }
   }
