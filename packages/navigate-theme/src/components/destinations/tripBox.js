@@ -40,7 +40,7 @@ const TripBox = ({
           </div>
           <span
             id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
-            onClick={() => navigate(`${location.pathname}#priceTable`)}
+            onClick={() => navigate(`${location.pathname}#scrollAnchor`)}
             className={resolveVariationClass("trip-box__availablitity")}
           >
             {availablity}

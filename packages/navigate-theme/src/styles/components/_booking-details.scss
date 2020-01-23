@@ -149,4 +149,32 @@
       display: none;
     }
   }
+
+  &__exception {
+    grid-column: 1;
+  }
+
+  &__extras {
+    display: flex;
+    display: flex;
+    margin-bottom: 0.5rem;
+
+    & > input {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.3rem;
+    }
+    & > label {
+      padding-left: 0.2rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__subheader {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: Nunito-Extrabold;
+    padding-top: 0.8rem;
+  }
 }
