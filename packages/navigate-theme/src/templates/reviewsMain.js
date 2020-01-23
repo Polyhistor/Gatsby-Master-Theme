@@ -9,6 +9,7 @@ import ReactPaginate from "react-paginate"
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
 import useHomePageQuery from "../queries/homePageQuery"
+import TrustPilotBox from "../components/reviews/trustpilot"
 
 import Trips from "../components/trips/trips"
 import Banner from "../components/banners/banner"
@@ -26,6 +27,9 @@ import useReviewQuery from "../queries/reviewQuery"
 const ReviewsMain = ({ pageContext, location }) => {
   const reviewData = useReviewQuery()
   const homeQuery = useHomePageQuery()
+
+  const useTrustPilot = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .useTrustPilotReview
 
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
@@ -50,6 +54,30 @@ const ReviewsMain = ({ pageContext, location }) => {
   useEffect(() => {
     loadReviews()
   }, [currentPage])
+
+  //TODO: fix height style
+  const renderTrustBox = () => {
+    return (
+      <>
+        <section
+          style={{
+            height: 700,
+          }}
+          className="section-truspilot-reviews"
+        >
+          <div className="row">
+            <div>
+              <TrustPilotBox
+                height="500px"
+                widgetTemplateId={"539ad60defb9600b94d7df2c"}
+              />
+            </div>
+          </div>
+          <div id="priceTable" className="anchor"></div>
+        </section>
+      </>
+    )
+  }
 
   const renderCards = () =>
     reviewsList.map(c => (
@@ -94,7 +122,7 @@ const ReviewsMain = ({ pageContext, location }) => {
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={reviewsBannerImage}
-          titleFirst="reviews"
+          titleFirst="Reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Don’t just take our word for it, check out what our customers have to say!"
@@ -148,6 +176,7 @@ const ReviewsMain = ({ pageContext, location }) => {
               */}
         </div>
       </ReviewsBoard>
+      {useTrustPilot && renderTrustBox()}
       <Banner
         imageData={bottomBannerImage}
         header="Private Yacht Charters"
