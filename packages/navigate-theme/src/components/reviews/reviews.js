@@ -42,7 +42,7 @@ const Reviews = () => {
           </div>
           <div
             className="anchor"
-            id={theme === "yg" ? "priceTable" : null}
+            id={theme === "yg" ? "scrollAnchor" : null}
           ></div>
         </section>
       </>

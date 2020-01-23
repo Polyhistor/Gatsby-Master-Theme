@@ -7,15 +7,18 @@ const ExtraOptionValues = ({ extraOptions, formValues }) => {
   return (
     <>
       {extraOptions && extraOptions.length > 0 && (
-        <FieldArray
-          name="extraOptions"
-          render={arrayHelpers => (
-            <div>
-              {extraOptions.map((extraOpt, idx) => (
-                <div key={idx}>
-                  <label>
+        <>
+          <label className={resolveVariationClass("link")}>
+            Optional Extra
+          </label>
+          <FieldArray
+            name="extraOptions"
+            render={arrayHelpers => (
+              <div className="booking-details__exception">
+                {extraOptions.map((extraOpt, idx) => (
+                  <div key={idx} className="booking-details__extras">
                     <input
-                      name="extraOptions"
+                      name={`extraOptions.${idx}`}
                       type="checkbox"
                       value={extraOptions}
                       checked={formValues.extraOptions.includes(extraOpt)}
@@ -26,14 +29,14 @@ const ExtraOptionValues = ({ extraOptions, formValues }) => {
                           arrayHelpers.remove(idx)
                         }
                       }}
-                    />{" "}
-                    {extraOpt}
-                  </label>
-                </div>
-              ))}
-            </div>
-          )}
-        ></FieldArray>
+                    />
+                    <label>{extraOpt}</label>
+                  </div>
+                ))}
+              </div>
+            )}
+          ></FieldArray>
+        </>
       )}
     </>
   )
