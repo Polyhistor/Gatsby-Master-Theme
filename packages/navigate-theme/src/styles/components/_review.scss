@@ -67,7 +67,7 @@
       }
 
       @include respond(tablet) {
-        width: 80%;
+        width: 100%;
       }
 
       @include respond(phone) {
@@ -97,7 +97,7 @@
     }
 
     @include respond(tablet) {
-      width: 80%;
+      width: 100%;
     }
 
     @include respond(phone) {
