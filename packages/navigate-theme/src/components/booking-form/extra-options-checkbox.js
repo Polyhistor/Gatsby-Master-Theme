@@ -8,7 +8,7 @@ const ExtraOptionValues = ({ extraOptions, formValues }) => {
     <>
       {extraOptions && extraOptions.length > 0 && (
         <>
-          <label className={resolveVariationClass("link")}>
+          <label className={`${resolveVariationClass("link")} booking`}>
             Optional Extra
           </label>
           <FieldArray
