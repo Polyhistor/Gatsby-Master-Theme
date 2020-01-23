@@ -101,12 +101,13 @@ const ReviewsMain = ({ pageContext, location }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
       <Intro
-        title="The world's most popular sailing destination"
-        description="Exprience an unforgettable 7 days as you set sail around the most breathtaking islands Croatia has to offer. We have three routes to suit any style, choose the ultimate way you want to feel the beauty of Croatia"
+        title="Don’t just take our word, check out what our customers have to say"
+        description="View our customer reviews, recent press articles and journalist trip reviews below or click to any of the reputatble review sites to read more"
       ></Intro>
       <LogoRatingContainer
         info={reviewsPageInfo}
