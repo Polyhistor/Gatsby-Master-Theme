@@ -103,6 +103,12 @@
     @include respond(phone) {
       width: 100%;
     }
+
+    & .green-subtitle-alternative--yg {
+      @include respond(phone) {
+        color: $color-grey-dark-3 !important;
+      }
+    }
   }
 
   &__description {
