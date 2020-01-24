@@ -40,7 +40,12 @@ const PriceTable = ({ data }) => {
 
   const bookingFormDot = resolveVariationClass("booking-form__do")
 
-  const [checkerState, setCheckerState] = useState(true)
+  const [checkerID, setCheckerID] = useState()
+
+  const setCheckerState = idx => {
+    const isChecked = idx === checkerID
+    return isChecked ? true : false
+  }
 
   // setting the initial state for entries -- the whole triple data thing has to change, but for now under tight schedule, we will just go for live
   let receivedData = null
@@ -229,8 +234,8 @@ const PriceTable = ({ data }) => {
               className="booking-form__input"
               id={`plus-holder-${idx + 50}`}
               type="checkbox"
-              checked={idx === 0 ? checkerState : null}
-              onClick={() => setCheckerState(!checkerState)}
+              checked={setCheckerState(idx)}
+              onClick={() => setCheckerID(idx)}
             ></input>
             <label
               className="booking-form__plus-holder"
