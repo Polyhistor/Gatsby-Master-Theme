@@ -93,6 +93,7 @@
     padding: 2.4rem;
     grid-row-gap: 0.8rem;
     border-radius: 0.4rem;
+    text-decoration: none;
 
     &:first-child {
       @include respond(phone) {
