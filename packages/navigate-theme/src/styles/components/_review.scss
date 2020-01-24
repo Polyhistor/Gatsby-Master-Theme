@@ -96,6 +96,10 @@
       }
     }
 
+    @include respond(laptop) {
+      width: 67%;
+    }
+
     @include respond(tablet) {
       width: 100%;
     }
