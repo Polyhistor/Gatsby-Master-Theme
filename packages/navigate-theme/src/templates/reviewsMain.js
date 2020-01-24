@@ -82,6 +82,7 @@ const ReviewsMain = ({ pageContext, location }) => {
   const renderCards = () =>
     reviewsList.map(c => (
       <ReviewCard
+      link = {c.node.link}
         title={c.node.title}
         name={c.node.name}
         date={c.node.date}

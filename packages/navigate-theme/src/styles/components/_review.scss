@@ -33,7 +33,7 @@
     margin: 0 0.5rem;
 
     &-wrapper {
-      width: 50%;
+      width: 58%;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -66,6 +66,10 @@
         }
       }
 
+      @include respond(laptop) {
+        width: 65%;
+      }
+
       @include respond(tablet) {
         width: 100%;
       }
@@ -84,16 +88,21 @@
     background: white;
     display: grid;
     position: relative;
-    width: 50%;
+    width: 60%;
     margin: 2.4rem auto;
     padding: 2.4rem;
     grid-row-gap: 0.8rem;
     border-radius: 0.4rem;
+    text-decoration: none;
 
     &:first-child {
       @include respond(phone) {
         margin-top: 0rem;
       }
+    }
+
+    @include respond(laptop) {
+      width: 60%;
     }
 
     @include respond(tablet) {
@@ -117,6 +126,7 @@
 
   &__icon {
     justify-self: end;
+    max-height: 6rem;
   }
 
   &__board {
