@@ -39,8 +39,6 @@ const FamilyYacht = ({ data }) => {
 
   const privateYachtQuery = usePrivateYachtQuery()
 
-  console.log(privateYachtQuery)
-
   //TODO: compoentns should not receive .node, it should have instead direct props objects values.
 
   const ourYachts = [

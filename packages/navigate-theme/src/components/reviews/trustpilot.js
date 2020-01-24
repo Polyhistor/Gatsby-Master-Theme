@@ -16,19 +16,19 @@ const TrustBox = ({ widgetTemplateId, height }) => {
       aScript.async = "true"
       document.head.appendChild(aScript)
       aScript.onload = function() {
-        var trustbox = document.getElementById("yg-trustbox")
+        var trustbox = document.getElementById("trustbox-reviews")
         window.Trustpilot.loadFromElement(trustbox)
       }
     } else {
       if (window.Trustpilot) {
-        var trustbox = document.getElementById("yg-trustbox")
+        var trustbox = document.getElementById("trustbox-reviews")
         window.Trustpilot.loadFromElement(trustbox)
       }
     }
   }, [])
   return (
     <div
-      id="yg-trustbox"
+      id="trustbox-reviews"
       data-locale="en-GB"
       data-template-id={widgetTemplateId}
       data-businessunit-id="5a33cc12b894c90f18f19bf8"
