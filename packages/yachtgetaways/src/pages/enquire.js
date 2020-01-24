@@ -69,7 +69,7 @@ const Book = ({ location, data }) => {
                   return {
                     url: "",
                     slug: dest.slug,
-                    title: dest.title,
+                    title: dest.titleForEnquiryForm,
                   }
                 })
             ),

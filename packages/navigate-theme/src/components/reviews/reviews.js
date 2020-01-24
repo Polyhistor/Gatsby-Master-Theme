@@ -32,6 +32,12 @@ const Reviews = () => {
   const theme = process.env.GATSBY_THEME
 
   const renderTrustBox = () => {
+    /**
+     *
+     * TODO: Fix scrollAnchor, does not make any sense of this being use here. The only purpose if this is used here is
+     * to solve scroll offset to Booking Price table, so the developer has to "guess" it. Also we should not add
+     * an extra logic/div to reviews component if it's not related to other sections/components.
+     */
     return (
       <>
         <section className="section-truspilot-reviews">

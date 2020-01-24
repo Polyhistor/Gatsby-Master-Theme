@@ -12,6 +12,7 @@ const usePrivateYachtQuery = () => {
             privateYachtDestinations {
               slug
               title
+              titleForEnquiryForm
               country {
                 ...Country
               }
