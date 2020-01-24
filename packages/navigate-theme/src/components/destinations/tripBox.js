@@ -5,6 +5,7 @@ import { Link, navigate } from "gatsby"
 import { TAG_MANAGER_TRACKER } from "../../config/tag-manager"
 import { commaHandler } from "../../hooks/commaHandler"
 import { useCurrencySymbol } from "../../hooks/useCurrencySymbol"
+import resolveVariationClass from "../../helpers/theme-variation-style"
 
 const TripBox = ({
   destinationCountry,
@@ -39,8 +40,8 @@ const TripBox = ({
           </div>
           <span
             id={TAG_MANAGER_TRACKER.IN_PAGE_CHECK_AVAILABILITY}
-            onClick={() => navigate(`${location.pathname}#priceTable`)}
-            className="trip-box__availablitity"
+            onClick={() => navigate(`${location.pathname}#scrollAnchor`)}
+            className={resolveVariationClass("trip-box__availablitity")}
           >
             {availablity}
           </span>

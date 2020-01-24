@@ -67,6 +67,7 @@ const IndexPage = ({ data }) => {
               type="country"
               key={idx + 4}
               destination={country.node.slug}
+              destinationsArray={country.node.destinations}
               title={country.node.title}
               subtitle={country.node.days}
               departs={country.node.departure}
@@ -74,23 +75,13 @@ const IndexPage = ({ data }) => {
               price={country.node.price}
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
+              directToTrip={country.node.directToTrip}
             />
-            <DestinationsTablet
-              type="country"
-              key={idx + 8}
-              destination={country.node.slug}
-              title={country.node.title}
-              subtitle={country.node.days}
-              departs={country.node.departure}
-              details={country.node.description}
-              price={country.node.price}
-              tours={filterDestinations(country.node.slug)}
-              imageData={country.node.banner.localFile.childImageSharp.fluid}
-              SVGMap={country.node.svgMap.localFile.publicURL}
-            />
+
             <TourBanner
               type="country"
               key={idx + 12}
+              destinationsArray={country.node.destinations}
               destination={country.node.slug}
               title={country.node.title}
               subtitle={country.node.days}
@@ -100,6 +91,7 @@ const IndexPage = ({ data }) => {
               tours={filterDestinations(country.node.slug)}
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               SVGMap={country.node.svgMap.localFile.publicURL}
+              directToTrip={country.node.directToTrip}
             />
           </React.Fragment>
         )
@@ -172,9 +164,9 @@ const IndexPage = ({ data }) => {
       {renderCountries()}
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Booking your own private yacht"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />

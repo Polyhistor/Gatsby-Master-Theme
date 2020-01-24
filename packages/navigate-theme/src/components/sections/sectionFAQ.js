@@ -24,8 +24,6 @@ const SectionFAQ = ({ FAQData }) => {
   const [initialCategory, setCategory] = useState(FAQData)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  console.log([initialCategory[0]])
-
   // rendering buttons
   const renderButtons = () => {
     return FAQData.sort((a, b) => a.node.order - b.node.order).map(
@@ -50,7 +48,6 @@ const SectionFAQ = ({ FAQData }) => {
   // using useState hook to set our inital state
   const renderFAQs = (min, max) => {
     return [initialCategory[0]].map(element => {
-      console.log(element)
       return !element.node.questionsanswers
         ? null
         : element.node.questionsanswers.map((qa, idx) => {

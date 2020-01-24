@@ -70,7 +70,7 @@
   }
   //YYYYY
   &--yg {
-    background-color: $color-yg-orange;
+    background-color: $color-yg-blue;
   }
 
   &--wk {
@@ -193,11 +193,17 @@
     justify-content: center;
     align-items: center;
     transform: translateY(-0.5rem);
+    font-size: 1.38rem;
+    width: 22rem;
+    height: 4.8rem;
 
     @include respond(phone) {
       padding: 1rem 2rem;
       border-radius: 0.3rem;
       margin-top: 1.3rem;
+      width: 100%;
+      grid-column: 1/-1;
+      height: 6rem;
     }
 
     &--yg {

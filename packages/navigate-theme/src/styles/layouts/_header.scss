@@ -98,6 +98,16 @@
       &:hover {
         border-bottom: 2px solid #1abc9c;
       }
+
+      &:hover > .navigation__dropdown--alt {
+        display: block;
+      }
+
+      &--yg {
+        &:hover {
+          border-bottom: 2px solid $color-yg-orange;
+        }
+      }
     }
 
     & a:nth-child(1) {
@@ -182,6 +192,11 @@
         text-transform: capitalize;
         font-weight: 500;
         line-height: 7rem;
+
+        @include respond(phone) {
+          line-height: 5rem;
+          margin-top: 3.5rem;
+        }
 
         & > span {
           display: none;

@@ -239,6 +239,11 @@
 
     @include respond(phone) {
       height: 100%;
+      padding: 2rem;
+    }
+
+    &--in-page {
+      height: 100%;
     }
   }
 

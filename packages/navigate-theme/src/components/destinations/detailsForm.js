@@ -47,6 +47,11 @@ const getCabinDescription = cabin => {
   return cabin.price ? `${cabin.name} (${cabin.price})` : cabin.name
 }
 
+/**
+ *
+ * DEPRECIATED - This is the component for STEPS on booking form, itsnot being used anymore.
+ */
+
 const DetailsForm = ({
   inPage,
   state,

@@ -58,19 +58,19 @@ const GetInTouch = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
       <SectionGetInTouch
         phoneNumberData={contactData.phoneAddress}
         leftContactSection={leftContactSection}
-      />{" "}
       />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />

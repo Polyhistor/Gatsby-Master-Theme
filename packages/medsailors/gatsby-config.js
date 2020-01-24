@@ -137,6 +137,9 @@ module.exports = {
           },
           acitivitesPage: {
             howItWorksBannerText: "explore",
+            introTitle: "Personalise your epic adventure",
+            intoDescription:
+              "Make your adventure exactly what you want it to be with a wide range of add on activities to choose from. From adrenaline-pumping adventures to chilled out thrills, personalise your road trip the way you want it.",
           },
           destinationPage: {
             whyUsHeaderText: "Our Yachts",
@@ -180,11 +183,40 @@ module.exports = {
               },
             ],
           },
+          reviewsPage: {
+            introTitle: "",
+            introDescription: "",
+            logos: [
+              {
+                icon: "icon-YG-Calandar-01",
+                rating: "Seven nights' accommodation in your own Catamaran",
+              },
+              {
+                icon: "icon-YG-Bread-01",
+                rating: "Breakfast & lunch freshly prepared daily",
+              },
+              {
+                icon: "icon-YG-Cocktail-01",
+                rating: "BYO - Bring your own drinks and snacks on board",
+              },
+            ],
+            reviewsQuantity: 870
+            text: "",
+          },
           bookingForm: {
             bookButtonText: "Book",
             destinationDropdownLabel: "Select Trip",
             countryDropdownLabel: "Select Destination",
             useYachtClass: true,
+            /*TODO: This logic only applies to YG. Should be handled
+            by the backend on fetch dates api call.*/
+
+            extraClassOptions: [
+              {
+                className: "N/A",
+                extraOptions: ["N/A"],
+              },
+            ],
             yachtClasses: [
               {
                 description: "Premier Yacht",

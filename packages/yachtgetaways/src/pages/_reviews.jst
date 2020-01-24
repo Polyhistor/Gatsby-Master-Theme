@@ -5,26 +5,41 @@ import {
   Layout2,
   Landing,
   GreenBar,
-  SectionReview,
-  useImageQuery,
   useWebSiteConfigQuery,
   renderSeo,
+  TrustPilotBox,
 } from "@nt-websites/navigate-theme"
 
 const Reviews = ({ data }) => {
+  // extracting our custom hook
+
+  const renderTrustBox = () => {
+    return (
+      <section className="section-truspilot-reviews section-truspilot-reviews--in-page">
+        <div className="row">
+          <div>
+            <TrustPilotBox
+              height={"500px"}
+              widgetTemplateId={"539adbd6dec7e10e686debee"}
+            />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   const reviewsBannerImage = useWebSiteConfigQuery()
-.contentfulWebsiteConfiguration.reviewsBanner.localFile
-.childImageSharp.fluid
-
+    .contentfulWebsiteConfiguration.reviewsBannerImage.localFile.childImageSharp
+    .fluid
 
   return (
     <Layout2>
       {renderSeo(data)}
+
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={reviewsBannerImage}
-          titleFirst="reviews"
+          titleFirst="Reviews"
           buttonFirst="expore"
           buttonFirstURL="/blog"
           description="Don’t just take our word for it, check out what our customers have to say!"
@@ -34,7 +49,7 @@ const Reviews = ({ data }) => {
         />
       </div>
       <GreenBar />
-      <SectionReview />
+      {renderTrustBox()}
     </Layout2>
   )
 }

@@ -439,6 +439,13 @@ export const HomePageFragment = graphql`
 
 export const WebSiteConfiguration = graphql`
   fragment WebSiteConfiguration on ContentfulWebsiteConfiguration {
+    termsConditions {
+      json
+    }
+
+    privacyPolicy {
+      json
+    }
     bookingFormEmailContact
     websiteBottomBannerImage {
       localFile {
@@ -452,19 +459,25 @@ export const WebSiteConfiguration = graphql`
       }
     }
 
-    activitiesBanner {
+    activitiesBannerImage {
       localFile {
         ...FluidImage
       }
     }
 
-    reviewsBanner {
+    reviewsBannerImage {
       localFile {
         ...FluidImage
       }
     }
 
-    faqBanner {
+    aboutUsBannerImage {
+      localFile {
+        ...FluidImage
+      }
+    }
+
+    faqBannerImage {
       localFile {
         ...FluidImage
       }
@@ -544,8 +557,12 @@ export const ReviewsFragment = graphql`
     reviewText {
       reviewText
     }
-
     date
+    logo {
+      localFile {
+        publicURL
+      }
+    }
   }
 `
 

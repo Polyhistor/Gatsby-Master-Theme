@@ -10,6 +10,7 @@ import Trips from "../components/trips/trips"
 import SEO from "../components/seo/seo"
 // utilities
 import useHomePageQuery from "../queries/homePageQuery"
+import resolveVariationClass from "../helpers/theme-variation-style"
 
 const IndexPage = ({ pageContext }) => {
   // our pagination
@@ -57,7 +58,9 @@ const IndexPage = ({ pageContext }) => {
               }}
               className="blog__main-title"
             ></h3>
-            <h4 className="blog__main-category">{blogMainCategory}</h4>
+            <h4 className={resolveVariationClass("blog__main-category")}>
+              {blogMainCategory}
+            </h4>
             <h5 className="blog__main-author">{node.author.name}</h5>
           </Link>
         </div>

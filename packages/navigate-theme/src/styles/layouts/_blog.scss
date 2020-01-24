@@ -147,6 +147,12 @@
         font-family: Nunito-Extrabold;
       }
 
+      &--yg {
+        & a {
+          color: $color-yg-blue;
+        }
+      }
+
       &::selection,
       ::-webkit-selection,
       ::-moz-selection {
@@ -209,6 +215,13 @@
       grid-row-gap: 2rem;
       justify-content: center;
 
+      &--yg {
+        & h4 {
+          color: $color-yg-blue !important;
+          text-transform: uppercase;
+        }
+      }
+
       @include respond(tablet) {
         grid-template-columns: repeat(3, 25rem);
       }
@@ -243,6 +256,7 @@
 
       & h4 {
         @extend .heading-4;
+        color: $color-wk-green;
 
         @include respond(phone) {
           grid-column: 2;
@@ -888,6 +902,10 @@
     &-category {
       font-family: Nunito-Extrabold;
       color: $color-primary;
+
+      &--yg {
+        color: $color-yg-blue !important;
+      }
     }
 
     &-author {
@@ -960,6 +978,13 @@
     }
 
     &-header {
+      &--yg {
+        color: $color-yg-blue;
+        font-family: Nunito-Extrabold;
+        font-size: 3rem;
+        text-transform: uppercase;
+      }
+
       @include respond(tablet) {
         text-align: center;
       }
@@ -1046,6 +1071,10 @@
           grid-row: 2;
         }
       }
+    }
+
+    &--yg {
+      color: $color-yg-blue;
     }
   }
 }

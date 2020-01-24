@@ -3,33 +3,68 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useCountryQuery from "../../queries/countryQuery"
 
+/*default  values are used to preselect destination if the user is at any destination page and clicks in the booking button. e.g he is at croatia discovery,
+when they click in book, we will automatically preselect croatia discovery in dropdown */
+
+const getCountryList = (contentfulCountryData, propsCountryDestinationList) => {
+  if (propsCountryDestinationList) {
+    return propsCountryDestinationList
+  }
+
+  const countriesDestinations = contentfulCountryData
+    .sort((a, b) => a.node.order - b.node.order)
+    .map(c => {
+      return {
+        slug: c.node.slug,
+        title: c.node.title,
+        destinations: c.node.destinations.map(d => {
+          return {
+            url: d.url,
+            slug: d.slug,
+            title: d.title,
+          }
+        }),
+      }
+    })
+
+  return countriesDestinations
+}
+
 const CountryDestinationDropdown = ({
   defaultValues,
   onDestinationChange,
   setFieldValue,
+  countryDestinationsList,
 }) => {
   const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.bookingForm
   const destinationDropdownLabel = bookingFormConfig.destinationDropdownLabel
   const countryDropdownLabel = bookingFormConfig.countryDropdownLabel
-
   const countryData = useCountryQuery()
+
   const [destinationFilter, setDestinationFilter] = useState(null)
-  const countryList = useState(countryData)
+
   const [selectedCountry, setSelectedCountry] = useState("all")
   const [selectedTour, setSeletedTour] = useState("all")
+
+  /**
+   * If we have not set countryList build it using destinations/countries contentfuldata.
+   * Will be used for most pages, just not for Yg Family
+   */
+
+  const countryList = getCountryList(countryData, countryDestinationsList)
 
   const loadDefaultValues = () => {
     if (defaultValues) {
       setSelectedCountry(defaultValues.country)
 
-      const selectedCountry = countryData.find(d => {
-        return d.node.slug === defaultValues.country
+      const selectedCountry = countryList.find(c => {
+        return c.slug === defaultValues.country
       })
 
-      setDestinationFilter(selectedCountry.node.destinations)
+      setDestinationFilter(selectedCountry.destinations)
 
-      const destination = selectedCountry.node.destinations.find(d => {
+      const destination = selectedCountry.destinations.find(d => {
         return d.url === defaultValues.tourUrl
       })
 
@@ -48,24 +83,22 @@ const CountryDestinationDropdown = ({
   }, [])
 
   const renderCountries = () => {
-    return countryList[0]
-      .sort((a, b) => a.node.order - b.node.order)
-      .map((e, index) => {
-        return (
-          <option key={index} value={e.node.slug}>
-            {e.node.title}
-          </option>
-        )
-      })
+    return countryList.map((e, index) => {
+      return (
+        <option key={index} value={e.slug}>
+          {e.title}
+        </option>
+      )
+    })
   }
 
   const handleCountryDropdown = e => {
     setSeletedTour("all")
     setSelectedCountry(e.target.value)
 
-    const country = countryData.find(c => c.node.slug === e.target.value)
+    const country = countryList.find(c => c.slug === e.target.value)
 
-    const destinations = country ? country.node.destinations : []
+    const destinations = country ? country.destinations : []
 
     setDestinationFilter(destinations)
     /*reset all form fields*/

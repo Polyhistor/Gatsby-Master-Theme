@@ -29,6 +29,8 @@ const Yachts = ({ data }) => {
   const homeQuery = useHomePageQuery()
   const YachtQuery = useYachtQuery()
 
+  const filteredYachts = YachtQuery.filter(y => !y.node.familyPage)
+
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.destinationPage.howItWorksBannerText
 
@@ -51,14 +53,14 @@ const Yachts = ({ data }) => {
         <GreenBar />
       </div>
       <YachtSingle
-        data={YachtQuery}
+        data={filteredYachts}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />

@@ -28,12 +28,15 @@ const FAQ = ({ data }) => {
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.destinationPage.howItWorksBannerText
 
+  const faqBannerImage = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .faqBannerImage.localFile.childImageSharp.fluid
+
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.YGFAQ.childImageSharp.fluid}
+          imageData={faqBannerImage}
           titleFirst="FAQs"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -56,11 +59,11 @@ const FAQ = ({ data }) => {
       />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

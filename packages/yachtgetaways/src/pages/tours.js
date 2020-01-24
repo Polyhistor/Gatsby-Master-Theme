@@ -19,6 +19,8 @@ import {
   useFeatureBox,
   renderSeo,
   useWebSiteConfigQuery,
+  Mobile,
+  GreenBar,
 } from "@nt-websites/navigate-theme"
 
 const Destination = ({ data }) => {
@@ -67,7 +69,7 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
-          <DestinationsTablet
+          {/* <DestinationsTablet
             type="country"
             key={idx + 8}
             destination={country.node.slug}
@@ -79,7 +81,7 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
             SVGMap={country.node.svgMap.localFile.publicURL}
-          />
+          /> */}
           <TourBanner
             type="country"
             key={idx + 12}
@@ -103,26 +105,29 @@ const Destination = ({ data }) => {
       {renderSeo(data)}
       <Landing
         imageData={imageQuery.MSCountries.childImageSharp.fluid}
-        titleFirst="DESTINATIONS"
+        titleFirst="Destinations"
         buttonSecond="watch trailer"
         buttonSecondURL="#popup"
         description="Enjoy 7 unforgettable days sailing around the most breath-taking places in the Mediterranean."
         buttonStyles={["white", "med-blue"]}
         optMargin="u-margin-top-percent-10"
         variation="dest"
-        popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
         mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
+      <Mobile>
+        <GreenBar></GreenBar>
+      </Mobile>
       {renderCountries()}
       <BoxContainer dataArray={homeQuery[0].node.whyWildKiwi} />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

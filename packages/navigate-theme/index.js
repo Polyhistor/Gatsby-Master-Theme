@@ -34,11 +34,11 @@ export { default as useReviewQuery } from "./src/queries/reviewQuery"
 export { default as useTeamQuery } from "./src/queries/teamQuery"
 export { default as useThemeFooterQuery } from "./src/queries/themeFooterQuery"
 export { default as useWildkiwiQuery } from "./src/queries/wildkiwiQuery"
-export { default as usePrivacyQuery } from "./src/queries/privacyPolicyQuery"
+
 export {
   default as useThemeRoutesConfigQuery,
 } from "./src/queries/themeRoutesConfigQuery"
-export { default as useTermsQuery } from "./src/queries/termsConditionsQuery"
+
 export { default as useFAQVideo } from "./src/queries/faqVideoQuery"
 export { default as useFeatureBox } from "./src/queries/featuredBoxQuery"
 export { default as useContactQuery } from "./src/queries/contactQuery"
@@ -51,6 +51,7 @@ export { default as BookForm } from "./src/components/booking-form/book-form"
 /*components*/
 export { default as WorkForUs } from "./src/components/workForUs"
 export { default as Intro } from "./src/components/intro"
+export { default as IncludesMS } from "./src/components/destinations/includesMS"
 
 /* Activity */
 export {
@@ -86,6 +87,11 @@ export { default as Box } from "./src/components/boxes/box"
 export { default as BoxContainer } from "./src/components/boxes/boxContainer"
 export { default as BoxText } from "./src/components/boxes/boxText"
 /*Destinations*/
+
+export {
+  default as CountryTourCard,
+} from "./src/components/banners/countryTourCard"
+
 export {
   default as ActivitiesBox,
 } from "./src/components/destinations/activitiesBox"
@@ -179,6 +185,7 @@ export { default as WhyUsMobile } from "./src/components/mobile/whyWildkiwi"
 /*Reviews*/
 
 export { default as Review } from "./src/components/reviews/review"
+export { default as TrustPilotBox } from "./src/components/reviews/trustpilot"
 export { default as Reviews } from "./src/components/reviews/reviews"
 export { default as SectionFAQ } from "./src/components/sections/sectionFAQ"
 

@@ -8,6 +8,9 @@ import useThemeRoutesConfigQuery from "../queries/themeRoutesConfigQuery"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
 import { renderSeo } from "../helpers/seo-helper"
 
+/*getCountryAndTourUrl is used to preselect destination if the user is at any destination page and clicks in the booking button. e.g he is at croatia discovery,
+when they click in book, we will automatically preselect croatia discovery in dropdown */
+
 const getCountryAndTourUrl = (routePrefix, path) => {
   if (!path) {
     return undefined

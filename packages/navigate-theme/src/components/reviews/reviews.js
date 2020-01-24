@@ -5,7 +5,7 @@ import { useWebSiteConfigQuery } from "../../queries/webSiteConfigQueries"
 import useReviewQuery from "../../queries/reviewQuery"
 import { splitText } from "../../helpers/formatter"
 import Review from "./review"
-import TrustBox from "./trustpilot"
+import TrustPilotBox from "./trustpilot"
 
 const Reviews = () => {
   const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
@@ -22,17 +22,36 @@ const Reviews = () => {
     })
     .slice(0, 3)
 
+  const renderStars = () =>
+    [...Array(5)].map((e, i) => (
+      <svg key={i} className="svg-icon--star-big">
+        <use xlinkHref={withPrefix("sprite.svg#icon-Star")} />
+      </svg>
+    ))
+
   const theme = process.env.GATSBY_THEME
 
   const renderTrustBox = () => {
+    /**
+     *
+     * TODO: Fix scrollAnchor, does not make any sense of this being use here. The only purpose if this is used here is
+     * to solve scroll offset to Booking Price table, so the developer has to "guess" it. Also we should not add
+     * an extra logic/div to reviews component if it's not related to other sections/components.
+     */
     return (
-      <section className="section-truspilot-reviews">
-        <div className="row">
-          <div>
-            <TrustBox />
+      <>
+        <section className="section-truspilot-reviews">
+          <div className="row">
+            <div>
+              <TrustPilotBox widgetTemplateId={"53aa8912dec7e10d38f59f36"} />
+            </div>
           </div>
-        </div>
-      </section>
+          <div
+            className="anchor"
+            id={theme === "yg" ? "scrollAnchor" : null}
+          ></div>
+        </section>
+      </>
     )
   }
 

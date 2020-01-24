@@ -4,11 +4,15 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import {
   Layout2,
-  usePrivacyQuery,
+  useWebSiteConfigQuery,
   renderSeo,
+  resolveVariationClass,
 } from "@nt-websites/navigate-theme"
 
 const Privacy = ({ data }) => {
+  const privacyPolicyJsonData = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.privacyPolicy.json
+
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -29,7 +33,11 @@ const Privacy = ({ data }) => {
       [INLINES.HYPERLINK]: (node, children) => {
         const URL = node.data.uri
         return (
-          <a href={URL} className="activity__hyperlink" target="_blank">
+          <a
+            href={URL}
+            className={resolveVariationClass("activity__hyperlink")}
+            target="_blank"
+          >
             {children}
           </a>
         )
@@ -41,16 +49,13 @@ const Privacy = ({ data }) => {
   }
 
   // calling our hook
-  const privacyData = usePrivacyQuery()
+
   return (
     <Layout2>
       {renderSeo(data)}
       <div className="section-tc">
         <article className="tour-banner__description-details u-margin-top-huge">
-          {documentToReactComponents(
-            privacyData[0].node.description.json,
-            options
-          )}
+          {documentToReactComponents(privacyPolicyJsonData, options)}
         </article>
       </div>
     </Layout2>

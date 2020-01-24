@@ -200,7 +200,7 @@ const useImageQuery = () => {
         ...FluidImage
       }
 
-      activitiesBanner: file(
+      activitiesBannerImage: file(
         relativePath: {
           eq: "bungy-jumping-queenstown-wild-kiwi-activities.jpg"
         }
@@ -314,6 +314,18 @@ const useImageQuery = () => {
 
       YachtsMobileBanner: file(
         relativePath: { eq: "medsailors-yacht-flotilla-corfu-blue-caves.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      CatamaranSailingGreece: file(
+        relativePath: { eq: "catamaran-sailing-greece.jpg" }
+      ) {
+        ...FluidImage
+      }
+
+      PaddleBoardingGreece: file(
+        relativePath: { eq: "paddle-boarding-greece-ionian-islands.jpg" }
       ) {
         ...FluidImage
       }

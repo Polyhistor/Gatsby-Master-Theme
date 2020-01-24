@@ -26,12 +26,16 @@ const AboutUs = ({ data }) => {
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
+  const aboutUsBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.aboutUsBannerImage.localFile.childImageSharp
+    .fluid
+
   return (
     <Layout>
       {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={imageQuery.aboutUsBanner.childImageSharp.fluid}
+          imageData={aboutUsBannerImage}
           titleFirst="About us"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -39,15 +43,16 @@ const AboutUs = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
       <AboutUsSection data={workForUsQuery[0].node} />
       <Banner
         imageData={bottomBannerImage}
-        header="Private Yacht Charter"
-        subHeaderFirst="Everything You Need To Know About"
-        subHeaderSecond="Booking Your Own Private Yacht"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText="explore"
         link="/private-yacht-charters"
       />

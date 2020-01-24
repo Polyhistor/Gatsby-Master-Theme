@@ -474,6 +474,10 @@
       right: 0;
       z-index: 90;
 
+      @include respond(laptop) {
+        margin-top: 10rem;
+      }
+
       @include respond(tablet) {
         height: 34rem;
       }
@@ -523,6 +527,15 @@
 
     &--yg {
       height: 37.5rem;
+      grid-row: 8;
+
+      & > section {
+        height: 32.89rem !important;
+
+        @include respond(laptop) {
+          height: 28.89rem !important;
+        }
+      }
     }
   }
   /*
@@ -712,9 +725,66 @@ textarea:focus {
   }
 }
 
+.anchor {
+  position: absolute;
+  bottom: 3.5rem;
+}
+
 .radius {
   border-radius: 0.4rem;
   overflow: hidden;
+}
+
+.success {
+  height: 43rem !important;
+}
+
+.private-includes {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin-bottom: 0 !important;
+
+  @include respond(phone) {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 0 auto;
+    max-width: 100% !important;
+  }
+
+  & > section {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+
+  & > section > div {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+    @include respond(tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    }
+  }
+
+  & > div.gatsby-image-wrapper {
+    width: 31rem;
+    height: 18.2rem;
+    margin-top: 48%;
+    border-radius: 0.4rem;
+
+    @include respond(laptop) {
+      width: 28rem;
+      height: 16.2rem;
+      margin-left: 4%;
+    }
+
+    @include respond(tablet) {
+      display: none;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
 }
 
 // general CSS
@@ -766,5 +836,15 @@ textarea {
 // }
 
 [class~=".section-tour-banner-newzealand-mobile"]:last-of-type {
+  display: none;
+}
+
+.next,
+.previous,
+.selected {
+  opacity: 0.9 !important;
+}
+
+.disabled {
   display: none;
 }

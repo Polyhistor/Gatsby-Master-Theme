@@ -35,7 +35,7 @@ const OurVehicles = ({ data }) => {
           buttonStyles={["white", "med-blue"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
-          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+          popupVideo="https://www.youtube.com/embed/IbUC6Mc6sjQ"
           mobileBanner={true}
         />
       </div>

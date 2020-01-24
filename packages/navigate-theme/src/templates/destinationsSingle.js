@@ -183,7 +183,7 @@ const DestinationsSingle = ({ pageContext, data, location }) => {
             data.contentfulDestinations.gettingThere.domesticLinks
           }
         />
-        <div className="hotfix--banner">
+        <div className={resolveVariationClass("hotfix--banner")}>
           <Banner
             imageData={bottomBannerImage}
             header="How It Works"

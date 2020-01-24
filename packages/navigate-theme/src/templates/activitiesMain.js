@@ -19,15 +19,22 @@ import useCountryQuery from "../queries/countryQuery"
 import resolveVariationClass from "../helpers/theme-variation-style"
 
 const ActivitiesMain = ({ pageContext }) => {
-  const activitiesBanner = useWebSiteConfigQuery()
-    .contentfulWebsiteConfiguration.activitiesBanner.localFile.childImageSharp
-    .fluid
+  const activitiesBannerImage = useWebSiteConfigQuery()
+    .contentfulWebsiteConfiguration.activitiesBannerImage.localFile
+    .childImageSharp.fluid
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
 
   const howItWorksBannerText = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.acitivitesPage.howItWorksBannerText
+
+  const activitiesTitle = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.acitivitesPage.introTitle
+
+  const activitiesDescription = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.acitivitesPage.intoDescription
+
   const activityLabelFree = resolveVariationClass(
     "acitivity-box-single__caption--free"
   )
@@ -223,7 +230,7 @@ const ActivitiesMain = ({ pageContext }) => {
       />
       <div className="hotfix--narrow-banner">
         <Landing
-          imageData={activitiesBanner}
+          imageData={activitiesBannerImage}
           titleFirst="Activities"
           buttonFirst="expore"
           buttonFirstURL="/blog"
@@ -237,8 +244,8 @@ const ActivitiesMain = ({ pageContext }) => {
       </div>
       <GreenBar />
       <Intro
-        title="Personalise your epic adventure"
-        description="Make your adventure exactly what you want it to be with a wide range of add on activities to choose from. From adrenaline-pumping adventures to chilled out thrills, personalise your road trip the way you want it."
+        title={activitiesTitle}
+        description={activitiesDescription}
       ></Intro>
       <div className="row">
         <div className="activity__filter">

@@ -34,7 +34,7 @@
     text-align: center;
     list-style: none;
 
-    & li:last-of-type {
+    & li:nth-child(9) {
       @include respond(desk) {
         display: none;
       }
@@ -45,6 +45,28 @@
 
     @include respond(phone) {
       transform: translateY(-61rem);
+    }
+
+    &--ms {
+      & li:nth-child(8) {
+        @include respond(desk) {
+          display: none;
+        }
+        @include respond(laptop) {
+          display: none;
+        }
+      }
+    }
+
+    &--wk {
+      & li:nth-child(8) {
+        @include respond(desk) {
+          display: none;
+        }
+        @include respond(laptop) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -78,7 +100,7 @@
 
     &--alt {
       left: -5rem;
-      top: 3.4rem;
+      top: 7rem;
       width: 16.8rem;
 
       @include respond(phone) {
@@ -484,6 +506,12 @@
             width: 6.5rem !important;
             margin-top: -1.1rem;
           }
+        }
+      }
+
+      &--yg {
+        @include respond(tablet) {
+          margin-top: 1rem;
         }
       }
     }

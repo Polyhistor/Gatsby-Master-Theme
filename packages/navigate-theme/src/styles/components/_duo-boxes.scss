@@ -1,5 +1,10 @@
 .duo-boxes {
   margin-top: 8rem;
+
+  @include respond(phone) {
+    margin-top: 3rem;
+  }
+
   &__container {
     display: grid;
     grid-template-rows: min-content 4rem min-content min-content;

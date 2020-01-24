@@ -31,7 +31,9 @@
     "gatsby-plugin-sass": "^2.1.17",
     "gatsby-plugin-sharp": "^2.2.28",
     "gatsby-plugin-sitemap": "^2.2.16",
+    "gatsby-plugin-smoothscroll": "^1.0.4",
     "gatsby-plugin-svg-sprite": "^2.0.1",
+    "gatsby-plugin-transitions": "^2.1.6",
     "gatsby-remark-images": "^3.1.25",
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-source-contentful": "^2.1.45",
@@ -43,6 +45,8 @@
     "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
+    "rc-pagination": "^1.20.12",
+    "react-paginate": "^6.3.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-facebook": "^8.0.4",
@@ -52,6 +56,7 @@
     "react-responsive": "^8.0.1",
     "react-responsive-modal": "^4.0.1",
     "react-share": "^3.0.0",
+    "react-spring": "^8.0.27",
     "yup": "^0.27.0"
   },
   "devDependencies": {

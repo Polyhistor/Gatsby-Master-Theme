@@ -46,17 +46,18 @@ const HowItWorks = ({ data }) => {
           buttonStyles={["white", "white"]}
           optMargin="u-margin-top-percent-10"
           variation="dest"
+          mobileBanner={true}
         />
       </div>
       <GreenBar />
       <SectionHowItWorks data={howItWorksData} />
       <Banner
         imageData={bottomBannerImage}
-        header="How It Works"
-        subHeaderFirst="Everything You Need To"
-        subHeaderSecond="Know About Our Tours"
+        header="Private Yacht Charters"
+        subHeaderFirst="Book your own"
+        subHeaderSecond="private sailing trip"
         buttonText={howItWorksBannerText}
-        link="/how-it-works"
+        link="/private-yacht-charters"
       />
       <Reviews />
       <Trips

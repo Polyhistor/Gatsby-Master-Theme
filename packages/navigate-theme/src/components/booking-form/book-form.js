@@ -11,6 +11,7 @@ import * as Yup from "yup"
 
 import Error from "./error"
 import CountryDestinationDropdown from "./country-tour-dropdown"
+import ExtraOptionsCheckbox from "../booking-form/extra-options-checkbox"
 import Intro from "../../components/intro"
 
 const validationSchema = Yup.object().shape({
@@ -45,12 +46,24 @@ const validationSchema = Yup.object().shape({
   gender: Yup.string().required("Gender is required"),
 })
 
-const BookForm = ({ countryAndTour, tourId, inPage }) => {
+/*TOODO
+Render function is to big. Wraop that into functional components/renders.
+
+
+*/
+const BookForm = ({
+  countryDestinationList,
+  countryAndTour,
+  useFamilyPageDestinations,
+  tourId,
+  inPage,
+}) => {
   // TODO - clean all the usestates and replace them with userReducer instead
   const [tourIdState, setTourId] = useState(tourId)
   const [cabinTypes, setCabinTypes] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [productClasses, setProductClasses] = useState([])
+  const [extraOptions, setExtraOptions] = useState([])
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
@@ -61,6 +74,9 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
   const useYachtClass = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
     .bookingForm.useYachtClass
 
+  const yachtExtraOptions = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm.extraClassOptions
+
   if (!useYachtClass) {
     delete validationSchema.fields.productClass
     delete validationSchema.fields.yachtCabinName
@@ -70,9 +86,10 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     .bookingFormEmailContact
 
   const handleDestinationChange = (destinationSlug, setFieldValue) => {
-    if (destinationSlug === "all") {
+    /*if (destinationSlug === "all") {
       cleanForm(setFieldValue)
-    }
+    }*/
+    cleanForm(setFieldValue)
     setTourId(destinationSlug)
   }
 
@@ -91,6 +108,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
     setFieldValue("productClass", "")
     setFieldValue("priceId", "")
     setProductClasses([])
+    setExtraOptions([])
   }
 
   const cleanCabinTypes = setFieldValue => {
@@ -111,6 +129,8 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         console.warn("Invalid date")
       }
     } else {
+      /*If we are not using yacht class, the backend will send price id
+      //on the first array object*/
       if (!useYachtClass) {
         const findDateWithClass = response.dates.find(d => d.date === date)
         const priceId = findDateWithClass.class[0].id
@@ -152,19 +172,35 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
         c => c.product_class === productClass.name
       )
 
-      console.log(cabinTypes)
-
       setFieldValue("productClass", productClass.name)
-      setFieldValue("priceId", productClass.id)
 
+      setFieldValue("priceId", productClass.id)
+      setupExtraOptions(productClass.name, setFieldValue)
       if (cabinTypes.length === 0) {
         delete validationSchema.fields.yachtCabinName
       } else {
+        validationSchema.fields.yachtCabinName = Yup.string().required(
+          "Yacht Cabin type is required"
+        )
         setCabinTypes(cabinTypes)
       }
     } else {
+      setExtraOptions([])
       setFieldValue("productClass", "")
       setFieldValue("priceId", "")
+    }
+  }
+
+  const setupExtraOptions = (productClassName, setFieldValue) => {
+    //clean current extraOptions
+    setFieldValue("extraOptions", [])
+    const options = yachtExtraOptions.find(
+      opt => opt.className === productClassName
+    )
+    if (options) {
+      setExtraOptions(options.extraOptions)
+    } else {
+      setExtraOptions([])
     }
   }
 
@@ -222,8 +258,12 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
       id="booking"
       className={
         inPage
-          ? "section-destination__booking section-destination__booking--in-page"
-          : "section-destination__booking"
+          ? `${resolveVariationClass(
+              "section-destination__booking"
+            )} section-destination__booking--in-page ${
+              success ? "success" : null
+            }`
+          : resolveVariationClass("section-destination__booking")
       }
     >
       <div className="booking-form__wrapper">
@@ -273,6 +313,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
           ) : (
             <Formik
               initialValues={{
+                extraOptions: [],
                 siteLocation: inPage ? "PAGE" : "POPUP BUTTON",
                 priceId: "",
                 date: "",
@@ -308,6 +349,7 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                 <Form>
                   {!tourId && (
                     <CountryDestinationDropdown
+                      countryDestinationsList={countryDestinationList}
                       defaultValues={countryAndTour}
                       setFieldValue={setFieldValue}
                       onDestinationChange={handleDestinationChange}
@@ -547,6 +589,11 @@ const BookForm = ({ countryAndTour, tourId, inPage }) => {
                       </div>
                     </>
                   )}
+
+                  <ExtraOptionsCheckbox
+                    extraOptions={extraOptions}
+                    formValues={values}
+                  />
                   <div className="booking-details__spanner-one">
                     <div className="booking-details__fields-container">
                       <Field

@@ -44,6 +44,10 @@
     @include respond(tablet) {
       padding-left: 2rem;
     }
+
+    @include respond(phone) {
+      font-size: 5.5rem;
+    }
   }
 
   &__stars-box {

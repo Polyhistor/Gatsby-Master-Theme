@@ -13,7 +13,7 @@ const Navigation = () => {
       <div className={resolveVariationClass("navigation")}>
         {/* updating nav className based on user scroll */}
         <nav className="navigation__nav">
-          <ul className="navigation__list">
+          <ul className={resolveVariationClass("navigation__list")}>
             <NavItems />
           </ul>
         </nav>

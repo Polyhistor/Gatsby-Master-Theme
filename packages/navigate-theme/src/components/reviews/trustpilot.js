@@ -1,5 +1,5 @@
 import React from "react"
-const TrustBox = () => {
+const TrustBox = ({ widgetTemplateId, height }) => {
   // Create a reference to the <div> element which will represent the TrustBox
   const ref = React.useRef(null)
 
@@ -16,23 +16,23 @@ const TrustBox = () => {
       aScript.async = "true"
       document.head.appendChild(aScript)
       aScript.onload = function() {
-        var trustbox = document.getElementById("yg-trustbox")
+        var trustbox = document.getElementById("trustbox-reviews")
         window.Trustpilot.loadFromElement(trustbox)
       }
     } else {
       if (window.Trustpilot) {
-        var trustbox = document.getElementById("yg-trustbox")
+        var trustbox = document.getElementById("trustbox-reviews")
         window.Trustpilot.loadFromElement(trustbox)
       }
     }
   }, [])
   return (
     <div
-      id="yg-trustbox"
+      id="trustbox-reviews"
       data-locale="en-GB"
-      data-template-id="53aa8912dec7e10d38f59f36"
+      data-template-id={widgetTemplateId}
       data-businessunit-id="5a33cc12b894c90f18f19bf8"
-      data-style-height="300px"
+      data-style-height={height ? height : "300px"}
       data-style-width="100%"
       data-theme="light"
       data-tags="SelectedReview"

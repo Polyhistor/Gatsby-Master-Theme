@@ -12,8 +12,13 @@ import useDestinationQuery from "../../queries/destinationQuery"
 import useThemeModalQuery from "../../queries/themeModalQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
+/**
+ *
+ * DEPRECIATED - This is the component for STEPS on booking form, itsnot being used anymore.
+ */
 const BookingForm = ({ data, country, inPage }) => {
-  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions.config.bookingForm
+  const bookingFormConfig = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.bookingForm
 
   //TODO:This should come from api somehow
   const pricesClassOrdered = bookingFormConfig.yachtClasses

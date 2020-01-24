@@ -25,6 +25,8 @@ export const useWebSiteConfigQuery = () => {
             playIcon
             acitivitesPage {
               howItWorksBannerText
+              introTitle
+              intoDescription
             }
             destinationPage {
               showIncludedSection
@@ -39,6 +41,16 @@ export const useWebSiteConfigQuery = () => {
             countryPage {
               buttonCardText
             }
+            reviewsPage {
+              introTitle
+              introDescription
+              logos {
+                icon
+                rating
+                link
+              }
+              text
+            }
             bookPage {
               bannerText
             }
@@ -47,6 +59,10 @@ export const useWebSiteConfigQuery = () => {
               countryDropdownLabel
               useYachtClass
               bookButtonText
+              extraClassOptions {
+                className
+                extraOptions
+              }
               yachtClasses {
                 description
                 code

@@ -13,9 +13,17 @@ import {
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 // calling our query
-import { useTermsQuery, renderSeo, Layout2 } from "@nt-websites/navigate-theme"
+import {
+  renderSeo,
+  Layout2,
+  useWebSiteConfigQuery,
+  resolveVariationClass,
+} from "@nt-websites/navigate-theme"
 
 const Terms = ({ data }) => {
+  const termsJsonData = useWebSiteConfigQuery().contentfulWebsiteConfiguration
+    .termsConditions.json
+
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => (
@@ -36,7 +44,11 @@ const Terms = ({ data }) => {
       [INLINES.HYPERLINK]: (node, children) => {
         const URL = node.data.uri
         return (
-          <a href={URL} className="activity__hyperlink" target="_blank">
+          <a
+            href={URL}
+            className={resolveVariationClass("activity__hyperlink")}
+            target="_blank"
+          >
             {children}
           </a>
         )
@@ -47,16 +59,12 @@ const Terms = ({ data }) => {
     },
   }
 
-  const termsData = useTermsQuery()
   return (
     <Layout2>
       {renderSeo(data)}
       <div className="section-tc">
         <article className="tour-banner__description-details u-margin-top-huge">
-          {documentToReactComponents(
-            termsData[0].node.description.json,
-            options
-          )}
+          {documentToReactComponents(termsJsonData, options)}
         </article>
       </div>
     </Layout2>
