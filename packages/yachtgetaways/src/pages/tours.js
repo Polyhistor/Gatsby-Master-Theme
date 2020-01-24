@@ -69,7 +69,7 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
-          <DestinationsTablet
+          {/* <DestinationsTablet
             type="country"
             key={idx + 8}
             destination={country.node.slug}
@@ -81,7 +81,7 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
             SVGMap={country.node.svgMap.localFile.publicURL}
-          />
+          /> */}
           <TourBanner
             type="country"
             key={idx + 12}
