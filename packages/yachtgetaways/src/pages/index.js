@@ -96,10 +96,6 @@ const IndexPage = ({ data }) => {
         )
       })
   }
-  /**
-   * Todo: Dynamic  destinations link - buttonFirstUrl
-   * Greenbar alt
-   */
 
   return (
     <Layout>
@@ -109,7 +105,6 @@ const IndexPage = ({ data }) => {
         titleFirst="Luxury Skippered "
         TitleSecond="Sailing Holidays"
         TitleThird=""
-        // subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Trips"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
