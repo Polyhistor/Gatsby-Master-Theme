@@ -13,6 +13,7 @@ import {
   Reviews,
   Trips,
   WhyUsMobile,
+  FeaturedMobile,
   useImageQuery,
   useHomePageQuery,
   useCountryQuery,
@@ -77,11 +78,6 @@ const IndexPage = ({ data }) => {
         )
       })
   }
-  /**
-   * Todo: Dynamic  destinations link - buttonFirstUrl
-   * Greenbar alt
-   */
-
   return (
     <Layout>
       {renderSeo(data)}
@@ -106,6 +102,7 @@ const IndexPage = ({ data }) => {
           { label: "europe", link: "/tours/europe" },
         ]}
       />
+      <FeaturedMobile data={featuredBoxData} />
       <WhyUsMobile
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
