@@ -1,6 +1,5 @@
 .featured {
   height: 12.2rem;
-
   text-transform: uppercase;
   position: relative;
   border-radius: 0 0 0.3rem 0.3rem;
@@ -184,7 +183,7 @@
 
     @include respond(phone) {
       height: 6rem;
-      display: none;
+      // display: none;
     }
 
     &--ms {
