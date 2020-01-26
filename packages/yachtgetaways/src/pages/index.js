@@ -77,7 +77,6 @@ const IndexPage = ({ data }) => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               directToTrip={country.node.directToTrip}
             />
-
             <TourBanner
               type="country"
               key={idx + 12}
@@ -127,11 +126,12 @@ const IndexPage = ({ data }) => {
           { label: "italy", link: "/sail-italy/explorer" },
         ]}
       />
+      <FeaturedMobile data={featuredBoxData} />
       <WhyUsMobile
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
-      <FeaturedMobile data={featuredBoxData} />
+
       <div className="row row--patched mobile-yes">
         <h2
           className={`${resolveVariationClass(
