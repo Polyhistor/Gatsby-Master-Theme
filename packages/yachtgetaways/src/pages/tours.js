@@ -118,7 +118,9 @@ const Destination = ({ data }) => {
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />
-      <Reviews />
+      <div className="hotfix hotfix__private-reviews">
+        <Reviews />
+      </div>
       <Trips
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routes"

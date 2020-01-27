@@ -159,7 +159,14 @@ const Countries = ({ data, pageContext }) => {
         buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
-      <Reviews />
+      {theme === "yg" ? (
+        <div className="hotfix hotfix__private-reviews">
+          <Reviews />
+        </div>
+      ) : (
+        <Reviews />
+      )}
+
       <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout>
   )

@@ -200,7 +200,9 @@ const FamilyYacht = ({ data }) => {
         buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
-      <Reviews />
+      <div className="hotfix hotfix__private-reviews">
+        <Reviews />
+      </div>
       <Trips
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routes"

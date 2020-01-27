@@ -458,6 +458,14 @@
     }
   }
 
+  &__private-reviews {
+    & > .section-truspilot-reviews {
+      @include respond(phone) {
+        margin-top: 5.8rem;
+      }
+    }
+  }
+
   &--reviews {
     height: 47.5rem;
     grid-row: 6;
@@ -537,6 +545,10 @@
     &--yg {
       height: 37.5rem;
       grid-row: 8;
+
+      @include respond(phone) {
+        margin-top: 4.2rem;
+      }
 
       & > section {
         height: 28.89rem !important;
