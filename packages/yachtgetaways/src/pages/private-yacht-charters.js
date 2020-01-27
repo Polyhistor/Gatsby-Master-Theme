@@ -161,13 +161,14 @@ const FamilyYacht = ({ data }) => {
         data={ourCatamarans}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
-
-      <YachtSingle
-        title={false}
-        sectionTitle="Our Yachts"
-        data={ourYachts}
-        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
-      />
+      <div className="hotfix hotfix__private-charter">
+        <YachtSingle
+          title={false}
+          sectionTitle="Our Yachts"
+          data={ourYachts}
+          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+        />
+      </div>
 
       <section className="duo-boxes">
         <div className="row">

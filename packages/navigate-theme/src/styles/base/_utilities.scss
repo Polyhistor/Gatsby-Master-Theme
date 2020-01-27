@@ -449,6 +449,15 @@
 }
 
 .hotfix {
+  &__private-charter {
+    & > .yacht-container {
+      @include respond(phone) {
+        border-top: 0 !important;
+        margin-top: 0.1rem !important;
+      }
+    }
+  }
+
   &--reviews {
     height: 47.5rem;
     grid-row: 6;
