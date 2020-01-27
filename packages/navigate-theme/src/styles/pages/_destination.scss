@@ -118,7 +118,7 @@
       grid-row: 5;
 
       @include respond(tablet) {
-        grid-row: 6;
+        grid-row: 7;
         grid-column: 1/-1;
       }
 
@@ -142,6 +142,7 @@
 
       @include respond(tablet) {
         margin-top: 8rem;
+        grid-row: 9;
       }
 
       @include respond(phone) {
@@ -168,7 +169,7 @@
       grid-column: 1/-1;
 
       @include respond(tablet) {
-        grid-row: 9;
+        grid-row: 10;
       }
 
       @include respond(phone) {
@@ -181,10 +182,6 @@
         padding: 23rem 55rem;
         color: white;
       }
-
-      &--yg {
-        grid-row: 9;
-      }
     }
 
     &__booking {
@@ -192,7 +189,7 @@
       height: 94.2rem;
 
       @include respond(tablet) {
-        grid-row: 10;
+        grid-row: 11 !important;
       }
 
       @include respond(phone) {

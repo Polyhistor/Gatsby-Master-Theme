@@ -476,7 +476,7 @@
     }
 
     @include respond(tablet) {
-      grid-row: 8;
+      grid-row: 6;
       height: 37rem;
     }
 
@@ -573,10 +573,11 @@
   &--banner {
     grid-row: 11;
     grid-column: 1/-1;
-    margin-top: 5rem;
+    margin-top: 11rem;
 
     @include respond(tablet) {
       grid-row: 12;
+      margin-top: 8rem;
     }
 
     @include respond(phone) {
