@@ -3,6 +3,9 @@
 
   @include respond(phone) {
     margin-top: 3rem;
+    padding: 4.8rem 0;
+    border-bottom: 4.8rem solid $color-gray-light-2;
+    border-top: 4.8rem solid $color-gray-light-2;
   }
 
   &__container {

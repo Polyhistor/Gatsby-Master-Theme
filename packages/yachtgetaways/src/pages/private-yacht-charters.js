@@ -168,6 +168,7 @@ const FamilyYacht = ({ data }) => {
         data={ourYachts}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
+
       <section className="duo-boxes">
         <div className="row">
           <h2 className="heading-1 heading-1--yg u-margin-bottom-sedium">
