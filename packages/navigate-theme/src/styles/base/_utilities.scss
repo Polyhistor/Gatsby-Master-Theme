@@ -749,7 +749,7 @@ textarea:focus {
 
 .private-includes {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33% 33% 33%;
   margin-bottom: 0 !important;
 
   @include respond(phone) {
@@ -758,6 +758,8 @@ textarea:focus {
     width: 100vw;
     margin: 0 auto;
     max-width: 100% !important;
+    border-top: 4.8rem solid $color-gray-light-2;
+    margin-top: 2.4rem;
   }
 
   & > section {
