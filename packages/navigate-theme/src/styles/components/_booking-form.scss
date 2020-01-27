@@ -81,6 +81,12 @@
       background: none;
       position: relative;
     }
+
+    & > .intro {
+      @include respond(phone) {
+        border-bottom: 0 !important;
+      }
+    }
   }
 
   &__info {

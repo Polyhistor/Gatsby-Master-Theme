@@ -475,7 +475,7 @@
       z-index: 90;
 
       @include respond(laptop) {
-        margin-top: 10rem;
+        margin-top: 13rem;
       }
 
       @include respond(tablet) {
@@ -530,10 +530,18 @@
       grid-row: 8;
 
       & > section {
-        height: 32.89rem !important;
+        height: 28.89rem !important;
 
         @include respond(laptop) {
           height: 28.89rem !important;
+        }
+
+        @include respond(tablet) {
+          height: 26.89rem !important;
+        }
+
+        @include respond(phone) {
+          height: 32.89rem !important;
         }
       }
     }
