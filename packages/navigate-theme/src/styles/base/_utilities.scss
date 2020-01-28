@@ -481,7 +481,7 @@
     }
 
     @include respond(phone) {
-      grid-row: 10;
+      grid-row: 7;
       height: 61rem;
     }
 
@@ -548,6 +548,7 @@
 
       @include respond(phone) {
         margin-top: 4.2rem;
+        grid-row: 7;
       }
 
       & > section {
