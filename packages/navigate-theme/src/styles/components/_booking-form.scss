@@ -48,7 +48,7 @@
 
     @include respond(tablet) {
       grid-template-columns: 48% 51%;
-      width: 66%;
+      width: 91%;
     }
 
     @include respond(phone) {

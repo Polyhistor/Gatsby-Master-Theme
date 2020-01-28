@@ -215,7 +215,7 @@
     grid-template-rows: 27.6rem 12rem;
 
     @include respond(tablet) {
-      left: 8.1rem;
+      left: 5rem;
     }
 
     @include respond(phone) {
@@ -270,6 +270,10 @@
         font-size: 12rem;
         grid-row: 2;
         text-transform: none;
+
+        @include respond(tablet) {
+          font-size: 9rem;
+        }
 
         @include respond(phone) {
           font-size: 5rem;
