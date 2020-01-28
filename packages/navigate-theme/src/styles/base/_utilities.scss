@@ -546,6 +546,10 @@
       height: 37.5rem;
       grid-row: 8;
 
+      @include respond(tablet) {
+        height: 34.2rem;
+      }
+
       @include respond(phone) {
         margin-top: 4.2rem;
         grid-row: 7;
