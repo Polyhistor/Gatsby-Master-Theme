@@ -19,10 +19,6 @@
   &__paragraph {
     grid-row: 2;
     padding-bottom: 2rem;
-
-    @include respond(tablet) {
-      display: none;
-    }
   }
 
   &__list {
