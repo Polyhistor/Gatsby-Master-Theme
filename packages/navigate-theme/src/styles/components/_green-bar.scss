@@ -1,4 +1,8 @@
 .green-bar {
+  @include respond(phone) {
+    display: none;
+  }
+
   &--wk {
     background-color: $color-wk-green;
   }
@@ -6,7 +10,6 @@
   &--ms {
     background-color: $color-med-teal;
   }
-  //TODO: check
   &--yg {
     background-color: $color-yg-blue;
   }
@@ -105,10 +108,8 @@
         }
       }
     }
-    //TODO: check hover
     &--ms {
       @include respond(phone) {
-        // border-bottom: 1px solid white;
         border-radius: 0px;
       }
 
@@ -120,7 +121,7 @@
         }
       }
     }
-    //TODO: check hover
+
     &--yg {
       @include respond(phone) {
         border-bottom: 1px solid white;

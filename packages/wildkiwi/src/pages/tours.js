@@ -58,19 +58,6 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
-          {/* <DestinationsTablet
-            type="country"
-            key={idx + 8}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          /> */}
           <TourBanner
             type="country"
             key={idx + 12}
@@ -102,6 +89,7 @@ const Destination = ({ data }) => {
         optMargin="u-margin-top-percent-10"
         variation="dest"
         popupVideo="https://www.youtube.com/embed/19GIN9tj-NY"
+        mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
       <FeaturedMobile data={featuredBoxData} />

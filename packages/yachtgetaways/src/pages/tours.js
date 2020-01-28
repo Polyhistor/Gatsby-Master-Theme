@@ -9,6 +9,7 @@ import {
   Reviews,
   Trips,
   Featured,
+  FeaturedMobile,
   TourBanner,
   DestinationsMobile,
   DestinationsTablet,
@@ -69,19 +70,6 @@ const Destination = ({ data }) => {
             tours={filterDestinations(country.node.slug)}
             imageData={country.node.banner.localFile.childImageSharp.fluid}
           />
-          {/* <DestinationsTablet
-            type="country"
-            key={idx + 8}
-            destination={country.node.slug}
-            title={country.node.title}
-            subtitle={country.node.days}
-            departs={country.node.departure}
-            details={country.node.description}
-            price={country.node.price}
-            tours={filterDestinations(country.node.slug)}
-            imageData={country.node.banner.localFile.childImageSharp.fluid}
-            SVGMap={country.node.svgMap.localFile.publicURL}
-          /> */}
           <TourBanner
             type="country"
             key={idx + 12}
@@ -116,6 +104,7 @@ const Destination = ({ data }) => {
         mobileBanner={true}
       />
       <Featured data={featuredBoxData} />
+      <FeaturedMobile data={featuredBoxData} />
       <Mobile>
         <GreenBar></GreenBar>
       </Mobile>
@@ -129,7 +118,9 @@ const Destination = ({ data }) => {
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />
-      <Reviews />
+      <div className="hotfix hotfix__private-reviews">
+        <Reviews />
+      </div>
       <Trips
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routes"

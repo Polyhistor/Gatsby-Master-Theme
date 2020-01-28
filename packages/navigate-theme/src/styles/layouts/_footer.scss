@@ -1,6 +1,10 @@
 .footer {
   padding-top: 2.8rem;
 
+  @include respond(tablet) {
+    padding-top: 7.8rem;
+  }
+
   &__input {
     display: none !important;
     &:checked ~ .footer__form {

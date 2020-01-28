@@ -449,6 +449,23 @@
 }
 
 .hotfix {
+  &__private-charter {
+    & > .yacht-container {
+      @include respond(phone) {
+        border-top: 0 !important;
+        margin-top: 0.1rem !important;
+      }
+    }
+  }
+
+  &__private-reviews {
+    & > .section-truspilot-reviews {
+      @include respond(phone) {
+        margin-top: 5.8rem;
+      }
+    }
+  }
+
   &--reviews {
     height: 47.5rem;
     grid-row: 6;
@@ -459,7 +476,7 @@
     }
 
     @include respond(tablet) {
-      grid-row: 8;
+      grid-row: 6;
       height: 37rem;
     }
 
@@ -475,7 +492,7 @@
       z-index: 90;
 
       @include respond(laptop) {
-        margin-top: 10rem;
+        margin-top: 13rem;
       }
 
       @include respond(tablet) {
@@ -529,11 +546,23 @@
       height: 37.5rem;
       grid-row: 8;
 
+      @include respond(phone) {
+        margin-top: 4.2rem;
+      }
+
       & > section {
-        height: 32.89rem !important;
+        height: 28.89rem !important;
 
         @include respond(laptop) {
           height: 28.89rem !important;
+        }
+
+        @include respond(tablet) {
+          height: 26.89rem !important;
+        }
+
+        @include respond(phone) {
+          height: 32.89rem !important;
         }
       }
     }
@@ -544,10 +573,11 @@
   &--banner {
     grid-row: 11;
     grid-column: 1/-1;
-    margin-top: 5rem;
+    margin-top: 11rem;
 
     @include respond(tablet) {
       grid-row: 12;
+      margin-top: 8rem;
     }
 
     @include respond(phone) {
@@ -741,7 +771,7 @@ textarea:focus {
 
 .private-includes {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33% 33% 33%;
   margin-bottom: 0 !important;
 
   @include respond(phone) {

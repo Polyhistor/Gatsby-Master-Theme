@@ -77,7 +77,6 @@ const IndexPage = ({ data }) => {
               imageData={country.node.banner.localFile.childImageSharp.fluid}
               directToTrip={country.node.directToTrip}
             />
-
             <TourBanner
               type="country"
               key={idx + 12}
@@ -97,10 +96,6 @@ const IndexPage = ({ data }) => {
         )
       })
   }
-  /**
-   * Todo: Dynamic  destinations link - buttonFirstUrl
-   * Greenbar alt
-   */
 
   return (
     <Layout>
@@ -110,7 +105,6 @@ const IndexPage = ({ data }) => {
         titleFirst="Luxury Skippered "
         TitleSecond="Sailing Holidays"
         TitleThird=""
-        // subTitle="for 20 to 35 year olds"
         buttonFirst="Explore Trips"
         buttonFirstURL="/tours"
         buttonSecond="watch trailer"
@@ -127,11 +121,12 @@ const IndexPage = ({ data }) => {
           { label: "italy", link: "/sail-italy/explorer" },
         ]}
       />
+      <FeaturedMobile data={featuredBoxData} />
       <WhyUsMobile
         data={homeQuery[0].node}
         popupVideo="https://www.youtube.com/embed/-JKUZ2oQtd4"
       />
-      <FeaturedMobile data={featuredBoxData} />
+
       <div className="row row--patched mobile-yes">
         <h2
           className={`${resolveVariationClass(
@@ -170,7 +165,9 @@ const IndexPage = ({ data }) => {
         buttonText={howItWorksBannerText}
         link="/private-yacht-charters"
       />
-      <Reviews />
+      <div className="hotfix hotfix__private-reviews">
+        <Reviews />
+      </div>
       <Trips
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routes"

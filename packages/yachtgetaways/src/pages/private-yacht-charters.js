@@ -161,13 +161,15 @@ const FamilyYacht = ({ data }) => {
         data={ourCatamarans}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
+      <div className="hotfix hotfix__private-charter">
+        <YachtSingle
+          title={false}
+          sectionTitle="Our Yachts"
+          data={ourYachts}
+          popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
+        />
+      </div>
 
-      <YachtSingle
-        title={false}
-        sectionTitle="Our Yachts"
-        data={ourYachts}
-        popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
-      />
       <section className="duo-boxes">
         <div className="row">
           <h2 className="heading-1 heading-1--yg u-margin-bottom-sedium">
@@ -198,7 +200,9 @@ const FamilyYacht = ({ data }) => {
         buttonText={howItWorksBannerText}
         link="/how-it-works"
       />
-      <Reviews />
+      <div className="hotfix hotfix__private-reviews">
+        <Reviews />
+      </div>
       <Trips
         data={homeQuery[0].node.popularTours}
         headerText="Our Explorer Routes"
