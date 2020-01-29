@@ -1,20 +1,12 @@
 import React from "react"
-import {
-  BLOCKS,
-  MARKS,
-  INLINES,
-  HEADING_1,
-  HEADING_2,
-  OL_LIST,
-  UL_LIST,
-  CODE,
-  BOLD,
-  imageQuery,
-  useWebSiteConfigQuery,
-} from "@contentful/rich-text-types"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import { Layout2, renderSeo } from "@nt-websites/navigate-theme"
+import {
+  Layout2,
+  renderSeo,
+  useWebSiteConfigQuery,
+} from "@nt-websites/navigate-theme"
 
 const Privacy = ({ data }) => {
   const privacyPolicyJsonData = useWebSiteConfigQuery()
