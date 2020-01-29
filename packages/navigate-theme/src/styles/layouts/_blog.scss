@@ -944,6 +944,10 @@
       @include respond(phone) {
         display: none;
       }
+
+      & > .review__dropdown-wrapper {
+        width: 100% !important;
+      }
     }
   }
 

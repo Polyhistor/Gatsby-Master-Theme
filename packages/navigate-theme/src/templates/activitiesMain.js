@@ -167,7 +167,7 @@ const ActivitiesMain = ({ pageContext }) => {
       return setData(group)
     }
 
-    ourData.filter(element => {
+    filteredData2 = ourData.filter(element => {
       // filter logic
       if (element.node.country.slug === target.value) {
         filteredData.push(element)
