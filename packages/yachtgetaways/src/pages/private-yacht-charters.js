@@ -219,7 +219,7 @@ export default FamilyYacht
 export const query = graphql`
   query {
     allContentfulSeoPageMeta(
-      filter: { referencedPageIdentifier: { eq: "how-it-works" } }
+      filter: { referencedPageIdentifier: { eq: "privateyachtcharters" } }
     ) {
       edges {
         node {

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { Link, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import SEO from "../components/seo/seo"
+
 import scrollTo from "gatsby-plugin-smoothscroll"
 import ReactPaginate from "react-paginate"
+import { renderSeo } from "../helpers/seo-helper"
 
-// main components
-import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
 import useHomePageQuery from "../queries/homePageQuery"
 import TrustPilotBox from "../components/reviews/trustpilot"
@@ -24,7 +21,7 @@ import ReviewCard from "../components/reviews/reviewCard"
 
 import useReviewQuery from "../queries/reviewQuery"
 
-const ReviewsMain = () => {
+const ReviewsMain = ({ data }) => {
   const reviewData = useReviewQuery()
   const homeQuery = useHomePageQuery()
 
@@ -120,6 +117,8 @@ const ReviewsMain = () => {
 
   return (
     <Layout>
+      {renderSeo(data)}
+
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={reviewsBannerImage}

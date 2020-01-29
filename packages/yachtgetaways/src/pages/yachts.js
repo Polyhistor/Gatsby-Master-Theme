@@ -53,6 +53,7 @@ const Yachts = ({ data }) => {
         <GreenBar />
       </div>
       <YachtSingle
+        introDescription="Set sail around the Mediterranean in our modern catamarans. We have two modern boats to suit any travel style, so you can choose the ultimate way to experience your dream sailing holiday."
         data={filteredYachts}
         popupVideo="https://www.youtube.com/embed/GJELbYVvC7U"
       />
