@@ -22,6 +22,7 @@ const ExtraOptionValues = ({ extraOptions, formValues }) => {
                 {extraOptions.map((extraOpt, idx) => (
                   <div key={idx} className="booking-details__extras">
                     <input
+                      id={idx}
                       name={`extraOptions.${idx}`}
                       type="checkbox"
                       value={extraOptions}
@@ -34,7 +35,7 @@ const ExtraOptionValues = ({ extraOptions, formValues }) => {
                         }
                       }}
                     />
-                    <label>{extraOpt}</label>
+                    <label for={idx}>{extraOpt}</label>
                   </div>
                 ))}
               </div>
