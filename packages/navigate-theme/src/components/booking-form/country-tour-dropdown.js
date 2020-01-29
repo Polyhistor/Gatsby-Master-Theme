@@ -72,7 +72,13 @@ const CountryDestinationDropdown = ({
         console.warning("destination not found")
       } else {
         setSeletedTour(destination.slug)
-        onDestinationChange(destination.slug, setFieldValue)
+        onDestinationChange(
+          {
+            value: destination.slug,
+            privateYachtDestination: destination.privateYachtDestination,
+          },
+          setFieldValue
+        )
       }
       /*reset all form fields*/
     }
@@ -102,7 +108,13 @@ const CountryDestinationDropdown = ({
 
     setDestinationFilter(destinations)
     /*reset all form fields*/
-    onDestinationChange("all", setFieldValue)
+    onDestinationChange(
+      {
+        value: "all",
+        privateYachtDestination: false,
+      },
+      setFieldValue
+    )
   }
 
   const renderDestinations = () => {
@@ -118,8 +130,22 @@ const CountryDestinationDropdown = ({
   }
 
   const handleDestDropdown = e => {
-    setSeletedTour(e.target.value)
-    onDestinationChange(e.target.value, setFieldValue)
+    const country = countryList.find(c => c.slug === selectedCountry)
+
+    const destination = country
+      ? country.destinations.find(d => d.slug === e.target.value)
+      : undefined
+
+    if (destination) {
+      setSeletedTour(destination.slug)
+      onDestinationChange(
+        {
+          value: destination.slug,
+          privateYachtDestination: destination.privateYachtDestination,
+        },
+        setFieldValue
+      )
+    }
   }
 
   return (

@@ -66,6 +66,9 @@ const BookForm = ({
   const [extraOptions, setExtraOptions] = useState([])
   const [response, setApiResponse] = useState([])
   const [success, setSuccess] = useState(false)
+  const [isPrivateYachtDestination, setIsPrivateYachtDestination] = useState(
+    false
+  )
   const [error, setError] = useState(false)
 
   const sectionRef = useRef(null)
@@ -85,12 +88,10 @@ const BookForm = ({
   const email = useWebSiteConfigQuery().contentfulWebsiteConfiguration
     .bookingFormEmailContact
 
-  const handleDestinationChange = (destinationSlug, setFieldValue) => {
-    /*if (destinationSlug === "all") {
-      cleanForm(setFieldValue)
-    }*/
+  const handleDestinationChange = (destination, setFieldValue) => {
     cleanForm(setFieldValue)
-    setTourId(destinationSlug)
+    setTourId(destination.value)
+    setIsPrivateYachtDestination(destination.privateYachtDestination)
   }
 
   const cleanSelectedDate = setFieldValue => {
@@ -137,6 +138,10 @@ const BookForm = ({
         setFieldValue("priceId", priceId)
       } else {
         setProductClasses(findDate.class)
+
+        if (findDate.class.length === 1 && isPrivateYachtDestination) {
+          onProductClassChanged(findDate.class[0].id, setFieldValue)
+        }
       }
     }
   }
@@ -229,6 +234,7 @@ const BookForm = ({
     setLoading(true)
     let apiData = {
       ...values,
+      privateYachtBooking: isPrivateYachtDestination,
     }
 
     try {
@@ -515,7 +521,7 @@ const BookForm = ({
                     </div>
                   </div>
 
-                  {useYachtClass && (
+                  {useYachtClass && !isPrivateYachtDestination && (
                     <>
                       <div className="booking-details__fields-container">
                         <label>Yacht Type</label>
@@ -556,7 +562,11 @@ const BookForm = ({
                   {useYachtClass && cabinTypes && cabinTypes.length > 0 && (
                     <>
                       <div className="booking-details__fields-container">
-                        <label>Cabin Type</label>
+                        <label>
+                          {!isPrivateYachtDestination
+                            ? "Cabin Type"
+                            : "Yacht Type"}
+                        </label>
                         <Field
                           component="select"
                           onChange={e =>
@@ -651,10 +661,6 @@ const BookForm = ({
               )}
             </Formik>
           )}
-
-          {/* <div className="booking-details__image-container">
-            {renderImages()}
-          </div> */}
         </section>
       </div>
     </div>

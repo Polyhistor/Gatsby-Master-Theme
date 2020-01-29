@@ -193,6 +193,7 @@ module.exports = {
             bookButtonText: "Book",
             countryDropdownLabel: "Destination",
             destinationDropdownLabel: "Tour",
+
             useYachtClass: false,
             /*TODO: This logic only applies to YG. Should be handled
             by the backend on fetch dates api call.*/

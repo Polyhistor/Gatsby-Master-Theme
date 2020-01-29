@@ -69,6 +69,7 @@ const Book = ({ location, data }) => {
                   return {
                     url: "",
                     slug: dest.slug,
+                    privateYachtDestination: true,
                     title: dest.titleForEnquiryForm,
                   }
                 })
@@ -105,7 +106,7 @@ const Book = ({ location, data }) => {
         <BookForm
           countryDestinationList={getCountriesDestinationsList()}
           countryAndTour={countryAndTour}
-          inPage={false}
+          inPage={true}
         />
       </div>
     </Layout>

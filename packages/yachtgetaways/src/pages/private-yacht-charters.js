@@ -82,6 +82,7 @@ const FamilyYacht = ({ data }) => {
           .map(dest => {
             return {
               url: "",
+              privateYachtDestination: true,
               slug: dest.slug,
               title: dest.title,
             }
@@ -187,8 +188,7 @@ const FamilyYacht = ({ data }) => {
       <div id="enquiry" className="row booking-form--enquiry">
         <BookForm
           countryDestinationList={getCountriesDestinationsList()}
-          countryAndTour={undefined}
-          inPage={false}
+          inPage={true}
         />
       </div>
       {/* <SectionHowItWorks data={howItWorksData} /> */}

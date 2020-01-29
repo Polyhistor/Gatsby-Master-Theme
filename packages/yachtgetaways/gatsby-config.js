@@ -221,6 +221,7 @@ module.exports = {
           bookingForm: {
             bookButtonText: "Enquire",
             destinationDropdownLabel: "Trip",
+
             countryDropdownLabel: "Select Destination",
             useYachtClass: true,
             extraClassOptions: [
