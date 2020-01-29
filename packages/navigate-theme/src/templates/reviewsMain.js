@@ -55,7 +55,6 @@ const ReviewsMain = ({ pageContext, location }) => {
     loadReviews()
   }, [currentPage])
 
-  //TODO: fix height style
   const renderTrustBox = () => {
     return (
       <>
@@ -82,7 +81,7 @@ const ReviewsMain = ({ pageContext, location }) => {
   const renderCards = () =>
     reviewsList.map(c => (
       <ReviewCard
-      link = {c.node.link}
+        link={c.node.link}
         title={c.node.title}
         name={c.node.name}
         date={c.node.date}
@@ -142,8 +141,6 @@ const ReviewsMain = ({ pageContext, location }) => {
         info={reviewsPageInfo}
         reviewsQuantity={reviewData.length}
       ></LogoRatingContainer>
-
-      <div></div>
 
       <ReviewsBoard>
         {renderCards()}

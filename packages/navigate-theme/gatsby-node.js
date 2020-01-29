@@ -299,7 +299,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       edges: Activities,
       createPage: createPage,
       pageTemplate: require.resolve("./src/templates/activitiesMain.js"),
-      pageLength: 16,
+      pageLength: 200,
       pathPrefix: "activities",
       context: {
         metadata: activitiesMeta,

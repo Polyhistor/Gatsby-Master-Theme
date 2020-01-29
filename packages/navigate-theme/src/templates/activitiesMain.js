@@ -1,7 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo/seo"
+import scrollTo from "gatsby-plugin-smoothscroll"
+import ReactPaginate from "react-paginate"
+
 // main components
 import NavLink from "../components/blog/blogNavLink"
 import Layout from "../components/layout/layout"
@@ -22,6 +25,7 @@ const ActivitiesMain = ({ pageContext }) => {
   const activitiesBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.activitiesBannerImage.localFile
     .childImageSharp.fluid
+
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
@@ -42,7 +46,6 @@ const ActivitiesMain = ({ pageContext }) => {
   // extracting our custom hook
   const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
-
   const countryData = useCountryQuery()
 
   const countryList = useState(countryData)
@@ -67,6 +70,41 @@ const ActivitiesMain = ({ pageContext }) => {
   const [data, setData] = useState(group)
   const [CountryData, setCountryData] = useState(null)
   const [filter, setFilter] = useState(null)
+
+  const activitiesPerPage = 24
+
+  const [currentPage, setCurrentPage] = useState(0)
+  const [activitiesList, setActivitiesList] = useState([])
+
+  const loadActivities = () => {
+    const startIndex = currentPage * activitiesPerPage - activitiesPerPage
+    const endIndex = currentPage * activitiesPerPage - 1
+
+    const activities = data.slice(startIndex, endIndex + 1)
+
+    setActivitiesList(activities)
+  }
+
+  useEffect(() => {
+    loadActivities()
+  }, [currentPage])
+
+  const getTotalPages = () => {
+    const totalActivities = data.length
+    const divisionRest = totalActivities % activitiesPerPage
+    const restDivisionSum = divisionRest > 0 ? 1 : 0
+    const totalPages =
+      totalActivities <= activitiesPerPage
+        ? 1
+        : Math.floor(totalActivities / activitiesPerPage) + restDivisionSum
+
+    return totalPages
+  }
+
+  const onPageChange = pageNumber => {
+    setCurrentPage(pageNumber.selected)
+    scrollTo("#activity")
+  }
 
   // we need another static query to fetch activities
   const activitiesData = useStaticQuery(graphql`
@@ -175,11 +213,11 @@ const ActivitiesMain = ({ pageContext }) => {
     )
 
     // update the state
-    return setData(filteredData3)
+    return setActivitiesList(filteredData3)
   }
 
   const renderActivities = () => {
-    return data.map(({ node }, idx) => {
+    return activitiesList.map(({ node }, idx) => {
       return (
         <div className="activity__main-container" key={idx}>
           <Link
@@ -248,7 +286,7 @@ const ActivitiesMain = ({ pageContext }) => {
         description={activitiesDescription}
       ></Intro>
       <div className="row">
-        <div className="activity__filter">
+        <div id="activity" className="activity__filter">
           {/* <h1
             className={`${resolveVariationClass(
               "heading-1"
@@ -295,11 +333,22 @@ const ActivitiesMain = ({ pageContext }) => {
           {renderActivities()}
           <div className="blog__main-pagination">
             <div className="blog__main-previousLink">
-              <NavLink
+              {/* <NavLink
                 test={first}
                 url={`/activities/${previousUrl}`}
                 text="Previous"
-              />
+              /> */}
+              <div className="review__dropdown-wrapper">
+                <ReactPaginate
+                  pageCount={getTotalPages()}
+                  onPageChange={onPageChange}
+                  previousLabel={"<"}
+                  nextLabel={">"}
+                  breakLabel={"..."}
+                  marginPagesDisplayed={24}
+                  pageRangeDisplayed={24}
+                />
+              </div>
             </div>
           </div>
         </div>
