@@ -205,7 +205,6 @@ const ActivitiesMain = ({ data }) => {
               /> */}
               <div className="review__dropdown-wrapper">
                 <ReactPaginate
-                  forcePage={currentPage}
                   pageCount={getTotalPages()}
                   onPageChange={onPageChange}
                   previousLabel={"<"}
