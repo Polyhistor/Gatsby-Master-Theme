@@ -93,7 +93,7 @@ const Reviews = () => {
                   Facebook Review
                 </center>
                 <center className="facebook-reviews__subtitle">
-                  based on {reviewGeneralInfo.totalFacebookReviews} reviews
+                  based on {reviewGeneralInfo.totalReviewsBanner} reviews
                 </center>
                 <Link
                   aria-current="page"

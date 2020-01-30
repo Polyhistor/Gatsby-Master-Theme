@@ -6,6 +6,7 @@ const useMenuLabelQuery = () => {
       sitePlugin(name: { eq: "@nt-websites/navigate-theme" }) {
         pluginOptions {
           menuLabel {
+            onlyMobileDisplay
             label
             link
             sub {

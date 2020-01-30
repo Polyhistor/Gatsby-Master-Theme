@@ -122,6 +122,8 @@ module.exports = {
           review: {
             maxRating: "5",
             rating: "4.9",
+            totalReviewsBanner: 484,
+            totalReviewsInPage: 437,
             totalFacebookReviews: 151,
           },
           useHeaderShapes: true,
@@ -379,6 +381,7 @@ module.exports = {
             label: "manage my booking",
             link: "https://mytourinfo.com/auth/login",
             sub: null,
+            onlyMobileDisplay: true,
             external: true,
           },
         ],

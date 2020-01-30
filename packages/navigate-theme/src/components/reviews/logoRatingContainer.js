@@ -6,6 +6,9 @@ const LogoRatingContainer = ({ reviewsQuantity }) => {
   const reviewsPageData = useWebSiteConfigQuery().sitePlugin.pluginOptions
     .config.reviewsPage
 
+  const reviewGeneralInfo = useWebSiteConfigQuery().sitePlugin.pluginOptions
+    .config.review
+
   const renderRatings = () =>
     reviewsPageData.logos.map(e => <LogoRating data={e}></LogoRating>)
 
@@ -16,7 +19,7 @@ const LogoRatingContainer = ({ reviewsQuantity }) => {
         <p
           className="logo-rating__fact"
           id="reviews"
-        >{`Based on ${reviewsQuantity} reviews`}</p>
+        >{`Based on ${reviewGeneralInfo.totalReviewsInPage} reviews`}</p>
       </div>
     </div>
   )

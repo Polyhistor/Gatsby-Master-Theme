@@ -13,6 +13,8 @@ export const useWebSiteConfigQuery = () => {
               maxRating
               rating
               totalFacebookReviews
+              totalReviewsBanner
+              totalReviewsInPage
             }
             useTrustPilotReview
             greenBar {
