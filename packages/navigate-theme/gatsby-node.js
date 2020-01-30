@@ -272,13 +272,13 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       pathPrefix: "blog",
     })
 
-    createPaginatedPages({
+    /*createPaginatedPages({
       edges: Reviews,
       createPage: createPage,
       pageTemplate: require.resolve("./src/templates/reviewsMain.js"),
       pageLength: 5,
       pathPrefix: "reviews",
-    })
+    })*/
 
     // creating another set of paginated page for the blog
     /* createPaginatedPages({
@@ -289,7 +289,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       pathPrefix: "blog/categorized",
     })*/
 
-    const activitiesMeta = extractMetadataFromContentfulData(
+    /* const activitiesMeta = extractMetadataFromContentfulData(
       "activities-main-page",
       PageSeoMeta
     )
@@ -304,7 +304,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       context: {
         metadata: activitiesMeta,
       },
-    })
+    })*/
 
     // this is for single blog pages
     BlogPosts.forEach(post => {

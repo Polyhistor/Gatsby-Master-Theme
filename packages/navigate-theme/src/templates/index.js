@@ -1,5 +1,4 @@
 export { default as ActivitiesCountriesTemplate } from "./activitiesCountries"
-export { default as ActivitiesMainTemplate } from "./activitiesMain"
 export { default as ActivitiesSingleTemplate } from "./activitiesSingle"
 export { default as BlogAuthorTemplate } from "./blogAuthor"
 export { default as BlogCategoryTemplate } from "./blogCategory"

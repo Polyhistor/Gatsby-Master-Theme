@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
-import SEO from "../components/seo/seo"
 import scrollTo from "gatsby-plugin-smoothscroll"
 import ReactPaginate from "react-paginate"
+import { renderSeo } from "../helpers/seo-helper"
 
 // main components
-import NavLink from "../components/blog/blogNavLink"
+
 import Layout from "../components/layout/layout"
 import Banner from "../components/banners/banner"
 import Reviews from "../components/reviews/reviews"
@@ -15,13 +15,13 @@ import Landing from "../components/header/landings/landing"
 import GreenBar from "../components/bars/greenBar"
 import Intro from "../components/intro"
 import { useWebSiteConfigQuery } from "../queries/webSiteConfigQueries"
-// utilities
-import useImageQuery from "../queries/imageQuery"
 import useHomePageQuery from "../queries/homePageQuery"
-import useCountryQuery from "../queries/countryQuery"
-import resolveVariationClass from "../helpers/theme-variation-style"
 
-const ActivitiesMain = ({ pageContext }) => {
+import resolveVariationClass from "../helpers/theme-variation-style"
+import useActivityQuery from "../queries/activityQuery"
+import ActivitiesTourCountryFilter from "../components/activity/activityCountryTourFilter"
+
+const ActivitiesMain = ({ data }) => {
   const activitiesBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.activitiesBannerImage.localFile
     .childImageSharp.fluid
@@ -43,54 +43,27 @@ const ActivitiesMain = ({ pageContext }) => {
     "acitivity-box-single__caption--free"
   )
 
-  // extracting our custom hook
-  const imageQuery = useImageQuery()
   const homeQuery = useHomePageQuery()
-  const countryData = useCountryQuery()
 
-  const countryList = useState(countryData)
-  //pageContext is a react Context props that is globally available, we set it in our Gatsby-Node JS file and use it anywhere
-  const { group, index, first, last } = pageContext
-
-  const getActivitySeo = () => {
-    return {
-      title: first
-        ? `${pageContext.metadata.title}`
-        : `${pageContext.metadata.title} | Page ${index}`,
-      description: first
-        ? `${pageContext.metadata.description}`
-        : `${pageContext.metadata.description} | Page ${index}`,
-    }
-  }
-
-  // previous and next page logic
-  const previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-
-  // using useState hook for the pourposes of our filter
-  const [data, setData] = useState(group)
-  const [CountryData, setCountryData] = useState(null)
-  const [filter, setFilter] = useState(null)
+  let allActivitiesData = useActivityQuery()
 
   const activitiesPerPage = 24
 
-  const [currentPage, setCurrentPage] = useState(0)
-  const [activitiesList, setActivitiesList] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  /*State to store all activites */
+  const [activitiesList, setActivitiesList] = useState(allActivitiesData)
 
-  const loadActivities = () => {
+  const [countryFilter, setCountryFilter] = useState("all")
+  const getActivities = () => {
     const startIndex = currentPage * activitiesPerPage - activitiesPerPage
     const endIndex = currentPage * activitiesPerPage - 1
+    const activities = activitiesList.slice(startIndex, endIndex + 1)
 
-    const activities = data.slice(startIndex, endIndex + 1)
-
-    setActivitiesList(activities)
+    return activities
   }
 
-  useEffect(() => {
-    loadActivities()
-  }, [currentPage])
-
   const getTotalPages = () => {
-    const totalActivities = data.length
+    const totalActivities = activitiesList.length
     const divisionRest = totalActivities % activitiesPerPage
     const restDivisionSum = divisionRest > 0 ? 1 : 0
     const totalPages =
@@ -102,122 +75,53 @@ const ActivitiesMain = ({ pageContext }) => {
   }
 
   const onPageChange = pageNumber => {
-    setCurrentPage(pageNumber.selected)
+    setCurrentPage(pageNumber.selected + 1)
     scrollTo("#activity")
   }
 
-  // we need another static query to fetch activities
-  const activitiesData = useStaticQuery(graphql`
-    query {
-      allContentfulActivities {
-        edges {
-          node {
-            slug
-            title
-            subtitle
-            price
-            status
-            country {
-              slug
-            }
-            Destinations {
-              slug
-            }
-            bannerImages {
-              localFile {
-                childImageSharp {
-                  fluid(quality: 80, maxWidth: 700) {
-                    base64
-                    aspectRatio
-                    src
-                    srcSet
-                    sizes
-                    originalImg
-                    originalName
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      allContentfulDestinations {
-        edges {
-          node {
-            slug
-            title
-            destinationCountry
-          }
-        }
-      }
-    }
-  `)
-
-  // embracing the variables
-  const ourData = activitiesData.allContentfulActivities.edges
-  const ourFilter = activitiesData.allContentfulDestinations.edges
-
-  // handling the filter functionality
-  const handleSubmit = ({ target }) => {
-    // to avoid mutating the state, we create a temporary variable, we populate it and then we use it to update the state
-    const filteredData = []
-    const filteredData2 = []
-
-    if (target.value === "all") {
-      return setData(group)
-    }
-
-    filteredData2 = ourData.filter(element => {
-      // filter logic
-      if (element.node.country.slug === target.value) {
-        filteredData.push(element)
-      }
-
-      setCountryData(filteredData)
-
-      // update the state
-      return setData(filteredData)
-    })
-
-    ourFilter.filter(element => {
-      // filter logic for our second filter
-      if (element.node.destinationCountry === target.value) {
-        filteredData2.push(element)
-      }
-
-      // update the state
-      return setFilter(filteredData2)
-    })
+  const filterActivitiesByCountry = countrySlug => {
+    const filteredActivities = allActivitiesData.filter(
+      a => a.node.country.slug === countrySlug
+    )
+    return filteredActivities
   }
 
-  const renderCountries = () =>
-    countryList[0].map((e, idx) => (
-      <option key={idx} value={e.node.slug}>
-        {e.node.title}
-      </option>
-    ))
+  const fiterActivityByDestination = destinationSlug => {
+    const filteredActivities = allActivitiesData.filter(a =>
+      a.node.Destinations.find(d => d.slug === destinationSlug)
+    )
+    return filteredActivities
+  }
 
-  const handleFilter = ({ target }) => {
-    const filteredData3 = []
-
-    if (target.value === "all") {
-      return setData(CountryData)
+  const handleCountryChange = countrySlug => {
+    setCountryFilter(countrySlug)
+    if (countrySlug === "all") {
+      setActivitiesList(allActivitiesData)
+    } else {
+      setActivitiesList(filterActivitiesByCountry(countrySlug))
     }
 
-    CountryData.filter(e =>
-      e.node.Destinations.forEach(s => {
-        if (s.slug === target.value) {
-          filteredData3.push(e)
-        }
-      })
-    )
+    setCurrentPage(1)
+  }
 
-    // update the state
-    return setActivitiesList(filteredData3)
+  const handleDestinationChange = destinationSlug => {
+    if (destinationSlug === "all") {
+      /*is not possible the first condition of iff. Everytime when we select all destinations we should have a valid country slug*/
+
+      const activities =
+        countryFilter === "all"
+          ? allActivitiesData
+          : filterActivitiesByCountry(countryFilter)
+      setActivitiesList(activities)
+    } else {
+      setActivitiesList(fiterActivityByDestination(destinationSlug))
+    }
+
+    setCurrentPage(1)
   }
 
   const renderActivities = () => {
-    return activitiesList.map(({ node }, idx) => {
+    return getActivities().map(({ node }, idx) => {
       return (
         <div className="activity__main-container" key={idx}>
           <Link
@@ -262,10 +166,7 @@ const ActivitiesMain = ({ pageContext }) => {
 
   return (
     <Layout>
-      <SEO
-        title={getActivitySeo().title}
-        description={getActivitySeo().description}
-      />
+      {renderSeo(data)}
       <div className="hotfix--narrow-banner">
         <Landing
           imageData={activitiesBannerImage}
@@ -287,47 +188,10 @@ const ActivitiesMain = ({ pageContext }) => {
       ></Intro>
       <div className="row">
         <div id="activity" className="activity__filter">
-          {/* <h1
-            className={`${resolveVariationClass(
-              "heading-1"
-            )} u-margin-bottom-small`}
-          >
-            Add-on Activities
-          </h1> */}
-          <div className={resolveVariationClass("activity__selector")}>
-            <select
-              className={resolveVariationClass("activity__dropdown")}
-              id="country"
-              onChange={handleSubmit}
-            >
-              <option value="all">Select Country</option>
-              {renderCountries()}
-            </select>
-          </div>
-          <div
-            className={
-              filter === null
-                ? `${resolveVariationClass(
-                    "activity__selector"
-                  )} activity__selector--hidden`
-                : resolveVariationClass("activity__selector")
-            }
-          >
-            <select
-              className="activity__dropdown"
-              id="country"
-              onChange={handleFilter}
-            >
-              <option value="all">Tour</option>
-              {filter !== null
-                ? filter.map((e, idx) => (
-                    <option key={idx} value={e.node.slug}>
-                      {e.node.title}
-                    </option>
-                  ))
-                : null}
-            </select>
-          </div>
+          <ActivitiesTourCountryFilter
+            onCountryChange={handleCountryChange}
+            onDestinationChange={handleDestinationChange}
+          />
         </div>
         <div className="activity__main">
           {renderActivities()}
@@ -373,3 +237,18 @@ const ActivitiesMain = ({ pageContext }) => {
   )
 }
 export default ActivitiesMain
+
+export const query = graphql`
+  query {
+    allContentfulSeoPageMeta(
+      filter: { referencedPageIdentifier: { eq: "activities-main-page" } }
+    ) {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
