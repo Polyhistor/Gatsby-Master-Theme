@@ -122,8 +122,8 @@ module.exports = {
           review: {
             maxRating: "5",
             rating: "4.9",
-            totalReviewsBanner: 484,
-            totalReviewsInPage: 437,
+            totalReviewsBanner: 437,
+            totalReviewsInPage: 484,
             totalFacebookReviews: 151,
           },
           useHeaderShapes: true,
