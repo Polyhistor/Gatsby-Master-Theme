@@ -183,23 +183,18 @@
 
     @include respond(phone) {
       height: 6rem;
-      // display: none;
     }
 
     &--ms {
-      background: $color-med-teal;
+      background: $color-med-blue;
     }
 
     &--wk {
-      background: $color-wk-green;
+      background: black;
     }
 
     &--yg {
       background: $color-yg-blue;
-    }
-    //TODO: remove
-    &-ms {
-      background: $color-med-blue;
     }
 
     &__heading {

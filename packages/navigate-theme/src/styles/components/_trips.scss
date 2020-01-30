@@ -162,17 +162,14 @@
       }
 
       &--ms {
-        // @extend .heading-3--ms;
         @extend .heading-3--extraBold-capitalized-darkGrey;
       }
 
       &--wk {
-        // @extend .heading-3--wk;
         @extend .heading-3--extraBold-capitalized-darkGrey;
       }
 
       &--yg {
-        // @extend .heading-3--yg;
         @extend .heading-3--extraBold-capitalized-darkGrey;
       }
     }
@@ -182,12 +179,6 @@
 
       max-width: 20rem;
 
-      @include respond(tablet) {
-        font-size: 1rem;
-        font-family: Nunito-Extrabold;
-        color: $color-grey-dark;
-      }
-
       @include respond(phone) {
         font-size: 1.6rem;
       }
@@ -196,7 +187,6 @@
       @extend .heading-4;
       @extend .heading-4--capitalized;
       @extend .heading-4--darkGrey;
-      //TODO: we don't need it @extend .heading-4--darkGrey;
 
       &--ms {
         @extend .heading-4--ms;
@@ -208,10 +198,6 @@
 
       &--yg {
         @extend .heading-4--yg;
-      }
-
-      @include respond(tablet) {
-        font-size: 1.2rem;
       }
 
       @include respond(phone) {
