@@ -183,7 +183,6 @@
 
     @include respond(phone) {
       height: 6rem;
-      // display: none;
     }
 
     &--ms {
@@ -191,7 +190,7 @@
     }
 
     &--wk {
-      background: $color-wk-green;
+      background: black;
     }
 
     &--yg {
