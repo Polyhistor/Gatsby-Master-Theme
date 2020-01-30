@@ -302,7 +302,7 @@ module.exports = {
               startHour: "8:30am",
               endHour: "5:00pm",
               country: "newzealand",
-              phone: "+64 (0) 9 973 5676",
+              phone: "+64 9 973 5676",
               default: false,
               selected: false,
               address:
@@ -313,7 +313,7 @@ module.exports = {
               country: "australia",
               startHour: "8:30am",
               endHour: "5:00pm",
-              phone: "+61 (0) 2 9133 8646",
+              phone: "+61 2 9133 8646",
               default: false,
               selected: false,
               address:
@@ -324,7 +324,7 @@ module.exports = {
               startHour: "9:00am",
               endHour: "5:30am",
               country: "uk",
-              phone: "+44 (0) 20 3637 4986",
+              phone: "+44 20 3637 4986",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
