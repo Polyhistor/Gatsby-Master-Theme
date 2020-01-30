@@ -289,6 +289,10 @@
     height: 6.666667rem;
     max-width: 87.25rem;
 
+    @include respond(tablet) {
+      max-width: 150rem;
+    }
+
     &--wk {
       @include respond(phone) {
         background: black;
@@ -333,8 +337,8 @@
         background: white;
 
         @include respond(tablet) {
-          margin-left: -9rem;
-          margin-top: 2.5rem;
+          margin-left: -19rem;
+          margin-top: 2.6rem;
         }
 
         @include respond(phone) {
@@ -398,7 +402,7 @@
       margin-top: 2rem;
 
       @include respond(tablet) {
-        margin-left: -5.5rem;
+        margin-left: -8vw;
       }
 
       @include respond(phone) {
@@ -463,8 +467,9 @@
       float: right;
 
       @include respond(tablet) {
-        float: left;
-        margin-left: -1rem;
+        // float: left;
+        // margin-left: -1rem;
+        margin-right: 8rem;
       }
     }
 
@@ -480,7 +485,7 @@
 
       @include respond(tablet) {
         float: left;
-        margin-left: -2rem;
+        margin-left: -7rem;
       }
 
       @include respond(phone) {

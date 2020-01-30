@@ -125,7 +125,7 @@
     }
 
     @include respond(tablet) {
-      right: 4.3%;
+      right: 10vw;
       margin-top: -1rem;
       display: flex;
       align-items: center;

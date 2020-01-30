@@ -98,13 +98,13 @@ const ActivitiesSingle = ({
         />
         <ActivityRelated country={data.contentfulActivities.country} />
       </SectionActivity>
-      <Banner
+      {/* <Banner
         header="How it works"
         subHeaderFirst="everything you need to"
         subHeaderSecond="know about our tours"
         buttonText="continue"
         link="/how-it-works"
-      />
+      /> */}
       <Reviews />
       <Trips data={homeQuery[0].node.popularTours} headerText="Popular Trips" />
     </Layout2>

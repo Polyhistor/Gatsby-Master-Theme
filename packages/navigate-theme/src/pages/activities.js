@@ -54,6 +54,7 @@ const ActivitiesMain = ({ data }) => {
   const [activitiesList, setActivitiesList] = useState(allActivitiesData)
 
   const [countryFilter, setCountryFilter] = useState("all")
+
   const getActivities = () => {
     const startIndex = currentPage * activitiesPerPage - activitiesPerPage
     const endIndex = currentPage * activitiesPerPage - 1
