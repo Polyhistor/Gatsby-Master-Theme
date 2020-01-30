@@ -4,9 +4,7 @@ import dateHandler from "./src/helpers/dateHandler"
 export {
   default as ActivitiesCountriesTemplate,
 } from "./src/templates/activitiesCountries"
-export {
-  default as ActivitiesMainTemplate,
-} from "./src/templates/activitiesMain"
+
 export {
   default as ActivitiesSingleTemplate,
 } from "./src/templates/activitiesSingle"

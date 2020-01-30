@@ -146,6 +146,10 @@ export const ActivitiesFragment = graphql`
       slug
     }
 
+    Destinations {
+      slug
+    }
+
     description {
       json
     }
