@@ -20,10 +20,6 @@
         }
       }
 
-      // @include respond(tablet) {
-      //   display: none;
-      // }
-
       @include respond(phone) {
         display: none;
       }
