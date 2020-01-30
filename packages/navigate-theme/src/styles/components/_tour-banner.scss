@@ -31,6 +31,7 @@
       @extend .heading-2;
       @extend .heading-2--extraBold;
       @extend .heading-2--darkGrey;
+      word-break: break-word;
 
       @include respond(tablet) {
         font-size: 3.1rem;
