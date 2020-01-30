@@ -177,11 +177,11 @@ const ReviewsMain = ({ pageContext, location }) => {
       {useTrustPilot && renderTrustBox()}
       <Banner
         imageData={bottomBannerImage}
-        header="Private Yacht Charters"
-        subHeaderFirst="Book your own"
-        subHeaderSecond="private sailing trip"
+        header="How it works"
+        subHeaderFirst="Everything you need to"
+        subHeaderSecond="know about our tours"
         buttonText={howItWorksBannerText}
-        link="/private-yacht-charters"
+        link="/how-it-works"
       />
       <Trips
         data={homeQuery[0].node.popularTours}
