@@ -337,8 +337,8 @@
         background: white;
 
         @include respond(tablet) {
-          margin-left: -9rem;
-          margin-top: 2.5rem;
+          margin-left: -19rem;
+          margin-top: 2.6rem;
         }
 
         @include respond(phone) {
