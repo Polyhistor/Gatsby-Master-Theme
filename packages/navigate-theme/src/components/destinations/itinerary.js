@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import scrollTo from "gatsby-plugin-smoothscroll"
 import Img from "gatsby-image"
 
 import resolveVariationClass from "../../helpers/theme-variation-style"
@@ -37,7 +38,7 @@ const Itinerary = ({
 
   return (
     <section className="section-destination__itinerary">
-      <div className="itinerary">
+      <div className="itinerary" id="itinerary">
         <h2
           className={`${resolveVariationClass(
             "heading-1"
@@ -62,7 +63,12 @@ const Itinerary = ({
           {renderItineraries()}
         </div>
         <button
-          onClick={() => setShow(!show)}
+          onClick={() => {
+            if (show === true) {
+              scrollTo("#itinerary")
+            }
+            setShow(!show)
+          }}
           className={resolveVariationClass("itinerary__button")}
         >
           {show === false ? "show full itinerary" : "show less"}
