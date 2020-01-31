@@ -6,7 +6,7 @@
   "author": "Pouya Ataei",
   "dependencies": {
     "@nt-websites/navigate-theme": "0.1.0",
-    "gatsby": "^2.15.29",
+    "gatsby": "^2.19.5",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3"
   },
   "keywords": [
@@ -20,7 +20,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test": "echo \"Write testss! -> https://gatsby.dev/unit-testing\"",
     "preload-fonts": "gatsby-preload-fonts"
   },
   "repository": {

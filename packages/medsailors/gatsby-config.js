@@ -122,6 +122,8 @@ module.exports = {
           review: {
             maxRating: "5",
             rating: "4.9",
+            totalReviewsBanner: 437,
+            totalReviewsInPage: 484,
             totalFacebookReviews: 151,
           },
           useHeaderShapes: true,
@@ -250,7 +252,7 @@ module.exports = {
               startHour: "8:30am",
               endHour: "5:00pm",
               country: "newzealand",
-              phone: "+64 (0) 9 973 5676",
+              phone: "+64 9 973 5676",
               default: false,
               selected: false,
               address:
@@ -261,7 +263,7 @@ module.exports = {
               country: "australia",
               startHour: "8:30am",
               endHour: "5:00pm",
-              phone: "+61 (0) 2 9133 8646",
+              phone: "+61 2 9133 8646",
               default: false,
               selected: false,
               address:
@@ -272,7 +274,7 @@ module.exports = {
               country: "uk",
               startHour: "9:00am",
               endHour: "5:30pm",
-              phone: "+44 (0) 20 3637 0071",
+              phone: "+44 20 3637 0071",
               default: true,
               selected: true,
               address: "22 Bardsley Lane\nGreenwich,\nLondon SE10 9RF,\nUK",
@@ -379,6 +381,7 @@ module.exports = {
             label: "manage my booking",
             link: "https://mytourinfo.com/auth/login",
             sub: null,
+            onlyMobileDisplay: true,
             external: true,
           },
         ],

@@ -6,7 +6,7 @@
   "author": "Pouya Ataei",
   "dependencies": {
     "@nt-websites/navigate-theme": "0.1.0",
-    "gatsby": "^2.15.29"
+    "gatsby": "^2.19.5"
   },
   "keywords": [
     "gatsby"
