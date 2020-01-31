@@ -186,6 +186,13 @@ module.exports = {
             ],
           },
           reviewsPage: {
+            banner: {
+              header: "How it Works",
+              subHeaderFirst: "Everything You Need To",
+              subHeaderSecond: "Know About Our Tours",
+              buttonText: "EXPLORE",
+              link: "/faq",
+            },
             introTitle: "",
             introDescription: "",
             logos: [

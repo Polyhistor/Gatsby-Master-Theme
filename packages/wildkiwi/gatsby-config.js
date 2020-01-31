@@ -126,7 +126,7 @@ module.exports = {
             rating: "4.9",
             totalFacebookReviews: 151,
             totalReviewsBanner: 378,
-            totalReviewsInPage: 378,
+            totalReviewsInPage: 164,
           },
           useHeaderShapes: false,
           tourUnit: "Tour",
@@ -167,6 +167,13 @@ module.exports = {
             ],
           },
           reviewsPage: {
+            banner: {
+              header: "How it Works",
+              subHeaderFirst: "Everything You Need To",
+              subHeaderSecond: "Know About Our Tours",
+              buttonText: "EXPLORE",
+              link: "/how-it-works",
+            },
             introTitle: "",
             introDescription: "",
             logos: [
