@@ -44,6 +44,13 @@ export const useWebSiteConfigQuery = () => {
               buttonCardText
             }
             reviewsPage {
+              banner {
+                header
+                subHeaderFirst
+                subHeaderSecond
+                buttonText
+                link
+              }
               introTitle
               introDescription
               logos {

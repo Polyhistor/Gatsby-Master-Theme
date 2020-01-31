@@ -14,6 +14,7 @@ const LogoRating = ({ data }) => {
         </span>
       </h4>
       <a
+        target="_blank"
         href={data.link}
         className={`btn ${resolveVariationClass("btn__card")}`}
       >

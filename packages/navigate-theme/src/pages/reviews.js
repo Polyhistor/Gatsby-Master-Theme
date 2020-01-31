@@ -28,6 +28,9 @@ const ReviewsMain = ({ data }) => {
   const useTrustPilot = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
     .useTrustPilotReview
 
+  const reviewsBanner = useWebSiteConfigQuery().sitePlugin.pluginOptions.config
+    .reviewsPage.banner
+
   const bottomBannerImage = useWebSiteConfigQuery()
     .contentfulWebsiteConfiguration.websiteBottomBannerImage.localFile
     .childImageSharp.fluid
@@ -162,11 +165,11 @@ const ReviewsMain = ({ data }) => {
       {useTrustPilot && renderTrustBox()}
       <Banner
         imageData={bottomBannerImage}
-        header="Private Yacht Charters"
-        subHeaderFirst="Book your own"
-        subHeaderSecond="private sailing trip"
-        buttonText={howItWorksBannerText}
-        link="/private-yacht-charters"
+        header={reviewsBanner.header}
+        subHeaderFirst={reviewsBanner.subHeaderFirst}
+        subHeaderSecond={reviewsBanner.subHeaderSecond}
+        buttonText={reviewsBanner.buttonText}
+        link={reviewsBanner.link}
       />
       <Trips
         data={homeQuery[0].node.popularTours}

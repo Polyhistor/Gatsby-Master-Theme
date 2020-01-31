@@ -197,6 +197,13 @@ module.exports = {
           },
           reviewsPage: {
             introTitle: "",
+            banner: {
+              header: "Private Yacht Charters",
+              subHeaderFirst: "Book your own",
+              subHeaderSecond: "private sailing trip",
+              buttonText: "EXPLORE",
+              link: "/private-yacht-charters",
+            },
             introDescription: "",
             logos: [
               {
