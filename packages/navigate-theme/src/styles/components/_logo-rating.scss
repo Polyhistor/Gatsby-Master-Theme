@@ -51,6 +51,7 @@
 
     @include respond(phone) {
       flex-direction: column;
+      max-width: 98%;
     }
   }
 
