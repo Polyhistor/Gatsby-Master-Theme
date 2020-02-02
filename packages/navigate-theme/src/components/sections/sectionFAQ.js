@@ -5,6 +5,8 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 // TODO - clean up
 
 const SectionFAQ = ({ FAQData }) => {
+  // TODO - TRANSITIONS ARE NOT SMOOTH, CONSIDER OPTIMIZING ANIMATIONS
+
   const FAQButton = resolveVariationClass("FAQ__button")
 
   const FAQButtonActive = resolveVariationClass("FAQ__button--active")
@@ -18,11 +20,20 @@ const SectionFAQ = ({ FAQData }) => {
     setActiveIndex(idx)
 
     const categoryData = [FAQData[idx]]
+    setChecked(undefined)
     setCategory(categoryData)
   }
 
   const [initialCategory, setCategory] = useState(FAQData)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [checked, setChecked] = useState()
+
+  const setHandler = idx => {
+    if (idx === checked) {
+      return true
+    }
+    return false
+  }
 
   // rendering buttons
   const renderButtons = () => {
@@ -59,8 +70,13 @@ const SectionFAQ = ({ FAQData }) => {
                     id={`FAQ__tab-${idx}`}
                     type="checkbox"
                     name="tabs"
+                    checked={setHandler(idx)}
                   />
-                  <label htmlFor={`FAQ__tab-${idx}`}>
+                  <label
+                    onClick={() => {
+                      checked === idx ? setChecked(false) : setChecked(idx)
+                    }}
+                  >
                     <span className={resolveVariationClass("FAQ__icon")}>
                       {idx + 1}
                     </span>
