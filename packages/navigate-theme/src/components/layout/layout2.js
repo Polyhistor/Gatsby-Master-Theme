@@ -20,9 +20,7 @@ const Layout = ({ children }) => {
     <>
       <Navigation2 />
       <NavigationMobile />
-
       <main>{children}</main>
-
       <Footer />
     </>
   )

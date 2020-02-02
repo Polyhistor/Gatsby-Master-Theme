@@ -234,7 +234,7 @@
       }
     }
     &__get-there {
-      grid-row: 10;
+      grid-row: 11;
 
       @include respond(tablet) {
         grid-row: 11;
@@ -244,9 +244,11 @@
         display: none;
       }
 
-      &--yg {
-        grid-row: 12;
+      &--ms {
+        margin-top: 15rem;
+      }
 
+      &--yg {
         @include respond(tablet) {
           grid-row: 13;
         }
