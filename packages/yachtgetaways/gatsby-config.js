@@ -389,7 +389,7 @@ module.exports = {
             },
             {
               title: "FAQ",
-              link: "/faq",
+              link: "/frequently-asked-questions",
             },
             {
               title: "How It Works",
@@ -397,7 +397,7 @@ module.exports = {
             },
             {
               title: "About Us",
-              link: "/about-us",
+              link: "/about",
             },
             {
               title: "Activities",
@@ -414,7 +414,7 @@ module.exports = {
 
             {
               title: "Working for Us",
-              link: "/about-us#work-for-us",
+              link: "/about#work-for-us",
             },
           ],
         },
@@ -423,10 +423,10 @@ module.exports = {
             label: "destinations",
             link: "/tours",
             sub: [
-              { label: "croatia", link: "/sail-croatia" },
-              { label: "greece", link: "/sail-greece" },
-              { label: "montenegro", link: "/sail-montenegro/explorer" },
-              { label: "italy", link: "/sail-italy/explorer" },
+              { label: "croatia", link: "/sailing-croatia" },
+              { label: "greece", link: "/sailing-greece" },
+              { label: "montenegro", link: "/sailing-montenegro/explorer" },
+              { label: "italy", link: "/sailing-italy/explorer" },
             ],
           },
 
@@ -445,9 +445,9 @@ module.exports = {
             link: "/private-yacht-charters",
             sub: null,
           },
-          { label: "faqs", link: "/faq", sub: null },
+          { label: "faqs", link: "/frequently-asked-questions", sub: null },
           { label: "blog", link: "/blog", sub: null },
-          { label: "contact", link: "/contact-us", sub: null },
+          { label: "contact", link: "/contact", sub: null },
           {
             label: "manage my booking",
             link: "https://mytourinfo.com/auth/login",
@@ -462,7 +462,7 @@ module.exports = {
           activitiesRoute: `/activities`,
           vehiclesRoute: `/yachts`,
           vehiclesText: `Learn More`,
-          destinationCountryRoutePrefix: `/sail-` /**tours-new-zealand */,
+          destinationCountryRoutePrefix: `/sailing-` /**tours-new-zealand */,
           activitiesCountryRoutePrefix: `/activities/` /*activities/newzealand*/,
         },
         nprogress: {
