@@ -49,7 +49,9 @@ const MobileNavItems = ({ setChecked }) => {
                 {sub.map(({ label, link }) => {
                   return (
                     <li key={label} className="navigation__dropdown-item">
-                      <Link to={link}>{label}</Link>
+                      <Link onClick={() => setChecked(false)} to={link}>
+                        {label}
+                      </Link>
                     </li>
                   )
                 })}
