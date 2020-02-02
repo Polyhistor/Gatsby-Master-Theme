@@ -272,23 +272,19 @@
     }
 
     &--yg {
-      &--ms {
-        & > a {
-          @include respond(phone) {
-            color: $color-yg-blue !important;
-            font-family: Nunito-SemiBold !important;
-          }
+      & > a {
+        @include respond(phone) {
+          color: $color-yg-blue !important;
+          font-family: Nunito-SemiBold !important;
         }
       }
     }
 
     &--ms {
-      &--yg {
-        & > a {
-          @include respond(phone) {
-            color: $color-ms-teal !important;
-            font-family: Nunito-SemiBold !important;
-          }
+      & > a {
+        @include respond(phone) {
+          color: $color-med-teal !important;
+          font-family: Nunito-SemiBold !important;
         }
       }
     }
