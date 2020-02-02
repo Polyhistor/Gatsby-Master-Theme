@@ -188,7 +188,7 @@ const FilteredTour = ({ country, destinationData }) => {
                   handleSubmit(e, n)
                 }
               >
-                <span>3 weeks</span>
+                <span>3+ weeks</span>
               </button>
             )}
           </div>
