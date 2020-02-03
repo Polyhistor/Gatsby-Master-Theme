@@ -194,7 +194,7 @@
         line-height: 7rem;
 
         @include respond(tablet) {
-          line-height: 10rem;
+          // line-height: 10rem;
           grid-row: 1 !important;
         }
 
