@@ -26,7 +26,7 @@ const MobileNavItems = ({ setChecked, checked }) => {
           >
             {external ? (
               <a
-                onClick={() => setChecked(!checked)}
+                onClick={() => setChecked(false)}
                 className="navigation__link"
                 href={link}
                 target="_blank"
@@ -35,7 +35,7 @@ const MobileNavItems = ({ setChecked, checked }) => {
               </a>
             ) : (
               <Link
-                onClick={() => setChecked(!checked)}
+                onClick={() => setChecked(false)}
                 className="navigation__link"
                 to={link}
               >
@@ -49,7 +49,7 @@ const MobileNavItems = ({ setChecked, checked }) => {
                 {sub.map(({ label, link }) => {
                   return (
                     <li key={label} className="navigation__dropdown-item">
-                      <Link onClick={() => setChecked(!checked)} to={link}>
+                      <Link onClick={() => setChecked(false)} to={link}>
                         {label}
                       </Link>
                     </li>
