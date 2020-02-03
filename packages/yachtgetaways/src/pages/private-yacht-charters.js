@@ -39,6 +39,9 @@ const FamilyYacht = ({ data }) => {
 
   const privateYachtQuery = usePrivateYachtQuery()
 
+  const whyPrivateYacht = privateYachtQuery[0].node.whyCharterPrivateYacht
+
+ 
   //TODO: compoentns should not receive .node, it should have instead direct props objects values.
 
   const ourYachts = [
@@ -153,7 +156,7 @@ const FamilyYacht = ({ data }) => {
       ></Intro>
       <BoxContainer
         title="Why charter a private yacht?"
-        dataArray={homeQuery[0].node.whyWildKiwi}
+        dataArray={whyPrivateYacht}
       />
       {renderDestinations()}
       <YachtSingle

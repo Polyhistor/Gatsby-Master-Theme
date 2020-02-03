@@ -9,6 +9,26 @@ const usePrivateYachtQuery = () => {
             privateYachtCountries {
               ...Country
             }
+
+            whyCharterPrivateYacht {
+              banner {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1000, quality: 90) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+
+              title
+              description {
+                description
+              }
+              descriptionMobile {
+                descriptionMobile
+              }
+            }
             privateYachtDestinations {
               slug
               title

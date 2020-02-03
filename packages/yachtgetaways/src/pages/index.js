@@ -115,10 +115,10 @@ const IndexPage = ({ data }) => {
       <GreenBarAlt
         textList={[
           { label: "destinations", link: "/tours" },
-          { label: "croatia", link: "/sail-croatia" },
-          { label: "greece", link: "/sail-greece" },
-          { label: "montenegro", link: "/sail-montenegro/explorer" },
-          { label: "italy", link: "/sail-italy/explorer" },
+          { label: "croatia", link: "/sailing-croatia" },
+          { label: "greece", link: "/sailing-greece" },
+          { label: "montenegro", link: "/sailing-montenegro/explorer" },
+          { label: "italy", link: "/sailing-italy/explorer" },
         ]}
       />
       <FeaturedMobile data={featuredBoxData} />
