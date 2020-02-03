@@ -250,6 +250,8 @@
 
       @include respond(tablet) {
         font-size: 1.1rem;
+        color: $color-grey-dark-3;
+        padding: 1.8rem 1.5rem;
       }
 
       @include respond(phone) {
@@ -467,6 +469,10 @@
 
       @include respond(phone) {
         margin-top: -80rem;
+      }
+
+      & > li {
+        list-style: none;
       }
     }
 

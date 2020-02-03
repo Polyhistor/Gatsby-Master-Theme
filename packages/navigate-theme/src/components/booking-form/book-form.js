@@ -615,6 +615,16 @@ const BookForm = ({
                     </div>
                   </div>
 
+                  {response &&
+                  response.booking_notes &&
+                  response.general_notes ? (
+                    <>
+                      <p className="booking-form__additional-info">
+                        {response.booking_notes} {response.general_notes}
+                      </p>
+                    </>
+                  ) : null}
+
                   <div className="booking-details__fields-container booking-details__fields-container--consent">
                     <Field
                       id="consent"
@@ -634,15 +644,6 @@ const BookForm = ({
                     </label>
                   </div>
 
-                  {response &&
-                  response.booking_notes &&
-                  response.general_notes ? (
-                    <>
-                      <p className="booking-form__additional-info mobile-yes">
-                        {response.booking_notes} {response.general_notes}
-                      </p>
-                    </>
-                  ) : null}
                   <div className="booking-details__spanner">
                     <button
                       disabled={isLoading}
