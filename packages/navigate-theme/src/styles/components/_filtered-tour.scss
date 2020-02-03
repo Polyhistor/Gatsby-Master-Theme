@@ -64,6 +64,14 @@
       @extend .heading-4;
       @extend .heading-4--green-capitalized;
     }
+
+    & > h3 {
+      line-height: 3.1rem;
+    }
+
+    & > h5:first-of-type {
+      padding-top: 0.6rem;
+    }
   }
 
   &__container {
