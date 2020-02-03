@@ -5,7 +5,7 @@ import NavButton from "../header/navButton"
 import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
-const MobileNavItems = ({ setChecked }) => {
+const MobileNavItems = ({ setChecked, checked }) => {
   console.log(setChecked)
 
   const menuLabels = useMenuLabelQuery()

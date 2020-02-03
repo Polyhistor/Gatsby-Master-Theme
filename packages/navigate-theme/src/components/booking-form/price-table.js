@@ -26,11 +26,11 @@ const PriceTable = ({ data }) => {
     }
 
     if (entries) {
-      return (
-        <p className="booking-form__additional-info u-margin-top-small ">
-          {entries.general_notes} {entries.booking_notes}
-        </p>
-      )
+      // return (
+      //   // <p className="booking-form__additional-info u-margin-top-small ">
+      //   //   {entries.general_notes} {entries.booking_notes}
+      //   // </p>
+      // )
     }
   }
 

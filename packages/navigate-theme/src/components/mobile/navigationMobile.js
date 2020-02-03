@@ -9,7 +9,7 @@ import resolveVariationClass from "../../helpers/theme-variation-style"
 const NavigationMobile = () => {
   // using some cool hooks instead of class based components
   const [scroll, setScroll] = useState(1)
-  const [checked, setChecked] = useState()
+  const [checked, setChecked] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,12 +41,13 @@ const NavigationMobile = () => {
               type="checkbox"
               id="menu-btn"
               checked={checked}
+              onChange= {()=> setChecked(!checked)}
             />
             <label className="navigation-mobile__icon" htmlFor="menu-btn">
               <span className="navigation-mobile__hamburger" />
             </label>
             <ul className="navigation-mobile__sub">
-              <MobileNavItems setChecked={setChecked} />
+              <MobileNavItems checked={false} setChecked={setChecked} />
             </ul>
           </li>
           <MobileLogo />
