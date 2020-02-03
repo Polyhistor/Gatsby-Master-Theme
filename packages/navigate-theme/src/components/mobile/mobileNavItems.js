@@ -5,7 +5,7 @@ import NavButton from "../header/navButton"
 import useMenuLabelQuery from "../../queries/themeMenuLabelConfigQuery"
 import resolveVariationClass from "../../helpers/theme-variation-style"
 
-const MobileNavItems = ({ setChecked }) => {
+const MobileNavItems = ({ setChecked, checked }) => {
   console.log(setChecked)
 
   const menuLabels = useMenuLabelQuery()
@@ -26,7 +26,7 @@ const MobileNavItems = ({ setChecked }) => {
           >
             {external ? (
               <a
-                onClick={() => setChecked(false)}
+                onClick={() => setChecked(!checked)}
                 className="navigation__link"
                 href={link}
                 target="_blank"
@@ -35,7 +35,7 @@ const MobileNavItems = ({ setChecked }) => {
               </a>
             ) : (
               <Link
-                onClick={() => setChecked(false)}
+                onClick={() => setChecked(!checked)}
                 className="navigation__link"
                 to={link}
               >
@@ -49,7 +49,7 @@ const MobileNavItems = ({ setChecked }) => {
                 {sub.map(({ label, link }) => {
                   return (
                     <li key={label} className="navigation__dropdown-item">
-                      <Link onClick={() => setChecked(false)} to={link}>
+                      <Link onClick={() => setChecked(!checked)} to={link}>
                         {label}
                       </Link>
                     </li>
