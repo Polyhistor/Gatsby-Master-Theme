@@ -20,6 +20,10 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
 
+    @include respond(laptop) {
+      grid-template-rows: 46.6rem 23.3rem;
+    }
+
     @include respond(phone) {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
@@ -58,11 +62,19 @@
       &:nth-of-type(3) {
         border-radius: 0rem 0rem 0rem 0.4rem;
         height: 30rem;
+
+        @include respond(laptop) {
+          height: 100%;
+        }
       }
 
       &:nth-of-type(4) {
         border-radius: 0rem 0rem 0.4rem 0rem;
         height: 30rem;
+
+        @include respond(laptop) {
+          height: 100%;
+        }
       }
     }
   }

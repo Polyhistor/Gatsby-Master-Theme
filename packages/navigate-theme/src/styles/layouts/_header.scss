@@ -193,6 +193,11 @@
         font-weight: 500;
         line-height: 7rem;
 
+        @include respond(tablet) {
+          line-height: 10rem;
+          grid-row: 1 !important;
+        }
+
         @include respond(phone) {
           line-height: 5rem;
           margin-top: 3.5rem;
