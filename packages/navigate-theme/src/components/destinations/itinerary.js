@@ -18,7 +18,11 @@ const Itinerary = ({
   const renderItineraries = () => {
     return itineraryDescriptions.map((itineraryDescription, index) => {
       return (
-        <div className="itinerary__single" key={index}>
+        <div
+          className="itinerary__single"
+          key={index}
+          id={index === 4 ? "itinerary" : null}
+        >
           <Img
             className="itinerary__single-image"
             fluid={itineraryImages[index].localFile.childImageSharp.fluid}
@@ -38,7 +42,7 @@ const Itinerary = ({
 
   return (
     <section className="section-destination__itinerary">
-      <div className="itinerary" id="itinerary">
+      <div className="itinerary">
         <h2
           className={`${resolveVariationClass(
             "heading-1"
