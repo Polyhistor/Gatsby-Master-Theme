@@ -11,16 +11,17 @@
 
   @include respond(laptop) {
     grid-template-columns: 1rem 16rem 16rem 1rem;
-    grid-template-rows: 21.2rem 13rem 6.5rem;
+    grid-template-rows: 21rem 13rem 6.5rem;
   }
 
   @include respond(tablet) {
     grid-template-columns: 1rem 16rem 16rem 1rem;
+    grid-template-rows: 21rem 13rem 6.5rem;
   }
 
   @include respond(phone) {
     grid-template-columns: 50% 50%;
-    grid-template-rows: 21.6rem 21.8rem 4.5rem;
+    grid-template-rows: 21rem 21.8rem 4.5rem;
     border: 0;
   }
 
