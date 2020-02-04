@@ -25,6 +25,10 @@
     grid-row: 1;
     border-top-right-radius: 0.4rem;
     border-top-left-radius: 0.4rem;
+
+    @include respond(phone) {
+      border-radius: 0.4rem;
+    }
   }
 
   &__text {
